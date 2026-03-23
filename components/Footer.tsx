@@ -2,29 +2,27 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer style={{ background: 'var(--bg-dark)', color: 'var(--text-inverse)' }}>
+    <footer style={{ background: 'var(--bg-secondary)', borderTop: '1px solid var(--border)' }}>
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-sm flex items-center justify-center" style={{ background: 'var(--accent)' }}>
-                <span className="text-white text-xs font-bold">EE</span>
+            <div className="flex items-center gap-2.5 mb-4">
+              <div className="w-7 h-7 rounded flex items-center justify-center" style={{ background: 'var(--accent)' }}>
+                <span className="text-xs font-bold" style={{ color: 'var(--bg-primary)', fontFamily: 'var(--font-display)', fontWeight: 900 }}>E</span>
               </div>
-              <span className="text-sm font-semibold tracking-tight">
-                Escritorios Elevables
+              <span className="text-sm tracking-tight" style={{ fontFamily: 'var(--font-display)', fontWeight: 500, color: 'var(--text-primary)' }}>
+                Elevable
               </span>
             </div>
-            <p className="text-sm leading-relaxed" style={{ color: '#888' }}>
-              Analisis independientes basados en datos reales.
+            <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'var(--text-muted)' }}>
+              Analisis independientes de escritorios elevables.
               Sin contenido patrocinado, sin hype.
             </p>
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--accent)' }}>
-              Contenido
-            </h3>
-            <ul className="space-y-2">
+            <h3 className="section-label mb-4">Contenido</h3>
+            <ul className="space-y-2.5">
               {[
                 { label: "Mejores escritorios 2026", href: "/mejor-escritorio-elevable" },
                 { label: "Escritorios baratos", href: "/escritorio-elevable-barato" },
@@ -33,7 +31,7 @@ export function Footer() {
                 { label: "Comparador", href: "/comparador" },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-sm transition-colors" style={{ color: '#888' }}>
+                  <Link href={item.href} className="text-sm transition-colors hover:text-[var(--accent)]" style={{ color: 'var(--text-secondary)' }}>
                     {item.label}
                   </Link>
                 </li>
@@ -42,12 +40,10 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--accent)' }}>
-              Legal
-            </h3>
-            <ul className="space-y-2">
+            <h3 className="section-label mb-4">Legal</h3>
+            <ul className="space-y-2.5">
               <li>
-                <Link href="/aviso-legal" className="text-sm" style={{ color: '#888' }}>
+                <Link href="/aviso-legal" className="text-sm transition-colors hover:text-[var(--accent)]" style={{ color: 'var(--text-secondary)' }}>
                   Aviso legal
                 </Link>
               </li>
@@ -55,8 +51,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8" style={{ borderTop: '1px solid #222' }}>
-          <p className="text-xs leading-relaxed" style={{ color: '#555' }}>
+        <div className="pt-8" style={{ borderTop: '1px solid var(--border)' }}>
+          <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
             Participamos en el Programa de Afiliados de Amazon EU. Los enlaces a Amazon generan
             una comision sin coste adicional para ti. Nuestras recomendaciones son independientes.
             Precios orientativos — consulta Amazon para el precio final.

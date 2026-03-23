@@ -201,7 +201,7 @@ export default function MejorEscritorioPage() {
             },
             {
               q: "Que garantia tienen?",
-              a: "Varía de 2 a 5 anos. Flexispot y Maidesite ofrecen 5 anos en la mayoria de modelos. Las marcas mas baratas (BANTI, Fezibo) ofrecen 2 anos. La garantia es un buen indicador de la confianza del fabricante.",
+              a: "Varía de 2 a 5 anos. Flexispot y Maidesite ofrecen 5 anos en la mayoria de modelos. Las marcas mas baratas (Fezibo, JUMMICO) ofrecen 2 anos. La garantia es un buen indicador de la confianza del fabricante.",
             },
           ].map((faq) => (
             <div key={faq.q}>

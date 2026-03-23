@@ -10,14 +10,14 @@ const NAV_ITEMS = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md" style={{ background: 'rgba(250, 248, 245, 0.9)' }}>
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-sm flex items-center justify-center" style={{ background: 'var(--accent)' }}>
-            <span className="text-white text-xs font-bold tracking-tight">EE</span>
+    <header className="sticky top-0 z-50 backdrop-blur-xl" style={{ background: 'rgba(12, 11, 9, 0.88)', borderBottom: '1px solid var(--border)' }}>
+      <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="w-7 h-7 rounded flex items-center justify-center" style={{ background: 'var(--accent)' }}>
+            <span className="text-xs font-bold" style={{ color: 'var(--bg-primary)', fontFamily: 'var(--font-display)', fontWeight: 900 }}>E</span>
           </div>
-          <span className="text-sm font-semibold tracking-tight" style={{ color: 'var(--text-primary)' }}>
-            Escritorios Elevables
+          <span className="text-sm tracking-tight" style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-display)', fontWeight: 500 }}>
+            Elevable
           </span>
         </Link>
 
@@ -26,7 +26,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="nav-link text-xs font-medium uppercase tracking-widest transition-colors duration-200"
+              className="nav-link text-[11px] font-medium uppercase tracking-[0.15em] transition-colors duration-200"
             >
               {item.label}
             </Link>
@@ -35,7 +35,6 @@ export function Header() {
 
         <MobileMenuButton items={NAV_ITEMS} />
       </div>
-      <div className="divider" />
     </header>
   );
 }

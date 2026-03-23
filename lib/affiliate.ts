@@ -1,4 +1,4 @@
-const AMAZON_TAG = process.env.NEXT_PUBLIC_AMAZON_TAG || "escritorios-21";
+const AMAZON_TAG = process.env.NEXT_PUBLIC_AMAZON_TAG || "escritoriosel-21";
 
 export function affiliateLink(asin: string): string {
   return `https://www.amazon.es/dp/${asin}?tag=${AMAZON_TAG}&linkCode=ogi&th=1&psc=1`;

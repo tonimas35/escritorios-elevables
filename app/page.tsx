@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       {/* Hero — Conversion focused */}
-      <section className="relative overflow-hidden" style={{ background: 'var(--bg-dark)' }}>
+      <section className="relative overflow-hidden" style={{ background: 'var(--bg-secondary)' }}>
         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)',
           backgroundSize: '32px 32px',
@@ -91,7 +91,7 @@ export default function Home() {
             </thead>
             <tbody>
               {allProducts.slice(0, 7).map(([asin, product], i) => (
-                <tr key={asin} className="transition-colors hover:bg-[var(--accent-light)]" style={{ borderBottom: '1px solid var(--border)' }}>
+                <tr key={asin} className="transition-colors" style={{ borderBottom: '1px solid var(--border)', background: 'transparent' }} onMouseEnter={undefined}>
                   <td className="p-3">
                     <span className="mono text-xs font-bold" style={{ color: 'var(--accent)' }}>
                       {String(i + 1).padStart(2, '0')}
@@ -111,7 +111,7 @@ export default function Home() {
                     </div>
                   </td>
                   <td className="p-3 text-center">
-                    <span className={`text-xs font-medium px-2 py-0.5 rounded ${product.specs.tipo_motor === 'doble' ? 'bg-green-50 text-green-700' : 'bg-gray-100 text-gray-600'}`}>
+                    <span className="text-xs font-medium px-2 py-0.5 rounded" style={{ background: product.specs.tipo_motor === 'doble' ? 'rgba(107, 203, 119, 0.15)' : 'var(--border)', color: product.specs.tipo_motor === 'doble' ? 'var(--pro)' : 'var(--text-muted)' }}>
                       {product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple'}
                     </span>
                   </td>
