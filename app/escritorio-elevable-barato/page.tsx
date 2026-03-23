@@ -27,8 +27,53 @@ export default function EscritorioBaratoPage() {
 
   const winner = cheapProducts[0];
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://elevable.es" },
+      { "@type": "ListItem", position: 2, name: "Escritorios Elevables Baratos", item: "https://elevable.es/escritorio-elevable-barato" },
+    ],
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Cual es el escritorio elevable mas barato que merece la pena?",
+        acceptedAnswer: { "@type": "Answer", text: `El ${winner?.[1].marca} ${winner?.[1].modelo} por ${winner?.[1].precio} EUR es nuestra recomendacion. Ofrece la mejor relacion entre precio, funcionalidades y opiniones de usuarios.` },
+      },
+      {
+        "@type": "Question",
+        name: "Motor simple o doble para un escritorio barato?",
+        acceptedAnswer: { "@type": "Answer", text: "Los escritorios baratos suelen tener motor simple. Es mas lento (2.5 cm/s vs 3.8 cm/s) y soporta menos peso, pero para un setup basico es mas que suficiente. Si necesitas doble motor por debajo de 300 EUR, mira el Maidesite T2 Pro Plus." },
+      },
+      {
+        "@type": "Question",
+        name: "Cuanto dura un escritorio elevable barato?",
+        acceptedAnswer: { "@type": "Answer", text: "Con uso normal, entre 3 y 5 anos. La garantia varia de 2 a 5 anos segun el modelo. Los de Flexispot y Maidesite ofrecen 5 anos incluso en gama de entrada." },
+      },
+      {
+        "@type": "Question",
+        name: "Necesito herramientas especiales para montarlo?",
+        acceptedAnswer: { "@type": "Answer", text: "No. Todos los modelos incluyen las herramientas necesarias. El montaje suele llevar entre 20 y 45 minutos. Los mas pesados (>22 kg) es recomendable montarlos entre dos personas." },
+      },
+    ],
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Breadcrumb */}
       <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
         <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
@@ -49,7 +94,7 @@ export default function EscritorioBaratoPage() {
       {winner && (
         <div className="mt-8 p-6 rounded" style={{ background: 'var(--accent-light)', border: '2px solid var(--accent)' }}>
           <div className="flex flex-col md:flex-row items-start gap-6">
-            <div className="w-24 h-24 rounded flex-shrink-0 overflow-hidden flex items-center justify-center" style={{ background: 'white' }}>
+            <div className="w-24 h-24 rounded flex-shrink-0 overflow-hidden flex items-center justify-center" style={{ background: 'var(--bg-secondary)' }}>
               <Image src={winner[1].imagen} alt={winner[1].imagen_alt} width={96} height={96} className="object-contain" />
             </div>
             <div className="flex-1">

@@ -62,7 +62,7 @@ export function ProductCard({
             </span>
           )}
           {badge && (
-            <span className="text-xs font-medium uppercase tracking-wider px-2 py-0.5 rounded-sm" style={{ background: 'var(--accent-light)', color: 'var(--accent)' }}>
+            <span className="tag">
               {badge}
             </span>
           )}

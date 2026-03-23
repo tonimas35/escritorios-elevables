@@ -31,8 +31,54 @@ export default function FlexispotE7ReviewPage() {
     .sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total)
     .slice(0, 3);
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://elevable.es" },
+      { "@type": "ListItem", position: 2, name: "Mejores Escritorios", item: "https://elevable.es/mejor-escritorio-elevable" },
+      { "@type": "ListItem", position: 3, name: "Flexispot E7 Opiniones", item: "https://elevable.es/flexispot-e7-opiniones" },
+    ],
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Merece la pena el Flexispot E7 en 2026?",
+        acceptedAnswer: { "@type": "Answer", text: "Si. Sigue siendo el mejor equilibrio entre calidad, estabilidad y precio. Los modelos mas nuevos no han mejorado significativamente la formula del E7." },
+      },
+      {
+        "@type": "Question",
+        name: "Flexispot E7 o E7 Pro?",
+        acceptedAnswer: { "@type": "Answer", text: "El E7 Pro cuesta 70 EUR mas, tiene tablero de bambu y soporta 150 kg (vs 125 kg). Si tu setup pesa mas de 80 kg o quieres el mejor acabado, el Pro merece la pena. Si no, ahorra con el E7." },
+      },
+      {
+        "@type": "Question",
+        name: "Se puede montar solo?",
+        acceptedAnswer: { "@type": "Answer", text: "Tecnicamente si, pero es complicado por el peso (32 kg la estructura). Recomendamos montarlo entre dos personas, sobre todo al atornillar el tablero y dar la vuelta." },
+      },
+      {
+        "@type": "Question",
+        name: "Cuanto tarda en subir y bajar?",
+        acceptedAnswer: { "@type": "Answer", text: "A 3.8 cm/s, el recorrido completo (58 a 123 cm) tarda unos 17 segundos. En uso real, cambiar entre sentado y de pie tarda unos 8-10 segundos." },
+      },
+    ],
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Breadcrumb */}
       <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
         <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>

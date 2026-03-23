@@ -5,12 +5,26 @@ export const metadata: Metadata = {
   description: "Aviso legal, politica de afiliacion y privacidad.",
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: "https://elevable.es" },
+    { "@type": "ListItem", position: 2, name: "Aviso Legal", item: "https://elevable.es/aviso-legal" },
+  ],
+};
+
 export default function AvisoLegalPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold text-gray-900">Aviso legal</h1>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <p className="section-label mb-2">Legal</p>
+      <h1 className="text-3xl" style={{ fontFamily: 'var(--font-display)' }}>Aviso legal</h1>
 
-      <section className="mt-8 prose prose-gray max-w-none">
+      <section className="mt-8 space-y-6 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
         <h2>Afiliacion con Amazon</h2>
         <p>
           Este sitio web participa en el Programa de Afiliados de Amazon EU, un

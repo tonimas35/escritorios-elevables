@@ -44,8 +44,48 @@ export default function FlexispotVsMaidesitePage() {
     { label: "Opiniones Amazon", e7: `${e7Product.rating}★ (${e7Product.num_reviews})`, t2: `${t2Product.rating}★ (${t2Product.num_reviews})`, winner: "e7" as const },
   ];
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://elevable.es" },
+      { "@type": "ListItem", position: 2, name: "Flexispot vs Maidesite", item: "https://elevable.es/flexispot-vs-maidesite" },
+    ],
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Flexispot o Maidesite: cual es mejor marca?",
+        acceptedAnswer: { "@type": "Answer", text: "Flexispot tiene mejor reputacion global, mas opciones y mas opiniones. Maidesite ofrece mejor precio por las mismas prestaciones. Ambas marcas tienen buena garantia (5 anos) y servicio post-venta en Espana." },
+      },
+      {
+        "@type": "Question",
+        name: "Los motores de Flexispot y Maidesite son iguales?",
+        acceptedAnswer: { "@type": "Answer", text: "No exactamente. Flexispot usa motores LoctekMotion (su propia subsidiaria). Maidesite usa motores de terceros de calidad similar. En la practica, las diferencias son minimas: misma velocidad (3.8 cm/s) y ruido parecido." },
+      },
+      {
+        "@type": "Question",
+        name: "Puedo usar un tablero diferente con estas marcas?",
+        acceptedAnswer: { "@type": "Answer", text: "Si. Ambas marcas venden tambien la estructura sola (sin tablero). Si tienes un tablero de IKEA o de madera maciza, puedes montarlo encima. Asegurate de que el ancho sea compatible con la estructura." },
+      },
+    ],
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Breadcrumb */}
       <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
         <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
