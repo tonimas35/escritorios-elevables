@@ -29,7 +29,7 @@ export function MobileMenuButton({ items }: MobileMenuButtonProps) {
       </button>
 
       {menuOpen && (
-        <nav className="absolute top-14 left-0 right-0 md:hidden" style={{ background: 'var(--bg-card)', borderTop: '1px solid var(--border)', boxShadow: '0 16px 48px rgba(0,0,0,0.4)' }}>
+        <nav className="absolute top-14 left-0 right-0 md:hidden" style={{ background: 'var(--bg-card)', borderTop: '1px solid var(--border)', boxShadow: '0 16px 48px rgba(0,0,0,0.08)' }}>
           {items.map((item) => (
             <Link
               key={item.href}

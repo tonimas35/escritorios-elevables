@@ -7,16 +7,18 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-7 h-7 rounded flex items-center justify-center" style={{ background: 'var(--accent)' }}>
-                <span className="text-xs font-bold" style={{ color: 'var(--bg-primary)', fontFamily: 'var(--font-display)', fontWeight: 900 }}>E</span>
-              </div>
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="4" y="20" width="24" height="3" rx="1.5" fill="#c47a3a" />
+                <path d="M16 5L21 12H11L16 5Z" fill="#c47a3a" />
+                <rect x="15" y="11" width="2" height="9" rx="1" fill="#c47a3a" />
+              </svg>
               <span className="text-sm tracking-tight" style={{ fontFamily: 'var(--font-display)', fontWeight: 500, color: 'var(--text-primary)' }}>
                 Elevable
               </span>
             </div>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'var(--text-muted)' }}>
               Analisis independientes de escritorios elevables.
-              Sin contenido patrocinado, sin hype.
+              Datos reales y opiniones contrastadas.
             </p>
           </div>
 

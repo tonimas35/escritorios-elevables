@@ -10,6 +10,7 @@
     "rating": 4.6,
     "num_reviews": 3200,
     "disponible": true,
+    "tipo": "doble",
     "specs": {
       "tipo_motor": "doble",
       "rango_altura_min_cm": 58,
@@ -61,6 +62,7 @@
     "rating": 4.4,
     "num_reviews": 1850,
     "disponible": true,
+    "tipo": "doble",
     "specs": {
       "tipo_motor": "doble",
       "rango_altura_min_cm": 62,
@@ -111,6 +113,7 @@
     "rating": 4.3,
     "num_reviews": 980,
     "disponible": true,
+    "tipo": "simple",
     "specs": {
       "tipo_motor": "simple",
       "rango_altura_min_cm": 72,
@@ -161,6 +164,7 @@
     "rating": 4.7,
     "num_reviews": 1200,
     "disponible": true,
+    "tipo": "doble",
     "specs": {
       "tipo_motor": "doble",
       "rango_altura_min_cm": 60,
@@ -212,6 +216,7 @@
     "rating": 4.2,
     "num_reviews": 650,
     "disponible": true,
+    "tipo": "simple",
     "specs": {
       "tipo_motor": "simple",
       "rango_altura_min_cm": 73,
@@ -263,6 +268,7 @@
     "rating": 4.5,
     "num_reviews": 780,
     "disponible": true,
+    "tipo": "doble",
     "specs": {
       "tipo_motor": "doble",
       "rango_altura_min_cm": 61,
@@ -314,6 +320,7 @@
     "rating": 4.3,
     "num_reviews": 2400,
     "disponible": true,
+    "tipo": "simple",
     "specs": {
       "tipo_motor": "simple",
       "rango_altura_min_cm": 72,
@@ -366,6 +373,7 @@
     "rating": 4.4,
     "num_reviews": 1800,
     "disponible": true,
+    "tipo": "simple",
     "specs": {
       "tipo_motor": "simple",
       "rango_altura_min_cm": 72,
@@ -417,6 +425,7 @@
     "rating": 4.5,
     "num_reviews": 1500,
     "disponible": true,
+    "tipo": "simple",
     "specs": {
       "tipo_motor": "simple",
       "rango_altura_min_cm": 72,
@@ -468,6 +477,7 @@
     "rating": 4.3,
     "num_reviews": 1100,
     "disponible": true,
+    "tipo": "simple",
     "specs": {
       "tipo_motor": "simple",
       "rango_altura_min_cm": 72,
@@ -519,6 +529,7 @@
     "rating": 4.3,
     "num_reviews": 750,
     "disponible": true,
+    "tipo": "simple",
     "specs": {
       "tipo_motor": "simple",
       "rango_altura_min_cm": 72,
@@ -558,5 +569,164 @@
     },
     "ideal_para": "Quien necesita un tablero grande sin pagar precio premium.",
     "slug": "vasagle-lsd302"
+  },
+  "B0CPXK8NWY": {
+    "nombre": "BANTI Escritorio Elevable Manual con Manivela 120x60",
+    "marca": "BANTI",
+    "modelo": "MC-120",
+    "precio": 100,
+    "precio_habitual": 120,
+    "imagen": "https://m.media-amazon.com/images/I/71kF3xRMa3L._AC_SL1500_.jpg",
+    "imagen_alt": "BANTI escritorio elevable manual con manivela 120x60",
+    "rating": 4.2,
+    "num_reviews": 890,
+    "disponible": true,
+    "tipo": "manual",
+    "specs": {
+      "tipo_motor": "manual",
+      "rango_altura_min_cm": 73,
+      "rango_altura_max_cm": 118,
+      "velocidad_cm_s": 0,
+      "peso_max_carga_kg": 70,
+      "ancho_tablero_cm": 120,
+      "profundidad_tablero_cm": 60,
+      "peso_estructura_kg": 18,
+      "ruido_db": null,
+      "presets_memoria": 0,
+      "sistema_anticolision": false,
+      "tablero_incluido": true,
+      "material_tablero": "melamina",
+      "garantia_anos": 2
+    },
+    "categorias": ["barato", "manual"],
+    "pros": [
+      "Precio por debajo de 110 EUR: de los mas baratos del mercado",
+      "Sin motor = sin ruido y sin electricidad",
+      "Estructura solida de acero para su precio",
+      "Montaje sencillo en 20 minutos"
+    ],
+    "contras": [
+      "Hay que girar la manivela manualmente (30-40 giros para recorrido completo)",
+      "Sin memorias de altura ni presets",
+      "Rango de altura limitado (73-118 cm)",
+      "Cambiar de posicion requiere esfuerzo fisico"
+    ],
+    "veredicto": "El escritorio elevable mas barato que funciona. Si no te importa girar la manivela, ahorras mucho.",
+    "puntuacion": {
+      "calidad_construccion": 6,
+      "estabilidad": 7,
+      "facilidad_montaje": 9,
+      "relacion_calidad_precio": 9,
+      "funcionalidades": 3,
+      "total": 7.0
+    },
+    "ideal_para": "Presupuesto minimo y quien cambia de posicion pocas veces al dia.",
+    "slug": "banti-mc120"
+  },
+  "B0BT7PM63R": {
+    "nombre": "Flexispot H2 Escritorio Elevable Manual 120x60",
+    "marca": "Flexispot",
+    "modelo": "H2",
+    "precio": 140,
+    "precio_habitual": 170,
+    "imagen": "https://m.media-amazon.com/images/I/61mGY5gN7jL._AC_SL1500_.jpg",
+    "imagen_alt": "Flexispot H2 escritorio elevable manual con manivela",
+    "rating": 4.4,
+    "num_reviews": 620,
+    "disponible": true,
+    "tipo": "manual",
+    "specs": {
+      "tipo_motor": "manual",
+      "rango_altura_min_cm": 72,
+      "rango_altura_max_cm": 123,
+      "velocidad_cm_s": 0,
+      "peso_max_carga_kg": 80,
+      "ancho_tablero_cm": 120,
+      "profundidad_tablero_cm": 60,
+      "peso_estructura_kg": 20,
+      "ruido_db": null,
+      "presets_memoria": 0,
+      "sistema_anticolision": false,
+      "tablero_incluido": true,
+      "material_tablero": "melamina",
+      "garantia_anos": 5
+    },
+    "categorias": ["calidad-precio", "manual"],
+    "pros": [
+      "Calidad Flexispot por menos de 150 EUR",
+      "5 anos de garantia: la mejor en manuales",
+      "80 kg de carga: mas que muchos electricos baratos",
+      "Rango de altura amplio (72-123 cm)"
+    ],
+    "contras": [
+      "Manivela requiere esfuerzo manual",
+      "Sin presets ni memorias de altura",
+      "Mas caro que otros manuales sin justificarlo mucho",
+      "Tablero basico de melamina"
+    ],
+    "veredicto": "El manual de marca. Calidad Flexispot y 5 anos de garantia sin gastar en motor.",
+    "puntuacion": {
+      "calidad_construccion": 7,
+      "estabilidad": 7,
+      "facilidad_montaje": 8,
+      "relacion_calidad_precio": 8,
+      "funcionalidades": 3,
+      "total": 7.3
+    },
+    "ideal_para": "Quien quiere calidad Flexispot pero no necesita motor electrico.",
+    "slug": "flexispot-h2"
+  },
+  "B0CG5LNKFY": {
+    "nombre": "VASAGLE Escritorio Elevable Manual con Manivela 100x60",
+    "marca": "VASAGLE",
+    "modelo": "LSD011B01",
+    "precio": 85,
+    "precio_habitual": 100,
+    "imagen": "https://m.media-amazon.com/images/I/71v8MnQfK2L._AC_SL1500_.jpg",
+    "imagen_alt": "VASAGLE escritorio elevable manual manivela 100x60 barato",
+    "rating": 4.1,
+    "num_reviews": 540,
+    "disponible": true,
+    "tipo": "manual",
+    "specs": {
+      "tipo_motor": "manual",
+      "rango_altura_min_cm": 75,
+      "rango_altura_max_cm": 117,
+      "velocidad_cm_s": 0,
+      "peso_max_carga_kg": 50,
+      "ancho_tablero_cm": 100,
+      "profundidad_tablero_cm": 60,
+      "peso_estructura_kg": 15,
+      "ruido_db": null,
+      "presets_memoria": 0,
+      "sistema_anticolision": false,
+      "tablero_incluido": true,
+      "material_tablero": "melamina",
+      "garantia_anos": 2
+    },
+    "categorias": ["barato", "manual", "compacto"],
+    "pros": [
+      "El escritorio elevable mas barato del mercado por 85 EUR",
+      "Ligero (15 kg): facil de mover y montar",
+      "Compacto: ideal para espacios pequenos",
+      "Sin electricidad ni cables"
+    ],
+    "contras": [
+      "Solo 50 kg de carga: setup muy ligero",
+      "Rango de altura corto (75-117 cm): no para personas altas",
+      "Tablero pequeno de 100x60 cm",
+      "Estabilidad justa a maxima altura"
+    ],
+    "veredicto": "El mas barato de todos. Para quien quiere probar un elevable sin arriesgar dinero.",
+    "puntuacion": {
+      "calidad_construccion": 5,
+      "estabilidad": 5,
+      "facilidad_montaje": 9,
+      "relacion_calidad_precio": 9,
+      "funcionalidades": 2,
+      "total": 6.5
+    },
+    "ideal_para": "Estudiantes o primer escritorio elevable con presupuesto ultraajustado.",
+    "slug": "vasagle-manual"
   }
 }

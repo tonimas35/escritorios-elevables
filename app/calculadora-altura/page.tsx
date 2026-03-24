@@ -35,19 +35,19 @@ export default function CalculadoraPage() {
       </div>
 
       {/* Slider */}
-      <div className="p-6 rounded" style={{ background: 'var(--bg-dark)', color: 'var(--text-inverse)' }}>
+      <div className="p-6 rounded" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
         <div className="flex items-baseline justify-between mb-4">
-          <label htmlFor="estatura-slider" className="text-sm font-medium" style={{ color: '#888' }}>
+          <label htmlFor="estatura-slider" className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>
             Tu estatura
           </label>
           <span className="mono text-3xl font-bold" style={{ color: 'var(--accent)' }}>
-            {estatura} <span className="text-sm font-normal" style={{ color: '#666' }}>cm</span>
+            {estatura} <span className="text-sm font-normal" style={{ color: 'var(--text-muted)' }}>cm</span>
           </span>
         </div>
         <input id="estatura-slider" type="range" min={150} max={200} step={1}
           value={estatura} onChange={(e) => setEstatura(Number(e.target.value))}
           className="w-full" />
-        <div className="flex justify-between text-xs mt-2" style={{ color: '#555' }}>
+        <div className="flex justify-between text-xs mt-2" style={{ color: 'var(--text-muted)' }}>
           <span>150 cm</span>
           <span>200 cm</span>
         </div>

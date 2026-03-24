@@ -8,7 +8,7 @@ export default function ComparadorPage() {
   const [precioMax, setPrecioMax] = useState(800);
   const [alturaMax, setAlturaMax] = useState(100);
   const [pesoMax, setPesoMax] = useState(50);
-  const [motor, setMotor] = useState<"cualquiera" | "simple" | "doble">("cualquiera");
+  const [motor, setMotor] = useState<"cualquiera" | "simple" | "doble" | "manual">("cualquiera");
   const [ordenar, setOrdenar] = useState<"recomendado" | "precio" | "rating">("recomendado");
 
   const filtered = useMemo(
@@ -69,7 +69,7 @@ export default function ComparadorPage() {
             <div>
               <p className="text-sm font-medium mb-2">Motor</p>
               <div className="flex gap-2">
-                {(["cualquiera", "simple", "doble"] as const).map((opt) => (
+                {(["cualquiera", "simple", "doble", "manual"] as const).map((opt) => (
                   <button key={opt} onClick={() => setMotor(opt)}
                     className="px-3 py-1.5 text-xs font-medium rounded-sm capitalize transition-all"
                     style={{

@@ -7,20 +7,18 @@ import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 
 export const metadata: Metadata = {
-  title: "Flexispot E7 opiniones y review 2026 — Merece la pena?",
+  title: "Fezibo escritorio elevable opiniones y review 2026 — Merece la pena?",
   description:
-    "Review completa del Flexispot E7: el escritorio elevable mas vendido. Analizamos motor, estabilidad, montaje y si merece la pena en 2026. Con opiniones reales.",
+    "Review honesta del Fezibo 100x60: el escritorio elevable electrico mas barato. Analizamos si merece la pena por 120 EUR, para quien es y para quien no.",
 };
 
-
-export default function FlexispotE7ReviewPage() {
-  const result = getProductBySlug("flexispot-e7");
+export default function FeziboReviewPage() {
+  const result = getProductBySlug("fezibo-100x60");
   if (!result) return <p>Producto no encontrado</p>;
   const [asin, product] = result;
 
-  // Get alternatives for comparison
   const alternatives = getAllProducts()
-    .filter(([, p]) => p.slug !== "flexispot-e7" && p.disponible)
+    .filter(([, p]) => p.slug !== "fezibo-100x60" && p.disponible && p.precio <= 250)
     .sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total)
     .slice(0, 3);
 
@@ -30,34 +28,53 @@ export default function FlexispotE7ReviewPage() {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Inicio", item: "https://elevable.es" },
       { "@type": "ListItem", position: 2, name: "Mejores Escritorios", item: "https://elevable.es/mejor-escritorio-elevable" },
-      { "@type": "ListItem", position: 3, name: "Flexispot E7 Opiniones", item: "https://elevable.es/flexispot-e7-opiniones" },
+      { "@type": "ListItem", position: 3, name: "Fezibo Opiniones", item: "https://elevable.es/fezibo-opiniones" },
     ],
+  };
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.nombre,
+    image: product.imagen,
+    description: product.veredicto,
+    brand: { "@type": "Brand", name: product.marca },
+    review: {
+      "@type": "Review",
+      reviewRating: { "@type": "Rating", ratingValue: product.puntuacion.total, bestRating: 10 },
+      author: { "@type": "Organization", name: "Elevable.es" },
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: product.rating,
+      reviewCount: product.num_reviews,
+      bestRating: 5,
+    },
+    offers: {
+      "@type": "Offer",
+      price: product.precio,
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      url: `https://www.amazon.es/dp/${asin}?tag=escritoriosel-21`,
+    },
   };
 
   const faqItems = [
     {
-      q: "Merece la pena el Flexispot E7 en 2026?",
-      a: "Si. No ha aparecido nada que lo supere en su combinacion de estabilidad, motor y garantia. Compradores con 3-4 anos de uso reportan cero problemas. Ahora hay alternativas mas baratas (Maidesite T2 Pro Plus), pero si llegas a 480 EUR, sigue siendo la referencia.",
+      q: "El Fezibo vale la pena por 120 euros?",
+      a: "Si tu expectativa es un escritorio elevable basico que sube y baja sin problemas, si. No esperes la estabilidad de un Flexispot E7 ni la velocidad de un doble motor. Pero para un estudiante o alguien que quiere probar un elevable por primera vez, es la forma mas barata de hacerlo con motor electrico.",
     },
     {
-      q: "Flexispot E7 o E7 Pro: cual compro?",
-      a: "El Pro anade tablero de bambu, 150 kg de carga y motor un poco mas rapido por unos 70 EUR extra. Si tu setup es pesado (dos monitores con brazos) o quieres el mejor acabado, lo justifica. Para monitor + portatil, el E7 normal va sobrado.",
+      q: "El Fezibo sirve para trabajar 8 horas al dia?",
+      a: "Puede, pero no lo recomiendo como escritorio principal para jornada completa. Con 50 kg de carga y un tablero de 100x60 cm, el espacio y la capacidad son justos. Si teletrabajas a jornada completa, invierte un poco mas en algo con tablero de 120 cm y mas carga, como el Ergear EED-S1 por 140 euros.",
     },
     {
-      q: "Se puede montar el Flexispot E7 solo?",
-      a: "Se puede, pero no lo recomiendo. 32 kg de estructura y un momento critico al dar la vuelta al tablero. Con otra persona, 45 minutos. Solo, hora y media y alguna palabra mal sonante.",
+      q: "Que puedo poner encima del Fezibo?",
+      a: "Un monitor de hasta 27 pulgadas, un portatil, teclado y raton. Eso son unos 15-20 kg. Hasta ahi va perfecto. Si quieres dos monitores con brazo, un altavoz y una lampara, te pasas de espacio y probablemente de peso. Para setup dual monitor, necesitas al menos 120 cm de tablero.",
     },
     {
-      q: "Cuanto tarda en subir y bajar el E7?",
-      a: "Recorrido completo: 17 segundos. En la practica, de sentado a de pie son 10-11 segundos. Con las 4 memorias, pulsas un boton y te olvidas.",
-    },
-    {
-      q: "El E7 hace ruido en videollamadas?",
-      a: "45 dB. En videollamada con Zoom o Teams, la otra persona no lo nota. Si grabas audio en silencio, el micro lo capta. Para uso normal, no molesta.",
-    },
-    {
-      q: "Que problemas tiene el Flexispot E7 segun los compradores?",
-      a: "Lo que se repite: tablero con alguna marca al llegar (logistica, Flexispot sustituye gratis), instrucciones confusas en el paso de cableado, y algun controlador que se reinicia solo (se arregla recalibrando). No he encontrado quejas serias sobre motor o estructura fallando.",
+      q: "El Fezibo es ruidoso?",
+      a: "A 50 dB es audible pero no molesto. Es como el ruido de fondo de una oficina tranquila. En una videollamada, la otra persona no lo nota. Solo tarda unos 18 segundos en hacer el recorrido completo, asi que el ruido es breve.",
     },
   ];
 
@@ -79,6 +96,10 @@ export default function FlexispotE7ReviewPage() {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
@@ -87,7 +108,7 @@ export default function FlexispotE7ReviewPage() {
         <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
         {" "}&gt;{" "}
         <Link href="/mejor-escritorio-elevable" className="hover:underline" style={{ color: 'var(--accent)' }}>Mejores escritorios</Link>
-        {" "}&gt;{" "}Flexispot E7 opiniones
+        {" "}&gt;{" "}Fezibo opiniones
       </nav>
 
       <div className="flex flex-col md:flex-row gap-8">
@@ -135,9 +156,12 @@ export default function FlexispotE7ReviewPage() {
       </div>
 
       {/* Editorial intro */}
-      <div className="mt-10 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+      <div className="mt-10 max-w-3xl space-y-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
         <p>
-          El E7 lleva anos siendo el escritorio elevable mas recomendado en foros y YouTube. A 480 EUR, ofrece doble motor, 125 kg de carga y una estabilidad que los baratos no consiguen. Pero hay alternativas con doble motor por menos de 300 EUR (el Maidesite T2 Pro Plus). He leido cientos de opiniones reales para saber si merece la pena pagar casi el doble.
+          El Fezibo es el escritorio elevable electrico mas barato que puedes comprar ahora mismo en Amazon Espana. 120 euros. Con motor. Sube y baja pulsando un boton. Hace cinco anos esto habria parecido ciencia ficcion. Hoy es una realidad, pero con matices importantes que necesitas conocer antes de comprar.
+        </p>
+        <p>
+          He analizado las 2400+ opiniones en Amazon, he comparado sus specs con los otros modelos baratos del mercado, y tengo claro para quien tiene sentido y para quien no. Si tu presupuesto es ajustado, esto te interesa.
         </p>
       </div>
 
@@ -150,16 +174,16 @@ export default function FlexispotE7ReviewPage() {
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Motor", value: "Doble motor", detail: "LoctekMotion" },
-            { label: "Rango de altura", value: `${product.specs.rango_altura_min_cm}–${product.specs.rango_altura_max_cm} cm`, detail: "65 cm de recorrido" },
-            { label: "Velocidad", value: `${product.specs.velocidad_cm_s} cm/s`, detail: "De los mas rapidos" },
-            { label: "Carga maxima", value: `${product.specs.peso_max_carga_kg} kg`, detail: "Setup completo" },
+            { label: "Motor", value: "Simple", detail: "Basico pero funcional" },
+            { label: "Rango de altura", value: `${product.specs.rango_altura_min_cm}–${product.specs.rango_altura_max_cm} cm`, detail: "44 cm de recorrido" },
+            { label: "Velocidad", value: `${product.specs.velocidad_cm_s} cm/s`, detail: "Estandar" },
+            { label: "Carga maxima", value: `${product.specs.peso_max_carga_kg} kg`, detail: "Setup ligero" },
             { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm`, detail: product.specs.material_tablero || '' },
-            { label: "Peso estructura", value: `${product.specs.peso_estructura_kg} kg`, detail: "Acero robusto" },
-            { label: "Ruido", value: `${product.specs.ruido_db} dB`, detail: "Silencioso" },
-            { label: "Garantia", value: `${product.specs.garantia_anos} anos`, detail: "Flexispot oficial" },
+            { label: "Peso estructura", value: `${product.specs.peso_estructura_kg} kg`, detail: "Ligero" },
+            { label: "Ruido", value: `${product.specs.ruido_db} dB`, detail: "Audible" },
+            { label: "Garantia", value: `${product.specs.garantia_anos} anos`, detail: "Estandar" },
             { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rapido" },
-            { label: "Anticolision", value: product.specs.sistema_anticolision ? "Si" : "No", detail: "Proteccion activa" },
+            { label: "Anticolision", value: product.specs.sistema_anticolision ? "Si" : "No", detail: "No incluido" },
           ].map((spec) => (
             <div key={spec.label} className="p-4 rounded" style={{ background: 'var(--bg-secondary)' }}>
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{spec.label}</p>
@@ -182,51 +206,47 @@ export default function FlexispotE7ReviewPage() {
 
       <div className="divider my-10" />
 
-      {/* Detailed review sections */}
+      {/* Detailed review */}
       <section className="max-w-3xl space-y-8">
         <h2 className="text-2xl" style={{ fontFamily: 'var(--font-display)' }}>
           Analisis detallado
         </h2>
 
         <div>
-          <h3 className="text-lg font-semibold">Motor y rendimiento</h3>
+          <h3 className="text-lg font-semibold">120 euros con motor: que sacrificas?</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Doble motor LoctekMotion (fabricado por Flexispot, no comprado a terceros). A 3.8 cm/s, pasar de sentado a de pie tarda 10-11 segundos. Los 45 dB de ruido son un zumbido grave, no un chirrido. En videollamada, la otra persona no lo percibe. En una grabacion en silencio, el micro si lo captaria.
+            El motor simple es lento (2.5 cm/s) y ruidoso comparado con los doble motor. El recorrido completo tarda unos 18 segundos, que se sienten largos cuando vienes de un escritorio electrico rapido. Pero si es tu primer elevable, no lo vas a notar. Las 3 memorias de altura te permiten guardar tus posiciones favoritas y olvidarte.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+            No tiene anticolision. Si la mesa choca con algo al bajar, el motor sigue empujando. Es el sacrificio mas relevante del precio bajo. Si tienes una cajonera debajo, ojo. La solucion casera: pon un tope adhesivo a la altura del obstaculo.
           </p>
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold">Estabilidad (aqui es donde gana)</h3>
+          <h3 className="text-lg font-semibold">Estabilidad: lo justo</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            La razon principal para comprar el E7. Tres secciones telescopicas (los baratos tienen dos) y base ancha y pesada. A maxima altura (123 cm), el movimiento lateral al escribir es minimo. Con un barato de 150 EUR, la pantalla vibra y te cansa la vista al cabo de una hora. Con el E7, ese efecto desaparece. Es probablemente por lo que la gente que compra el E7 acaba usando mas la posicion de pie.
+            Con 16 kg de estructura y patas de dos secciones, la estabilidad es la minima aceptable. A posicion de pie (110+ cm), el tablero se mueve al escribir. No es dramatico con un portatil, pero con un monitor de 27 pulgadas en brazo, se nota. Para personas por encima de 1.80 m, la altura maxima de 116 cm puede quedarse justa.
           </p>
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold">Montaje: no es dificil, pero si pesado</h3>
+          <h3 className="text-lg font-semibold">Para quien SI es el Fezibo</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Instrucciones claras, herramientas incluidas, proceso sencillo. El problema es el peso: 32 kg de estructura. Con dos personas, 45 minutos tranquilos. Solo, hora y media y frustracion. Truco: pon el tablero boca abajo, atornilla la estructura encima, y entre dos levantais el conjunto montado.
+            Estudiantes que quieren alternar sentado y de pie mientras estudian. Personas que trabajan desde casa unas horas al dia (no jornada completa). Quien quiere probar un escritorio elevable sin gastarse mas de 130 euros. Y para espacios pequenos: 100x60 cm cabe en cualquier rincon.
           </p>
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold">¿Para quien SI es el E7?</h3>
+          <h3 className="text-lg font-semibold">Para quien NO es</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Teletrabajo a jornada completa, setup con monitor grande (o dos), personas altas (rango hasta 123 cm). En resumen: compras, montas, y te olvidas del tema escritorios durante anos.
+            Teletrabajadores a jornada completa que necesitan espacio para dual monitor. Personas altas (mas de 1.80 m) que necesitan el escritorio por encima de 116 cm. Quien tenga monitores pesados o un setup de mas de 30-40 kg. Y si ya tienes un elevable y quieres mejorar, el salto del Fezibo a un Ergear o Flexispot EG1 se nota bastante por solo 20-90 euros mas.
           </p>
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold">¿Para quien NO es el E7?</h3>
+          <h3 className="text-lg font-semibold">Que dicen los 2400 compradores</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Si tu setup es solo un portatil, estas pagando de mas — el Maidesite T2 Pro Plus (270 EUR) cumple de sobra. Si quieres probar lo de trabajar de pie, empieza barato y haz upgrade despues.
-          </p>
-        </div>
-
-        <div>
-          <h3 className="text-lg font-semibold">Que dicen los compradores en Amazon</h3>
-          <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            He leido unas 200 opiniones. Lo positivo que mas se repite: estabilidad, silencio y durabilidad a largo plazo. Lo negativo: algun tablero marcado al llegar (Flexispot sustituye gratis), instrucciones de cableado algo confusas, y el peso que sorprende a quien espera un mueble tipo IKEA. Si sabes que es un escritorio motorizado de 32 kg, no es complicado.
+            La nota media de 4.3 con tantas opiniones es un dato fiable. Lo que mas se repite: facil de montar, funciona bien para lo que cuesta, y la bandeja para teclado incluida es un bonus inesperado. En lo negativo: tablero pequeno para quien esperaba algo mas grande, estabilidad justa a maxima altura, y algun caso de motor que zumba mas de la cuenta tras unos meses de uso.
           </p>
         </div>
       </section>
@@ -246,7 +266,7 @@ export default function FlexispotE7ReviewPage() {
         <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Veredicto</p>
         <p className="text-xl mt-2" style={{ fontFamily: 'var(--font-display)' }}>{product.veredicto}</p>
         <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-          No es barato, pero la estabilidad, el motor y la garantia no tienen rival a este precio. Si buscas algo para anos, es la apuesta segura.
+          No es el mejor escritorio elevable. Pero a 120 euros, es la forma mas barata de descubrir si trabajar de pie va contigo.
         </p>
         <div className="mt-4 inline-block">
           <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
@@ -258,10 +278,10 @@ export default function FlexispotE7ReviewPage() {
       {/* Alternatives */}
       <section>
         <h2 className="text-2xl mb-4" style={{ fontFamily: 'var(--font-display)' }}>
-          Alternativas al Flexispot E7
+          Alternativas al Fezibo
         </h2>
         <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
-          Si el E7 no te encaja, estas son las tres alternativas que yo miraria.
+          Si puedes estirar un poco el presupuesto, estas opciones ofrecen mejoras significativas por poco dinero mas.
         </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
@@ -276,8 +296,8 @@ export default function FlexispotE7ReviewPage() {
             </thead>
             <tbody>
               <tr style={{ background: 'var(--accent-light)', borderBottom: '1px solid var(--border)' }}>
-                <td className="p-3 font-semibold">Flexispot E7 (este)</td>
-                <td className="p-3 text-center">Doble</td>
+                <td className="p-3 font-semibold">Fezibo 100x60 (este)</td>
+                <td className="p-3 text-center">Simple</td>
                 <td className="p-3 text-center mono font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
                 <td className="p-3 text-center mono font-bold">{product.precio}€</td>
                 <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
@@ -285,7 +305,7 @@ export default function FlexispotE7ReviewPage() {
               {alternatives.map(([altAsin, alt]) => (
                 <tr key={altAsin} className="hover:bg-[var(--accent-light)]" style={{ borderBottom: '1px solid var(--border)' }}>
                   <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
-                  <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple'}</td>
+                  <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : alt.specs.tipo_motor === 'manual' ? 'Manual' : 'Simple'}</td>
                   <td className="p-3 text-center mono font-bold">{alt.puntuacion.total}</td>
                   <td className="p-3 text-center mono font-bold">{alt.precio}€</td>
                   <td className="p-3 text-center"><AffiliateButton asin={altAsin} size="sm" /></td>
@@ -303,13 +323,13 @@ export default function FlexispotE7ReviewPage() {
         </h3>
         <div className="space-y-2 text-sm">
           <p>
-            <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Flexispot vs Maidesite: comparativa completa</Link> — ¿Vale la pena el E7 o el Maidesite T2 Pro es suficiente?
+            <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Escritorios elevables baratos</Link> — Todas las opciones por menos de 200 euros, comparadas.
           </p>
           <p>
-            <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Todos los modelos comparados, desde 120 hasta 550 euros.
+            <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los mejores escritorios elevables de 2026</Link> — Si puedes estirar el presupuesto, aqui estan todos.
           </p>
           <p>
-            <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Escritorios elevables baratos</Link> — Si 480 euros se te va de presupuesto, aqui hay opciones desde 120 EUR.
+            <Link href="/comparador" className="underline" style={{ color: 'var(--accent)' }}>Comparador interactivo</Link> — Filtra por precio, altura y motor para encontrar tu escritorio.
           </p>
         </div>
       </section>
@@ -317,7 +337,7 @@ export default function FlexispotE7ReviewPage() {
       {/* FAQ */}
       <section className="mt-12 max-w-3xl">
         <h2 className="text-2xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-          Preguntas frecuentes sobre el Flexispot E7
+          Preguntas frecuentes sobre el Fezibo
         </h2>
         <div className="space-y-6">
           {faqItems.map((faq) => (

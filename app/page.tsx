@@ -8,6 +8,9 @@ export default function Home() {
     .filter(([, p]) => p.disponible)
     .sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total);
 
+  const totalReviews = allProducts.reduce((sum, [, p]) => sum + p.num_reviews, 0);
+  const totalReviewsRounded = Math.floor(totalReviews / 1000) * 1000;
+
   const budgetPicks = allProducts.filter(([, p]) => p.precio < 200).sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total).slice(0, 3);
   const midPicks = allProducts.filter(([, p]) => p.precio >= 200 && p.precio < 400).sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total).slice(0, 2);
   const premiumPicks = allProducts.filter(([, p]) => p.precio >= 400).sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total).slice(0, 2);
@@ -16,8 +19,8 @@ export default function Home() {
     <>
       {/* Hero — Conversion focused */}
       <section className="relative overflow-hidden" style={{ background: 'var(--bg-secondary)' }}>
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)',
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.25) 1px, transparent 0)',
           backgroundSize: '32px 32px',
         }} />
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28 relative">
@@ -25,40 +28,40 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] mb-4" style={{ color: 'var(--accent)' }}>
               Analisis independiente · Marzo 2026
             </p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl leading-none" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-inverse)' }}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl leading-none" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-dark)' }}>
               Los mejores escritorios
               <br />
               <span style={{ color: 'var(--accent)' }}>elevables</span> de 2026
             </h1>
           </div>
-          <p className="mt-6 text-base md:text-lg max-w-xl leading-relaxed animate-fade-up stagger-2" style={{ color: '#999' }}>
-            12 modelos analizados. Desde 110 EUR hasta gama premium.
-            Sin contenido patrocinado — solo datos reales y opiniones verificadas.
+          <p className="mt-6 text-base md:text-lg max-w-xl leading-relaxed animate-fade-up stagger-2" style={{ color: 'var(--text-secondary)' }}>
+            {allProducts.length} modelos analizados. Desde 110 EUR hasta gama premium.
+            Datos reales y opiniones contrastadas de cada modelo.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 animate-fade-up stagger-3">
             <Link href="/mejor-escritorio-elevable" className="btn-primary">
-              Ver los 12 mejores
+              Ver los {allProducts.length} mejores
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-            <Link href="/escritorio-elevable-barato" className="btn-outline" style={{ color: 'var(--text-inverse)', borderColor: '#333' }}>
+            <Link href="/escritorio-elevable-barato" className="btn-outline">
               Opciones baratas (desde 110€)
             </Link>
           </div>
 
           {/* Stats bar */}
-          <div className="mt-14 grid grid-cols-3 gap-8 pt-8 animate-fade-up stagger-4" style={{ borderTop: '1px solid #222' }}>
+          <div className="mt-14 grid grid-cols-3 gap-8 pt-8 animate-fade-up stagger-4" style={{ borderTop: '1px solid var(--border)' }}>
             {[
-              { value: "12", label: "Escritorios analizados" },
-              { value: "4500+", label: "Opiniones verificadas" },
-              { value: "0€", label: "Contenido patrocinado" },
+              { value: String(allProducts.length), label: "Escritorios analizados" },
+              { value: `${totalReviewsRounded}+`, label: "Opiniones verificadas" },
+              { value: "Mar 2026", label: "Ultima actualizacion" },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="mono text-2xl md:text-3xl font-bold" style={{ color: 'var(--accent)' }}>
                   {stat.value}
                 </p>
-                <p className="text-xs mt-1" style={{ color: '#666' }}>{stat.label}</p>
+                <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>{stat.label}</p>
               </div>
             ))}
           </div>
@@ -111,7 +114,7 @@ export default function Home() {
                     </div>
                   </td>
                   <td className="p-3 text-center">
-                    <span className="text-xs font-medium px-2 py-0.5 rounded" style={{ background: product.specs.tipo_motor === 'doble' ? 'rgba(107, 203, 119, 0.15)' : 'var(--border)', color: product.specs.tipo_motor === 'doble' ? 'var(--pro)' : 'var(--text-muted)' }}>
+                    <span className="text-xs font-medium px-2 py-0.5 rounded" style={{ background: product.specs.tipo_motor === 'doble' ? 'rgba(46, 139, 62, 0.12)' : 'var(--border)', color: product.specs.tipo_motor === 'doble' ? 'var(--pro)' : 'var(--text-muted)' }}>
                       {product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple'}
                     </span>
                   </td>
@@ -137,7 +140,7 @@ export default function Home() {
         </div>
         <div className="mt-4 text-center">
           <Link href="/mejor-escritorio-elevable" className="text-xs font-semibold uppercase tracking-wider transition-colors" style={{ color: 'var(--accent)' }}>
-            Ver analisis completo de los 12 modelos →
+            Ver analisis completo de los {allProducts.length} modelos →
           </Link>
         </div>
       </section>

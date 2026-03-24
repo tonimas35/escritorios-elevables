@@ -1,5 +1,5 @@
 export interface ProductSpecs {
-  tipo_motor: "simple" | "doble";
+  tipo_motor: "simple" | "doble" | "manual";
   rango_altura_min_cm: number;
   rango_altura_max_cm: number;
   velocidad_cm_s: number;
@@ -35,6 +35,7 @@ export interface Product {
   rating: number;
   num_reviews: number;
   disponible: boolean;
+  tipo: "doble" | "simple" | "manual";
   specs: ProductSpecs;
   categorias: string[];
   pros: string[];

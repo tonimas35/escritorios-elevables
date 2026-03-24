@@ -30,7 +30,7 @@ export function filterProducts(filters: {
   precioMax?: number;
   alturaMaxMin?: number;
   pesoMaxMin?: number;
-  motor?: "simple" | "doble" | "cualquiera";
+  motor?: "simple" | "doble" | "manual" | "cualquiera";
   sortBy?: "precio" | "rating" | "recomendado";
 }): [string, Product][] {
   const filtered = getAvailableProducts().filter(([, p]) => {
