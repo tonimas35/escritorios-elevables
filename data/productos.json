@@ -1,352 +1,26 @@
 {
-  "B084KW7N8C": {
-    "nombre": "Flexispot E7 Escritorio Elevable Electrico",
-    "marca": "Flexispot",
-    "modelo": "E7",
-    "precio": 107,
-    "precio_habitual": 123,
-    "imagen": "https://m.media-amazon.com/images/I/71--Rk-6uiL._AC_SL1500_.jpg",
-    "imagen_alt": "Flexispot E7 escritorio elevable electrico doble motor",
-    "rating": 4.6,
-    "num_reviews": 3200,
-    "disponible": true,
-    "tipo": "doble",
-    "specs": {
-      "tipo_motor": "doble",
-      "rango_altura_min_cm": 58,
-      "rango_altura_max_cm": 123,
-      "velocidad_cm_s": 3.8,
-      "peso_max_carga_kg": 125,
-      "ancho_tablero_cm": 140,
-      "profundidad_tablero_cm": 70,
-      "peso_estructura_kg": 32.1,
-      "ruido_db": 45,
-      "presets_memoria": 4,
-      "sistema_anticolision": true,
-      "tablero_incluido": true,
-      "material_tablero": "melamina",
-      "garantia_anos": 5
-    },
-    "categorias": [
-      "premium",
-      "oficina",
-      "recomendado"
-    ],
-    "pros": [
-      "Motor doble muy estable a cualquier altura",
-      "Rango de 58-123 cm cubre casi cualquier estatura",
-      "125 kg de carga: soporta setup completo",
-      "4 presets de memoria",
-      "5 anos de garantia"
-    ],
-    "contras": [
-      "Precio por encima de 450 EUR",
-      "Montaje requiere dos personas"
-    ],
-    "veredicto": "El mejor escritorio elevable para quien busca calidad y estabilidad sin compromisos.",
-    "puntuacion": {
-      "calidad_construccion": 9,
-      "estabilidad": 9,
-      "facilidad_montaje": 7,
-      "relacion_calidad_precio": 8,
-      "funcionalidades": 8,
-      "total": 9.2
-    },
-    "ideal_para": "Profesionales en teletrabajo que quieren un escritorio para anos.",
-    "slug": "flexispot-e7"
-  },
-  "B077JPC7PK": {
-    "nombre": "Flexispot EC5 Pro Escritorio Elevable Electrico",
-    "marca": "Flexispot",
-    "modelo": "EC5 Pro",
-    "precio": 200,
-    "precio_habitual": 230,
-    "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
-    "imagen_alt": "Flexispot EC5 Pro escritorio elevable electrico doble motor",
+  "B0FSQ8W2C1": {
+    "nombre": "VASAGLE Escritorio Elevable Electrico 100x60cm",
+    "marca": "VASAGLE",
+    "modelo": "100x60",
+    "precio": 80,
+    "precio_habitual": 100,
+    "imagen": "https://m.media-amazon.com/images/I/71AyU88o8xL._AC_SL1500_.jpg",
+    "imagen_alt": "VASAGLE escritorio elevable electrico 100x60 barato",
     "rating": 4.4,
-    "num_reviews": 1850,
-    "disponible": true,
-    "tipo": "doble",
-    "specs": {
-      "tipo_motor": "doble",
-      "rango_altura_min_cm": 62,
-      "rango_altura_max_cm": 127,
-      "velocidad_cm_s": 3.8,
-      "peso_max_carga_kg": 160,
-      "ancho_tablero_cm": 140,
-      "profundidad_tablero_cm": 70,
-      "peso_estructura_kg": 27,
-      "ruido_db": 48,
-      "presets_memoria": 4,
-      "sistema_anticolision": true,
-      "tablero_incluido": true,
-      "material_tablero": "melamina",
-      "garantia_anos": 5
-    },
-    "categorias": [
-      "calidad-precio",
-      "oficina"
-    ],
-    "pros": [
-      "Doble motor premium Flexispot por menos de 300 EUR",
-      "160 kg de carga: soporta cualquier setup",
-      "127 cm de altura maxima",
-      "4 presets de memoria"
-    ],
-    "contras": [
-      "Algo menos estable que el E7 a maxima altura",
-      "Tablero algo fino"
-    ],
-    "veredicto": "Escritorio Flexispot con doble motor y 160 kg de carga a precio competitivo.",
-    "puntuacion": {
-      "calidad_construccion": 7,
-      "estabilidad": 7,
-      "facilidad_montaje": 8,
-      "relacion_calidad_precio": 10,
-      "funcionalidades": 8,
-      "total": 8.8
-    },
-    "ideal_para": "Quien busca doble motor Flexispot sin gastar mas de 300 EUR.",
-    "slug": "flexispot-ec5-pro"
-  },
-  "B08PFH81J6": {
-    "nombre": "FLEXISPOT EG8 Escritorio Elevable con Tablero de Vidrio y Cajon",
-    "marca": "Flexispot",
-    "modelo": "EG8",
-    "precio": 140,
-    "precio_habitual": 161,
-    "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
-    "imagen_alt": "Flexispot EG8 escritorio elevable con tablero de vidrio y cajon",
-    "rating": 4.5,
-    "num_reviews": 780,
-    "disponible": true,
-    "tipo": "doble",
-    "specs": {
-      "tipo_motor": "doble",
-      "rango_altura_min_cm": 61,
-      "rango_altura_max_cm": 124,
-      "velocidad_cm_s": 3.8,
-      "peso_max_carga_kg": 125,
-      "ancho_tablero_cm": 155,
-      "profundidad_tablero_cm": 70,
-      "peso_estructura_kg": 33,
-      "ruido_db": 45,
-      "presets_memoria": 4,
-      "sistema_anticolision": true,
-      "tablero_incluido": true,
-      "material_tablero": "vidrio templado",
-      "garantia_anos": 5
-    },
-    "categorias": [
-      "gaming",
-      "premium"
-    ],
-    "pros": [
-      "Diseno premium con tablero de vidrio y cajon integrado",
-      "Puerto USB integrado",
-      "Doble motor silencioso y estable",
-      "Gestion de cables integrada"
-    ],
-    "contras": [
-      "Precio elevado: 500 EUR",
-      "Tablero de vidrio puede ser frio al tacto",
-      "Pesado: necesitas ayuda para montar"
-    ],
-    "veredicto": "El escritorio elevable mas elegante. Tablero de vidrio y cajon integrado para un setup limpio.",
-    "puntuacion": {
-      "calidad_construccion": 8,
-      "estabilidad": 9,
-      "facilidad_montaje": 7,
-      "relacion_calidad_precio": 7,
-      "funcionalidades": 8,
-      "total": 8.5
-    },
-    "ideal_para": "Quien busca un escritorio elevable premium con diseno elegante.",
-    "slug": "flexispot-eg8"
-  },
-  "B0DG2VTCXS": {
-    "nombre": "MAIDeSITe T2 Pro MAX Escritorio Elevable Electrico",
-    "marca": "Maidesite",
-    "modelo": "T2 Pro MAX",
-    "precio": 400,
-    "precio_habitual": 460,
-    "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
-    "imagen_alt": "MAIDeSITe T2 Pro MAX escritorio elevable electrico doble motor",
-    "rating": 4.4,
-    "num_reviews": 1200,
-    "disponible": true,
-    "tipo": "doble",
-    "specs": {
-      "tipo_motor": "doble",
-      "rango_altura_min_cm": 60,
-      "rango_altura_max_cm": 125,
-      "velocidad_cm_s": 3.8,
-      "peso_max_carga_kg": 160,
-      "ancho_tablero_cm": 160,
-      "profundidad_tablero_cm": 80,
-      "peso_estructura_kg": 30,
-      "ruido_db": 45,
-      "presets_memoria": 4,
-      "sistema_anticolision": true,
-      "tablero_incluido": true,
-      "material_tablero": "melamina",
-      "garantia_anos": 5
-    },
-    "categorias": [
-      "calidad-precio",
-      "oficina"
-    ],
-    "pros": [
-      "160 kg de carga: el mas robusto en su rango de precio",
-      "Doble motor con 4 presets de memoria",
-      "Tablero grande de 160x80 cm",
-      "5 anos de garantia"
-    ],
-    "contras": [
-      "Marca menos conocida que Flexispot",
-      "Peso considerable para montar",
-      "Tablero de melamina basico"
-    ],
-    "veredicto": "El mejor Maidesite. 160 kg de carga y doble motor a precio razonable.",
-    "puntuacion": {
-      "calidad_construccion": 8,
-      "estabilidad": 8,
-      "facilidad_montaje": 7,
-      "relacion_calidad_precio": 9,
-      "funcionalidades": 8,
-      "total": 8.8
-    },
-    "ideal_para": "Quien busca un escritorio robusto con doble motor sin pagar precio premium.",
-    "slug": "maidesite-t2-pro"
-  },
-  "B0CF56H2VQ": {
-    "nombre": "SANODESK QS+ Escritorio Elevable Electrico 160x75cm",
-    "marca": "SANODESK",
-    "modelo": "QS+",
-    "precio": 130,
-    "precio_habitual": 150,
-    "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
-    "imagen_alt": "SANODESK QS+ escritorio elevable electrico 160x75cm",
-    "rating": 4.3,
-    "num_reviews": 980,
+    "num_reviews": 70,
     "disponible": true,
     "tipo": "simple",
+    "incluye_tablero": true,
     "specs": {
       "tipo_motor": "simple",
       "rango_altura_min_cm": 72,
       "rango_altura_max_cm": 120,
       "velocidad_cm_s": 2.5,
-      "peso_max_carga_kg": 70,
-      "ancho_tablero_cm": 160,
-      "profundidad_tablero_cm": 75,
-      "peso_estructura_kg": 22,
-      "ruido_db": 50,
-      "presets_memoria": 3,
-      "sistema_anticolision": false,
-      "tablero_incluido": true,
-      "material_tablero": "melamina",
-      "garantia_anos": 3
-    },
-    "categorias": [
-      "barato"
-    ],
-    "pros": [
-      "Tablero grande de 160x75 cm por 200 EUR",
-      "Facil de montar en 30 minutos",
-      "3 memorias de altura"
-    ],
-    "contras": [
-      "Motor simple: mas lento y menos peso",
-      "Sin sistema anticolision",
-      "Rango de altura limitado (72-120 cm)"
-    ],
-    "veredicto": "Tablero grande y barato. 160x75 cm de espacio por 200 EUR.",
-    "puntuacion": {
-      "calidad_construccion": 6,
-      "estabilidad": 6,
-      "facilidad_montaje": 9,
-      "relacion_calidad_precio": 9,
-      "funcionalidades": 5,
-      "total": 7.8
-    },
-    "ideal_para": "Quien necesita un tablero grande sin gastar mucho.",
-    "slug": "sanodesk-qs-plus"
-  },
-  "B0BMG8XJ4W": {
-    "nombre": "JUMMICO Escritorio Elevable Electrico 120x60cm",
-    "marca": "JUMMICO",
-    "modelo": "120x60",
-    "precio": 110,
-    "precio_habitual": 126,
-    "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
-    "imagen_alt": "JUMMICO escritorio elevable electrico 120x60cm",
-    "rating": 4.2,
-    "num_reviews": 650,
-    "disponible": true,
-    "tipo": "simple",
-    "specs": {
-      "tipo_motor": "simple",
-      "rango_altura_min_cm": 73,
-      "rango_altura_max_cm": 118,
-      "velocidad_cm_s": 2.5,
-      "peso_max_carga_kg": 60,
-      "ancho_tablero_cm": 120,
-      "profundidad_tablero_cm": 60,
-      "peso_estructura_kg": 18,
-      "ruido_db": 52,
-      "presets_memoria": 3,
-      "sistema_anticolision": false,
-      "tablero_incluido": true,
-      "material_tablero": "melamina",
-      "garantia_anos": 2
-    },
-    "categorias": [
-      "barato"
-    ],
-    "pros": [
-      "Precio muy competitivo por debajo de 170 EUR",
-      "Tablero de 120x60 cm: cabe monitor + portatil",
-      "Montaje muy sencillo"
-    ],
-    "contras": [
-      "Solo 60 kg de carga",
-      "Motor lento y algo ruidoso",
-      "Sin sistema anticolision",
-      "Solo 2 anos de garantia"
-    ],
-    "veredicto": "Escritorio elevable economico con tablero de 120 cm. Buena opcion para empezar.",
-    "puntuacion": {
-      "calidad_construccion": 5,
-      "estabilidad": 5,
-      "facilidad_montaje": 9,
-      "relacion_calidad_precio": 8,
-      "funcionalidades": 4,
-      "total": 6.8
-    },
-    "ideal_para": "Estudiantes o presupuestos ajustados que necesitan 120 cm de tablero.",
-    "slug": "jummico-120x60"
-  },
-  "B099ZTMGYQ": {
-    "nombre": "Fezibo Escritorio Elevable Electrico 100x60",
-    "marca": "Fezibo",
-    "modelo": "100x60",
-    "precio": 100,
-    "precio_habitual": 115,
-    "imagen": "https://m.media-amazon.com/images/I/61rMzJu7GjL._AC_SL1500_.jpg",
-    "imagen_alt": "Fezibo escritorio elevable electrico barato 100x60",
-    "rating": 4.3,
-    "num_reviews": 2400,
-    "disponible": true,
-    "tipo": "simple",
-    "specs": {
-      "tipo_motor": "simple",
-      "rango_altura_min_cm": 72,
-      "rango_altura_max_cm": 116,
-      "velocidad_cm_s": 2.5,
       "peso_max_carga_kg": 50,
       "ancho_tablero_cm": 100,
       "profundidad_tablero_cm": 60,
-      "peso_estructura_kg": 16,
+      "peso_estructura_kg": 18,
       "ruido_db": 50,
       "presets_memoria": 3,
       "sistema_anticolision": false,
@@ -359,41 +33,41 @@
       "compacto"
     ],
     "pros": [
-      "Uno de los mas baratos del mercado por 120 EUR",
-      "Mas de 2400 opiniones en Amazon con buena nota",
-      "Bandeja para teclado incluida",
-      "Montaje rapido en 20 minutos"
+      "El escritorio elevable mas barato: solo 80 EUR",
+      "Marca VASAGLE conocida y fiable",
+      "Compacto 100x60: ideal para espacios pequenos",
+      "Montaje sencillo en 20-30 minutos"
     ],
     "contras": [
-      "Solo 50 kg de carga: para setup ligero",
-      "Tablero pequeno (100x60 cm)",
-      "Motor lento y sin anticolision",
-      "Garantia corta: 2 anos"
+      "Tablero pequeno: justo para un monitor",
+      "Pocas reviews todavia (70)",
+      "Sin sistema anticolision"
     ],
-    "veredicto": "El mejor escritorio elevable por debajo de 130 EUR. Ideal para empezar sin gastar mucho.",
+    "veredicto": "La opcion mas economica del mercado. Ideal para quien quiere probar un escritorio elevable sin gastar mucho.",
     "puntuacion": {
-      "calidad_construccion": 5,
-      "estabilidad": 5,
+      "calidad_construccion": 6,
+      "estabilidad": 6,
       "facilidad_montaje": 9,
       "relacion_calidad_precio": 9,
       "funcionalidades": 5,
       "total": 7.2
     },
-    "ideal_para": "Primer escritorio elevable con presupuesto minimo.",
-    "slug": "fezibo-100x60"
+    "ideal_para": "Presupuestos ajustados y espacios pequenos.",
+    "slug": "vasagle-100"
   },
-  "B0D9MHTS3C": {
-    "nombre": "Ergear Escritorio Elevable Electrico 120x60",
-    "marca": "Ergear",
-    "modelo": "EED-S1",
-    "precio": 126,
-    "precio_habitual": 145,
-    "imagen": "https://m.media-amazon.com/images/I/61u4IeXRZHL._AC_SL1500_.jpg",
-    "imagen_alt": "Ergear escritorio elevable electrico 120x60 barato",
-    "rating": 4.4,
-    "num_reviews": 1800,
+  "B0D9MGDDHD": {
+    "nombre": "ErGear Escritorio Elevable Electrico 120x60cm",
+    "marca": "ErGear",
+    "modelo": "120x60",
+    "precio": 110,
+    "precio_habitual": 130,
+    "imagen": "https://m.media-amazon.com/images/I/61SNKDt4pcL._AC_SL1500_.jpg",
+    "imagen_alt": "ErGear escritorio elevable electrico 120x60 barato",
+    "rating": 4.6,
+    "num_reviews": 2103,
     "disponible": true,
     "tipo": "simple",
+    "incluye_tablero": true,
     "specs": {
       "tipo_motor": "simple",
       "rango_altura_min_cm": 72,
@@ -402,7 +76,7 @@
       "peso_max_carga_kg": 70,
       "ancho_tablero_cm": 120,
       "profundidad_tablero_cm": 60,
-      "peso_estructura_kg": 19,
+      "peso_estructura_kg": 20,
       "ruido_db": 48,
       "presets_memoria": 4,
       "sistema_anticolision": true,
@@ -412,153 +86,326 @@
     },
     "categorias": [
       "barato",
-      "calidad-precio"
-    ],
-    "pros": [
-      "Anticolision por debajo de 150 EUR",
-      "4 memorias: mas que otros baratos",
-      "Tablero 120 cm: cabe monitor + portatil",
-      "1800+ opiniones con 4.4 estrellas"
-    ],
-    "contras": [
-      "Motor simple: algo lento (2.5 cm/s)",
-      "Estabilidad mejorable a maxima altura",
-      "Tablero basico de melamina"
-    ],
-    "veredicto": "La mejor opcion barata con anticolision. Tablero de 120 cm por menos de 150 EUR.",
-    "puntuacion": {
-      "calidad_construccion": 6,
-      "estabilidad": 6,
-      "facilidad_montaje": 8,
-      "relacion_calidad_precio": 9,
-      "funcionalidades": 7,
-      "total": 7.9
-    },
-    "ideal_para": "Quien quiere un escritorio barato pero con funciones de uno caro.",
-    "slug": "ergear-eed-s1"
-  },
-  "B08JLM827L": {
-    "nombre": "Flexispot EG1 Escritorio Elevable",
-    "marca": "Flexispot",
-    "modelo": "EG1",
-    "precio": 180,
-    "precio_habitual": 207,
-    "imagen": "https://m.media-amazon.com/images/I/612fnpT3OOL._AC_SL1500_.jpg",
-    "imagen_alt": "Flexispot EG1 escritorio elevable electrico entrada",
-    "rating": 4.5,
-    "num_reviews": 1500,
-    "disponible": true,
-    "tipo": "simple",
-    "specs": {
-      "tipo_motor": "simple",
-      "rango_altura_min_cm": 72,
-      "rango_altura_max_cm": 121,
-      "velocidad_cm_s": 2.5,
-      "peso_max_carga_kg": 70,
-      "ancho_tablero_cm": 120,
-      "profundidad_tablero_cm": 60,
-      "peso_estructura_kg": 21,
-      "ruido_db": 48,
-      "presets_memoria": 3,
-      "sistema_anticolision": true,
-      "tablero_incluido": true,
-      "material_tablero": "melamina",
-      "garantia_anos": 5
-    },
-    "categorias": [
       "calidad-precio",
-      "oficina"
+      "recomendado"
     ],
     "pros": [
-      "Marca Flexispot por poco mas de 200 EUR",
-      "5 anos de garantia: la mejor en su rango",
-      "Anticolision incluido",
-      "1500+ opiniones con 4.5 estrellas"
+      "Mejor valorado en Amazon con 4.6 estrellas y 2100+ reviews",
+      "Anticolision y 4 presets de memoria por 110 EUR",
+      "Tablero 120x60: cabe monitor + portatil",
+      "70 kg de carga: soporta un setup completo"
     ],
     "contras": [
-      "Motor simple: mas lento que los doble motor",
-      "Tablero de 120x60: justo para dual monitor",
-      "Sin USB ni extras"
+      "Motor simple: velocidad estandar de 2.5 cm/s",
+      "Tablero de melamina basico",
+      "Rango de altura limitado (72-120 cm)"
     ],
-    "veredicto": "La puerta de entrada a Flexispot. Calidad de marca por precio de generico.",
+    "veredicto": "La mejor relacion calidad-precio en escritorios elevables baratos. 4.6 estrellas con mas de 2000 opiniones lo avalan.",
     "puntuacion": {
       "calidad_construccion": 7,
       "estabilidad": 7,
       "facilidad_montaje": 8,
-      "relacion_calidad_precio": 9,
-      "funcionalidades": 6,
-      "total": 8.1
+      "relacion_calidad_precio": 10,
+      "funcionalidades": 7,
+      "total": 7.9
     },
-    "ideal_para": "Quien quiere calidad Flexispot sin llegar a los 300 EUR.",
-    "slug": "flexispot-eg1"
+    "ideal_para": "Quien busca el mejor escritorio elevable barato con buenas prestaciones.",
+    "slug": "ergear-120"
   },
-  "B09TQR3MMM": {
-    "nombre": "Maidesite S2 Pro Escritorio Elevable",
-    "marca": "Maidesite",
-    "modelo": "S2 Pro",
-    "precio": 430,
-    "precio_habitual": 494,
-    "imagen": "https://m.media-amazon.com/images/I/61gOA14txtL._AC_SL1500_.jpg",
-    "imagen_alt": "Maidesite S2 Pro escritorio elevable electrico gama media",
-    "rating": 4.3,
-    "num_reviews": 1100,
+  "B0CF29CLCP": {
+    "nombre": "VASAGLE Escritorio Elevable Electrico 160x60cm",
+    "marca": "VASAGLE",
+    "modelo": "160x60",
+    "precio": 119,
+    "precio_habitual": 140,
+    "imagen": "https://m.media-amazon.com/images/I/71D8t7gq6LL._AC_SL1500_.jpg",
+    "imagen_alt": "VASAGLE escritorio elevable electrico 160x60 grande barato",
+    "rating": 4.5,
+    "num_reviews": 1684,
     "disponible": true,
     "tipo": "simple",
+    "incluye_tablero": true,
     "specs": {
       "tipo_motor": "simple",
       "rango_altura_min_cm": 72,
       "rango_altura_max_cm": 120,
       "velocidad_cm_s": 2.5,
       "peso_max_carga_kg": 80,
+      "ancho_tablero_cm": 160,
+      "profundidad_tablero_cm": 60,
+      "peso_estructura_kg": 25,
+      "ruido_db": 50,
+      "presets_memoria": 4,
+      "sistema_anticolision": true,
+      "tablero_incluido": true,
+      "material_tablero": "melamina",
+      "garantia_anos": 3
+    },
+    "categorias": [
+      "barato",
+      "oficina"
+    ],
+    "pros": [
+      "Tablero enorme de 160x60 por solo 119 EUR",
+      "1684 opiniones con 4.5 estrellas en Amazon",
+      "80 kg de carga: soporta dual monitor + accesorios",
+      "Anticolision y 4 memorias de altura"
+    ],
+    "contras": [
+      "Motor simple: algo lento",
+      "Pesado (~25 kg): mejor montar entre dos",
+      "Profundidad de 60 cm puede quedar justa"
+    ],
+    "veredicto": "El escritorio elevable grande mas barato. 160 cm de tablero por menos de 120 EUR es imbatible.",
+    "puntuacion": {
+      "calidad_construccion": 7,
+      "estabilidad": 6,
+      "facilidad_montaje": 7,
+      "relacion_calidad_precio": 10,
+      "funcionalidades": 7,
+      "total": 7.8
+    },
+    "ideal_para": "Quien necesita un tablero grande sin gastar mas de 120 EUR.",
+    "slug": "vasagle-160"
+  },
+  "B0CKVPFSTD": {
+    "nombre": "Devoko Escritorio Elevable Electrico 120x60cm",
+    "marca": "Devoko",
+    "modelo": "120x60",
+    "precio": 130,
+    "precio_habitual": 150,
+    "imagen": "https://m.media-amazon.com/images/I/61SNKDt4pcL._AC_SL1500_.jpg",
+    "imagen_alt": "Devoko escritorio elevable electrico 120x60",
+    "rating": 4.5,
+    "num_reviews": 751,
+    "disponible": true,
+    "tipo": "simple",
+    "incluye_tablero": true,
+    "specs": {
+      "tipo_motor": "simple",
+      "rango_altura_min_cm": 72,
+      "rango_altura_max_cm": 120,
+      "velocidad_cm_s": 2.5,
+      "peso_max_carga_kg": 70,
       "ancho_tablero_cm": 120,
       "profundidad_tablero_cm": 60,
-      "peso_estructura_kg": 22,
+      "peso_estructura_kg": 21,
       "ruido_db": 48,
       "presets_memoria": 4,
       "sistema_anticolision": true,
       "tablero_incluido": true,
       "material_tablero": "melamina",
-      "garantia_anos": 5
+      "garantia_anos": 3
     },
     "categorias": [
       "calidad-precio",
       "oficina"
     ],
     "pros": [
-      "80 kg de carga: el mejor de su rango de precio",
-      "4 memorias + anticolision por 200 EUR",
-      "5 anos de garantia",
-      "Marca de confianza con buen soporte"
+      "Acabados superiores a la media en su rango de precio",
+      "Anticolision y 4 memorias incluidas",
+      "751 reviews con 4.5 estrellas: buena reputacion",
+      "70 kg de carga: setup completo"
     ],
     "contras": [
-      "Motor simple",
-      "Tablero basico de melamina",
-      "Menos opiniones que la competencia"
+      "Precio algo superior al ErGear por prestaciones similares",
+      "Motor simple estandar",
+      "Tablero de 120x60: justo para dual monitor"
     ],
-    "veredicto": "El Maidesite economico. Buenas prestaciones por 200 EUR con garantia larga.",
+    "veredicto": "Alternativa solida al ErGear con buenos acabados. Buena opcion si buscas algo mas robusto por 130 EUR.",
     "puntuacion": {
       "calidad_construccion": 7,
       "estabilidad": 7,
       "facilidad_montaje": 8,
-      "relacion_calidad_precio": 9,
+      "relacion_calidad_precio": 8,
       "funcionalidades": 7,
-      "total": 8.3
+      "total": 7.8
     },
-    "ideal_para": "Quien quiere la fiabilidad Maidesite sin pagar precio premium.",
-    "slug": "maidesite-s2-pro"
+    "ideal_para": "Quien quiere un escritorio de 120 cm con buenos acabados.",
+    "slug": "devoko-120"
   },
-  "B0CF2BV2FW": {
-    "nombre": "VASAGLE Escritorio Elevable Electrico 140x60",
-    "marca": "VASAGLE",
-    "modelo": "LSD174X01",
-    "precio": 130,
-    "precio_habitual": 150,
-    "imagen": "https://m.media-amazon.com/images/I/71RC8bmhojL._AC_SL1500_.jpg",
-    "imagen_alt": "VASAGLE escritorio elevable electrico 140x60 grande barato",
-    "rating": 4.3,
-    "num_reviews": 750,
+  "B0DZCV1MVF": {
+    "nombre": "FEZIBO Escritorio Elevable Electrico 120x60cm",
+    "marca": "FEZIBO",
+    "modelo": "120x60",
+    "precio": 140,
+    "precio_habitual": 160,
+    "imagen": "https://m.media-amazon.com/images/I/71riXt3ntsL._AC_SL1500_.jpg",
+    "imagen_alt": "FEZIBO escritorio elevable electrico 120x60",
+    "rating": 4.5,
+    "num_reviews": 206,
     "disponible": true,
     "tipo": "simple",
+    "incluye_tablero": true,
+    "specs": {
+      "tipo_motor": "simple",
+      "rango_altura_min_cm": 72,
+      "rango_altura_max_cm": 120,
+      "velocidad_cm_s": 2.5,
+      "peso_max_carga_kg": 70,
+      "ancho_tablero_cm": 120,
+      "profundidad_tablero_cm": 60,
+      "peso_estructura_kg": 20,
+      "ruido_db": 48,
+      "presets_memoria": 4,
+      "sistema_anticolision": true,
+      "tablero_incluido": true,
+      "material_tablero": "melamina",
+      "garantia_anos": 3
+    },
+    "categorias": [
+      "calidad-precio",
+      "oficina"
+    ],
+    "pros": [
+      "Marca FEZIBO reconocida en escritorios elevables",
+      "Anticolision y 4 memorias de altura",
+      "Estructura estable y bien acabada",
+      "206 reviews con 4.5 estrellas"
+    ],
+    "contras": [
+      "Precio algo elevado para motor simple de 120 cm",
+      "Menos reviews que la competencia directa",
+      "Sin extras destacables sobre el ErGear"
+    ],
+    "veredicto": "Opcion fiable de marca reconocida. Buenos acabados pero precio algo alto para sus prestaciones.",
+    "puntuacion": {
+      "calidad_construccion": 7,
+      "estabilidad": 7,
+      "facilidad_montaje": 8,
+      "relacion_calidad_precio": 7,
+      "funcionalidades": 7,
+      "total": 7.6
+    },
+    "ideal_para": "Fans de FEZIBO que buscan un 120 cm con buenas prestaciones.",
+    "slug": "fezibo-120"
+  },
+  "B0CV4V22XL": {
+    "nombre": "SONGMICS Escritorio Elevable Electrico 160x70cm",
+    "marca": "SONGMICS",
+    "modelo": "160x70",
+    "precio": 140,
+    "precio_habitual": 165,
+    "imagen": "https://m.media-amazon.com/images/I/718P+bB13yL._AC_SL1500_.jpg",
+    "imagen_alt": "SONGMICS escritorio elevable electrico 160x70 grande",
+    "rating": 4.5,
+    "num_reviews": 3447,
+    "disponible": true,
+    "tipo": "simple",
+    "incluye_tablero": true,
+    "specs": {
+      "tipo_motor": "simple",
+      "rango_altura_min_cm": 72,
+      "rango_altura_max_cm": 120,
+      "velocidad_cm_s": 2.5,
+      "peso_max_carga_kg": 80,
+      "ancho_tablero_cm": 160,
+      "profundidad_tablero_cm": 70,
+      "peso_estructura_kg": 27,
+      "ruido_db": 50,
+      "presets_memoria": 4,
+      "sistema_anticolision": true,
+      "tablero_incluido": true,
+      "material_tablero": "melamina",
+      "garantia_anos": 3
+    },
+    "categorias": [
+      "calidad-precio",
+      "oficina",
+      "recomendado"
+    ],
+    "pros": [
+      "El mas valorado: 3447 reviews con 4.5 estrellas",
+      "Tablero grande de 160x70 cm: espacio de sobra",
+      "80 kg de carga con anticolision y 4 memorias",
+      "Marca SONGMICS de confianza"
+    ],
+    "contras": [
+      "Motor simple: velocidad estandar",
+      "Pesado (~27 kg): montar entre dos recomendado",
+      "Garantia de solo 3 anos"
+    ],
+    "veredicto": "El escritorio elevable con mas opiniones positivas en Amazon. Tablero generoso de 160x70 por 140 EUR.",
+    "puntuacion": {
+      "calidad_construccion": 8,
+      "estabilidad": 7,
+      "facilidad_montaje": 7,
+      "relacion_calidad_precio": 9,
+      "funcionalidades": 7,
+      "total": 8.2
+    },
+    "ideal_para": "Quien quiere el escritorio mas probado y valorado con tablero grande.",
+    "slug": "songmics-160"
+  },
+  "B0CKVPZ93G": {
+    "nombre": "Devoko Escritorio Elevable Electrico 160x70cm",
+    "marca": "Devoko",
+    "modelo": "160x70",
+    "precio": 152,
+    "precio_habitual": 175,
+    "imagen": "https://m.media-amazon.com/images/I/613fuLdBdfL._AC_SL1500_.jpg",
+    "imagen_alt": "Devoko escritorio elevable electrico 160x70 grande",
+    "rating": 4.5,
+    "num_reviews": 751,
+    "disponible": true,
+    "tipo": "simple",
+    "incluye_tablero": true,
+    "specs": {
+      "tipo_motor": "simple",
+      "rango_altura_min_cm": 72,
+      "rango_altura_max_cm": 120,
+      "velocidad_cm_s": 2.5,
+      "peso_max_carga_kg": 80,
+      "ancho_tablero_cm": 160,
+      "profundidad_tablero_cm": 70,
+      "peso_estructura_kg": 28,
+      "ruido_db": 48,
+      "presets_memoria": 4,
+      "sistema_anticolision": true,
+      "tablero_incluido": true,
+      "material_tablero": "melamina",
+      "garantia_anos": 3
+    },
+    "categorias": [
+      "calidad-precio",
+      "oficina"
+    ],
+    "pros": [
+      "Tablero generoso de 160x70 cm con buenos acabados",
+      "Anticolision y 4 memorias de altura",
+      "80 kg de carga: dual monitor sin problema",
+      "751 reviews con 4.5 estrellas"
+    ],
+    "contras": [
+      "Precio algo superior al SONGMICS 160x70",
+      "Motor simple estandar",
+      "Pesado (~28 kg): necesita ayuda para montar"
+    ],
+    "veredicto": "Alternativa al SONGMICS con acabados premium. Buen escritorio grande por 152 EUR.",
+    "puntuacion": {
+      "calidad_construccion": 8,
+      "estabilidad": 7,
+      "facilidad_montaje": 7,
+      "relacion_calidad_precio": 8,
+      "funcionalidades": 7,
+      "total": 8
+    },
+    "ideal_para": "Quien busca un escritorio de 160 cm con acabados superiores.",
+    "slug": "devoko-160"
+  },
+  "B0CDLBJ1VW": {
+    "nombre": "SANODESK Escritorio Elevable Electrico 140x60cm",
+    "marca": "SANODESK",
+    "modelo": "140x60",
+    "precio": 160,
+    "precio_habitual": 185,
+    "imagen": "https://m.media-amazon.com/images/I/81qzWx+EY1L._AC_SL1500_.jpg",
+    "imagen_alt": "SANODESK escritorio elevable electrico 140x60",
+    "rating": 4.6,
+    "num_reviews": 671,
+    "disponible": true,
+    "tipo": "simple",
+    "incluye_tablero": true,
     "specs": {
       "tipo_motor": "simple",
       "rango_altura_min_cm": 72,
@@ -568,7 +415,7 @@
       "ancho_tablero_cm": 140,
       "profundidad_tablero_cm": 60,
       "peso_estructura_kg": 24,
-      "ruido_db": 50,
+      "ruido_db": 48,
       "presets_memoria": 4,
       "sistema_anticolision": true,
       "tablero_incluido": true,
@@ -576,199 +423,87 @@
       "garantia_anos": 3
     },
     "categorias": [
-      "barato",
+      "calidad-precio",
       "oficina"
     ],
     "pros": [
-      "Tablero de 140x60 por menos de 200 EUR",
-      "Anticolision y 4 memorias incluidas",
-      "80 kg de carga: mas que otros baratos",
-      "Marca conocida con buena logistica"
+      "4.6 estrellas en Amazon: de los mejor valorados",
+      "Tablero de 140x60: tamano versatil",
+      "SANODESK es submarca de Flexispot: calidad garantizada",
+      "Anticolision y 4 memorias incluidas"
     ],
     "contras": [
-      "Motor simple: velocidad estandar",
-      "Garantia de solo 3 anos",
-      "Algo pesado (24 kg) para montar solo"
+      "160 EUR: el mas caro de los de motor simple",
+      "Solo 60 cm de profundidad",
+      "Motor simple estandar"
     ],
-    "veredicto": "El escritorio grande y barato. 140x60 cm de tablero por menos de 200 EUR.",
+    "veredicto": "Calidad Flexispot bajo marca SANODESK. El mejor valorado con 4.6 estrellas pero precio algo alto.",
     "puntuacion": {
-      "calidad_construccion": 6,
-      "estabilidad": 6,
-      "facilidad_montaje": 7,
-      "relacion_calidad_precio": 9,
+      "calidad_construccion": 8,
+      "estabilidad": 8,
+      "facilidad_montaje": 8,
+      "relacion_calidad_precio": 7,
       "funcionalidades": 7,
-      "total": 7.7
+      "total": 8.3
     },
-    "ideal_para": "Quien necesita un tablero grande sin pagar precio premium.",
-    "slug": "vasagle-lsd302"
+    "ideal_para": "Quien quiere calidad Flexispot sin pagar precio premium.",
+    "slug": "sanodesk-140"
   },
-  "B08M14GC57": {
-    "nombre": "FLEXISPOT H2 Escritorio Elevable Manual con Manivela",
+  "B084KW7N8C": {
+    "nombre": "Flexispot E7 Estructura Escritorio Elevable Doble Motor",
     "marca": "Flexispot",
-    "modelo": "H2",
-    "precio": 95,
-    "precio_habitual": 109,
-    "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
-    "imagen_alt": "Flexispot H2 escritorio elevable manual con manivela",
-    "rating": 4.4,
-    "num_reviews": 620,
+    "modelo": "E7",
+    "precio": 107,
+    "precio_habitual": 123,
+    "imagen": "https://m.media-amazon.com/images/I/71--Rk-6uiL._AC_SL1500_.jpg",
+    "imagen_alt": "Flexispot E7 estructura escritorio elevable electrico doble motor sin tablero",
+    "rating": 4.6,
+    "num_reviews": 3200,
     "disponible": true,
-    "tipo": "manual",
+    "tipo": "doble",
+    "incluye_tablero": false,
     "specs": {
-      "tipo_motor": "manual",
-      "rango_altura_min_cm": 72,
+      "tipo_motor": "doble",
+      "rango_altura_min_cm": 58,
       "rango_altura_max_cm": 123,
-      "velocidad_cm_s": 0,
-      "peso_max_carga_kg": 80,
-      "ancho_tablero_cm": 120,
-      "profundidad_tablero_cm": 60,
-      "peso_estructura_kg": 20,
-      "ruido_db": null,
-      "presets_memoria": 0,
-      "sistema_anticolision": false,
-      "tablero_incluido": true,
-      "material_tablero": "melamina",
+      "velocidad_cm_s": 3.8,
+      "peso_max_carga_kg": 125,
+      "ancho_tablero_cm": 0,
+      "profundidad_tablero_cm": 0,
+      "peso_estructura_kg": 32,
+      "ruido_db": 45,
+      "presets_memoria": 4,
+      "sistema_anticolision": true,
+      "tablero_incluido": false,
+      "material_tablero": null,
       "garantia_anos": 5
     },
     "categorias": [
-      "calidad-precio",
-      "manual"
+      "premium",
+      "oficina",
+      "recomendado"
     ],
     "pros": [
-      "Calidad Flexispot por menos de 180 EUR",
-      "5 anos de garantia: la mejor en manuales",
-      "80 kg de carga: mas que muchos electricos baratos",
-      "Rango de altura amplio (72-123 cm)"
-    ],
-    "contras": [
-      "Manivela requiere esfuerzo manual",
-      "Sin presets ni memorias de altura",
-      "Mas caro que otros manuales genericos",
-      "Tablero basico de melamina"
-    ],
-    "veredicto": "El manual de marca. Calidad Flexispot y 5 anos de garantia sin gastar en motor.",
-    "puntuacion": {
-      "calidad_construccion": 7,
-      "estabilidad": 7,
-      "facilidad_montaje": 8,
-      "relacion_calidad_precio": 8,
-      "funcionalidades": 3,
-      "total": 7.3
-    },
-    "ideal_para": "Quien quiere calidad Flexispot pero no necesita motor electrico.",
-    "slug": "flexispot-h2"
-  },
-  "B09VBZT6BG": {
-    "nombre": "AIMEZO Escritorio Elevable Manual Regulable en Altura",
-    "marca": "AIMEZO",
-    "modelo": "Manual",
-    "precio": 253,
-    "precio_habitual": 291,
-    "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
-    "imagen_alt": "AIMEZO escritorio elevable manual regulable en altura",
-    "rating": 4.1,
-    "num_reviews": 450,
-    "disponible": true,
-    "tipo": "manual",
-    "specs": {
-      "tipo_motor": "manual",
-      "rango_altura_min_cm": 73,
-      "rango_altura_max_cm": 118,
-      "velocidad_cm_s": 0,
-      "peso_max_carga_kg": 70,
-      "ancho_tablero_cm": 120,
-      "profundidad_tablero_cm": 60,
-      "peso_estructura_kg": 18,
-      "ruido_db": null,
-      "presets_memoria": 0,
-      "sistema_anticolision": false,
-      "tablero_incluido": true,
-      "material_tablero": "melamina",
-      "garantia_anos": 2
-    },
-    "categorias": [
-      "barato",
-      "manual"
-    ],
-    "pros": [
-      "Precio por debajo de 110 EUR: de los mas baratos del mercado",
-      "Sin motor = sin ruido y sin electricidad",
-      "Estructura solida de acero para su precio",
-      "Montaje sencillo en 20 minutos"
-    ],
-    "contras": [
-      "Hay que girar la manivela manualmente",
-      "Sin memorias de altura ni presets",
-      "Rango de altura limitado (73-118 cm)",
-      "Marca menos conocida"
-    ],
-    "veredicto": "Escritorio elevable manual muy economico. Buena opcion para presupuestos ajustados.",
-    "puntuacion": {
-      "calidad_construccion": 5,
-      "estabilidad": 6,
-      "facilidad_montaje": 9,
-      "relacion_calidad_precio": 9,
-      "funcionalidades": 2,
-      "total": 6.5
-    },
-    "ideal_para": "Presupuesto minimo y quien cambia de posicion pocas veces al dia.",
-    "slug": "aimezo-manual"
-  },
-  "B087BGJD8S": {
-    "nombre": "E.For.U MT20 Estructura Escritorio Elevable Manual",
-    "marca": "E.For.U",
-    "modelo": "MT20",
-    "precio": 140,
-    "precio_habitual": 161,
-    "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
-    "imagen_alt": "E.For.U MT20 estructura escritorio elevable manual sin tablero",
-    "rating": 4.1,
-    "num_reviews": 540,
-    "disponible": true,
-    "tipo": "manual",
-    "specs": {
-      "tipo_motor": "manual",
-      "rango_altura_min_cm": 73,
-      "rango_altura_max_cm": 117,
-      "velocidad_cm_s": 0,
-      "peso_max_carga_kg": 50,
-      "ancho_tablero_cm": 0,
-      "profundidad_tablero_cm": 0,
-      "peso_estructura_kg": 15,
-      "ruido_db": null,
-      "presets_memoria": 0,
-      "sistema_anticolision": false,
-      "tablero_incluido": false,
-      "material_tablero": null,
-      "garantia_anos": 2
-    },
-    "categorias": [
-      "barato",
-      "manual",
-      "compacto"
-    ],
-    "pros": [
-      "El marco elevable mas barato del mercado por 90 EUR",
-      "Ligero (15 kg): facil de mover y montar",
-      "Puedes usar tu propio tablero: personalizacion total",
-      "Sin electricidad ni cables"
+      "Doble motor: 3.8 cm/s y 125 kg de carga",
+      "Rango de 58-123 cm: cubre cualquier estatura",
+      "5 anos de garantia Flexispot",
+      "Solo 107 EUR por el marco: puedes elegir tu tablero"
     ],
     "contras": [
       "No incluye tablero: hay que comprarlo aparte",
-      "Solo 50 kg de carga: setup muy ligero",
-      "Rango de altura corto (73-117 cm): no para personas altas",
-      "Estabilidad justa a maxima altura"
+      "Montaje requiere dos personas",
+      "Coste total sube con tablero a medida"
     ],
-    "veredicto": "El marco manual mas barato. Ideal si ya tienes tablero o quieres uno a medida.",
+    "veredicto": "El mejor marco elevable del mercado a precio de ganga. Doble motor Flexispot por solo 107 EUR (sin tablero).",
     "puntuacion": {
-      "calidad_construccion": 5,
-      "estabilidad": 5,
-      "facilidad_montaje": 9,
+      "calidad_construccion": 9,
+      "estabilidad": 9,
+      "facilidad_montaje": 7,
       "relacion_calidad_precio": 9,
-      "funcionalidades": 2,
-      "total": 6.5
+      "funcionalidades": 8,
+      "total": 8.8
     },
-    "ideal_para": "Quien ya tiene tablero o quiere personalizar al maximo con presupuesto minimo.",
-    "slug": "eforu-mt20"
+    "ideal_para": "Quien quiere la mejor estructura y elegir su propio tablero a medida.",
+    "slug": "flexispot-e7"
   }
 }

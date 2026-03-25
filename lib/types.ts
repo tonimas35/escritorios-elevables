@@ -36,6 +36,7 @@ export interface Product {
   num_reviews: number;
   disponible: boolean;
   tipo: "doble" | "simple" | "manual";
+  incluye_tablero: boolean;
   specs: ProductSpecs;
   categorias: string[];
   pros: string[];
