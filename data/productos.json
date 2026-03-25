@@ -3,8 +3,8 @@
     "nombre": "Flexispot E7 Escritorio Elevable Electrico",
     "marca": "Flexispot",
     "modelo": "E7",
-    "precio": 480,
-    "precio_habitual": 530,
+    "precio": 107,
+    "precio_habitual": 123,
     "imagen": "https://m.media-amazon.com/images/I/71--Rk-6uiL._AC_SL1500_.jpg",
     "imagen_alt": "Flexispot E7 escritorio elevable electrico doble motor",
     "rating": 4.6,
@@ -27,7 +27,11 @@
       "material_tablero": "melamina",
       "garantia_anos": 5
     },
-    "categorias": ["premium", "oficina", "recomendado"],
+    "categorias": [
+      "premium",
+      "oficina",
+      "recomendado"
+    ],
     "pros": [
       "Motor doble muy estable a cualquier altura",
       "Rango de 58-123 cm cubre casi cualquier estatura",
@@ -55,8 +59,8 @@
     "nombre": "Flexispot EC5 Pro Escritorio Elevable Electrico",
     "marca": "Flexispot",
     "modelo": "EC5 Pro",
-    "precio": 280,
-    "precio_habitual": 320,
+    "precio": 200,
+    "precio_habitual": 230,
     "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
     "imagen_alt": "Flexispot EC5 Pro escritorio elevable electrico doble motor",
     "rating": 4.4,
@@ -79,7 +83,10 @@
       "material_tablero": "melamina",
       "garantia_anos": 5
     },
-    "categorias": ["calidad-precio", "oficina"],
+    "categorias": [
+      "calidad-precio",
+      "oficina"
+    ],
     "pros": [
       "Doble motor premium Flexispot por menos de 300 EUR",
       "160 kg de carga: soporta cualquier setup",
@@ -106,8 +113,8 @@
     "nombre": "FLEXISPOT EG8 Escritorio Elevable con Tablero de Vidrio y Cajon",
     "marca": "Flexispot",
     "modelo": "EG8",
-    "precio": 500,
-    "precio_habitual": null,
+    "precio": 140,
+    "precio_habitual": 161,
     "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
     "imagen_alt": "Flexispot EG8 escritorio elevable con tablero de vidrio y cajon",
     "rating": 4.5,
@@ -130,7 +137,10 @@
       "material_tablero": "vidrio templado",
       "garantia_anos": 5
     },
-    "categorias": ["gaming", "premium"],
+    "categorias": [
+      "gaming",
+      "premium"
+    ],
     "pros": [
       "Diseno premium con tablero de vidrio y cajon integrado",
       "Puerto USB integrado",
@@ -158,8 +168,8 @@
     "nombre": "MAIDeSITe T2 Pro MAX Escritorio Elevable Electrico",
     "marca": "Maidesite",
     "modelo": "T2 Pro MAX",
-    "precio": 300,
-    "precio_habitual": 350,
+    "precio": 400,
+    "precio_habitual": 460,
     "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
     "imagen_alt": "MAIDeSITe T2 Pro MAX escritorio elevable electrico doble motor",
     "rating": 4.4,
@@ -182,7 +192,10 @@
       "material_tablero": "melamina",
       "garantia_anos": 5
     },
-    "categorias": ["calidad-precio", "oficina"],
+    "categorias": [
+      "calidad-precio",
+      "oficina"
+    ],
     "pros": [
       "160 kg de carga: el mas robusto en su rango de precio",
       "Doble motor con 4 presets de memoria",
@@ -210,8 +223,8 @@
     "nombre": "SANODESK QS+ Escritorio Elevable Electrico 160x75cm",
     "marca": "SANODESK",
     "modelo": "QS+",
-    "precio": 200,
-    "precio_habitual": null,
+    "precio": 130,
+    "precio_habitual": 150,
     "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
     "imagen_alt": "SANODESK QS+ escritorio elevable electrico 160x75cm",
     "rating": 4.3,
@@ -234,7 +247,9 @@
       "material_tablero": "melamina",
       "garantia_anos": 3
     },
-    "categorias": ["barato"],
+    "categorias": [
+      "barato"
+    ],
     "pros": [
       "Tablero grande de 160x75 cm por 200 EUR",
       "Facil de montar en 30 minutos",
@@ -261,8 +276,8 @@
     "nombre": "JUMMICO Escritorio Elevable Electrico 120x60cm",
     "marca": "JUMMICO",
     "modelo": "120x60",
-    "precio": 160,
-    "precio_habitual": 200,
+    "precio": 110,
+    "precio_habitual": 126,
     "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
     "imagen_alt": "JUMMICO escritorio elevable electrico 120x60cm",
     "rating": 4.2,
@@ -285,7 +300,9 @@
       "material_tablero": "melamina",
       "garantia_anos": 2
     },
-    "categorias": ["barato"],
+    "categorias": [
+      "barato"
+    ],
     "pros": [
       "Precio muy competitivo por debajo de 170 EUR",
       "Tablero de 120x60 cm: cabe monitor + portatil",
@@ -313,8 +330,8 @@
     "nombre": "Fezibo Escritorio Elevable Electrico 100x60",
     "marca": "Fezibo",
     "modelo": "100x60",
-    "precio": 120,
-    "precio_habitual": 150,
+    "precio": 100,
+    "precio_habitual": 115,
     "imagen": "https://m.media-amazon.com/images/I/61rMzJu7GjL._AC_SL1500_.jpg",
     "imagen_alt": "Fezibo escritorio elevable electrico barato 100x60",
     "rating": 4.3,
@@ -337,7 +354,10 @@
       "material_tablero": "melamina",
       "garantia_anos": 2
     },
-    "categorias": ["barato", "compacto"],
+    "categorias": [
+      "barato",
+      "compacto"
+    ],
     "pros": [
       "Uno de los mas baratos del mercado por 120 EUR",
       "Mas de 2400 opiniones en Amazon con buena nota",
@@ -366,8 +386,8 @@
     "nombre": "Ergear Escritorio Elevable Electrico 120x60",
     "marca": "Ergear",
     "modelo": "EED-S1",
-    "precio": 140,
-    "precio_habitual": 170,
+    "precio": 126,
+    "precio_habitual": 145,
     "imagen": "https://m.media-amazon.com/images/I/61u4IeXRZHL._AC_SL1500_.jpg",
     "imagen_alt": "Ergear escritorio elevable electrico 120x60 barato",
     "rating": 4.4,
@@ -390,7 +410,10 @@
       "material_tablero": "melamina",
       "garantia_anos": 3
     },
-    "categorias": ["barato", "calidad-precio"],
+    "categorias": [
+      "barato",
+      "calidad-precio"
+    ],
     "pros": [
       "Anticolision por debajo de 150 EUR",
       "4 memorias: mas que otros baratos",
@@ -418,8 +441,8 @@
     "nombre": "Flexispot EG1 Escritorio Elevable",
     "marca": "Flexispot",
     "modelo": "EG1",
-    "precio": 210,
-    "precio_habitual": 250,
+    "precio": 180,
+    "precio_habitual": 207,
     "imagen": "https://m.media-amazon.com/images/I/612fnpT3OOL._AC_SL1500_.jpg",
     "imagen_alt": "Flexispot EG1 escritorio elevable electrico entrada",
     "rating": 4.5,
@@ -442,7 +465,10 @@
       "material_tablero": "melamina",
       "garantia_anos": 5
     },
-    "categorias": ["calidad-precio", "oficina"],
+    "categorias": [
+      "calidad-precio",
+      "oficina"
+    ],
     "pros": [
       "Marca Flexispot por poco mas de 200 EUR",
       "5 anos de garantia: la mejor en su rango",
@@ -470,8 +496,8 @@
     "nombre": "Maidesite S2 Pro Escritorio Elevable",
     "marca": "Maidesite",
     "modelo": "S2 Pro",
-    "precio": 200,
-    "precio_habitual": 240,
+    "precio": 430,
+    "precio_habitual": 494,
     "imagen": "https://m.media-amazon.com/images/I/61gOA14txtL._AC_SL1500_.jpg",
     "imagen_alt": "Maidesite S2 Pro escritorio elevable electrico gama media",
     "rating": 4.3,
@@ -494,7 +520,10 @@
       "material_tablero": "melamina",
       "garantia_anos": 5
     },
-    "categorias": ["calidad-precio", "oficina"],
+    "categorias": [
+      "calidad-precio",
+      "oficina"
+    ],
     "pros": [
       "80 kg de carga: el mejor de su rango de precio",
       "4 memorias + anticolision por 200 EUR",
@@ -522,8 +551,8 @@
     "nombre": "VASAGLE Escritorio Elevable Electrico 140x60",
     "marca": "VASAGLE",
     "modelo": "LSD174X01",
-    "precio": 180,
-    "precio_habitual": 220,
+    "precio": 130,
+    "precio_habitual": 150,
     "imagen": "https://m.media-amazon.com/images/I/71RC8bmhojL._AC_SL1500_.jpg",
     "imagen_alt": "VASAGLE escritorio elevable electrico 140x60 grande barato",
     "rating": 4.3,
@@ -546,7 +575,10 @@
       "material_tablero": "melamina",
       "garantia_anos": 3
     },
-    "categorias": ["barato", "oficina"],
+    "categorias": [
+      "barato",
+      "oficina"
+    ],
     "pros": [
       "Tablero de 140x60 por menos de 200 EUR",
       "Anticolision y 4 memorias incluidas",
@@ -574,8 +606,8 @@
     "nombre": "FLEXISPOT H2 Escritorio Elevable Manual con Manivela",
     "marca": "Flexispot",
     "modelo": "H2",
-    "precio": 170,
-    "precio_habitual": 200,
+    "precio": 95,
+    "precio_habitual": 109,
     "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
     "imagen_alt": "Flexispot H2 escritorio elevable manual con manivela",
     "rating": 4.4,
@@ -598,7 +630,10 @@
       "material_tablero": "melamina",
       "garantia_anos": 5
     },
-    "categorias": ["calidad-precio", "manual"],
+    "categorias": [
+      "calidad-precio",
+      "manual"
+    ],
     "pros": [
       "Calidad Flexispot por menos de 180 EUR",
       "5 anos de garantia: la mejor en manuales",
@@ -627,8 +662,8 @@
     "nombre": "AIMEZO Escritorio Elevable Manual Regulable en Altura",
     "marca": "AIMEZO",
     "modelo": "Manual",
-    "precio": 100,
-    "precio_habitual": 120,
+    "precio": 253,
+    "precio_habitual": 291,
     "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
     "imagen_alt": "AIMEZO escritorio elevable manual regulable en altura",
     "rating": 4.1,
@@ -651,7 +686,10 @@
       "material_tablero": "melamina",
       "garantia_anos": 2
     },
-    "categorias": ["barato", "manual"],
+    "categorias": [
+      "barato",
+      "manual"
+    ],
     "pros": [
       "Precio por debajo de 110 EUR: de los mas baratos del mercado",
       "Sin motor = sin ruido y sin electricidad",
@@ -680,8 +718,8 @@
     "nombre": "E.For.U MT20 Estructura Escritorio Elevable Manual",
     "marca": "E.For.U",
     "modelo": "MT20",
-    "precio": 90,
-    "precio_habitual": 110,
+    "precio": 140,
+    "precio_habitual": 161,
     "imagen": "https://m.media-amazon.com/images/I/placeholder._AC_SL1500_.jpg",
     "imagen_alt": "E.For.U MT20 estructura escritorio elevable manual sin tablero",
     "rating": 4.1,
@@ -704,7 +742,11 @@
       "material_tablero": null,
       "garantia_anos": 2
     },
-    "categorias": ["barato", "manual", "compacto"],
+    "categorias": [
+      "barato",
+      "manual",
+      "compacto"
+    ],
     "pros": [
       "El marco elevable mas barato del mercado por 90 EUR",
       "Ligero (15 kg): facil de mover y montar",
