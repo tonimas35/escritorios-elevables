@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { FadeIn } from "@/components/FadeIn";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { getAllProducts } from "@/lib/products";
 
 export default function Home() {
@@ -35,7 +36,7 @@ export default function Home() {
                 <span style={{ color: 'var(--accent)' }}>elevables</span> de 2026
               </h1>
               <p className="mt-6 text-base md:text-lg max-w-xl leading-relaxed animate-fade-up stagger-2" style={{ color: 'var(--text-secondary)' }}>
-                {allProducts.length} modelos analizados. Desde 80&nbsp;EUR hasta gama premium.
+                {allProducts.length} modelos analizados. Desde 80&nbsp;EUR con tablero incluido.
                 Datos reales y opiniones contrastadas de cada modelo.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4 animate-fade-up stagger-3">
@@ -82,20 +83,30 @@ export default function Home() {
           {/* Stats bar — with secondary color background */}
           <div className="mt-14 p-6 rounded animate-fade-up stagger-4" style={{ background: 'var(--color-secondary)', color: 'white' }}>
             <div className="grid grid-cols-3 gap-8">
-              {[
-                { value: String(allProducts.length), label: "Escritorios analizados" },
-                { value: `${totalReviewsRounded}+`, label: "Opiniones verificadas" },
-                { value: "Mar 2026", label: "Ultima actualizacion" },
-              ].map((stat, i) => (
-                <FadeIn key={stat.label} delay={400 + i * 120}>
-                  <div>
-                    <p className="mono text-2xl md:text-3xl font-bold" style={{ color: 'rgba(255,255,255,0.95)' }}>
-                      {stat.value}
-                    </p>
-                    <p className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>{stat.label}</p>
-                  </div>
-                </FadeIn>
-              ))}
+              <FadeIn delay={400}>
+                <div>
+                  <p className="mono text-2xl md:text-3xl font-bold" style={{ color: 'rgba(255,255,255,0.95)' }}>
+                    <AnimatedCounter value={allProducts.length} duration={800} />
+                  </p>
+                  <p className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>Escritorios analizados</p>
+                </div>
+              </FadeIn>
+              <FadeIn delay={520}>
+                <div>
+                  <p className="mono text-2xl md:text-3xl font-bold" style={{ color: 'rgba(255,255,255,0.95)' }}>
+                    <AnimatedCounter value={totalReviewsRounded} suffix="+" duration={1500} />
+                  </p>
+                  <p className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>Opiniones verificadas</p>
+                </div>
+              </FadeIn>
+              <FadeIn delay={640}>
+                <div>
+                  <p className="mono text-2xl md:text-3xl font-bold" style={{ color: 'rgba(255,255,255,0.95)' }}>
+                    Mar 2026
+                  </p>
+                  <p className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>Ultima actualizacion</p>
+                </div>
+              </FadeIn>
             </div>
           </div>
         </div>
@@ -261,34 +272,30 @@ export default function Home() {
             </div>
           </FadeIn>
 
-          {/* Premium */}
+          {/* Ver todos */}
           <FadeIn delay={240}>
-            <div className="rounded p-6 relative product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+            <Link href="/mejor-escritorio-elevable" className="rounded p-6 relative product-card-hover block" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', textDecoration: 'none' }}>
               <span className="decorative-number">03</span>
               <div className="relative">
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>&gt;200&euro;</span>
-                  <span className="text-xs uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Premium doble motor</span>
+                  <span className="mono text-2xl font-bold" style={{ color: 'var(--color-secondary)' }}>9 modelos</span>
                 </div>
-                <div className="space-y-3">
-                  {premiumPicks.map(([asin, product]) => (
-                    <div key={asin} className="flex items-center gap-3 py-2" style={{ borderBottom: '1px solid var(--border)' }}>
-                      <div className="w-10 h-10 rounded flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
-                        <Image src={product.imagen} alt={product.imagen_alt} width={40} height={40} className="object-contain" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold truncate">{product.marca} {product.modelo}</p>
-                        <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}&#9733; &middot; {product.specs.tipo_motor}</p>
-                      </div>
-                      <span className="mono font-bold text-sm">{product.precio}&euro;</span>
-                    </div>
-                  ))}
-                </div>
+                <p className="text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>
+                  Todas las opciones analizadas con puntuacion, pros, contras y enlace directo a Amazon.
+                </p>
+                <p className="text-sm mb-6" style={{ color: 'var(--text-muted)' }}>
+                  Desde 80€ hasta 160€. Todos en stock y con envio gratis.
+                </p>
                 <div className="mt-4">
-                  <AffiliateButton asin={premiumPicks[0]?.[0] || ''} text="Ver mejor premium" size="lg" />
+                  <span className="btn-secondary inline-flex items-center gap-2">
+                    Ver comparativa completa
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
           </FadeIn>
         </div>
       </section>
