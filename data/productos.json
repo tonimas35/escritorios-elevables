@@ -505,5 +505,125 @@
     },
     "ideal_para": "Quien quiere la mejor estructura y elegir su propio tablero a medida.",
     "slug": "flexispot-e7"
+  },
+  "B0DG2VTCXS": {
+    "nombre": "MAIDeSITe T2 Pro MAX Marco Escritorio Elevable Doble Motor 160kg",
+    "slug": "maidesite-t2-pro-max",
+    "marca": "MAIDeSITe",
+    "precio": 400,
+    "precio_habitual": 450,
+    "imagen": "https://m.media-amazon.com/images/I/71Ag6vbsdyL._AC_SL1500_.jpg",
+    "amazonReviews": 63,
+    "amazonRating": 4.6,
+    "incluye_tablero": false,
+    "tipo": "doble",
+    "specs": {
+      "tipo_motor": "doble",
+      "carga_max_kg": 160,
+      "rango_altura_cm": "62-127",
+      "velocidad_cm_s": 3.8,
+      "ruido_db": 45,
+      "peso_kg": 30,
+      "presets_memoria": 4,
+      "tablero_cm": "No incluido (compatible hasta 200x80)"
+    },
+    "puntuacion": {
+      "calidad_construccion": 9.8,
+      "estabilidad": 9.9,
+      "facilidad_montaje": 8.8,
+      "relacion_calidad_precio": 9,
+      "funcionalidades": 9.7,
+      "total": 9.4
+    },
+    "pros": [
+      "Doble motor potente",
+      "Carga 160kg",
+      "Control Piano-Master",
+      "Rango 135cm ajuste"
+    ],
+    "contras": [
+      "No incluye tablero",
+      "Pocas reviews aun"
+    ]
+  },
+  "B09TQR3MMM": {
+    "nombre": "MAIDeSITe S2 Pro Escritorio Elevable 140x70 Doble Motor con Tablero",
+    "slug": "maidesite-s2-pro",
+    "marca": "MAIDeSITe",
+    "precio": 430,
+    "precio_habitual": 480,
+    "imagen": "https://m.media-amazon.com/images/I/61gOA14txtL._AC_SL1500_.jpg",
+    "amazonReviews": 45,
+    "amazonRating": 4.6,
+    "incluye_tablero": true,
+    "tipo": "doble",
+    "specs": {
+      "tipo_motor": "doble",
+      "carga_max_kg": 120,
+      "rango_altura_cm": "72-120",
+      "velocidad_cm_s": 3.5,
+      "ruido_db": 45,
+      "peso_kg": 35,
+      "presets_memoria": 4,
+      "tablero_cm": "140x70"
+    },
+    "puntuacion": {
+      "calidad_construccion": 9.6,
+      "estabilidad": 9.7,
+      "facilidad_montaje": 9,
+      "relacion_calidad_precio": 8.8,
+      "funcionalidades": 9.5,
+      "total": 9.3
+    },
+    "pros": [
+      "Incluye tablero 140x70",
+      "Doble motor silencioso",
+      "Muy estable",
+      "Acabado premium"
+    ],
+    "contras": [
+      "Precio alto",
+      "Pocas reviews"
+    ]
+  },
+  "B09R746JHX": {
+    "nombre": "FLEXISPOT Escritorio Elevable 160x80 Doble Motor con Tablero",
+    "slug": "flexispot-160x80",
+    "marca": "FLEXISPOT",
+    "precio": 410,
+    "precio_habitual": 460,
+    "imagen": "https://m.media-amazon.com/images/I/71phkZLMRrL._AC_SL1500_.jpg",
+    "amazonReviews": 1823,
+    "amazonRating": 4.5,
+    "incluye_tablero": true,
+    "tipo": "doble",
+    "specs": {
+      "tipo_motor": "doble",
+      "carga_max_kg": 100,
+      "rango_altura_cm": "71-121",
+      "velocidad_cm_s": 3.5,
+      "ruido_db": 48,
+      "peso_kg": 38,
+      "presets_memoria": 4,
+      "tablero_cm": "160x80"
+    },
+    "puntuacion": {
+      "calidad_construccion": 9.7,
+      "estabilidad": 9.8,
+      "facilidad_montaje": 9.2,
+      "relacion_calidad_precio": 9.3,
+      "funcionalidades": 9.5,
+      "total": 9.5
+    },
+    "pros": [
+      "1800+ reviews positivas",
+      "Tablero 160x80 incluido",
+      "Doble motor",
+      "Marca lider"
+    ],
+    "contras": [
+      "Carga max 100kg",
+      "Precio alto"
+    ]
   }
 }
