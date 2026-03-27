@@ -11,9 +11,9 @@ export default function Home() {
   const totalReviews = allProducts.reduce((sum, [, p]) => sum + p.num_reviews, 0);
   const totalReviewsRounded = Math.floor(totalReviews / 1000) * 1000;
 
-  const budgetPicks = allProducts.filter(([, p]) => p.precio < 200).sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total).slice(0, 3);
-  const midPicks = allProducts.filter(([, p]) => p.precio >= 200 && p.precio < 400).sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total).slice(0, 2);
-  const premiumPicks = allProducts.filter(([, p]) => p.precio >= 400).sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total).slice(0, 2);
+  const budgetPicks = allProducts.filter(([, p]) => p.precio < 135).sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total).slice(0, 3);
+  const midPicks = allProducts.filter(([, p]) => p.precio >= 135 && p.precio <= 200).sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total).slice(0, 3);
+  const premiumPicks = allProducts.filter(([, p]) => p.precio > 200).sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total).slice(0, 3);
 
   return (
     <>
@@ -190,7 +190,7 @@ export default function Home() {
               Mejor opcion
             </span>
             <div className="flex items-baseline gap-2 mb-4">
-              <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>200–400€</span>
+              <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>135–200€</span>
               <span className="text-xs uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Calidad-precio</span>
             </div>
             <div className="space-y-3">
@@ -215,8 +215,8 @@ export default function Home() {
           {/* Premium */}
           <div className="rounded p-6" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
             <div className="flex items-baseline gap-2 mb-4">
-              <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>&gt;400€</span>
-              <span className="text-xs uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Premium</span>
+              <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>&gt;200€</span>
+              <span className="text-xs uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Premium doble motor</span>
             </div>
             <div className="space-y-3">
               {premiumPicks.map(([asin, product]) => (
