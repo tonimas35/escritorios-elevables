@@ -73,7 +73,7 @@ export default function TestPage() {
     <div className="max-w-4xl mx-auto px-6 py-12">
       <FadeIn>
         <div className="mb-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>Herramienta</p>
+          <p className="editorial-mark" style={{ color: 'var(--color-secondary)' }}>Herramienta interactiva</p>
           <h1 className="text-3xl md:text-5xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>Tu escritorio ideal</h1>
           <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>5 preguntas. Recomendacion personalizada.</p>
         </div>
@@ -84,11 +84,11 @@ export default function TestPage() {
           <div>
             <div className="flex gap-1.5 mb-8">
               {QUESTIONS.map((_, i) => (
-                <div key={i} className="h-0.5 flex-1 rounded-full transition-all duration-300" style={{ background: i <= step ? 'var(--accent)' : 'var(--border)' }} />
+                <div key={i} className="h-0.5 flex-1 rounded-full transition-all duration-300" style={{ background: i <= step ? 'var(--color-secondary)' : 'var(--border)' }} />
               ))}
             </div>
             <div className="flex items-baseline gap-4 mb-6">
-              <span className="mono text-3xl font-bold" style={{ color: 'var(--accent)' }}>{String(step + 1).padStart(2, '0')}</span>
+              <span className="mono text-3xl font-bold" style={{ color: 'var(--color-secondary)' }}>{String(step + 1).padStart(2, '0')}</span>
               <span className="text-xs" style={{ color: 'var(--text-muted)' }}>/ {String(QUESTIONS.length).padStart(2, '0')}</span>
             </div>
             <h2 className="text-2xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>{QUESTIONS[step].text}</h2>

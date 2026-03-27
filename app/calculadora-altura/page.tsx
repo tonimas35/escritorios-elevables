@@ -25,8 +25,8 @@ export default function CalculadoraPage() {
     <div className="max-w-5xl mx-auto px-6 py-12">
       <FadeIn>
         <div className="mb-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>
-            Herramienta
+          <p className="editorial-mark" style={{ color: 'var(--color-secondary)' }}>
+            Herramienta interactiva
           </p>
           <h1 className="text-3xl md:text-5xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
             Calculadora ergonomica
@@ -44,7 +44,7 @@ export default function CalculadoraPage() {
             <label htmlFor="estatura-slider" className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>
               Tu estatura
             </label>
-            <span className="mono text-3xl font-bold" style={{ color: 'var(--accent)' }}>
+            <span className="mono text-3xl font-bold" style={{ color: 'var(--color-secondary)' }}>
               {estatura} <span className="text-sm font-normal" style={{ color: 'var(--text-muted)' }}>cm</span>
             </span>
           </div>

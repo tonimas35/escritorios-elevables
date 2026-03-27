@@ -10,7 +10,7 @@ import { FadeIn } from "@/components/FadeIn";
 export const metadata: Metadata = {
   title: "12 mejores escritorios elevables 2026 — Guia de compra",
   description:
-    "Comparativa de los 12 mejores escritorios elevables electricos de 2026. Desde 110€ hasta gama premium. Analisis con datos reales, pros/contras y recomendaciones.",
+    "Comparativa de los 12 mejores escritorios elevables electricos de 2026. Desde 110\u20AC hasta gama premium. Analisis con datos reales, pros/contras y recomendaciones.",
 };
 
 export default function MejorEscritorioPage() {
@@ -59,7 +59,7 @@ export default function MejorEscritorioPage() {
     },
     {
       q: "Motor simple o doble: cual elijo?",
-      a: "El doble es mas rapido (3.8 vs 2.5 cm/s), mas silencioso y reparte mejor el esfuerzo. Si cambias de posicion varias veces al dia, se nota. Pero si tu presupuesto no llega a 270 euros, un motor simple cumple bien — prioriza estabilidad y garantia antes que esto.",
+      a: "El doble es mas rapido (3.8 vs 2.5 cm/s), mas silencioso y reparte mejor el esfuerzo. Si cambias de posicion varias veces al dia, se nota. Pero si tu presupuesto no llega a 270 euros, un motor simple cumple bien \u2014 prioriza estabilidad y garantia antes que esto.",
     },
     {
       q: "Cuanto peso soportan estos escritorios?",
@@ -71,7 +71,7 @@ export default function MejorEscritorioPage() {
     },
     {
       q: "Que garantia tienen?",
-      a: "De 2 a 5 anos. Flexispot y Maidesite dan 5 anos; marcas baratas como Fezibo o JUMMICO, solo 2. Si un motor falla, suele ser en los primeros 6 meses. Pero si puedes elegir, mejor 5 anos — es electronica con partes moviles.",
+      a: "De 2 a 5 anos. Flexispot y Maidesite dan 5 anos; marcas baratas como Fezibo o JUMMICO, solo 2. Si un motor falla, suele ser en los primeros 6 meses. Pero si puedes elegir, mejor 5 anos \u2014 es electronica con partes moviles.",
     },
     {
       q: "Cuanta electricidad consume un escritorio elevable?",
@@ -100,7 +100,7 @@ export default function MejorEscritorioPage() {
 
   const ratingBg = (score: number) =>
     score >= 8.5
-      ? "var(--rating-good)"
+      ? "var(--color-secondary)"
       : score >= 7
         ? "var(--rating-okay)"
         : "var(--rating-bad)";
@@ -131,41 +131,47 @@ export default function MejorEscritorioPage() {
         </nav>
 
         <FadeIn>
+          {/* Editorial header with rules */}
+          <div className="editorial-rule mb-6" />
+          <p className="editorial-mark mb-3" style={{ color: 'var(--color-secondary)' }}>
+            Guia de compra &middot; Marzo 2026
+          </p>
           <h1 className="text-3xl md:text-5xl heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
             Los <span style={{ color: 'var(--accent)' }}>12 mejores</span> escritorios elevables de 2026
           </h1>
           <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
-            Actualizado: marzo 2026 · 12 modelos analizados · Desde 110 EUR
+            Actualizado: marzo 2026 &middot; 12 modelos analizados &middot; Desde 80 EUR
           </p>
           <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
             Este articulo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequena comision sin coste adicional para ti.
           </p>
+          <div className="editorial-rule mt-6" />
         </FadeIn>
 
         {/* Intro editorial */}
         <FadeIn delay={100}>
           <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
-              He analizado 12 escritorios elevables en Amazon Espana (de 120 a 550 EUR), midiendo ruido, estabilidad y leyendo cientos de opiniones reales. Mi recomendacion rapida: el <strong>Flexispot E7 Pro</strong> si el presupuesto no importa, el <strong>Maidesite T2 Pro Plus</strong> (doble motor por menos de 300 EUR) para la mayoria, y el <strong>Ergear EED-S1</strong> (140 EUR, con anticolision) si vas justo.
+              He analizado 12 escritorios elevables en Amazon Espana (de 80 a 550 EUR), midiendo ruido, estabilidad y leyendo cientos de opiniones reales. Mi recomendacion rapida: el <strong>Flexispot E7 Pro</strong> si el presupuesto no importa, el <strong>Maidesite T2 Pro Plus</strong> (doble motor por menos de 300 EUR) para la mayoria, y el <strong>Ergear EED-S1</strong> (110 EUR, con anticolision) si vas justo.
             </p>
           </div>
         </FadeIn>
 
-        {/* Winner callout — #1 product gets special treatment */}
+        {/* Winner callout */}
         <FadeIn delay={200}>
-          <div className="mt-8 p-6 rounded-lg noise-bg" style={{ background: 'linear-gradient(135deg, var(--accent-light), rgba(196, 122, 58, 0.03))', border: '2px solid var(--accent)' }}>
+          <div className="mt-8 p-6 rounded noise-bg" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
             <div className="flex flex-col md:flex-row items-start gap-6">
               <div className="w-[160px] h-[160px] rounded-lg flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
                 <Image src={topProduct.imagen} alt={topProduct.imagen_alt} width={160} height={160} className="object-contain p-1" />
               </div>
               <div className="flex-1">
-                <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Nuestro favorito</p>
+                <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--color-secondary)' }}>Nuestro favorito</p>
                 <h2 className="text-xl font-semibold mt-1" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
                   {topProduct.nombre}
                 </h2>
                 <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>{topProduct.veredicto}</p>
                 <div className="flex items-center gap-4 mt-3">
-                  <span className="tabular-nums text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{topProduct.precio}€</span>
+                  <span className="tabular-nums text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{topProduct.precio}&euro;</span>
                   <span
                     className="tabular-nums font-bold px-2 py-0.5 rounded text-sm text-white"
                     style={{ background: ratingBg(topProduct.puntuacion.total) }}
@@ -184,7 +190,7 @@ export default function MejorEscritorioPage() {
           <div className="mt-10 overflow-x-auto">
             <table className="w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
               <thead>
-                <tr style={{ background: 'var(--bg-dark)', color: 'var(--text-inverse)' }}>
+                <tr style={{ background: 'var(--color-secondary)', color: 'white' }}>
                   <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>#</th>
                   <th className="text-left p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Modelo</th>
                   <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Motor</th>
@@ -196,9 +202,9 @@ export default function MejorEscritorioPage() {
               </thead>
               <tbody>
                 {topProducts.map(([asin, product], i) => (
-                  <tr key={asin} className="transition-colors hover:bg-[var(--bg-secondary)]" style={{ borderBottom: '1px solid var(--border)' }}>
+                  <tr key={asin} className="transition-colors hover:bg-[var(--color-secondary-light)]" style={{ borderBottom: '1px solid var(--border)' }}>
                     <td className="p-3">
-                      <span className="tabular-nums text-xs font-bold" style={{ color: 'var(--accent)' }}>{String(i + 1).padStart(2, '0')}</span>
+                      <span className="tabular-nums text-xs font-bold" style={{ color: 'var(--color-secondary)' }}>{String(i + 1).padStart(2, '0')}</span>
                     </td>
                     <td className="p-3">
                       <a href={`#${product.slug}`} className="flex items-center gap-3 hover:underline">
@@ -207,14 +213,14 @@ export default function MejorEscritorioPage() {
                         </div>
                         <div>
                           <p className="font-semibold text-sm" style={{ color: 'var(--text-primary)' }}>{product.marca} {product.modelo}</p>
-                          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ ({product.num_reviews})</p>
+                          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}&#9733; ({product.num_reviews})</p>
                         </div>
                       </a>
                     </td>
                     <td className="p-3 text-center">
                       <span className="text-xs font-medium px-2 py-0.5 rounded" style={{
-                        background: product.specs.tipo_motor === 'doble' ? 'rgba(46, 139, 62, 0.12)' : 'var(--bg-secondary)',
-                        color: product.specs.tipo_motor === 'doble' ? 'var(--pro)' : 'var(--text-muted)',
+                        background: product.specs.tipo_motor === 'doble' ? 'var(--color-secondary-subtle)' : 'var(--bg-secondary)',
+                        color: product.specs.tipo_motor === 'doble' ? 'var(--color-secondary)' : 'var(--text-muted)',
                       }}>
                         {product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple'}
                       </span>
@@ -228,7 +234,7 @@ export default function MejorEscritorioPage() {
                         {product.puntuacion.total}
                       </span>
                     </td>
-                    <td className="p-3 text-center tabular-nums font-bold" style={{ color: 'var(--text-primary)' }}>{product.precio}€</td>
+                    <td className="p-3 text-center tabular-nums font-bold" style={{ color: 'var(--text-primary)' }}>{product.precio}&euro;</td>
                     <td className="p-3 text-center">
                       <AffiliateButton asin={asin} size="sm" />
                     </td>
@@ -239,7 +245,7 @@ export default function MejorEscritorioPage() {
           </div>
         </FadeIn>
 
-        {/* Editorial bridge before detailed analysis */}
+        {/* Editorial bridge */}
         <FadeIn>
           <div className="mt-12 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
@@ -249,21 +255,18 @@ export default function MejorEscritorioPage() {
         </FadeIn>
       </div>
 
-      {/* Detailed analysis of each product — with layout variation */}
+      {/* Detailed analysis of each product */}
       <div className="mt-8">
         {/* Premium tier bridge */}
         {premiumProducts.length > 0 && (
-          <div className="py-8 mb-4 noise-bg" style={{ background: 'var(--bg-secondary)' }}>
+          <div className="py-8 mb-4" style={{ background: 'var(--color-secondary)', color: 'white' }}>
             <div className="max-w-5xl mx-auto px-6">
               <FadeIn>
-                <div className="flex items-center gap-4">
-                  <div className="h-px flex-1" style={{ background: 'var(--border)' }} />
-                  <p className="text-xs font-bold uppercase tracking-[0.3em] whitespace-nowrap" style={{ color: 'var(--accent)' }}>
-                    Gama premium
-                  </p>
-                  <div className="h-px flex-1" style={{ background: 'var(--border)' }} />
-                </div>
-                <p className="text-center text-sm mt-2" style={{ color: 'var(--text-secondary)' }}>
+                <p className="editorial-mark" style={{ color: 'rgba(255,255,255,0.5)' }}>Seccion I</p>
+                <p className="text-lg mt-1" style={{ fontFamily: 'var(--font-display)', color: 'white' }}>
+                  Gama premium
+                </p>
+                <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>
                   Para quien quiere lo mejor y no mira el precio
                 </p>
               </FadeIn>
@@ -279,7 +282,7 @@ export default function MejorEscritorioPage() {
             "flexispot-eg8": "Un E7 con estetica gaming: cajon con USB y tablero de fibra de carbono. Queda bien, pero a 500 EUR casi iguala al E7 Pro que tiene mejor tablero y mas carga. Solo tiene sentido si quieres el look gamer y el cajon te resulta util. Solo en negro.",
             "maidesite-s2-pro": "Motor simple, pero con 80 kg de carga (el mejor a este precio), anticolision y 5 anos de garantia por 200 EUR. Si Maidesite le pone 5 anos a este precio, es que confian en el. Para quien quiere marca fiable sin necesitar doble motor.",
             "flexispot-eg1": "La puerta de entrada a Flexispot: anticolision, 70 kg de carga y 5 anos de garantia por 210 EUR. Sin extras ni USB, tablero de 120x60 justo para dos monitores. Pero hereda la calidad de la marca y las quejas en Amazon son minimas.",
-            "ergear-eed-s1": "La mejor sorpresa por debajo de 150 EUR. Anticolision y 4 memorias a 140 EUR — eso no lo ofrece ni Fezibo ni JUMMICO. Motor lento y estabilidad mejorable, pero las funcionalidades por el precio no tienen rival.",
+            "ergear-eed-s1": "La mejor sorpresa por debajo de 150 EUR. Anticolision y 4 memorias a 140 EUR \u2014 eso no lo ofrece ni Fezibo ni JUMMICO. Motor lento y estabilidad mejorable, pero las funcionalidades por el precio no tienen rival.",
             "sanodesk-qs-plus": "Submarca de Flexispot, pero en tierra de nadie: sin anticolision y solo 3 anos de garantia a 190 EUR. Por 20 EUR mas tienes el EG1 con anticolision y 5 anos. Solo merece la pena si lo pillas en oferta por debajo de 160 EUR.",
             "vasagle-lsd302": "El unico con tablero de 140x60 cm por debajo de 200 EUR. Si necesitas mesa grande y no llegas a 300 EUR, es tu opcion. 80 kg de carga, anticolision, 4 memorias. Garantia de solo 3 anos y montaje pesado (24 kg).",
             "fezibo-100x60": "El mas vendido en gama barata (2400+ opiniones). A 120 EUR incluye bandeja para teclado y se monta en 20 minutos. Pero 50 kg de carga es justo, tablero de 100 cm pequeno, sin anticolision y solo 2 anos de garantia. Bueno para probar; si ya sabes que lo quieres, el Ergear da mas por 20 EUR extra.",
@@ -287,30 +290,24 @@ export default function MejorEscritorioPage() {
           };
           const editorial = editorialContent[product.slug] || "";
 
-          // Determine if this product is at a tier boundary to insert bridge callouts
           const isFirstMid = midProducts.length > 0 && product.slug === midProducts[0][1].slug;
           const isFirstBudget = budgetProducts.length > 0 && product.slug === budgetProducts[0][1].slug;
 
-          // Every 3rd product gets a background band
           const hasBand = i % 3 === 2;
-          // Alternate image position
           const imageRight = i % 2 === 1;
 
           return (
             <div key={asin}>
               {/* Tier bridge callouts */}
               {isFirstMid && (
-                <div className="py-8 mb-4 noise-bg" style={{ background: 'var(--bg-secondary)' }}>
+                <div className="py-8 mb-4" style={{ background: 'var(--color-secondary)', color: 'white' }}>
                   <div className="max-w-5xl mx-auto px-6">
                     <FadeIn>
-                      <div className="flex items-center gap-4">
-                        <div className="h-px flex-1" style={{ background: 'var(--border)' }} />
-                        <p className="text-xs font-bold uppercase tracking-[0.3em] whitespace-nowrap" style={{ color: 'var(--accent)' }}>
-                          Gama media
-                        </p>
-                        <div className="h-px flex-1" style={{ background: 'var(--border)' }} />
-                      </div>
-                      <p className="text-center text-sm mt-2" style={{ color: 'var(--text-secondary)' }}>
+                      <p className="editorial-mark" style={{ color: 'rgba(255,255,255,0.5)' }}>Seccion II</p>
+                      <p className="text-lg mt-1" style={{ fontFamily: 'var(--font-display)', color: 'white' }}>
+                        Gama media
+                      </p>
+                      <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>
                         Donde esta el equilibrio entre precio y prestaciones
                       </p>
                     </FadeIn>
@@ -318,17 +315,14 @@ export default function MejorEscritorioPage() {
                 </div>
               )}
               {isFirstBudget && (
-                <div className="py-8 mb-4 noise-bg" style={{ background: 'var(--bg-secondary)' }}>
+                <div className="py-8 mb-4" style={{ background: 'var(--color-secondary)', color: 'white' }}>
                   <div className="max-w-5xl mx-auto px-6">
                     <FadeIn>
-                      <div className="flex items-center gap-4">
-                        <div className="h-px flex-1" style={{ background: 'var(--border)' }} />
-                        <p className="text-xs font-bold uppercase tracking-[0.3em] whitespace-nowrap" style={{ color: 'var(--accent)' }}>
-                          Gama economica
-                        </p>
-                        <div className="h-px flex-1" style={{ background: 'var(--border)' }} />
-                      </div>
-                      <p className="text-center text-sm mt-2" style={{ color: 'var(--text-secondary)' }}>
+                      <p className="editorial-mark" style={{ color: 'rgba(255,255,255,0.5)' }}>Seccion III</p>
+                      <p className="text-lg mt-1" style={{ fontFamily: 'var(--font-display)', color: 'white' }}>
+                        Gama economica
+                      </p>
+                      <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>
                         Opciones solidas sin arruinarte
                       </p>
                     </FadeIn>
@@ -343,8 +337,8 @@ export default function MejorEscritorioPage() {
               >
                 <div className="max-w-5xl mx-auto px-6">
                   <FadeIn delay={i * 50}>
-                    <div className="flex items-baseline gap-3 mb-2">
-                      <span className="tabular-nums text-sm font-bold" style={{ color: 'var(--accent)' }}>#{String(i + 1).padStart(2, '0')}</span>
+                    <div className="flex items-baseline gap-4 mb-2">
+                      <span className="editorial-number text-5xl" style={{ opacity: 0.12 }}>{String(i + 1).padStart(2, '0')}</span>
                       <h2 className="text-2xl" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
                         {product.nombre}
                       </h2>
@@ -358,7 +352,7 @@ export default function MejorEscritorioPage() {
                       <div className="flex-1">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
                           {[
-                            { label: "Precio", value: `${product.precio}€` },
+                            { label: "Precio", value: `${product.precio}\u20AC` },
                             { label: "Motor", value: product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple' },
                             { label: "Carga max", value: `${product.specs.peso_max_carga_kg} kg` },
                             { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm` },
@@ -373,16 +367,15 @@ export default function MejorEscritorioPage() {
                       </div>
                     </div>
 
-                    {/* Editorial analysis */}
+                    {/* Editorial analysis — pull quote style */}
                     {editorial && (
-                      <div className="mt-5 max-w-3xl">
+                      <div className="mt-5 max-w-3xl pl-6" style={{ borderLeft: '2px solid var(--accent)', opacity: 0.9 }}>
                         <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                           {editorial}
                         </p>
                       </div>
                     )}
 
-                    {/* Compact ratings grid */}
                     <div className="mt-4 max-w-md">
                       <CompactRatings puntuacion={product.puntuacion} />
                     </div>
@@ -402,10 +395,11 @@ export default function MejorEscritorioPage() {
         })}
       </div>
 
-      {/* Como elegir section — with numbered circles */}
+      {/* Como elegir section */}
       <div className="max-w-5xl mx-auto px-6">
         <FadeIn>
           <section className="mt-16 max-w-3xl">
+            <div className="editorial-rule mb-6" />
             <h2 className="text-2xl mb-8 heading-accent" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
               Como elegir el mejor escritorio elevable
             </h2>
@@ -415,12 +409,12 @@ export default function MejorEscritorioPage() {
                 { title: "Estabilidad: importa mas de lo que crees", text: "De pie, el escritorio esta a 110-120 cm y cualquier vibracion se amplifica. Si la pantalla tiembla al teclear, te cansas la vista. Busca patas con tres secciones telescopicas y estructura pesada. E7 Pro y E7 son los mejores; en los baratos hay que aceptar algo de movimiento." },
                 { title: "Ruido: ojo si haces videollamadas", text: "Baratos: 50-52 dB (se oye). Premium: 43-45 dB (casi no se nota). Si cambias de altura durante una llamada, con 50 dB la otra persona lo percibe. Con 43, no." },
                 { title: "Rango de altura: ojo si mides mas de 1.85 m", text: "Baratos: 72-118 cm. Premium: 58-125 cm. Si mides mas de 1.85 m y el escritorio llega solo a 118 cm, vas a trabajar encorvado. El E7 llega a 123 cm y el Maidesite T2 Pro a 127 cm." },
-                { title: "Garantia y postventa", text: "Flexispot y Maidesite dan 5 anos; marcas baratas, 2. Los problemas graves suelen aparecer en los primeros 6 meses. Si puedes elegir, 5 anos siempre — tiene electronica y partes moviles." },
+                { title: "Garantia y postventa", text: "Flexispot y Maidesite dan 5 anos; marcas baratas, 2. Los problemas graves suelen aparecer en los primeros 6 meses. Si puedes elegir, 5 anos siempre \u2014 tiene electronica y partes moviles." },
                 { title: "Anticolision: no te la juegues", text: "Para el motor si detecta un obstaculo al bajar. Sin anticolision, el motor sigue y puede romper cajones o el propio mecanismo. Desde 140 EUR ya lo encuentras (Ergear), asi que no merece la pena ahorrar y quedarse sin el." },
               ].map((item, i) => (
                 <FadeIn key={item.title} delay={i * 80}>
                   <div className="relative pl-14">
-                    <span className="absolute left-0 top-0 mono text-3xl font-bold" style={{ color: 'var(--accent)', opacity: 0.2 }}>
+                    <span className="absolute left-0 top-0 editorial-number text-3xl" style={{ opacity: 0.15 }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>{item.title}</h3>
@@ -434,28 +428,28 @@ export default function MejorEscritorioPage() {
 
         {/* Internal links */}
         <FadeIn>
-          <section className="mt-12 max-w-3xl p-6 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
+          <section className="mt-12 max-w-3xl p-6 rounded" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--color-secondary)' }}>
             <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
               Guias relacionadas
             </h2>
             <div className="space-y-2 text-sm">
               <p>
-                <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Mejores escritorios elevables baratos</Link> — Si tu presupuesto esta por debajo de 220 euros, esta guia va mas al detalle en la gama economica.
+                <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Mejores escritorios elevables baratos</Link> &mdash; Si tu presupuesto esta por debajo de 220 euros, esta guia va mas al detalle en la gama economica.
               </p>
               <p>
-                <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: opinion y review completa</Link> — Analisis a fondo del E7 con opiniones reales de compradores.
+                <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: opinion y review completa</Link> &mdash; Analisis a fondo del E7 con opiniones reales de compradores.
               </p>
               <p>
-                <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Flexispot vs Maidesite: comparativa</Link> — Las dos marcas mas vendidas cara a cara. ¿Cual merece la pena?
+                <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Flexispot vs Maidesite: comparativa</Link> &mdash; Las dos marcas mas vendidas cara a cara. Cual merece la pena?
               </p>
             </div>
           </section>
         </FadeIn>
 
-        {/* FAQ — with distinct background band and styling */}
+        {/* FAQ */}
         <section className="mt-16 mb-8 max-w-3xl">
           <FadeIn>
-            <div className="p-8 rounded-lg noise-bg" style={{ background: 'var(--bg-secondary)' }}>
+            <div className="p-8 rounded noise-bg" style={{ background: 'var(--bg-secondary)' }}>
               <h2 className="text-2xl mb-2 heading-accent" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
                 Preguntas frecuentes
               </h2>

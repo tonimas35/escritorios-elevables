@@ -22,10 +22,10 @@ export default function ComparadorPage() {
       {/* Header */}
       <FadeIn>
         <div className="mb-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>
-            Herramienta
+          <p className="editorial-mark" style={{ color: 'var(--color-secondary)' }}>
+            Herramienta interactiva
           </p>
-          <h1 className="text-3xl md:text-5xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <h1 className="text-3xl md:text-5xl mt-2 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
             Comparador
           </h1>
           <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
@@ -38,15 +38,15 @@ export default function ComparadorPage() {
         {/* Filtros */}
         <FadeIn delay={100}>
           <aside className="lg:w-72 shrink-0">
-            <div className="lg:sticky lg:top-24 space-y-6 p-5 rounded-lg" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-card)' }}>
-              <h2 className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--text-muted)' }}>
+            <div className="lg:sticky lg:top-24 space-y-6 p-5 rounded" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--color-secondary)', boxShadow: 'var(--shadow-card)' }}>
+              <h2 className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--color-secondary)' }}>
                 Filtros
               </h2>
 
               <div>
                 <label htmlFor="precio-slider" className="flex items-baseline justify-between text-sm font-medium">
                   <span>Presupuesto</span>
-                  <span className="mono text-xs" style={{ color: 'var(--accent)' }}>{precioMax} €</span>
+                  <span className="mono text-xs" style={{ color: 'var(--color-secondary)' }}>{precioMax} &euro;</span>
                 </label>
                 <input id="precio-slider" type="range" min={100} max={800} step={50} value={precioMax}
                   onChange={(e) => setPrecioMax(Number(e.target.value))} className="w-full mt-3" />
@@ -55,7 +55,7 @@ export default function ComparadorPage() {
               <div>
                 <label htmlFor="altura-slider" className="flex items-baseline justify-between text-sm font-medium">
                   <span>Altura max min</span>
-                  <span className="mono text-xs" style={{ color: 'var(--accent)' }}>{alturaMax} cm</span>
+                  <span className="mono text-xs" style={{ color: 'var(--color-secondary)' }}>{alturaMax} cm</span>
                 </label>
                 <input id="altura-slider" type="range" min={100} max={130} step={5} value={alturaMax}
                   onChange={(e) => setAlturaMax(Number(e.target.value))} className="w-full mt-3" />
@@ -64,7 +64,7 @@ export default function ComparadorPage() {
               <div>
                 <label htmlFor="peso-slider" className="flex items-baseline justify-between text-sm font-medium">
                   <span>Carga min</span>
-                  <span className="mono text-xs" style={{ color: 'var(--accent)' }}>{pesoMax} kg</span>
+                  <span className="mono text-xs" style={{ color: 'var(--color-secondary)' }}>{pesoMax} kg</span>
                 </label>
                 <input id="peso-slider" type="range" min={50} max={150} step={10} value={pesoMax}
                   onChange={(e) => setPesoMax(Number(e.target.value))} className="w-full mt-3" />
@@ -77,9 +77,9 @@ export default function ComparadorPage() {
                     <button key={opt} onClick={() => setMotor(opt)}
                       className="px-3 py-1.5 text-xs font-medium rounded-sm capitalize transition-all"
                       style={{
-                        background: motor === opt ? 'var(--accent)' : 'transparent',
+                        background: motor === opt ? 'var(--color-secondary)' : 'transparent',
                         color: motor === opt ? 'white' : 'var(--text-secondary)',
-                        border: `1px solid ${motor === opt ? 'var(--accent)' : 'var(--border)'}`,
+                        border: `1px solid ${motor === opt ? 'var(--color-secondary)' : 'var(--border)'}`,
                       }}
                     >
                       {opt}
@@ -102,7 +102,7 @@ export default function ComparadorPage() {
         <div className="flex-1">
           <div className="flex items-center justify-between mb-6 pb-4" style={{ borderBottom: '1px solid var(--border)' }}>
             <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-              <span className="mono font-bold" style={{ color: 'var(--accent)' }}>{filtered.length}</span> resultados
+              <span className="mono font-bold" style={{ color: 'var(--color-secondary)' }}>{filtered.length}</span> resultados
             </p>
             <select value={ordenar} onChange={(e) => setOrdenar(e.target.value as typeof ordenar)}
               className="text-xs font-medium px-3 py-2 rounded-sm" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}

@@ -13,14 +13,14 @@ export function QuickVerdict({ asin, product, texto }: QuickVerdictProps) {
 
   const ratingBg =
     product.puntuacion.total >= 8.5
-      ? "var(--rating-good)"
+      ? "var(--color-secondary)"
       : product.puntuacion.total >= 7
         ? "var(--rating-okay)"
         : "var(--rating-bad)";
 
   return (
-    <div className="relative p-6 rounded-lg overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--accent-subtle), rgba(196, 122, 58, 0.02))', borderLeft: '4px solid var(--accent)' }}>
-      <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--accent)' }}>
+    <div className="relative p-6 rounded overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
+      <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--color-secondary)' }}>
         Nuestra recomendacion
       </p>
       <div className="flex items-center gap-4">
@@ -34,7 +34,7 @@ export function QuickVerdict({ asin, product, texto }: QuickVerdictProps) {
               className="object-contain p-1"
             />
           ) : (
-            <span className="text-3xl">🖥️</span>
+            <span className="text-3xl">&#128421;</span>
           )}
         </div>
         <div className="flex-1 min-w-0">
@@ -50,7 +50,7 @@ export function QuickVerdict({ asin, product, texto }: QuickVerdictProps) {
               {product.puntuacion.total}
             </span>
             <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-              {product.rating}★ ({product.num_reviews})
+              {product.rating}&#9733; ({product.num_reviews})
             </span>
           </div>
           <p className="tabular-nums text-lg font-bold mt-1" style={{ color: 'var(--text-primary)' }}>

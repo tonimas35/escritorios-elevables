@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Outfit, JetBrains_Mono } from "next/font/google";
+import { Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-const outfit = Outfit({
+const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-outfit",
+  variable: "--font-source-serif",
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${outfit.variable} ${jetbrainsMono.variable}`}
+      className={`${sourceSerif.variable} ${jetbrainsMono.variable}`}
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />

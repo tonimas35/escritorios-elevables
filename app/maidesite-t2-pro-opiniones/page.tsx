@@ -119,8 +119,8 @@ export default function MaidesiteT2ProReviewPage() {
 
         {/* Product info */}
         <div className="flex-1">
-          <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Review completa</p>
-          <h1 className="text-3xl md:text-4xl mt-1" style={{ fontFamily: 'var(--font-display)' }}>
+          <p className="editorial-mark mb-2" style={{ color: 'var(--color-secondary)' }}>Review completa &middot; Marzo 2026</p>
+          <h1 className="text-3xl md:text-4xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
             {product.nombre}
           </h1>
           <p className="text-sm mt-2" style={{ color: 'var(--text-muted)' }}>
@@ -278,7 +278,7 @@ export default function MaidesiteT2ProReviewPage() {
       </section>
 
       {/* CTA */}
-      <div className="mt-10 p-6 rounded text-center" style={{ background: 'var(--accent-light)', border: '2px solid var(--accent)' }}>
+      <div className="mt-10 p-6 rounded text-center" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--accent)' }}>
         <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Veredicto</p>
         <p className="text-xl mt-2" style={{ fontFamily: 'var(--font-display)' }}>{product.veredicto}</p>
         <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
@@ -302,7 +302,7 @@ export default function MaidesiteT2ProReviewPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
             <thead>
-              <tr style={{ background: 'var(--bg-dark)', color: 'var(--text-inverse)' }}>
+              <tr style={{ background: 'var(--color-secondary)', color: 'white' }}>
                 <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Modelo</th>
                 <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Motor</th>
                 <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Nota</th>
@@ -333,7 +333,7 @@ export default function MaidesiteT2ProReviewPage() {
       </section>
 
       {/* Internal links */}
-      <section className="mt-10 max-w-3xl p-6 rounded" style={{ background: 'var(--bg-secondary)' }}>
+      <section className="mt-10 max-w-3xl p-6 rounded" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--color-secondary)' }}>
         <h3 className="text-lg font-semibold mb-3" style={{ fontFamily: 'var(--font-display)' }}>
           Sigue leyendo
         </h3>

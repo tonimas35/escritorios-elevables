@@ -5,7 +5,7 @@ interface ProsConsBoxProps {
 
 export function ProsConsBox({ pros, cons }: ProsConsBoxProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 rounded overflow-hidden" style={{ border: '1px solid var(--border)' }}>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 rounded overflow-hidden" style={{ border: '1px solid var(--border)', borderTop: '2px solid var(--color-secondary)' }}>
       <div className="p-5">
         <h4 className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--pro)' }}>
           A favor

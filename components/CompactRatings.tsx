@@ -9,7 +9,7 @@ const RATING_LABELS: Record<string, string> = {
 };
 
 function ratingColor(value: number): string {
-  if (value >= 8.5) return "var(--rating-good)";
+  if (value >= 8.5) return "var(--color-secondary)";
   if (value >= 7) return "var(--rating-okay)";
   return "var(--rating-bad)";
 }

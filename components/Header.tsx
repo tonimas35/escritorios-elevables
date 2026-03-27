@@ -10,12 +10,12 @@ const NAV_ITEMS = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl" style={{ background: 'rgba(250, 248, 246, 0.92)', borderBottom: '1px solid var(--border)' }}>
+    <header className="sticky top-0 z-50 backdrop-blur-xl" style={{ background: 'rgba(250, 248, 246, 0.92)' }}>
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5 group">
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect x="4" y="20" width="24" height="3" rx="1.5" fill="#c47a3a" />
-            <path d="M16 5L21 12H11L16 5Z" fill="#c47a3a" />
+            <path d="M16 5L21 12H11L16 5Z" fill="#2d4a3e" />
             <rect x="15" y="11" width="2" height="9" rx="1" fill="#c47a3a" />
           </svg>
           <span className="text-sm tracking-tight" style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-display)', fontWeight: 500 }}>
@@ -26,9 +26,10 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-8">
           {NAV_ITEMS.map((item) => (
             <Link
-              key={item.href}
+              key={item.href + item.label}
               href={item.href}
-              className="nav-link text-[11px] font-medium uppercase tracking-[0.15em] transition-colors duration-200"
+              className="nav-link text-[11px] font-medium transition-colors duration-200"
+              style={{ fontVariant: 'all-small-caps', letterSpacing: '0.1em', fontFamily: 'var(--font-body)' }}
             >
               {item.label}
             </Link>
@@ -37,6 +38,8 @@ export function Header() {
 
         <MobileMenuButton items={NAV_ITEMS} />
       </div>
+      {/* Thin accent line under header */}
+      <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent 0%, var(--accent) 30%, var(--color-secondary) 70%, transparent 100%)', opacity: 0.3 }} />
     </header>
   );
 }

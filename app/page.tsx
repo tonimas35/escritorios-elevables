@@ -12,73 +12,103 @@ export default function Home() {
   const totalReviews = allProducts.reduce((sum, [, p]) => sum + p.num_reviews, 0);
   const totalReviewsRounded = Math.floor(totalReviews / 1000) * 1000;
 
+  const [topAsin, topProduct] = allProducts[0];
+
   const budgetPicks = allProducts.filter(([, p]) => p.precio < 135).sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total).slice(0, 3);
   const midPicks = allProducts.filter(([, p]) => p.precio >= 135 && p.precio <= 200).sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total).slice(0, 3);
   const premiumPicks = allProducts.filter(([, p]) => p.precio > 200).sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total).slice(0, 3);
 
   return (
     <>
-      {/* Hero — Conversion focused */}
-      <section className="relative overflow-hidden noise-bg" style={{ background: 'var(--bg-secondary)' }}>
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.25) 1px, transparent 0)',
-          backgroundSize: '32px 32px',
-        }} />
+      {/* Hero — Editorial split layout with gradient mesh */}
+      <section className="relative overflow-hidden hero-mesh" style={{ background: 'var(--bg-secondary)' }}>
         <div className="max-w-6xl mx-auto px-6 py-20 md:py-28 relative">
-          <div className="animate-fade-up">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] mb-4" style={{ color: 'var(--accent)' }}>
-              Analisis independiente · Marzo 2026
-            </p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl leading-none" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-dark)' }}>
-              Los mejores escritorios
-              <br />
-              <span style={{ color: 'var(--accent)' }}>elevables</span> de 2026
-            </h1>
-          </div>
-          <p className="mt-6 text-base md:text-lg max-w-xl leading-relaxed animate-fade-up stagger-2" style={{ color: 'var(--text-secondary)' }}>
-            {allProducts.length} modelos analizados. Desde 110 EUR hasta gama premium.
-            Datos reales y opiniones contrastadas de cada modelo.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 animate-fade-up stagger-3">
-            <Link href="/mejor-escritorio-elevable" className="btn-primary">
-              Ver los {allProducts.length} mejores
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-            <Link href="/escritorio-elevable-barato" className="btn-outline">
-              Opciones baratas (desde 110€)
-            </Link>
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            {/* Left: Title + CTA */}
+            <div className="flex-1 animate-fade-up">
+              <p className="editorial-mark mb-6" style={{ color: 'var(--color-secondary)' }}>
+                No. 01 &middot; Marzo 2026 &middot; Analisis independiente
+              </p>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl leading-none" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-dark)' }}>
+                Los mejores escritorios
+                <br />
+                <span style={{ color: 'var(--accent)' }}>elevables</span> de 2026
+              </h1>
+              <p className="mt-6 text-base md:text-lg max-w-xl leading-relaxed animate-fade-up stagger-2" style={{ color: 'var(--text-secondary)' }}>
+                {allProducts.length} modelos analizados. Desde 80&nbsp;EUR hasta gama premium.
+                Datos reales y opiniones contrastadas de cada modelo.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 animate-fade-up stagger-3">
+                <Link href="/mejor-escritorio-elevable" className="btn-primary">
+                  Ver los {allProducts.length} mejores
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+                <Link href="/escritorio-elevable-barato" className="btn-outline">
+                  Opciones baratas (desde 80&euro;)
+                </Link>
+              </div>
+            </div>
+
+            {/* Right: #1 product showcase */}
+            <div className="hidden md:block w-[320px] flex-shrink-0 animate-fade-up stagger-3">
+              <div className="relative">
+                <div className="absolute -top-4 -left-4 w-full h-full rounded" style={{ background: 'var(--color-secondary)', opacity: 0.06 }} />
+                <div className="relative p-6 rounded" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-editorial)' }}>
+                  <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--color-secondary)' }}>
+                    #01 Recomendado
+                  </p>
+                  <div className="w-full h-[180px] rounded-lg overflow-hidden flex items-center justify-center product-image-container">
+                    <Image src={topProduct.imagen} alt={topProduct.imagen_alt} width={180} height={180} className="object-contain p-2" />
+                  </div>
+                  <h3 className="text-sm font-semibold mt-3" style={{ fontFamily: 'var(--font-display)' }}>
+                    {topProduct.marca} {topProduct.modelo}
+                  </h3>
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="mono text-lg font-bold">{topProduct.precio}&euro;</span>
+                    <span className="mono font-bold text-xs px-1.5 py-0.5 rounded text-white" style={{ background: 'var(--color-secondary)' }}>
+                      {topProduct.puntuacion.total}
+                    </span>
+                  </div>
+                  <div className="mt-3">
+                    <AffiliateButton asin={topAsin} size="sm" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Stats bar */}
-          <div className="mt-14 grid grid-cols-3 gap-8 pt-8 animate-fade-up stagger-4" style={{ borderTop: '1px solid var(--border)' }}>
-            {[
-              { value: String(allProducts.length), label: "Escritorios analizados" },
-              { value: `${totalReviewsRounded}+`, label: "Opiniones verificadas" },
-              { value: "Mar 2026", label: "Ultima actualizacion" },
-            ].map((stat, i) => (
-              <FadeIn key={stat.label} delay={400 + i * 120}>
-                <div>
-                  <p className="mono text-2xl md:text-3xl font-bold" style={{ color: 'var(--accent)' }}>
-                    {stat.value}
-                  </p>
-                  <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>{stat.label}</p>
-                </div>
-              </FadeIn>
-            ))}
+          {/* Stats bar — with secondary color background */}
+          <div className="mt-14 p-6 rounded animate-fade-up stagger-4" style={{ background: 'var(--color-secondary)', color: 'white' }}>
+            <div className="grid grid-cols-3 gap-8">
+              {[
+                { value: String(allProducts.length), label: "Escritorios analizados" },
+                { value: `${totalReviewsRounded}+`, label: "Opiniones verificadas" },
+                { value: "Mar 2026", label: "Ultima actualizacion" },
+              ].map((stat, i) => (
+                <FadeIn key={stat.label} delay={400 + i * 120}>
+                  <div>
+                    <p className="mono text-2xl md:text-3xl font-bold" style={{ color: 'rgba(255,255,255,0.95)' }}>
+                      {stat.value}
+                    </p>
+                    <p className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>{stat.label}</p>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Quick comparison table — THE MONEY MAKER */}
+      {/* Quick comparison table */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <FadeIn>
           <div className="mb-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>
-              Resumen rapido
+            <p className="editorial-mark" style={{ color: 'var(--color-secondary)' }}>
+              No. 02 &middot; Resumen rapido
             </p>
-            <h2 className="text-3xl md:text-4xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+            <h2 className="text-3xl md:text-4xl mt-2 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
               Top 7 de un vistazo
             </h2>
           </div>
@@ -88,7 +118,7 @@ export default function Home() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
               <thead>
-                <tr style={{ background: 'var(--bg-dark)', color: 'var(--text-inverse)' }}>
+                <tr style={{ background: 'var(--color-secondary)', color: 'white' }}>
                   <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>#</th>
                   <th className="text-left p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Modelo</th>
                   <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Motor</th>
@@ -102,7 +132,7 @@ export default function Home() {
                 {allProducts.slice(0, 7).map(([asin, product], i) => (
                   <tr key={asin} className="transition-colors" style={{ borderBottom: '1px solid var(--border)', background: 'transparent' }}>
                     <td className="p-3">
-                      <span className="mono text-xs font-bold" style={{ color: 'var(--accent)' }}>
+                      <span className="mono text-xs font-bold" style={{ color: 'var(--color-secondary)' }}>
                         {String(i + 1).padStart(2, '0')}
                       </span>
                     </td>
@@ -114,26 +144,26 @@ export default function Home() {
                         <div>
                           <p className="font-semibold text-sm">{product.marca} {product.modelo}</p>
                           <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                            {product.rating}★ ({product.num_reviews})
+                            {product.rating}&#9733; ({product.num_reviews})
                           </p>
                         </div>
                       </div>
                     </td>
                     <td className="p-3 text-center">
-                      <span className="text-xs font-medium px-2 py-0.5 rounded" style={{ background: product.specs.tipo_motor === 'doble' ? 'rgba(46, 139, 62, 0.12)' : 'var(--bg-secondary)', color: product.specs.tipo_motor === 'doble' ? 'var(--pro)' : 'var(--text-muted)' }}>
+                      <span className="text-xs font-medium px-2 py-0.5 rounded" style={{ background: product.specs.tipo_motor === 'doble' ? 'var(--color-secondary-subtle)' : 'var(--bg-secondary)', color: product.specs.tipo_motor === 'doble' ? 'var(--color-secondary)' : 'var(--text-muted)' }}>
                         {product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple'}
                       </span>
                     </td>
                     <td className="p-3 text-center mono text-sm">{product.specs.peso_max_carga_kg} kg</td>
                     <td className="p-3 text-center">
-                      <span className="mono font-bold" style={{ color: product.puntuacion.total >= 8 ? 'var(--pro)' : 'var(--text-primary)' }}>
+                      <span className="mono font-bold" style={{ color: product.puntuacion.total >= 8.5 ? 'var(--color-secondary)' : 'var(--text-primary)' }}>
                         {product.puntuacion.total}
                       </span>
                     </td>
                     <td className="p-3 text-center">
-                      <span className="mono font-bold text-base">{product.precio}€</span>
+                      <span className="mono font-bold text-base">{product.precio}&euro;</span>
                       {product.precio_habitual && (
-                        <span className="mono text-xs line-through ml-1" style={{ color: 'var(--text-muted)' }}>{product.precio_habitual}€</span>
+                        <span className="mono text-xs line-through ml-1" style={{ color: 'var(--text-muted)' }}>{product.precio_habitual}&euro;</span>
                       )}
                     </td>
                     <td className="p-3 text-center">
@@ -146,22 +176,22 @@ export default function Home() {
           </div>
           <div className="mt-4 text-center">
             <Link href="/mejor-escritorio-elevable" className="text-xs font-semibold uppercase tracking-wider transition-colors" style={{ color: 'var(--accent)' }}>
-              Ver analisis completo de los {allProducts.length} modelos →
+              Ver analisis completo de los {allProducts.length} modelos &rarr;
             </Link>
           </div>
         </FadeIn>
       </section>
 
-      <div className="divider max-w-6xl mx-auto" />
+      <div className="editorial-rule max-w-6xl mx-auto" />
 
-      {/* By budget — HIGH CONVERSION SECTION */}
+      {/* By budget */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <FadeIn>
           <div className="mb-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>
-              Por presupuesto
+            <p className="editorial-mark" style={{ color: 'var(--color-secondary)' }}>
+              No. 03 &middot; Por presupuesto
             </p>
-            <h2 className="text-3xl md:text-4xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+            <h2 className="text-3xl md:text-4xl mt-2 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
               Encuentra el tuyo
             </h2>
           </div>
@@ -170,11 +200,11 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Baratos */}
           <FadeIn delay={0}>
-            <div className="rounded p-6 relative product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+            <div className="rounded p-6 relative product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--color-secondary)' }}>
               <span className="decorative-number">01</span>
               <div className="relative">
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>&lt;200€</span>
+                  <span className="mono text-2xl font-bold" style={{ color: 'var(--color-secondary)' }}>&lt;135&euro;</span>
                   <span className="text-xs uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Baratos</span>
                 </div>
                 <div className="space-y-3">
@@ -185,14 +215,14 @@ export default function Home() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-semibold truncate">{product.marca} {product.modelo}</p>
-                        <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {product.specs.tipo_motor}</p>
+                        <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}&#9733; &middot; {product.specs.tipo_motor}</p>
                       </div>
-                      <span className="mono font-bold text-sm">{product.precio}€</span>
+                      <span className="mono font-bold text-sm">{product.precio}&euro;</span>
                     </div>
                   ))}
                 </div>
-                <Link href="/escritorio-elevable-barato" className="mt-4 block text-center text-xs font-semibold uppercase tracking-wider py-2 rounded transition-colors" style={{ color: 'var(--accent)', border: '1px solid var(--accent)' }}>
-                  Ver baratos →
+                <Link href="/escritorio-elevable-barato" className="mt-4 block text-center text-xs font-semibold uppercase tracking-wider py-2 rounded transition-colors" style={{ color: 'var(--color-secondary)', border: '1px solid var(--color-secondary)' }}>
+                  Ver baratos &rarr;
                 </Link>
               </div>
             </div>
@@ -207,7 +237,7 @@ export default function Home() {
               </span>
               <div className="relative">
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>135–200€</span>
+                  <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>135&ndash;200&euro;</span>
                   <span className="text-xs uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Calidad-precio</span>
                 </div>
                 <div className="space-y-3">
@@ -218,9 +248,9 @@ export default function Home() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-semibold truncate">{product.marca} {product.modelo}</p>
-                        <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {product.specs.tipo_motor}</p>
+                        <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}&#9733; &middot; {product.specs.tipo_motor}</p>
                       </div>
-                      <span className="mono font-bold text-sm">{product.precio}€</span>
+                      <span className="mono font-bold text-sm">{product.precio}&euro;</span>
                     </div>
                   ))}
                 </div>
@@ -237,7 +267,7 @@ export default function Home() {
               <span className="decorative-number">03</span>
               <div className="relative">
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>&gt;200€</span>
+                  <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>&gt;200&euro;</span>
                   <span className="text-xs uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Premium doble motor</span>
                 </div>
                 <div className="space-y-3">
@@ -248,9 +278,9 @@ export default function Home() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-semibold truncate">{product.marca} {product.modelo}</p>
-                        <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {product.specs.tipo_motor}</p>
+                        <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}&#9733; &middot; {product.specs.tipo_motor}</p>
                       </div>
-                      <span className="mono font-bold text-sm">{product.precio}€</span>
+                      <span className="mono font-bold text-sm">{product.precio}&euro;</span>
                     </div>
                   ))}
                 </div>
@@ -263,16 +293,16 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="divider max-w-6xl mx-auto" />
+      <div className="editorial-rule max-w-6xl mx-auto" />
 
       {/* Quick links to content pages */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <FadeIn>
           <div className="mb-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>
-              Guias y comparativas
+            <p className="editorial-mark" style={{ color: 'var(--color-secondary)' }}>
+              No. 04 &middot; Guias y comparativas
             </p>
-            <h2 className="text-3xl md:text-4xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+            <h2 className="text-3xl md:text-4xl mt-2 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
               Contenido util
             </h2>
           </div>
@@ -280,7 +310,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { title: "Escritorios baratos", desc: "Los 6 mejores por menos de 200€", href: "/escritorio-elevable-barato", tag: "Guia" },
+            { title: "Escritorios baratos", desc: "Los mejores por menos de 200\u20AC", href: "/escritorio-elevable-barato", tag: "Guia" },
             { title: "Flexispot E7: review", desc: "Analisis completo del mas vendido", href: "/flexispot-e7-opiniones", tag: "Review" },
             { title: "Flexispot vs Maidesite", desc: "Comparativa directa marca a marca", href: "/flexispot-vs-maidesite", tag: "Comparativa" },
             { title: "Comparador", desc: "Filtra y compara por specs", href: "/comparador", tag: "Herramienta" },
@@ -289,13 +319,13 @@ export default function Home() {
               <Link
                 href={item.href}
                 className="card-lift group p-5 rounded block"
-                style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}
+                style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderLeft: '3px solid var(--color-secondary)' }}
               >
-                <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent)' }}>{item.tag}</span>
-                <h3 className="text-base font-semibold mt-1" style={{ fontFamily: 'var(--font-display)' }}>{item.title}</h3>
+                <span className="tag-secondary">{item.tag}</span>
+                <h3 className="text-base font-semibold mt-2" style={{ fontFamily: 'var(--font-display)' }}>{item.title}</h3>
                 <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>{item.desc}</p>
                 <span className="mt-3 block text-xs font-semibold uppercase tracking-wider transition-colors" style={{ color: 'var(--accent)' }}>
-                  Leer →
+                  Leer &rarr;
                 </span>
               </Link>
             </FadeIn>

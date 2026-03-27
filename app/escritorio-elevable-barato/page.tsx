@@ -69,7 +69,7 @@ export default function EscritorioBaratoPage() {
 
   const ratingBg = (score: number) =>
     score >= 8.5
-      ? "var(--rating-good)"
+      ? "var(--color-secondary)"
       : score >= 7
         ? "var(--rating-okay)"
         : "var(--rating-bad)";
@@ -92,15 +92,20 @@ export default function EscritorioBaratoPage() {
       </nav>
 
       <FadeIn>
+        <div className="editorial-rule mb-6" />
+        <p className="editorial-mark mb-3" style={{ color: 'var(--color-secondary)' }}>
+          Guia de compra &middot; Marzo 2026
+        </p>
         <h1 className="text-3xl md:text-5xl heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
           Mejores escritorios elevables <span style={{ color: 'var(--accent)' }}>baratos</span> 2026
         </h1>
         <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
-          Actualizado: marzo 2026 · {cheapProducts.length} modelos analizados por debajo de 220 EUR
+          Actualizado: marzo 2026 &middot; {cheapProducts.length} modelos analizados por debajo de 220 EUR
         </p>
         <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
           Este articulo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequena comision sin coste adicional para ti.
         </p>
+        <div className="editorial-rule mt-6" />
       </FadeIn>
 
       {/* Intro editorial */}
@@ -115,13 +120,13 @@ export default function EscritorioBaratoPage() {
       {/* Winner callout */}
       {winner && (
         <FadeIn delay={200}>
-          <div className="mt-8 p-6 rounded-lg noise-bg" style={{ background: 'linear-gradient(135deg, var(--accent-light), rgba(196, 122, 58, 0.03))', border: '2px solid var(--accent)' }}>
+          <div className="mt-8 p-6 rounded noise-bg" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
             <div className="flex flex-col md:flex-row items-start gap-6">
               <div className="w-[140px] h-[140px] rounded-lg flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
                 <Image src={winner[1].imagen} alt={winner[1].imagen_alt} width={140} height={140} className="object-contain p-1" />
               </div>
               <div className="flex-1">
-                <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Ganador calidad-precio</p>
+                <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--color-secondary)' }}>Ganador calidad-precio</p>
                 <h2 className="text-xl font-semibold mt-1" style={{ fontFamily: 'var(--font-display)' }}>
                   {winner[1].nombre}
                 </h2>
@@ -144,7 +149,7 @@ export default function EscritorioBaratoPage() {
         <div className="mt-10 overflow-x-auto">
           <table className="w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
             <thead>
-              <tr style={{ background: 'var(--bg-dark)', color: 'var(--text-inverse)' }}>
+              <tr style={{ background: 'var(--color-secondary)', color: 'white' }}>
                 <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>#</th>
                 <th className="text-left p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Modelo</th>
                 <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Tablero</th>
@@ -159,7 +164,7 @@ export default function EscritorioBaratoPage() {
               {cheapProducts.map(([asin, product], i) => (
                 <tr key={asin} className="transition-colors hover:bg-[var(--accent-light)]" style={{ borderBottom: '1px solid var(--border)' }}>
                   <td className="p-3">
-                    <span className="mono text-xs font-bold" style={{ color: 'var(--accent)' }}>{String(i + 1).padStart(2, '0')}</span>
+                    <span className="mono text-xs font-bold" style={{ color: 'var(--color-secondary)' }}>{String(i + 1).padStart(2, '0')}</span>
                   </td>
                   <td className="p-3">
                     <div className="flex items-center gap-2">
@@ -240,7 +245,7 @@ export default function EscritorioBaratoPage() {
           <FadeIn key={asin} delay={i * 60}>
             <section id={product.slug}>
               <div className="flex items-baseline gap-3 mb-2">
-                <span className="mono text-sm font-bold" style={{ color: 'var(--accent)' }}>#{String(i + 1).padStart(2, '0')}</span>
+                <span className="mono text-sm font-bold" style={{ color: 'var(--color-secondary)' }}>#{String(i + 1).padStart(2, '0')}</span>
                 <h2 className="text-2xl" style={{ fontFamily: 'var(--font-display)' }}>
                   {product.nombre}
                 </h2>
@@ -317,7 +322,7 @@ export default function EscritorioBaratoPage() {
 
       {/* Internal links */}
       <FadeIn>
-        <section className="mt-10 max-w-3xl p-6 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
+        <section className="mt-10 max-w-3xl p-6 rounded" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--color-secondary)' }}>
           <h3 className="text-lg font-semibold mb-3" style={{ fontFamily: 'var(--font-display)' }}>
             Otras guias que te pueden interesar
           </h3>

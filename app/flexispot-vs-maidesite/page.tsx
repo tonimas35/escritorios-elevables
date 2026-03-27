@@ -116,7 +116,7 @@ export default function FlexispotVsMaidesitePage() {
 
       {/* TL;DR */}
       <FadeIn delay={200}>
-        <div className="mt-8 p-6 rounded-lg noise-bg" style={{ background: 'linear-gradient(135deg, var(--accent-light), rgba(196, 122, 58, 0.03))', border: '2px solid var(--accent)' }}>
+        <div className="mt-8 p-6 rounded noise-bg" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
           <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>TL;DR</p>
           <p className="mt-2 text-base leading-relaxed" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-dark)' }}>
             Flexispot gana en calidad y estabilidad. Maidesite gana en precio. Si puedes gastar 480€, el E7 es mejor escritorio.
@@ -171,7 +171,7 @@ export default function FlexispotVsMaidesitePage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
               <thead>
-                <tr style={{ background: 'var(--bg-dark)', color: 'var(--text-inverse)' }}>
+                <tr style={{ background: 'var(--color-secondary)', color: 'white' }}>
                   <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Especificacion</th>
                   <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Flexispot E7</th>
                   <th className="text-center p-3 rounded-tr" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Maidesite T2 Pro+</th>
@@ -326,7 +326,7 @@ export default function FlexispotVsMaidesitePage() {
 
       {/* Internal links */}
       <FadeIn>
-        <section className="mt-10 max-w-3xl p-6 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
+        <section className="mt-10 max-w-3xl p-6 rounded" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--color-secondary)' }}>
           <h3 className="text-lg font-semibold mb-3" style={{ fontFamily: 'var(--font-display)' }}>
             Otras guias
           </h3>

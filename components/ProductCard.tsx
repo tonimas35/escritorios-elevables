@@ -14,14 +14,14 @@ interface ProductCardProps {
 function RatingBadge({ score }: { score: number }) {
   const bg =
     score >= 8.5
-      ? "var(--rating-good)"
+      ? "var(--color-secondary)"
       : score >= 7
         ? "var(--rating-okay)"
         : "var(--rating-bad)";
   return (
     <span
       className="inline-flex items-center justify-center text-white font-bold text-sm rounded px-2 py-0.5 tabular-nums"
-      style={{ background: bg }}
+      style={{ background: bg, fontFamily: 'var(--font-mono)' }}
     >
       {score}
     </span>
@@ -58,7 +58,7 @@ export function ProductCard({
 
   if (size === "compact") {
     return (
-      <div className="flex items-center gap-4 p-4 rounded-lg product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+      <div className="flex items-center gap-4 p-4 rounded product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--accent)' }}>
         <div className="w-20 h-20 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden product-image-container">
           {isRemoteImage ? (
             <Image
@@ -69,7 +69,7 @@ export function ProductCard({
               className="object-contain"
             />
           ) : (
-            <span className="text-2xl">🖥️</span>
+            <span className="text-2xl">&#128421;</span>
           )}
         </div>
         <div className="flex-1 min-w-0">
@@ -80,7 +80,7 @@ export function ProductCard({
           <div className="flex items-center gap-2 mt-1">
             <RatingBadge score={product.puntuacion.total} />
             <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-              {product.rating}★ ({product.num_reviews})
+              {product.rating}&#9733; ({product.num_reviews})
             </span>
           </div>
         </div>
@@ -101,16 +101,16 @@ export function ProductCard({
   const tableroLabel = `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm`;
 
   return (
-    <div className="relative overflow-hidden rounded-lg product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+    <div className="relative overflow-hidden rounded product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--accent)' }}>
       {(badge || rank) && (
         <div className="flex items-center gap-2 px-5 pt-4">
           {rank !== undefined && rank > 0 && (
-            <span className="tabular-nums text-xs font-bold" style={{ color: 'var(--accent)' }}>
-              #{String(rank).padStart(2, "0")}
+            <span className="editorial-number text-3xl" style={{ opacity: 0.15 }}>
+              {String(rank).padStart(2, "0")}
             </span>
           )}
           {badge && (
-            <span className="tag">
+            <span className="tag-secondary">
               {badge}
             </span>
           )}
@@ -118,7 +118,7 @@ export function ProductCard({
       )}
 
       <div className="p-5">
-        {/* Image - large, centered */}
+        {/* Image - large, centered, on gradient background */}
         <div className="flex justify-center mb-4">
           <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center overflow-hidden product-image-container">
             {isRemoteImage ? (
@@ -130,7 +130,7 @@ export function ProductCard({
                 className="object-contain p-2"
               />
             ) : (
-              <span className="text-5xl">🖥️</span>
+              <span className="text-5xl">&#128421;</span>
             )}
           </div>
         </div>
@@ -149,30 +149,30 @@ export function ProductCard({
         <div className="flex items-center gap-2 mb-3">
           <RatingBadge score={product.puntuacion.total} />
           <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-            {product.rating}★ ({product.num_reviews})
+            {product.rating}&#9733; ({product.num_reviews})
           </span>
         </div>
 
         {/* Spec badges */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           <SpecBadge>
-            {product.specs.tipo_motor === "doble" ? "⚡" : "🔌"} {motorLabel}
+            {product.specs.tipo_motor === "doble" ? "\u26A1" : "\u{1F50C}"} {motorLabel}
           </SpecBadge>
-          <SpecBadge>🏋️ {cargaLabel}</SpecBadge>
-          <SpecBadge>📐 {tableroLabel}</SpecBadge>
+          <SpecBadge>{cargaLabel}</SpecBadge>
+          <SpecBadge>{tableroLabel}</SpecBadge>
         </div>
 
         {/* Quick pros/cons */}
         <div className="mb-4 py-3 space-y-1.5" style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
           {shortPros.map((pro, i) => (
             <p key={`pro-${i}`} className="text-xs flex items-start gap-1.5" style={{ color: 'var(--text-secondary)' }}>
-              <span className="flex-shrink-0 mt-px" style={{ color: 'var(--rating-good)' }}>✓</span>
+              <span className="flex-shrink-0 mt-px" style={{ color: 'var(--color-secondary)' }}>&#10003;</span>
               <span>{pro}</span>
             </p>
           ))}
           {shortCons.map((con, i) => (
             <p key={`con-${i}`} className="text-xs flex items-start gap-1.5" style={{ color: 'var(--text-muted)' }}>
-              <span className="flex-shrink-0 mt-px" style={{ color: 'var(--rating-bad)' }}>✗</span>
+              <span className="flex-shrink-0 mt-px" style={{ color: 'var(--rating-bad)' }}>&#10007;</span>
               <span>{con}</span>
             </p>
           ))}
@@ -182,7 +182,7 @@ export function ProductCard({
         <div className="flex items-baseline gap-2">
           {product.precio_habitual && (
             <span className="tabular-nums text-sm line-through" style={{ color: 'var(--text-muted)' }}>
-              {product.precio_habitual}€
+              {product.precio_habitual}&euro;
             </span>
           )}
           <span className="tabular-nums text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
