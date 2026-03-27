@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+
+const GA_ID = "G-DYSVBYSJN7";
 
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
@@ -42,6 +45,18 @@ export default function RootLayout({
       className={`${sourceSerif.variable} ${jetbrainsMono.variable}`}
     >
       <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&display=swap" rel="stylesheet" />
