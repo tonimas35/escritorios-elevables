@@ -5,6 +5,7 @@ import { getAllProducts } from "@/lib/products";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
+import { FadeIn } from "@/components/FadeIn";
 
 export const metadata: Metadata = {
   title: "12 mejores escritorios elevables 2026 — Guia de compra",
@@ -92,8 +93,20 @@ export default function MejorEscritorioPage() {
     })),
   };
 
+  // Group products by tier for editorial bridges
+  const premiumProducts = topProducts.filter(([, p]) => p.precio > 300);
+  const midProducts = topProducts.filter(([, p]) => p.precio >= 150 && p.precio <= 300);
+  const budgetProducts = topProducts.filter(([, p]) => p.precio < 150);
+
+  const ratingBg = (score: number) =>
+    score >= 8.5
+      ? "var(--rating-good)"
+      : score >= 7
+        ? "var(--rating-okay)"
+        : "var(--rating-bad)";
+
   return (
-    <div className="max-w-5xl mx-auto px-6 py-12">
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -110,134 +123,154 @@ export default function MejorEscritorioPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Breadcrumb */}
-      <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
-        <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
-        {" "}&gt;{" "}Mejores escritorios elevables
-      </nav>
+      <div className="max-w-5xl mx-auto px-6 py-12">
+        {/* Breadcrumb */}
+        <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
+          <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
+          {" "}&gt;{" "}Mejores escritorios elevables
+        </nav>
 
-      <h1 className="text-3xl md:text-5xl" style={{ fontFamily: 'var(--font-display)' }}>
-        Los <span style={{ color: 'var(--accent)' }}>12 mejores</span> escritorios elevables de 2026
-      </h1>
-      <p className="mt-2 text-sm text-neutral-500">
-        Actualizado: marzo 2026 · 12 modelos analizados · Desde 110 EUR
-      </p>
-      <p className="mt-1 text-xs text-neutral-400">
-        Este articulo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequena comision sin coste adicional para ti.
-      </p>
+        <FadeIn>
+          <h1 className="text-3xl md:text-5xl heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+            Los <span style={{ color: 'var(--accent)' }}>12 mejores</span> escritorios elevables de 2026
+          </h1>
+          <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
+            Actualizado: marzo 2026 · 12 modelos analizados · Desde 110 EUR
+          </p>
+          <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
+            Este articulo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequena comision sin coste adicional para ti.
+          </p>
+        </FadeIn>
 
-      {/* Intro editorial */}
-      <div className="mt-8 max-w-3xl text-sm leading-relaxed text-neutral-600">
-        <p>
-          He analizado 12 escritorios elevables en Amazon Espana (de 120 a 550 EUR), midiendo ruido, estabilidad y leyendo cientos de opiniones reales. Mi recomendacion rapida: el <strong>Flexispot E7 Pro</strong> si el presupuesto no importa, el <strong>Maidesite T2 Pro Plus</strong> (doble motor por menos de 300 EUR) para la mayoria, y el <strong>Ergear EED-S1</strong> (140 EUR, con anticolision) si vas justo.
-        </p>
-      </div>
-
-      {/* Winner callout */}
-      <div className="mt-8 p-6 rounded-lg" style={{ background: 'var(--accent-light)', border: '2px solid var(--accent)' }}>
-        <div className="flex flex-col md:flex-row items-start gap-6">
-          <div className="w-[140px] h-[140px] rounded-lg flex-shrink-0 overflow-hidden flex items-center justify-center bg-white">
-            <Image src={topProduct.imagen} alt={topProduct.imagen_alt} width={140} height={140} className="object-contain p-1" />
+        {/* Intro editorial */}
+        <FadeIn delay={100}>
+          <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+            <p>
+              He analizado 12 escritorios elevables en Amazon Espana (de 120 a 550 EUR), midiendo ruido, estabilidad y leyendo cientos de opiniones reales. Mi recomendacion rapida: el <strong>Flexispot E7 Pro</strong> si el presupuesto no importa, el <strong>Maidesite T2 Pro Plus</strong> (doble motor por menos de 300 EUR) para la mayoria, y el <strong>Ergear EED-S1</strong> (140 EUR, con anticolision) si vas justo.
+            </p>
           </div>
-          <div className="flex-1">
-            <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Nuestro favorito</p>
-            <h2 className="text-xl font-semibold mt-1 text-neutral-800" style={{ fontFamily: 'var(--font-display)' }}>
-              {topProduct.nombre}
-            </h2>
-            <p className="text-sm mt-1 text-neutral-600">{topProduct.veredicto}</p>
-            <div className="flex items-center gap-4 mt-3">
-              <span className="tabular-nums text-2xl font-bold text-neutral-800">{topProduct.precio}€</span>
-              <span
-                className={`tabular-nums font-bold px-2 py-0.5 rounded text-sm text-white ${
-                  topProduct.puntuacion.total >= 8.5
-                    ? "bg-green-500"
-                    : topProduct.puntuacion.total >= 7
-                      ? "bg-amber-500"
-                      : "bg-red-500"
-                }`}
-              >
-                {topProduct.puntuacion.total}/10
-              </span>
-              <AffiliateButton asin={topAsin} size="sm" />
+        </FadeIn>
+
+        {/* Winner callout — #1 product gets special treatment */}
+        <FadeIn delay={200}>
+          <div className="mt-8 p-6 rounded-lg noise-bg" style={{ background: 'linear-gradient(135deg, var(--accent-light), rgba(196, 122, 58, 0.03))', border: '2px solid var(--accent)' }}>
+            <div className="flex flex-col md:flex-row items-start gap-6">
+              <div className="w-[160px] h-[160px] rounded-lg flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
+                <Image src={topProduct.imagen} alt={topProduct.imagen_alt} width={160} height={160} className="object-contain p-1" />
+              </div>
+              <div className="flex-1">
+                <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Nuestro favorito</p>
+                <h2 className="text-xl font-semibold mt-1" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
+                  {topProduct.nombre}
+                </h2>
+                <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>{topProduct.veredicto}</p>
+                <div className="flex items-center gap-4 mt-3">
+                  <span className="tabular-nums text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{topProduct.precio}€</span>
+                  <span
+                    className="tabular-nums font-bold px-2 py-0.5 rounded text-sm text-white"
+                    style={{ background: ratingBg(topProduct.puntuacion.total) }}
+                  >
+                    {topProduct.puntuacion.total}/10
+                  </span>
+                  <AffiliateButton asin={topAsin} size="sm" />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </FadeIn>
+
+        {/* Summary table */}
+        <FadeIn delay={150}>
+          <div className="mt-10 overflow-x-auto">
+            <table className="w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
+              <thead>
+                <tr style={{ background: 'var(--bg-dark)', color: 'var(--text-inverse)' }}>
+                  <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>#</th>
+                  <th className="text-left p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Modelo</th>
+                  <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Motor</th>
+                  <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Carga</th>
+                  <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Nota</th>
+                  <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Precio</th>
+                  <th className="text-center p-3 rounded-tr" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}></th>
+                </tr>
+              </thead>
+              <tbody>
+                {topProducts.map(([asin, product], i) => (
+                  <tr key={asin} className="transition-colors hover:bg-[var(--bg-secondary)]" style={{ borderBottom: '1px solid var(--border)' }}>
+                    <td className="p-3">
+                      <span className="tabular-nums text-xs font-bold" style={{ color: 'var(--accent)' }}>{String(i + 1).padStart(2, '0')}</span>
+                    </td>
+                    <td className="p-3">
+                      <a href={`#${product.slug}`} className="flex items-center gap-3 hover:underline">
+                        <div className="w-[80px] h-[80px] rounded-lg flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
+                          <Image src={product.imagen} alt={product.imagen_alt} width={80} height={80} className="object-contain p-1" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm" style={{ color: 'var(--text-primary)' }}>{product.marca} {product.modelo}</p>
+                          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ ({product.num_reviews})</p>
+                        </div>
+                      </a>
+                    </td>
+                    <td className="p-3 text-center">
+                      <span className="text-xs font-medium px-2 py-0.5 rounded" style={{
+                        background: product.specs.tipo_motor === 'doble' ? 'rgba(46, 139, 62, 0.12)' : 'var(--bg-secondary)',
+                        color: product.specs.tipo_motor === 'doble' ? 'var(--pro)' : 'var(--text-muted)',
+                      }}>
+                        {product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple'}
+                      </span>
+                    </td>
+                    <td className="p-3 text-center tabular-nums text-sm" style={{ color: 'var(--text-primary)' }}>{product.specs.peso_max_carga_kg} kg</td>
+                    <td className="p-3 text-center">
+                      <span
+                        className="tabular-nums font-bold"
+                        style={{ color: ratingBg(product.puntuacion.total) }}
+                      >
+                        {product.puntuacion.total}
+                      </span>
+                    </td>
+                    <td className="p-3 text-center tabular-nums font-bold" style={{ color: 'var(--text-primary)' }}>{product.precio}€</td>
+                    <td className="p-3 text-center">
+                      <AffiliateButton asin={asin} size="sm" />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </FadeIn>
+
+        {/* Editorial bridge before detailed analysis */}
+        <FadeIn>
+          <div className="mt-12 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+            <p>
+              No siempre el mas caro es el mejor. Lo que manda es el motor, la estructura y como se llevan entre si. Aqui va cada modelo, con lo bueno y lo malo.
+            </p>
+          </div>
+        </FadeIn>
       </div>
 
-      {/* Summary table */}
-      <div className="mt-10 overflow-x-auto">
-        <table className="w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
-          <thead>
-            <tr className="bg-neutral-800 text-white">
-              <th className="text-left p-3 rounded-tl font-semibold">#</th>
-              <th className="text-left p-3 font-semibold">Modelo</th>
-              <th className="text-center p-3 font-semibold">Motor</th>
-              <th className="text-center p-3 font-semibold">Carga</th>
-              <th className="text-center p-3 font-semibold">Nota</th>
-              <th className="text-center p-3 font-semibold">Precio</th>
-              <th className="text-center p-3 rounded-tr font-semibold"></th>
-            </tr>
-          </thead>
-          <tbody>
-            {topProducts.map(([asin, product], i) => (
-              <tr key={asin} className="transition-colors hover:bg-neutral-50 border-b border-neutral-200">
-                <td className="p-3">
-                  <span className="tabular-nums text-xs font-bold" style={{ color: 'var(--accent)' }}>{String(i + 1).padStart(2, '0')}</span>
-                </td>
-                <td className="p-3">
-                  <a href={`#${product.slug}`} className="flex items-center gap-3 hover:underline">
-                    <div className="w-[80px] h-[80px] rounded-lg flex-shrink-0 overflow-hidden flex items-center justify-center bg-neutral-50">
-                      <Image src={product.imagen} alt={product.imagen_alt} width={80} height={80} className="object-contain p-1" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm text-neutral-800">{product.marca} {product.modelo}</p>
-                      <p className="text-xs text-neutral-500">{product.rating}★ ({product.num_reviews})</p>
-                    </div>
-                  </a>
-                </td>
-                <td className="p-3 text-center">
-                  <span className={`text-xs font-medium px-2 py-0.5 rounded ${
-                    product.specs.tipo_motor === 'doble'
-                      ? 'bg-green-50 text-green-700'
-                      : 'bg-neutral-100 text-neutral-500'
-                  }`}>
-                    {product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple'}
-                  </span>
-                </td>
-                <td className="p-3 text-center tabular-nums text-sm text-neutral-800">{product.specs.peso_max_carga_kg} kg</td>
-                <td className="p-3 text-center">
-                  <span
-                    className="tabular-nums font-bold"
-                    style={{
-                      color: product.puntuacion.total >= 8.5
-                        ? '#22c55e'
-                        : product.puntuacion.total >= 7
-                          ? '#f59e0b'
-                          : '#ef4444',
-                    }}
-                  >
-                    {product.puntuacion.total}
-                  </span>
-                </td>
-                <td className="p-3 text-center tabular-nums font-bold text-neutral-800">{product.precio}€</td>
-                <td className="p-3 text-center">
-                  <AffiliateButton asin={asin} size="sm" />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {/* Detailed analysis of each product — with layout variation */}
+      <div className="mt-8">
+        {/* Premium tier bridge */}
+        {premiumProducts.length > 0 && (
+          <div className="py-8 mb-4 noise-bg" style={{ background: 'var(--bg-secondary)' }}>
+            <div className="max-w-5xl mx-auto px-6">
+              <FadeIn>
+                <div className="flex items-center gap-4">
+                  <div className="h-px flex-1" style={{ background: 'var(--border)' }} />
+                  <p className="text-xs font-bold uppercase tracking-[0.3em] whitespace-nowrap" style={{ color: 'var(--accent)' }}>
+                    Gama premium
+                  </p>
+                  <div className="h-px flex-1" style={{ background: 'var(--border)' }} />
+                </div>
+                <p className="text-center text-sm mt-2" style={{ color: 'var(--text-secondary)' }}>
+                  Para quien quiere lo mejor y no mira el precio
+                </p>
+              </FadeIn>
+            </div>
+          </div>
+        )}
 
-      {/* Editorial bridge before detailed analysis */}
-      <div className="mt-12 max-w-3xl text-sm leading-relaxed text-neutral-600">
-        <p>
-          No siempre el mas caro es el mejor. Lo que manda es el motor, la estructura y como se llevan entre si. Aqui va cada modelo, con lo bueno y lo malo.
-        </p>
-      </div>
-
-      {/* Detailed analysis of each product */}
-      <div className="mt-16 space-y-16">
         {topProducts.map(([asin, product], i) => {
           const editorialContent: Record<string, string> = {
             "flexispot-e7-pro": "El que compras cuando no quieres pensar mas. 150 kg de carga, 43 dB de ruido (no lo oyes en videollamada), tablero de bambu de 160x80. No tiene puntos debiles serios. El precio (mas de 500 EUR) y el montaje pesado (35 kg, necesitas ayuda) son los unicos peros. Para setups completos con dos monitores, es imbatible.",
@@ -254,146 +287,192 @@ export default function MejorEscritorioPage() {
           };
           const editorial = editorialContent[product.slug] || "";
 
+          // Determine if this product is at a tier boundary to insert bridge callouts
+          const isFirstMid = midProducts.length > 0 && product.slug === midProducts[0][1].slug;
+          const isFirstBudget = budgetProducts.length > 0 && product.slug === budgetProducts[0][1].slug;
+
+          // Every 3rd product gets a background band
+          const hasBand = i % 3 === 2;
+          // Alternate image position
+          const imageRight = i % 2 === 1;
+
           return (
-          <section key={asin} id={product.slug}>
-            <div className="flex items-baseline gap-3 mb-2">
-              <span className="tabular-nums text-sm font-bold" style={{ color: 'var(--accent)' }}>#{String(i + 1).padStart(2, '0')}</span>
-              <h2 className="text-2xl text-neutral-800" style={{ fontFamily: 'var(--font-display)' }}>
-                {product.nombre}
-              </h2>
-            </div>
-            <p className="text-sm text-neutral-600">{product.veredicto}</p>
-
-            <div className="mt-4 flex flex-col md:flex-row gap-6">
-              <div className="w-full md:w-[200px] h-[200px] rounded-lg overflow-hidden flex items-center justify-center flex-shrink-0 bg-neutral-50">
-                <Image src={product.imagen} alt={product.imagen_alt} width={200} height={200} className="object-contain p-2" />
-              </div>
-              <div className="flex-1">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-                  {[
-                    { label: "Precio", value: `${product.precio}€` },
-                    { label: "Motor", value: product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple' },
-                    { label: "Carga max", value: `${product.specs.peso_max_carga_kg} kg` },
-                    { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm` },
-                  ].map((spec) => (
-                    <div key={spec.label} className="p-2 rounded bg-neutral-50">
-                      <p className="text-xs text-neutral-500">{spec.label}</p>
-                      <p className="tabular-nums text-sm font-semibold text-neutral-800">{spec.value}</p>
-                    </div>
-                  ))}
+            <div key={asin}>
+              {/* Tier bridge callouts */}
+              {isFirstMid && (
+                <div className="py-8 mb-4 noise-bg" style={{ background: 'var(--bg-secondary)' }}>
+                  <div className="max-w-5xl mx-auto px-6">
+                    <FadeIn>
+                      <div className="flex items-center gap-4">
+                        <div className="h-px flex-1" style={{ background: 'var(--border)' }} />
+                        <p className="text-xs font-bold uppercase tracking-[0.3em] whitespace-nowrap" style={{ color: 'var(--accent)' }}>
+                          Gama media
+                        </p>
+                        <div className="h-px flex-1" style={{ background: 'var(--border)' }} />
+                      </div>
+                      <p className="text-center text-sm mt-2" style={{ color: 'var(--text-secondary)' }}>
+                        Donde esta el equilibrio entre precio y prestaciones
+                      </p>
+                    </FadeIn>
+                  </div>
                 </div>
-                <ProsConsBox pros={product.pros} cons={product.contras} />
-              </div>
+              )}
+              {isFirstBudget && (
+                <div className="py-8 mb-4 noise-bg" style={{ background: 'var(--bg-secondary)' }}>
+                  <div className="max-w-5xl mx-auto px-6">
+                    <FadeIn>
+                      <div className="flex items-center gap-4">
+                        <div className="h-px flex-1" style={{ background: 'var(--border)' }} />
+                        <p className="text-xs font-bold uppercase tracking-[0.3em] whitespace-nowrap" style={{ color: 'var(--accent)' }}>
+                          Gama economica
+                        </p>
+                        <div className="h-px flex-1" style={{ background: 'var(--border)' }} />
+                      </div>
+                      <p className="text-center text-sm mt-2" style={{ color: 'var(--text-secondary)' }}>
+                        Opciones solidas sin arruinarte
+                      </p>
+                    </FadeIn>
+                  </div>
+                </div>
+              )}
+
+              <section
+                id={product.slug}
+                className={`py-12 ${hasBand ? 'noise-bg' : ''}`}
+                style={hasBand ? { background: 'var(--bg-secondary)' } : {}}
+              >
+                <div className="max-w-5xl mx-auto px-6">
+                  <FadeIn delay={i * 50}>
+                    <div className="flex items-baseline gap-3 mb-2">
+                      <span className="tabular-nums text-sm font-bold" style={{ color: 'var(--accent)' }}>#{String(i + 1).padStart(2, '0')}</span>
+                      <h2 className="text-2xl" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
+                        {product.nombre}
+                      </h2>
+                    </div>
+                    <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>{product.veredicto}</p>
+
+                    <div className={`mt-4 flex flex-col gap-6 ${imageRight ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+                      <div className="w-full md:w-[200px] h-[200px] rounded-lg overflow-hidden flex items-center justify-center flex-shrink-0 product-image-container">
+                        <Image src={product.imagen} alt={product.imagen_alt} width={200} height={200} className="object-contain p-2" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+                          {[
+                            { label: "Precio", value: `${product.precio}€` },
+                            { label: "Motor", value: product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple' },
+                            { label: "Carga max", value: `${product.specs.peso_max_carga_kg} kg` },
+                            { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm` },
+                          ].map((spec) => (
+                            <div key={spec.label} className="p-2 rounded" style={{ background: hasBand ? 'var(--bg-card)' : 'var(--bg-secondary)' }}>
+                              <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{spec.label}</p>
+                              <p className="tabular-nums text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>{spec.value}</p>
+                            </div>
+                          ))}
+                        </div>
+                        <ProsConsBox pros={product.pros} cons={product.contras} />
+                      </div>
+                    </div>
+
+                    {/* Editorial analysis */}
+                    {editorial && (
+                      <div className="mt-5 max-w-3xl">
+                        <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                          {editorial}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Compact ratings grid */}
+                    <div className="mt-4 max-w-md">
+                      <CompactRatings puntuacion={product.puntuacion} />
+                    </div>
+
+                    <p className="mt-3 text-sm" style={{ color: 'var(--text-secondary)' }}>
+                      <strong style={{ color: 'var(--text-primary)' }}>Ideal para:</strong> {product.ideal_para}
+                    </p>
+
+                    <div className="mt-4">
+                      <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
+                    </div>
+                  </FadeIn>
+                </div>
+              </section>
             </div>
-
-            {/* Editorial analysis */}
-            {editorial && (
-              <div className="mt-5 max-w-3xl">
-                <p className="text-sm leading-relaxed text-neutral-600">
-                  {editorial}
-                </p>
-              </div>
-            )}
-
-            {/* Compact ratings grid instead of long RatingBars */}
-            <div className="mt-4 max-w-md">
-              <CompactRatings puntuacion={product.puntuacion} />
-            </div>
-
-            <p className="mt-3 text-sm text-neutral-600">
-              <strong className="text-neutral-800">Ideal para:</strong> {product.ideal_para}
-            </p>
-
-            <div className="mt-4">
-              <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
-            </div>
-          </section>
           );
         })}
       </div>
 
-      {/* Como elegir section */}
-      <section className="mt-16 max-w-3xl">
-        <h2 className="text-2xl mb-6 text-neutral-800" style={{ fontFamily: 'var(--font-display)' }}>
-          Como elegir el mejor escritorio elevable
-        </h2>
-        <div className="space-y-6 text-sm leading-relaxed text-neutral-600">
-          <div>
-            <h3 className="text-lg font-semibold mb-2 text-neutral-800">El motor: simple vs doble</h3>
-            <p>
-              El doble es mas rapido (3.8 vs 2.5 cm/s), mas silencioso y mas estable al moverse. Si cambias de posicion 4+ veces al dia con un setup pesado, merece la pena. Si lo mueves dos veces al dia con un portatil, el simple cumple.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-2 text-neutral-800">Estabilidad: importa mas de lo que crees</h3>
-            <p>
-              De pie, el escritorio esta a 110-120 cm y cualquier vibracion se amplifica. Si la pantalla tiembla al teclear, te cansas la vista. Busca patas con tres secciones telescopicas y estructura pesada. E7 Pro y E7 son los mejores; en los baratos hay que aceptar algo de movimiento.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-2 text-neutral-800">Ruido: ojo si haces videollamadas</h3>
-            <p>
-              Baratos: 50-52 dB (se oye). Premium: 43-45 dB (casi no se nota). Si cambias de altura durante una llamada, con 50 dB la otra persona lo percibe. Con 43, no.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-2 text-neutral-800">Rango de altura: ojo si mides mas de 1.85 m</h3>
-            <p>
-              Baratos: 72-118 cm. Premium: 58-125 cm. Si mides mas de 1.85 m y el escritorio llega solo a 118 cm, vas a trabajar encorvado. El E7 llega a 123 cm y el Maidesite T2 Pro a 127 cm.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-2 text-neutral-800">Garantia y postventa</h3>
-            <p>
-              Flexispot y Maidesite dan 5 anos; marcas baratas, 2. Los problemas graves suelen aparecer en los primeros 6 meses. Si puedes elegir, 5 anos siempre — tiene electronica y partes moviles.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-2 text-neutral-800">Anticolision: no te la juegues</h3>
-            <p>
-              Para el motor si detecta un obstaculo al bajar. Sin anticolision, el motor sigue y puede romper cajones o el propio mecanismo. Desde 140 EUR ya lo encuentras (Ergear), asi que no merece la pena ahorrar y quedarse sin el.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Internal links */}
-      <section className="mt-12 max-w-3xl p-6 rounded-lg bg-neutral-50">
-        <h2 className="text-lg font-semibold mb-3 text-neutral-800" style={{ fontFamily: 'var(--font-display)' }}>
-          Guias relacionadas
-        </h2>
-        <div className="space-y-2 text-sm">
-          <p>
-            <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Mejores escritorios elevables baratos</Link> — Si tu presupuesto esta por debajo de 220 euros, esta guia va mas al detalle en la gama economica.
-          </p>
-          <p>
-            <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: opinion y review completa</Link> — Analisis a fondo del E7 con opiniones reales de compradores.
-          </p>
-          <p>
-            <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Flexispot vs Maidesite: comparativa</Link> — Las dos marcas mas vendidas cara a cara. ¿Cual merece la pena?
-          </p>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-16 max-w-3xl">
-        <h2 className="text-2xl mb-6 text-neutral-800" style={{ fontFamily: 'var(--font-display)' }}>
-          Preguntas frecuentes
-        </h2>
-        <div className="space-y-6">
-          {faqItems.map((faq) => (
-            <div key={faq.q}>
-              <h3 className="text-base font-semibold text-neutral-800">{faq.q}</h3>
-              <p className="mt-1 text-sm leading-relaxed text-neutral-600">{faq.a}</p>
+      {/* Como elegir section — with numbered circles */}
+      <div className="max-w-5xl mx-auto px-6">
+        <FadeIn>
+          <section className="mt-16 max-w-3xl">
+            <h2 className="text-2xl mb-8 heading-accent" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
+              Como elegir el mejor escritorio elevable
+            </h2>
+            <div className="space-y-8 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+              {[
+                { title: "El motor: simple vs doble", text: "El doble es mas rapido (3.8 vs 2.5 cm/s), mas silencioso y mas estable al moverse. Si cambias de posicion 4+ veces al dia con un setup pesado, merece la pena. Si lo mueves dos veces al dia con un portatil, el simple cumple." },
+                { title: "Estabilidad: importa mas de lo que crees", text: "De pie, el escritorio esta a 110-120 cm y cualquier vibracion se amplifica. Si la pantalla tiembla al teclear, te cansas la vista. Busca patas con tres secciones telescopicas y estructura pesada. E7 Pro y E7 son los mejores; en los baratos hay que aceptar algo de movimiento." },
+                { title: "Ruido: ojo si haces videollamadas", text: "Baratos: 50-52 dB (se oye). Premium: 43-45 dB (casi no se nota). Si cambias de altura durante una llamada, con 50 dB la otra persona lo percibe. Con 43, no." },
+                { title: "Rango de altura: ojo si mides mas de 1.85 m", text: "Baratos: 72-118 cm. Premium: 58-125 cm. Si mides mas de 1.85 m y el escritorio llega solo a 118 cm, vas a trabajar encorvado. El E7 llega a 123 cm y el Maidesite T2 Pro a 127 cm." },
+                { title: "Garantia y postventa", text: "Flexispot y Maidesite dan 5 anos; marcas baratas, 2. Los problemas graves suelen aparecer en los primeros 6 meses. Si puedes elegir, 5 anos siempre — tiene electronica y partes moviles." },
+                { title: "Anticolision: no te la juegues", text: "Para el motor si detecta un obstaculo al bajar. Sin anticolision, el motor sigue y puede romper cajones o el propio mecanismo. Desde 140 EUR ya lo encuentras (Ergear), asi que no merece la pena ahorrar y quedarse sin el." },
+              ].map((item, i) => (
+                <FadeIn key={item.title} delay={i * 80}>
+                  <div className="relative pl-14">
+                    <span className="absolute left-0 top-0 mono text-3xl font-bold" style={{ color: 'var(--accent)', opacity: 0.2 }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </div>
+                </FadeIn>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
+        </FadeIn>
+
+        {/* Internal links */}
+        <FadeIn>
+          <section className="mt-12 max-w-3xl p-6 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
+            <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
+              Guias relacionadas
+            </h2>
+            <div className="space-y-2 text-sm">
+              <p>
+                <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Mejores escritorios elevables baratos</Link> — Si tu presupuesto esta por debajo de 220 euros, esta guia va mas al detalle en la gama economica.
+              </p>
+              <p>
+                <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: opinion y review completa</Link> — Analisis a fondo del E7 con opiniones reales de compradores.
+              </p>
+              <p>
+                <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Flexispot vs Maidesite: comparativa</Link> — Las dos marcas mas vendidas cara a cara. ¿Cual merece la pena?
+              </p>
+            </div>
+          </section>
+        </FadeIn>
+
+        {/* FAQ — with distinct background band and styling */}
+        <section className="mt-16 mb-8 max-w-3xl">
+          <FadeIn>
+            <div className="p-8 rounded-lg noise-bg" style={{ background: 'var(--bg-secondary)' }}>
+              <h2 className="text-2xl mb-2 heading-accent" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
+                Preguntas frecuentes
+              </h2>
+              <div className="mt-6">
+                {faqItems.map((faq, i) => (
+                  <FadeIn key={faq.q} delay={i * 60}>
+                    <div className="faq-item">
+                      <h3 className="text-base font-semibold" style={{ color: 'var(--text-primary)' }}>{faq.q}</h3>
+                      <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{faq.a}</p>
+                    </div>
+                  </FadeIn>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+        </section>
+      </div>
     </div>
   );
 }

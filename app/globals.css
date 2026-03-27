@@ -22,6 +22,13 @@
   --accent-light: rgba(196, 122, 58, 0.07);
   --accent-glow: rgba(196, 122, 58, 0.20);
 
+  --rating-good: #4a9e5c;
+  --rating-okay: #c9922a;
+  --rating-bad: #c44040;
+
+  --shadow-card: 0 1px 3px rgba(44,41,38,0.06), 0 6px 16px rgba(44,41,38,0.04);
+  --shadow-card-hover: 0 2px 8px rgba(44,41,38,0.08), 0 12px 32px rgba(44,41,38,0.06);
+
   --pro: #2e8b3e;
   --con: #d44040;
   --border: #e5e0d8;
@@ -364,4 +371,94 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .section-light h2,
 .section-light h3 {
   color: var(--text-dark);
+}
+
+/* Noise texture overlay */
+.noise-bg {
+  position: relative;
+}
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  z-index: 0;
+}
+.noise-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Warm gradient section */
+.section-warm {
+  background: linear-gradient(170deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+/* Warm product image container */
+.product-image-container {
+  background: #f5f0eb;
+  border-radius: var(--radius-lg);
+  box-shadow: inset 0 2px 8px rgba(44,41,38,0.04);
+}
+
+/* Accent underline for headings */
+.heading-accent::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 12px;
+}
+
+/* Product card enhanced hover */
+.product-card-hover {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  box-shadow: var(--shadow-card);
+}
+.product-card-hover:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* FAQ item styling */
+.faq-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+/* Section band for alternating backgrounds */
+.section-band {
+  background: var(--bg-secondary);
+  margin-left: -9999px;
+  margin-right: -9999px;
+  padding-left: 9999px;
+  padding-right: 9999px;
+}
+
+/* Decorative large number */
+.decorative-number {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.06;
+  position: absolute;
+  top: -10px;
+  left: -5px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Footer gradient */
+.footer-gradient {
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, #ede8e0 100%);
 }

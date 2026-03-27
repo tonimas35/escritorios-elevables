@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { ProductCard } from "@/components/ProductCard";
+import { FadeIn } from "@/components/FadeIn";
 import { getAvailableProducts } from "@/lib/products";
 import type { Product } from "@/lib/types";
 
@@ -70,48 +71,56 @@ export default function TestPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12">
-      <div className="mb-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>Herramienta</p>
-        <h1 className="text-3xl md:text-5xl mt-1" style={{ fontFamily: 'var(--font-display)' }}>Tu escritorio ideal</h1>
-        <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>5 preguntas. Recomendacion personalizada.</p>
-      </div>
+      <FadeIn>
+        <div className="mb-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>Herramienta</p>
+          <h1 className="text-3xl md:text-5xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>Tu escritorio ideal</h1>
+          <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>5 preguntas. Recomendacion personalizada.</p>
+        </div>
+      </FadeIn>
 
       {!isComplete ? (
-        <div className="animate-fade-in">
-          <div className="flex gap-1.5 mb-8">
-            {QUESTIONS.map((_, i) => (
-              <div key={i} className="h-0.5 flex-1 rounded-full" style={{ background: i <= step ? 'var(--accent)' : 'var(--border)' }} />
-            ))}
+        <FadeIn>
+          <div>
+            <div className="flex gap-1.5 mb-8">
+              {QUESTIONS.map((_, i) => (
+                <div key={i} className="h-0.5 flex-1 rounded-full transition-all duration-300" style={{ background: i <= step ? 'var(--accent)' : 'var(--border)' }} />
+              ))}
+            </div>
+            <div className="flex items-baseline gap-4 mb-6">
+              <span className="mono text-3xl font-bold" style={{ color: 'var(--accent)' }}>{String(step + 1).padStart(2, '0')}</span>
+              <span className="text-xs" style={{ color: 'var(--text-muted)' }}>/ {String(QUESTIONS.length).padStart(2, '0')}</span>
+            </div>
+            <h2 className="text-2xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>{QUESTIONS[step].text}</h2>
+            <div className="space-y-3">
+              {QUESTIONS[step].options.map((opt) => (
+                <button key={opt.value} onClick={() => handleAnswer(opt.value)}
+                  className="w-full text-left p-4 rounded-lg text-sm font-medium transition-all product-card-hover"
+                  style={{ border: '1px solid var(--border)', background: 'var(--bg-card)' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.background = 'var(--accent-light)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.background = 'var(--bg-card)'; }}
+                >{opt.label}</button>
+              ))}
+            </div>
           </div>
-          <div className="flex items-baseline gap-4 mb-6">
-            <span className="mono text-3xl font-bold" style={{ color: 'var(--accent)' }}>{String(step + 1).padStart(2, '0')}</span>
-            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>/ {String(QUESTIONS.length).padStart(2, '0')}</span>
-          </div>
-          <h2 className="text-2xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>{QUESTIONS[step].text}</h2>
-          <div className="space-y-3">
-            {QUESTIONS[step].options.map((opt) => (
-              <button key={opt.value} onClick={() => handleAnswer(opt.value)}
-                className="w-full text-left p-4 rounded text-sm font-medium transition-all"
-                style={{ border: '1px solid var(--border)', background: 'var(--bg-card)' }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.background = 'var(--accent-light)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.background = 'var(--bg-card)'; }}
-              >{opt.label}</button>
-            ))}
-          </div>
-        </div>
+        </FadeIn>
       ) : (
-        <div className="animate-fade-up">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] mb-1" style={{ color: 'var(--accent)' }}>Resultado</p>
-          <h2 className="text-2xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>Nuestras recomendaciones</h2>
-          <div className="space-y-6">
-            {results.map(({ asin, product }, i) => (
-              <ProductCard key={asin} asin={asin} product={product} badge={i === 0 ? "Tu mejor opcion" : undefined} rank={i + 1} />
-            ))}
+        <FadeIn>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] mb-1" style={{ color: 'var(--accent)' }}>Resultado</p>
+            <h2 className="text-2xl mb-6 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>Nuestras recomendaciones</h2>
+            <div className="space-y-6">
+              {results.map(({ asin, product }, i) => (
+                <FadeIn key={asin} delay={i * 120}>
+                  <ProductCard asin={asin} product={product} badge={i === 0 ? "Tu mejor opcion" : undefined} rank={i + 1} />
+                </FadeIn>
+              ))}
+            </div>
+            <button onClick={() => { setStep(0); setAnswers({}); }} className="mt-8 text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent)' }}>
+              ← Repetir test
+            </button>
           </div>
-          <button onClick={() => { setStep(0); setAnswers({}); }} className="mt-8 text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent)' }}>
-            ← Repetir test
-          </button>
-        </div>
+        </FadeIn>
       )}
     </div>
   );

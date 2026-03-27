@@ -14,13 +14,14 @@ interface ProductCardProps {
 function RatingBadge({ score }: { score: number }) {
   const bg =
     score >= 8.5
-      ? "bg-green-500"
+      ? "var(--rating-good)"
       : score >= 7
-        ? "bg-amber-500"
-        : "bg-red-500";
+        ? "var(--rating-okay)"
+        : "var(--rating-bad)";
   return (
     <span
-      className={`inline-flex items-center justify-center ${bg} text-white font-bold text-sm rounded px-2 py-0.5 tabular-nums`}
+      className="inline-flex items-center justify-center text-white font-bold text-sm rounded px-2 py-0.5 tabular-nums"
+      style={{ background: bg }}
     >
       {score}
     </span>
@@ -29,7 +30,7 @@ function RatingBadge({ score }: { score: number }) {
 
 function SpecBadge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1 text-xs font-medium bg-neutral-100 text-neutral-700 rounded px-2 py-1">
+    <span className="inline-flex items-center gap-1 text-xs font-medium rounded px-2 py-1" style={{ background: 'var(--bg-secondary)', color: 'var(--text-secondary)' }}>
       {children}
     </span>
   );
@@ -57,8 +58,8 @@ export function ProductCard({
 
   if (size === "compact") {
     return (
-      <div className="flex items-center gap-4 p-4 rounded-lg bg-white border border-neutral-200">
-        <div className="w-20 h-20 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden bg-neutral-50">
+      <div className="flex items-center gap-4 p-4 rounded-lg product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+        <div className="w-20 h-20 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden product-image-container">
           {isRemoteImage ? (
             <Image
               src={product.imagen}
@@ -72,21 +73,21 @@ export function ProductCard({
           )}
         </div>
         <div className="flex-1 min-w-0">
-          <p className="font-semibold text-sm text-neutral-800 truncate">
+          <p className="font-semibold text-sm truncate" style={{ color: 'var(--text-primary)' }}>
             {product.nombre}
           </p>
-          <p className="text-xs text-neutral-500">{product.marca}</p>
+          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.marca}</p>
           <div className="flex items-center gap-2 mt-1">
             <RatingBadge score={product.puntuacion.total} />
-            <span className="text-xs text-neutral-500">
+            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
               {product.rating}★ ({product.num_reviews})
             </span>
           </div>
         </div>
         <div className="text-right flex-shrink-0">
-          <p className="tabular-nums text-lg font-bold text-neutral-800">
+          <p className="tabular-nums text-lg font-bold" style={{ color: 'var(--text-primary)' }}>
             {product.precio}{" "}
-            <span className="text-xs font-normal text-neutral-500">EUR</span>
+            <span className="text-xs font-normal" style={{ color: 'var(--text-muted)' }}>EUR</span>
           </p>
           {!hideButton && <AffiliateButton asin={asin} size="sm" />}
         </div>
@@ -100,7 +101,7 @@ export function ProductCard({
   const tableroLabel = `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm`;
 
   return (
-    <div className="relative overflow-hidden rounded-lg bg-white border border-neutral-200 transition-shadow hover:shadow-md">
+    <div className="relative overflow-hidden rounded-lg product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
       {(badge || rank) && (
         <div className="flex items-center gap-2 px-5 pt-4">
           {rank !== undefined && rank > 0 && (
@@ -119,7 +120,7 @@ export function ProductCard({
       <div className="p-5">
         {/* Image - large, centered */}
         <div className="flex justify-center mb-4">
-          <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center overflow-hidden bg-neutral-50">
+          <div className="w-[180px] h-[180px] rounded-lg flex items-center justify-center overflow-hidden product-image-container">
             {isRemoteImage ? (
               <Image
                 src={product.imagen}
@@ -136,10 +137,10 @@ export function ProductCard({
 
         {/* Name and brand */}
         <div className="mb-2">
-          <p className="text-xs font-medium uppercase tracking-wider text-neutral-500">
+          <p className="text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
             {product.marca}
           </p>
-          <h3 className="text-base font-semibold mt-0.5 leading-tight text-neutral-800">
+          <h3 className="text-base font-semibold mt-0.5 leading-tight" style={{ color: 'var(--text-primary)' }}>
             {product.modelo || product.nombre}
           </h3>
         </div>
@@ -147,7 +148,7 @@ export function ProductCard({
         {/* Rating badge + stars */}
         <div className="flex items-center gap-2 mb-3">
           <RatingBadge score={product.puntuacion.total} />
-          <span className="text-xs text-neutral-500">
+          <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
             {product.rating}★ ({product.num_reviews})
           </span>
         </div>
@@ -162,16 +163,16 @@ export function ProductCard({
         </div>
 
         {/* Quick pros/cons */}
-        <div className="mb-4 border-t border-b border-neutral-200 py-3 space-y-1.5">
+        <div className="mb-4 py-3 space-y-1.5" style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
           {shortPros.map((pro, i) => (
-            <p key={`pro-${i}`} className="text-xs text-neutral-700 flex items-start gap-1.5">
-              <span className="text-green-500 flex-shrink-0 mt-px">✓</span>
+            <p key={`pro-${i}`} className="text-xs flex items-start gap-1.5" style={{ color: 'var(--text-secondary)' }}>
+              <span className="flex-shrink-0 mt-px" style={{ color: 'var(--rating-good)' }}>✓</span>
               <span>{pro}</span>
             </p>
           ))}
           {shortCons.map((con, i) => (
-            <p key={`con-${i}`} className="text-xs text-neutral-500 flex items-start gap-1.5">
-              <span className="text-red-400 flex-shrink-0 mt-px">✗</span>
+            <p key={`con-${i}`} className="text-xs flex items-start gap-1.5" style={{ color: 'var(--text-muted)' }}>
+              <span className="flex-shrink-0 mt-px" style={{ color: 'var(--rating-bad)' }}>✗</span>
               <span>{con}</span>
             </p>
           ))}
@@ -180,14 +181,14 @@ export function ProductCard({
         {/* Price */}
         <div className="flex items-baseline gap-2">
           {product.precio_habitual && (
-            <span className="tabular-nums text-sm line-through text-neutral-400">
+            <span className="tabular-nums text-sm line-through" style={{ color: 'var(--text-muted)' }}>
               {product.precio_habitual}€
             </span>
           )}
-          <span className="tabular-nums text-2xl font-bold text-neutral-800">
+          <span className="tabular-nums text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
             {product.precio}
           </span>
-          <span className="text-sm text-neutral-500">EUR</span>
+          <span className="text-sm" style={{ color: 'var(--text-muted)' }}>EUR</span>
         </div>
 
         {/* Affiliate button */}

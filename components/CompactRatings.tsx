@@ -9,9 +9,9 @@ const RATING_LABELS: Record<string, string> = {
 };
 
 function ratingColor(value: number): string {
-  if (value >= 8.5) return "#22c55e";
-  if (value >= 7) return "#f59e0b";
-  return "#ef4444";
+  if (value >= 8.5) return "var(--rating-good)";
+  if (value >= 7) return "var(--rating-okay)";
+  return "var(--rating-bad)";
 }
 
 interface CompactRatingsProps {
@@ -27,7 +27,7 @@ export function CompactRatings({ puntuacion }: CompactRatingsProps) {
       <div className="grid grid-cols-2 gap-x-6 gap-y-2">
         {entries.map(([key, value]) => (
           <div key={key} className="flex items-center justify-between gap-2">
-            <span className="text-xs font-medium text-neutral-600 truncate">
+            <span className="text-xs font-medium truncate" style={{ color: 'var(--text-secondary)' }}>
               {RATING_LABELS[key] || key}
             </span>
             <span
@@ -40,8 +40,8 @@ export function CompactRatings({ puntuacion }: CompactRatingsProps) {
         ))}
       </div>
       {/* Total */}
-      <div className="flex items-center justify-between pt-2 border-t border-neutral-200">
-        <span className="text-xs font-bold uppercase tracking-wider text-neutral-800">
+      <div className="flex items-center justify-between pt-2" style={{ borderTop: '1px solid var(--border)' }}>
+        <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-primary)' }}>
           Total
         </span>
         <span

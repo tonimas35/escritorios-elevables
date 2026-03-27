@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { AffiliateButton } from "@/components/AffiliateButton";
+import { FadeIn } from "@/components/FadeIn";
 import { getAllProducts } from "@/lib/products";
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
   return (
     <>
       {/* Hero — Conversion focused */}
-      <section className="relative overflow-hidden" style={{ background: 'var(--bg-secondary)' }}>
+      <section className="relative overflow-hidden noise-bg" style={{ background: 'var(--bg-secondary)' }}>
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.25) 1px, transparent 0)',
           backgroundSize: '32px 32px',
@@ -56,13 +57,15 @@ export default function Home() {
               { value: String(allProducts.length), label: "Escritorios analizados" },
               { value: `${totalReviewsRounded}+`, label: "Opiniones verificadas" },
               { value: "Mar 2026", label: "Ultima actualizacion" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="mono text-2xl md:text-3xl font-bold" style={{ color: 'var(--accent)' }}>
-                  {stat.value}
-                </p>
-                <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>{stat.label}</p>
-              </div>
+            ].map((stat, i) => (
+              <FadeIn key={stat.label} delay={400 + i * 120}>
+                <div>
+                  <p className="mono text-2xl md:text-3xl font-bold" style={{ color: 'var(--accent)' }}>
+                    {stat.value}
+                  </p>
+                  <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>{stat.label}</p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -70,172 +73,193 @@ export default function Home() {
 
       {/* Quick comparison table — THE MONEY MAKER */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <div className="mb-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>
-            Resumen rapido
-          </p>
-          <h2 className="text-3xl md:text-4xl mt-1" style={{ fontFamily: 'var(--font-display)' }}>
-            Top 7 de un vistazo
-          </h2>
-        </div>
+        <FadeIn>
+          <div className="mb-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>
+              Resumen rapido
+            </p>
+            <h2 className="text-3xl md:text-4xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+              Top 7 de un vistazo
+            </h2>
+          </div>
+        </FadeIn>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
-            <thead>
-              <tr style={{ background: 'var(--bg-dark)', color: 'var(--text-inverse)' }}>
-                <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>#</th>
-                <th className="text-left p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Modelo</th>
-                <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Motor</th>
-                <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Carga</th>
-                <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Nota</th>
-                <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Precio</th>
-                <th className="text-center p-3 rounded-tr" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}></th>
-              </tr>
-            </thead>
-            <tbody>
-              {allProducts.slice(0, 7).map(([asin, product], i) => (
-                <tr key={asin} className="transition-colors" style={{ borderBottom: '1px solid var(--border)', background: 'transparent' }} onMouseEnter={undefined}>
-                  <td className="p-3">
-                    <span className="mono text-xs font-bold" style={{ color: 'var(--accent)' }}>
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                  </td>
-                  <td className="p-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded flex-shrink-0 overflow-hidden flex items-center justify-center" style={{ background: 'var(--bg-secondary)' }}>
-                        <Image src={product.imagen} alt={product.imagen_alt} width={40} height={40} className="object-contain" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-sm">{product.marca} {product.modelo}</p>
-                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                          {product.rating}★ ({product.num_reviews})
-                        </p>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="p-3 text-center">
-                    <span className="text-xs font-medium px-2 py-0.5 rounded" style={{ background: product.specs.tipo_motor === 'doble' ? 'rgba(46, 139, 62, 0.12)' : 'var(--border)', color: product.specs.tipo_motor === 'doble' ? 'var(--pro)' : 'var(--text-muted)' }}>
-                      {product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple'}
-                    </span>
-                  </td>
-                  <td className="p-3 text-center mono text-sm">{product.specs.peso_max_carga_kg} kg</td>
-                  <td className="p-3 text-center">
-                    <span className="mono font-bold" style={{ color: product.puntuacion.total >= 8 ? 'var(--pro)' : 'var(--text-primary)' }}>
-                      {product.puntuacion.total}
-                    </span>
-                  </td>
-                  <td className="p-3 text-center">
-                    <span className="mono font-bold text-base">{product.precio}€</span>
-                    {product.precio_habitual && (
-                      <span className="mono text-xs line-through ml-1" style={{ color: 'var(--text-muted)' }}>{product.precio_habitual}€</span>
-                    )}
-                  </td>
-                  <td className="p-3 text-center">
-                    <AffiliateButton asin={asin} size="sm" />
-                  </td>
+        <FadeIn delay={100}>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
+              <thead>
+                <tr style={{ background: 'var(--bg-dark)', color: 'var(--text-inverse)' }}>
+                  <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>#</th>
+                  <th className="text-left p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Modelo</th>
+                  <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Motor</th>
+                  <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Carga</th>
+                  <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Nota</th>
+                  <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Precio</th>
+                  <th className="text-center p-3 rounded-tr" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="mt-4 text-center">
-          <Link href="/mejor-escritorio-elevable" className="text-xs font-semibold uppercase tracking-wider transition-colors" style={{ color: 'var(--accent)' }}>
-            Ver analisis completo de los {allProducts.length} modelos →
-          </Link>
-        </div>
+              </thead>
+              <tbody>
+                {allProducts.slice(0, 7).map(([asin, product], i) => (
+                  <tr key={asin} className="transition-colors" style={{ borderBottom: '1px solid var(--border)', background: 'transparent' }}>
+                    <td className="p-3">
+                      <span className="mono text-xs font-bold" style={{ color: 'var(--accent)' }}>
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                    </td>
+                    <td className="p-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
+                          <Image src={product.imagen} alt={product.imagen_alt} width={40} height={40} className="object-contain" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-sm">{product.marca} {product.modelo}</p>
+                          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                            {product.rating}★ ({product.num_reviews})
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="p-3 text-center">
+                      <span className="text-xs font-medium px-2 py-0.5 rounded" style={{ background: product.specs.tipo_motor === 'doble' ? 'rgba(46, 139, 62, 0.12)' : 'var(--bg-secondary)', color: product.specs.tipo_motor === 'doble' ? 'var(--pro)' : 'var(--text-muted)' }}>
+                        {product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple'}
+                      </span>
+                    </td>
+                    <td className="p-3 text-center mono text-sm">{product.specs.peso_max_carga_kg} kg</td>
+                    <td className="p-3 text-center">
+                      <span className="mono font-bold" style={{ color: product.puntuacion.total >= 8 ? 'var(--pro)' : 'var(--text-primary)' }}>
+                        {product.puntuacion.total}
+                      </span>
+                    </td>
+                    <td className="p-3 text-center">
+                      <span className="mono font-bold text-base">{product.precio}€</span>
+                      {product.precio_habitual && (
+                        <span className="mono text-xs line-through ml-1" style={{ color: 'var(--text-muted)' }}>{product.precio_habitual}€</span>
+                      )}
+                    </td>
+                    <td className="p-3 text-center">
+                      <AffiliateButton asin={asin} size="sm" />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="mt-4 text-center">
+            <Link href="/mejor-escritorio-elevable" className="text-xs font-semibold uppercase tracking-wider transition-colors" style={{ color: 'var(--accent)' }}>
+              Ver analisis completo de los {allProducts.length} modelos →
+            </Link>
+          </div>
+        </FadeIn>
       </section>
 
       <div className="divider max-w-6xl mx-auto" />
 
       {/* By budget — HIGH CONVERSION SECTION */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <div className="mb-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>
-            Por presupuesto
-          </p>
-          <h2 className="text-3xl md:text-4xl mt-1" style={{ fontFamily: 'var(--font-display)' }}>
-            Encuentra el tuyo
-          </h2>
-        </div>
+        <FadeIn>
+          <div className="mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>
+              Por presupuesto
+            </p>
+            <h2 className="text-3xl md:text-4xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+              Encuentra el tuyo
+            </h2>
+          </div>
+        </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Baratos */}
-          <div className="rounded p-6" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
-            <div className="flex items-baseline gap-2 mb-4">
-              <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>&lt;200€</span>
-              <span className="text-xs uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Baratos</span>
-            </div>
-            <div className="space-y-3">
-              {budgetPicks.map(([asin, product]) => (
-                <div key={asin} className="flex items-center gap-3 py-2" style={{ borderBottom: '1px solid var(--border)' }}>
-                  <div className="w-10 h-10 rounded flex-shrink-0 overflow-hidden flex items-center justify-center" style={{ background: 'var(--bg-secondary)' }}>
-                    <Image src={product.imagen} alt={product.imagen_alt} width={40} height={40} className="object-contain" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold truncate">{product.marca} {product.modelo}</p>
-                    <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {product.specs.tipo_motor}</p>
-                  </div>
-                  <span className="mono font-bold text-sm">{product.precio}€</span>
+          <FadeIn delay={0}>
+            <div className="rounded p-6 relative product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+              <span className="decorative-number">01</span>
+              <div className="relative">
+                <div className="flex items-baseline gap-2 mb-4">
+                  <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>&lt;200€</span>
+                  <span className="text-xs uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Baratos</span>
                 </div>
-              ))}
+                <div className="space-y-3">
+                  {budgetPicks.map(([asin, product]) => (
+                    <div key={asin} className="flex items-center gap-3 py-2" style={{ borderBottom: '1px solid var(--border)' }}>
+                      <div className="w-10 h-10 rounded flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
+                        <Image src={product.imagen} alt={product.imagen_alt} width={40} height={40} className="object-contain" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold truncate">{product.marca} {product.modelo}</p>
+                        <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {product.specs.tipo_motor}</p>
+                      </div>
+                      <span className="mono font-bold text-sm">{product.precio}€</span>
+                    </div>
+                  ))}
+                </div>
+                <Link href="/escritorio-elevable-barato" className="mt-4 block text-center text-xs font-semibold uppercase tracking-wider py-2 rounded transition-colors" style={{ color: 'var(--accent)', border: '1px solid var(--accent)' }}>
+                  Ver baratos →
+                </Link>
+              </div>
             </div>
-            <Link href="/escritorio-elevable-barato" className="mt-4 block text-center text-xs font-semibold uppercase tracking-wider py-2 rounded transition-colors" style={{ color: 'var(--accent)', border: '1px solid var(--accent)' }}>
-              Ver baratos →
-            </Link>
-          </div>
+          </FadeIn>
 
           {/* Gama media */}
-          <div className="rounded p-6 relative" style={{ background: 'var(--bg-card)', border: '2px solid var(--accent)' }}>
-            <span className="absolute -top-3 left-4 text-xs font-bold uppercase tracking-wider px-2 py-0.5" style={{ background: 'var(--accent)', color: 'white' }}>
-              Mejor opcion
-            </span>
-            <div className="flex items-baseline gap-2 mb-4">
-              <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>135–200€</span>
-              <span className="text-xs uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Calidad-precio</span>
-            </div>
-            <div className="space-y-3">
-              {midPicks.map(([asin, product]) => (
-                <div key={asin} className="flex items-center gap-3 py-2" style={{ borderBottom: '1px solid var(--border)' }}>
-                  <div className="w-10 h-10 rounded flex-shrink-0 overflow-hidden flex items-center justify-center" style={{ background: 'var(--bg-secondary)' }}>
-                    <Image src={product.imagen} alt={product.imagen_alt} width={40} height={40} className="object-contain" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold truncate">{product.marca} {product.modelo}</p>
-                    <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {product.specs.tipo_motor}</p>
-                  </div>
-                  <span className="mono font-bold text-sm">{product.precio}€</span>
+          <FadeIn delay={120}>
+            <div className="rounded p-6 relative product-card-hover" style={{ background: 'var(--bg-card)', border: '2px solid var(--accent)' }}>
+              <span className="decorative-number">02</span>
+              <span className="absolute -top-3 left-4 text-xs font-bold uppercase tracking-wider px-2 py-0.5" style={{ background: 'var(--accent)', color: 'white' }}>
+                Mejor opcion
+              </span>
+              <div className="relative">
+                <div className="flex items-baseline gap-2 mb-4">
+                  <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>135–200€</span>
+                  <span className="text-xs uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Calidad-precio</span>
                 </div>
-              ))}
+                <div className="space-y-3">
+                  {midPicks.map(([asin, product]) => (
+                    <div key={asin} className="flex items-center gap-3 py-2" style={{ borderBottom: '1px solid var(--border)' }}>
+                      <div className="w-10 h-10 rounded flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
+                        <Image src={product.imagen} alt={product.imagen_alt} width={40} height={40} className="object-contain" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold truncate">{product.marca} {product.modelo}</p>
+                        <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {product.specs.tipo_motor}</p>
+                      </div>
+                      <span className="mono font-bold text-sm">{product.precio}€</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4">
+                  <AffiliateButton asin={midPicks[0]?.[0] || ''} text="Ver ganador calidad-precio" size="lg" />
+                </div>
+              </div>
             </div>
-            <div className="mt-4">
-              <AffiliateButton asin={midPicks[0]?.[0] || ''} text="Ver ganador calidad-precio" size="lg" />
-            </div>
-          </div>
+          </FadeIn>
 
           {/* Premium */}
-          <div className="rounded p-6" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
-            <div className="flex items-baseline gap-2 mb-4">
-              <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>&gt;200€</span>
-              <span className="text-xs uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Premium doble motor</span>
-            </div>
-            <div className="space-y-3">
-              {premiumPicks.map(([asin, product]) => (
-                <div key={asin} className="flex items-center gap-3 py-2" style={{ borderBottom: '1px solid var(--border)' }}>
-                  <div className="w-10 h-10 rounded flex-shrink-0 overflow-hidden flex items-center justify-center" style={{ background: 'var(--bg-secondary)' }}>
-                    <Image src={product.imagen} alt={product.imagen_alt} width={40} height={40} className="object-contain" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold truncate">{product.marca} {product.modelo}</p>
-                    <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {product.specs.tipo_motor}</p>
-                  </div>
-                  <span className="mono font-bold text-sm">{product.precio}€</span>
+          <FadeIn delay={240}>
+            <div className="rounded p-6 relative product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+              <span className="decorative-number">03</span>
+              <div className="relative">
+                <div className="flex items-baseline gap-2 mb-4">
+                  <span className="mono text-2xl font-bold" style={{ color: 'var(--accent)' }}>&gt;200€</span>
+                  <span className="text-xs uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Premium doble motor</span>
                 </div>
-              ))}
+                <div className="space-y-3">
+                  {premiumPicks.map(([asin, product]) => (
+                    <div key={asin} className="flex items-center gap-3 py-2" style={{ borderBottom: '1px solid var(--border)' }}>
+                      <div className="w-10 h-10 rounded flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
+                        <Image src={product.imagen} alt={product.imagen_alt} width={40} height={40} className="object-contain" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold truncate">{product.marca} {product.modelo}</p>
+                        <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {product.specs.tipo_motor}</p>
+                      </div>
+                      <span className="mono font-bold text-sm">{product.precio}€</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4">
+                  <AffiliateButton asin={premiumPicks[0]?.[0] || ''} text="Ver mejor premium" size="lg" />
+                </div>
+              </div>
             </div>
-            <div className="mt-4">
-              <AffiliateButton asin={premiumPicks[0]?.[0] || ''} text="Ver mejor premium" size="lg" />
-            </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -243,14 +267,16 @@ export default function Home() {
 
       {/* Quick links to content pages */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <div className="mb-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>
-            Guias y comparativas
-          </p>
-          <h2 className="text-3xl md:text-4xl mt-1" style={{ fontFamily: 'var(--font-display)' }}>
-            Contenido util
-          </h2>
-        </div>
+        <FadeIn>
+          <div className="mb-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: 'var(--accent)' }}>
+              Guias y comparativas
+            </p>
+            <h2 className="text-3xl md:text-4xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+              Contenido util
+            </h2>
+          </div>
+        </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
@@ -258,20 +284,21 @@ export default function Home() {
             { title: "Flexispot E7: review", desc: "Analisis completo del mas vendido", href: "/flexispot-e7-opiniones", tag: "Review" },
             { title: "Flexispot vs Maidesite", desc: "Comparativa directa marca a marca", href: "/flexispot-vs-maidesite", tag: "Comparativa" },
             { title: "Comparador", desc: "Filtra y compara por specs", href: "/comparador", tag: "Herramienta" },
-          ].map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="card-lift group p-5 rounded"
-              style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}
-            >
-              <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent)' }}>{item.tag}</span>
-              <h3 className="text-base font-semibold mt-1" style={{ fontFamily: 'var(--font-display)' }}>{item.title}</h3>
-              <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>{item.desc}</p>
-              <span className="mt-3 block text-xs font-semibold uppercase tracking-wider transition-colors" style={{ color: 'var(--accent)' }}>
-                Leer →
-              </span>
-            </Link>
+          ].map((item, i) => (
+            <FadeIn key={item.href} delay={i * 80}>
+              <Link
+                href={item.href}
+                className="card-lift group p-5 rounded block"
+                style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}
+              >
+                <span className="text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent)' }}>{item.tag}</span>
+                <h3 className="text-base font-semibold mt-1" style={{ fontFamily: 'var(--font-display)' }}>{item.title}</h3>
+                <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>{item.desc}</p>
+                <span className="mt-3 block text-xs font-semibold uppercase tracking-wider transition-colors" style={{ color: 'var(--accent)' }}>
+                  Leer →
+                </span>
+              </Link>
+            </FadeIn>
           ))}
         </div>
       </section>
