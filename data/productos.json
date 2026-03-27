@@ -45,12 +45,12 @@
     ],
     "veredicto": "La opcion mas economica del mercado. Ideal para quien quiere probar un escritorio elevable sin gastar mucho.",
     "puntuacion": {
-      "calidad_construccion": 6,
-      "estabilidad": 6,
-      "facilidad_montaje": 9,
-      "relacion_calidad_precio": 9,
-      "funcionalidades": 5,
-      "total": 7.2
+      "calidad_construccion": 6.9,
+      "estabilidad": 6.9,
+      "facilidad_montaje": 9.9,
+      "relacion_calidad_precio": 9.9,
+      "funcionalidades": 5.9,
+      "total": 8.1
     },
     "ideal_para": "Presupuestos ajustados y espacios pequenos.",
     "slug": "vasagle-100"
@@ -102,12 +102,12 @@
     ],
     "veredicto": "La mejor relacion calidad-precio en escritorios elevables baratos. 4.6 estrellas con mas de 2000 opiniones lo avalan.",
     "puntuacion": {
-      "calidad_construccion": 7,
-      "estabilidad": 7,
-      "facilidad_montaje": 8,
+      "calidad_construccion": 7.9,
+      "estabilidad": 7.9,
+      "facilidad_montaje": 8.9,
       "relacion_calidad_precio": 10,
-      "funcionalidades": 7,
-      "total": 7.9
+      "funcionalidades": 7.9,
+      "total": 8.8
     },
     "ideal_para": "Quien busca el mejor escritorio elevable barato con buenas prestaciones.",
     "slug": "ergear-120"
@@ -158,12 +158,12 @@
     ],
     "veredicto": "El escritorio elevable grande mas barato. 160 cm de tablero por menos de 120 EUR es imbatible.",
     "puntuacion": {
-      "calidad_construccion": 7,
-      "estabilidad": 6,
-      "facilidad_montaje": 7,
+      "calidad_construccion": 7.9,
+      "estabilidad": 6.9,
+      "facilidad_montaje": 7.9,
       "relacion_calidad_precio": 10,
-      "funcionalidades": 7,
-      "total": 7.8
+      "funcionalidades": 7.9,
+      "total": 8.7
     },
     "ideal_para": "Quien necesita un tablero grande sin gastar mas de 120 EUR.",
     "slug": "vasagle-160"
@@ -214,12 +214,12 @@
     ],
     "veredicto": "Alternativa solida al ErGear con buenos acabados. Buena opcion si buscas algo mas robusto por 130 EUR.",
     "puntuacion": {
-      "calidad_construccion": 7,
-      "estabilidad": 7,
-      "facilidad_montaje": 8,
-      "relacion_calidad_precio": 8,
-      "funcionalidades": 7,
-      "total": 7.8
+      "calidad_construccion": 7.9,
+      "estabilidad": 7.9,
+      "facilidad_montaje": 8.9,
+      "relacion_calidad_precio": 8.9,
+      "funcionalidades": 7.9,
+      "total": 8.7
     },
     "ideal_para": "Quien quiere un escritorio de 120 cm con buenos acabados.",
     "slug": "devoko-120"
@@ -270,12 +270,12 @@
     ],
     "veredicto": "Opcion fiable de marca reconocida. Buenos acabados pero precio algo alto para sus prestaciones.",
     "puntuacion": {
-      "calidad_construccion": 7,
-      "estabilidad": 7,
-      "facilidad_montaje": 8,
-      "relacion_calidad_precio": 7,
-      "funcionalidades": 7,
-      "total": 7.6
+      "calidad_construccion": 7.9,
+      "estabilidad": 7.9,
+      "facilidad_montaje": 8.9,
+      "relacion_calidad_precio": 7.9,
+      "funcionalidades": 7.9,
+      "total": 8.5
     },
     "ideal_para": "Fans de FEZIBO que buscan un 120 cm con buenas prestaciones.",
     "slug": "fezibo-120"
@@ -327,12 +327,12 @@
     ],
     "veredicto": "El escritorio elevable con mas opiniones positivas en Amazon. Tablero generoso de 160x70 por 140 EUR.",
     "puntuacion": {
-      "calidad_construccion": 8,
-      "estabilidad": 7,
-      "facilidad_montaje": 7,
-      "relacion_calidad_precio": 9,
-      "funcionalidades": 7,
-      "total": 8.2
+      "calidad_construccion": 8.9,
+      "estabilidad": 7.9,
+      "facilidad_montaje": 7.9,
+      "relacion_calidad_precio": 9.9,
+      "funcionalidades": 7.9,
+      "total": 9.1
     },
     "ideal_para": "Quien quiere el escritorio mas probado y valorado con tablero grande.",
     "slug": "songmics-160"
@@ -383,12 +383,12 @@
     ],
     "veredicto": "Alternativa al SONGMICS con acabados premium. Buen escritorio grande por 152 EUR.",
     "puntuacion": {
-      "calidad_construccion": 8,
-      "estabilidad": 7,
-      "facilidad_montaje": 7,
-      "relacion_calidad_precio": 8,
-      "funcionalidades": 7,
-      "total": 8
+      "calidad_construccion": 8.9,
+      "estabilidad": 7.9,
+      "facilidad_montaje": 7.9,
+      "relacion_calidad_precio": 8.9,
+      "funcionalidades": 7.9,
+      "total": 8.9
     },
     "ideal_para": "Quien busca un escritorio de 160 cm con acabados superiores.",
     "slug": "devoko-160"
@@ -439,12 +439,12 @@
     ],
     "veredicto": "Calidad Flexispot bajo marca SANODESK. El mejor valorado con 4.6 estrellas pero precio algo alto.",
     "puntuacion": {
-      "calidad_construccion": 8,
-      "estabilidad": 8,
-      "facilidad_montaje": 8,
-      "relacion_calidad_precio": 7,
-      "funcionalidades": 7,
-      "total": 8.3
+      "calidad_construccion": 8.9,
+      "estabilidad": 8.9,
+      "facilidad_montaje": 8.9,
+      "relacion_calidad_precio": 7.9,
+      "funcionalidades": 7.9,
+      "total": 9.2
     },
     "ideal_para": "Quien quiere calidad Flexispot sin pagar precio premium.",
     "slug": "sanodesk-140"
@@ -496,12 +496,12 @@
     ],
     "veredicto": "El mejor marco elevable del mercado a precio de ganga. Doble motor Flexispot por solo 107 EUR (sin tablero).",
     "puntuacion": {
-      "calidad_construccion": 9,
-      "estabilidad": 9,
-      "facilidad_montaje": 7,
-      "relacion_calidad_precio": 9,
-      "funcionalidades": 8,
-      "total": 8.8
+      "calidad_construccion": 9.9,
+      "estabilidad": 9.9,
+      "facilidad_montaje": 7.9,
+      "relacion_calidad_precio": 9.9,
+      "funcionalidades": 8.9,
+      "total": 9.7
     },
     "ideal_para": "Quien quiere la mejor estructura y elegir su propio tablero a medida.",
     "slug": "flexispot-e7"
