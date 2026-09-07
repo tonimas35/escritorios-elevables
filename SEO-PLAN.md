@@ -344,6 +344,12 @@ Normalizados con datos verificados en Amazon.es ese dia. Corregida ademas una
 afirmacion falsa ("1800+ reviews" cuando Amazon muestra 951).
 **Efecto directo: la comision maxima posible pasa de 8 EUR a 21,50 EUR.**
 
+#### ✅ Hecho 2026-09-07: schema de los 12 productos (commit en master)
+El pilar solo emitia 3 bloques `Product` de 12. Ahora emite los 12, cada uno
+con `additionalProperty` (motor, altura min/max, carga, tablero, garantia), mas
+un `ItemList` de los 12 en orden de puntuacion. Verificado en produccion:
+12 Product + 1 ItemList + 72 PropertyValue + 1 FAQPage, todo el JSON-LD parsea.
+
 #### Pendiente en este bloque
 El canal que ya funciona. Trabajo concreto sobre `/mejor-escritorio-elevable`
 primero, que es la página que ChatGPT cita:
@@ -352,9 +358,10 @@ primero, que es la página que ChatGPT cita:
 - **Tablas comparativas** con specs completas y homogéneas por producto.
 - **Precios y fechas frescos**: un modelo descarta lo que parece obsoleto.
   Automatizar la actualización de precios sería lo ideal.
-- **Schema `Product` completo**: el pilar solo emite 3 bloques `Product` de los
-  12 productos. Ampliarlo a los 12 daria a los asistentes datos estructurados
-  de todo el catalogo, no solo del podio.
+- **Replicar el schema enriquecido en las 4 reviews individuales** y en
+  `/escritorio-elevable-barato`. Solo el pilar lo tiene.
+- **Veredictos mas extraibles**: frases del tipo "el mejor para X es Y porque Z"
+  que un asistente pueda citar literalmente.
 - **Hueco de catalogo entre 160 y 370 EUR**: no hay ningun producto en la franja
   200-350, que es justo donde compra mucha gente.
 - **FAQ con preguntas en lenguaje natural**, que es como se pregunta a un chat.
