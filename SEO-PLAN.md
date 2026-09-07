@@ -360,7 +360,53 @@ coherentes marco-vs-marco y completo-vs-completo).
 
 **Las 10 paginas del sitemap: OK, con canonical, y con schema donde toca.**
 
-#### 🚨 SIGUIENTE PRIORIDAD: auditar las resenas de los 12 productos
+#### ✅ RESUELTO 2026-09-07: politica de datos que caducan
+
+El problema de fondo no era tener resenas mal: era **publicar datos que caducan
+sin forma de mantenerlos**. Amazon cambia precios a diario y su Operating
+Agreement prohibe mostrarlos desactualizados.
+
+**La API no es viable todavia:** PA-API 5.0 se retiro el 15 may 2026, y su
+sustituta exige ~10 ventas cualificadas en 30 dias para dar y conservar acceso.
+Con ~2 ventas al mes no llegamos. (Ironia: la nueva API tampoco devuelve las
+estrellas de resenas.)
+
+**Decision: no publicar cifras exactas.** `lib/format.ts`:
+
+| Dato | Antes | Ahora |
+|---|---|---|
+| Precio en pagina | `370 €` | banda: `300-400 €` |
+| Precio en schema | `price: 370` | sin declarar |
+| Precio tachado | `450 €` | eliminado (Directiva Omnibus) |
+| Resenas | `522` | `mas de 500` |
+| CTA | `370 € — Ver en Amazon` | `Ver precio en Amazon` |
+| Specs | exactas | **exactas, no caducan** |
+
+La clave: **las resenas solo suben**, asi que redondear a la baja da una cifra
+cierta para siempre. Con los precios no existe ese truco. El campo `precio`
+sigue en el JSON para ordenar y filtrar en el comparador.
+
+Cuando el sitio llegue a ~10 ventas/mes, montar la Creators API y volver a
+precios en vivo. Antes no.
+
+#### Pendiente: 89 menciones de precio en la prosa
+
+Los precios dinamicos (tablas, fichas, CTAs) ya salen como banda, pero el texto
+escrito a mano sigue diciendo cifras exactas:
+
+| Pagina | Menciones |
+|---|---|
+| `/escritorio-elevable-barato` | 29 |
+| `/mejor-escritorio-elevable` | 26 |
+| `/flexispot-vs-maidesite` | 10 |
+| `/flexispot-e7-opiniones` | 9 |
+| `/fezibo-opiniones` | 9 |
+| `/maidesite-t2-pro-opiniones` | 6 |
+
+No se pueden cambiar con un buscar-y-reemplazar: unas son el precio de un
+producto del catalogo (hay que convertirlas a banda) y otras son referencias
+genericas de mercado ("por debajo de 200 euros hay poco"), que ya son seguras.
+Requiere una pasada con criterio, pagina por pagina.
 
 De los 3 productos verificados hoy en Amazon, **2 tenian el numero de resenas
 inflado** en `data/productos.json`:
