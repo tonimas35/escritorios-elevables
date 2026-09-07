@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { AffiliateButton } from "./AffiliateButton";
 import type { Product } from "@/lib/types";
+import { priceBand, reviewsAprox } from "@/lib/format";
 
 interface ProductCardProps {
   asin: string;
@@ -80,14 +81,13 @@ export function ProductCard({
           <div className="flex items-center gap-2 mt-1">
             <RatingBadge score={product.puntuacion.total} />
             <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-              {product.rating}&#9733; ({product.num_reviews})
+              {product.rating}&#9733; ({reviewsAprox(product.num_reviews)})
             </span>
           </div>
         </div>
         <div className="text-right flex-shrink-0">
           <p className="tabular-nums text-lg font-bold" style={{ color: 'var(--text-primary)' }}>
-            {product.precio}{" "}
-            <span className="text-xs font-normal" style={{ color: 'var(--text-muted)' }}>EUR</span>
+            {priceBand(product.precio)}
           </p>
           {!hideButton && <AffiliateButton asin={asin} size="sm" />}
         </div>
@@ -149,7 +149,7 @@ export function ProductCard({
         <div className="flex items-center gap-2 mb-3">
           <RatingBadge score={product.puntuacion.total} />
           <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-            {product.rating}&#9733; ({product.num_reviews})
+            {product.rating}&#9733; ({reviewsAprox(product.num_reviews)})
           </span>
         </div>
 
@@ -180,15 +180,9 @@ export function ProductCard({
 
         {/* Price */}
         <div className="flex items-baseline gap-2">
-          {product.precio_habitual && (
-            <span className="tabular-nums text-sm line-through" style={{ color: 'var(--text-muted)' }}>
-              {product.precio_habitual}&euro;
-            </span>
-          )}
           <span className="tabular-nums text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
-            {product.precio}
+            {priceBand(product.precio)}
           </span>
-          <span className="text-sm" style={{ color: 'var(--text-muted)' }}>EUR</span>
         </div>
 
         {/* Affiliate button */}

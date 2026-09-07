@@ -15,7 +15,8 @@ export function AffiliateButton({
   size = "md",
   showPrice,
 }: AffiliateButtonProps) {
-  const displayText = showPrice ? `${showPrice} € — Ver en Amazon` : text;
+  // El precio real solo es fiable en Amazon: el CTA invita a comprobarlo alli.
+  const displayText = showPrice ? "Ver precio en Amazon" : text;
 
   const sizeClass =
     size === "sm"

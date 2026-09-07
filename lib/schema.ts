@@ -37,8 +37,11 @@ export function productSchema(asin: string, p: Product, pageUrl?: string) {
       bestRating: 5,
     },
     offers: {
+      // Sin `price` a proposito. Amazon cambia precios a diario y no tenemos
+      // acceso a la API para mantenerlos al dia; declarar un precio obsoleto
+      // incumple el Operating Agreement y hace que Google retire el rich
+      // result por discrepancia. Mejor no declararlo que declararlo mal.
       "@type": "Offer",
-      price: p.precio,
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
       url: affiliateLink(asin),

@@ -7,6 +7,7 @@ import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
 import { productSchema, itemListSchema } from "@/lib/schema";
+import { priceBand, reviewsAprox } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Mejores escritorios elevables baratos 2026 (desde 110€)",
@@ -35,7 +36,7 @@ export default function EscritorioBaratoPage() {
   const faqItems = [
     {
       q: "Cual es el escritorio elevable mas barato que merece la pena?",
-      a: `El ${winner?.[1].marca} ${winner?.[1].modelo} por ${winner?.[1].precio} EUR. Tiene anticolision, 4 memorias y 5 anos de garantia, cosas que no encuentras a este precio. Si quieres gastar menos, el Fezibo por 120 EUR cumple para un setup basico.`,
+      a: `El ${winner?.[1].marca} ${winner?.[1].modelo} por ${priceBand(winner?.[1].precio)}. Tiene anticolision, 4 memorias y 5 anos de garantia, cosas que no encuentras a este precio. Si quieres gastar menos, el Fezibo por 120 EUR cumple para un setup basico.`,
     },
     {
       q: "Motor simple o doble para un escritorio barato?",
@@ -123,7 +124,7 @@ export default function EscritorioBaratoPage() {
           Mejores escritorios elevables <span style={{ color: 'var(--accent)' }}>baratos</span> 2026
         </h1>
         <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
-          Actualizado: marzo 2026 &middot; {cheapProducts.length} modelos analizados por debajo de 220 EUR
+          Actualizado: septiembre 2026 &middot; {cheapProducts.length} modelos analizados por debajo de 220 EUR
         </p>
         <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
           Este articulo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequena comision sin coste adicional para ti.
@@ -155,7 +156,7 @@ export default function EscritorioBaratoPage() {
                 </h2>
                 <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>{winner[1].veredicto}</p>
                 <div className="flex items-center gap-4 mt-3">
-                  <span className="mono text-2xl font-bold">{winner[1].precio}€</span>
+                  <span className="mono text-2xl font-bold">{priceBand(winner[1].precio)}</span>
                   <span className="mono font-bold px-2 py-0.5 rounded text-sm text-white" style={{ background: ratingBg(winner[1].puntuacion.total) }}>
                     {winner[1].puntuacion.total}/10
                   </span>
@@ -196,7 +197,7 @@ export default function EscritorioBaratoPage() {
                       </div>
                       <div>
                         <p className="font-semibold text-sm">{product.marca} {product.modelo}</p>
-                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ ({product.num_reviews})</p>
+                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ ({reviewsAprox(product.num_reviews)})</p>
                       </div>
                     </div>
                   </td>
@@ -204,7 +205,7 @@ export default function EscritorioBaratoPage() {
                   <td className="p-3 text-center mono text-sm">{product.specs.peso_max_carga_kg} kg</td>
                   <td className="p-3 text-center text-sm" style={{ color: product.specs.sistema_anticolision ? 'var(--rating-good)' : 'var(--rating-bad)' }}>{product.specs.sistema_anticolision ? '✓' : '✗'}</td>
                   <td className="p-3 text-center mono font-bold" style={{ color: ratingBg(product.puntuacion.total) }}>{product.puntuacion.total}</td>
-                  <td className="p-3 text-center mono font-bold">{product.precio}€</td>
+                  <td className="p-3 text-center mono font-bold">{priceBand(product.precio)}</td>
                   <td className="p-3 text-center">
                     <AffiliateButton asin={asin} size="sm" />
                   </td>
@@ -282,7 +283,7 @@ export default function EscritorioBaratoPage() {
                 <div className="flex-1">
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
                     {[
-                      { label: "Precio", value: `${product.precio}€` },
+                      { label: "Precio", value: `${priceBand(product.precio)}` },
                       { label: "Motor", value: product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple' },
                       { label: "Carga max", value: `${product.specs.peso_max_carga_kg} kg` },
                       { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm` },

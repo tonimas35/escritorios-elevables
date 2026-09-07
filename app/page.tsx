@@ -5,6 +5,7 @@ import { AffiliateButton } from "@/components/AffiliateButton";
 import { FadeIn } from "@/components/FadeIn";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { getAllProducts } from "@/lib/products";
+import { priceBand, reviewsAprox } from "@/lib/format";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -72,7 +73,7 @@ export default function Home() {
                     {topProduct.marca} {topProduct.modelo}
                   </h3>
                   <div className="flex items-center gap-2 mt-1">
-                    <span className="mono text-lg font-bold">{topProduct.precio}&euro;</span>
+                    <span className="mono text-lg font-bold">{priceBand(topProduct.precio)}</span>
                     <span className="mono font-bold text-xs px-1.5 py-0.5 rounded text-white" style={{ background: 'var(--color-secondary)' }}>
                       {topProduct.puntuacion.total}
                     </span>
@@ -160,7 +161,7 @@ export default function Home() {
                         <div>
                           <p className="font-semibold text-sm">{product.marca} {product.modelo}</p>
                           <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                            {product.rating}&#9733; ({product.num_reviews})
+                            {product.rating}&#9733; ({reviewsAprox(product.num_reviews)})
                           </p>
                         </div>
                       </div>
@@ -177,10 +178,7 @@ export default function Home() {
                       </span>
                     </td>
                     <td className="p-3 text-center">
-                      <span className="mono font-bold text-base">{product.precio}&euro;</span>
-                      {product.precio_habitual && (
-                        <span className="mono text-xs line-through ml-1" style={{ color: 'var(--text-muted)' }}>{product.precio_habitual}&euro;</span>
-                      )}
+                      <span className="mono font-bold text-base">{priceBand(product.precio)}</span>
                     </td>
                     <td className="p-3 text-center">
                       <AffiliateButton asin={asin} size="sm" />
@@ -233,7 +231,7 @@ export default function Home() {
                         <p className="text-sm font-semibold truncate">{product.marca} {product.modelo}</p>
                         <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}&#9733; &middot; {product.specs.tipo_motor}</p>
                       </div>
-                      <span className="mono font-bold text-sm">{product.precio}&euro;</span>
+                      <span className="mono font-bold text-sm">{priceBand(product.precio)}</span>
                     </div>
                   ))}
                 </div>
@@ -266,7 +264,7 @@ export default function Home() {
                         <p className="text-sm font-semibold truncate">{product.marca} {product.modelo}</p>
                         <p className="mono text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}&#9733; &middot; {product.specs.tipo_motor}</p>
                       </div>
-                      <span className="mono font-bold text-sm">{product.precio}&euro;</span>
+                      <span className="mono font-bold text-sm">{priceBand(product.precio)}</span>
                     </div>
                   ))}
                 </div>

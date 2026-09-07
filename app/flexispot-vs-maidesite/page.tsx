@@ -6,6 +6,7 @@ import { AffiliateButton } from "@/components/AffiliateButton";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
 import { productSchema } from "@/lib/schema";
+import { priceBand, reviewsAprox } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Flexispot vs Maidesite 2026 — Cual es mejor?",
@@ -27,7 +28,7 @@ export default function FlexispotVsMaidesitePage() {
   const [t2Asin, t2Product] = t2;
 
   const comparisons = [
-    { label: "Precio", e7: `${e7Product.precio}€`, t2: `${t2Product.precio}€`, winner: "t2" as const },
+    { label: "Precio", e7: `${priceBand(e7Product.precio)}`, t2: `${priceBand(t2Product.precio)}`, winner: "t2" as const },
     { label: "Motor", e7: "Doble", t2: "Doble", winner: "tie" as const },
     { label: "Rango altura", e7: `${e7Product.specs.rango_altura_min_cm}–${e7Product.specs.rango_altura_max_cm} cm`, t2: `${t2Product.specs.rango_altura_min_cm}–${t2Product.specs.rango_altura_max_cm} cm`, winner: "t2" as const },
     { label: "Carga maxima", e7: `${e7Product.specs.peso_max_carga_kg} kg`, t2: `${t2Product.specs.peso_max_carga_kg} kg`, winner: "e7" as const },
@@ -37,7 +38,7 @@ export default function FlexispotVsMaidesitePage() {
     { label: "Memorias", e7: `${e7Product.specs.presets_memoria}`, t2: `${t2Product.specs.presets_memoria}`, winner: "tie" as const },
     { label: "Garantia", e7: `${e7Product.specs.garantia_anos} anos`, t2: `${t2Product.specs.garantia_anos} anos`, winner: "tie" as const },
     { label: "Nota total", e7: `${e7Product.puntuacion.total}/10`, t2: `${t2Product.puntuacion.total}/10`, winner: "e7" as const },
-    { label: "Opiniones Amazon", e7: `${e7Product.rating}★ (${e7Product.num_reviews})`, t2: `${t2Product.rating}★ (${t2Product.num_reviews})`, winner: "e7" as const },
+    { label: "Opiniones Amazon", e7: `${e7Product.rating}★ (${reviewsAprox(e7Product.num_reviews)})`, t2: `${t2Product.rating}★ (${reviewsAprox(t2Product.num_reviews)})`, winner: "e7" as const },
   ];
 
   const faqItems = [
@@ -112,7 +113,7 @@ export default function FlexispotVsMaidesitePage() {
           <span style={{ color: 'var(--accent)' }}>Flexispot</span> vs Maidesite
         </h1>
         <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
-          Actualizado: marzo 2026 · Las dos marcas mas vendidas en Amazon Espana
+          Actualizado: septiembre 2026 · Las dos marcas mas vendidas en Amazon Espana
         </p>
         <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
           Este articulo contiene enlaces de afiliado.
@@ -136,8 +137,8 @@ export default function FlexispotVsMaidesitePage() {
             No hay un ganador unico, porque no compiten en el mismo sitio. Flexispot domina la entrada de gama: su marco cuesta 127 euros y acumula 522 valoraciones con 4,7 de media. MAIDeSITe domina la capacidad: el T2 Pro MAX aguanta 160 kg y sube hasta 135 cm, cifras que Flexispot no ofrece en este catalogo. En escritorios completos, con tablero incluido, la cosa se aprieta: 410 euros el FLEXISPOT de 160x80 frente a 430 el MAIDeSITe S2 Pro, y ahi deciden el tamano del tablero y la garantia.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mt-4">
-            <AffiliateButton asin={e7Asin} text={`Flexispot E7 — ${e7Product.precio}€`} size="md" />
-            <AffiliateButton asin={t2Asin} text={`Maidesite T2 Pro — ${t2Product.precio}€`} size="md" />
+            <AffiliateButton asin={e7Asin} text="Flexispot E7 en Amazon" size="md" />
+            <AffiliateButton asin={t2Asin} text="Maidesite T2 Pro en Amazon" size="md" />
           </div>
         </div>
       </FadeIn>
@@ -168,8 +169,8 @@ export default function FlexispotVsMaidesitePage() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold" style={{ fontFamily: 'var(--font-display)' }}>{product.marca} {product.modelo}</h3>
-                      <p className="mono text-xl font-bold mt-1">{product.precio}€</p>
-                      <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {product.num_reviews} opiniones</p>
+                      <p className="mono text-xl font-bold mt-1">{priceBand(product.precio)}</p>
+                      <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {reviewsAprox(product.num_reviews)} opiniones</p>
                     </div>
                   </div>
                   <div className="mt-4">
@@ -282,7 +283,7 @@ export default function FlexispotVsMaidesitePage() {
                       </div>
                       <div>
                         <h3 className="font-semibold">{product.marca} {product.modelo}</h3>
-                        <p className="mono text-lg font-bold">{product.precio}€</p>
+                        <p className="mono text-lg font-bold">{priceBand(product.precio)}</p>
                         <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {product.puntuacion.total}/10</p>
                       </div>
                     </div>
@@ -331,8 +332,8 @@ export default function FlexispotVsMaidesitePage() {
           </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
-            <AffiliateButton asin={e7Asin} text={`Flexispot E7 — ${e7Product.precio}€`} size="lg" />
-            <AffiliateButton asin={t2Asin} text={`Maidesite T2 — ${t2Product.precio}€`} size="lg" />
+            <AffiliateButton asin={e7Asin} text="Flexispot E7 en Amazon" size="lg" />
+            <AffiliateButton asin={t2Asin} text="Maidesite T2 en Amazon" size="lg" />
           </div>
         </section>
       </FadeIn>

@@ -6,6 +6,7 @@ import { AffiliateButton } from "@/components/AffiliateButton";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { productSchema } from "@/lib/schema";
+import { priceBand, reviewsAprox } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Fezibo escritorio elevable opiniones y review 2026 — Merece la pena?",
@@ -101,11 +102,11 @@ export default function FeziboReviewPage() {
             {product.nombre}
           </h1>
           <p className="text-sm mt-2" style={{ color: 'var(--text-muted)' }}>
-            Actualizado: marzo 2026 · {product.num_reviews}+ opiniones analizadas
+            Actualizado: septiembre 2026 · {reviewsAprox(product.num_reviews)} opiniones analizadas
           </p>
 
           <div className="flex items-center gap-4 mt-4">
-            <span className="mono text-3xl font-bold">{product.precio}€</span>
+            <span className="mono text-3xl font-bold">{priceBand(product.precio)}</span>
             {product.precio_habitual && (
               <span className="mono text-lg line-through" style={{ color: 'var(--text-muted)' }}>{product.precio_habitual}€</span>
             )}
@@ -115,7 +116,7 @@ export default function FeziboReviewPage() {
           </div>
 
           <div className="flex items-center gap-2 mt-2">
-            <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{product.rating}★ en Amazon · {product.num_reviews} opiniones</span>
+            <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{product.rating}★ en Amazon · {reviewsAprox(product.num_reviews)} opiniones</span>
           </div>
 
           <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -276,7 +277,7 @@ export default function FeziboReviewPage() {
                 <td className="p-3 font-semibold">Fezibo 120x60 (este)</td>
                 <td className="p-3 text-center">Simple</td>
                 <td className="p-3 text-center mono font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
-                <td className="p-3 text-center mono font-bold">{product.precio}€</td>
+                <td className="p-3 text-center mono font-bold">{priceBand(product.precio)}</td>
                 <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
               </tr>
               {alternatives.map(([altAsin, alt]) => (
@@ -284,7 +285,7 @@ export default function FeziboReviewPage() {
                   <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
                   <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : alt.specs.tipo_motor === 'manual' ? 'Manual' : 'Simple'}</td>
                   <td className="p-3 text-center mono font-bold">{alt.puntuacion.total}</td>
-                  <td className="p-3 text-center mono font-bold">{alt.precio}€</td>
+                  <td className="p-3 text-center mono font-bold">{priceBand(alt.precio)}</td>
                   <td className="p-3 text-center"><AffiliateButton asin={altAsin} size="sm" /></td>
                 </tr>
               ))}

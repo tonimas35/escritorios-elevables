@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { AffiliateButton } from "./AffiliateButton";
 import type { Product } from "@/lib/types";
+import { priceBand, reviewsAprox } from "@/lib/format";
 
 interface QuickVerdictProps {
   asin: string;
@@ -50,12 +51,11 @@ export function QuickVerdict({ asin, product, texto }: QuickVerdictProps) {
               {product.puntuacion.total}
             </span>
             <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-              {product.rating}&#9733; ({product.num_reviews})
+              {product.rating}&#9733; ({reviewsAprox(product.num_reviews)})
             </span>
           </div>
           <p className="tabular-nums text-lg font-bold mt-1" style={{ color: 'var(--text-primary)' }}>
-            {product.precio}{" "}
-            <span className="text-xs font-normal" style={{ color: 'var(--text-muted)' }}>EUR</span>
+            {priceBand(product.precio)}
           </p>
         </div>
       </div>

@@ -7,6 +7,7 @@ import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
 import { productSchema, itemListSchema } from "@/lib/schema";
+import { priceBand, reviewsAprox } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "12 mejores escritorios elevables 2026 — Guia de compra",
@@ -137,7 +138,7 @@ export default function MejorEscritorioPage() {
             Los <span style={{ color: 'var(--accent)' }}>12 mejores</span> escritorios elevables de 2026
           </h1>
           <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
-            Actualizado: marzo 2026 &middot; 12 modelos analizados &middot; Desde 80 EUR
+            Actualizado: septiembre 2026 &middot; 12 modelos analizados &middot; Desde 80 EUR
           </p>
           <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
             Este articulo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequena comision sin coste adicional para ti.
@@ -168,7 +169,7 @@ export default function MejorEscritorioPage() {
                 </h2>
                 <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>{topProduct.veredicto}</p>
                 <div className="flex items-center gap-4 mt-3">
-                  <span className="tabular-nums text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{topProduct.precio}&euro;</span>
+                  <span className="tabular-nums text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{priceBand(topProduct.precio)}</span>
                   <span
                     className="tabular-nums font-bold px-2 py-0.5 rounded text-sm text-white"
                     style={{ background: ratingBg(topProduct.puntuacion.total) }}
@@ -210,7 +211,7 @@ export default function MejorEscritorioPage() {
                         </div>
                         <div>
                           <p className="font-semibold text-sm" style={{ color: 'var(--text-primary)' }}>{product.marca} {product.modelo}</p>
-                          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}&#9733; ({product.num_reviews})</p>
+                          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}&#9733; ({reviewsAprox(product.num_reviews)})</p>
                         </div>
                       </a>
                     </td>
@@ -231,7 +232,7 @@ export default function MejorEscritorioPage() {
                         {product.puntuacion.total}
                       </span>
                     </td>
-                    <td className="p-3 text-center tabular-nums font-bold" style={{ color: 'var(--text-primary)' }}>{product.precio}&euro;</td>
+                    <td className="p-3 text-center tabular-nums font-bold" style={{ color: 'var(--text-primary)' }}>{priceBand(product.precio)}</td>
                     <td className="p-3 text-center">
                       <AffiliateButton asin={asin} size="sm" />
                     </td>
@@ -349,7 +350,7 @@ export default function MejorEscritorioPage() {
                       <div className="flex-1">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
                           {[
-                            { label: "Precio", value: `${product.precio}\u20AC` },
+                            { label: "Precio", value: `${priceBand(product.precio)}` },
                             { label: "Motor", value: product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple' },
                             { label: "Carga max", value: `${product.specs.peso_max_carga_kg} kg` },
                             { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm` },
