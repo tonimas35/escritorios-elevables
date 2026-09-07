@@ -5,16 +5,17 @@ import { getProductBySlug, getAllProducts } from "@/lib/products";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
+import { productSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Maidesite T2 Pro Plus opiniones y review 2026 — Merece la pena?",
+  title: "MAIDeSITe T2 Pro MAX opiniones y review 2026 — Merece la pena?",
   description:
-    "Review honesta del Maidesite T2 Pro Plus: doble motor por menos de 300 EUR. Analizamos estabilidad, montaje, calidad y si merece la pena frente al Flexispot E7.",
+    "Review del MAIDeSITe T2 Pro MAX: el marco con mas carga del mercado (160 kg) y mas recorrido (65-135 cm). No incluye tablero. Analizamos si compensa por 370 EUR.",
   alternates: { canonical: "/maidesite-t2-pro-opiniones" },
 };
 
 export default function MaidesiteT2ProReviewPage() {
-  const result = getProductBySlug("maidesite-t2-pro");
+  const result = getProductBySlug("maidesite-t2-pro-max");
   if (!result) return <p>Producto no encontrado</p>;
   const [asin, product] = result;
 
@@ -29,53 +30,28 @@ export default function MaidesiteT2ProReviewPage() {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Inicio", item: "https://elevable.es" },
       { "@type": "ListItem", position: 2, name: "Mejores Escritorios", item: "https://elevable.es/mejor-escritorio-elevable" },
-      { "@type": "ListItem", position: 3, name: "Maidesite T2 Pro Plus Opiniones", item: "https://elevable.es/maidesite-t2-pro-opiniones" },
+      { "@type": "ListItem", position: 3, name: "Maidesite T2 Pro MAX Opiniones", item: "https://elevable.es/maidesite-t2-pro-opiniones" },
     ],
   };
 
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: product.nombre,
-    image: product.imagen,
-    description: product.veredicto,
-    brand: { "@type": "Brand", name: product.marca },
-    review: {
-      "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: product.puntuacion.total, bestRating: 10 },
-      author: { "@type": "Organization", name: "Elevable.es" },
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: product.rating,
-      reviewCount: product.num_reviews,
-      bestRating: 5,
-    },
-    offers: {
-      "@type": "Offer",
-      price: product.precio,
-      priceCurrency: "EUR",
-      availability: "https://schema.org/InStock",
-      url: `https://www.amazon.es/dp/${asin}?tag=escritoriosel-21`,
-    },
-  };
+  const prodSchema = productSchema(asin, product, "/maidesite-t2-pro-opiniones");
 
   const faqItems = [
     {
-      q: "Maidesite T2 Pro Plus o Flexispot E7: cual es mejor?",
-      a: "Depende de tu presupuesto. El E7 es mejor en estabilidad y acabados, pero cuesta 200 euros mas. El T2 Pro Plus ofrece el 85-90% de la experiencia por 270 euros. Si tu setup es un monitor y portatil, el Maidesite es mas que suficiente. Si tienes dos monitores con brazo y quieres maxima rigidez, el E7 lo justifica.",
+      q: "El MAIDeSITe T2 Pro MAX incluye tablero?",
+      a: "No. Es solo la estructura: las patas, el motor y el panel de control. El tablero se compra aparte y admite hasta 200x80 cm. Cuenta con 40 a 150 euros mas segun lo que elijas, y hazte la cuenta total antes de compararlo con modelos que ya vienen con tablero.",
     },
     {
-      q: "El Maidesite T2 Pro Plus es estable de pie?",
-      a: "Es estable para uso normal. Escribiendo en el teclado a maxima altura (127 cm), se nota un ligero movimiento lateral — menos que los escritorios de motor simple, pero mas que el Flexispot E7. Para la mayoria de personas con un setup estandar, la estabilidad es perfectamente aceptable.",
+      q: "Cuanto peso aguanta de verdad?",
+      a: "160 kg segun el fabricante, la cifra mas alta de esta comparativa. Para que te hagas una idea, un setup exigente (dos monitores de 27 pulgadas con brazo, torre, altavoces y portatil) ronda los 40 kg. Aqui vas a ir sobrado pase lo que pase, que es justo el argumento de este modelo.",
+    },
+    {
+      q: "Sirve para una persona muy alta?",
+      a: "Es de lo mejor que hay para eso. Sube hasta 135 cm, mas que cualquier otro modelo del catalogo, que se quedan en 120-123 cm. Si mides mas de 1,90 m y has probado escritorios que se te quedan cortos de pie, este resuelve el problema. Recuerda sumar el grosor del tablero a esa altura.",
     },
     {
       q: "Cuanto tarda en montarse?",
-      a: "Entre 40 minutos y una hora con dos personas. La estructura pesa 27 kg, asi que es manejable para una persona, pero no lo recomiendo. Las instrucciones son claras y las herramientas vienen incluidas.",
-    },
-    {
-      q: "El tablero del T2 Pro Plus es bueno?",
-      a: "Es melamina estandar. Cumple su funcion pero no es un tablero premium. No se raya facilmente en uso normal, pero si apoyas objetos puntiagudos o metalicos directamente, puede marcarse. Si quieres un tablero mejor, puedes comprar la estructura sola y poner tu propio tablero de IKEA o similar.",
+      a: "Entre 40 minutos y una hora, y mejor entre dos personas: la estructura pesa 30 kg. Al no incluir tablero, tendras que taladrar los agujeros de fijacion en el tuyo si no vienen ya hechos, asi que suma ese rato.",
     },
   ];
 
@@ -97,7 +73,7 @@ export default function MaidesiteT2ProReviewPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(prodSchema) }}
       />
       <script
         type="application/ld+json"
@@ -109,7 +85,7 @@ export default function MaidesiteT2ProReviewPage() {
         <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
         {" "}&gt;{" "}
         <Link href="/mejor-escritorio-elevable" className="hover:underline" style={{ color: 'var(--accent)' }}>Mejores escritorios</Link>
-        {" "}&gt;{" "}Maidesite T2 Pro Plus opiniones
+        {" "}&gt;{" "}Maidesite T2 Pro MAX opiniones
       </nav>
 
       <div className="flex flex-col md:flex-row gap-8">
@@ -159,11 +135,11 @@ export default function MaidesiteT2ProReviewPage() {
       {/* Editorial intro */}
       <div className="mt-10 max-w-3xl space-y-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
         <p>
-          Llevo semanas viendo como el Maidesite T2 Pro Plus se cuela en todas las listas de mejores escritorios elevables. Y tiene sentido: a 270 euros te da doble motor, 100 kg de carga, 127 cm de altura maxima y 5 anos de garantia. Es lo que ofrecian escritorios de 450 euros hace dos anos. El mercado ha cambiado y Maidesite lo ha aprovechado mejor que nadie.
-        </p>
+            El MAIDeSITe T2 Pro MAX no es un escritorio: es un marco. Viene sin tablero, y ese es el primer dato que hay que tener claro antes de seguir leyendo, porque cambia la cuenta. A cambio ofrece dos cifras que ningun otro modelo de esta comparativa alcanza: 160 kg de carga y un recorrido de 65 a 135 cm.
+          </p>
         <p>
-          Pero no todo son maravillas. He revisado cientos de opiniones en Amazon, he comparado sus specs con el Flexispot E7 (que cuesta casi el doble), y tengo claro donde brilla y donde se queda corto. Si estas dudando entre este y algo mas caro — o mas barato — esto te va a ahorrar horas de busqueda.
-        </p>
+            Eso lo convierte en una compra muy concreta: tiene sentido si ya tienes tablero, si quieres uno a medida, o si tu setup pesa de verdad. Si buscas algo que llegue montado y listo, hay opciones mejores en el catalogo. Vamos con el detalle.
+          </p>
       </div>
 
       <div className="divider my-10" />
@@ -214,56 +190,56 @@ export default function MaidesiteT2ProReviewPage() {
         </h2>
 
         <div>
-          <h3 className="text-lg font-semibold">Doble motor por 270 euros: donde esta el truco?</h3>
+          <h3 className="text-lg font-semibold">Que estas pagando exactamente</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            La pregunta obvia. Si el Flexispot E7 cobra 480 euros por doble motor, como puede Maidesite ofrecer lo mismo por 270? He investigado un poco. Maidesite fabrica en China con menos intermediarios que Flexispot, y su estrategia es clara: volumen alto y margen bajo. Los motores no son LoctekMotion (la subsidiaria de Flexispot), sino genéricos chinos de buena calidad. Funcionan bien, pero la diferencia se nota en los detalles: el movimiento del E7 es mas suave, mas silencioso, y el motor arranca sin el leve tiron que el Maidesite da al comenzar a moverse.
+            370 euros por un marco, sin tablero, es un precio de gama alta. Lo que compras es capacidad: doble motor, 160 kg de carga util y tres secciones telescopicas que permiten bajar hasta 65 cm y subir hasta 135. Para comparar, el resto de modelos del catalogo se mueven entre 50 y 125 kg, y ninguno pasa de 123 cm.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            A 48 dB de ruido (frente a 45 del E7), la diferencia no es enorme pero existe. En una llamada de Zoom no molesta. En una grabacion de audio, el micro lo captaria. Para el 90% de los usuarios, irrelevante.
+            El panel Piano-Master lleva cuatro memorias de altura y sistema anticolision. A 45 dB, el ruido al subir es discreto: audible en una habitacion en silencio, irrelevante en una videollamada. La velocidad, 3,8 cm/s, esta en la parte alta del catalogo.
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold">Estabilidad: bien, pero no excelente</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            A 127 cm de altura maxima, el T2 Pro Plus llega mas alto que el E7 (123 cm). Eso es bueno para personas altas. Pero mas alto significa mas palanca, y aqui se nota la diferencia de precio. Escribiendo de pie a maxima altura, el tablero tiene un ligero balanceo lateral que el E7 no tiene. No es preocupante — no se te va a caer el cafe — pero si eres de los que nota la pantalla temblando mientras teclea, te va a molestar un poco.
+            Los 135 cm de altura maxima son el mayor recorrido del catalogo, y eso lo hace apto para personas muy altas o para trabajar de pie con teclado elevado. Pero cuanto mas sube una estructura, mas palanca hay: a maxima altura, cualquier marco de tres secciones tiene mas balanceo lateral que a altura de trabajo normal.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            A alturas normales de trabajo de pie (105-115 cm), la estabilidad es buena. Mas que suficiente para un monitor y portatil. Con dos monitores de 27 pulgadas en brazo, yo le pondria una barra estabilizadora transversal (hay compatibles por 15 euros en Amazon) para ir tranquilo.
+            En el rango habitual de trabajo de pie, entre 105 y 115 cm, la estructura de tres secciones y los 30 kg de peso propio juegan a favor. Con 160 kg de carga admitida, un setup de dos monitores en brazo mas equipo pesado entra sin acercarse al limite.
           </p>
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold">El tablero: funcional, no bonito</h3>
+          <h3 className="text-lg font-semibold">No incluye tablero: cuenta con ese gasto</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Melamina estandar de 140x70 cm. Hace su trabajo. Los bordes estan bien sellados, no se astilla, y el color es uniforme. Pero comparado con el tablero del E7 (que tampoco es premium) se siente mas fino y mas ligero. Si apoyas el codo con fuerza durante horas, notas que cede ligeramente. Es un detalle menor, pero real.
+            Este modelo es solo la estructura. Ni tablero ni tornilleria para uno concreto: hay que comprarlo aparte y elegir medidas. El marco admite tableros de hasta 200x80 cm, asi que tienes margen de sobra.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Una opcion que algunos compradores usan: comprar solo la estructura Maidesite y ponerle un tablero de IKEA LAGKAPTEN (40 euros). La combinacion sale por unos 260 euros y el resultado es mejor que el tablero incluido.
+            En la practica esto suma entre 40 y 150 euros segun lo que elijas, desde un LAGKAPTEN de IKEA hasta un tablero macizo. Merece la pena hacer la cuenta completa antes de decidir: sumando un tablero medio, el total se acerca a los modelos que ya vienen con el suyo.
           </p>
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold">Para quien SI es el T2 Pro Plus</h3>
+          <h3 className="text-lg font-semibold">Para quien SI es el T2 Pro MAX</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Si tu presupuesto esta entre 200 y 350 euros y quieres doble motor, no hay nada mejor ahora mismo. Punto. Tambien para quien teletrabaja a jornada completa pero no necesita la maxima estabilidad del mercado. Y para personas altas (mas de 1.85 m): el rango hasta 127 cm da mas margen que la mayoria de competidores.
+            Si ya tienes un tablero que te gusta, si quieres unas medidas que nadie vende montadas, o si tu equipo pesa mas de lo normal. Los 160 kg y los 135 cm de altura maxima no los da ningun otro modelo de esta comparativa, y para personas por encima de 1,90 m ese recorrido extra se nota.
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold">Para quien NO es</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Si necesitas la maxima estabilidad posible (setup pesado, dos monitores con brazo, videoconferencias donde se note la vibracion), el E7 es mejor inversion. Si tu presupuesto es menor de 200 euros, mira los modelos de motor simple como el Flexispot EG1 o el Ergear EED-S1. Y si apenas cambias de posicion, un escritorio manual de manivela por 100 euros te puede servir igual.
+            Si quieres abrir la caja y tenerlo funcionando, porque aqui te falta la mitad del mueble. Si tu presupuesto total ronda los 400 euros, un modelo con tablero incluido te deja mejor equipado. Y si tu setup es un portatil y un monitor, estas pagando una capacidad de carga que no vas a usar.
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold">Que dicen los compradores</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            He revisado mas de 150 opiniones en Amazon ES. Lo positivo que mas se repite: la relacion calidad-precio. Muchos compradores comparan con escritorios de 400+ euros y dicen que la diferencia no justifica el precio extra. El montaje lo valoran como sencillo, aunque un par de personas mencionan que las instrucciones del paso del cableado podrian ser mas claras.
+            Acumula 76 valoraciones en Amazon Espana con una media de 4,5 sobre 5. Lo que mas se repite en positivo es la solidez de la estructura y lo bien que sube y baja incluso cargada; varios compradores mencionan que lo eligieron precisamente por la capacidad de carga.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            En lo negativo: el tablero fino es la queja mas comun. Varios compradores lo han sustituido por uno de IKEA. Algun caso aislado de chirrido al subir a maxima velocidad, que se soluciona apretando los tornillos de union. Y dos o tres opiniones de 1 estrella por tableros que llegaron con marcas de transporte — algo que Maidesite repone sin problema si contactas con ellos.
+            En lo negativo, la queja recurrente es la que cabe esperar: llega sin tablero y no todo el mundo lo tiene claro al comprar. Tambien aparece el peso de la estructura, 30 kg, que hace recomendable montarlo entre dos personas. Con 76 valoraciones, el historial es todavia corto comparado con marcas mas veteranas.
           </p>
         </div>
       </section>
@@ -283,8 +259,8 @@ export default function MaidesiteT2ProReviewPage() {
         <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Veredicto</p>
         <p className="text-xl mt-2" style={{ fontFamily: 'var(--font-display)' }}>{product.veredicto}</p>
         <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-          A 270 euros, ofrece doble motor y prestaciones que hace dos anos costaban 450. No es perfecto, pero es la compra inteligente de 2026.
-        </p>
+            370 euros por el marco, mas lo que te cueste el tablero. Compensa si necesitas su carga o su recorrido; si no, hay opciones mas completas por menos.
+          </p>
         <div className="mt-4 inline-block">
           <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
         </div>
@@ -295,7 +271,7 @@ export default function MaidesiteT2ProReviewPage() {
       {/* Alternatives */}
       <section>
         <h2 className="text-2xl mb-4" style={{ fontFamily: 'var(--font-display)' }}>
-          Alternativas al Maidesite T2 Pro Plus
+          Alternativas al Maidesite T2 Pro MAX
         </h2>
         <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
           Si el Maidesite no te convence del todo, estas son las tres opciones que yo consideraria segun presupuesto y necesidades.
@@ -313,7 +289,7 @@ export default function MaidesiteT2ProReviewPage() {
             </thead>
             <tbody>
               <tr style={{ background: 'var(--accent-light)', borderBottom: '1px solid var(--border)' }}>
-                <td className="p-3 font-semibold">Maidesite T2 Pro Plus (este)</td>
+                <td className="p-3 font-semibold">Maidesite T2 Pro MAX (este)</td>
                 <td className="p-3 text-center">Doble</td>
                 <td className="p-3 text-center mono font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
                 <td className="p-3 text-center mono font-bold">{product.precio}€</td>
@@ -354,7 +330,7 @@ export default function MaidesiteT2ProReviewPage() {
       {/* FAQ */}
       <section className="mt-12 max-w-3xl">
         <h2 className="text-2xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>
-          Preguntas frecuentes sobre el Maidesite T2 Pro Plus
+          Preguntas frecuentes sobre el Maidesite T2 Pro MAX
         </h2>
         <div className="space-y-6">
           {faqItems.map((faq) => (
