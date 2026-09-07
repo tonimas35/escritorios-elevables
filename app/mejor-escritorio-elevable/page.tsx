@@ -32,7 +32,7 @@ export default function MejorEscritorioPage() {
     ],
   };
 
-  const productSchemas = top3.map(([, p]) => ({
+  const productSchemas = topProducts.map(([, p]) => ({
     "@context": "https://schema.org",
     "@type": "Product",
     name: p.nombre,
@@ -51,7 +51,31 @@ export default function MejorEscritorioPage() {
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
     },
+    additionalProperty: [
+      { "@type": "PropertyValue", name: "Tipo de motor", value: p.specs.tipo_motor },
+      { "@type": "PropertyValue", name: "Altura minima", value: `${p.specs.rango_altura_min_cm} cm` },
+      { "@type": "PropertyValue", name: "Altura maxima", value: `${p.specs.rango_altura_max_cm} cm` },
+      { "@type": "PropertyValue", name: "Carga maxima", value: `${p.specs.peso_max_carga_kg} kg` },
+      { "@type": "PropertyValue", name: "Tablero incluido", value: p.specs.tablero_incluido ? "Si" : "No" },
+      { "@type": "PropertyValue", name: "Garantia", value: `${p.specs.garantia_anos} anos` },
+    ],
   }));
+
+  // ItemList: la estructura que describe una comparativa "los mejores X",
+  // y la que mejor interpretan buscadores y asistentes de IA.
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Los 12 mejores escritorios elevables de 2026",
+    numberOfItems: topProducts.length,
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    itemListElement: topProducts.map(([, p], i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: p.nombre,
+      url: `https://elevable.es/mejor-escritorio-elevable#${p.slug}`,
+    })),
+  };
 
   const faqItems = [
     {
@@ -64,7 +88,7 @@ export default function MejorEscritorioPage() {
     },
     {
       q: "Cuanto peso soportan estos escritorios?",
-      a: "De 50 kg los baratos a 150 kg los premium. Un setup normal (monitor + portatil + trastos) pesa unos 12-15 kg, asi que incluso el mas basico va sobrado. Solo preocupate si tienes varios monitores con brazo o equipos pesados encima.",
+      a: "De 50 kg los baratos a 160 kg los premium. Un setup normal (monitor + portatil + trastos) pesa unos 12-15 kg, asi que incluso el mas basico va sobrado. Solo preocupate si tienes varios monitores con brazo o equipos pesados encima.",
     },
     {
       q: "Puedo montar un escritorio elevable solo?",
@@ -111,6 +135,10 @@ export default function MejorEscritorioPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
       {productSchemas.map((schema, i) => (
         <script
