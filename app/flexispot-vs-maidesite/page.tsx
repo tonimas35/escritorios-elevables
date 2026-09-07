@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Flexispot vs Maidesite 2026 — Cual es mejor?",
   description:
     "Comparativa Flexispot vs Maidesite: analizamos el E7 vs T2 Pro Plus y EG1 vs S2 Pro. Motor, estabilidad, precio y cual merece la pena en 2026.",
+  alternates: { canonical: "/flexispot-vs-maidesite" },
 };
 
 

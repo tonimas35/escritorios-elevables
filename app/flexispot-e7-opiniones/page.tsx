@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Flexispot E7 opiniones y review 2026 — Merece la pena?",
   description:
     "Review completa del Flexispot E7: el escritorio elevable mas vendido. Analizamos motor, estabilidad, montaje y si merece la pena en 2026. Con opiniones reales.",
+  alternates: { canonical: "/flexispot-e7-opiniones" },
 };
 
 

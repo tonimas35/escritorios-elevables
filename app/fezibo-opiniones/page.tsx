@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Fezibo escritorio elevable opiniones y review 2026 — Merece la pena?",
   description:
     "Review honesta del Fezibo 100x60: el escritorio elevable electrico mas barato. Analizamos si merece la pena por 120 EUR, para quien es y para quien no.",
+  alternates: { canonical: "/fezibo-opiniones" },
 };
 
 export default function FeziboReviewPage() {

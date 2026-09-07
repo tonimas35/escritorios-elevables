@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Aviso legal",
   description: "Aviso legal, politica de afiliacion y privacidad.",
+  alternates: { canonical: "/aviso-legal" },
 };
 
 const breadcrumbSchema = {

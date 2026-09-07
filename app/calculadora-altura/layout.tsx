@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "Calculadora de altura de escritorio — Altura ideal segun tu estatura",
   description:
     "Calcula la altura ideal de tu escritorio elevable segun tu estatura. Basado en la norma ergonomica EN 527-1.",
+  alternates: { canonical: "/calculadora-altura" },
 };
 
 const breadcrumbSchema = {

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Maidesite T2 Pro Plus opiniones y review 2026 — Merece la pena?",
   description:
     "Review honesta del Maidesite T2 Pro Plus: doble motor por menos de 300 EUR. Analizamos estabilidad, montaje, calidad y si merece la pena frente al Flexispot E7.",
+  alternates: { canonical: "/maidesite-t2-pro-opiniones" },
 };
 
 export default function MaidesiteT2ProReviewPage() {

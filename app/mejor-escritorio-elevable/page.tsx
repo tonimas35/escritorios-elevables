@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "12 mejores escritorios elevables 2026 — Guia de compra",
   description:
     "Comparativa de los 12 mejores escritorios elevables electricos de 2026. Desde 110\u20AC hasta gama premium. Analisis con datos reales, pros/contras y recomendaciones.",
+  alternates: { canonical: "/mejor-escritorio-elevable" },
 };
 
 export default function MejorEscritorioPage() {

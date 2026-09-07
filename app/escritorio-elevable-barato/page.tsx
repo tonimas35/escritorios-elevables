@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Mejores escritorios elevables baratos 2026 (desde 110€)",
   description:
     "Los 6 mejores escritorios elevables baratos en Amazon. Comparativa actualizada con precios desde 110 EUR. Analizamos calidad, motor, estabilidad y relacion calidad-precio.",
+  alternates: { canonical: "/escritorio-elevable-barato" },
 };
 
 
