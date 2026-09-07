@@ -334,6 +334,17 @@ Prioridad: los modelos con más búsquedas del catálogo actual.
 **Impacto:** alto. Es la palanca principal. Cada review es una puerta nueva.
 
 ### B3.5 — Optimizar para asistentes de IA *(NUEVO, alta prioridad)*
+
+#### ✅ Hecho 2026-09-07: rescatados los 3 premium (commit `d7d53a3`)
+Los 3 escritorios de 370-430 EUR llevaban desde marzo sin mostrarse por un
+esquema de datos incompatible (`amazonRating` vs `rating`, `carga_max_kg` vs
+`peso_max_carga_kg`, y sin campo `disponible`, que todas las paginas filtran).
+La web decia "12 mejores" y mostraba 9, con techo de 160 EUR.
+Normalizados con datos verificados en Amazon.es ese dia. Corregida ademas una
+afirmacion falsa ("1800+ reviews" cuando Amazon muestra 951).
+**Efecto directo: la comision maxima posible pasa de 8 EUR a 21,50 EUR.**
+
+#### Pendiente en este bloque
 El canal que ya funciona. Trabajo concreto sobre `/mejor-escritorio-elevable`
 primero, que es la página que ChatGPT cita:
 - **Veredictos explícitos y extraíbles**: "el mejor para X es Y porque Z".
@@ -341,8 +352,11 @@ primero, que es la página que ChatGPT cita:
 - **Tablas comparativas** con specs completas y homogéneas por producto.
 - **Precios y fechas frescos**: un modelo descarta lo que parece obsoleto.
   Automatizar la actualización de precios sería lo ideal.
-- **Schema `Product`/`Review` completo** en los 12 productos (hoy 3 están
-  incompletos en `data/productos.json`).
+- **Schema `Product` completo**: el pilar solo emite 3 bloques `Product` de los
+  12 productos. Ampliarlo a los 12 daria a los asistentes datos estructurados
+  de todo el catalogo, no solo del podio.
+- **Hueco de catalogo entre 160 y 370 EUR**: no hay ningun producto en la franja
+  200-350, que es justo donde compra mucha gente.
 - **FAQ con preguntas en lenguaje natural**, que es como se pregunta a un chat.
 - Replicar en las reviews individuales lo que funcione en el pilar.
 
