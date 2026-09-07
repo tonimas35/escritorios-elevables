@@ -350,7 +350,33 @@ con `additionalProperty` (motor, altura min/max, carga, tablero, garantia), mas
 un `ItemList` de los 12 en orden de puntuacion. Verificado en produccion:
 12 Product + 1 ItemList + 72 PropertyValue + 1 FAQPage, todo el JSON-LD parsea.
 
-#### 🚨 URGENTE: dos paginas rotas en produccion desde marzo
+#### ✅ RESUELTO 2026-09-07: las tres paginas rotas ya funcionan
+
+Las tres que mostraban "Producto no encontrado" desde marzo estan reparadas y
+verificadas en produccion. `/maidesite-t2-pro-opiniones` y
+`/flexispot-vs-maidesite` no se parchearon cambiando el slug: se **reescribieron**
+para el catalogo real (T2 Pro MAX de 370 EUR sin tablero, y dos duelos
+coherentes marco-vs-marco y completo-vs-completo).
+
+**Las 10 paginas del sitemap: OK, con canonical, y con schema donde toca.**
+
+#### 🚨 SIGUIENTE PRIORIDAD: auditar las resenas de los 12 productos
+
+De los 3 productos verificados hoy en Amazon, **2 tenian el numero de resenas
+inflado** en `data/productos.json`:
+
+| Producto | Declaraba | Real |
+|---|---|---|
+| FLEXISPOT 160x80 | 1.823 | **951** |
+| Marco FLEXISPOT (E7) | 3.200 | **522** |
+| MAIDeSITe S2 Pro | 45 | 72 |
+
+Dos de tres. Publicar cifras de resenas infladas es un problema de veracidad y
+alimenta el schema `aggregateRating`, asi que Google y los asistentes lo leen
+como dato. **Hay que verificar los 12 ASIN contra Amazon.es**, tambien los
+precios, que cambian solos.
+
+#### Historico: que estaba roto y por que
 
 Al reconstruir el catalogo se cambiaron los slugs y las paginas que los
 referencian no se actualizaron. Tres paginas mostraban literalmente
