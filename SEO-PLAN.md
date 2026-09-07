@@ -248,7 +248,27 @@ son ~28 €/mes**.
 
 ## 5. Bloques ejecutables
 
-### B0 — Matar los duplicados *(1 sesión de código + 2 ajustes tuyos)* ⚠️ PRIMERO
+### B0 — Matar los duplicados ✅ **COMPLETADO 2026-09-07**
+
+Desplegado en producción (commit `c2713fc` en master). Verificado en vivo:
+`elevable.es` sirve las 10 páginas con canonical absoluto y sin `X-Robots-Tag`;
+`escritorios-elevables.vercel.app` devuelve `noindex, nofollow`;
+`tonimas35.github.io` devuelve 404; `www.elevable.es` redirige.
+Sitemap reenviado en GSC. Indexación manual solicitada para
+`/mejor-escritorio-elevable`, `/escritorio-elevable-barato` y
+`/flexispot-e7-opiniones`.
+
+Dato que salió al inspeccionar: esas páginas tenían **"Último rastreo: N/D"** —
+Google nunca las había llegado a rastrear, ni una sola vez.
+
+Pendiente menor: solicitar indexación de `/fezibo-opiniones`,
+`/maidesite-t2-pro-opiniones`, `/flexispot-vs-maidesite`, `/comparador` y
+`/calculadora-altura`. No es urgente: las tres solicitadas enlazan a todas, así
+que Google debería descubrirlas al rastrearlas.
+
+---
+
+#### Detalle de lo ejecutado
 
 **En código (Claude, 1 sesión corta):**
 1. **Canonicals absolutos** en las 10 páginas: `alternates: { canonical: "https://elevable.es/ruta" }`.
