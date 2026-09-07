@@ -6,6 +6,7 @@ import { AffiliateButton } from "@/components/AffiliateButton";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
+import { productSchema, itemListSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "12 mejores escritorios elevables 2026 — Guia de compra",
@@ -32,50 +33,17 @@ export default function MejorEscritorioPage() {
     ],
   };
 
-  const productSchemas = topProducts.map(([, p]) => ({
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: p.nombre,
-    description: p.veredicto,
-    brand: { "@type": "Brand", name: p.marca },
-    image: p.imagen,
-    url: `https://elevable.es/mejor-escritorio-elevable#${p.slug}`,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: p.rating,
-      reviewCount: p.num_reviews,
-    },
-    offers: {
-      "@type": "Offer",
-      price: p.precio,
-      priceCurrency: "EUR",
-      availability: "https://schema.org/InStock",
-    },
-    additionalProperty: [
-      { "@type": "PropertyValue", name: "Tipo de motor", value: p.specs.tipo_motor },
-      { "@type": "PropertyValue", name: "Altura minima", value: `${p.specs.rango_altura_min_cm} cm` },
-      { "@type": "PropertyValue", name: "Altura maxima", value: `${p.specs.rango_altura_max_cm} cm` },
-      { "@type": "PropertyValue", name: "Carga maxima", value: `${p.specs.peso_max_carga_kg} kg` },
-      { "@type": "PropertyValue", name: "Tablero incluido", value: p.specs.tablero_incluido ? "Si" : "No" },
-      { "@type": "PropertyValue", name: "Garantia", value: `${p.specs.garantia_anos} anos` },
-    ],
-  }));
+  const productSchemas = topProducts.map(([a, p]) =>
+    productSchema(a, p, "/mejor-escritorio-elevable")
+  );
 
   // ItemList: la estructura que describe una comparativa "los mejores X",
   // y la que mejor interpretan buscadores y asistentes de IA.
-  const itemListSchema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Los 12 mejores escritorios elevables de 2026",
-    numberOfItems: topProducts.length,
-    itemListOrder: "https://schema.org/ItemListOrderDescending",
-    itemListElement: topProducts.map(([, p], i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: p.nombre,
-      url: `https://elevable.es/mejor-escritorio-elevable#${p.slug}`,
-    })),
-  };
+  const listSchema = itemListSchema(
+    "Los 12 mejores escritorios elevables de 2026",
+    topProducts,
+    "/mejor-escritorio-elevable"
+  );
 
   const faqItems = [
     {
@@ -138,7 +106,7 @@ export default function MejorEscritorioPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }}
       />
       {productSchemas.map((schema, i) => (
         <script

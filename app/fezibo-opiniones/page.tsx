@@ -5,21 +5,22 @@ import { getProductBySlug, getAllProducts } from "@/lib/products";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
+import { productSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Fezibo escritorio elevable opiniones y review 2026 — Merece la pena?",
   description:
-    "Review honesta del Fezibo 100x60: el escritorio elevable electrico mas barato. Analizamos si merece la pena por 120 EUR, para quien es y para quien no.",
+    "Review honesta del Fezibo 120x60: el escritorio elevable electrico mas barato. Analizamos si merece la pena por 140 EUR, para quien es y para quien no.",
   alternates: { canonical: "/fezibo-opiniones" },
 };
 
 export default function FeziboReviewPage() {
-  const result = getProductBySlug("fezibo-100x60");
+  const result = getProductBySlug("fezibo-120");
   if (!result) return <p>Producto no encontrado</p>;
   const [asin, product] = result;
 
   const alternatives = getAllProducts()
-    .filter(([, p]) => p.slug !== "fezibo-100x60" && p.disponible && p.precio <= 250)
+    .filter(([, p]) => p.slug !== "fezibo-120" && p.disponible && p.precio <= 250)
     .sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total)
     .slice(0, 3);
 
@@ -33,41 +34,16 @@ export default function FeziboReviewPage() {
     ],
   };
 
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: product.nombre,
-    image: product.imagen,
-    description: product.veredicto,
-    brand: { "@type": "Brand", name: product.marca },
-    review: {
-      "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: product.puntuacion.total, bestRating: 10 },
-      author: { "@type": "Organization", name: "Elevable.es" },
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: product.rating,
-      reviewCount: product.num_reviews,
-      bestRating: 5,
-    },
-    offers: {
-      "@type": "Offer",
-      price: product.precio,
-      priceCurrency: "EUR",
-      availability: "https://schema.org/InStock",
-      url: `https://www.amazon.es/dp/${asin}?tag=escritoriosel-21`,
-    },
-  };
+  const prodSchema = productSchema(asin, product, "/fezibo-opiniones");
 
   const faqItems = [
     {
-      q: "El Fezibo vale la pena por 120 euros?",
+      q: "El Fezibo vale la pena por 140 euros?",
       a: "Si tu expectativa es un escritorio elevable basico que sube y baja sin problemas, si. No esperes la estabilidad de un Flexispot E7 ni la velocidad de un doble motor. Pero para un estudiante o alguien que quiere probar un elevable por primera vez, es la forma mas barata de hacerlo con motor electrico.",
     },
     {
       q: "El Fezibo sirve para trabajar 8 horas al dia?",
-      a: "Puede, pero no lo recomiendo como escritorio principal para jornada completa. Con 50 kg de carga y un tablero de 100x60 cm, el espacio y la capacidad son justos. Si teletrabajas a jornada completa, invierte un poco mas en algo con tablero de 120 cm y mas carga, como el Ergear EED-S1 por 140 euros.",
+      a: "Puede, pero no lo recomiendo como escritorio principal para jornada completa. Con 50 kg de carga y un tablero de 120x60 cm, el espacio y la capacidad son justos. Si teletrabajas a jornada completa, invierte un poco mas en algo con tablero de 120 cm y mas carga, como el Ergear EED-S1 por 140 euros.",
     },
     {
       q: "Que puedo poner encima del Fezibo?",
@@ -97,7 +73,7 @@ export default function FeziboReviewPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(prodSchema) }}
       />
       <script
         type="application/ld+json"
@@ -159,7 +135,7 @@ export default function FeziboReviewPage() {
       {/* Editorial intro */}
       <div className="mt-10 max-w-3xl space-y-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
         <p>
-          El Fezibo es el escritorio elevable electrico mas barato que puedes comprar ahora mismo en Amazon Espana. 120 euros. Con motor. Sube y baja pulsando un boton. Hace cinco anos esto habria parecido ciencia ficcion. Hoy es una realidad, pero con matices importantes que necesitas conocer antes de comprar.
+          El Fezibo es el escritorio elevable electrico mas barato que puedes comprar ahora mismo en Amazon Espana. 140 euros. Con motor. Sube y baja pulsando un boton. Hace cinco anos esto habria parecido ciencia ficcion. Hoy es una realidad, pero con matices importantes que necesitas conocer antes de comprar.
         </p>
         <p>
           He analizado las 2400+ opiniones en Amazon, he comparado sus specs con los otros modelos baratos del mercado, y tengo claro para quien tiene sentido y para quien no. Si tu presupuesto es ajustado, esto te interesa.
@@ -214,7 +190,7 @@ export default function FeziboReviewPage() {
         </h2>
 
         <div>
-          <h3 className="text-lg font-semibold">120 euros con motor: que sacrificas?</h3>
+          <h3 className="text-lg font-semibold">140 euros con motor: que sacrificas?</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             El motor simple es lento (2.5 cm/s) y ruidoso comparado con los doble motor. El recorrido completo tarda unos 18 segundos, que se sienten largos cuando vienes de un escritorio electrico rapido. Pero si es tu primer elevable, no lo vas a notar. Las 3 memorias de altura te permiten guardar tus posiciones favoritas y olvidarte.
           </p>
@@ -233,7 +209,7 @@ export default function FeziboReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Para quien SI es el Fezibo</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Estudiantes que quieren alternar sentado y de pie mientras estudian. Personas que trabajan desde casa unas horas al dia (no jornada completa). Quien quiere probar un escritorio elevable sin gastarse mas de 130 euros. Y para espacios pequenos: 100x60 cm cabe en cualquier rincon.
+            Estudiantes que quieren alternar sentado y de pie mientras estudian. Personas que trabajan desde casa unas horas al dia (no jornada completa). Quien quiere probar un escritorio elevable sin gastarse mas de 130 euros. Y para espacios pequenos: 120x60 cm cabe en cualquier rincon.
           </p>
         </div>
 
@@ -267,7 +243,7 @@ export default function FeziboReviewPage() {
         <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Veredicto</p>
         <p className="text-xl mt-2" style={{ fontFamily: 'var(--font-display)' }}>{product.veredicto}</p>
         <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-          No es el mejor escritorio elevable. Pero a 120 euros, es la forma mas barata de descubrir si trabajar de pie va contigo.
+          No es el mejor escritorio elevable. Pero a 140 euros, es la forma mas barata de descubrir si trabajar de pie va contigo.
         </p>
         <div className="mt-4 inline-block">
           <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
@@ -297,7 +273,7 @@ export default function FeziboReviewPage() {
             </thead>
             <tbody>
               <tr style={{ background: 'var(--accent-light)', borderBottom: '1px solid var(--border)' }}>
-                <td className="p-3 font-semibold">Fezibo 100x60 (este)</td>
+                <td className="p-3 font-semibold">Fezibo 120x60 (este)</td>
                 <td className="p-3 text-center">Simple</td>
                 <td className="p-3 text-center mono font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
                 <td className="p-3 text-center mono font-bold">{product.precio}€</td>

@@ -6,6 +6,7 @@ import { AffiliateButton } from "@/components/AffiliateButton";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
+import { productSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Flexispot E7 opiniones y review 2026 — Merece la pena?",
@@ -63,6 +64,8 @@ export default function FlexispotE7ReviewPage() {
     },
   ];
 
+  const e7Schema = productSchema(asin, product, "/flexispot-e7-opiniones");
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -78,6 +81,10 @@ export default function FlexispotE7ReviewPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(e7Schema) }}
       />
       <script
         type="application/ld+json"

@@ -6,6 +6,7 @@ import { AffiliateButton } from "@/components/AffiliateButton";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
+import { productSchema, itemListSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Mejores escritorios elevables baratos 2026 (desde 110€)",
@@ -58,6 +59,16 @@ export default function EscritorioBaratoPage() {
     },
   ];
 
+  const cheapSchemas = cheapProducts.map(([a, p]) =>
+    productSchema(a, p, "/escritorio-elevable-barato")
+  );
+
+  const listSchema = itemListSchema(
+    "Mejores escritorios elevables baratos",
+    cheapProducts,
+    "/escritorio-elevable-barato"
+  );
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -81,6 +92,17 @@ export default function EscritorioBaratoPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }}
+      />
+      {cheapSchemas.map((sch, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(sch) }}
+        />
+      ))}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
