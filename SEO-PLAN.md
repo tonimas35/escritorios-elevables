@@ -350,6 +350,30 @@ con `additionalProperty` (motor, altura min/max, carga, tablero, garantia), mas
 un `ItemList` de los 12 en orden de puntuacion. Verificado en produccion:
 12 Product + 1 ItemList + 72 PropertyValue + 1 FAQPage, todo el JSON-LD parsea.
 
+#### 🚨 URGENTE: dos paginas rotas en produccion desde marzo
+
+Al reconstruir el catalogo se cambiaron los slugs y las paginas que los
+referencian no se actualizaron. Tres paginas mostraban literalmente
+**"Producto no encontrado"**. `/fezibo-opiniones` ya esta reparada.
+
+**Siguen rotas a proposito, porque no se arreglan cambiando el slug:**
+
+| Pagina | Su texto describe | Producto que existe hoy |
+|---|---|---|
+| `/maidesite-t2-pro-opiniones` | T2 Pro **Plus**, 260-300 EUR, con tablero (14 menciones) | T2 Pro **MAX**, 370 EUR, marco **sin** tablero |
+| `/flexispot-vs-maidesite` | E7 vs T2 Pro Plus, y un bloque EG1 vs S2 Pro (6 menciones de cada) | `flexispot-eg1` tampoco existe en el catalogo |
+
+Apuntarlas al T2 Pro MAX haria que la review describiera un producto y
+enlazara a otro, con enlace de afiliado de por medio. **Requieren decision:**
+
+- **Opcion A — reescribir** ambas para el T2 Pro MAX y el catalogo actual.
+  Es la que recupera dos paginas con contenido ya escrito.
+- **Opcion B — repuntar** a `maidesite-s2-pro` (430 EUR, con tablero), que
+  encaja mejor con el texto original, y ajustar precios y nombre.
+- **Opcion C — retirarlas** del sitemap y de la navegacion hasta decidir.
+
+Mientras tanto no engañan a nadie, pero tampoco venden.
+
 #### Pendiente en este bloque
 El canal que ya funciona. Trabajo concreto sobre `/mejor-escritorio-elevable`
 primero, que es la página que ChatGPT cita:
@@ -358,8 +382,12 @@ primero, que es la página que ChatGPT cita:
 - **Tablas comparativas** con specs completas y homogéneas por producto.
 - **Precios y fechas frescos**: un modelo descarta lo que parece obsoleto.
   Automatizar la actualización de precios sería lo ideal.
-- **Replicar el schema enriquecido en las 4 reviews individuales** y en
-  `/escritorio-elevable-barato`. Solo el pilar lo tiene.
+- ~~Replicar el schema enriquecido~~ ✅ **HECHO**. `lib/schema.ts` centraliza
+  el constructor (Product + Review + Offer con enlace de afiliado +
+  additionalProperty con motor, alturas, carga, tablero y garantia) e ItemList.
+  Aplicado al pilar (12), a `/escritorio-elevable-barato` (9), a
+  `/flexispot-e7-opiniones` (que no tenia ninguno) y a `/fezibo-opiniones`.
+  Las dos paginas rotas lo heredaran cuando se reescriban.
 - **Veredictos mas extraibles**: frases del tipo "el mejor para X es Y porque Z"
   que un asistente pueda citar literalmente.
 - **Hueco de catalogo entre 160 y 370 EUR**: no hay ningun producto en la franja
