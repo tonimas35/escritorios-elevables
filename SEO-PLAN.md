@@ -389,6 +389,12 @@ sigue en el JSON para ordenar y filtrar en el comparador.
 Cuando el sitio llegue a ~10 ventas/mes, montar la Creators API y volver a
 precios en vivo. Antes no.
 
+#### Pendiente tambien: referencias a productos que ya no existen
+
+En los mapas de texto por slug quedan menciones a `flexispot-eg1` y
+`sanodesk-qs-plus`, que no estan en el catalogo. No se renderizan (son
+diccionarios indexados por slug), pero conviene limpiarlos.
+
 #### Pendiente: 89 menciones de precio en la prosa
 
 Los precios dinamicos (tablas, fichas, CTAs) ya salen como banda, pero el texto
@@ -506,6 +512,34 @@ Sin enlaces entrantes el techo se mantiene, hagamos lo que hagamos on-page.
 6. **B5** (autoridad) en paralelo desde el principio: si el motivo de no
    indexación es falta de autoridad, B5 deja de ser opcional y pasa a ser la
    única solución.
+
+## 6.a Hecho el 2026-09-08: credibilidad, herramientas y calidad del texto
+
+**Credibilidad (E-E-A-T).** La web no la firmaba nadie: cero paginas de autor,
+metodologia o contacto, las 12 imagenes de Amazon, y a la vez el texto hablaba
+en primera persona ("Yo llevo mas de un ano usando uno", "midiendo ruido y
+estabilidad", "he leido cientos de opiniones"). Ese perfil —voz de experto sin
+una sola señal de experiencia— es el que Google degrada desde los Helpful
+Content Updates.
+- Nueva `/metodologia`, que abre diciendo que **no probamos los escritorios
+  fisicamente**. En un nicho lleno de resenas fingidas eso es diferencial.
+- Fuera todas las afirmaciones de uso y medicion inventadas.
+- Fuera "Est. 2025 · Madrid" del footer (la web es de 2026).
+
+**Herramientas rescatadas.** Comparador, calculadora y un test de 5 preguntas
+que estaba **terminado y sin un solo enlace**. Son lo unico que la competencia
+no tiene y el mejor gancho para conseguir enlaces (B5).
+- `/test` -> `/que-escritorio-elevable-comprar` (consulta real) con 301.
+- Header: entran Calculadora y Que comprar; sale un enlace duplicado.
+- Footer: columna de Herramientas + Metodologia.
+- Sitemap: 10 -> 12 URLs.
+
+**Calidad del texto.** El sitio entero estaba sin tildes; "5 anos de garantia"
+aparecia 44 veces. 350 palabras acentuadas sin tocar identificadores de codigo.
+
+**Datos falsos corregidos:** el pilar recomendaba dos productos que no estan en
+el catalogo y hablaba de una franja de 80-550 EUR (real: 80-430). La review del
+E7 lo situaba en 480 EUR cuando cuesta 127.
 
 ## 6.b Objetivo cuantificado: llegar a 10 ventas/mes
 
