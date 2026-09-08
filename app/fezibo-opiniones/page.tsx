@@ -44,7 +44,7 @@ export default function FeziboReviewPage() {
     },
     {
       q: "El Fezibo sirve para trabajar 8 horas al día?",
-      a: "Puede, pero no lo recomiendo como escritorio principal para jornada completa. Con 50 kg de carga y un tablero de 120x60 cm, el espacio y la capacidad son justos. Si teletrabajas a jornada completa, invierte un poco más en algo con tablero de 120 cm y más carga, como el Ergear EED-S1 por 140 euros.",
+      a: "Puede, pero no lo recomiendo como escritorio principal para jornada completa. Con 50 kg de carga y un tablero de 120x60 cm, el espacio y la capacidad son justos. Si teletrabajas a jornada completa, invierte un poco más en algo con tablero de 120 cm y más carga, como el ErGear de 120x60.",
     },
     {
       q: "Que puedo poner encima del Fezibo?",
@@ -217,7 +217,7 @@ export default function FeziboReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Para quien NO es</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Teletrabajadores a jornada completa que necesitan espacio para dual monitor. Personas altas (más de 1.80 m) que necesitan el escritorio por encima de 116 cm. Quien tenga monitores pesados o un setup de más de 30-40 kg. Y si ya tienes un elevable y quieres mejorar, el salto del Fezibo a un Ergear o Flexispot EG1 se nota bastante por solo 20-90 euros más.
+            Teletrabajadores a jornada completa que necesitan espacio para dual monitor. Personas altas (más de 1.80 m) que necesitan el escritorio por encima de 116 cm. Quien tenga monitores pesados o un setup de más de 30-40 kg. Y si ya tienes un elevable y quieres mejorar, el salto del Fezibo al marco Flexispot se nota, aunque tengas que ponerle tablero aparte.
           </p>
         </div>
 

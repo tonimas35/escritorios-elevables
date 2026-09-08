@@ -26,7 +26,7 @@
       "sistema_anticolision": false,
       "tablero_incluido": true,
       "material_tablero": "melamina",
-      "garantia_anos": 2
+      "garantia_anos": 3
     },
     "categorias": [
       "barato",
@@ -533,7 +533,7 @@
       "sistema_anticolision": true,
       "tablero_incluido": false,
       "material_tablero": null,
-      "garantia_anos": 2
+      "garantia_anos": 3
     },
     "categorias": [
       "premium",
@@ -589,7 +589,7 @@
       "sistema_anticolision": true,
       "tablero_incluido": true,
       "material_tablero": null,
-      "garantia_anos": 2
+      "garantia_anos": 3
     },
     "categorias": [
       "premium",
