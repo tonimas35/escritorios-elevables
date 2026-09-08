@@ -507,6 +507,50 @@ Sin enlaces entrantes el techo se mantiene, hagamos lo que hagamos on-page.
    indexación es falta de autoridad, B5 deja de ser opcional y pasa a ser la
    única solución.
 
+## 6.b Objetivo cuantificado: llegar a 10 ventas/mes
+
+Calculado con datos reales (Amazon Q2+Q3, GA4 28 dias):
+
+| | Hoy | Para 10 pedidos/mes |
+|---|---|---|
+| Conversion clic->pedido | **5,66 %** | se mantiene |
+| Clics de afiliado / mes | 29 | **177** (x6,2) |
+| Sesiones / mes | 58 | **356** (x6,2) |
+| **Visitas al dia** | **1,9** | **12** |
+| Pedidos / mes | 1,8 | 10 |
+
+**No hace falta una web grande: hacen falta 12 visitas al dia.**
+
+El cuello de botella no es la conversion (5,66 % es sano y en Q3 llego al
+7,69 %), ni la monetizacion. Es que **el 80 % de la web es invisible**: 2 de
+10 paginas indexadas, y las dos que lo estan son el home y el comparador, no
+las que tienen el contenido bueno.
+
+Palancas por orden de impacto:
+
+1. **Indexacion (2 -> 10).** Ya en marcha. Multiplica por 5 la superficie
+   visible sin escribir una palabra. Es lo unico que puede acercar sin
+   trabajo nuevo. Medir a las 3-4 semanas.
+2. **Reparacion del contenido.** Hasta ayer 3 paginas decian "Producto no
+   encontrado" y solo se veian 9 de 12 productos. ChatGPT estaba citando una
+   web rota. Ya arreglado; el efecto tarda en notarse.
+3. **B3: 6 reviews nuevas** (10 -> 16 paginas). Cada una es una puerta nueva
+   para Google y para los asistentes.
+4. **B5: autoridad.** La posicion media es 38 (pagina 4). Sin enlaces
+   entrantes no baja, y sin bajar no hay clics de Google por muchas
+   impresiones que haya.
+5. **Hueco de catalogo 160-370 EUR**, donde compra mucha gente.
+
+**Plazo honesto:** 4-6 pedidos/mes en 2-3 meses si la indexacion cuaja;
+los 10 sostenidos, 6-9 meses de trabajo constante. Y ojo: la API exige
+**mantener** 10 ventas en 30 dias, no un pico aislado.
+
+**Matiz importante:** las 10 ventas solo desbloquean la API, que es una
+herramienta, no el objetivo. El objetivo es dinero. Con los premium ya
+visibles, 5 ventas de 400 EUR (100 EUR de comision) rinden mas que 10 de
+100 EUR (50 EUR). Subir el ticket medio puede valer mas que perseguir el
+numero de ventas.
+
 ## 7. Métrica de éxito
 
 Dos, y en este orden:
