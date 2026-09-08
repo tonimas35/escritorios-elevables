@@ -12,7 +12,7 @@ import { priceBand, reviewsAprox } from "@/lib/format";
 export const metadata: Metadata = {
   title: "12 mejores escritorios elevables 2026 — Guia de compra",
   description:
-    "Comparativa de los 12 mejores escritorios elevables electricos de 2026. Desde 110\u20AC hasta gama premium. Analisis con datos reales, pros/contras y recomendaciones.",
+    "Comparativa de los 12 mejores escritorios elevables eléctricos de 2026. Desde 110\u20AC hasta gama premium. Análisis con datos reales, pros/contras y recomendaciones.",
   alternates: { canonical: "/mejor-escritorio-elevable" },
 };
 
@@ -49,27 +49,27 @@ export default function MejorEscritorioPage() {
   const faqItems = [
     {
       q: "Merece la pena un escritorio elevable?",
-      a: "Depende de si vas a usarlo. Un escritorio elevable solo aporta algo si de verdad lo subes: el patron habitual es alternar unos 30 minutos sentado y 15 de pie. Si trabajas sentado mas de cuatro horas al dia y sabes que vas a cambiar de postura, compensa. Si sospechas que lo vas a dejar siempre a la misma altura, te sale mas barato una mesa normal.",
+      a: "Depende de si vas a usarlo. Un escritorio elevable solo aporta algo si de verdad lo subes: el patron habitual es alternar unos 30 minutos sentado y 15 de pie. Si trabajas sentado más de cuatro horas al día y sabes que vas a cambiar de postura, compensa. Si sospechas que lo vas a dejar siempre a la misma altura, te sale más barato una mesa normal.",
     },
     {
       q: "Motor simple o doble: cual elijo?",
-      a: "El doble es mas rapido (3.8 vs 2.5 cm/s), mas silencioso y reparte mejor el esfuerzo. Si cambias de posicion varias veces al dia, se nota. Pero si tu presupuesto no llega a 270 euros, un motor simple cumple bien \u2014 prioriza estabilidad y garantia antes que esto.",
+      a: "El doble es más rápido (3.8 vs 2.5 cm/s), más silencioso y reparte mejor el esfuerzo. Si cambias de posición varias veces al día, se nota. Pero si tu presupuesto no llega a 270 euros, un motor simple cumple bien \u2014 prioriza estabilidad y garantía antes que esto.",
     },
     {
       q: "Cuanto peso soportan estos escritorios?",
-      a: "De 50 kg los baratos a 160 kg los premium. Un setup normal (monitor + portatil + trastos) pesa unos 12-15 kg, asi que incluso el mas basico va sobrado. Solo preocupate si tienes varios monitores con brazo o equipos pesados encima.",
+      a: "De 50 kg los baratos a 160 kg los premium. Un setup normal (monitor + portatil + trastos) pesa unos 12-15 kg, así que incluso el más básico va sobrado. Solo preocupate si tienes varios monitores con brazo o equipos pesados encima.",
     },
     {
       q: "Puedo montar un escritorio elevable solo?",
       a: "Los ligeros (menos de 22 kg, tipo Fezibo o JUMMICO) si. Los pesados como el E7 (32 kg) son un engorro en solitario al dar la vuelta al tablero. Como referencia: por encima de 25 kg, mejor entre dos.",
     },
     {
-      q: "Que garantia tienen?",
-      a: "De 2 a 5 anos. Flexispot y Maidesite dan 5 anos; marcas baratas como Fezibo o JUMMICO, solo 2. Si un motor falla, suele ser en los primeros 6 meses. Pero si puedes elegir, mejor 5 anos \u2014 es electronica con partes moviles.",
+      q: "Que garantía tienen?",
+      a: "De 2 a 5 años. Flexispot y Maidesite dan 5 años; marcas baratas como Fezibo o JUMMICO, solo 2. Si un motor falla, suele ser en los primeros 6 meses. Pero si puedes elegir, mejor 5 años \u2014 es electronica con partes moviles.",
     },
     {
       q: "Cuanta electricidad consume un escritorio elevable?",
-      a: "Practicamente nada. El motor funciona 10-20 segundos cada vez que cambias de altura. Consumo anual: unos 2-3 kWh, menos de 1 euro al ano en la factura.",
+      a: "Prácticamente nada. El motor funciona 10-20 segundos cada vez que cambias de altura. Consumo anual: unos 2-3 kWh, menos de 1 euro al año en la factura.",
     },
     {
       q: "Se nota mucho la diferencia entre un escritorio de 150 euros y uno de 500?",
@@ -150,7 +150,7 @@ export default function MejorEscritorioPage() {
         <FadeIn delay={100}>
           <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
-              He analizado 12 escritorios elevables en Amazon Espana (de 80 a 550 EUR), midiendo ruido, estabilidad y leyendo cientos de opiniones reales. Mi recomendacion rapida: el <strong>Flexispot E7 Pro</strong> si el presupuesto no importa, el <strong>Maidesite T2 Pro Plus</strong> (doble motor por menos de 300 EUR) para la mayoria, y el <strong>Ergear EED-S1</strong> (110 EUR, con anticolision) si vas justo.
+              Hemos reunido las especificaciones de 12 escritorios elevables a la venta en Amazon España, de 80 a 430 €, y las hemos ordenado con los mismos cinco criterios para todos. En corto: el <strong>marco Flexispot</strong> es la mejor compra si ya tienes tablero o quieres montar uno a medida; el <strong>FLEXISPOT de 160x80</strong> es el más completo de los que vienen listos para usar; y el <strong>MAIDeSITe T2 Pro MAX</strong> solo compensa si necesitas sus 160 kg de carga. Cómo puntuamos y qué no hacemos está en la <a href="/metodologia" style={{ textDecoration: 'underline' }}>metodología</a>.
             </p>
           </div>
         </FadeIn>
@@ -247,7 +247,7 @@ export default function MejorEscritorioPage() {
         <FadeIn>
           <div className="mt-12 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
-              No siempre el mas caro es el mejor. Lo que manda es el motor, la estructura y como se llevan entre si. Aqui va cada modelo, con lo bueno y lo malo.
+              No siempre el más caro es el mejor. Lo que manda es el motor, la estructura y como se llevan entre si. Aquí va cada modelo, con lo bueno y lo malo.
             </p>
           </div>
         </FadeIn>
@@ -274,17 +274,17 @@ export default function MejorEscritorioPage() {
 
         {topProducts.map(([asin, product], i) => {
           const editorialContent: Record<string, string> = {
-            "flexispot-e7-pro": "El que compras cuando no quieres pensar mas. 150 kg de carga, 43 dB de ruido (no lo oyes en videollamada), tablero de bambu de 160x80. No tiene puntos debiles serios. El precio (mas de 500 EUR) y el montaje pesado (35 kg, necesitas ayuda) son los unicos peros. Para setups completos con dos monitores, es imbatible.",
-            "flexispot-e7": "El mas recomendado de internet por algo. Doble motor, 125 kg de carga y una estabilidad a maxima altura que los baratos no consiguen (tres secciones telescopicas). Si tu setup es solo portatil y monitor, el Maidesite T2 Pro Plus hace casi lo mismo por 200 EUR menos. Pero si quieres lo seguro, este es.",
-            "maidesite-t2-pro": "La sorpresa de la guia. Doble motor, 100 kg de carga, anticolision y 5 anos de garantia por menos de 300 EUR. Pierde frente al E7 en estabilidad a maxima altura (un pelitejo de movimiento lateral) y el tablero se siente mas fino. Pero por 200 EUR menos, es la compra inteligente para la mayoria.",
-            "flexispot-eg8": "Un E7 con estetica gaming: cajon con USB y tablero de fibra de carbono. Queda bien, pero a 500 EUR casi iguala al E7 Pro que tiene mejor tablero y mas carga. Solo tiene sentido si quieres el look gamer y el cajon te resulta util. Solo en negro.",
-            "maidesite-s2-pro": "Motor simple, pero con 80 kg de carga (el mejor a este precio), anticolision y 5 anos de garantia por 200 EUR. Si Maidesite le pone 5 anos a este precio, es que confian en el. Para quien quiere marca fiable sin necesitar doble motor.",
-            "flexispot-eg1": "La puerta de entrada a Flexispot: anticolision, 70 kg de carga y 5 anos de garantia por 210 EUR. Sin extras ni USB, tablero de 120x60 justo para dos monitores. Pero hereda la calidad de la marca y las quejas en Amazon son minimas.",
+            "flexispot-e7-pro": "El que compras cuando no quieres pensar más. 150 kg de carga, 43 dB de ruido (no lo oyes en videollamada), tablero de bambu de 160x80. No tiene puntos debiles serios. El precio (más de 500 EUR) y el montaje pesado (35 kg, necesitas ayuda) son los únicos peros. Para setups completos con dos monitores, es imbatible.",
+            "flexispot-e7": "El más recomendado de internet por algo. Doble motor, 125 kg de carga y una estabilidad a máxima altura que los baratos no consiguen (tres secciones telescópicas). Si tu setup es solo portatil y monitor, el Maidesite T2 Pro Plus hace casi lo mismo por 200 EUR menos. Pero si quieres lo seguro, este es.",
+            "maidesite-t2-pro": "La sorpresa de la guia. Doble motor, 100 kg de carga, anticolision y 5 años de garantía por menos de 300 EUR. Pierde frente al E7 en estabilidad a máxima altura (un pelitejo de movimiento lateral) y el tablero se siente más fino. Pero por 200 EUR menos, es la compra inteligente para la mayoria.",
+            "flexispot-eg8": "Un E7 con estetica gaming: cajon con USB y tablero de fibra de carbono. Queda bien, pero a 500 EUR casi iguala al E7 Pro que tiene mejor tablero y más carga. Solo tiene sentido si quieres el look gamer y el cajon te resulta útil. Solo en negro.",
+            "maidesite-s2-pro": "Motor simple, pero con 80 kg de carga (el mejor a este precio), anticolision y 5 años de garantía por 200 EUR. Si Maidesite le pone 5 años a este precio, es que confian en el. Para quien quiere marca fiable sin necesitar doble motor.",
+            "flexispot-eg1": "La puerta de entrada a Flexispot: anticolision, 70 kg de carga y 5 años de garantía por 210 EUR. Sin extras ni USB, tablero de 120x60 justo para dos monitores. Pero hereda la calidad de la marca y las quejas en Amazon son mínimas.",
             "ergear-eed-s1": "La mejor sorpresa por debajo de 150 EUR. Anticolision y 4 memorias a 140 EUR \u2014 eso no lo ofrece ni Fezibo ni JUMMICO. Motor lento y estabilidad mejorable, pero las funcionalidades por el precio no tienen rival.",
-            "sanodesk-qs-plus": "Submarca de Flexispot, pero en tierra de nadie: sin anticolision y solo 3 anos de garantia a 190 EUR. Por 20 EUR mas tienes el EG1 con anticolision y 5 anos. Solo merece la pena si lo pillas en oferta por debajo de 160 EUR.",
-            "vasagle-lsd302": "El unico con tablero de 140x60 cm por debajo de 200 EUR. Si necesitas mesa grande y no llegas a 300 EUR, es tu opcion. 80 kg de carga, anticolision, 4 memorias. Garantia de solo 3 anos y montaje pesado (24 kg).",
-            "fezibo-100x60": "El mas vendido en gama barata (2400+ opiniones). A 120 EUR incluye bandeja para teclado y se monta en 20 minutos. Pero 50 kg de carga es justo, tablero de 100 cm pequeno, sin anticolision y solo 2 anos de garantia. Bueno para probar; si ya sabes que lo quieres, el Ergear da mas por 20 EUR extra.",
-            "jummico-hed12": "El mas barato a 160 EUR, pero se nota: 60 kg de carga, tablero de 100 cm, motor ruidoso (52 dB) y 2 anos de garantia. Tiene sentido para espacios muy pequenos donde 120 cm no cabe. Si no es tu caso, el Ergear o el Fezibo dan mas.",
+            "sanodesk-qs-plus": "Submarca de Flexispot, pero en tierra de nadie: sin anticolision y solo 3 años de garantía a 190 EUR. Por 20 EUR más tienes el EG1 con anticolision y 5 años. Solo merece la pena si lo pillas en oferta por debajo de 160 EUR.",
+            "vasagle-lsd302": "El único con tablero de 140x60 cm por debajo de 200 EUR. Si necesitas mesa grande y no llegas a 300 EUR, es tu opción. 80 kg de carga, anticolision, 4 memorias. Garantía de solo 3 años y montaje pesado (24 kg).",
+            "fezibo-100x60": "El más vendido en gama barata (2400+ opiniones). A 120 EUR incluye bandeja para teclado y se monta en 20 minutos. Pero 50 kg de carga es justo, tablero de 100 cm pequeno, sin anticolision y solo 2 años de garantía. Bueno para probar; si ya sabes que lo quieres, el Ergear da más por 20 EUR extra.",
+            "jummico-hed12": "El más barato a 160 EUR, pero se nota: 60 kg de carga, tablero de 100 cm, motor ruidoso (52 dB) y 2 años de garantía. Tiene sentido para espacios muy pequenos donde 120 cm no cabe. Si no es tu caso, el Ergear o el Fezibo dan más.",
           };
           const editorial = editorialContent[product.slug] || "";
 
@@ -318,7 +318,7 @@ export default function MejorEscritorioPage() {
                     <FadeIn>
                       <p className="editorial-mark" style={{ color: 'rgba(255,255,255,0.5)' }}>Seccion III</p>
                       <p className="text-lg mt-1" style={{ fontFamily: 'var(--font-display)', color: 'white' }}>
-                        Gama economica
+                        Gama económica
                       </p>
                       <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>
                         Opciones solidas sin arruinarte
@@ -403,12 +403,12 @@ export default function MejorEscritorioPage() {
             </h2>
             <div className="space-y-8 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               {[
-                { title: "El motor: simple vs doble", text: "El doble es mas rapido (3.8 vs 2.5 cm/s), mas silencioso y mas estable al moverse. Si cambias de posicion 4+ veces al dia con un setup pesado, merece la pena. Si lo mueves dos veces al dia con un portatil, el simple cumple." },
-                { title: "Estabilidad: importa mas de lo que crees", text: "De pie, el escritorio esta a 110-120 cm y cualquier vibracion se amplifica. Si la pantalla tiembla al teclear, te cansas la vista. Busca patas con tres secciones telescopicas y estructura pesada. E7 Pro y E7 son los mejores; en los baratos hay que aceptar algo de movimiento." },
+                { title: "El motor: simple vs doble", text: "El doble es más rápido (3.8 vs 2.5 cm/s), más silencioso y más estable al moverse. Si cambias de posición 4+ veces al día con un setup pesado, merece la pena. Si lo mueves dos veces al día con un portatil, el simple cumple." },
+                { title: "Estabilidad: importa más de lo que crees", text: "De pie, el escritorio esta a 110-120 cm y cualquier vibración se amplifica. Si la pantalla tiembla al teclear, te cansas la vista. Busca patas con tres secciones telescópicas y estructura pesada. E7 Pro y E7 son los mejores; en los baratos hay que aceptar algo de movimiento." },
                 { title: "Ruido: ojo si haces videollamadas", text: "Baratos: 50-52 dB (se oye). Premium: 43-45 dB (casi no se nota). Si cambias de altura durante una llamada, con 50 dB la otra persona lo percibe. Con 43, no." },
-                { title: "Rango de altura: ojo si mides mas de 1.85 m", text: "Baratos: 72-118 cm. Premium: 58-125 cm. Si mides mas de 1.85 m y el escritorio llega solo a 118 cm, vas a trabajar encorvado. El E7 llega a 123 cm y el Maidesite T2 Pro a 127 cm." },
-                { title: "Garantia y postventa", text: "Flexispot y Maidesite dan 5 anos; marcas baratas, 2. Los problemas graves suelen aparecer en los primeros 6 meses. Si puedes elegir, 5 anos siempre \u2014 tiene electronica y partes moviles." },
-                { title: "Anticolision: no te la juegues", text: "Para el motor si detecta un obstaculo al bajar. Sin anticolision, el motor sigue y puede romper cajones o el propio mecanismo. Desde 140 EUR ya lo encuentras (Ergear), asi que no merece la pena ahorrar y quedarse sin el." },
+                { title: "Rango de altura: ojo si mides más de 1.85 m", text: "Baratos: 72-118 cm. Premium: 58-125 cm. Si mides más de 1.85 m y el escritorio llega solo a 118 cm, vas a trabajar encorvado. El E7 llega a 123 cm y el Maidesite T2 Pro a 127 cm." },
+                { title: "Garantía y postventa", text: "Flexispot y Maidesite dan 5 años; marcas baratas, 2. Los problemas graves suelen aparecer en los primeros 6 meses. Si puedes elegir, 5 años siempre \u2014 tiene electronica y partes moviles." },
+                { title: "Anticolision: no te la juegues", text: "Para el motor si detecta un obstaculo al bajar. Sin anticolision, el motor sigue y puede romper cajones o el propio mecanismo. Desde 140 EUR ya lo encuentras (Ergear), así que no merece la pena ahorrar y quedarse sin el." },
               ].map((item, i) => (
                 <FadeIn key={item.title} delay={i * 80}>
                   <div className="relative pl-14">
@@ -432,13 +432,13 @@ export default function MejorEscritorioPage() {
             </h2>
             <div className="space-y-2 text-sm">
               <p>
-                <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Mejores escritorios elevables baratos</Link> &mdash; Si tu presupuesto esta por debajo de 220 euros, esta guia va mas al detalle en la gama economica.
+                <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Mejores escritorios elevables baratos</Link> &mdash; Si tu presupuesto esta por debajo de 220 euros, esta guia va más al detalle en la gama económica.
               </p>
               <p>
-                <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: opinion y review completa</Link> &mdash; Analisis a fondo del E7 con opiniones reales de compradores.
+                <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: opinion y review completa</Link> &mdash; Análisis a fondo del E7 con opiniones reales de compradores.
               </p>
               <p>
-                <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Flexispot vs Maidesite: comparativa</Link> &mdash; Las dos marcas mas vendidas cara a cara. Cual merece la pena?
+                <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Flexispot vs Maidesite: comparativa</Link> &mdash; Las dos marcas más vendidas cara a cara. Cual merece la pena?
               </p>
             </div>
           </section>

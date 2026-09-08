@@ -29,7 +29,7 @@ export default function CalculadoraPage() {
             Herramienta interactiva
           </p>
           <h1 className="text-3xl md:text-5xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
-            Calculadora ergonomica
+            Calculadora ergonómica
           </h1>
           <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
             Basado en la norma EN 527-1 y recomendaciones OSHA.

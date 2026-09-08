@@ -15,7 +15,7 @@ export function AffiliateButton({
   size = "md",
   showPrice,
 }: AffiliateButtonProps) {
-  // El precio real solo es fiable en Amazon: el CTA invita a comprobarlo alli.
+  // El precio real solo es fiable en Amazon: el CTA invita a comprobarlo allí.
   const displayText = showPrice ? "Ver precio en Amazon" : text;
 
   const sizeClass =

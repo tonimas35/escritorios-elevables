@@ -19,7 +19,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'rgba(255,255,255,0.55)' }}>
-              Analisis de escritorios elevables a partir de especificaciones
+              Análisis de escritorios elevables a partir de especificaciones
               de fabricante y valoraciones de Amazon. No probamos los productos
               fisicamente y lo contamos abierto en la metodologia.
             </p>

@@ -21,11 +21,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Elevable — Analisis y Comparativas",
+    default: "Elevable — Análisis y Comparativas",
     template: "%s — Elevable",
   },
   description:
-    "Encuentra tu escritorio elevable ideal. Comparativas, analisis y herramientas interactivas basadas en datos reales.",
+    "Encuentra tu escritorio elevable ideal. Comparativas, análisis y herramientas interactivas basadas en datos reales.",
   metadataBase: new URL("https://elevable.es"),
   openGraph: {
     type: "website",

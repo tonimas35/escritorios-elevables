@@ -10,7 +10,7 @@ const QUESTIONS = [
   { id: "presupuesto", text: "Presupuesto", options: [
     { label: "Menos de 200 €", value: "bajo" },
     { label: "200 – 400 €", value: "medio" },
-    { label: "Mas de 400 €", value: "alto" },
+    { label: "Más de 400 €", value: "alto" },
   ]},
   { id: "uso", text: "Uso principal", options: [
     { label: "Teletrabajo / oficina", value: "oficina" },
@@ -18,8 +18,8 @@ const QUESTIONS = [
     { label: "Un poco de todo", value: "mixto" },
   ]},
   { id: "motor", text: "Motor", options: [
-    { label: "Simple — lo mas barato", value: "simple" },
-    { label: "Doble — rapido y potente", value: "doble" },
+    { label: "Simple — lo más barato", value: "simple" },
+    { label: "Doble — rápido y potente", value: "doble" },
   ]},
   { id: "carga", text: "Peso del setup", options: [
     { label: "Ligero: portatil (<30 kg)", value: "ligero" },
@@ -112,7 +112,7 @@ export default function TestPage() {
             <div className="space-y-6">
               {results.map(({ asin, product }, i) => (
                 <FadeIn key={asin} delay={i * 120}>
-                  <ProductCard asin={asin} product={product} badge={i === 0 ? "Tu mejor opcion" : undefined} rank={i + 1} />
+                  <ProductCard asin={asin} product={product} badge={i === 0 ? "Tu mejor opción" : undefined} rank={i + 1} />
                 </FadeIn>
               ))}
             </div>

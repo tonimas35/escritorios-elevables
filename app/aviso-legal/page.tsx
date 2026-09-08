@@ -37,13 +37,13 @@ export default function AvisoLegalPage() {
           Como asociado de Amazon, obtenemos ingresos por las compras adscritas
           que cumplen los requisitos aplicables. Esto significa que si haces
           click en uno de nuestros enlaces y compras un producto en Amazon,
-          nosotros recibimos una pequena comision sin ningun coste adicional
+          nosotros recibimos una pequena comision sin ningún coste adicional
           para ti.
         </p>
         <p>
           Nuestras recomendaciones son independientes de las comisiones que
           recibimos. Analizamos cada producto de forma objetiva y nuestras
-          opiniones no estan influenciadas por la relacion de afiliacion.
+          opiniones no están influenciadas por la relacion de afiliacion.
         </p>
 
         <h2>Precios y disponibilidad</h2>
@@ -56,15 +56,15 @@ export default function AvisoLegalPage() {
 
         <h2>Contenido</h2>
         <p>
-          La informacion proporcionada en este sitio tiene caracter informativo.
-          Nos esforzamos por mantener la informacion actualizada y precisa, pero
+          La información proporcionada en este sitio tiene caracter informativo.
+          Nos esforzamos por mantener la información actualizada y precisa, pero
           no garantizamos la exactitud completa de todos los datos.
         </p>
 
         <h2>Politica de privacidad</h2>
         <p>
           Este sitio utiliza Google Analytics para analizar el trafico web. Esta
-          herramienta utiliza cookies para recopilar informacion anonima sobre
+          herramienta utiliza cookies para recopilar información anonima sobre
           como los usuarios utilizan el sitio. No recopilamos datos personales
           identificables.
         </p>

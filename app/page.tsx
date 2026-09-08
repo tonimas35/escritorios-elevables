@@ -37,7 +37,7 @@ export default function Home() {
             {/* Left: Title + CTA */}
             <div className="flex-1 animate-fade-up">
               <p className="editorial-mark mb-6" style={{ color: 'var(--color-secondary)' }}>
-                {ACTUALIZADO} &middot; Analisis independiente
+                {ACTUALIZADO} &middot; Análisis independiente
               </p>
               <h1 className="text-4xl md:text-6xl lg:text-7xl leading-none" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-dark)' }}>
                 Los mejores escritorios
@@ -113,7 +113,7 @@ export default function Home() {
                   <p className="mono text-2xl md:text-3xl font-bold" style={{ color: 'rgba(255,255,255,0.95)' }}>
                     Mar 2026
                   </p>
-                  <p className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>Ultima actualizacion</p>
+                  <p className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>Última actualizacion</p>
                 </div>
               </FadeIn>
             </div>
@@ -126,7 +126,7 @@ export default function Home() {
         <FadeIn>
           <div className="mb-8">
             <p className="editorial-mark" style={{ color: 'var(--color-secondary)' }}>
-              No. 02 &middot; Resumen rapido
+              No. 02 &middot; Resumen rápido
             </p>
             <h2 className="text-3xl md:text-4xl mt-2 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
               Top 7 de un vistazo
@@ -193,7 +193,7 @@ export default function Home() {
           </div>
           <div className="mt-4 text-center">
             <Link href="/mejor-escritorio-elevable" className="text-xs font-semibold uppercase tracking-wider transition-colors" style={{ color: 'var(--accent)' }}>
-              Ver analisis completo de los {allProducts.length} modelos &rarr;
+              Ver análisis completo de los {allProducts.length} modelos &rarr;
             </Link>
           </div>
         </FadeIn>
@@ -250,7 +250,7 @@ export default function Home() {
             <div className="rounded p-6 relative product-card-hover" style={{ background: 'var(--bg-card)', border: '2px solid var(--accent)' }}>
               <span className="decorative-number">02</span>
               <span className="absolute -top-3 left-4 text-xs font-bold uppercase tracking-wider px-2 py-0.5" style={{ background: 'var(--accent)', color: 'white' }}>
-                Mejor opcion
+                Mejor opción
               </span>
               <div className="relative">
                 <div className="flex items-baseline gap-2 mb-4">
@@ -316,7 +316,7 @@ export default function Home() {
               No. 04 &middot; Guias y comparativas
             </p>
             <h2 className="text-3xl md:text-4xl mt-2 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
-              Contenido util
+              Contenido útil
             </h2>
           </div>
         </FadeIn>
@@ -324,7 +324,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { title: "Escritorios baratos", desc: "Los mejores por menos de 200\u20AC", href: "/escritorio-elevable-barato", tag: "Guia" },
-            { title: "Flexispot E7: review", desc: "Analisis completo del mas vendido", href: "/flexispot-e7-opiniones", tag: "Review" },
+            { title: "Flexispot E7: review", desc: "Análisis completo del más vendido", href: "/flexispot-e7-opiniones", tag: "Review" },
             { title: "Flexispot vs Maidesite", desc: "Comparativa directa marca a marca", href: "/flexispot-vs-maidesite", tag: "Comparativa" },
             { title: "Comparador", desc: "Filtra y compara por specs", href: "/comparador", tag: "Herramienta" },
           ].map((item, i) => (

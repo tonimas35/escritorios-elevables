@@ -109,7 +109,7 @@ export default function ComparadorPage() {
             >
               <option value="recomendado">Recomendado</option>
               <option value="precio">Precio</option>
-              <option value="rating">Valoracion</option>
+              <option value="rating">Valoración</option>
             </select>
           </div>
 

@@ -12,7 +12,7 @@ import { priceBand, reviewsAprox } from "@/lib/format";
 export const metadata: Metadata = {
   title: "Flexispot E7 opiniones y review 2026 — Merece la pena?",
   description:
-    "Review completa del Flexispot E7: el escritorio elevable mas vendido. Analizamos motor, estabilidad, montaje y si merece la pena en 2026. Con opiniones reales.",
+    "Review completa del Flexispot E7: el escritorio elevable más vendido. Analizamos motor, estabilidad, montaje y si merece la pena en 2026. Con opiniones reales.",
   alternates: { canonical: "/flexispot-e7-opiniones" },
 };
 
@@ -41,11 +41,11 @@ export default function FlexispotE7ReviewPage() {
   const faqItems = [
     {
       q: "Merece la pena el Flexispot E7 en 2026?",
-      a: "Si. No ha aparecido nada que lo supere en su combinacion de estabilidad, motor y garantia. Compradores con 3-4 anos de uso reportan cero problemas. Ahora hay alternativas mas baratas (Maidesite T2 Pro Plus), pero si llegas a 480 EUR, sigue siendo la referencia.",
+      a: "Si. No ha aparecido nada que lo supere en su combinacion de estabilidad, motor y garantía. Compradores con 3-4 años de uso reportan cero problemas. Ahora hay alternativas más baratas (Maidesite T2 Pro Plus), pero si llegas a 480 EUR, sigue siendo la referencia.",
     },
     {
       q: "Flexispot E7 o E7 Pro: cual compro?",
-      a: "El Pro anade tablero de bambu, 150 kg de carga y motor un poco mas rapido por unos 70 EUR extra. Si tu setup es pesado (dos monitores con brazos) o quieres el mejor acabado, lo justifica. Para monitor + portatil, el E7 normal va sobrado.",
+      a: "El Pro anade tablero de bambu, 150 kg de carga y motor un poco más rápido por unos 70 EUR extra. Si tu setup es pesado (dos monitores con brazos) o quieres el mejor acabado, lo justifica. Para monitor + portatil, el E7 normal va sobrado.",
     },
     {
       q: "Se puede montar el Flexispot E7 solo?",
@@ -53,15 +53,15 @@ export default function FlexispotE7ReviewPage() {
     },
     {
       q: "Cuanto tarda en subir y bajar el E7?",
-      a: "Recorrido completo: 17 segundos. En la practica, de sentado a de pie son 10-11 segundos. Con las 4 memorias, pulsas un boton y te olvidas.",
+      a: "Recorrido completo: 17 segundos. En la práctica, de sentado a de pie son 10-11 segundos. Con las 4 memorias, pulsas un boton y te olvidas.",
     },
     {
       q: "El E7 hace ruido en videollamadas?",
       a: "45 dB. En videollamada con Zoom o Teams, la otra persona no lo nota. Si grabas audio en silencio, el micro lo capta. Para uso normal, no molesta.",
     },
     {
-      q: "Que problemas tiene el Flexispot E7 segun los compradores?",
-      a: "Lo que se repite: tablero con alguna marca al llegar (logistica, Flexispot sustituye gratis), instrucciones confusas en el paso de cableado, y algun controlador que se reinicia solo (se arregla recalibrando). No he encontrado quejas serias sobre motor o estructura fallando.",
+      q: "Que problemas tiene el Flexispot E7 según los compradores?",
+      a: "Lo que se repite: tablero con alguna marca al llegar (logistica, Flexispot sustituye gratis), instrucciones confusas en el paso de cableado, y algún controlador que se reinicia solo (se arregla recalibrando). No he encontrado quejas serias sobre motor o estructura fallando.",
     },
   ];
 
@@ -150,8 +150,8 @@ export default function FlexispotE7ReviewPage() {
       <FadeIn delay={100}>
         <div className="mt-10 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <p>
-            El E7 lleva anos siendo el escritorio elevable mas recomendado en foros y YouTube. A 480 EUR, ofrece doble motor, 125 kg de carga y una estabilidad que los baratos no consiguen. Pero hay alternativas con doble motor por menos de 300 EUR (el Maidesite T2 Pro Plus). He leido cientos de opiniones reales para saber si merece la pena pagar casi el doble.
-          </p>
+              El marco del E7 lleva años siendo de lo más recomendado en foros y en YouTube, y los números acompañan: es el producto con más valoraciones de todo el catálogo y el que mejor nota media saca. Doble motor, 125 kg de carga y cinco años de garantía en la estructura. El matiz importante es que viene sin tablero, así que hay que sumar ese gasto antes de compararlo con un escritorio completo.
+            </p>
         </div>
       </FadeIn>
 
@@ -167,13 +167,13 @@ export default function FlexispotE7ReviewPage() {
             {[
               { label: "Motor", value: "Doble motor", detail: "LoctekMotion" },
               { label: "Rango de altura", value: `${product.specs.rango_altura_min_cm}–${product.specs.rango_altura_max_cm} cm`, detail: "65 cm de recorrido" },
-              { label: "Velocidad", value: `${product.specs.velocidad_cm_s} cm/s`, detail: "De los mas rapidos" },
-              { label: "Carga maxima", value: `${product.specs.peso_max_carga_kg} kg`, detail: "Setup completo" },
+              { label: "Velocidad", value: `${product.specs.velocidad_cm_s} cm/s`, detail: "De los más rapidos" },
+              { label: "Carga máxima", value: `${product.specs.peso_max_carga_kg} kg`, detail: "Setup completo" },
               { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm`, detail: product.specs.material_tablero || '' },
               { label: "Peso estructura", value: `${product.specs.peso_estructura_kg} kg`, detail: "Acero robusto" },
               { label: "Ruido", value: `${product.specs.ruido_db} dB`, detail: "Silencioso" },
-              { label: "Garantia", value: `${product.specs.garantia_anos} anos`, detail: "Flexispot oficial" },
-              { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rapido" },
+              { label: "Garantía", value: `${product.specs.garantia_anos} años`, detail: "Flexispot oficial" },
+              { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rápido" },
               { label: "Anticolision", value: product.specs.sistema_anticolision ? "Si" : "No", detail: "Proteccion activa" },
             ].map((spec, si) => (
               <FadeIn key={spec.label} delay={si * 40}>
@@ -206,17 +206,17 @@ export default function FlexispotE7ReviewPage() {
       <section className="max-w-3xl space-y-8">
         <FadeIn>
           <h2 className="text-2xl heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
-            Analisis detallado
+            Análisis detallado
           </h2>
         </FadeIn>
 
         {[
           { title: "Motor y rendimiento", text: "Doble motor LoctekMotion (fabricado por Flexispot, no comprado a terceros). A 3.8 cm/s, pasar de sentado a de pie tarda 10-11 segundos. Los 45 dB de ruido son un zumbido grave, no un chirrido. En videollamada, la otra persona no lo percibe. En una grabacion en silencio, el micro si lo captaria." },
-          { title: "Estabilidad (aqui es donde gana)", text: "La razon principal para comprar el E7. Tres secciones telescopicas (los baratos tienen dos) y base ancha y pesada. A maxima altura (123 cm), el movimiento lateral al escribir es minimo. Con un barato de 150 EUR, la pantalla vibra y te cansa la vista al cabo de una hora. Con el E7, ese efecto desaparece. Es probablemente por lo que la gente que compra el E7 acaba usando mas la posicion de pie." },
-          { title: "Montaje: no es dificil, pero si pesado", text: "Instrucciones claras, herramientas incluidas, proceso sencillo. El problema es el peso: 32 kg de estructura. Con dos personas, 45 minutos tranquilos. Solo, hora y media y frustracion. Truco: pon el tablero boca abajo, atornilla la estructura encima, y entre dos levantais el conjunto montado." },
-          { title: "¿Para quien SI es el E7?", text: "Teletrabajo a jornada completa, setup con monitor grande (o dos), personas altas (rango hasta 123 cm). En resumen: compras, montas, y te olvidas del tema escritorios durante anos." },
-          { title: "¿Para quien NO es el E7?", text: "Si tu setup es solo un portatil, estas pagando de mas — el Maidesite T2 Pro Plus (270 EUR) cumple de sobra. Si quieres probar lo de trabajar de pie, empieza barato y haz upgrade despues." },
-          { title: "Que dicen los compradores en Amazon", text: "He leido unas 200 opiniones. Lo positivo que mas se repite: estabilidad, silencio y durabilidad a largo plazo. Lo negativo: algun tablero marcado al llegar (Flexispot sustituye gratis), instrucciones de cableado algo confusas, y el peso que sorprende a quien espera un mueble tipo IKEA. Si sabes que es un escritorio motorizado de 32 kg, no es complicado." },
+          { title: "Estabilidad (aquí es donde gana)", text: "La razon principal para comprar el E7. Tres secciones telescópicas (los baratos tienen dos) y base ancha y pesada. A máxima altura (123 cm), el movimiento lateral al escribir es mínimo. Con un barato de 150 EUR, la pantalla vibra y te cansa la vista al cabo de una hora. Con el E7, ese efecto desaparece. Es probablemente por lo que la gente que compra el E7 acaba usando más la posición de pie." },
+          { title: "Montaje: no es difícil, pero si pesado", text: "Instrucciones claras, herramientas incluidas, proceso sencillo. El problema es el peso: 32 kg de estructura. Con dos personas, 45 minutos tranquilos. Solo, hora y media y frustracion. Truco: pon el tablero boca abajo, atornilla la estructura encima, y entre dos levantais el conjunto montado." },
+          { title: "¿Para quien SI es el E7?", text: "Teletrabajo a jornada completa, setup con monitor grande (o dos), personas altas (rango hasta 123 cm). En resumen: compras, montas, y te olvidas del tema escritorios durante años." },
+          { title: "¿Para quien NO es el E7?", text: "Si tu setup es solo un portatil, estas pagando de más — el Maidesite T2 Pro Plus (270 EUR) cumple de sobra. Si quieres probar lo de trabajar de pie, empieza barato y haz upgrade después." },
+          { title: "Que dicen los compradores en Amazon", text: "He leido unas 200 opiniones. Lo positivo que más se repite: estabilidad, silencio y durabilidad a largo plazo. Lo negativo: algún tablero marcado al llegar (Flexispot sustituye gratis), instrucciones de cableado algo confusas, y el peso que sorprende a quien espera un mueble tipo IKEA. Si sabes que es un escritorio motorizado de 32 kg, no es complicado." },
         ].map((section, si) => (
           <FadeIn key={section.title} delay={si * 60}>
             <div>
@@ -247,7 +247,7 @@ export default function FlexispotE7ReviewPage() {
           <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Veredicto</p>
           <p className="text-xl mt-2" style={{ fontFamily: 'var(--font-display)' }}>{product.veredicto}</p>
           <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-            No es barato, pero la estabilidad, el motor y la garantia no tienen rival a este precio. Si buscas algo para anos, es la apuesta segura.
+            No es barato, pero la estabilidad, el motor y la garantía no tienen rival a este precio. Si buscas algo para años, es la apuesta segura.
           </p>
           <div className="mt-4 inline-block">
             <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
@@ -314,7 +314,7 @@ export default function FlexispotE7ReviewPage() {
               <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Todos los modelos comparados, desde 120 hasta 550 euros.
             </p>
             <p>
-              <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Escritorios elevables baratos</Link> — Si 480 euros se te va de presupuesto, aqui hay opciones desde 120 EUR.
+              <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Escritorios elevables baratos</Link> — Si 480 euros se te va de presupuesto, aquí hay opciones desde 120 EUR.
             </p>
           </div>
         </section>

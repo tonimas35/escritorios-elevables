@@ -11,7 +11,7 @@ import { priceBand, reviewsAprox } from "@/lib/format";
 export const metadata: Metadata = {
   title: "Fezibo escritorio elevable opiniones y review 2026 — Merece la pena?",
   description:
-    "Review honesta del Fezibo 120x60: el escritorio elevable electrico mas barato. Analizamos si merece la pena por 140 EUR, para quien es y para quien no.",
+    "Review honesta del Fezibo 120x60: el escritorio elevable eléctrico más barato. Analizamos si merece la pena por 140 EUR, para quien es y para quien no.",
   alternates: { canonical: "/fezibo-opiniones" },
 };
 
@@ -40,19 +40,19 @@ export default function FeziboReviewPage() {
   const faqItems = [
     {
       q: "El Fezibo vale la pena por 140 euros?",
-      a: "Si tu expectativa es un escritorio elevable basico que sube y baja sin problemas, si. No esperes la estabilidad de un Flexispot E7 ni la velocidad de un doble motor. Pero para un estudiante o alguien que quiere probar un elevable por primera vez, es la forma mas barata de hacerlo con motor electrico.",
+      a: "Si tu expectativa es un escritorio elevable básico que sube y baja sin problemas, si. No esperes la estabilidad de un Flexispot E7 ni la velocidad de un doble motor. Pero para un estudiante o alguien que quiere probar un elevable por primera vez, es la forma más barata de hacerlo con motor eléctrico.",
     },
     {
-      q: "El Fezibo sirve para trabajar 8 horas al dia?",
-      a: "Puede, pero no lo recomiendo como escritorio principal para jornada completa. Con 50 kg de carga y un tablero de 120x60 cm, el espacio y la capacidad son justos. Si teletrabajas a jornada completa, invierte un poco mas en algo con tablero de 120 cm y mas carga, como el Ergear EED-S1 por 140 euros.",
+      q: "El Fezibo sirve para trabajar 8 horas al día?",
+      a: "Puede, pero no lo recomiendo como escritorio principal para jornada completa. Con 50 kg de carga y un tablero de 120x60 cm, el espacio y la capacidad son justos. Si teletrabajas a jornada completa, invierte un poco más en algo con tablero de 120 cm y más carga, como el Ergear EED-S1 por 140 euros.",
     },
     {
       q: "Que puedo poner encima del Fezibo?",
-      a: "Un monitor de hasta 27 pulgadas, un portatil, teclado y raton. Eso son unos 15-20 kg. Hasta ahi va perfecto. Si quieres dos monitores con brazo, un altavoz y una lampara, te pasas de espacio y probablemente de peso. Para setup dual monitor, necesitas al menos 120 cm de tablero.",
+      a: "Un monitor de hasta 27 pulgadas, un portatil, teclado y raton. Eso son unos 15-20 kg. Hasta ahí va perfecto. Si quieres dos monitores con brazo, un altavoz y una lampara, te pasas de espacio y probablemente de peso. Para setup dual monitor, necesitas al menos 120 cm de tablero.",
     },
     {
       q: "El Fezibo es ruidoso?",
-      a: "A 50 dB es audible pero no molesto. Es como el ruido de fondo de una oficina tranquila. En una videollamada, la otra persona no lo nota. Solo tarda unos 18 segundos en hacer el recorrido completo, asi que el ruido es breve.",
+      a: "A 50 dB es audible pero no molesto. Es como el ruido de fondo de una oficina tranquila. En una videollamada, la otra persona no lo nota. Solo tarda unos 18 segundos en hacer el recorrido completo, así que el ruido es breve.",
     },
   ];
 
@@ -136,7 +136,7 @@ export default function FeziboReviewPage() {
       {/* Editorial intro */}
       <div className="mt-10 max-w-3xl space-y-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
         <p>
-          El Fezibo es el escritorio elevable electrico mas barato que puedes comprar ahora mismo en Amazon Espana. 140 euros. Con motor. Sube y baja pulsando un boton. Hace cinco anos esto habria parecido ciencia ficcion. Hoy es una realidad, pero con matices importantes que necesitas conocer antes de comprar.
+          El Fezibo es el escritorio elevable eléctrico más barato que puedes comprar ahora mismo en Amazon Espana. 140 euros. Con motor. Sube y baja pulsando un boton. Hace cinco años esto habria parecido ciencia ficcion. Hoy es una realidad, pero con matices importantes que necesitas conocer antes de comprar.
         </p>
         <p>
           He analizado las 2400+ opiniones en Amazon, he comparado sus specs con los otros modelos baratos del mercado, y tengo claro para quien tiene sentido y para quien no. Si tu presupuesto es ajustado, esto te interesa.
@@ -152,15 +152,15 @@ export default function FeziboReviewPage() {
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Motor", value: "Simple", detail: "Basico pero funcional" },
+            { label: "Motor", value: "Simple", detail: "Básico pero funcional" },
             { label: "Rango de altura", value: `${product.specs.rango_altura_min_cm}–${product.specs.rango_altura_max_cm} cm`, detail: "44 cm de recorrido" },
             { label: "Velocidad", value: `${product.specs.velocidad_cm_s} cm/s`, detail: "Estandar" },
-            { label: "Carga maxima", value: `${product.specs.peso_max_carga_kg} kg`, detail: "Setup ligero" },
+            { label: "Carga máxima", value: `${product.specs.peso_max_carga_kg} kg`, detail: "Setup ligero" },
             { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm`, detail: product.specs.material_tablero || '' },
             { label: "Peso estructura", value: `${product.specs.peso_estructura_kg} kg`, detail: "Ligero" },
             { label: "Ruido", value: `${product.specs.ruido_db} dB`, detail: "Audible" },
-            { label: "Garantia", value: `${product.specs.garantia_anos} anos`, detail: "Estandar" },
-            { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rapido" },
+            { label: "Garantía", value: `${product.specs.garantia_anos} años`, detail: "Estandar" },
+            { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rápido" },
             { label: "Anticolision", value: product.specs.sistema_anticolision ? "Si" : "No", detail: "No incluido" },
           ].map((spec) => (
             <div key={spec.label} className="p-4 rounded" style={{ background: 'var(--bg-secondary)' }}>
@@ -187,44 +187,44 @@ export default function FeziboReviewPage() {
       {/* Detailed review */}
       <section className="max-w-3xl space-y-8">
         <h2 className="text-2xl" style={{ fontFamily: 'var(--font-display)' }}>
-          Analisis detallado
+          Análisis detallado
         </h2>
 
         <div>
           <h3 className="text-lg font-semibold">140 euros con motor: que sacrificas?</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            El motor simple es lento (2.5 cm/s) y ruidoso comparado con los doble motor. El recorrido completo tarda unos 18 segundos, que se sienten largos cuando vienes de un escritorio electrico rapido. Pero si es tu primer elevable, no lo vas a notar. Las 3 memorias de altura te permiten guardar tus posiciones favoritas y olvidarte.
+            El motor simple es lento (2.5 cm/s) y ruidoso comparado con los doble motor. El recorrido completo tarda unos 18 segundos, que se sienten largos cuando vienes de un escritorio eléctrico rápido. Pero si es tu primer elevable, no lo vas a notar. Las 3 memorias de altura te permiten guardar tus posiciones favoritas y olvidarte.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            No tiene anticolision. Si la mesa choca con algo al bajar, el motor sigue empujando. Es el sacrificio mas relevante del precio bajo. Si tienes una cajonera debajo, ojo. La solucion casera: pon un tope adhesivo a la altura del obstaculo.
+            No tiene anticolision. Si la mesa choca con algo al bajar, el motor sigue empujando. Es el sacrificio más relevante del precio bajo. Si tienes una cajonera debajo, ojo. La solución casera: pon un tope adhesivo a la altura del obstaculo.
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold">Estabilidad: lo justo</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Con 16 kg de estructura y patas de dos secciones, la estabilidad es la minima aceptable. A posicion de pie (110+ cm), el tablero se mueve al escribir. No es dramatico con un portatil, pero con un monitor de 27 pulgadas en brazo, se nota. Para personas por encima de 1.80 m, la altura maxima de 116 cm puede quedarse justa.
+            Con 16 kg de estructura y patas de dos secciones, la estabilidad es la mínima aceptable. A posición de pie (110+ cm), el tablero se mueve al escribir. No es dramatico con un portatil, pero con un monitor de 27 pulgadas en brazo, se nota. Para personas por encima de 1.80 m, la altura máxima de 116 cm puede quedarse justa.
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold">Para quien SI es el Fezibo</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Estudiantes que quieren alternar sentado y de pie mientras estudian. Personas que trabajan desde casa unas horas al dia (no jornada completa). Quien quiere probar un escritorio elevable sin gastarse mas de 130 euros. Y para espacios pequenos: 120x60 cm cabe en cualquier rincon.
+            Estudiantes que quieren alternar sentado y de pie mientras estudian. Personas que trabajan desde casa unas horas al día (no jornada completa). Quien quiere probar un escritorio elevable sin gastarse más de 130 euros. Y para espacios pequenos: 120x60 cm cabe en cualquier rincon.
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold">Para quien NO es</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Teletrabajadores a jornada completa que necesitan espacio para dual monitor. Personas altas (mas de 1.80 m) que necesitan el escritorio por encima de 116 cm. Quien tenga monitores pesados o un setup de mas de 30-40 kg. Y si ya tienes un elevable y quieres mejorar, el salto del Fezibo a un Ergear o Flexispot EG1 se nota bastante por solo 20-90 euros mas.
+            Teletrabajadores a jornada completa que necesitan espacio para dual monitor. Personas altas (más de 1.80 m) que necesitan el escritorio por encima de 116 cm. Quien tenga monitores pesados o un setup de más de 30-40 kg. Y si ya tienes un elevable y quieres mejorar, el salto del Fezibo a un Ergear o Flexispot EG1 se nota bastante por solo 20-90 euros más.
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold">Que dicen los 2400 compradores</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            La nota media de 4.3 con tantas opiniones es un dato fiable. Lo que mas se repite: facil de montar, funciona bien para lo que cuesta, y la bandeja para teclado incluida es un bonus inesperado. En lo negativo: tablero pequeno para quien esperaba algo mas grande, estabilidad justa a maxima altura, y algun caso de motor que zumba mas de la cuenta tras unos meses de uso.
+            La nota media de 4.3 con tantas opiniones es un dato fiable. Lo que más se repite: fácil de montar, funciona bien para lo que cuesta, y la bandeja para teclado incluida es un bonus inesperado. En lo negativo: tablero pequeno para quien esperaba algo más grande, estabilidad justa a máxima altura, y algún caso de motor que zumba más de la cuenta tras unos meses de uso.
           </p>
         </div>
       </section>
@@ -244,7 +244,7 @@ export default function FeziboReviewPage() {
         <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Veredicto</p>
         <p className="text-xl mt-2" style={{ fontFamily: 'var(--font-display)' }}>{product.veredicto}</p>
         <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-          No es el mejor escritorio elevable. Pero a 140 euros, es la forma mas barata de descubrir si trabajar de pie va contigo.
+          No es el mejor escritorio elevable. Pero a 140 euros, es la forma más barata de descubrir si trabajar de pie va contigo.
         </p>
         <div className="mt-4 inline-block">
           <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
@@ -259,7 +259,7 @@ export default function FeziboReviewPage() {
           Alternativas al Fezibo
         </h2>
         <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
-          Si puedes estirar un poco el presupuesto, estas opciones ofrecen mejoras significativas por poco dinero mas.
+          Si puedes estirar un poco el presupuesto, estas opciones ofrecen mejoras significativas por poco dinero más.
         </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
@@ -304,7 +304,7 @@ export default function FeziboReviewPage() {
             <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Escritorios elevables baratos</Link> — Todas las opciones por menos de 200 euros, comparadas.
           </p>
           <p>
-            <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los mejores escritorios elevables de 2026</Link> — Si puedes estirar el presupuesto, aqui estan todos.
+            <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los mejores escritorios elevables de 2026</Link> — Si puedes estirar el presupuesto, aquí están todos.
           </p>
           <p>
             <Link href="/comparador" className="underline" style={{ color: 'var(--accent)' }}>Comparador interactivo</Link> — Filtra por precio, altura y motor para encontrar tu escritorio.

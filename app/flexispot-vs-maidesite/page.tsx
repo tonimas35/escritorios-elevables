@@ -11,7 +11,7 @@ import { priceBand, reviewsAprox } from "@/lib/format";
 export const metadata: Metadata = {
   title: "Flexispot vs Maidesite 2026 — Cual es mejor?",
   description:
-    "Comparativa Flexispot vs MAIDeSITe con precios de 2026: marco contra marco (127 vs 370 EUR) y escritorio completo contra completo (410 vs 430 EUR). Carga, altura, ruido y garantia.",
+    "Comparativa Flexispot vs MAIDeSITe con precios de 2026: marco contra marco (127 vs 370 EUR) y escritorio completo contra completo (410 vs 430 EUR). Carga, altura, ruido y garantía.",
   alternates: { canonical: "/flexispot-vs-maidesite" },
 };
 
@@ -31,12 +31,12 @@ export default function FlexispotVsMaidesitePage() {
     { label: "Precio", e7: `${priceBand(e7Product.precio)}`, t2: `${priceBand(t2Product.precio)}`, winner: "t2" as const },
     { label: "Motor", e7: "Doble", t2: "Doble", winner: "tie" as const },
     { label: "Rango altura", e7: `${e7Product.specs.rango_altura_min_cm}–${e7Product.specs.rango_altura_max_cm} cm`, t2: `${t2Product.specs.rango_altura_min_cm}–${t2Product.specs.rango_altura_max_cm} cm`, winner: "t2" as const },
-    { label: "Carga maxima", e7: `${e7Product.specs.peso_max_carga_kg} kg`, t2: `${t2Product.specs.peso_max_carga_kg} kg`, winner: "e7" as const },
+    { label: "Carga máxima", e7: `${e7Product.specs.peso_max_carga_kg} kg`, t2: `${t2Product.specs.peso_max_carga_kg} kg`, winner: "e7" as const },
     { label: "Velocidad", e7: `${e7Product.specs.velocidad_cm_s} cm/s`, t2: `${t2Product.specs.velocidad_cm_s} cm/s`, winner: "tie" as const },
     { label: "Ruido", e7: `${e7Product.specs.ruido_db} dB`, t2: `${t2Product.specs.ruido_db} dB`, winner: "e7" as const },
     { label: "Tablero", e7: `${e7Product.specs.ancho_tablero_cm}x${e7Product.specs.profundidad_tablero_cm} cm`, t2: `${t2Product.specs.ancho_tablero_cm}x${t2Product.specs.profundidad_tablero_cm} cm`, winner: "tie" as const },
     { label: "Memorias", e7: `${e7Product.specs.presets_memoria}`, t2: `${t2Product.specs.presets_memoria}`, winner: "tie" as const },
-    { label: "Garantia", e7: `${e7Product.specs.garantia_anos} anos`, t2: `${t2Product.specs.garantia_anos} anos`, winner: "tie" as const },
+    { label: "Garantía", e7: `${e7Product.specs.garantia_anos} años`, t2: `${t2Product.specs.garantia_anos} años`, winner: "tie" as const },
     { label: "Nota total", e7: `${e7Product.puntuacion.total}/10`, t2: `${t2Product.puntuacion.total}/10`, winner: "e7" as const },
     { label: "Opiniones Amazon", e7: `${e7Product.rating}★ (${reviewsAprox(e7Product.num_reviews)})`, t2: `${t2Product.rating}★ (${reviewsAprox(t2Product.num_reviews)})`, winner: "e7" as const },
   ];
@@ -44,19 +44,19 @@ export default function FlexispotVsMaidesitePage() {
   const faqItems = [
     {
       q: "Flexispot o Maidesite: cual es mejor marca?",
-      a: "Flexispot lleva mas anos, tiene mas modelos y fabrica sus propios motores. Maidesite ofrece prestaciones similares a precios mas bajos. Ambas dan 5 anos de garantia y postventa en Espana. Como marca, Flexispot tiene mas recorrido. Producto a producto, Maidesite compite bien.",
+      a: "Flexispot lleva más años, tiene más modelos y fabrica sus propios motores. Maidesite ofrece prestaciones similares a precios más bajos. Ambas dan 5 años de garantía y postventa en Espana. Como marca, Flexispot tiene más recorrido. Producto a producto, Maidesite compite bien.",
     },
     {
       q: "Los motores de Flexispot y Maidesite son iguales?",
-      a: "No. Flexispot fabrica los suyos (LoctekMotion); Maidesite compra a terceros de buena calidad. En specs rinden igual (3.8 cm/s, ruido parecido). Los Flexispot tienen algo mejor historial en reviews de 2-3 anos, pero ambos aguantan 10.000+ ciclos.",
+      a: "No. Flexispot fabrica los suyos (LoctekMotion); Maidesite compra a terceros de buena calidad. En specs rinden igual (3.8 cm/s, ruido parecido). Los Flexispot tienen algo mejor historial en reviews de 2-3 años, pero ambos aguantan 10.000+ ciclos.",
     },
     {
       q: "Puedo usar un tablero diferente con estas marcas?",
-      a: "Si, las dos venden la estructura sola. Flexispot acepta tableros de 120-200 cm; Maidesite, de 120-180 cm. Minimo 2 cm de grosor para que los tornillos agarren.",
+      a: "Si, las dos venden la estructura sola. Flexispot acepta tableros de 120-200 cm; Maidesite, de 120-180 cm. Mínimo 2 cm de grosor para que los tornillos agarren.",
     },
     {
       q: "Cual tiene mejor servicio postventa en Espana?",
-      a: "Flexispot: respuesta en 24-48h, envian recambio sin esperar devolucion. Maidesite: 48-72h segun compradores. Ambas gestionan garantias bien, pero Flexispot es mas agil.",
+      a: "Flexispot: respuesta en 24-48h, envian recambio sin esperar devolucion. Maidesite: 48-72h según compradores. Ambas gestionan garantías bien, pero Flexispot es más agil.",
     },
   ];
 
@@ -113,7 +113,7 @@ export default function FlexispotVsMaidesitePage() {
           <span style={{ color: 'var(--accent)' }}>Flexispot</span> vs Maidesite
         </h1>
         <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
-          Actualizado: septiembre 2026 · Las dos marcas mas vendidas en Amazon Espana
+          Actualizado: septiembre 2026 · Las dos marcas más vendidas en Amazon Espana
         </p>
         <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
           Este articulo contiene enlaces de afiliado.
@@ -124,7 +124,7 @@ export default function FlexispotVsMaidesitePage() {
       <FadeIn delay={100}>
         <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <p>
-            Las dos marcas que mas se venden en Amazon Espana. La pregunta de siempre: ¿cual compro? Respuesta corta: Flexispot gana en calidad, Maidesite gana en precio. Aqui van los datos.
+            Las dos marcas que más se venden en Amazon Espana. La pregunta de siempre: ¿cual compro? Respuesta corta: Flexispot gana en calidad, Maidesite gana en precio. Aquí van los datos.
           </p>
         </div>
       </FadeIn>
@@ -134,7 +134,7 @@ export default function FlexispotVsMaidesitePage() {
         <div className="mt-8 p-6 rounded noise-bg" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
           <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>TL;DR</p>
           <p className="mt-2 text-base leading-relaxed" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-dark)' }}>
-            No hay un ganador unico, porque no compiten en el mismo sitio. Flexispot domina la entrada de gama: su marco cuesta 127 euros y acumula 522 valoraciones con 4,7 de media. MAIDeSITe domina la capacidad: el T2 Pro MAX aguanta 160 kg y sube hasta 135 cm, cifras que Flexispot no ofrece en este catalogo. En escritorios completos, con tablero incluido, la cosa se aprieta: 410 euros el FLEXISPOT de 160x80 frente a 430 el MAIDeSITe S2 Pro, y ahi deciden el tamano del tablero y la garantia.
+            No hay un ganador único, porque no compiten en el mismo sitio. Flexispot domina la entrada de gama: su marco cuesta 127 euros y acumula 522 valoraciones con 4,7 de media. MAIDeSITe domina la capacidad: el T2 Pro MAX aguanta 160 kg y sube hasta 135 cm, cifras que Flexispot no ofrece en este catalogo. En escritorios completos, con tablero incluido, la cosa se aprieta: 410 euros el FLEXISPOT de 160x80 frente a 430 el MAIDeSITe S2 Pro, y ahí deciden el tamano del tablero y la garantía.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mt-4">
             <AffiliateButton asin={e7Asin} text="Flexispot E7 en Amazon" size="md" />
@@ -152,7 +152,7 @@ export default function FlexispotVsMaidesitePage() {
 
           <div className="max-w-3xl mb-8 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
-            Los dos son solo estructura, asi que a ambos hay que sumarles el tablero. Pero no juegan en la misma liga de precio, y conviene saber por que.
+            Los dos son solo estructura, así que a ambos hay que sumarles el tablero. Pero no juegan en la misma liga de precio, y conviene saber por que.
           </p>
           </div>
 
@@ -215,17 +215,17 @@ export default function FlexispotVsMaidesitePage() {
       <section className="mt-12 max-w-3xl space-y-8">
         <FadeIn>
           <h2 className="text-2xl mb-2 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
-            Analisis por criterio
+            Análisis por criterio
           </h2>
         </FadeIn>
 
         {[
           { title: "Motor y velocidad", text: "Los dos llevan doble motor a 3,8 cm/s. Flexispot fabrica los suyos (LoctekMotion); MAIDeSITe los compra a terceros de buena calidad. En el uso diario la diferencia no se percibe." },
-          { title: "Estabilidad", text: "Empate tecnico con matices: 32 kg de estructura el Flexispot, 30 kg el MAIDeSITe, y tres secciones telescopicas en ambos. El MAIDeSITe sube mas alto, y a maxima altura cualquier marco gana algo de juego lateral." },
+          { title: "Estabilidad", text: "Empate tecnico con matices: 32 kg de estructura el Flexispot, 30 kg el MAIDeSITe, y tres secciones telescópicas en ambos. El MAIDeSITe sube más alto, y a máxima altura cualquier marco gana algo de juego lateral." },
           { title: "Ruido", text: "45 dB los dos. Silenciosos para videollamadas; solo importaria si grabas audio profesional." },
-          { title: "Capacidad de carga", text: "125 kg el Flexispot, 160 kg el MAIDeSITe. Un setup normal pesa 12-15 kg, asi que ambos van sobrados. La cifra solo decide si montas algo realmente pesado encima." },
-          { title: "Rango de altura", text: "Flexispot: 58-123 cm. MAIDeSITe: 65-135 cm. Si mides mas de 1,88 m, el MAIDeSITe llega donde el otro no. Si eres bajo o usas silla baja, el Flexispot baja 7 cm mas." },
-          { title: "Precio (el elefante en la habitacion)", text: "127 vs 370 EUR, y ninguno incluye tablero. El Flexispot es casi tres veces mas barato y acumula 522 valoraciones frente a 76. Salvo que necesites los 160 kg de carga o los 135 cm de altura del MAIDeSITe, la eleccion racional es clara." },
+          { title: "Capacidad de carga", text: "125 kg el Flexispot, 160 kg el MAIDeSITe. Un setup normal pesa 12-15 kg, así que ambos van sobrados. La cifra solo decide si montas algo realmente pesado encima." },
+          { title: "Rango de altura", text: "Flexispot: 58-123 cm. MAIDeSITe: 65-135 cm. Si mides más de 1,88 m, el MAIDeSITe llega donde el otro no. Si eres bajo o usas silla baja, el Flexispot baja 7 cm más." },
+          { title: "Precio (el elefante en la habitacion)", text: "127 vs 370 EUR, y ninguno incluye tablero. El Flexispot es casi tres veces más barato y acumula 522 valoraciones frente a 76. Salvo que necesites los 160 kg de carga o los 135 cm de altura del MAIDeSITe, la eleccion racional es clara." },
         ].map((section, si) => (
           <FadeIn key={section.title} delay={si * 60}>
             <div>
@@ -270,7 +270,7 @@ export default function FlexispotVsMaidesitePage() {
             </h2>
             <div className="max-w-3xl mb-6 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               <p>
-            Los dos llegan completos, sin comprar nada aparte. El FLEXISPOT de 160x80, por 410 euros, ofrece el tablero mas grande, 951 valoraciones y cinco anos de garantia, pero se queda en 100 kg de carga. El MAIDeSITe S2 Pro, por 430, trae tablero de 140x70, 120 kg y un acabado algo mas cuidado. Si quieres superficie y respaldo, el Flexispot; si quieres carga, el MAIDeSITe.
+            Los dos llegan completos, sin comprar nada aparte. El FLEXISPOT de 160x80, por 410 euros, ofrece el tablero más grande, 951 valoraciones y cinco años de garantía, pero se queda en 100 kg de carga. El MAIDeSITe S2 Pro, por 430, trae tablero de 140x70, 120 kg y un acabado algo más cuidado. Si quieres superficie y respaldo, el Flexispot; si quieres carga, el MAIDeSITe.
           </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -293,8 +293,8 @@ export default function FlexispotVsMaidesitePage() {
                         <p className="mono text-sm font-bold">{product.specs.peso_max_carga_kg} kg</p>
                       </div>
                       <div className="p-2 rounded" style={{ background: 'var(--bg-secondary)' }}>
-                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Garantia</p>
-                        <p className="mono text-sm font-bold">{product.specs.garantia_anos} anos</p>
+                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Garantía</p>
+                        <p className="mono text-sm font-bold">{product.specs.garantia_anos} años</p>
                       </div>
                       <div className="p-2 rounded" style={{ background: 'var(--bg-secondary)' }}>
                         <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Memorias</p>
@@ -322,13 +322,13 @@ export default function FlexispotVsMaidesitePage() {
           </h2>
           <div className="space-y-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
-            <strong style={{ color: 'var(--text-primary)' }}>127 EUR:</strong> marco FLEXISPOT. La mejor relacion calidad-precio del catalogo y el historial mas solido, con 522 valoraciones y 4,7 de media. Suma el tablero aparte.
+            <strong style={{ color: 'var(--text-primary)' }}>127 EUR:</strong> marco FLEXISPOT. La mejor relacion calidad-precio del catalogo y el historial más solido, con 522 valoraciones y 4,7 de media. Suma el tablero aparte.
           </p>
             <p>
-            <strong style={{ color: 'var(--text-primary)' }}>370 EUR:</strong> MAIDeSITe T2 Pro MAX. Solo si necesitas sus 160 kg de carga o sus 135 cm de altura; si no, estas pagando de mas. Tambien viene sin tablero.
+            <strong style={{ color: 'var(--text-primary)' }}>370 EUR:</strong> MAIDeSITe T2 Pro MAX. Solo si necesitas sus 160 kg de carga o sus 135 cm de altura; si no, estas pagando de más. También viene sin tablero.
           </p>
             <p>
-            <strong style={{ color: 'var(--text-primary)' }}>410-430 EUR:</strong> FLEXISPOT 160x80 o MAIDeSITe S2 Pro, ya con tablero. El primero por superficie y garantia, el segundo por carga.
+            <strong style={{ color: 'var(--text-primary)' }}>410-430 EUR:</strong> FLEXISPOT 160x80 o MAIDeSITe S2 Pro, ya con tablero. El primero por superficie y garantía, el segundo por carga.
           </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
@@ -346,7 +346,7 @@ export default function FlexispotVsMaidesitePage() {
           </h3>
           <div className="space-y-2 text-sm">
             <p>
-              <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: review completa</Link> — Analisis a fondo del E7 con todo lo bueno y lo malo.
+              <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: review completa</Link> — Análisis a fondo del E7 con todo lo bueno y lo malo.
             </p>
             <p>
               <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Comparativa completa con todas las marcas.

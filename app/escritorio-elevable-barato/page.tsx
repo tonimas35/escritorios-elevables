@@ -35,28 +35,28 @@ export default function EscritorioBaratoPage() {
 
   const faqItems = [
     {
-      q: "Cual es el escritorio elevable mas barato que merece la pena?",
-      a: `El ${winner?.[1].marca} ${winner?.[1].modelo} por ${priceBand(winner?.[1].precio)}. Tiene anticolision, 4 memorias y 5 anos de garantia, cosas que no encuentras a este precio. Si quieres gastar menos, el Fezibo por 120 EUR cumple para un setup basico.`,
+      q: "Cual es el escritorio elevable más barato que merece la pena?",
+      a: `El ${winner?.[1].marca} ${winner?.[1].modelo} por ${priceBand(winner?.[1].precio)}. Tiene anticolision, 4 memorias y 5 años de garantía, cosas que no encuentras a este precio. Si quieres gastar menos, el Fezibo por 120 EUR cumple para un setup básico.`,
     },
     {
       q: "Motor simple o doble para un escritorio barato?",
-      a: "Por debajo de 220 EUR, todos llevan motor simple. Es mas lento (20 seg el recorrido completo vs 12 del doble), pero para un setup normal de portatil y monitor va de sobra. Si quieres doble motor, el mas barato es el Maidesite T2 Pro Plus a 270 EUR.",
+      a: "Por debajo de 220 EUR, todos llevan motor simple. Es más lento (20 seg el recorrido completo vs 12 del doble), pero para un setup normal de portatil y monitor va de sobra. Si quieres doble motor, el más barato es el Maidesite T2 Pro Plus a 270 EUR.",
     },
     {
       q: "Cuanto dura un escritorio elevable barato?",
-      a: "Entre 3 y 7 anos con uso normal (2-4 cambios al dia). Los motores aguantan unos 10.000 ciclos. Los problemas que se ven en Amazon son casi siempre del controlador electronico, no del motor, y un reinicio suele arreglarlo.",
+      a: "Entre 3 y 7 años con uso normal (2-4 cambios al día). Los motores aguantan unos 10.000 ciclos. Los problemas que se ven en Amazon son casi siempre del controlador electronico, no del motor, y un reinicio suele arreglarlo.",
     },
     {
       q: "Necesito herramientas especiales para montarlo?",
-      a: "No, todos incluyen llaves Allen y tornillos. Montaje en 20-45 minutos. Los ligeros (Fezibo, JUMMICO) se montan solo; el VASAGLE (24 kg) mejor entre dos. Un destornillador electrico ayuda pero no es obligatorio.",
+      a: "No, todos incluyen llaves Allen y tornillos. Montaje en 20-45 minutos. Los ligeros (Fezibo, JUMMICO) se montan solo; el VASAGLE (24 kg) mejor entre dos. Un destornillador eléctrico ayuda pero no es obligatorio.",
     },
     {
       q: "Que sacrifico por comprar un escritorio elevable barato?",
-      a: "Velocidad del motor (2.5 vs 3.8 cm/s), estabilidad a maxima altura (algo de vibracion al escribir de pie) y acabado del tablero (melamina basica). Tambien menos rango de altura (72-118 cm vs 58-125 cm), un problema si mides mas de 1.85 m.",
+      a: "Velocidad del motor (2.5 vs 3.8 cm/s), estabilidad a máxima altura (algo de vibración al escribir de pie) y acabado del tablero (melamina básica). También menos rango de altura (72-118 cm vs 58-125 cm), un problema si mides más de 1.85 m.",
     },
     {
       q: "Anticolision: es necesario en un escritorio barato?",
-      a: "Si. Para el motor si detecta un obstaculo (cajon, silla, rodilla). Sin anticolision, el motor sigue y puede romper cosas. A partir de 140 EUR ya lo encuentras (Ergear), asi que no merece la pena ahorrar 20 euros y quedarse sin el.",
+      a: "Si. Para el motor si detecta un obstaculo (cajon, silla, rodilla). Sin anticolision, el motor sigue y puede romper cosas. A partir de 140 EUR ya lo encuentras (Ergear), así que no merece la pena ahorrar 20 euros y quedarse sin el.",
     },
   ];
 
@@ -136,7 +136,7 @@ export default function EscritorioBaratoPage() {
       <FadeIn delay={100}>
         <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <p>
-            No necesitas gastarte 500 euros. Si tu setup es portatil + monitor + teclado, con 140-200 EUR vas sobrado. Mi recomendacion rapida: el <strong>Flexispot EG1</strong> (210 EUR) si quieres lo mejor barato, el <strong>Ergear EED-S1</strong> (140 EUR) si buscas anticolision por menos de 150, y el <strong>Fezibo</strong> (120 EUR) para probar gastando lo minimo.
+            No necesitas gastarte 500 euros. Si tu setup es portatil + monitor + teclado, con 140-200 EUR vas sobrado. Mi recomendacion rápida: el <strong>Flexispot EG1</strong> (210 EUR) si quieres lo mejor barato, el <strong>Ergear EED-S1</strong> (140 EUR) si buscas anticolision por menos de 150, y el <strong>Fezibo</strong> (120 EUR) para probar gastando lo mínimo.
           </p>
         </div>
       </FadeIn>
@@ -224,10 +224,10 @@ export default function EscritorioBaratoPage() {
           </h2>
           <div className="space-y-4 text-sm leading-relaxed">
             <p>
-              Por debajo de 220 EUR, todos llevan motor simple: mas lento y algo mas ruidoso. Acepta eso de entrada. Lo que si deberias exigir: <strong>memorias de altura</strong> (si no, al cuarto dia dejas de usarlo), <strong>tablero de al menos 120 cm</strong> si usas monitor externo, y <strong>anticolision</strong> para que el motor pare si hay algo debajo.
+              Por debajo de 220 EUR, todos llevan motor simple: más lento y algo más ruidoso. Acepta eso de entrada. Lo que si deberias exigir: <strong>memorias de altura</strong> (si no, al cuarto día dejas de usarlo), <strong>tablero de al menos 120 cm</strong> si usas monitor externo, y <strong>anticolision</strong> para que el motor pare si hay algo debajo.
             </p>
             <p>
-              La garantia importa mucho. Los problemas con motores baratos aparecen entre el mes 8 y el 18. Con 5 anos de cobertura, te despreocupas. Con 2, cada ruido raro te pone nervioso.
+              La garantía importa mucho. Los problemas con motores baratos aparecen entre el mes 8 y el 18. Con 5 años de cobertura, te despreocupas. Con 2, cada ruido raro te pone nervioso.
             </p>
           </div>
         </div>
@@ -241,7 +241,7 @@ export default function EscritorioBaratoPage() {
           </h3>
           <div className="space-y-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
-              Motor simple va sobrado para un setup normal. Lo que notas es la estabilidad a maxima altura: si mides 1.85 m, hay algo de vibracion lateral al escribir de pie. No dramatica, pero perceptible.
+              Motor simple va sobrado para un setup normal. Lo que notas es la estabilidad a máxima altura: si mides 1.85 m, hay algo de vibración lateral al escribir de pie. No dramatica, pero perceptible.
             </p>
             <p>
               El tablero de melamina se siente menos solido que bambu. Una alfombrilla de escritorio de 15 EUR lo soluciona. El ruido (50 dB vs 43 dB en premium) se nota en una habitacion en silencio, pero solo dura 10-20 segundos cada vez que cambias de altura.
@@ -254,13 +254,13 @@ export default function EscritorioBaratoPage() {
       <div className="mt-12 space-y-16">
         {cheapProducts.map(([asin, product], i) => {
           const editorialContent: Record<string, string> = {
-            "flexispot-eg1": "El que yo le recomendaria a un amigo. A 210 EUR te da anticolision, 5 anos de garantia y calidad Flexispot. Tablero de 120x60 justo para monitor + portatil. 4.5 estrellas con 1500+ opiniones y quejas minimas.",
-            "maidesite-s2-pro": "La alternativa al EG1: 80 kg de carga (vs 70), 4 memorias (vs 3) y misma garantia de 5 anos, por 200 EUR. Menos reviews y servicio postventa algo mas lento que Flexispot. Si te fias de los numeros mas que de la marca, es mejor compra.",
-            "sanodesk-qs-plus": "Fabricado por la misma empresa que Flexispot, pero sin anticolision y solo 3 anos de garantia a 190 EUR. Por 20 EUR mas tienes el EG1 con todo. Solo merece la pena en oferta por debajo de 160 EUR.",
-            "vasagle-lsd302": "El unico con tablero de 140x60 cm por debajo de 200 EUR. Si necesitas mesa grande, es tu opcion. 80 kg de carga, anticolision, 4 memorias. Garantia de solo 3 anos y montaje pesado (24 kg).",
-            "ergear-eed-s1": "Mi favorito por debajo de 150 EUR. Anticolision y 4 memorias a 140 EUR — eso no lo ofrece nadie mas a este precio. Tablero de 120 cm, 1800 opiniones con 4.4 estrellas. La estabilidad a maxima altura es mejorable, pero por el precio es mucho escritorio.",
-            "fezibo-100x60": "El mas vendido barato: 120 EUR, montaje en 20 minutos, incluye bandeja para teclado. Pero 50 kg de carga es justo, tablero de 100 cm pequeno, sin anticolision y solo 2 anos de garantia. Bueno para probar; si ya sabes que lo quieres, gasta 20 EUR mas en el Ergear.",
-            "jummico-hed12": "A 160 EUR le cuesta justificarse: el Fezibo es mas barato y el Ergear tiene anticolision. Solo tiene sentido para espacios muy pequenos donde 120 cm no cabe. Motor ruidoso (52 dB) y 2 anos de garantia.",
+            "flexispot-eg1": "El que yo le recomendaria a un amigo. A 210 EUR te da anticolision, 5 años de garantía y calidad Flexispot. Tablero de 120x60 justo para monitor + portatil. 4.5 estrellas con 1500+ opiniones y quejas mínimas.",
+            "maidesite-s2-pro": "La alternativa al EG1: 80 kg de carga (vs 70), 4 memorias (vs 3) y misma garantía de 5 años, por 200 EUR. Menos reviews y servicio postventa algo más lento que Flexispot. Si te fias de los números más que de la marca, es mejor compra.",
+            "sanodesk-qs-plus": "Fabricado por la misma empresa que Flexispot, pero sin anticolision y solo 3 años de garantía a 190 EUR. Por 20 EUR más tienes el EG1 con todo. Solo merece la pena en oferta por debajo de 160 EUR.",
+            "vasagle-lsd302": "El único con tablero de 140x60 cm por debajo de 200 EUR. Si necesitas mesa grande, es tu opción. 80 kg de carga, anticolision, 4 memorias. Garantía de solo 3 años y montaje pesado (24 kg).",
+            "ergear-eed-s1": "Mi favorito por debajo de 150 EUR. Anticolision y 4 memorias a 140 EUR — eso no lo ofrece nadie más a este precio. Tablero de 120 cm, 1800 opiniones con 4.4 estrellas. La estabilidad a máxima altura es mejorable, pero por el precio es mucho escritorio.",
+            "fezibo-100x60": "El más vendido barato: 120 EUR, montaje en 20 minutos, incluye bandeja para teclado. Pero 50 kg de carga es justo, tablero de 100 cm pequeno, sin anticolision y solo 2 años de garantía. Bueno para probar; si ya sabes que lo quieres, gasta 20 EUR más en el Ergear.",
+            "jummico-hed12": "A 160 EUR le cuesta justificarse: el Fezibo es más barato y el Ergear tiene anticolision. Solo tiene sentido para espacios muy pequenos donde 120 cm no cabe. Motor ruidoso (52 dB) y 2 años de garantía.",
           };
           const editorial = editorialContent[product.slug] || "";
           const imageRight = i % 2 === 1;
@@ -328,17 +328,17 @@ export default function EscritorioBaratoPage() {
       <FadeIn>
         <section className="mt-16 max-w-3xl">
           <h2 className="text-2xl mb-4 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
-            ¿Cuanto deberia gastarme?
+            ¿Cuanto debería gastarme?
           </h2>
           <div className="space-y-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
               <strong style={{ color: 'var(--text-primary)' }}>120-140 EUR:</strong> para probar. Motor simple, tableros de 100 cm, sin anticolision (excepto Ergear). Solo portatil va bien.
             </p>
             <p>
-              <strong style={{ color: 'var(--text-primary)' }}>150-200 EUR:</strong> el punto dulce. Anticolision, tableros de 120-140 cm, garantias de 3-5 anos. Para teletrabajo estandar, cualquiera cumple.
+              <strong style={{ color: 'var(--text-primary)' }}>150-200 EUR:</strong> el punto dulce. Anticolision, tableros de 120-140 cm, garantías de 3-5 años. Para teletrabajo estandar, cualquiera cumple.
             </p>
             <p>
-              <strong style={{ color: 'var(--text-primary)' }}>200-220 EUR:</strong> Flexispot EG1 y Maidesite S2 Pro con 5 anos de garantia. Si llegas, la tranquilidad merece la pena. Y si estiras a 270 EUR, el <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Maidesite T2 Pro Plus</Link> te da doble motor.
+              <strong style={{ color: 'var(--text-primary)' }}>200-220 EUR:</strong> Flexispot EG1 y Maidesite S2 Pro con 5 años de garantía. Si llegas, la tranquilidad merece la pena. Y si estiras a 270 EUR, el <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Maidesite T2 Pro Plus</Link> te da doble motor.
             </p>
           </div>
         </section>
