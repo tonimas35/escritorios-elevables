@@ -389,11 +389,13 @@ sigue en el JSON para ordenar y filtrar en el comparador.
 Cuando el sitio llegue a ~10 ventas/mes, montar la Creators API y volver a
 precios en vivo. Antes no.
 
-#### Pendiente tambien: referencias a productos que ya no existen
+#### ✅ RESUELTO 08/09: productos fantasma, garantias y texto editorial
 
-En los mapas de texto por slug quedan menciones a `flexispot-eg1` y
-`sanodesk-qs-plus`, que no estan en el catalogo. No se renderizan (son
-diccionarios indexados por slug), pero conviene limpiarlos.
+17 menciones a productos fuera de catalogo (E7 Pro, T2 Pro Plus, EG1, JUMMICO)
+sustituidas: cada una era un clic perdido. Eliminado el mapa `editorialContent`
+del pilar, que tenia 9 de 11 entradas muertas y solo cubria 2 de 12 productos;
+ahora usa `product.veredicto` y cubre los 12. Garantias de 2 años corregidas a
+3 (minimo legal en España desde 2022).
 
 #### Pendiente: 89 menciones de precio en la prosa
 
@@ -409,10 +411,11 @@ escrito a mano sigue diciendo cifras exactas:
 | `/fezibo-opiniones` | 9 |
 | `/maidesite-t2-pro-opiniones` | 6 |
 
-No se pueden cambiar con un buscar-y-reemplazar: unas son el precio de un
-producto del catalogo (hay que convertirlas a banda) y otras son referencias
-genericas de mercado ("por debajo de 200 euros hay poco"), que ya son seguras.
-Requiere una pasada con criterio, pagina por pagina.
+Probada la conversion automatica el 08/09 y **descartada**: rompia rangos
+("entre 40 y 150 euros" -> "entre 40 y 150-200 €") y dejaba frases mezclando
+cifra y franja ("127 vs 300-400 €"). Necesita redaccion pagina por pagina, no
+un script. Los precios que si contradecian el catalogo ya estan corregidos;
+los que quedan son correctos hoy, solo caducables.
 
 De los 3 productos verificados hoy en Amazon, **2 tenian el numero de resenas
 inflado** en `data/productos.json`:
