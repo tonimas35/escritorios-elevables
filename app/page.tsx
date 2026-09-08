@@ -1,3 +1,6 @@
+const ACTUALIZADO = new Date().toLocaleDateString("es-ES", { month: "long", year: "numeric" })
+  .replace(/^\w/, (c) => c.toUpperCase());
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -34,7 +37,7 @@ export default function Home() {
             {/* Left: Title + CTA */}
             <div className="flex-1 animate-fade-up">
               <p className="editorial-mark mb-6" style={{ color: 'var(--color-secondary)' }}>
-                No. 01 &middot; Marzo 2026 &middot; Analisis independiente
+                {ACTUALIZADO} &middot; Analisis independiente
               </p>
               <h1 className="text-4xl md:text-6xl lg:text-7xl leading-none" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-dark)' }}>
                 Los mejores escritorios

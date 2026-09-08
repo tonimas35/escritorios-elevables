@@ -49,7 +49,7 @@ export default function MejorEscritorioPage() {
   const faqItems = [
     {
       q: "Merece la pena un escritorio elevable?",
-      a: "Yo llevo mas de un ano usando uno y la espalda lo nota. Cuando coges el ritmo (30 min sentado, 15 de pie), la tension lumbar baja mucho. Si trabajas sentado mas de 4 horas al dia, es de las mejores inversiones para tu setup.",
+      a: "Depende de si vas a usarlo. Un escritorio elevable solo aporta algo si de verdad lo subes: el patron habitual es alternar unos 30 minutos sentado y 15 de pie. Si trabajas sentado mas de cuatro horas al dia y sabes que vas a cambiar de postura, compensa. Si sospechas que lo vas a dejar siempre a la misma altura, te sale mas barato una mesa normal.",
     },
     {
       q: "Motor simple o doble: cual elijo?",
@@ -61,7 +61,7 @@ export default function MejorEscritorioPage() {
     },
     {
       q: "Puedo montar un escritorio elevable solo?",
-      a: "Los ligeros (menos de 22 kg, tipo Fezibo o JUMMICO) si. Los pesados como el E7 (32 kg) son un engorro en solitario al dar la vuelta al tablero. Mi regla: si pesa mas de 25 kg, pide ayuda.",
+      a: "Los ligeros (menos de 22 kg, tipo Fezibo o JUMMICO) si. Los pesados como el E7 (32 kg) son un engorro en solitario al dar la vuelta al tablero. Como referencia: por encima de 25 kg, mejor entre dos.",
     },
     {
       q: "Que garantia tienen?",

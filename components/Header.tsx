@@ -5,7 +5,8 @@ const NAV_ITEMS = [
   { label: "Mejores 2026", href: "/mejor-escritorio-elevable" },
   { label: "Baratos", href: "/escritorio-elevable-barato" },
   { label: "Comparador", href: "/comparador" },
-  { label: "Reviews", href: "/mejor-escritorio-elevable" },
+  { label: "Calculadora", href: "/calculadora-altura" },
+  { label: "Que comprar", href: "/que-escritorio-elevable-comprar" },
 ];
 
 export function Header() {

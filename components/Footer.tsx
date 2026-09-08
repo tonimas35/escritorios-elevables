@@ -19,12 +19,11 @@ export function Footer() {
               </span>
             </div>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'rgba(255,255,255,0.55)' }}>
-              Analisis independientes de escritorios elevables.
-              Datos reales y opiniones contrastadas.
+              Analisis de escritorios elevables a partir de especificaciones
+              de fabricante y valoraciones de Amazon. No probamos los productos
+              fisicamente y lo contamos abierto en la metodologia.
             </p>
-            <p className="mt-4 editorial-mark" style={{ color: 'rgba(255,255,255,0.35)' }}>
-              Est. 2025 &middot; Madrid
-            </p>
+
           </div>
 
           <div>
@@ -35,7 +34,6 @@ export function Footer() {
                 { label: "Escritorios baratos", href: "/escritorio-elevable-barato" },
                 { label: "Flexispot E7 review", href: "/flexispot-e7-opiniones" },
                 { label: "Flexispot vs Maidesite", href: "/flexispot-vs-maidesite" },
-                { label: "Comparador", href: "/comparador" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.65)' }}>
@@ -47,8 +45,27 @@ export function Footer() {
           </div>
 
           <div>
+            <h3 className="section-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Herramientas</h3>
+            <ul className="space-y-2.5 mb-8">
+              {[
+                { label: "Comparador", href: "/comparador" },
+                { label: "Calculadora de altura", href: "/calculadora-altura" },
+                { label: "Que escritorio comprar", href: "/que-escritorio-elevable-comprar" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.65)' }}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
             <h3 className="section-label mb-4" style={{ color: 'rgba(255,255,255,0.4)' }}>Legal</h3>
             <ul className="space-y-2.5">
+              <li>
+                <Link href="/metodologia" className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.65)' }}>
+                  Metodologia
+                </Link>
+              </li>
               <li>
                 <Link href="/aviso-legal" className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.65)' }}>
                   Aviso legal
