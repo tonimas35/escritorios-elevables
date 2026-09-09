@@ -9,7 +9,6 @@ import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
 import { productSchema } from "@/lib/schema";
-import { reviewsAprox } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Flexispot E7 opiniones y review 2026 — Merece la pena?",
@@ -215,7 +214,7 @@ export default function FlexispotE7ReviewPage() {
           { title: "Montaje: no es difícil, pero si pesado", text: "Instrucciones claras, herramientas incluidas, proceso sencillo. El problema es el peso: 32 kg de estructura. Con dos personas, 45 minutos tranquilos. Solo, hora y media y frustracion. Truco: pon el tablero boca abajo, atornilla la estructura encima, y entre dos levantais el conjunto montado." },
           { title: "¿Para quien SI es el E7?", text: "Teletrabajo a jornada completa, setup con monitor grande (o dos), personas altas (rango hasta 123 cm). En resumen: compras, montas, y te olvidas del tema escritorios durante años." },
           { title: "¿Para quien NO es el E7?", text: "Si tu setup es solo un portatil, estás pagando de más: cualquier modelo de la gama de entrada cumple de sobra. Si quieres probar lo de trabajar de pie, empieza barato y haz upgrade después." },
-          { title: "Que dicen los compradores en Amazon", text: "He leido unas 200 opiniones. Lo positivo que más se repite: estabilidad, silencio y durabilidad a largo plazo. Lo negativo: algún tablero marcado al llegar (Flexispot sustituye gratis), instrucciones de cableado algo confusas, y el peso que sorprende a quien espera un mueble tipo IKEA. Si sabes que es un escritorio motorizado de 32 kg, no es complicado." },
+          { title: "Que dicen los compradores en Amazon", text: "He leído las opiniones publicadas. Lo positivo que más se repite: estabilidad, silencio y durabilidad a largo plazo. Lo negativo: algún tablero marcado al llegar (Flexispot sustituye gratis), instrucciones de cableado algo confusas, y el peso que sorprende a quien espera un mueble tipo IKEA. Si sabes que es un escritorio motorizado de 32 kg, no es complicado." },
         ].map((section, si) => (
           <FadeIn key={section.title} delay={si * 60}>
             <div>

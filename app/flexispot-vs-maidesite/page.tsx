@@ -8,7 +8,6 @@ import { AvisoAfiliado } from "@/components/AvisoAfiliado";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
 import { productSchema } from "@/lib/schema";
-import { reviewsAprox } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Flexispot vs Maidesite 2026 — Cual es mejor?",
@@ -39,7 +38,7 @@ export default function FlexispotVsMaidesitePage() {
     { label: "Memorias", e7: `${e7Product.specs.presets_memoria}`, t2: `${t2Product.specs.presets_memoria}`, winner: "tie" as const },
     { label: "Garantía", e7: `${e7Product.specs.garantia_anos} años`, t2: `${t2Product.specs.garantia_anos} años`, winner: "tie" as const },
     { label: "Nota total", e7: `${e7Product.puntuacion.total}/10`, t2: `${t2Product.puntuacion.total}/10`, winner: "e7" as const },
-    { label: "Opiniones Amazon", e7: `${e7Product.rating}★ (${reviewsAprox(e7Product.num_reviews)})`, t2: `${t2Product.rating}★ (${reviewsAprox(t2Product.num_reviews)})`, winner: "e7" as const },
+    { label: "Nota en Amazon", e7: `${e7Product.rating}★`, t2: `${t2Product.rating}★`, winner: "e7" as const },
   ];
 
   const faqItems = [
@@ -171,7 +170,7 @@ export default function FlexispotVsMaidesitePage() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold" style={{ fontFamily: 'var(--font-display)' }}>{product.marca} {product.modelo}</h3>
-                      <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {reviewsAprox(product.num_reviews)} opiniones</p>
+                      <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ en Amazon</p>
                     </div>
                   </div>
                   <div className="mt-4">

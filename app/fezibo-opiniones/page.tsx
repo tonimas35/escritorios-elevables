@@ -8,7 +8,6 @@ import { AvisoAfiliado, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { productSchema } from "@/lib/schema";
-import { reviewsAprox } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Fezibo escritorio elevable opiniones y review 2026 — Merece la pena?",
@@ -138,7 +137,7 @@ export default function FeziboReviewPage() {
           El Fezibo es el escritorio elevable eléctrico más barato que puedes comprar ahora mismo en Amazon España. Con motor. Sube y baja pulsando un boton. Hace cinco años esto habria parecido ciencia ficcion. Hoy es una realidad, pero con matices importantes que necesitas conocer antes de comprar.
         </p>
         <p>
-          He analizado las 2400+ opiniones en Amazon, he comparado sus specs con los otros modelos baratos del mercado, y tengo claro para quien tiene sentido y para quien no. Si tu presupuesto es ajustado, esto te interesa.
+          He analizado las opiniones en Amazon, he comparado sus specs con los otros modelos baratos del mercado, y tengo claro para quien tiene sentido y para quien no. Si tu presupuesto es ajustado, esto te interesa.
         </p>
       </div>
 

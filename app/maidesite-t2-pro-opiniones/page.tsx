@@ -8,7 +8,6 @@ import { AvisoAfiliado, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { productSchema } from "@/lib/schema";
-import { reviewsAprox } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "MAIDeSITe T2 Pro MAX opiniones y review 2026 — Merece la pena?",
@@ -236,10 +235,10 @@ export default function MaidesiteT2ProReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Que dicen los compradores</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Acumula 76 valoraciones en Amazon Espana con una media de 4,5 sobre 5. Lo que más se repite en positivo es la solidez de la estructura y lo bien que sube y baja incluso cargada; varios compradores mencionan que lo eligieron precisamente por la capacidad de carga.
+            Acumula una media de 4,5 estrellas en Amazon España sobre 5. Lo que más se repite en positivo es la solidez de la estructura y lo bien que sube y baja incluso cargada; varios compradores mencionan que lo eligieron precisamente por la capacidad de carga.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            En lo negativo, la queja recurrente es la que cabe esperar: llega sin tablero y no todo el mundo lo tiene claro al comprar. También aparece el peso de la estructura, 30 kg, que hace recomendable montarlo entre dos personas. Con 76 valoraciones, el historial es todavia corto comparado con marcas más veteranas.
+            En lo negativo, la queja recurrente es la que cabe esperar: llega sin tablero y no todo el mundo lo tiene claro al comprar. También aparece el peso de la estructura, 30 kg, que hace recomendable montarlo entre dos personas. Su historial de valoraciones es todavía corto comparado con marcas más veteranas.
           </p>
         </div>
       </section>

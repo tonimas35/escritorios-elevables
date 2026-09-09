@@ -9,7 +9,6 @@ import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
 import { productSchema, itemListSchema } from "@/lib/schema";
-import { reviewsAprox } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Mejores escritorios elevables baratos 2026",
@@ -198,7 +197,7 @@ export default function EscritorioBaratoPage() {
                       </div>
                       <div>
                         <p className="font-semibold text-sm">{product.marca} {product.modelo}</p>
-                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ ({reviewsAprox(product.num_reviews)})</p>
+                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★</p>
                       </div>
                     </div>
                   </td>
