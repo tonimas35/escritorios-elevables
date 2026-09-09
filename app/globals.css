@@ -1086,3 +1086,103 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .bs-fila:first-of-type {
   border-top: var(--bs-filete-fino);
 }
+
+/* ----------------------------------------
+   Seccion 4 — comparativa
+   Punto de corte unico en 700px, como manda el diseño. Las dos variantes
+   se renderizan en servidor y las alterna una media query; no hay
+   ResizeObserver (eso era del prototipo).
+   ---------------------------------------- */
+.bs-filtro-grupo {
+  display: inline-flex;
+  border: var(--bs-borde-etiqueta);
+}
+.bs-filtro-grupo button {
+  padding: 9px 14px;
+  font-size: 14px;
+  font-family: var(--bs-familia);
+  color: var(--bs-verde-botella);
+  background: transparent;
+  cursor: pointer;
+}
+.bs-filtro-grupo button + button {
+  border-left: var(--bs-borde-etiqueta);
+}
+.bs-filtro-grupo button[aria-pressed="true"] {
+  background: var(--bs-verde-botella);
+  color: var(--bs-crema);
+}
+.bs-filtro-grupo button:focus-visible {
+  outline: 2px solid var(--bs-tinta);
+  outline-offset: -2px;
+}
+.bs-filtro-etiqueta {
+  display: block;
+  font-size: var(--bs-etiqueta);
+  letter-spacing: var(--bs-track-riel);
+  text-transform: uppercase;
+  color: var(--bs-neutro-700);
+  margin-bottom: 8px;
+}
+
+.bs-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.bs-tabla thead th {
+  background: var(--bs-verde-botella);
+  color: var(--bs-crema);
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: 600;
+}
+.bs-tabla thead th button {
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  background: none;
+}
+.bs-tabla tbody tr {
+  border-bottom: 1px solid var(--bs-divisor-fila);
+}
+.bs-tabla tbody tr:hover {
+  background: var(--bs-hover-fila);
+}
+.bs-tabla td {
+  padding: 12px 10px;
+  vertical-align: middle;
+}
+
+/* Barra de orden, solo en la variante apilada */
+.bs-orden-movil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bs-verde-botella);
+  color: var(--bs-crema);
+  padding: 10px 12px;
+}
+.bs-orden-movil button {
+  border: 1px solid var(--bs-crema);
+  color: var(--bs-crema);
+  font-family: var(--bs-familia);
+  font-size: 14px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.bs-orden-movil button[aria-pressed="true"] {
+  background: var(--bs-crema);
+  color: var(--bs-verde-botella);
+}
+
+.bs-apilada > li {
+  border-bottom: var(--bs-filete-divisor);
+  padding: 14px 0;
+}
+
+.bs-solo-ancho { display: none; }
+@media (min-width: 700px) {
+  .bs-solo-ancho { display: block; }
+  .bs-solo-estrecho { display: none; }
+}

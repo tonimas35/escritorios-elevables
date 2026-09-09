@@ -3,11 +3,16 @@ import Image from "next/image";
 import { getAllProducts } from "@/lib/products";
 import { coma } from "@/lib/format";
 import {
+  carga,
   caminos,
   etiquetasSpec,
   fichaTecnica,
   metaFila,
+  motorCorto,
   publicable,
+  recorrido,
+  garantia,
+  tablero,
   standfirst,
   tituloModelo,
 } from "@/lib/ficha";
@@ -15,6 +20,7 @@ import { Cifra } from "@/components/broadsheet/Cifra";
 import { Cta } from "@/components/broadsheet/Cta";
 import { Afiliado } from "@/components/broadsheet/Afiliado";
 import { Firma } from "@/components/broadsheet/Firma";
+import { Comparativa, type FilaComparativa } from "@/components/broadsheet/Comparativa";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -29,6 +35,24 @@ export default function Home() {
   const tresCaminos = caminos(catalogo);
   const podio = catalogo.slice(1, 3);
   const prosTop = top.pros.filter(publicable).slice(0, 3);
+
+  const filas: FilaComparativa[] = catalogo.map(([asin, p]) => ({
+    asin,
+    nombre: `${p.marca} ${p.modelo}`,
+    imagen: p.imagen,
+    alt: p.imagen_alt,
+    nota: coma(p.puntuacion.total),
+    notaNum: p.puntuacion.total,
+    rating: coma(p.rating),
+    motor: motorCorto(p),
+    carga: p.specs.peso_max_carga_kg,
+    cargaTxt: carga(p),
+    ancho: p.specs.ancho_tablero_cm,
+    tablero: p.incluye_tablero,
+    tableroTxt: tablero(p),
+    recorrido: recorrido(p),
+    garantia: garantia(p),
+  }));
 
   return (
     <div className="bs-pagina">
@@ -299,6 +323,26 @@ export default function Home() {
               <Cta asin={asin} mini />
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ============================================================
+          Nº 04 · Comparativa
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 04 · Comparativa</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Los {catalogo.length} modelos analizados
+          </h2>
+
+          <Comparativa filas={filas} />
+
+          <p className="bs-afiliado" style={{ marginTop: 20, maxWidth: "66ch" }}>
+            Nota sobre 10 según nuestra <a href="#metodologia">metodología</a>. Todos
+            los enlaces son de afiliado: si compras, Amazon nos paga una comisión y
+            tú pagas lo mismo.
+          </p>
         </div>
       </section>
     </div>
