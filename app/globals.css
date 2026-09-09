@@ -1205,3 +1205,25 @@ input[type="range"]::-webkit-slider-thumb:hover {
     padding-bottom: 96px;
   }
 }
+
+/* Riel de fecha de la cabecera */
+.bs-riel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 0;
+  border-top: var(--bs-filete-grueso);
+  border-bottom: var(--bs-filete-fino);
+  margin-top: 22px;
+  font-size: var(--bs-riel);
+  letter-spacing: var(--bs-track-riel);
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+.bs-riel strong {
+  font-weight: 600;
+}
+.bs-riel > span {
+  color: var(--bs-neutro-700);
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getProductBySlug } from "@/lib/products";
+import { FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
@@ -112,7 +113,7 @@ export default function FlexispotVsMaidesitePage() {
           <span style={{ color: 'var(--accent)' }}>Flexispot</span> vs Maidesite
         </h1>
         <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
-          Actualizado: septiembre 2026 · Las dos marcas más vendidas en Amazon Espana
+          Actualizado: {FECHA_EN_FRASE} · Las dos marcas más vendidas en Amazon Espana
         </p>
         <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
           Este articulo contiene enlaces de afiliado.

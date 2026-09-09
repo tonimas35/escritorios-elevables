@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
+import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
@@ -118,13 +119,13 @@ export default function EscritorioBaratoPage() {
       <FadeIn>
         <div className="editorial-rule mb-6" />
         <p className="editorial-mark mb-3" style={{ color: 'var(--color-secondary)' }}>
-          Guia de compra &middot; Marzo 2026
+          Guía de compra &middot; {FECHA}
         </p>
         <h1 className="text-3xl md:text-5xl heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
           Mejores escritorios elevables <span style={{ color: 'var(--accent)' }}>baratos</span> 2026
         </h1>
         <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
-          Actualizado: septiembre de 2026 &middot; {cheapProducts.length} modelos analizados de la gama de entrada
+          Actualizado: {FECHA_EN_FRASE} &middot; {cheapProducts.length} modelos analizados de la gama de entrada
         </p>
         <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
           Este articulo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequena comision sin coste adicional para ti.

@@ -23,6 +23,7 @@ import { Afiliado } from "@/components/broadsheet/Afiliado";
 import { Firma } from "@/components/broadsheet/Firma";
 import { Comparativa, type FilaComparativa } from "@/components/broadsheet/Comparativa";
 import { CRITERIOS } from "@/lib/metodologia";
+import { FECHA } from "@/lib/fecha";
 import { CtaFijo } from "@/components/broadsheet/CtaFijo";
 
 export const metadata: Metadata = {
@@ -61,6 +62,16 @@ export default function Home() {
 
   return (
     <div className="bs-pagina">
+      {/* Fecha unica de la pagina. En el diseño vive en el riel de cabecera,
+          que todavia no esta construido; hasta entonces abre el contenido con
+          la tipografia del riel. */}
+      <div className="bs-contenido">
+        <p className="bs-riel">
+          <strong>Elevable</strong> · Análisis independiente
+          <span>{FECHA}</span>
+        </p>
+      </div>
+
       {/* ============================================================
           Nº 01 · Veredicto
           ============================================================ */}
