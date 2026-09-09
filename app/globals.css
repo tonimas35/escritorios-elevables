@@ -1186,3 +1186,22 @@ input[type="range"]::-webkit-slider-thumb:hover {
   .bs-solo-ancho { display: block; }
   .bs-solo-estrecho { display: none; }
 }
+
+/* CTA fijo inferior, solo movil */
+.bs-cta-fijo {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 40;
+  background: var(--bs-papel);
+  border-top: var(--bs-filete-seccion);
+  padding: 10px 16px 16px;
+}
+/* El CTA fijo tapa el final del documento —footer incluido, que es donde
+   esta la declaracion legal— si no se le reserva sitio. Se reserva en el
+   body y solo en las paginas que lo llevan, para no tocar el layout ni
+   afectar al resto del sitio. */
+@media (max-width: 699px) {
+  body:has(.bs-cta-fijo) {
+    padding-bottom: 96px;
+  }
+}

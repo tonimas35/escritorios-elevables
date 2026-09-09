@@ -23,6 +23,7 @@ import { Afiliado } from "@/components/broadsheet/Afiliado";
 import { Firma } from "@/components/broadsheet/Firma";
 import { Comparativa, type FilaComparativa } from "@/components/broadsheet/Comparativa";
 import { CRITERIOS } from "@/lib/metodologia";
+import { CtaFijo } from "@/components/broadsheet/CtaFijo";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -478,6 +479,8 @@ export default function Home() {
               decision del proyecto (design-ref/README.md). */}
         </div>
       </section>
+
+      <CtaFijo asin={asinTop} nombre={`${top.marca} ${top.modelo}`} />
     </div>
   );
 }
