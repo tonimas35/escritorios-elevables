@@ -44,6 +44,16 @@ export interface Product {
   veredicto: string;
   puntuacion: ProductScore;
   ideal_para: string;
+  /**
+   * Linea de exclusion: "No es tu mesa si...". Derivada solo de specs.
+   */
+  no_es_para: string;
+  /**
+   * Que distingue al modelo del resto del catalogo. Vacio a proposito en
+   * los cinco modelos que son identicos entre si en carga, recorrido,
+   * motor, tablero, ancho y garantia: ahi no hay nada que lo distinga.
+   */
+  define: string;
   slug: string;
 }
 
