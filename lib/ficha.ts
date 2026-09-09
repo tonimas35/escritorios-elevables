@@ -75,3 +75,65 @@ export function standfirst(p: Product, esElMejor: boolean): string {
     : "No incluye tablero: ese lo eliges tú.";
   return `${nota} ${ficha} ${cierre}`;
 }
+
+export interface Camino {
+  etiqueta: string;
+  subtitulo: string;
+  asin: string;
+  producto: Product;
+  texto: string;
+}
+
+/**
+ * Los tres caminos de la seccion 2, por necesidad y no por presupuesto.
+ *
+ * Se derivan del catalogo en vez de fijar los ASIN a mano: el mejor marco,
+ * el mejor modelo con tablero y el de mas carga. Con el catalogo actual
+ * salen los mismos tres modelos que marca el diseño, y si el catalogo
+ * cambia la seccion sigue diciendo la verdad.
+ */
+export function caminos(catalogo: [string, Product][]): Camino[] {
+  const porNota = [...catalogo].sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total);
+
+  const marco = porNota.find(([, p]) => !p.incluye_tablero);
+  const conTablero = porNota.find(([, p]) => p.incluye_tablero);
+  const usados = new Set([marco?.[0], conTablero?.[0]]);
+  const masCarga = [...catalogo]
+    .filter(([a]) => !usados.has(a))
+    .sort(([, a], [, b]) => b.specs.peso_max_carga_kg - a.specs.peso_max_carga_kg)[0];
+
+  const salida: Camino[] = [];
+
+  if (marco) {
+    const [asin, p] = marco;
+    salida.push({
+      etiqueta: "Solo el marco",
+      subtitulo: "El tablero lo eliges tú",
+      asin,
+      producto: p,
+      texto: `${motorCorto(p)}, ${carga(p)} y recorrido de ${p.specs.rango_altura_min_cm} a ${p.specs.rango_altura_max_cm} cm. El tablero, a tu medida.`,
+    });
+  }
+  if (conTablero) {
+    const [asin, p] = conTablero;
+    const material = p.specs.material_tablero ? ` (${p.specs.material_tablero})` : "";
+    salida.push({
+      etiqueta: "Con tablero incluido",
+      subtitulo: "Montar y usar, sin más compras",
+      asin,
+      producto: p,
+      texto: `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm}${material}, ${motorCorto(p).toLowerCase()} y ${garantia(p)} de garantía.`,
+    });
+  }
+  if (masCarga) {
+    const [asin, p] = masCarga;
+    salida.push({
+      etiqueta: "Dos monitores o setup grande",
+      subtitulo: "Cuando manda la carga",
+      asin,
+      producto: p,
+      texto: `${carga(p)} de carga y recorrido de ${p.specs.rango_altura_min_cm} a ${p.specs.rango_altura_max_cm} cm, lo más amplio del catálogo. ${p.incluye_tablero ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} incluido.` : "Tampoco incluye tablero."}`,
+    });
+  }
+  return salida;
+}

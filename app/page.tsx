@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { getAllProducts } from "@/lib/products";
 import { coma } from "@/lib/format";
-import { fichaTecnica, standfirst } from "@/lib/ficha";
+import { caminos, fichaTecnica, standfirst } from "@/lib/ficha";
 import { Cifra } from "@/components/broadsheet/Cifra";
 import { Cta } from "@/components/broadsheet/Cta";
 import { Afiliado } from "@/components/broadsheet/Afiliado";
@@ -18,6 +18,7 @@ export default function Home() {
     .sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total);
 
   const [asinTop, top] = catalogo[0];
+  const tresCaminos = caminos(catalogo);
 
   return (
     <div className="bs-pagina">
@@ -100,6 +101,65 @@ export default function Home() {
                 ))}
               </dl>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          Nº 02 · Tres caminos
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 02 · Tres caminos</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Según lo que necesites
+          </h2>
+          <p className="bs-cuerpo" style={{ maxWidth: "58ch", marginTop: 16, color: "var(--bs-neutro-800)" }}>
+            No segmentamos por presupuesto porque el presupuesto cambia y el uso
+            no. Estas son las tres decisiones reales.
+          </p>
+
+          <div className="bs-caminos" style={{ marginTop: 40 }}>
+            {tresCaminos.map((camino) => (
+              <div key={camino.asin} className="bs-camino">
+                <div>
+                  <p className="bs-etiqueta">{camino.etiqueta}</p>
+                  <p style={{ fontSize: 14, color: "var(--bs-neutro-700)", marginTop: 4 }}>
+                    {camino.subtitulo}
+                  </p>
+                </div>
+
+                <div className="bs-marco" style={{ padding: 10 }}>
+                  <div style={{ height: 130 }}>
+                    <Image
+                      src={camino.producto.imagen}
+                      alt={camino.producto.imagen_alt}
+                      width={280}
+                      height={130}
+                      style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                    />
+                  </div>
+                </div>
+
+                <h3 className="bs-h3">
+                  {camino.producto.marca} {camino.producto.modelo}
+                </h3>
+
+                <p style={{ fontSize: 15, color: "var(--bs-neutro-700)" }}>
+                  Nota <strong style={{ color: "var(--bs-tinta)" }}>{coma(camino.producto.puntuacion.total)}</strong>
+                  {" · "}
+                  {coma(camino.producto.rating)}★ en Amazon
+                  {camino.asin === asinTop && (
+                    <span style={{ color: "var(--bs-tinta)" }}> · el del veredicto</span>
+                  )}
+                </p>
+
+                <p style={{ fontSize: 16, lineHeight: 1.55 }}>{camino.texto}</p>
+
+                <Cta asin={camino.asin} ancho mini />
+                <Afiliado corta />
+              </div>
+            ))}
           </div>
         </div>
       </section>

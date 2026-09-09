@@ -822,6 +822,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 .bs-pagina {
   background: var(--bs-papel);
+  padding-bottom: var(--bs-separacion-seccion);
   color: var(--bs-tinta);
   font-family: var(--bs-familia);
   line-height: var(--bs-interlineado-base);
@@ -1023,3 +1024,21 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .bs-cifra .plancha-c { color: #0088b0; }
 .bs-cifra .plancha-m { color: #d6006c; translate: 0.036em 0.025em; }
 .bs-cifra .plancha-y { color: #edbb00; translate: -0.031em -0.023em; }
+
+/* Seccion 2 — tres caminos */
+.bs-caminos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bs-hueco-columnas);
+}
+.bs-camino {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: var(--bs-filete-fino);
+  padding-top: 16px;
+}
+.bs-camino .bs-cta {
+  margin-top: auto;
+}
