@@ -1227,3 +1227,10 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .bs-riel > span {
   color: var(--bs-neutro-700);
 }
+
+/* La cabecera es pegajosa: sin esto, saltar a un ancla deja el titulo de la
+   seccion escondido detras de ella. Solo afecta al scroll, no a la maqueta. */
+:target,
+[id]:not(html):not(body) {
+  scroll-margin-top: 72px;
+}
