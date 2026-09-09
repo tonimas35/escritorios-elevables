@@ -251,3 +251,17 @@ export function dudas(catalogo: [string, Product][]): Duda[] {
     },
   ];
 }
+
+const PREFIJO_EXCLUSION = "No es tu mesa si";
+
+/**
+ * Parte la linea de exclusion en el arranque fijo y el motivo, para poder
+ * destacar el primero. Si el texto no empieza como se espera, devuelve la
+ * frase entera como motivo en vez de recortarla mal.
+ */
+export function exclusion(p: Product): { arranque: string; motivo: string } | null {
+  const t = p.no_es_para?.trim();
+  if (!t) return null;
+  if (!t.startsWith(PREFIJO_EXCLUSION)) return { arranque: "", motivo: t };
+  return { arranque: PREFIJO_EXCLUSION, motivo: t.slice(PREFIJO_EXCLUSION.length).trim() };
+}

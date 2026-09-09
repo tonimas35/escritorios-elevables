@@ -10,6 +10,7 @@ import {
   fichaTecnica,
   metaFila,
   motorCorto,
+  exclusion,
   publicable,
   recorrido,
   garantia,
@@ -39,6 +40,7 @@ export default function Home() {
   const tresCaminos = caminos(catalogo);
   const podio = catalogo.slice(1, 3);
   const prosTop = top.pros.filter(publicable).slice(0, 3);
+  const exclusionTop = exclusion(top);
 
   const tresDudas = dudas(catalogo);
 
@@ -92,9 +94,12 @@ export default function Home() {
               {standfirst(top, true)}
             </p>
 
-            {/* La linea "No es tu mesa si" necesita un campo que hoy no
-                existe en data/productos.json. Se deja sin renderizar en
-                lugar de inventarla. */}
+            {exclusionTop && (
+              <p className="bs-exclusion bs-cuerpo" style={{ marginTop: 20 }}>
+                {exclusionTop.arranque && <strong>{exclusionTop.arranque}</strong>}{" "}
+                {exclusionTop.motivo}
+              </p>
+            )}
 
             <div style={{ marginTop: 28 }}>
               <Cta asin={asinTop} />
@@ -298,7 +303,12 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* Falta la linea "No es tu mesa si": no hay campo para ella. */}
+                {exclusionTop && (
+                  <p className="bs-exclusion" style={{ marginTop: 18, fontSize: 15 }}>
+                    {exclusionTop.arranque && <strong>{exclusionTop.arranque}</strong>}{" "}
+                    {exclusionTop.motivo}
+                  </p>
+                )}
 
                 <div style={{ marginTop: 24 }}>
                   <Cta asin={asinTop} ancho />
@@ -332,8 +342,9 @@ export default function Home() {
                   {p.marca} {p.modelo}
                 </p>
                 <p style={{ fontSize: 13, color: "var(--bs-neutro-700)" }}>{metaFila(p)}</p>
-                {/* La frase que define cada modelo necesita un campo que no
-                    existe en el JSON. La fila se queda sin ella. */}
+                {p.define && (
+                  <p style={{ fontSize: 14, marginTop: 4 }}>{p.define}</p>
+                )}
               </div>
               <span style={{ fontSize: 22, fontWeight: 700 }}>{coma(p.puntuacion.total)}</span>
               <Cta asin={asin} mini />
