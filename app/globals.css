@@ -812,3 +812,214 @@ input[type="range"]::-webkit-slider-thumb:hover {
   line-height: 1.5;
   color: var(--text-secondary);
 }
+
+/* ========================================
+   BROADSHEET — clases del rediseño
+   Consumen los tokens --bs-* de la cabecera. Van con prefijo .bs- y no
+   modifican ninguna regla anterior: mientras el resto del sitio siga con
+   el sistema viejo, los dos conviven sin pisarse.
+   ======================================== */
+
+.bs-pagina {
+  background: var(--bs-papel);
+  color: var(--bs-tinta);
+  font-family: var(--bs-familia);
+  line-height: var(--bs-interlineado-base);
+  letter-spacing: normal;
+}
+/* Las reglas globales de h1/h2/h3 imponen Fraunces y pesos 900/700/500.
+   Dentro del rediseño manda el serif unico. */
+.bs-pagina h1,
+.bs-pagina h2,
+.bs-pagina h3 {
+  font-family: var(--bs-familia);
+  font-variation-settings: normal;
+  font-weight: var(--bs-peso-titulo);
+  color: var(--bs-tinta);
+  text-wrap: pretty;
+}
+
+.bs-contenido {
+  max-width: var(--bs-ancho-contenido);
+  margin: 0 auto;
+  padding-inline: var(--bs-margen-lateral);
+}
+
+.bs-seccion {
+  padding-top: var(--bs-separacion-seccion);
+}
+.bs-filete-seccion {
+  border-top: var(--bs-filete-seccion);
+}
+
+.bs-kicker {
+  font-size: var(--bs-kicker);
+  letter-spacing: var(--bs-track-kicker);
+  text-transform: uppercase;
+  color: var(--bs-verde-botella);
+  line-height: 1.4;
+}
+.bs-etiqueta {
+  font-size: var(--bs-etiqueta);
+  letter-spacing: var(--bs-track-etiqueta);
+  text-transform: uppercase;
+  color: var(--bs-verde-botella);
+}
+
+.bs-h1 {
+  font-size: var(--bs-h1-home);
+  line-height: var(--bs-lh-h1-home);
+  letter-spacing: var(--bs-track-h1);
+}
+.bs-h2 {
+  font-size: var(--bs-h2-seccion);
+  line-height: var(--bs-lh-h2);
+  letter-spacing: var(--bs-track-h2);
+}
+.bs-h3 {
+  font-size: var(--bs-h3);
+  line-height: var(--bs-lh-h3);
+}
+.bs-standfirst {
+  font-size: var(--bs-standfirst);
+  line-height: var(--bs-lh-standfirst);
+  color: var(--bs-neutro-800);
+}
+.bs-cuerpo {
+  font-size: var(--bs-cuerpo);
+  line-height: var(--bs-lh-cuerpo);
+}
+
+/* "No es tu mesa si" */
+.bs-exclusion {
+  padding-left: 15px;
+  border-left: 3px solid var(--bs-verde-botella);
+  max-width: var(--bs-medida-media);
+}
+
+/* CTA: tinta sobre crema, hover verde. Sin sombras ni transformaciones. */
+.bs-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--bs-tinta);
+  color: var(--bs-crema);
+  padding: var(--bs-relleno-cta);
+  border-radius: var(--bs-radio);
+  font-size: clamp(16px, 1.6vw, 18px);
+  font-weight: 600;
+  line-height: 1.2;
+  transition: background var(--dur-rapida);
+}
+.bs-cta:hover {
+  background: var(--bs-verde-botella);
+  color: var(--bs-crema);
+}
+.bs-cta:focus-visible {
+  outline: 2px solid var(--bs-verde-botella);
+  outline-offset: 2px;
+}
+.bs-cta-ancho {
+  width: 100%;
+}
+.bs-cta-mini {
+  font-size: 15px;
+  padding: 11px 18px;
+}
+
+.bs-afiliado {
+  font-size: var(--bs-legal);
+  line-height: var(--bs-lh-standfirst);
+  color: var(--bs-neutro-700);
+}
+.bs-afiliado-mini {
+  font-size: var(--bs-legal-min);
+}
+
+/* Firma del autor: monograma, sin foto */
+.bs-avatar {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-radius: var(--bs-radio-avatar);
+  background: var(--bs-verde-botella);
+  color: var(--bs-crema);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Marco blanco de las fotos de producto */
+.bs-marco {
+  background: var(--bs-blanco);
+  display: block;
+}
+.bs-marco img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Ficha tecnica */
+.bs-ficha {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 7px 20px;
+  font-size: 15px;
+  margin: 0;
+}
+.bs-ficha dt {
+  color: var(--bs-neutro-700);
+}
+.bs-ficha dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Enlaces de texto */
+.bs-pagina a:not(.bs-cta) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.bs-pagina a:not(.bs-cta):hover {
+  color: var(--bs-verde-botella);
+}
+
+/* ----------------------------------------
+   Cifra en cuatricromia
+   Portada a mano desde design-ref/code/_ds/.../styles.css (.cmyk-num).
+   Se deja fuera el seguimiento del puntero (--press-nx/--press-ny): venia
+   del runtime del prototipo, que no se adopta. Las planchas quedan fijas.
+   ---------------------------------------- */
+.bs-cifra {
+  --bs-cifra-fondo: var(--bs-papel);
+  position: relative;
+  width: fit-content;
+  line-height: 0.9;
+  font-feature-settings: "pnum" 1;
+  font-weight: 700;
+  background: var(--bs-cifra-fondo);
+  padding: 0.12em;
+  margin: -0.12em;
+}
+.bs-cifra .papel {
+  color: var(--bs-cifra-fondo);
+  text-shadow:
+    0.036em 0.025em 0 var(--bs-cifra-fondo),
+    -0.031em -0.023em 0 var(--bs-cifra-fondo);
+}
+.bs-cifra .plancha {
+  position: absolute;
+  inset: 0.12em;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  user-select: none;
+}
+.bs-cifra .plancha-c { color: #0088b0; }
+.bs-cifra .plancha-m { color: #d6006c; translate: 0.036em 0.025em; }
+.bs-cifra .plancha-y { color: #edbb00; translate: -0.031em -0.023em; }
