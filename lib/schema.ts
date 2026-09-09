@@ -30,12 +30,13 @@ export function productSchema(asin: string, p: Product, pageUrl?: string) {
       },
       author: { "@type": "Organization", name: "Elevable.es" },
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: p.rating,
-      reviewCount: p.num_reviews,
-      bestRating: 5,
-    },
+    // Sin `aggregateRating`. Declaraba reviewCount con num_reviews, un dato
+    // que ya no es visible en ninguna pagina desde que se retiraron los
+    // recuentos de opiniones, y Google pide que lo declarado se pueda ver.
+    // Quitar solo reviewCount deja el bloque invalido —AggregateRating exige
+    // reviewCount o ratingCount— asi que se retira entero. La valoracion
+    // propia sigue publicandose en `review`, que si es visible: es la nota
+    // sobre 10 que aparece en la ficha.
     offers: {
       // Sin `price` a proposito. Amazon cambia precios a diario y no tenemos
       // acceso a la API para mantenerlos al dia; declarar un precio obsoleto
