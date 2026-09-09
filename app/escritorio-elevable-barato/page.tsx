@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
+import { AvisoAfiliado, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
@@ -212,6 +213,7 @@ export default function EscritorioBaratoPage() {
               ))}
             </tbody>
           </table>
+              <AvisoAfiliadoTabla />
         </div>
       </FadeIn>
 
@@ -305,7 +307,8 @@ export default function EscritorioBaratoPage() {
               </p>
 
               <div className="mt-4">
-                <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
+                <AffiliateButton asin={asin} size="lg" />
+                <AvisoAfiliado />
               </div>
             </section>
           </FadeIn>

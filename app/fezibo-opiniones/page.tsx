@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getProductBySlug, getAllProducts } from "@/lib/products";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
+import { AvisoAfiliado, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { productSchema } from "@/lib/schema";
@@ -121,7 +122,8 @@ export default function FeziboReviewPage() {
           </p>
 
           <div className="mt-4">
-            <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
+            <AffiliateButton asin={asin} size="lg" />
+            <AvisoAfiliado />
           </div>
 
           <p className="mt-2 text-xs" style={{ color: 'var(--text-muted)' }}>
@@ -244,7 +246,8 @@ export default function FeziboReviewPage() {
           No es el mejor escritorio elevable. Pero es la forma más barata de descubrir si trabajar de pie va contigo.
         </p>
         <div className="mt-4 inline-block">
-          <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
+          <AffiliateButton asin={asin} size="lg" />
+          <AvisoAfiliado />
         </div>
       </div>
 
@@ -285,6 +288,7 @@ export default function FeziboReviewPage() {
               ))}
             </tbody>
           </table>
+              <AvisoAfiliadoTabla />
         </div>
       </section>
 

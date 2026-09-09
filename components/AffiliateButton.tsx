@@ -6,17 +6,15 @@ interface AffiliateButtonProps {
   asin: string;
   text?: string;
   size?: "sm" | "md" | "lg";
-  showPrice?: number;
 }
 
 export function AffiliateButton({
   asin,
-  text = "Ver en Amazon",
+  text = "Ver precio actual en Amazon",
   size = "md",
-  showPrice,
 }: AffiliateButtonProps) {
-  // El precio real solo es fiable en Amazon: el CTA invita a comprobarlo allí.
-  const displayText = showPrice ? "Ver precio en Amazon" : text;
+  // El precio real solo es fiable en Amazon: el CTA invita a comprobarlo alli.
+  const displayText = text;
 
   const sizeClass =
     size === "sm"

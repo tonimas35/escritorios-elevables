@@ -82,9 +82,8 @@ export function Footer() {
 
         <div className="pt-8">
           <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
-            Participamos en el Programa de Afiliados de Amazon EU. Los enlaces a Amazon generan
-            una comision sin coste adicional para ti. Nuestras recomendaciones son independientes.
-            Precios orientativos — consulta Amazon para el precio final.
+            Participamos en el Programa de Afiliados de Amazon EU. La declaración
+            completa va bajo cada enlace.
           </p>
         </div>
       </div>

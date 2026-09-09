@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getProductBySlug } from "@/lib/products";
 import { FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
+import { AvisoAfiliado } from "@/components/AvisoAfiliado";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
 import { productSchema } from "@/lib/schema";
@@ -140,6 +141,7 @@ export default function FlexispotVsMaidesitePage() {
             <AffiliateButton asin={e7Asin} text="Flexispot E7 en Amazon" size="md" />
             <AffiliateButton asin={t2Asin} text="Maidesite T2 Pro en Amazon" size="md" />
           </div>
+          <AvisoAfiliado />
         </div>
       </FadeIn>
 
@@ -174,6 +176,7 @@ export default function FlexispotVsMaidesitePage() {
                   </div>
                   <div className="mt-4">
                     <AffiliateButton asin={productAsin} size="lg" />
+                    <AvisoAfiliado />
                   </div>
                 </div>
               </FadeIn>
@@ -300,7 +303,8 @@ export default function FlexispotVsMaidesitePage() {
                       </div>
                     </div>
                     <div className="mt-4">
-                      <AffiliateButton asin={productAsin} showPrice={product.precio} size="lg" />
+                      <AffiliateButton asin={productAsin} size="lg" />
+                      <AvisoAfiliado />
                     </div>
                   </div>
                 </FadeIn>
@@ -333,6 +337,7 @@ export default function FlexispotVsMaidesitePage() {
             <AffiliateButton asin={e7Asin} text="Flexispot E7 en Amazon" size="lg" />
             <AffiliateButton asin={t2Asin} text="Maidesite T2 en Amazon" size="lg" />
           </div>
+          <AvisoAfiliado />
         </section>
       </FadeIn>
 

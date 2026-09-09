@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { AffiliateButton } from "./AffiliateButton";
+import { AvisoAfiliado } from "./AvisoAfiliado";
 import type { Product } from "@/lib/types";
 
 interface ProductCardProps {
@@ -178,6 +179,7 @@ export function ProductCard({
         {!hideButton && (
           <div className="mt-4">
             <AffiliateButton asin={asin} size="lg" />
+            <AvisoAfiliado />
           </div>
         )}
       </div>

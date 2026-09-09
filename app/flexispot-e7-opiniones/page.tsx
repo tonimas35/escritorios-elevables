@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getProductBySlug, getAllProducts } from "@/lib/products";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
+import { AvisoAfiliado, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
@@ -133,7 +134,8 @@ export default function FlexispotE7ReviewPage() {
             </p>
 
             <div className="mt-4">
-              <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
+              <AffiliateButton asin={asin} size="lg" />
+              <AvisoAfiliado />
             </div>
 
             <p className="mt-2 text-xs" style={{ color: 'var(--text-muted)' }}>
@@ -247,7 +249,8 @@ export default function FlexispotE7ReviewPage() {
             No es barato, pero la estabilidad, el motor y la garantía no tienen rival a este precio. Si buscas algo para años, es la apuesta segura.
           </p>
           <div className="mt-4 inline-block">
-            <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
+            <AffiliateButton asin={asin} size="lg" />
+            <AvisoAfiliado />
           </div>
         </div>
       </FadeIn>
@@ -290,6 +293,7 @@ export default function FlexispotE7ReviewPage() {
                 ))}
               </tbody>
             </table>
+              <AvisoAfiliadoTabla />
           </div>
         </section>
       </FadeIn>
