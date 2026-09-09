@@ -22,6 +22,7 @@ import { Cta } from "@/components/broadsheet/Cta";
 import { Afiliado } from "@/components/broadsheet/Afiliado";
 import { Firma } from "@/components/broadsheet/Firma";
 import { Comparativa, type FilaComparativa } from "@/components/broadsheet/Comparativa";
+import { CRITERIOS } from "@/lib/metodologia";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -392,6 +393,91 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ============================================================
+          Nº 06 · Metodologia
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion" id="metodologia">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 06 · Metodología</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Cómo analizamos los escritorios
+          </h2>
+
+          <p
+            className="bs-standfirst"
+            style={{ marginTop: 18, fontWeight: 600, color: "var(--bs-tinta)" }}
+          >
+            No probamos los escritorios físicamente. Conviene decirlo antes que nada.
+          </p>
+          <p className="bs-cuerpo" style={{ maxWidth: "62ch", marginTop: 14, color: "var(--bs-neutro-800)" }}>
+            Elevable es un trabajo de análisis de datos, no un laboratorio.
+            Reunimos las especificaciones de {catalogo.length} escritorios, las
+            contrastamos con lo que declara cada fabricante en Amazon y las
+            ordenamos con un criterio explícito. Nos parece más útil eso que una
+            reseña que finge haber usado quince escritorios distintos.
+          </p>
+
+          <div className="flex flex-wrap" style={{ gap: "var(--bs-hueco-columnas)", marginTop: 40 }}>
+            <div style={{ flex: "1 1 320px" }}>
+              <h3 className="bs-h3">Cómo puntuamos</h3>
+              <p className="bs-cuerpo" style={{ marginTop: 12, color: "var(--bs-neutro-800)" }}>
+                Cada modelo recibe una nota sobre 10 en cinco apartados.
+              </p>
+              <div className="flex flex-col" style={{ gap: 16, marginTop: 20 }}>
+                {CRITERIOS.map((c) => (
+                  <div
+                    key={c.nombre}
+                    style={{ paddingLeft: 14, borderLeft: "2px solid var(--bs-verde-botella)" }}
+                  >
+                    <p style={{ fontSize: 16, fontWeight: 600 }}>{c.nombre}</p>
+                    <p style={{ fontSize: 15, color: "var(--bs-neutro-800)", marginTop: 2 }}>
+                      {c.base}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ flex: "1 1 320px" }}>
+              <h3 className="bs-h3">De dónde salen los datos</h3>
+              <ul className="flex flex-col" style={{ gap: 12, marginTop: 14, fontSize: 15 }}>
+                <li>
+                  <strong>Especificaciones:</strong> ficha del fabricante en Amazon
+                  España. Altura, carga, motor, velocidad, ruido, memorias y garantía.
+                </li>
+                <li>
+                  <strong>Valoraciones:</strong> nota media de Amazon España,
+                  redondeada a la baja porque solo puede subir.
+                </li>
+                <li>
+                  <strong>Precios:</strong> no los publicamos. Amazon los cambia a
+                  diario y una cifra escrita hoy engaña en una semana; el importe
+                  exacto lo ves en Amazon, que es el único sitio donde siempre es
+                  correcto.
+                </li>
+              </ul>
+
+              <h3 className="bs-h3" style={{ marginTop: 30 }}>
+                Cómo se financia esto
+              </h3>
+              <p style={{ fontSize: 15, marginTop: 12, color: "var(--bs-neutro-800)" }}>
+                Con comisiones de afiliado de Amazon. Si compras a través de un
+                enlace de la web, Amazon nos paga un porcentaje y tú pagas lo mismo.
+                No cobramos de ninguna marca ni aceptamos productos a cambio de
+                reseñas, entre otras cosas porque no hacemos reseñas de uso. El
+                orden de los modelos sale de la puntuación, no de la comisión.
+              </p>
+
+              <div style={{ marginTop: 26 }}>
+                <Firma total={catalogo.length} />
+              </div>
+            </div>
+          </div>
+
+          {/* La matriz de notas por apartado queda fuera de alcance por
+              decision del proyecto (design-ref/README.md). */}
+        </div>
+      </section>
     </div>
   );
 }
