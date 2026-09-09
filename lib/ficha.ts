@@ -137,3 +137,44 @@ export function caminos(catalogo: [string, Product][]): Camino[] {
   }
   return salida;
 }
+
+/**
+ * Guardarrail: hoy varios `pros`, `contras` y `veredicto` de
+ * data/productos.json llevan precios ("solo 107 EUR") o recuentos de
+ * reseñas ("951 valoraciones") metidos en la frase, y la regla del
+ * proyecto es que no aparezcan en ninguna parte.
+ *
+ * Mientras el JSON no este saneado (fase F1 de PLAN.md), esta funcion
+ * decide que frases se pueden publicar. Lo correcto es corregir el dato,
+ * no filtrarlo al renderizar: esto es un parche con fecha de caducidad.
+ */
+const CIFRA_PROHIBIDA =
+  /\d[\d.,]*\s*(€|EUR|euros)|\d[\d.,]*\+?\s*(opiniones|valoraciones|reviews|resenas|reseñas)|\(\d+\)/i;
+
+export function publicable(texto: string): boolean {
+  return !CIFRA_PROHIBIDA.test(texto);
+}
+
+/** Titulo del modelo compuesto con lo que dice el catalogo. */
+export function tituloModelo(p: Product): string {
+  const cuerpo = p.incluye_tablero ? "mesa completa" : "marco";
+  return `${p.modelo} · ${cuerpo}, ${motorCorto(p).toLowerCase()}`;
+}
+
+/** Las seis etiquetas de especificacion de la tarjeta destacada. */
+export function etiquetasSpec(p: Product): string[] {
+  const fuera: (string | null)[] = [
+    motorLargo(p),
+    carga(p),
+    recorrido(p),
+    `${p.specs.presets_memoria} memorias`,
+    p.specs.sistema_anticolision ? "Anticolisión" : null,
+    `${p.specs.garantia_anos} años de garantía`,
+  ];
+  return fuera.filter((x): x is string => x !== null);
+}
+
+/** Linea de meta de las filas del podio. */
+export function metaFila(p: Product): string {
+  return [motorCorto(p), carga(p), recorrido(p), `${coma(p.rating)}★`].join(" · ");
+}

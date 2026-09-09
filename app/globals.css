@@ -1042,3 +1042,47 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .bs-camino .bs-cta {
   margin-top: auto;
 }
+
+/* Seccion 3 — el podio */
+.bs-tarjeta {
+  background: var(--bs-superficie);
+  border-radius: var(--bs-radio);
+  padding: var(--bs-relleno-tarjeta);
+}
+.bs-sello {
+  display: inline-block;
+  background: var(--bs-verde-botella);
+  color: var(--bs-crema);
+  font-size: var(--bs-etiqueta);
+  letter-spacing: var(--bs-track-riel);
+  text-transform: uppercase;
+  padding: 5px 11px;
+}
+.bs-spec {
+  display: inline-block;
+  font-size: 12px;
+  border: var(--bs-borde-etiqueta);
+  color: var(--bs-verde-botella);
+  padding: 4px 10px;
+}
+.bs-pro {
+  display: flex;
+  gap: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.bs-pro span:first-child {
+  color: var(--bs-verde-botella);
+  font-weight: 700;
+}
+.bs-fila {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: var(--bs-filete-fino);
+}
+.bs-fila:first-of-type {
+  border-top: var(--bs-filete-fino);
+}
