@@ -17,7 +17,7 @@ const QUESTIONS = [
     { label: "Doble — rápido y potente", value: "doble" },
   ]},
   { id: "carga", text: "Peso del setup", options: [
-    { label: "Ligero: portatil (<30 kg)", value: "ligero" },
+    { label: "Ligero: portátil (<30 kg)", value: "ligero" },
     { label: "Medio: un monitor (30–60 kg)", value: "medio" },
     { label: "Pesado: dual monitor (>60 kg)", value: "pesado" },
   ]},

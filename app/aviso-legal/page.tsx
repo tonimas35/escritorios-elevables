@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Aviso legal",
-  description: "Aviso legal, politica de afiliacion y privacidad.",
+  description: "Aviso legal, política de afiliacion y privacidad.",
   alternates: { canonical: "/aviso-legal" },
 };
 
@@ -37,13 +37,13 @@ export default function AvisoLegalPage() {
           Como asociado de Amazon, obtenemos ingresos por las compras adscritas
           que cumplen los requisitos aplicables. Esto significa que si haces
           click en uno de nuestros enlaces y compras un producto en Amazon,
-          nosotros recibimos una pequena comision sin ningún coste adicional
+          nosotros recibimos una pequeña comisión sin ningún coste adicional
           para ti.
         </p>
         <p>
           Nuestras recomendaciones son independientes de las comisiones que
           recibimos. Analizamos cada producto de forma objetiva y nuestras
-          opiniones no están influenciadas por la relacion de afiliacion.
+          opiniones no están influenciadas por la relación de afiliacion.
         </p>
 
         <h2>Precios y disponibilidad</h2>

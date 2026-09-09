@@ -52,7 +52,7 @@ export function Footer() {
               {[
                 { label: "Comparador", href: "/comparador" },
                 { label: "Calculadora de altura", href: "/calculadora-altura" },
-                { label: "Que escritorio comprar", href: "/que-escritorio-elevable-comprar" },
+                { label: "Qué escritorio comprar", href: "/que-escritorio-elevable-comprar" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.65)' }}>

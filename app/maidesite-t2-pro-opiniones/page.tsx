@@ -45,11 +45,11 @@ export default function MaidesiteT2ProReviewPage() {
     },
     {
       q: "Cuanto peso aguanta de verdad?",
-      a: "160 kg según el fabricante, la cifra más alta de esta comparativa. Para que te hagas una idea, un setup exigente (dos monitores de 27 pulgadas con brazo, torre, altavoces y portatil) ronda los 40 kg. Aquí vas a ir sobrado pase lo que pase, que es justo el argumento de este modelo.",
+      a: "160 kg según el fabricante, la cifra más alta de esta comparativa. Para que te hagas una idea, un setup exigente (dos monitores de 27 pulgadas con brazo, torre, altavoces y portátil) ronda los 40 kg. Aquí vas a ir sobrado pase lo que pase, que es justo el argumento de este modelo.",
     },
     {
       q: "Sirve para una persona muy alta?",
-      a: "Es de lo mejor que hay para eso. Sube hasta 135 cm, más que cualquier otro modelo del catalogo, que se quedan en 120-123 cm. Si mides más de 1,90 m y has probado escritorios que se te quedan cortos de pie, este resuelve el problema. Recuerda sumar el grosor del tablero a esa altura.",
+      a: "Es de lo mejor que hay para eso. Sube hasta 135 cm, más que cualquier otro modelo del catálogo, que se quedan en 120-123 cm. Si mides más de 1,90 m y has probado escritorios que se te quedan cortos de pie, este resuelve el problema. Recuerda sumar el grosor del tablero a esa altura.",
     },
     {
       q: "Cuanto tarda en montarse?",
@@ -126,7 +126,7 @@ export default function MaidesiteT2ProReviewPage() {
           </div>
 
           <p className="mt-2 text-xs" style={{ color: 'var(--text-muted)' }}>
-            Enlace de afiliado. Si compras a traves de el, recibimos una comision sin coste para ti.
+            Enlace de afiliado. Si compras a traves de el, recibimos una comisión sin coste para ti.
           </p>
         </div>
       </div>
@@ -137,7 +137,7 @@ export default function MaidesiteT2ProReviewPage() {
             El MAIDeSITe T2 Pro MAX no es un escritorio: es un marco. Viene sin tablero, y ese es el primer dato que hay que tener claro antes de seguir leyendo, porque cambia la cuenta. A cambio ofrece dos cifras que ningún otro modelo de esta comparativa alcanza: 160 kg de carga y un recorrido de 65 a 135 cm.
           </p>
         <p>
-            Eso lo convierte en una compra muy concreta: tiene sentido si ya tienes tablero, si quieres uno a medida, o si tu setup pesa de verdad. Si buscas algo que llegue montado y listo, hay opciones mejores en el catalogo. Vamos con el detalle.
+            Eso lo convierte en una compra muy concreta: tiene sentido si ya tienes tablero, si quieres uno a medida, o si tu setup pesa de verdad. Si buscas algo que llegue montado y listo, hay opciones mejores en el catálogo. Vamos con el detalle.
           </p>
       </div>
 
@@ -189,22 +189,22 @@ export default function MaidesiteT2ProReviewPage() {
         </h2>
 
         <div>
-          <h3 className="text-lg font-semibold">Que estas pagando exactamente</h3>
+          <h3 className="text-lg font-semibold">Que estás pagando exactamente</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Un marco sin tablero, en la gama alta. Lo que compras es capacidad: doble motor, 160 kg de carga útil y tres secciones telescópicas que permiten bajar hasta 65 cm y subir hasta 135. Para comparar, el resto de modelos del catalogo se mueven entre 50 y 125 kg, y ninguno pasa de 123 cm.
+            Un marco sin tablero, en la gama alta. Lo que compras es capacidad: doble motor, 160 kg de carga útil y tres secciones telescópicas que permiten bajar hasta 65 cm y subir hasta 135. Para comparar, el resto de modelos del catálogo se mueven entre 50 y 125 kg, y ninguno pasa de 123 cm.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            El panel Piano-Master lleva cuatro memorias de altura y sistema anticolision. A 45 dB, el ruido al subir es discreto: audible en una habitacion en silencio, irrelevante en una videollamada. La velocidad, 3,8 cm/s, esta en la parte alta del catalogo.
+            El panel Piano-Master lleva cuatro memorias de altura y sistema anticolisión. A 45 dB, el ruido al subir es discreto: audible en una habitación en silencio, irrelevante en una videollamada. La velocidad, 3,8 cm/s, esta en la parte alta del catálogo.
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold">Estabilidad: bien, pero no excelente</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Los 135 cm de altura máxima son el mayor recorrido del catalogo, y eso lo hace apto para personas muy altas o para trabajar de pie con teclado elevado. Pero cuanto más sube una estructura, más palanca hay: a máxima altura, cualquier marco de tres secciones tiene más balanceo lateral que a altura de trabajo normal.
+            Los 135 cm de altura máxima son el mayor recorrido del catálogo, y eso lo hace apto para personas muy altas o para trabajar de pie con teclado elevado. Pero cuanto más sube una estructura, más palanca hay: a máxima altura, cualquier marco de tres secciones tiene más balanceo lateral que a altura de trabajo normal.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            En el rango habitual de trabajo de pie, entre 105 y 115 cm, la estructura de tres secciones y los 30 kg de peso propio juegan a favor. Con 160 kg de carga admitida, un setup de dos monitores en brazo más equipo pesado entra sin acercarse al limite.
+            En el rango habitual de trabajo de pie, entre 105 y 115 cm, la estructura de tres secciones y los 30 kg de peso propio juegan a favor. Con 160 kg de carga admitida, un setup de dos monitores en brazo más equipo pesado entra sin acercarse al límite.
           </p>
         </div>
 
@@ -228,7 +228,7 @@ export default function MaidesiteT2ProReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Para quien NO es</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Si quieres abrir la caja y tenerlo funcionando, porque aquí te falta la mitad del mueble. Si sumas marco y tablero, un modelo con tablero incluido puede dejarte mejor equipado por menos. Y si tu setup es un portatil y un monitor, estas pagando una capacidad de carga que no vas a usar.
+            Si quieres abrir la caja y tenerlo funcionando, porque aquí te falta la mitad del mueble. Si sumas marco y tablero, un modelo con tablero incluido puede dejarte mejor equipado por menos. Y si tu setup es un portátil y un monitor, estás pagando una capacidad de carga que no vas a usar.
           </p>
         </div>
 

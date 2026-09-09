@@ -41,7 +41,7 @@ export default function EscritorioBaratoPage() {
     },
     {
       q: "Motor simple o doble para un escritorio barato?",
-      a: "En la gama de entrada, casi todos llevan motor simple. Es más lento (20 seg el recorrido completo vs 12 del doble), pero para un setup normal de portatil y monitor va de sobra. Si quieres doble motor sin salirte de lo barato, el marco Flexispot es la opcion, aunque tendras que sumarle un tablero.",
+      a: "En la gama de entrada, casi todos llevan motor simple. Es más lento (20 seg el recorrido completo vs 12 del doble), pero para un setup normal de portátil y monitor va de sobra. Si quieres doble motor sin salirte de lo barato, el marco Flexispot es la opción, aunque tendras que sumarle un tablero.",
     },
     {
       q: "Cuanto dura un escritorio elevable barato?",
@@ -57,7 +57,7 @@ export default function EscritorioBaratoPage() {
     },
     {
       q: "Anticolision: es necesario en un escritorio barato?",
-      a: "Si. Para el motor si detecta un obstaculo (cajon, silla, rodilla). Sin anticolision, el motor sigue y puede romper cosas. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena quedarse sin él por ahorrar un poco.",
+      a: "Si. Para el motor si detecta un obstaculo (cajon, silla, rodilla). Sin anticolisión, el motor sigue y puede romper cosas. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena quedarse sin él por ahorrar un poco.",
     },
   ];
 
@@ -128,7 +128,7 @@ export default function EscritorioBaratoPage() {
           Actualizado: {FECHA_EN_FRASE} &middot; {cheapProducts.length} modelos analizados de la gama de entrada
         </p>
         <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
-          Este articulo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequena comision sin coste adicional para ti.
+          Este articulo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequeña comisión sin coste adicional para ti.
         </p>
         <div className="editorial-rule mt-6" />
       </FadeIn>
@@ -224,7 +224,7 @@ export default function EscritorioBaratoPage() {
           </h2>
           <div className="space-y-4 text-sm leading-relaxed">
             <p>
-              En esta franja, casi todos llevan motor simple: más lento y algo más ruidoso. Acepta eso de entrada. Lo que si deberias exigir: <strong>memorias de altura</strong> (si no, al cuarto día dejas de usarlo), <strong>tablero de al menos 120 cm</strong> si usas monitor externo, y <strong>anticolision</strong> para que el motor pare si hay algo debajo.
+              En esta franja, casi todos llevan motor simple: más lento y algo más ruidoso. Acepta eso de entrada. Lo que si deberías exigir: <strong>memorias de altura</strong> (si no, al cuarto día dejas de usarlo), <strong>tablero de al menos 120 cm</strong> si usas monitor externo, y <strong>anticolisión</strong> para que el motor pare si hay algo debajo.
             </p>
             <p>
               La garantía importa mucho. Los problemas con motores baratos aparecen entre el mes 8 y el 18. Con 5 años de cobertura, te despreocupas. Con 2, cada ruido raro te pone nervioso.
@@ -244,7 +244,7 @@ export default function EscritorioBaratoPage() {
               Motor simple va sobrado para un setup normal. Lo que notas es la estabilidad a máxima altura: si mides 1.85 m, hay algo de vibración lateral al escribir de pie. No dramatica, pero perceptible.
             </p>
             <p>
-              El tablero de melamina se siente menos solido que bambu. Una alfombrilla de escritorio lo soluciona. El ruido (50 dB vs 43 dB en premium) se nota en una habitacion en silencio, pero solo dura 10-20 segundos cada vez que cambias de altura.
+              El tablero de melamina se siente menos sólido que bambu. Una alfombrilla de escritorio lo soluciona. El ruido (50 dB vs 43 dB en premium) se nota en una habitación en silencio, pero solo dura 10-20 segundos cada vez que cambias de altura.
             </p>
           </div>
         </div>
@@ -339,7 +339,7 @@ export default function EscritorioBaratoPage() {
       <FadeIn>
         <section className="mt-10 max-w-3xl p-6 rounded" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--color-secondary)' }}>
           <h3 className="text-lg font-semibold mb-3" style={{ fontFamily: 'var(--font-display)' }}>
-            Otras guias que te pueden interesar
+            Otras guías que te pueden interesar
           </h3>
           <div className="space-y-2 text-sm">
             <p>

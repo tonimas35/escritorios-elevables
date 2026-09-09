@@ -49,7 +49,7 @@ export default function FeziboReviewPage() {
     },
     {
       q: "Que puedo poner encima del Fezibo?",
-      a: "Un monitor de hasta 27 pulgadas, un portatil, teclado y raton. Eso son unos 15-20 kg. Hasta ahí va perfecto. Si quieres dos monitores con brazo, un altavoz y una lampara, te pasas de espacio y probablemente de peso. Para setup dual monitor, necesitas al menos 120 cm de tablero.",
+      a: "Un monitor de hasta 27 pulgadas, un portátil, teclado y raton. Eso son unos 15-20 kg. Hasta ahí va perfecto. Si quieres dos monitores con brazo, un altavoz y una lampara, te pasas de espacio y probablemente de peso. Para setup dual monitor, necesitas al menos 120 cm de tablero.",
     },
     {
       q: "El Fezibo es ruidoso?",
@@ -126,7 +126,7 @@ export default function FeziboReviewPage() {
           </div>
 
           <p className="mt-2 text-xs" style={{ color: 'var(--text-muted)' }}>
-            Enlace de afiliado. Si compras a traves de el, recibimos una comision sin coste para ti.
+            Enlace de afiliado. Si compras a traves de el, recibimos una comisión sin coste para ti.
           </p>
         </div>
       </div>
@@ -194,21 +194,21 @@ export default function FeziboReviewPage() {
             El motor simple es lento (2.5 cm/s) y ruidoso comparado con los doble motor. El recorrido completo tarda unos 18 segundos, que se sienten largos cuando vienes de un escritorio eléctrico rápido. Pero si es tu primer elevable, no lo vas a notar. Las 3 memorias de altura te permiten guardar tus posiciones favoritas y olvidarte.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            No tiene anticolision. Si la mesa choca con algo al bajar, el motor sigue empujando. Es el sacrificio más relevante del precio bajo. Si tienes una cajonera debajo, ojo. La solución casera: pon un tope adhesivo a la altura del obstaculo.
+            No tiene anticolisión. Si la mesa choca con algo al bajar, el motor sigue empujando. Es el sacrificio más relevante del precio bajo. Si tienes una cajonera debajo, ojo. La solución casera: pon un tope adhesivo a la altura del obstaculo.
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold">Estabilidad: lo justo</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Con 16 kg de estructura y patas de dos secciones, la estabilidad es la mínima aceptable. A posición de pie (110+ cm), el tablero se mueve al escribir. No es dramatico con un portatil, pero con un monitor de 27 pulgadas en brazo, se nota. Para personas por encima de 1.80 m, la altura máxima de 116 cm puede quedarse justa.
+            Con 16 kg de estructura y patas de dos secciones, la estabilidad es la mínima aceptable. A posición de pie (110+ cm), el tablero se mueve al escribir. No es dramatico con un portátil, pero con un monitor de 27 pulgadas en brazo, se nota. Para personas por encima de 1.80 m, la altura máxima de 116 cm puede quedarse justa.
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold">Para quien SI es el Fezibo</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Estudiantes que quieren alternar sentado y de pie mientras estudian. Personas que trabajan desde casa unas horas al día (no jornada completa). Quien quiere probar un escritorio elevable sin gastar de más. Y para espacios pequenos: 120x60 cm cabe en cualquier rincon.
+            Estudiantes que quieren alternar sentado y de pie mientras estudian. Personas que trabajan desde casa unas horas al día (no jornada completa). Quien quiere probar un escritorio elevable sin gastar de más. Y para espacios pequeños: 120x60 cm cabe en cualquier rincon.
           </p>
         </div>
 
@@ -222,7 +222,7 @@ export default function FeziboReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Que dicen los 2400 compradores</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            La nota media de 4.3 con tantas opiniones es un dato fiable. Lo que más se repite: fácil de montar, funciona bien para lo que cuesta, y la bandeja para teclado incluida es un bonus inesperado. En lo negativo: tablero pequeno para quien esperaba algo más grande, estabilidad justa a máxima altura, y algún caso de motor que zumba más de la cuenta tras unos meses de uso.
+            La nota media de 4.3 con tantas opiniones es un dato fiable. Lo que más se repite: fácil de montar, funciona bien para lo que cuesta, y la bandeja para teclado incluida es un bonus inesperado. En lo negativo: tablero pequeño para quien esperaba algo más grande, estabilidad justa a máxima altura, y algún caso de motor que zumba más de la cuenta tras unos meses de uso.
           </p>
         </div>
       </section>

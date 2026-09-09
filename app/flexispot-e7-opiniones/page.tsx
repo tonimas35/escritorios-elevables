@@ -42,11 +42,11 @@ export default function FlexispotE7ReviewPage() {
   const faqItems = [
     {
       q: "Merece la pena el Flexispot E7 en 2026?",
-      a: "Si. No ha aparecido nada que lo supere en su combinacion de estabilidad, motor y garantía. Compradores con 3-4 años de uso reportan cero problemas. Es ademas el modelo con mas valoraciones y mejor nota media del catalogo, y el unico junto al FLEXISPOT de 160x80 con cinco años de garantia.",
+      a: "Si. No ha aparecido nada que lo supere en su combinacion de estabilidad, motor y garantía. Compradores con 3-4 años de uso reportan cero problemas. Es además el modelo con más valoraciones y mejor nota media del catálogo, y el unico junto al FLEXISPOT de 160x80 con cinco años de garantía.",
     },
     {
       q: "El marco Flexispot merece la pena sin tablero?",
-      a: "El Pro añade tablero de bambú, 150 kg de carga y un motor un poco más rápido, con el sobrecoste que eso supone. Si tu setup es pesado (dos monitores con brazos) o quieres el mejor acabado, lo justifica. Para monitor + portatil, el E7 normal va sobrado.",
+      a: "El Pro añade tablero de bambú, 150 kg de carga y un motor un poco más rápido, con el sobrecoste que eso supone. Si tu setup es pesado (dos monitores con brazos) o quieres el mejor acabado, lo justifica. Para monitor + portátil, el E7 normal va sobrado.",
     },
     {
       q: "Se puede montar el Flexispot E7 solo?",
@@ -138,7 +138,7 @@ export default function FlexispotE7ReviewPage() {
             </div>
 
             <p className="mt-2 text-xs" style={{ color: 'var(--text-muted)' }}>
-              Enlace de afiliado. Si compras a traves de el, recibimos una comision sin coste para ti.
+              Enlace de afiliado. Si compras a traves de el, recibimos una comisión sin coste para ti.
             </p>
           </div>
         </div>
@@ -213,7 +213,7 @@ export default function FlexispotE7ReviewPage() {
           { title: "Estabilidad (aquí es donde gana)", text: "La razon principal para comprar el E7. Tres secciones telescópicas (los baratos tienen dos) y base ancha y pesada. A máxima altura (123 cm), el movimiento lateral al escribir es mínimo. Con un modelo de gama de entrada, la pantalla vibra y te cansa la vista al cabo de una hora. Con el E7, ese efecto desaparece. Es probablemente por lo que la gente que compra el E7 acaba usando más la posición de pie." },
           { title: "Montaje: no es difícil, pero si pesado", text: "Instrucciones claras, herramientas incluidas, proceso sencillo. El problema es el peso: 32 kg de estructura. Con dos personas, 45 minutos tranquilos. Solo, hora y media y frustracion. Truco: pon el tablero boca abajo, atornilla la estructura encima, y entre dos levantais el conjunto montado." },
           { title: "¿Para quien SI es el E7?", text: "Teletrabajo a jornada completa, setup con monitor grande (o dos), personas altas (rango hasta 123 cm). En resumen: compras, montas, y te olvidas del tema escritorios durante años." },
-          { title: "¿Para quien NO es el E7?", text: "Si tu setup es solo un portatil, estás pagando de más: cualquier modelo de la gama de entrada cumple de sobra. Si quieres probar lo de trabajar de pie, empieza barato y haz upgrade después." },
+          { title: "¿Para quien NO es el E7?", text: "Si tu setup es solo un portátil, estás pagando de más: cualquier modelo de la gama de entrada cumple de sobra. Si quieres probar lo de trabajar de pie, empieza barato y haz upgrade después." },
           { title: "Que dicen los compradores en Amazon", text: "He leído las opiniones publicadas. Lo positivo que más se repite: estabilidad, silencio y durabilidad a largo plazo. Lo negativo: algún tablero marcado al llegar (Flexispot sustituye gratis), instrucciones de cableado algo confusas, y el peso que sorprende a quien espera un mueble tipo IKEA. Si sabes que es un escritorio motorizado de 32 kg, no es complicado." },
         ].map((section, si) => (
           <FadeIn key={section.title} delay={si * 60}>
