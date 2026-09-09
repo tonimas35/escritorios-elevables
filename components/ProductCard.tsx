@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { AffiliateButton } from "./AffiliateButton";
 import type { Product } from "@/lib/types";
-import { priceBand, reviewsAprox } from "@/lib/format";
 
 interface ProductCardProps {
   asin: string;
@@ -81,14 +80,11 @@ export function ProductCard({
           <div className="flex items-center gap-2 mt-1">
             <RatingBadge score={product.puntuacion.total} />
             <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-              {product.rating}&#9733; ({reviewsAprox(product.num_reviews)})
+              {product.rating}&#9733;
             </span>
           </div>
         </div>
         <div className="text-right flex-shrink-0">
-          <p className="tabular-nums text-lg font-bold" style={{ color: 'var(--text-primary)' }}>
-            {priceBand(product.precio)}
-          </p>
           {!hideButton && <AffiliateButton asin={asin} size="sm" />}
         </div>
       </div>
@@ -149,7 +145,7 @@ export function ProductCard({
         <div className="flex items-center gap-2 mb-3">
           <RatingBadge score={product.puntuacion.total} />
           <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-            {product.rating}&#9733; ({reviewsAprox(product.num_reviews)})
+            {product.rating}&#9733;
           </span>
         </div>
 
@@ -176,13 +172,6 @@ export function ProductCard({
               <span>{con}</span>
             </p>
           ))}
-        </div>
-
-        {/* Price */}
-        <div className="flex items-baseline gap-2">
-          <span className="tabular-nums text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
-            {priceBand(product.precio)}
-          </span>
         </div>
 
         {/* Affiliate button */}

@@ -6,12 +6,12 @@ import { AffiliateButton } from "@/components/AffiliateButton";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { productSchema } from "@/lib/schema";
-import { priceBand, reviewsAprox } from "@/lib/format";
+import { reviewsAprox } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "MAIDeSITe T2 Pro MAX opiniones y review 2026 — Merece la pena?",
   description:
-    "Review del MAIDeSITe T2 Pro MAX: el marco con más carga del mercado (160 kg) y más recorrido (65-135 cm). No incluye tablero. Analizamos si compensa por 370 EUR.",
+    "Review del MAIDeSITe T2 Pro MAX: el marco con más carga del mercado (160 kg) y más recorrido (65-135 cm). No incluye tablero. Analizamos si compensa.",
   alternates: { canonical: "/maidesite-t2-pro-opiniones" },
 };
 
@@ -40,7 +40,7 @@ export default function MaidesiteT2ProReviewPage() {
   const faqItems = [
     {
       q: "El MAIDeSITe T2 Pro MAX incluye tablero?",
-      a: "No. Es solo la estructura: las patas, el motor y el panel de control. El tablero se compra aparte y admite hasta 200x80 cm. Cuenta con 40 a 150 euros más según lo que elijas, y hazte la cuenta total antes de compararlo con modelos que ya vienen con tablero.",
+      a: "No. Es solo la estructura: las patas, el motor y el panel de control. El tablero se compra aparte y admite hasta 200x80 cm. Cuenta con el coste del tablero aparte, y hazte la cuenta total antes de compararlo con modelos que ya vienen con tablero.",
     },
     {
       q: "Cuanto peso aguanta de verdad?",
@@ -102,21 +102,17 @@ export default function MaidesiteT2ProReviewPage() {
             {product.nombre}
           </h1>
           <p className="text-sm mt-2" style={{ color: 'var(--text-muted)' }}>
-            Actualizado: septiembre 2026 · {reviewsAprox(product.num_reviews)} opiniones analizadas
+            Actualizado: septiembre de 2026
           </p>
 
           <div className="flex items-center gap-4 mt-4">
-            <span className="mono text-3xl font-bold">{priceBand(product.precio)}</span>
-            {product.precio_habitual && (
-              <span className="mono text-lg line-through" style={{ color: 'var(--text-muted)' }}>{product.precio_habitual}€</span>
-            )}
             <span className="mono font-bold text-sm px-2 py-1 rounded" style={{ background: 'var(--pro)', color: 'white' }}>
               {product.puntuacion.total}/10
             </span>
           </div>
 
           <div className="flex items-center gap-2 mt-2">
-            <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{product.rating}★ en Amazon · {reviewsAprox(product.num_reviews)} opiniones</span>
+            <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{product.rating}★ en Amazon</span>
           </div>
 
           <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -154,7 +150,7 @@ export default function MaidesiteT2ProReviewPage() {
           {[
             { label: "Motor", value: "Doble motor", detail: "Mejor traccion" },
             { label: "Rango de altura", value: `${product.specs.rango_altura_min_cm}–${product.specs.rango_altura_max_cm} cm`, detail: "65 cm de recorrido" },
-            { label: "Velocidad", value: `${product.specs.velocidad_cm_s} cm/s`, detail: "Rápido para su precio" },
+            { label: "Velocidad", value: `${product.specs.velocidad_cm_s} cm/s`, detail: "De los más rápidos del catálogo" },
             { label: "Carga máxima", value: `${product.specs.peso_max_carga_kg} kg`, detail: "Setup completo" },
             { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm`, detail: product.specs.material_tablero || '' },
             { label: "Peso estructura", value: `${product.specs.peso_estructura_kg} kg`, detail: "Manejable" },
@@ -193,7 +189,7 @@ export default function MaidesiteT2ProReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Que estas pagando exactamente</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            370 euros por un marco, sin tablero, es un precio de gama alta. Lo que compras es capacidad: doble motor, 160 kg de carga útil y tres secciones telescópicas que permiten bajar hasta 65 cm y subir hasta 135. Para comparar, el resto de modelos del catalogo se mueven entre 50 y 125 kg, y ninguno pasa de 123 cm.
+            Un marco sin tablero, en la gama alta. Lo que compras es capacidad: doble motor, 160 kg de carga útil y tres secciones telescópicas que permiten bajar hasta 65 cm y subir hasta 135. Para comparar, el resto de modelos del catalogo se mueven entre 50 y 125 kg, y ninguno pasa de 123 cm.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             El panel Piano-Master lleva cuatro memorias de altura y sistema anticolision. A 45 dB, el ruido al subir es discreto: audible en una habitacion en silencio, irrelevante en una videollamada. La velocidad, 3,8 cm/s, esta en la parte alta del catalogo.
@@ -216,7 +212,7 @@ export default function MaidesiteT2ProReviewPage() {
             Este modelo es solo la estructura. Ni tablero ni tornilleria para uno concreto: hay que comprarlo aparte y elegir medidas. El marco admite tableros de hasta 200x80 cm, así que tienes margen de sobra.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            En la práctica esto suma entre 40 y 150 euros según lo que elijas, desde un LAGKAPTEN de IKEA hasta un tablero macizo. Merece la pena hacer la cuenta completa antes de decidir: sumando un tablero medio, el total se acerca a los modelos que ya vienen con el suyo.
+            En la práctica esto suma un coste aparte según lo que elijas, desde un LAGKAPTEN de IKEA hasta un tablero macizo. Merece la pena hacer la cuenta completa antes de decidir: sumando un tablero medio, el total se acerca a los modelos que ya vienen con el suyo.
           </p>
         </div>
 
@@ -230,7 +226,7 @@ export default function MaidesiteT2ProReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Para quien NO es</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Si quieres abrir la caja y tenerlo funcionando, porque aquí te falta la mitad del mueble. Si tu presupuesto total ronda los 400 euros, un modelo con tablero incluido te deja mejor equipado. Y si tu setup es un portatil y un monitor, estas pagando una capacidad de carga que no vas a usar.
+            Si quieres abrir la caja y tenerlo funcionando, porque aquí te falta la mitad del mueble. Si sumas marco y tablero, un modelo con tablero incluido puede dejarte mejor equipado por menos. Y si tu setup es un portatil y un monitor, estas pagando una capacidad de carga que no vas a usar.
           </p>
         </div>
 
@@ -260,7 +256,7 @@ export default function MaidesiteT2ProReviewPage() {
         <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Veredicto</p>
         <p className="text-xl mt-2" style={{ fontFamily: 'var(--font-display)' }}>{product.veredicto}</p>
         <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-            370 euros por el marco, más lo que te cueste el tablero. Compensa si necesitas su carga o su recorrido; si no, hay opciones más completas por menos.
+            El marco, más lo que te cueste el tablero. Compensa si necesitas su carga o su recorrido; si no, hay opciones más completas por menos.
           </p>
         <div className="mt-4 inline-block">
           <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
@@ -284,7 +280,6 @@ export default function MaidesiteT2ProReviewPage() {
                 <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Modelo</th>
                 <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Motor</th>
                 <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Nota</th>
-                <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Precio</th>
                 <th className="text-center p-3 rounded-tr" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}></th>
               </tr>
             </thead>
@@ -293,7 +288,6 @@ export default function MaidesiteT2ProReviewPage() {
                 <td className="p-3 font-semibold">Maidesite T2 Pro MAX (este)</td>
                 <td className="p-3 text-center">Doble</td>
                 <td className="p-3 text-center mono font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
-                <td className="p-3 text-center mono font-bold">{priceBand(product.precio)}</td>
                 <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
               </tr>
               {alternatives.map(([altAsin, alt]) => (
@@ -301,7 +295,6 @@ export default function MaidesiteT2ProReviewPage() {
                   <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
                   <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : alt.specs.tipo_motor === 'manual' ? 'Manual' : 'Simple'}</td>
                   <td className="p-3 text-center mono font-bold">{alt.puntuacion.total}</td>
-                  <td className="p-3 text-center mono font-bold">{priceBand(alt.precio)}</td>
                   <td className="p-3 text-center"><AffiliateButton asin={altAsin} size="sm" /></td>
                 </tr>
               ))}

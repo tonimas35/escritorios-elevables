@@ -6,12 +6,12 @@ import { AffiliateButton } from "@/components/AffiliateButton";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { productSchema } from "@/lib/schema";
-import { priceBand, reviewsAprox } from "@/lib/format";
+import { reviewsAprox } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Fezibo escritorio elevable opiniones y review 2026 — Merece la pena?",
   description:
-    "Review honesta del Fezibo 120x60: el escritorio elevable eléctrico más barato. Analizamos si merece la pena por 140 EUR, para quien es y para quien no.",
+    "Review honesta del Fezibo 120x60: el escritorio elevable eléctrico más barato. Analizamos si merece la pena, para quién es y para quién no.",
   alternates: { canonical: "/fezibo-opiniones" },
 };
 
@@ -39,7 +39,7 @@ export default function FeziboReviewPage() {
 
   const faqItems = [
     {
-      q: "El Fezibo vale la pena por 140 euros?",
+      q: "¿El Fezibo merece la pena?",
       a: "Si tu expectativa es un escritorio elevable básico que sube y baja sin problemas, si. No esperes la estabilidad de un Flexispot E7 ni la velocidad de un doble motor. Pero para un estudiante o alguien que quiere probar un elevable por primera vez, es la forma más barata de hacerlo con motor eléctrico.",
     },
     {
@@ -102,21 +102,17 @@ export default function FeziboReviewPage() {
             {product.nombre}
           </h1>
           <p className="text-sm mt-2" style={{ color: 'var(--text-muted)' }}>
-            Actualizado: septiembre 2026 · {reviewsAprox(product.num_reviews)} opiniones analizadas
+            Actualizado: septiembre de 2026
           </p>
 
           <div className="flex items-center gap-4 mt-4">
-            <span className="mono text-3xl font-bold">{priceBand(product.precio)}</span>
-            {product.precio_habitual && (
-              <span className="mono text-lg line-through" style={{ color: 'var(--text-muted)' }}>{product.precio_habitual}€</span>
-            )}
             <span className="mono font-bold text-sm px-2 py-1 rounded" style={{ background: 'var(--pro)', color: 'white' }}>
               {product.puntuacion.total}/10
             </span>
           </div>
 
           <div className="flex items-center gap-2 mt-2">
-            <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{product.rating}★ en Amazon · {reviewsAprox(product.num_reviews)} opiniones</span>
+            <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{product.rating}★ en Amazon</span>
           </div>
 
           <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -136,7 +132,7 @@ export default function FeziboReviewPage() {
       {/* Editorial intro */}
       <div className="mt-10 max-w-3xl space-y-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
         <p>
-          El Fezibo es el escritorio elevable eléctrico más barato que puedes comprar ahora mismo en Amazon Espana. 140 euros. Con motor. Sube y baja pulsando un boton. Hace cinco años esto habria parecido ciencia ficcion. Hoy es una realidad, pero con matices importantes que necesitas conocer antes de comprar.
+          El Fezibo es el escritorio elevable eléctrico más barato que puedes comprar ahora mismo en Amazon España. Con motor. Sube y baja pulsando un boton. Hace cinco años esto habria parecido ciencia ficcion. Hoy es una realidad, pero con matices importantes que necesitas conocer antes de comprar.
         </p>
         <p>
           He analizado las 2400+ opiniones en Amazon, he comparado sus specs con los otros modelos baratos del mercado, y tengo claro para quien tiene sentido y para quien no. Si tu presupuesto es ajustado, esto te interesa.
@@ -191,7 +187,7 @@ export default function FeziboReviewPage() {
         </h2>
 
         <div>
-          <h3 className="text-lg font-semibold">140 euros con motor: que sacrificas?</h3>
+          <h3 className="text-lg font-semibold">Un elevable con motor en la gama de entrada: ¿qué sacrificas?</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             El motor simple es lento (2.5 cm/s) y ruidoso comparado con los doble motor. El recorrido completo tarda unos 18 segundos, que se sienten largos cuando vienes de un escritorio eléctrico rápido. Pero si es tu primer elevable, no lo vas a notar. Las 3 memorias de altura te permiten guardar tus posiciones favoritas y olvidarte.
           </p>
@@ -210,7 +206,7 @@ export default function FeziboReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Para quien SI es el Fezibo</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Estudiantes que quieren alternar sentado y de pie mientras estudian. Personas que trabajan desde casa unas horas al día (no jornada completa). Quien quiere probar un escritorio elevable sin gastarse más de 130 euros. Y para espacios pequenos: 120x60 cm cabe en cualquier rincon.
+            Estudiantes que quieren alternar sentado y de pie mientras estudian. Personas que trabajan desde casa unas horas al día (no jornada completa). Quien quiere probar un escritorio elevable sin gastar de más. Y para espacios pequenos: 120x60 cm cabe en cualquier rincon.
           </p>
         </div>
 
@@ -244,7 +240,7 @@ export default function FeziboReviewPage() {
         <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Veredicto</p>
         <p className="text-xl mt-2" style={{ fontFamily: 'var(--font-display)' }}>{product.veredicto}</p>
         <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-          No es el mejor escritorio elevable. Pero a 140 euros, es la forma más barata de descubrir si trabajar de pie va contigo.
+          No es el mejor escritorio elevable. Pero es la forma más barata de descubrir si trabajar de pie va contigo.
         </p>
         <div className="mt-4 inline-block">
           <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
@@ -268,7 +264,6 @@ export default function FeziboReviewPage() {
                 <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Modelo</th>
                 <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Motor</th>
                 <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Nota</th>
-                <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Precio</th>
                 <th className="text-center p-3 rounded-tr" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}></th>
               </tr>
             </thead>
@@ -277,7 +272,6 @@ export default function FeziboReviewPage() {
                 <td className="p-3 font-semibold">Fezibo 120x60 (este)</td>
                 <td className="p-3 text-center">Simple</td>
                 <td className="p-3 text-center mono font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
-                <td className="p-3 text-center mono font-bold">{priceBand(product.precio)}</td>
                 <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
               </tr>
               {alternatives.map(([altAsin, alt]) => (
@@ -285,7 +279,6 @@ export default function FeziboReviewPage() {
                   <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
                   <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : alt.specs.tipo_motor === 'manual' ? 'Manual' : 'Simple'}</td>
                   <td className="p-3 text-center mono font-bold">{alt.puntuacion.total}</td>
-                  <td className="p-3 text-center mono font-bold">{priceBand(alt.precio)}</td>
                   <td className="p-3 text-center"><AffiliateButton asin={altAsin} size="sm" /></td>
                 </tr>
               ))}
@@ -301,7 +294,7 @@ export default function FeziboReviewPage() {
         </h3>
         <div className="space-y-2 text-sm">
           <p>
-            <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Escritorios elevables baratos</Link> — Todas las opciones por menos de 200 euros, comparadas.
+            <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Escritorios elevables baratos</Link> — Toda la gama de entrada, comparada.
           </p>
           <p>
             <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los mejores escritorios elevables de 2026</Link> — Si puedes estirar el presupuesto, aquí están todos.

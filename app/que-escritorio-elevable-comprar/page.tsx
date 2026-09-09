@@ -7,11 +7,6 @@ import { getAvailableProducts } from "@/lib/products";
 import type { Product } from "@/lib/types";
 
 const QUESTIONS = [
-  { id: "presupuesto", text: "Presupuesto", options: [
-    { label: "Menos de 200 €", value: "bajo" },
-    { label: "200 – 400 €", value: "medio" },
-    { label: "Más de 400 €", value: "alto" },
-  ]},
   { id: "uso", text: "Uso principal", options: [
     { label: "Teletrabajo / oficina", value: "oficina" },
     { label: "Gaming", value: "gaming" },
@@ -34,9 +29,6 @@ const QUESTIONS = [
 
 function scoreProduct(answers: Record<string, string>, product: Product): number {
   let s = 0;
-  if (answers.presupuesto === "bajo" && product.precio <= 200) s += 3;
-  else if (answers.presupuesto === "medio" && product.precio > 200 && product.precio <= 400) s += 3;
-  else if (answers.presupuesto === "alto" && product.precio > 400) s += 3;
   if (answers.uso === "gaming" && product.categorias.includes("gaming")) s += 2;
   else if (answers.uso === "oficina" && product.categorias.includes("oficina")) s += 2;
   else if (answers.uso === "mixto") s += 1;

@@ -27,14 +27,12 @@ export function getTopProducts(count: number = 3): [string, Product][] {
 }
 
 export function filterProducts(filters: {
-  precioMax?: number;
   alturaMaxMin?: number;
   pesoMaxMin?: number;
   motor?: "simple" | "doble" | "manual" | "cualquiera";
-  sortBy?: "precio" | "rating" | "recomendado";
+  sortBy?: "rating" | "recomendado";
 }): [string, Product][] {
   const filtered = getAvailableProducts().filter(([, p]) => {
-    if (filters.precioMax && p.precio > filters.precioMax) return false;
     if (filters.alturaMaxMin && p.specs.rango_altura_max_cm < filters.alturaMaxMin)
       return false;
     if (filters.pesoMaxMin && p.specs.peso_max_carga_kg < filters.pesoMaxMin)
@@ -46,7 +44,6 @@ export function filterProducts(filters: {
 
   const sortBy = filters.sortBy || "recomendado";
   return filtered.sort(([, a], [, b]) => {
-    if (sortBy === "precio") return a.precio - b.precio;
     if (sortBy === "rating") return b.rating - a.rating;
     return b.puntuacion.total - a.puntuacion.total;
   });

@@ -6,15 +6,14 @@ import { FadeIn } from "@/components/FadeIn";
 import { filterProducts } from "@/lib/products";
 
 export default function ComparadorPage() {
-  const [precioMax, setPrecioMax] = useState(800);
   const [alturaMax, setAlturaMax] = useState(100);
   const [pesoMax, setPesoMax] = useState(50);
   const [motor, setMotor] = useState<"cualquiera" | "simple" | "doble" | "manual">("cualquiera");
-  const [ordenar, setOrdenar] = useState<"recomendado" | "precio" | "rating">("recomendado");
+  const [ordenar, setOrdenar] = useState<"recomendado" | "rating">("recomendado");
 
   const filtered = useMemo(
-    () => filterProducts({ precioMax, alturaMaxMin: alturaMax, pesoMaxMin: pesoMax, motor, sortBy: ordenar }),
-    [precioMax, alturaMax, pesoMax, motor, ordenar]
+    () => filterProducts({ alturaMaxMin: alturaMax, pesoMaxMin: pesoMax, motor, sortBy: ordenar }),
+    [alturaMax, pesoMax, motor, ordenar]
   );
 
   return (
@@ -42,15 +41,6 @@ export default function ComparadorPage() {
               <h2 className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--color-secondary)' }}>
                 Filtros
               </h2>
-
-              <div>
-                <label htmlFor="precio-slider" className="flex items-baseline justify-between text-sm font-medium">
-                  <span>Presupuesto</span>
-                  <span className="mono text-xs" style={{ color: 'var(--color-secondary)' }}>{precioMax} &euro;</span>
-                </label>
-                <input id="precio-slider" type="range" min={100} max={800} step={50} value={precioMax}
-                  onChange={(e) => setPrecioMax(Number(e.target.value))} className="w-full mt-3" />
-              </div>
 
               <div>
                 <label htmlFor="altura-slider" className="flex items-baseline justify-between text-sm font-medium">
@@ -89,7 +79,7 @@ export default function ComparadorPage() {
               </div>
 
               <button
-                onClick={() => { setPrecioMax(800); setAlturaMax(100); setPesoMax(50); setMotor("cualquiera"); }}
+                onClick={() => { setAlturaMax(100); setPesoMax(50); setMotor("cualquiera"); }}
                 className="text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent)' }}
               >
                 Resetear
@@ -108,7 +98,6 @@ export default function ComparadorPage() {
               className="text-xs font-medium px-3 py-2 rounded-sm" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}
             >
               <option value="recomendado">Recomendado</option>
-              <option value="precio">Precio</option>
               <option value="rating">Valoración</option>
             </select>
           </div>

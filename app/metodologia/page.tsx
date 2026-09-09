@@ -69,12 +69,12 @@ export default function MetodologiaPage() {
           </li>
           <li>
             <strong style={{ color: "var(--text-primary)" }}>Valoraciones:</strong>{" "}
-            nota media y número de reseñas de Amazon España. Los mostramos
-            redondeados a la baja porque solo pueden subir.
+            nota media de Amazon España, redondeada a la baja porque solo puede
+            subir.
           </li>
           <li>
-            <strong style={{ color: "var(--text-primary)" }}>Precios:</strong> verificados
-            en Amazon España y mostrados como franja, nunca como cifra exacta.
+            <strong style={{ color: "var(--text-primary)" }}>Precios:</strong> no los
+            publicamos. El importe exacto lo ves en Amazon.
           </li>
         </ul>
       </section>
@@ -107,13 +107,14 @@ export default function MetodologiaPage() {
 
       <section>
         <h2 className="text-xl mb-4" style={{ fontFamily: "var(--font-display)" }}>
-          Por qué ves franjas de precio y no cifras
+          Por qué no publicamos precios
         </h2>
         <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
           Amazon cambia precios a diario. Una cifra escrita hoy está desactualizada
           en una semana, y mostrar un precio que ya no existe es engañar al lector.
-          Por eso indicamos la franja y dejamos que el importe exacto lo veas en
-          Amazon, que es el único sitio donde siempre es correcto.
+          Por eso no publicamos ninguno —ni cifras ni franjas— y dejamos que el
+          importe lo veas en Amazon, que es el único sitio donde siempre es
+          correcto.
         </p>
       </section>
 
