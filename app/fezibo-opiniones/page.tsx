@@ -134,7 +134,7 @@ export default function FeziboReviewPage() {
       {/* Editorial intro */}
       <div className="mt-10 max-w-3xl space-y-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
         <p>
-          El Fezibo es el escritorio elevable eléctrico más barato que puedes comprar ahora mismo en Amazon España. Con motor. Sube y baja pulsando un boton. Hace cinco años esto habria parecido ciencia ficcion. Hoy es una realidad, pero con matices importantes que necesitas conocer antes de comprar.
+          El Fezibo es el escritorio elevable eléctrico más barato que puedes comprar ahora mismo en Amazon España. Con motor. Sube y baja pulsando un botón. Hace cinco años esto habría parecido ciencia ficción. Hoy es una realidad, pero con matices importantes que necesitas conocer antes de comprar.
         </p>
         <p>
           He analizado las opiniones en Amazon, he comparado sus specs con los otros modelos baratos del mercado, y tengo claro para quien tiene sentido y para quien no. Si tu presupuesto es ajustado, esto te interesa.
@@ -152,12 +152,12 @@ export default function FeziboReviewPage() {
           {[
             { label: "Motor", value: "Simple", detail: "Básico pero funcional" },
             { label: "Rango de altura", value: `${product.specs.rango_altura_min_cm}–${product.specs.rango_altura_max_cm} cm`, detail: "44 cm de recorrido" },
-            { label: "Velocidad", value: `${product.specs.velocidad_cm_s} cm/s`, detail: "Estandar" },
+            { label: "Velocidad", value: `${product.specs.velocidad_cm_s} cm/s`, detail: "Estándar" },
             { label: "Carga máxima", value: `${product.specs.peso_max_carga_kg} kg`, detail: "Setup ligero" },
             { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm`, detail: product.specs.material_tablero || '' },
             { label: "Peso estructura", value: `${product.specs.peso_estructura_kg} kg`, detail: "Ligero" },
             { label: "Ruido", value: `${product.specs.ruido_db} dB`, detail: "Audible" },
-            { label: "Garantía", value: `${product.specs.garantia_anos} años`, detail: "Estandar" },
+            { label: "Garantía", value: `${product.specs.garantia_anos} años`, detail: "Estándar" },
             { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rápido" },
             { label: "Anticolision", value: product.specs.sistema_anticolision ? "Si" : "No", detail: "No incluido" },
           ].map((spec) => (
@@ -201,7 +201,7 @@ export default function FeziboReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Estabilidad: lo justo</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Con 16 kg de estructura y patas de dos secciones, la estabilidad es la mínima aceptable. A posición de pie (110+ cm), el tablero se mueve al escribir. No es dramatico con un portátil, pero con un monitor de 27 pulgadas en brazo, se nota. Para personas por encima de 1.80 m, la altura máxima de 116 cm puede quedarse justa.
+            Con 16 kg de estructura y patas de dos secciones, la estabilidad es la mínima aceptable. A posición de pie (110+ cm), el tablero se mueve al escribir. No es dramático con un portátil, pero con un monitor de 27 pulgadas en brazo, se nota. Para personas por encima de 1.80 m, la altura máxima de 116 cm puede quedarse justa.
           </p>
         </div>
 
@@ -231,7 +231,7 @@ export default function FeziboReviewPage() {
 
       {/* Ratings */}
       <section>
-        <h2 className="text-2xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>Puntuacion</h2>
+        <h2 className="text-2xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>Puntuación</h2>
         <div className="max-w-md">
           <CompactRatings puntuacion={product.puntuacion} />
         </div>

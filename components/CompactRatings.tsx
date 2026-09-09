@@ -1,7 +1,7 @@
 import type { ProductScore } from "@/lib/types";
 
 const RATING_LABELS: Record<string, string> = {
-  calidad_construccion: "Construccion",
+  calidad_construccion: "Construcción",
   estabilidad: "Estabilidad",
   facilidad_montaje: "Montaje",
   relacion_calidad_precio: "Calidad/precio",

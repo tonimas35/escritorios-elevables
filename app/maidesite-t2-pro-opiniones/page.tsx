@@ -53,7 +53,7 @@ export default function MaidesiteT2ProReviewPage() {
     },
     {
       q: "Cuanto tarda en montarse?",
-      a: "Entre 40 minutos y una hora, y mejor entre dos personas: la estructura pesa 30 kg. Al no incluir tablero, tendras que taladrar los agujeros de fijacion en el tuyo si no vienen ya hechos, así que suma ese rato.",
+      a: "Entre 40 minutos y una hora, y mejor entre dos personas: la estructura pesa 30 kg. Al no incluir tablero, tendrás que taladrar los agujeros de fijación en el tuyo si no vienen ya hechos, así que suma ese rato.",
     },
   ];
 
@@ -150,7 +150,7 @@ export default function MaidesiteT2ProReviewPage() {
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Motor", value: "Doble motor", detail: "Mejor traccion" },
+            { label: "Motor", value: "Doble motor", detail: "Mejor tracción" },
             { label: "Rango de altura", value: `${product.specs.rango_altura_min_cm}–${product.specs.rango_altura_max_cm} cm`, detail: "65 cm de recorrido" },
             { label: "Velocidad", value: `${product.specs.velocidad_cm_s} cm/s`, detail: "De los más rápidos del catálogo" },
             { label: "Carga máxima", value: `${product.specs.peso_max_carga_kg} kg`, detail: "Setup completo" },
@@ -159,7 +159,7 @@ export default function MaidesiteT2ProReviewPage() {
             { label: "Ruido", value: `${product.specs.ruido_db} dB`, detail: "Aceptable" },
             { label: "Garantía", value: `${product.specs.garantia_anos} años`, detail: "Maidesite oficial" },
             { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rápido" },
-            { label: "Anticolision", value: product.specs.sistema_anticolision ? "Si" : "No", detail: "Proteccion activa" },
+            { label: "Anticolision", value: product.specs.sistema_anticolision ? "Si" : "No", detail: "Protección activa" },
           ].map((spec) => (
             <div key={spec.label} className="p-4 rounded" style={{ background: 'var(--bg-secondary)' }}>
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{spec.label}</p>
@@ -201,7 +201,7 @@ export default function MaidesiteT2ProReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Estabilidad: bien, pero no excelente</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Los 135 cm de altura máxima son el mayor recorrido del catálogo, y eso lo hace apto para personas muy altas o para trabajar de pie con teclado elevado. Pero cuanto más sube una estructura, más palanca hay: a máxima altura, cualquier marco de tres secciones tiene más balanceo lateral que a altura de trabajo normal.
+            Los 135 cm de altura máxima son el mayor recorrido del catálogo, y eso lo hace apto para personas muy altas o para trabajar de pie con teclado elevado. Pero cuánto más sube una estructura, más palanca hay: a máxima altura, cualquier marco de tres secciones tiene más balanceo lateral que a altura de trabajo normal.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             En el rango habitual de trabajo de pie, entre 105 y 115 cm, la estructura de tres secciones y los 30 kg de peso propio juegan a favor. Con 160 kg de carga admitida, un setup de dos monitores en brazo más equipo pesado entra sin acercarse al límite.
@@ -247,7 +247,7 @@ export default function MaidesiteT2ProReviewPage() {
 
       {/* Ratings */}
       <section>
-        <h2 className="text-2xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>Puntuacion</h2>
+        <h2 className="text-2xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>Puntuación</h2>
         <div className="max-w-md">
           <CompactRatings puntuacion={product.puntuacion} />
         </div>

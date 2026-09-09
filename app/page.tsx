@@ -406,7 +406,7 @@ export default function Home() {
       </section>
 
       {/* ============================================================
-          Nº 06 · Metodologia
+          Nº 06 · Metodología
           ============================================================ */}
       <section className="bs-contenido bs-seccion" id="metodologia">
         <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>

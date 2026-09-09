@@ -142,7 +142,7 @@ export default function MejorEscritorioPage() {
             Actualizado: {FECHA_EN_FRASE} &middot; 12 modelos analizados
           </p>
           <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
-            Este articulo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequeña comisión sin coste adicional para ti.
+            Este artículo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequeña comisión sin coste adicional para ti.
           </p>
           <div className="editorial-rule mt-6" />
         </FadeIn>
@@ -260,7 +260,7 @@ export default function MejorEscritorioPage() {
           <div className="py-8 mb-4" style={{ background: 'var(--color-secondary)', color: 'white' }}>
             <div className="max-w-5xl mx-auto px-6">
               <FadeIn>
-                <p className="editorial-mark" style={{ color: 'rgba(255,255,255,0.5)' }}>Seccion I</p>
+                <p className="editorial-mark" style={{ color: 'rgba(255,255,255,0.5)' }}>Sección I</p>
                 <p className="text-lg mt-1" style={{ fontFamily: 'var(--font-display)', color: 'white' }}>
                   Gama premium
                 </p>
@@ -290,7 +290,7 @@ export default function MejorEscritorioPage() {
                 <div className="py-8 mb-4" style={{ background: 'var(--color-secondary)', color: 'white' }}>
                   <div className="max-w-5xl mx-auto px-6">
                     <FadeIn>
-                      <p className="editorial-mark" style={{ color: 'rgba(255,255,255,0.5)' }}>Seccion II</p>
+                      <p className="editorial-mark" style={{ color: 'rgba(255,255,255,0.5)' }}>Sección II</p>
                       <p className="text-lg mt-1" style={{ fontFamily: 'var(--font-display)', color: 'white' }}>
                         Gama media
                       </p>
@@ -305,7 +305,7 @@ export default function MejorEscritorioPage() {
                 <div className="py-8 mb-4" style={{ background: 'var(--color-secondary)', color: 'white' }}>
                   <div className="max-w-5xl mx-auto px-6">
                     <FadeIn>
-                      <p className="editorial-mark" style={{ color: 'rgba(255,255,255,0.5)' }}>Seccion III</p>
+                      <p className="editorial-mark" style={{ color: 'rgba(255,255,255,0.5)' }}>Sección III</p>
                       <p className="text-lg mt-1" style={{ fontFamily: 'var(--font-display)', color: 'white' }}>
                         Gama económica
                       </p>
@@ -397,7 +397,7 @@ export default function MejorEscritorioPage() {
                 { title: "Ruido: ojo si haces videollamadas", text: "Baratos: 50-52 dB (se oye). Premium: 43-45 dB (casi no se nota). Si cambias de altura durante una llamada, con 50 dB la otra persona lo percibe. Con 43, no." },
                 { title: "Rango de altura: ojo si mides más de 1.85 m", text: "Baratos: 72-118 cm. Premium: 58-125 cm. Si mides más de 1.85 m y el escritorio llega solo a 118 cm, vas a trabajar encorvado. El E7 llega a 123 cm y el Maidesite T2 Pro a 127 cm." },
                 { title: "Garantía y postventa", text: "Flexispot y Maidesite dan 5 años; marcas baratas, 2. Los problemas graves suelen aparecer en los primeros 6 meses. Si puedes elegir, 5 años siempre \u2014 tiene electronica y partes moviles." },
-                { title: "Anticolision: no te la juegues", text: "Para el motor si detecta un obstaculo al bajar. Sin anticolisión, el motor sigue y puede romper cajones o el propio mecanismo. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena ahorrar y quedarse sin el." },
+                { title: "Anticolisión: no te la juegues", text: "Para el motor si detecta un obstaculo al bajar. Sin anticolisión, el motor sigue y puede romper cajones o el propio mecanismo. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena ahorrar y quedarse sin el." },
               ].map((item, i) => (
                 <FadeIn key={item.title} delay={i * 80}>
                   <div className="relative pl-14">

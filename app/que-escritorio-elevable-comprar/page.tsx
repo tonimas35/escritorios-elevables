@@ -67,7 +67,7 @@ export default function TestPage() {
         <div className="mb-10">
           <p className="editorial-mark" style={{ color: 'var(--color-secondary)' }}>Herramienta interactiva</p>
           <h1 className="text-3xl md:text-5xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>Tu escritorio ideal</h1>
-          <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>5 preguntas. Recomendacion personalizada.</p>
+          <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>4 preguntas. Recomendación personalizada.</p>
         </div>
       </FadeIn>
 

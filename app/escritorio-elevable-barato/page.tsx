@@ -41,7 +41,7 @@ export default function EscritorioBaratoPage() {
     },
     {
       q: "Motor simple o doble para un escritorio barato?",
-      a: "En la gama de entrada, casi todos llevan motor simple. Es más lento (20 seg el recorrido completo vs 12 del doble), pero para un setup normal de portátil y monitor va de sobra. Si quieres doble motor sin salirte de lo barato, el marco Flexispot es la opción, aunque tendras que sumarle un tablero.",
+      a: "En la gama de entrada, casi todos llevan motor simple. Es más lento (20 seg el recorrido completo vs 12 del doble), pero para un setup normal de portátil y monitor va de sobra. Si quieres doble motor sin salirte de lo barato, el marco Flexispot es la opción, aunque tendrás que sumarle un tablero.",
     },
     {
       q: "Cuanto dura un escritorio elevable barato?",
@@ -56,7 +56,7 @@ export default function EscritorioBaratoPage() {
       a: "Velocidad del motor (2.5 vs 3.8 cm/s), estabilidad a máxima altura (algo de vibración al escribir de pie) y acabado del tablero (melamina básica). También menos rango de altura (72-118 cm vs 58-125 cm), un problema si mides más de 1.85 m.",
     },
     {
-      q: "Anticolision: es necesario en un escritorio barato?",
+      q: "Anticolisión: es necesario en un escritorio barato?",
       a: "Si. Para el motor si detecta un obstaculo (cajon, silla, rodilla). Sin anticolisión, el motor sigue y puede romper cosas. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena quedarse sin él por ahorrar un poco.",
     },
   ];
@@ -128,7 +128,7 @@ export default function EscritorioBaratoPage() {
           Actualizado: {FECHA_EN_FRASE} &middot; {cheapProducts.length} modelos analizados de la gama de entrada
         </p>
         <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
-          Este articulo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequeña comisión sin coste adicional para ti.
+          Este artículo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequeña comisión sin coste adicional para ti.
         </p>
         <div className="editorial-rule mt-6" />
       </FadeIn>
@@ -179,7 +179,7 @@ export default function EscritorioBaratoPage() {
                 <th className="text-left p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Modelo</th>
                 <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Tablero</th>
                 <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Carga</th>
-                <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Anticolision</th>
+                <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Anticolisión</th>
                 <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Nota</th>
                 <th className="text-center p-3 rounded-tr" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}></th>
               </tr>

@@ -65,7 +65,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               <li>
                 <Link href="/metodologia" className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                  Metodologia
+                  Metodología
                 </Link>
               </li>
               <li>

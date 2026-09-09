@@ -56,7 +56,7 @@ export default function FlexispotVsMaidesitePage() {
     },
     {
       q: "Cual tiene mejor servicio postventa en España?",
-      a: "Flexispot: respuesta en 24-48h, envian recambio sin esperar devolucion. Maidesite: 48-72h según compradores. Ambas gestionan garantías bien, pero Flexispot es más agil.",
+      a: "Flexispot: respuesta en 24-48h, envian recambio sin esperar devolución. Maidesite: 48-72h según compradores. Ambas gestionan garantías bien, pero Flexispot es más agil.",
     },
   ];
 
@@ -116,7 +116,7 @@ export default function FlexispotVsMaidesitePage() {
           Actualizado: {FECHA_EN_FRASE} · Las dos marcas más vendidas en Amazon España
         </p>
         <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
-          Este articulo contiene enlaces de afiliado.
+          Este artículo contiene enlaces de afiliado.
         </p>
       </FadeIn>
 
@@ -187,7 +187,7 @@ export default function FlexispotVsMaidesitePage() {
             <table className="w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
               <thead>
                 <tr style={{ background: 'var(--color-secondary)', color: 'white' }}>
-                  <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Especificacion</th>
+                  <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Especificación</th>
                   <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Flexispot E7</th>
                   <th className="text-center p-3 rounded-tr" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Maidesite T2 Pro+</th>
                 </tr>
