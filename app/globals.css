@@ -1,10 +1,102 @@
 @import "tailwindcss";
 
+/* ========================================
+   SISTEMA BROADSHEET
+   Tokens extraidos de design-ref/ (paleta, escala tipografica, espaciado,
+   radios, filetes y sombras). Es la capa de destino del rediseño: aqui
+   solo se declara. Lo unico que la consume hoy son los valores que ya
+   coincidian con el sistema actual (verde botella, verde tinte, blanco),
+   marcados abajo. Aplicarla de verdad es la fase F4 de PLAN.md.
+   ======================================== */
+
+:root {
+  /* --- Color --- */
+  --bs-papel: #f3f2f2;
+  --bs-tinta: #201e1d;
+  --bs-crema: #f8f4f4;
+  --bs-verde-botella: #2d4a3e;
+  --bs-verde-tinte: #e8f0ec;
+  --bs-superficie: #eae9e9;
+  --bs-blanco: #ffffff;
+  --bs-neutro-200: #eae7e7;
+  --bs-neutro-700: #7d7979;
+  --bs-neutro-800: #444141;
+  --bs-divisor: color-mix(in srgb, #201e1d 16%, transparent);
+  --bs-divisor-fila: color-mix(in srgb, #201e1d 8%, transparent);
+  --bs-hover-fila: color-mix(in srgb, #201e1d 4%, transparent);
+
+  /* --- Tipografia: una sola familia --- */
+  --bs-familia: var(--font-source-serif), "Source Serif 4", Georgia, serif;
+  --bs-peso-titulo: 600;
+  --bs-interlineado-base: 1.6;
+
+  /* Escala fluida movil -> escritorio */
+  --bs-h1-home: clamp(34px, 5.6vw, 64px);
+  --bs-h1-ficha: clamp(32px, 5vw, 56px);
+  --bs-h2-seccion: clamp(27px, 3.4vw, 40px);
+  --bs-h2-ficha: clamp(25px, 3vw, 34px);
+  --bs-h3: clamp(20px, 2.2vw, 26px);
+  --bs-standfirst: clamp(17px, 1.7vw, 21px);
+  --bs-cuerpo: clamp(15px, 1.5vw, 18px);
+  --bs-kicker: 12px;
+  --bs-etiqueta: 11px;
+  --bs-legal: 13px;
+  --bs-legal-min: 12px;
+  --bs-riel: clamp(10px, 1.1vw, 12px);
+
+  --bs-lh-h1-home: 1.02;
+  --bs-lh-h1-ficha: 1.04;
+  --bs-lh-h2: 1.1;
+  --bs-lh-h3: 1.15;
+  --bs-lh-standfirst: 1.5;
+  --bs-lh-cuerpo: 1.55;
+
+  --bs-track-h1: -0.022em;
+  --bs-track-h2: -0.02em;
+  --bs-track-kicker: 0.18em;
+  --bs-track-etiqueta: 0.16em;
+  --bs-track-riel: 0.14em;
+
+  /* Medida de lectura */
+  --bs-medida-corta: 30ch;
+  --bs-medida-media: 44ch;
+  --bs-medida-larga: 66ch;
+
+  /* --- Espaciado --- */
+  --bs-ancho-contenido: 1180px;
+  --bs-margen-lateral: clamp(20px, 4vw, 56px);
+  --bs-separacion-seccion: clamp(52px, 7vw, 96px);
+  --bs-hueco-hero: clamp(28px, 4vw, 56px);
+  --bs-hueco-columnas: clamp(24px, 3vw, 44px);
+  --bs-hueco-bloques: clamp(24px, 3vw, 36px);
+  --bs-relleno-tarjeta: clamp(18px, 2.4vw, 28px);
+  --bs-relleno-cta: 16px 28px;
+
+  /* --- Radios --- */
+  --bs-radio: 2px;
+  --bs-radio-avatar: 50%;
+
+  /* --- Filetes y bordes --- */
+  --bs-filete-grueso: 4px solid var(--bs-tinta);
+  --bs-filete-fino: 1px solid var(--bs-tinta);
+  --bs-filete-seccion: 2px solid var(--bs-verde-botella);
+  --bs-filete-divisor: 1px solid var(--bs-divisor);
+  --bs-borde-etiqueta: 1px solid var(--bs-verde-botella);
+
+  /* --- Sombras --- */
+  /* Ninguna. El sistema es papel abierto: la jerarquia la dan el tamaño
+     y el aire. Se declara explicito para que no se cuele una por inercia. */
+  --bs-sombra: none;
+
+  /* --- Punto de corte unico --- */
+  --bs-corte: 700px;
+}
+
 :root {
   /* Palette: Editorial Workshop — warm base + copper accent + forest green secondary */
-  --bg-primary: #faf8f6;
+  --bg-primary: var(--bs-papel);
   --bg-secondary: #f3f0ec;
-  --bg-card: #ffffff;
+  --bg-card: var(--bs-blanco);
   --bg-card-hover: #faf8f6;
   --bg-dark: #2c2926;
   --bg-light: #faf7f2;
@@ -24,13 +116,13 @@
   --accent-glow: rgba(196, 122, 58, 0.20);
 
   /* Secondary accent: forest green */
-  --color-secondary: #2d4a3e;
+  --color-secondary: var(--bs-verde-botella);
   --color-secondary-hover: #1f3830;
-  --color-secondary-light: #e8f0ec;
+  --color-secondary-light: var(--bs-verde-tinte);
   --color-secondary-subtle: rgba(45, 74, 62, 0.10);
   --color-secondary-muted: rgba(45, 74, 62, 0.60);
 
-  --rating-good: #2d4a3e;
+  --rating-good: var(--bs-verde-botella);
   --rating-okay: #c9922a;
   --rating-bad: #b84040;
 
@@ -38,15 +130,70 @@
   --shadow-card-hover: 0 4px 12px rgba(44,41,38,0.08), 0 16px 40px rgba(44,41,38,0.06);
   --shadow-editorial: 0 2px 8px rgba(44,41,38,0.04), 0 8px 24px rgba(44,41,38,0.05);
 
-  --pro: #2d4a3e;
+  --pro: var(--bs-verde-botella);
   --con: #b84040;
   --border: #e5e0d8;
   --border-light: #ece8e1;
   --border-dark: #d5d0c8;
 
+  /* Ojo: --radius-lg y --radius-xl pisan el tema de Tailwind v4 (rounded-lg
+     y rounded-xl). Ya era asi antes del refactor; se deja igual para no
+     cambiar el aspecto, pero conviene renombrarlos algun dia. */
   --radius: 4px;
   --radius-lg: 8px;
   --radius-xl: 12px;
+  --radio-tag: var(--bs-radio);
+
+  /* Escala tipografica del sistema actual */
+  --texto-etiqueta: 10px;
+  --texto-micro: 11px;
+  --texto-boton: 13px;
+  --texto-tabla: 14px;
+  --texto-base: 15px;
+  --texto-numeral: 6rem;
+
+  /* Tracking */
+  --track-cuerpo: -0.005em;
+  --track-titulo: -0.03em;
+  --track-mono: -0.03em;
+  --track-numeral: -0.04em;
+  --track-boton: 0.04em;
+  --track-etiqueta: 0.08em;
+  --track-tag: 0.1em;
+  --track-marca: 0.15em;
+  --track-seccion: 0.25em;
+
+  /* Espaciado */
+  --esp-boton: 14px 32px;
+  --esp-boton-mini: 8px 16px;
+  --esp-tag: 4px 10px;
+  --esp-celda: 12px 16px;
+  --esp-faq: 20px 0;
+
+  /* Bordes */
+  --linea-suave: 1px solid var(--border);
+
+  /* Sombras */
+  --shadow-boton: 0 8px 24px var(--accent-glow);
+  --shadow-boton-secundario: 0 8px 24px rgba(45, 74, 62, 0.2);
+  --shadow-boton-mini: 0 4px 16px var(--accent-glow);
+  --shadow-imagen: inset 0 2px 8px rgba(44, 41, 38, 0.04);
+
+  /* Movimiento */
+  --ease-suave: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-rapida: 0.2s;
+  --dur-media: 0.3s;
+  --dur-card: 0.4s;
+  --dur-lenta: 0.5s;
+
+  /* Blancos del footer sobre verde */
+  --blanco-85: rgba(255, 255, 255, 0.85);
+  --blanco-75: rgba(255, 255, 255, 0.75);
+  --blanco-55: rgba(255, 255, 255, 0.55);
+
+  /* Grises calidos del marco de imagen */
+  --gris-calido-claro: #f5f0eb;
+  --gris-calido-oscuro: #ede8e0;
 
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: var(--font-source-serif), 'Source Serif 4', Georgia, serif;
@@ -76,15 +223,15 @@ body {
   color: var(--text-primary);
   background: var(--bg-primary);
   line-height: 1.75;
-  letter-spacing: -0.005em;
-  font-size: 15px;
+  letter-spacing: var(--track-cuerpo);
+  font-size: var(--texto-base);
 }
 
 /* Fraunces: distinctive variable serif with soft optical axis */
 h1, h2, h3 {
   font-family: var(--font-display);
   font-variation-settings: 'SOFT' 100, 'WONK' 1;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--track-titulo);
   line-height: 1.1;
   color: var(--text-dark);
 }
@@ -102,7 +249,7 @@ h3 {
 .mono {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--track-mono);
 }
 
 /* ========================================
@@ -126,8 +273,8 @@ h3 {
 /* Editorial mark — small typographic detail */
 .editorial-mark {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.15em;
+  font-size: var(--texto-etiqueta);
+  letter-spacing: var(--track-marca);
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -139,7 +286,7 @@ h3 {
   font-variation-settings: 'SOFT' 100, 'WONK' 1;
   color: var(--color-secondary);
   line-height: 0.85;
-  letter-spacing: -0.04em;
+  letter-spacing: var(--track-numeral);
 }
 
 /* Geometric grid background pattern */
@@ -209,7 +356,7 @@ h3 {
 }
 
 .animate-fade-up {
-  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: fadeUp 0.7s var(--ease-suave) forwards;
   opacity: 0;
 }
 
@@ -231,7 +378,7 @@ h3 {
 
 /* Card hover with physical lift */
 .card-lift {
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+  transition: transform var(--dur-card) var(--ease-suave), box-shadow var(--dur-card) ease, border-color var(--dur-media) ease;
 }
 .card-lift:hover {
   transform: translateY(-6px);
@@ -241,7 +388,7 @@ h3 {
 
 /* Product card — editorial hover */
 .product-card-hover {
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+  transition: transform var(--dur-lenta) var(--ease-suave), box-shadow var(--dur-lenta) ease;
   box-shadow: var(--shadow-card);
 }
 .product-card-hover:hover {
@@ -261,7 +408,7 @@ h3 {
   border-radius: inherit;
   background: linear-gradient(135deg, var(--accent-subtle), transparent, var(--color-secondary-subtle));
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity var(--dur-card);
   z-index: -1;
 }
 .glow-card:hover::before {
@@ -289,6 +436,8 @@ h3 {
 }
 ::-webkit-scrollbar-thumb {
   background: var(--border-dark);
+  /* Literal a proposito: los pseudo-elementos nativos del scrollbar no
+     resuelven las variables heredadas igual que el resto del arbol. */
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -316,6 +465,7 @@ input[type="range"]::-webkit-slider-thumb {
   background: var(--color-secondary);
   cursor: pointer;
   border: 3px solid white;
+  /* Literales a proposito: ver la nota del scrollbar. */
   box-shadow: 0 1px 4px rgba(0,0,0,0.15);
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -337,12 +487,12 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: white;
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.04em;
+  font-size: var(--texto-boton);
+  letter-spacing: var(--track-boton);
   text-transform: uppercase;
-  padding: 14px 32px;
+  padding: var(--esp-boton);
   border-radius: var(--radius);
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all var(--dur-media) var(--ease-suave);
   position: relative;
   overflow: hidden;
 }
@@ -352,7 +502,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   inset: 0;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
   transform: translateX(-100%);
-  transition: transform 0.5s;
+  transition: transform var(--dur-lenta);
 }
 .btn-primary:hover::after {
   transform: translateX(100%);
@@ -360,7 +510,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .btn-primary:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px var(--accent-glow);
+  box-shadow: var(--shadow-boton);
 }
 
 .btn-secondary {
@@ -372,17 +522,17 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: white;
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.04em;
+  font-size: var(--texto-boton);
+  letter-spacing: var(--track-boton);
   text-transform: uppercase;
-  padding: 14px 32px;
+  padding: var(--esp-boton);
   border-radius: var(--radius);
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all var(--dur-media) var(--ease-suave);
 }
 .btn-secondary:hover {
   background: var(--color-secondary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(45, 74, 62, 0.2);
+  box-shadow: var(--shadow-boton-secundario);
 }
 
 .btn-outline {
@@ -394,13 +544,13 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: var(--text-primary);
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.04em;
+  font-size: var(--texto-boton);
+  letter-spacing: var(--track-boton);
   text-transform: uppercase;
-  padding: 14px 32px;
+  padding: var(--esp-boton);
   border: 1px solid var(--border-dark);
   border-radius: var(--radius);
-  transition: all 0.3s;
+  transition: all var(--dur-media);
 }
 .btn-outline:hover {
   background: var(--color-secondary-light);
@@ -424,7 +574,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   width: 0;
   height: 1.5px;
   background: var(--accent);
-  transition: width 0.3s;
+  transition: width var(--dur-media);
 }
 .nav-link:hover {
   color: var(--text-dark);
@@ -441,17 +591,17 @@ input[type="range"]::-webkit-slider-thumb:hover {
   background: var(--accent);
   color: white;
   font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.08em;
+  font-size: var(--texto-micro);
+  letter-spacing: var(--track-etiqueta);
   text-transform: uppercase;
-  padding: 8px 16px;
+  padding: var(--esp-boton-mini);
   border-radius: var(--radius);
-  transition: all 0.3s;
+  transition: all var(--dur-media);
   white-space: nowrap;
 }
 .btn-amazon:hover {
   background: var(--accent-hover);
-  box-shadow: 0 4px 16px var(--accent-glow);
+  box-shadow: var(--shadow-boton-mini);
   transform: translateY(-1px);
 }
 
@@ -461,32 +611,32 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 .tag {
   display: inline-block;
-  font-size: 10px;
+  font-size: var(--texto-etiqueta);
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--track-tag);
   text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 2px;
+  padding: var(--esp-tag);
+  border-radius: var(--radio-tag);
   background: var(--accent-subtle);
   color: var(--accent);
 }
 
 .tag-secondary {
   display: inline-block;
-  font-size: 10px;
+  font-size: var(--texto-etiqueta);
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--track-tag);
   text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 2px;
+  padding: var(--esp-tag);
+  border-radius: var(--radio-tag);
   background: var(--color-secondary-subtle);
   color: var(--color-secondary);
 }
 
 .section-label {
-  font-size: 11px;
+  font-size: var(--texto-micro);
   font-weight: 600;
-  letter-spacing: 0.25em;
+  letter-spacing: var(--track-seccion);
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -506,23 +656,23 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .data-table th {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.08em;
+  font-size: var(--texto-micro);
+  letter-spacing: var(--track-etiqueta);
   text-transform: uppercase;
   color: var(--text-muted);
-  padding: 12px 16px;
+  padding: var(--esp-celda);
   text-align: left;
 }
 .data-table tbody tr {
-  border-bottom: 1px solid var(--border);
-  transition: background 0.2s;
+  border-bottom: var(--linea-suave);
+  transition: background var(--dur-rapida);
 }
 .data-table tbody tr:hover {
   background: var(--bg-card-hover);
 }
 .data-table td {
-  padding: 12px 16px;
-  font-size: 14px;
+  padding: var(--esp-celda);
+  font-size: var(--texto-tabla);
 }
 
 /* ========================================
@@ -564,9 +714,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 /* Warm product image container — gradient background */
 .product-image-container {
-  background: linear-gradient(145deg, #f5f0eb, #ede8e0);
+  background: linear-gradient(145deg, var(--gris-calido-claro), var(--gris-calido-oscuro));
   border-radius: var(--radius-lg);
-  box-shadow: inset 0 2px 8px rgba(44,41,38,0.04);
+  box-shadow: var(--shadow-imagen);
 }
 
 /* Accent underline for headings */
@@ -594,8 +744,8 @@ input[type="range"]::-webkit-slider-thumb:hover {
    ======================================== */
 
 .faq-item {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
+  padding: var(--esp-faq);
+  border-bottom: var(--linea-suave);
 }
 .faq-item:last-child {
   border-bottom: none;
@@ -614,7 +764,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .decorative-number {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 6rem;
+  font-size: var(--texto-numeral);
   line-height: 1;
   color: var(--color-secondary);
   opacity: 0.06;
@@ -631,14 +781,14 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 .footer-editorial {
   background: var(--color-secondary);
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--blanco-85);
 }
 .footer-editorial h3, .footer-editorial .section-label {
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--blanco-55);
 }
 .footer-editorial a {
-  color: rgba(255, 255, 255, 0.75);
-  transition: color 0.2s;
+  color: var(--blanco-75);
+  transition: color var(--dur-rapida);
 }
 .footer-editorial a:hover {
   color: white;
@@ -646,7 +796,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 /* Legacy footer gradient — keeping for compat */
 .footer-gradient {
-  background: linear-gradient(180deg, var(--bg-secondary) 0%, #ede8e0 100%);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--gris-calido-oscuro) 100%);
 }
 
 /* ========================================
@@ -661,4 +811,506 @@ input[type="range"]::-webkit-slider-thumb:hover {
   font-size: 1.15em;
   line-height: 1.5;
   color: var(--text-secondary);
+}
+
+/* ========================================
+   BROADSHEET — clases del rediseño
+   Consumen los tokens --bs-* de la cabecera. Van con prefijo .bs- y no
+   modifican ninguna regla anterior: mientras el resto del sitio siga con
+   el sistema viejo, los dos conviven sin pisarse.
+   ======================================== */
+
+.bs-pagina {
+  background: var(--bs-papel);
+  padding-bottom: var(--bs-separacion-seccion);
+  color: var(--bs-tinta);
+  font-family: var(--bs-familia);
+  line-height: var(--bs-interlineado-base);
+  letter-spacing: normal;
+}
+/* Las reglas globales de h1/h2/h3 imponen Fraunces y pesos 900/700/500.
+   Dentro del rediseño manda el serif unico. */
+.bs-pagina h1,
+.bs-pagina h2,
+.bs-pagina h3 {
+  font-family: var(--bs-familia);
+  font-variation-settings: normal;
+  font-weight: var(--bs-peso-titulo);
+  color: var(--bs-tinta);
+  text-wrap: pretty;
+}
+
+.bs-contenido {
+  max-width: var(--bs-ancho-contenido);
+  margin: 0 auto;
+  padding-inline: var(--bs-margen-lateral);
+}
+
+.bs-seccion {
+  padding-top: var(--bs-separacion-seccion);
+}
+.bs-filete-seccion {
+  border-top: var(--bs-filete-seccion);
+}
+
+.bs-kicker {
+  font-size: var(--bs-kicker);
+  letter-spacing: var(--bs-track-kicker);
+  text-transform: uppercase;
+  color: var(--bs-verde-botella);
+  line-height: 1.4;
+}
+.bs-etiqueta {
+  font-size: var(--bs-etiqueta);
+  letter-spacing: var(--bs-track-etiqueta);
+  text-transform: uppercase;
+  color: var(--bs-verde-botella);
+}
+
+.bs-h1 {
+  font-size: var(--bs-h1-home);
+  line-height: var(--bs-lh-h1-home);
+  letter-spacing: var(--bs-track-h1);
+}
+.bs-h2 {
+  font-size: var(--bs-h2-seccion);
+  line-height: var(--bs-lh-h2);
+  letter-spacing: var(--bs-track-h2);
+}
+.bs-h3 {
+  font-size: var(--bs-h3);
+  line-height: var(--bs-lh-h3);
+}
+.bs-standfirst {
+  font-size: var(--bs-standfirst);
+  line-height: var(--bs-lh-standfirst);
+  color: var(--bs-neutro-800);
+}
+.bs-cuerpo {
+  font-size: var(--bs-cuerpo);
+  line-height: var(--bs-lh-cuerpo);
+}
+
+/* "No es tu mesa si" */
+.bs-exclusion {
+  padding-left: 15px;
+  border-left: 3px solid var(--bs-verde-botella);
+  max-width: var(--bs-medida-media);
+}
+
+/* CTA: tinta sobre crema, hover verde. Sin sombras ni transformaciones. */
+.bs-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--bs-tinta);
+  color: var(--bs-crema);
+  padding: var(--bs-relleno-cta);
+  border-radius: var(--bs-radio);
+  font-size: clamp(16px, 1.6vw, 18px);
+  font-weight: 600;
+  line-height: 1.2;
+  transition: background var(--dur-rapida);
+}
+.bs-cta:hover {
+  background: var(--bs-verde-botella);
+  color: var(--bs-crema);
+}
+.bs-cta:focus-visible {
+  outline: 2px solid var(--bs-verde-botella);
+  outline-offset: 2px;
+}
+.bs-cta-ancho {
+  width: 100%;
+}
+.bs-cta-mini {
+  font-size: 15px;
+  padding: 11px 18px;
+}
+
+.bs-afiliado {
+  font-size: var(--bs-legal);
+  line-height: var(--bs-lh-standfirst);
+  color: var(--bs-neutro-700);
+}
+.bs-afiliado-mini {
+  font-size: var(--bs-legal-min);
+}
+
+/* Firma del autor: monograma, sin foto */
+.bs-avatar {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-radius: var(--bs-radio-avatar);
+  background: var(--bs-verde-botella);
+  color: var(--bs-crema);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Marco blanco de las fotos de producto */
+.bs-marco {
+  background: var(--bs-blanco);
+  display: block;
+}
+.bs-marco img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Ficha tecnica */
+.bs-ficha {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 7px 20px;
+  font-size: 15px;
+  margin: 0;
+}
+.bs-ficha dt {
+  color: var(--bs-neutro-700);
+}
+.bs-ficha dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Enlaces de texto */
+.bs-pagina a:not(.bs-cta) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.bs-pagina a:not(.bs-cta):hover {
+  color: var(--bs-verde-botella);
+}
+
+/* ----------------------------------------
+   Cifra en cuatricromia
+   Portada a mano desde design-ref/code/_ds/.../styles.css (.cmyk-num).
+   Se deja fuera el seguimiento del puntero (--press-nx/--press-ny): venia
+   del runtime del prototipo, que no se adopta. Las planchas quedan fijas.
+   ---------------------------------------- */
+.bs-cifra {
+  --bs-cifra-fondo: var(--bs-papel);
+  /* Contiene el mix-blend-mode de las planchas. Sin esto, la mezcla
+     promueve el documento entero a otra capa y Chromium cambia el
+     antialiasing del texto de TODA la pagina: la cabecera de la home se
+     rasterizaba distinta que la del resto del sitio. La construccion
+     pinta su propio fondo, asi que aislarla no la altera. */
+  isolation: isolate;
+  position: relative;
+  width: fit-content;
+  line-height: 0.9;
+  font-feature-settings: "pnum" 1;
+  font-weight: 700;
+  background: var(--bs-cifra-fondo);
+  padding: 0.12em;
+  margin: -0.12em;
+}
+.bs-cifra .papel {
+  color: var(--bs-cifra-fondo);
+  text-shadow:
+    0.036em 0.025em 0 var(--bs-cifra-fondo),
+    -0.031em -0.023em 0 var(--bs-cifra-fondo);
+}
+.bs-cifra .plancha {
+  position: absolute;
+  inset: 0.12em;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  user-select: none;
+}
+.bs-cifra .plancha-c { color: #0088b0; }
+.bs-cifra .plancha-m { color: #d6006c; translate: 0.036em 0.025em; }
+.bs-cifra .plancha-y { color: #edbb00; translate: -0.031em -0.023em; }
+
+/* Seccion 2 — tres caminos */
+.bs-caminos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bs-hueco-columnas);
+}
+.bs-camino {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: var(--bs-filete-fino);
+  padding-top: 16px;
+}
+.bs-camino .bs-cta {
+  margin-top: auto;
+}
+
+/* Seccion 3 — el podio */
+.bs-tarjeta {
+  background: var(--bs-superficie);
+  border-radius: var(--bs-radio);
+  padding: var(--bs-relleno-tarjeta);
+}
+.bs-sello {
+  display: inline-block;
+  background: var(--bs-verde-botella);
+  color: var(--bs-crema);
+  font-size: var(--bs-etiqueta);
+  letter-spacing: var(--bs-track-riel);
+  text-transform: uppercase;
+  padding: 5px 11px;
+}
+.bs-spec {
+  display: inline-block;
+  font-size: 12px;
+  border: var(--bs-borde-etiqueta);
+  color: var(--bs-verde-botella);
+  padding: 4px 10px;
+}
+.bs-pro {
+  display: flex;
+  gap: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.bs-pro span:first-child {
+  color: var(--bs-verde-botella);
+  font-weight: 700;
+}
+.bs-fila {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: var(--bs-filete-fino);
+}
+.bs-fila:first-of-type {
+  border-top: var(--bs-filete-fino);
+}
+
+/* ----------------------------------------
+   Seccion 4 — comparativa
+   Punto de corte unico en 700px, como manda el diseño. Las dos variantes
+   se renderizan en servidor y las alterna una media query; no hay
+   ResizeObserver (eso era del prototipo).
+   ---------------------------------------- */
+.bs-filtro-grupo {
+  display: inline-flex;
+  border: var(--bs-borde-etiqueta);
+}
+.bs-filtro-grupo button {
+  padding: 9px 14px;
+  font-size: 14px;
+  font-family: var(--bs-familia);
+  color: var(--bs-verde-botella);
+  background: transparent;
+  cursor: pointer;
+}
+.bs-filtro-grupo button + button {
+  border-left: var(--bs-borde-etiqueta);
+}
+.bs-filtro-grupo button[aria-pressed="true"] {
+  background: var(--bs-verde-botella);
+  color: var(--bs-crema);
+}
+.bs-filtro-grupo button:focus-visible {
+  outline: 2px solid var(--bs-tinta);
+  outline-offset: -2px;
+}
+.bs-filtro-etiqueta {
+  display: block;
+  font-size: var(--bs-etiqueta);
+  letter-spacing: var(--bs-track-riel);
+  text-transform: uppercase;
+  color: var(--bs-neutro-700);
+  margin-bottom: 8px;
+}
+
+.bs-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.bs-tabla thead th {
+  background: var(--bs-verde-botella);
+  color: var(--bs-crema);
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: 600;
+}
+.bs-tabla thead th button {
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  background: none;
+}
+.bs-tabla tbody tr {
+  border-bottom: 1px solid var(--bs-divisor-fila);
+}
+.bs-tabla tbody tr:hover {
+  background: var(--bs-hover-fila);
+}
+.bs-tabla td {
+  padding: 12px 10px;
+  vertical-align: middle;
+}
+
+/* Barra de orden, solo en la variante apilada */
+.bs-orden-movil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bs-verde-botella);
+  color: var(--bs-crema);
+  padding: 10px 12px;
+}
+.bs-orden-movil button {
+  border: 1px solid var(--bs-crema);
+  color: var(--bs-crema);
+  font-family: var(--bs-familia);
+  font-size: 14px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.bs-orden-movil button[aria-pressed="true"] {
+  background: var(--bs-crema);
+  color: var(--bs-verde-botella);
+}
+
+.bs-apilada > li {
+  border-bottom: var(--bs-filete-divisor);
+  padding: 14px 0;
+}
+
+.bs-solo-ancho { display: none; }
+@media (min-width: 700px) {
+  .bs-solo-ancho { display: block; }
+  .bs-solo-estrecho { display: none; }
+}
+
+/* CTA fijo inferior, solo movil */
+.bs-cta-fijo {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 40;
+  background: var(--bs-papel);
+  border-top: var(--bs-filete-seccion);
+  padding: 10px 16px 16px;
+}
+/* El CTA fijo tapa el final del documento —footer incluido, que es donde
+   esta la declaracion legal— si no se le reserva sitio. Se reserva en el
+   body y solo en las paginas que lo llevan, para no tocar el layout ni
+   afectar al resto del sitio. */
+@media (max-width: 699px) {
+  body:has(.bs-cta-fijo) {
+    padding-bottom: 96px;
+  }
+}
+
+/* Riel de fecha de la cabecera */
+.bs-riel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 0;
+  border-top: var(--bs-filete-grueso);
+  border-bottom: var(--bs-filete-fino);
+  margin-top: 22px;
+  font-size: var(--bs-riel);
+  letter-spacing: var(--bs-track-riel);
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+.bs-riel strong {
+  font-weight: 600;
+}
+.bs-riel > span {
+  color: var(--bs-neutro-700);
+}
+
+/* Un poco de aire al saltar a un ancla, para que el titulo de la seccion no
+   quede pegado al borde. Solo afecta al scroll, no a la maqueta. */
+:target,
+[id]:not(html):not(body) {
+  scroll-margin-top: 24px;
+}
+
+/* ----------------------------------------
+   Cabecera Broadsheet
+   Sustituye a la barra pegajosa del sistema viejo. El riel se lee una vez
+   al principio; no persigue al lector.
+   ---------------------------------------- */
+.bs-cabecera {
+  background: var(--bs-papel);
+  color: var(--bs-tinta);
+  font-family: var(--bs-familia);
+  line-height: var(--bs-interlineado-base);
+}
+.bs-cabecera a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.bs-nav-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0 13px;
+  border-bottom: var(--bs-filete-fino);
+}
+.bs-nav {
+  display: none;
+  flex-wrap: wrap;
+  gap: clamp(14px, 2.2vw, 30px);
+}
+.bs-nav a {
+  font-size: var(--bs-etiqueta);
+  letter-spacing: var(--bs-track-etiqueta);
+  text-transform: uppercase;
+  color: var(--bs-tinta);
+}
+.bs-nav a:hover {
+  color: var(--bs-verde-botella);
+}
+.bs-nav a:focus-visible,
+.bs-menu-boton:focus-visible {
+  outline: 2px solid var(--bs-verde-botella);
+  outline-offset: 3px;
+}
+
+.bs-menu-boton {
+  font-family: var(--bs-familia);
+  font-size: var(--bs-etiqueta);
+  letter-spacing: var(--bs-track-etiqueta);
+  text-transform: uppercase;
+  color: var(--bs-verde-botella);
+  border: var(--bs-borde-etiqueta);
+  background: transparent;
+  padding: 7px 13px;
+  cursor: pointer;
+}
+.bs-menu-panel {
+  display: flex;
+  flex-direction: column;
+  border-top: var(--bs-filete-divisor);
+}
+.bs-menu-panel a {
+  padding: 11px 0;
+  border-bottom: var(--bs-filete-divisor);
+  font-size: 15px;
+}
+.bs-menu-panel a:hover {
+  color: var(--bs-verde-botella);
+}
+
+@media (min-width: 700px) {
+  .bs-nav { display: flex; }
+  .bs-menu { display: none; }
 }

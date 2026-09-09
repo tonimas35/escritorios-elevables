@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Aviso legal",
-  description: "Aviso legal, politica de afiliacion y privacidad.",
+  description: "Aviso legal, política de afiliación y privacidad.",
   alternates: { canonical: "/aviso-legal" },
 };
 
@@ -26,7 +26,7 @@ export default function AvisoLegalPage() {
       <h1 className="text-3xl" style={{ fontFamily: 'var(--font-display)' }}>Aviso legal</h1>
 
       <section className="mt-8 space-y-6 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-        <h2>Afiliacion con Amazon</h2>
+        <h2>Afiliación con Amazon</h2>
         <p>
           Este sitio web participa en el Programa de Afiliados de Amazon EU, un
           programa de publicidad para afiliados disenado para ofrecer a sitios
@@ -37,13 +37,13 @@ export default function AvisoLegalPage() {
           Como asociado de Amazon, obtenemos ingresos por las compras adscritas
           que cumplen los requisitos aplicables. Esto significa que si haces
           click en uno de nuestros enlaces y compras un producto en Amazon,
-          nosotros recibimos una pequena comision sin ningún coste adicional
+          nosotros recibimos una pequeña comisión sin ningún coste adicional
           para ti.
         </p>
         <p>
           Nuestras recomendaciones son independientes de las comisiones que
           recibimos. Analizamos cada producto de forma objetiva y nuestras
-          opiniones no están influenciadas por la relacion de afiliacion.
+          opiniones no están influenciadas por la relación de afiliación.
         </p>
 
         <h2>Precios y disponibilidad</h2>
@@ -73,7 +73,7 @@ export default function AvisoLegalPage() {
         <p>
           Este sitio utiliza cookies tecnicas necesarias para su funcionamiento
           y cookies analiticas de Google Analytics. Puedes desactivar las
-          cookies en la configuracion de tu navegador.
+          cookies en la configuración de tu navegador.
         </p>
 
         <h2>Contacto</h2>

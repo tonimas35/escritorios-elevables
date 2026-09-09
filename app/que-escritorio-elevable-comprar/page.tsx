@@ -7,11 +7,6 @@ import { getAvailableProducts } from "@/lib/products";
 import type { Product } from "@/lib/types";
 
 const QUESTIONS = [
-  { id: "presupuesto", text: "Presupuesto", options: [
-    { label: "Menos de 200 €", value: "bajo" },
-    { label: "200 – 400 €", value: "medio" },
-    { label: "Más de 400 €", value: "alto" },
-  ]},
   { id: "uso", text: "Uso principal", options: [
     { label: "Teletrabajo / oficina", value: "oficina" },
     { label: "Gaming", value: "gaming" },
@@ -22,7 +17,7 @@ const QUESTIONS = [
     { label: "Doble — rápido y potente", value: "doble" },
   ]},
   { id: "carga", text: "Peso del setup", options: [
-    { label: "Ligero: portatil (<30 kg)", value: "ligero" },
+    { label: "Ligero: portátil (<30 kg)", value: "ligero" },
     { label: "Medio: un monitor (30–60 kg)", value: "medio" },
     { label: "Pesado: dual monitor (>60 kg)", value: "pesado" },
   ]},
@@ -34,9 +29,6 @@ const QUESTIONS = [
 
 function scoreProduct(answers: Record<string, string>, product: Product): number {
   let s = 0;
-  if (answers.presupuesto === "bajo" && product.precio <= 200) s += 3;
-  else if (answers.presupuesto === "medio" && product.precio > 200 && product.precio <= 400) s += 3;
-  else if (answers.presupuesto === "alto" && product.precio > 400) s += 3;
   if (answers.uso === "gaming" && product.categorias.includes("gaming")) s += 2;
   else if (answers.uso === "oficina" && product.categorias.includes("oficina")) s += 2;
   else if (answers.uso === "mixto") s += 1;
@@ -75,7 +67,7 @@ export default function TestPage() {
         <div className="mb-10">
           <p className="editorial-mark" style={{ color: 'var(--color-secondary)' }}>Herramienta interactiva</p>
           <h1 className="text-3xl md:text-5xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>Tu escritorio ideal</h1>
-          <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>5 preguntas. Recomendacion personalizada.</p>
+          <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>4 preguntas. Recomendación personalizada.</p>
         </div>
       </FadeIn>
 

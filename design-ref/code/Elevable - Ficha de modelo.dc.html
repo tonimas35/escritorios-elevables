@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..800;1,8..60,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_ds/broadsheet-f6644929-b51f-463d-996e-35a75425f19f/styles.css">
+<script src="_ds/broadsheet-f6644929-b51f-463d-996e-35a75425f19f/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: #f3f2f2; }
+  a { color: #201e1d; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { color: #2d4a3e; }
+  ::selection { background: #2d4a3e; color: #f8f4f4; }
+</style>
+</helmet>
+
+<div ref="{{ raiz }}" style="font-family: var(--font-body); color: var(--color-text); max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px) 120px; line-height: 1.6">
+
+  <header style="padding-top: 22px">
+    <div style="border-top: 4px solid var(--color-text)"></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 4px 20px; justify-content: space-between; padding: 9px 0; font-size: clamp(10px, 1.1vw, 12px); letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.5">
+      <span><strong style="font-weight: 600">Elevable</strong> <span aria-hidden="true">·</span> Ficha de modelo</span>
+      <span style="color: var(--color-neutral-700)">Septiembre de 2026</span>
+    </div>
+    <div style="border-top: 1px solid var(--color-text)"></div>
+
+    <nav style="display: flex; flex-wrap: wrap; gap: 6px; padding: 14px 0 0">
+      <sc-for list="{{ pestanas }}" as="t" hint-placeholder-count="12">
+        <button type="button" onClick="{{ t.onClick }}" style="font: inherit; font-size: 13px; line-height: 1.3; white-space: nowrap; padding: 6px 11px; cursor: pointer; border: 1px solid #2d4a3e; background: {{ t.bg }}; color: {{ t.fg }}">{{ t.label }}</button>
+      </sc-for>
+    </nav>
+  </header>
+
+  <!-- ── VEREDICTO ── -->
+  <section style="padding: clamp(24px, 3.4vw, 44px) 0 0">
+    <p style="margin: 0 0 12px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #2d4a3e">{{ m.puesto }} · Veredicto</p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: clamp(28px, 4vw, 56px)">
+      <div style="flex: 1 1 400px; min-width: 0">
+        <p style="margin: 0; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-neutral-700)">{{ m.marca }}</p>
+        <h1 style="margin: 4px 0 0; font-size: clamp(32px, 5vw, 56px); line-height: 1.04; letter-spacing: -0.022em; text-wrap: pretty">{{ m.titular }}</h1>
+        <p style="margin: clamp(14px, 2vw, 22px) 0 0; font-size: clamp(17px, 1.7vw, 20px); line-height: 1.5; max-width: 42ch; color: var(--color-neutral-800)">{{ m.standfirst }}</p>
+
+        <a href="{{ m.href }}" target="_blank" rel="nofollow sponsored noopener" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 24px; background: var(--color-text); color: #f8f4f4; text-decoration: none; font-size: clamp(16px, 1.6vw, 18px); font-weight: 600; padding: 16px 28px; border-radius: 2px" style-hover="background: #2d4a3e; color: #f8f4f4">Ver precio actual en Amazon <span aria-hidden="true">→</span></a>
+        <p style="margin: 10px 0 0; font-size: 13px; line-height: 1.5; color: var(--color-neutral-700)">Enlace de afiliado: si compras, Amazon nos paga una comisión y tú pagas lo mismo.</p>
+
+        <div style="display: flex; align-items: center; gap: 13px; margin-top: 26px">
+          <span aria-hidden="true" style="width: 44px; height: 44px; flex: none; border-radius: 50%; background: #2d4a3e; color: #f8f4f4; display: flex; align-items: center; justify-content: center; font-size: 21px; font-weight: 600">T</span>
+          <span style="font-size: 14px; line-height: 1.45">Por <strong>Toni</strong><br><span style="color: var(--color-neutral-700)">12 modelos analizados a partir de las fichas de fabricante y las valoraciones de Amazon.</span></span>
+        </div>
+      </div>
+
+      <div style="flex: 0 1 340px; min-width: 0">
+        <div style="background: #fff; padding: 16px; min-height: clamp(190px, 24vw, 270px)">
+          <sc-if value="{{ m.img }}"><img src="{{ m.img }}" alt="{{ m.alt }}" style="display: block; width: 100%; height: clamp(190px, 24vw, 270px); object-fit: contain"></sc-if>
+        </div>
+        <div style="display: flex; align-items: flex-end; gap: 14px; margin-top: 20px">
+          <span class="cmyk-num" style="font-size: clamp(58px, 7vw, 82px); font-weight: 700">
+            <span class="paper">{{ m.nota }}</span>
+            <span class="plate plate-c" aria-hidden="true">{{ m.nota }}</span>
+            <span class="plate plate-m" aria-hidden="true">{{ m.nota }}</span>
+            <span class="plate plate-y" aria-hidden="true">{{ m.nota }}</span>
+          </span>
+          <span style="font-size: 14px; line-height: 1.35; padding-bottom: 7px; color: var(--color-neutral-700)">sobre 10<br>{{ m.rating }}★ en Amazon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FICHA TÉCNICA ── -->
+  <section style="padding: clamp(46px, 6vw, 80px) 0 0">
+    <div style="border-top: 2px solid #2d4a3e"></div>
+    <p style="margin: 14px 0 8px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #2d4a3e">Ficha técnica</p>
+    <h2 style="margin: 0; font-size: clamp(25px, 3vw, 34px); line-height: 1.1; letter-spacing: -0.02em">Lo que declara el fabricante</h2>
+
+    <div style="display: flex; flex-wrap: wrap; gap: clamp(24px, 4vw, 56px); margin-top: clamp(22px, 2.6vw, 32px)">
+      <dl style="flex: 1 1 300px; min-width: 0; margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; font-size: 16px">
+        <sc-for list="{{ m.fichaA }}" as="f" hint-placeholder-count="5">
+          <dt style="color: var(--color-neutral-700)">{{ f.k }}</dt><dd style="margin: 0; font-weight: 600">{{ f.v }}</dd>
+        </sc-for>
+      </dl>
+      <dl style="flex: 1 1 300px; min-width: 0; margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; font-size: 16px">
+        <sc-for list="{{ m.fichaB }}" as="f" hint-placeholder-count="5">
+          <dt style="color: var(--color-neutral-700)">{{ f.k }}</dt><dd style="margin: 0; font-weight: 600">{{ f.v }}</dd>
+        </sc-for>
+      </dl>
+    </div>
+
+    <sc-if value="{{ mostrarDesglose }}" hint-placeholder-val="{{ true }}">
+      <div style="margin-top: clamp(28px, 3.4vw, 44px); max-width: 620px">
+        <p style="margin: 0 0 14px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #2d4a3e">Desglose de la nota</p>
+        <sc-for list="{{ m.desglose }}" as="c" hint-placeholder-count="5">
+          <div style="display: flex; align-items: center; gap: 14px; padding: 7px 0">
+            <span style="flex: 0 0 190px; font-size: 15px">{{ c.nombre }}</span>
+            <span style="flex: 1; height: 8px; background: var(--color-neutral-200); position: relative">
+              <span aria-hidden="true" style="position: absolute; inset: 0 auto 0 0; width: {{ c.pct }}; background: #2d4a3e"></span>
+            </span>
+            <span style="flex: 0 0 40px; text-align: right; font-size: 15px; font-weight: 600">{{ c.valor }}</span>
+          </div>
+        </sc-for>
+        <div style="display: flex; align-items: center; gap: 14px; padding: 12px 0 0; margin-top: 6px; border-top: 1px solid var(--color-text)">
+          <span style="flex: 0 0 190px; font-size: 16px; font-weight: 600">Nota global</span>
+          <span style="flex: 1"></span>
+          <span style="flex: 0 0 40px; text-align: right; font-size: 20px; font-weight: 700">{{ m.nota }}</span>
+        </div>
+        <p style="margin: 12px 0 0; font-size: 13px; line-height: 1.5; color: var(--color-neutral-700)">Media ponderada de los cinco apartados. <a href="Elevable.dc.html#metodologia">Cómo puntuamos</a>.</p>
+      </div>
+    </sc-if>
+  </section>
+
+  <!-- ── PARA QUIÉN SÍ / NO ── -->
+  <section style="padding: clamp(46px, 6vw, 80px) 0 0">
+    <div style="border-top: 2px solid #2d4a3e"></div>
+    <p style="margin: 14px 0 8px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #2d4a3e">Para quién</p>
+    <h2 style="margin: 0; font-size: clamp(25px, 3vw, 34px); line-height: 1.1; letter-spacing: -0.02em">Sí y no</h2>
+
+    <div style="display: flex; flex-wrap: wrap; gap: clamp(24px, 4vw, 56px); margin-top: clamp(22px, 2.6vw, 32px)">
+      <div style="flex: 1 1 320px; min-width: 0">
+        <p style="margin: 0 0 14px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #2d4a3e">Es tu mesa si</p>
+        <p style="margin: 0 0 16px; font-size: 17px; line-height: 1.55; font-style: italic">{{ m.idealPara }}</p>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.5">
+          <sc-for list="{{ m.pros }}" as="p" hint-placeholder-count="4">
+            <li style="display: flex; gap: 10px"><span aria-hidden="true" style="color: #2d4a3e; font-weight: 700">✓</span><span>{{ p }}</span></li>
+          </sc-for>
+        </ul>
+      </div>
+
+      <div style="flex: 1 1 320px; min-width: 0; padding-left: clamp(0px, 2vw, 28px)">
+        <p style="margin: 0 0 14px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-neutral-700)">No es tu mesa si</p>
+        <p style="margin: 0 0 16px; padding-left: 14px; border-left: 3px solid #2d4a3e; font-size: 17px; line-height: 1.55">{{ m.noEsPara }}</p>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.5; color: var(--color-neutral-800)">
+          <sc-for list="{{ m.contras }}" as="c" hint-placeholder-count="3">
+            <li style="display: flex; gap: 10px"><span aria-hidden="true" style="font-weight: 700">×</span><span>{{ c }}</span></li>
+          </sc-for>
+        </ul>
+      </div>
+    </div>
+
+    <p style="margin: clamp(24px, 3vw, 34px) 0 0; font-size: clamp(16px, 1.6vw, 18px); line-height: 1.6; max-width: 66ch">{{ m.veredicto }}</p>
+  </section>
+
+  <!-- ── ALTERNATIVAS ── -->
+  <sc-if value="{{ mostrarAlternativas }}" hint-placeholder-val="{{ true }}">
+    <section style="padding: clamp(46px, 6vw, 80px) 0 0">
+      <div style="border-top: 2px solid #2d4a3e"></div>
+      <p style="margin: 14px 0 8px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #2d4a3e">Alternativas</p>
+      <h2 style="margin: 0; font-size: clamp(25px, 3vw, 34px); line-height: 1.1; letter-spacing: -0.02em">{{ m.tituloAlternativas }}</h2>
+
+      <div style="margin-top: clamp(20px, 2.4vw, 30px)">
+        <sc-for list="{{ m.alternativas }}" as="a" hint-placeholder-count="3">
+          <div style="border-top: 1px solid var(--color-text); padding: 16px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 16px">
+            <div style="background: #fff; padding: 7px; flex: none; width: 70px; height: 62px"><sc-if value="{{ a.img }}"><img src="{{ a.img }}" alt="{{ a.alt }}" style="display: block; width: 70px; height: 62px; object-fit: contain"></sc-if></div>
+            <div style="flex: 1 1 190px; min-width: 0">
+              <p style="margin: 0; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #2d4a3e">{{ a.porque }}</p>
+              <p style="margin: 3px 0 0; font-size: 19px; font-weight: 600; line-height: 1.2">{{ a.nombre }}</p>
+            </div>
+            <p style="flex: 1 1 240px; margin: 0; font-size: 15px; line-height: 1.5; color: var(--color-neutral-800)">{{ a.define }}</p>
+            <span style="flex: none; font-size: 22px; font-weight: 700">{{ a.nota }}</span>
+            <a href="{{ a.href }}" target="_blank" rel="nofollow sponsored noopener" style="flex: none; display: inline-flex; align-items: center; justify-content: center; background: var(--color-text); color: #f8f4f4; text-decoration: none; font-size: 14px; font-weight: 600; padding: 12px 16px; border-radius: 2px" style-hover="background: #2d4a3e; color: #f8f4f4">Ver precio actual en Amazon</a>
+          </div>
+        </sc-for>
+        <div style="border-top: 1px solid var(--color-text)"></div>
+      </div>
+      <p style="margin: 14px 0 0; font-size: 13px; color: var(--color-neutral-700)">Enlaces de afiliado. <a href="Elevable.dc.html">Ver los 12 modelos comparados</a>.</p>
+    </section>
+  </sc-if>
+
+  <!-- ── CIERRE ── -->
+  <section style="padding: clamp(46px, 6vw, 80px) 0 0">
+    <div style="border-top: 2px solid #2d4a3e"></div>
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: clamp(20px, 3vw, 44px); padding-top: clamp(20px, 2.4vw, 30px)">
+      <div style="flex: 1 1 380px; min-width: 0">
+        <h2 style="margin: 0; font-size: clamp(24px, 3vw, 34px); line-height: 1.15; letter-spacing: -0.02em">{{ m.cierreTitulo }}</h2>
+        <p style="margin: 10px 0 0; font-size: clamp(16px, 1.6vw, 18px); line-height: 1.55; max-width: 48ch; color: var(--color-neutral-800)">{{ m.cierre }}</p>
+      </div>
+      <div style="flex: 1 1 280px; min-width: 0">
+        <a href="{{ m.href }}" target="_blank" rel="nofollow sponsored noopener" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--color-text); color: #f8f4f4; text-decoration: none; font-size: 17px; font-weight: 600; padding: 16px; border-radius: 2px" style-hover="background: #2d4a3e; color: #f8f4f4">Ver precio actual en Amazon <span aria-hidden="true">→</span></a>
+        <p style="margin: 9px 0 0; font-size: 13px; line-height: 1.5; color: var(--color-neutral-700)">Enlace de afiliado: si compras, Amazon nos paga una comisión y tú pagas lo mismo.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<sc-if value="{{ narrow }}">
+  <div style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: #f3f2f2; border-top: 2px solid #2d4a3e; padding: 10px 16px 16px">
+    <a href="{{ m.href }}" target="_blank" rel="nofollow sponsored noopener" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--color-text); color: #f8f4f4; text-decoration: none; font-size: 17px; font-weight: 600; padding: 15px; border-radius: 2px" style-hover="background: #2d4a3e; color: #f8f4f4">Ver {{ m.nombre }} en Amazon <span aria-hidden="true">→</span></a>
+    <p style="margin: 7px 0 0; font-size: 12px; text-align: center; color: var(--color-neutral-700)">Nota {{ m.nota }} de 10 · enlace de afiliado</p>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1180}, &quot;modelo&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;flexispot-e7&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;flexispot-e7&quot;, &quot;flexispot-160x80&quot;, &quot;maidesite-t2-pro-max&quot;, &quot;maidesite-s2-pro&quot;, &quot;sanodesk-140&quot;, &quot;songmics-160&quot;, &quot;devoko-160&quot;, &quot;ergear-120&quot;, &quot;vasagle-160&quot;, &quot;devoko-120&quot;, &quot;fezibo-120&quot;, &quot;vasagle-100&quot;], &quot;section&quot;: &quot;Modelo&quot;}, &quot;mostrarDesglose&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Secciones&quot;}, &quot;mostrarAlternativas&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Secciones&quot;}}">
+const TAG = 'escritoriosel-21';
+const VERDE = '#2d4a3e';
+const CREMA = '#f8f4f4';
+const fmt = (n) => String(n).replace('.', ',');
+
+// Transcrito de data/productos.json, ordenado por puntuacion.total.
+// El copy es el del repo, sin las cifras de precio ni de número de reseñas.
+const MODELOS = [
+  {
+    slug: 'flexispot-e7', asin: 'B084KW7N8C', marca: 'Flexispot', modelo: 'E7', nombre: 'Flexispot E7',
+    titular: 'E7: el mejor marco elevable del mercado',
+    nota: 9.7, rating: 4.7, motor: 'doble', velocidad: 3.8, carga: 125, alturaMin: 58, alturaMax: 123,
+    ruido: 45, memorias: 4, anticolision: true, pesoEstructura: 32, garantia: 5,
+    tablero: false, ancho: 0, profundidad: 0, materialTablero: null,
+    img: 'https://m.media-amazon.com/images/I/71--Rk-6uiL._AC_SL1500_.jpg',
+    alt: 'Flexispot E7 estructura escritorio elevable eléctrico doble motor sin tablero',
+    pros: ['Doble motor: 3,8 cm/s y 125 kg de carga', 'Rango de 58-123 cm: cubre cualquier estatura', '5 años de garantía Flexispot', 'Puedes elegir tu tablero'],
+    contras: ['No incluye tablero: hay que comprarlo aparte', 'El montaje requiere dos personas', 'El coste total sube con un tablero a medida'],
+    veredicto: 'El mejor marco elevable del mercado. Doble motor Flexispot, sin tablero.',
+    idealPara: 'Quieres la mejor estructura y elegir tu propio tablero a medida.',
+    noEsPara: 'No quieres comprar el tablero aparte ni montarla entre dos personas.',
+    punt: [9.9, 9.9, 7.9, 9.9, 8.9],
+    define: 'Lo mejor en estabilidad y recorrido. No incluye tablero.',
+  },
+  {
+    slug: 'flexispot-160x80', asin: 'B09R746JHX', marca: 'FLEXISPOT', modelo: '160x80', nombre: 'FLEXISPOT 160x80',
+    titular: '160x80: el premium más respaldado del catálogo',
+    nota: 9.5, rating: 4.5, motor: 'doble', velocidad: 3.5, carga: 100, alturaMin: 71, alturaMax: 121,
+    ruido: 48, memorias: 4, anticolision: true, pesoEstructura: 38, garantia: 5,
+    tablero: true, ancho: 160, profundidad: 80, materialTablero: 'tablero entero 25 mm',
+    img: 'https://m.media-amazon.com/images/I/71phkZLMRrL._AC_SL1500_.jpg',
+    alt: 'FLEXISPOT escritorio elevable 160x80 doble motor con tablero entero',
+    pros: ['4,5 de media en Amazon', 'Tablero entero de 160x80 incluido', 'Doble motor', 'Garantía de 5 años'],
+    contras: ['Carga máxima de 100 kg', 'Precio alto'],
+    veredicto: 'El premium más respaldado del catálogo, con cinco años de garantía que ningún otro modelo ofrece. Tablero entero de 160x80 incluido. Su límite es la carga: 100 kg, menor que la de los marcos MAIDeSITe.',
+    idealPara: 'Quieres una mesa grande de marca conocida y con respaldo de garantía.',
+    noEsPara: 'Necesitas más de 100 kg de carga.',
+    punt: [9.7, 9.8, 9.2, 9.3, 9.5],
+    define: 'Tablero entero de 160x80 y cinco años de garantía.',
+  },
+  {
+    slug: 'maidesite-t2-pro-max', asin: 'B0DG2VTCXS', marca: 'MAIDeSITe', modelo: 'T2 Pro MAX', nombre: 'MAIDeSITe T2 Pro MAX',
+    titular: 'T2 Pro MAX: el marco más capaz del catálogo',
+    nota: 9.4, rating: 4.5, motor: 'doble', velocidad: 3.8, carga: 160, alturaMin: 65, alturaMax: 135,
+    ruido: 45, memorias: 4, anticolision: true, pesoEstructura: 30, garantia: 3,
+    tablero: false, ancho: 0, profundidad: 0, materialTablero: null,
+    img: 'https://m.media-amazon.com/images/I/71Ag6vbsdyL._AC_SL1500_.jpg',
+    alt: 'MAIDeSITe T2 Pro MAX marco de escritorio elevable doble motor 160 kg',
+    pros: ['Doble motor potente', 'Carga de 160 kg', 'Control Piano-Master', 'Rango de 135 cm de ajuste'],
+    contras: ['No incluye tablero', 'Pocas reseñas aún'],
+    veredicto: 'El marco más capaz del catálogo: 160 kg de carga y un recorrido de 65 a 135 cm que no tiene ningún otro modelo. No incluye tablero, así que suma ese coste aparte, pero a cambio te deja elegir medidas y acabado.',
+    idealPara: 'Ya tienes tablero o quieres montar uno a medida y necesitas máxima carga.',
+    noEsPara: 'Quieres una mesa lista para usar: aquí el tablero va aparte.',
+    punt: [9.8, 9.9, 8.8, 9, 9.7],
+    define: 'El marco más capaz: 160 kg y recorrido de 65 a 135 cm.',
+  },
+  {
+    slug: 'maidesite-s2-pro', asin: 'B09TQR3MMM', marca: 'MAIDeSITe', modelo: 'S2 Pro', nombre: 'MAIDeSITe S2 Pro',
+    titular: 'S2 Pro: doble motor con tablero de 140x70 incluido',
+    nota: 9.3, rating: 4.6, motor: 'doble', velocidad: 3.5, carga: 120, alturaMin: 72, alturaMax: 120,
+    ruido: 45, memorias: 4, anticolision: true, pesoEstructura: 35, garantia: 3,
+    tablero: true, ancho: 140, profundidad: 70, materialTablero: null,
+    img: 'https://m.media-amazon.com/images/I/61gOA14txtL._AC_SL1500_.jpg',
+    alt: 'MAIDeSITe S2 Pro escritorio elevable 140x70 doble motor con tablero',
+    pros: ['Incluye tablero de 140x70', 'Doble motor silencioso', 'Muy estable', 'Acabado premium'],
+    contras: ['Precio alto', 'Pocas reseñas'],
+    veredicto: 'Doble motor con tablero de 140x70 incluido y acabado por encima de la media del catálogo. Es de los más caros, así que pagas por construcción, no por popularidad.',
+    idealPara: 'Quieres un escritorio grande y silencioso para trabajar muchas horas de pie.',
+    noEsPara: 'Buscas el modelo más probado del catálogo.',
+    punt: [9.6, 9.7, 9, 8.8, 9.5],
+    define: 'Doble motor silencioso con tablero de 140x70 incluido.',
+  },
+  {
+    slug: 'sanodesk-140', asin: 'B0CDLBJ1VW', marca: 'SANODESK', modelo: '140x60', nombre: 'SANODESK 140x60',
+    titular: '140x60: calidad Flexispot bajo marca SANODESK',
+    nota: 9.2, rating: 4.6, motor: 'simple', velocidad: 2.5, carga: 80, alturaMin: 72, alturaMax: 120,
+    ruido: 48, memorias: 4, anticolision: true, pesoEstructura: 24, garantia: 3,
+    tablero: true, ancho: 140, profundidad: 60, materialTablero: 'melamina',
+    img: 'https://m.media-amazon.com/images/I/81qzWx+EY1L._AC_SL1500_.jpg',
+    alt: 'SANODESK escritorio elevable eléctrico 140x60',
+    pros: ['4,6 estrellas en Amazon: de los mejor valorados', 'Tablero de 140x60: tamaño versátil', 'SANODESK es submarca de Flexispot: calidad garantizada', 'Anticolisión y 4 memorias incluidas'],
+    contras: ['El más caro de los de motor simple', 'Solo 60 cm de profundidad', 'Motor simple estándar'],
+    veredicto: 'Calidad Flexispot bajo marca SANODESK. El mejor valorado con 4,6 estrellas, pero precio algo alto para lo que ofrece.',
+    idealPara: 'Quieres calidad Flexispot sin pagar precio premium.',
+    noEsPara: 'Necesitas 70 cm de profundidad o doble motor.',
+    punt: [8.9, 8.9, 8.9, 7.9, 7.9],
+    define: 'Calidad Flexispot bajo marca SANODESK.',
+  },
+  {
+    slug: 'songmics-160', asin: 'B0CV4V22XL', marca: 'SONGMICS', modelo: '160x70', nombre: 'SONGMICS 160x70',
+    titular: '160x70: el escritorio más valorado en Amazon',
+    nota: 9.1, rating: 4.5, motor: 'simple', velocidad: 2.5, carga: 80, alturaMin: 72, alturaMax: 120,
+    ruido: 50, memorias: 4, anticolision: true, pesoEstructura: 27, garantia: 3,
+    tablero: true, ancho: 160, profundidad: 70, materialTablero: 'melamina',
+    img: 'https://m.media-amazon.com/images/I/718P+bB13yL._AC_SL1500_.jpg',
+    alt: 'SONGMICS escritorio elevable eléctrico 160x70 grande',
+    pros: ['El más valorado del catálogo, con 4,5 estrellas', 'Tablero grande de 160x70 cm: espacio de sobra', '80 kg de carga con anticolisión y 4 memorias', 'Marca SONGMICS de confianza'],
+    contras: ['Motor simple: velocidad estándar', 'Pesado (~27 kg): montar entre dos recomendado', 'Garantía de solo 3 años'],
+    veredicto: 'El escritorio elevable con más opiniones positivas en Amazon. Tablero generoso de 160x70 cm.',
+    idealPara: 'Quieres el escritorio más probado y valorado, con tablero grande.',
+    noEsPara: 'Quieres doble motor o una garantía de más de tres años.',
+    punt: [8.9, 7.9, 7.9, 9.9, 7.9],
+    define: 'El más valorado del catálogo, con tablero de 160x70.',
+  },
+  {
+    slug: 'devoko-160', asin: 'B0CKVPZ93G', marca: 'Devoko', modelo: '160x70', nombre: 'Devoko 160x70',
+    titular: '160x70: alternativa al SONGMICS con acabados premium',
+    nota: 8.9, rating: 4.5, motor: 'simple', velocidad: 2.5, carga: 80, alturaMin: 72, alturaMax: 120,
+    ruido: 48, memorias: 4, anticolision: true, pesoEstructura: 28, garantia: 3,
+    tablero: true, ancho: 160, profundidad: 70, materialTablero: 'melamina',
+    img: 'https://m.media-amazon.com/images/I/613fuLdBdfL._AC_SL1500_.jpg',
+    alt: 'Devoko escritorio elevable eléctrico 160x70 grande',
+    pros: ['Tablero generoso de 160x70 cm con buenos acabados', 'Anticolisión y 4 memorias de altura', '80 kg de carga: dual monitor sin problema', '4,5 estrellas en Amazon'],
+    contras: ['Precio algo superior al SONGMICS 160x70', 'Motor simple estándar', 'Pesado (~28 kg): necesita ayuda para montar'],
+    veredicto: 'Alternativa al SONGMICS con acabados premium. Buen escritorio grande si los remates te importan más que la popularidad.',
+    idealPara: 'Buscas un escritorio de 160 cm con acabados superiores.',
+    noEsPara: 'Vas a montarla solo: pesa unos 28 kg.',
+    punt: [8.9, 7.9, 7.9, 8.9, 7.9],
+    define: 'Tablero generoso de 160x70 con buenos acabados.',
+  },
+  {
+    slug: 'ergear-120', asin: 'B0D9MGDDHD', marca: 'ErGear', modelo: '120x60', nombre: 'ErGear 120x60',
+    titular: '120x60: la mejor relación calidad-precio de la gama baja',
+    nota: 8.8, rating: 4.6, motor: 'simple', velocidad: 2.5, carga: 70, alturaMin: 72, alturaMax: 120,
+    ruido: 48, memorias: 4, anticolision: true, pesoEstructura: 20, garantia: 3,
+    tablero: true, ancho: 120, profundidad: 60, materialTablero: 'melamina',
+    img: 'https://m.media-amazon.com/images/I/61SNKDt4pcL._AC_SL1500_.jpg',
+    alt: 'ErGear escritorio elevable eléctrico 120x60 barato',
+    pros: ['Mejor valorado en Amazon, con 4,6 estrellas', 'Anticolisión y 4 presets de memoria', 'Tablero 120x60: cabe monitor + portátil', '70 kg de carga: soporta un setup completo'],
+    contras: ['Motor simple: velocidad estándar de 2,5 cm/s', 'Tablero de melamina básico', 'Rango de altura limitado (72-120 cm)'],
+    veredicto: 'La mejor relación calidad-precio en escritorios elevables baratos.',
+    idealPara: 'Buscas el mejor escritorio elevable barato con buenas prestaciones.',
+    noEsPara: 'Necesitas subir más de 120 cm o un tablero mejor que la melamina.',
+    punt: [7.9, 7.9, 8.9, 10, 7.9],
+    define: 'Anticolisión y cuatro memorias en la gama de entrada.',
+  },
+  {
+    slug: 'vasagle-160', asin: 'B0CF29CLCP', marca: 'VASAGLE', modelo: '160x60', nombre: 'VASAGLE 160x60',
+    titular: '160x60: el tablero grande más asequible',
+    nota: 8.7, rating: 4.5, motor: 'simple', velocidad: 2.5, carga: 80, alturaMin: 72, alturaMax: 120,
+    ruido: 50, memorias: 4, anticolision: true, pesoEstructura: 25, garantia: 3,
+    tablero: true, ancho: 160, profundidad: 60, materialTablero: 'melamina',
+    img: 'https://m.media-amazon.com/images/I/71D8t7gq6LL._AC_SL1500_.jpg',
+    alt: 'VASAGLE escritorio elevable eléctrico 160x60 grande barato',
+    pros: ['Tablero enorme de 160x60', '4,5 estrellas en Amazon', '80 kg de carga: soporta dual monitor + accesorios', 'Anticolisión y 4 memorias de altura'],
+    contras: ['Motor simple: algo lento', 'Pesado (~25 kg): mejor montar entre dos', 'Profundidad de 60 cm puede quedar justa'],
+    veredicto: 'El escritorio elevable grande más asequible del catálogo: 160 cm de tablero en la gama de entrada.',
+    idealPara: 'Necesitas un tablero grande sin gastar mucho.',
+    noEsPara: 'Necesitas 70 cm de profundidad o vas a montarla solo.',
+    punt: [7.9, 6.9, 7.9, 10, 7.9],
+    define: 'El tablero grande más asequible del catálogo.',
+  },
+  {
+    slug: 'devoko-120', asin: 'B0CKVPFSTD', marca: 'Devoko', modelo: '120x60', nombre: 'Devoko 120x60',
+    titular: '120x60: alternativa sólida al ErGear con buenos acabados',
+    nota: 8.7, rating: 4.5, motor: 'simple', velocidad: 2.5, carga: 70, alturaMin: 72, alturaMax: 120,
+    ruido: 48, memorias: 4, anticolision: true, pesoEstructura: 21, garantia: 3,
+    tablero: true, ancho: 120, profundidad: 60, materialTablero: 'melamina',
+    img: 'https://m.media-amazon.com/images/I/61SNKDt4pcL._AC_SL1500_.jpg',
+    alt: 'Devoko escritorio elevable eléctrico 120x60',
+    pros: ['Acabados superiores a la media en su rango', 'Anticolisión y 4 memorias incluidas', '4,5 estrellas: buena reputación', '70 kg de carga: setup completo'],
+    contras: ['Precio algo superior al ErGear por prestaciones similares', 'Motor simple estándar', 'Tablero de 120x60: justo para dual monitor'],
+    veredicto: 'Alternativa sólida al ErGear con buenos acabados. Buena opción si buscas algo más robusto en la misma medida.',
+    idealPara: 'Quieres un escritorio de 120 cm con buenos acabados.',
+    noEsPara: 'Buscas el máximo por tu dinero: el ErGear da lo mismo por menos.',
+    punt: [7.9, 7.9, 8.9, 8.9, 7.9],
+    define: 'Acabados por encima de la media en su rango.',
+  },
+  {
+    slug: 'fezibo-120', asin: 'B0DZCV1MVF', marca: 'FEZIBO', modelo: '120x60', nombre: 'FEZIBO 120x60',
+    titular: '120x60: opción fiable de marca reconocida',
+    nota: 8.5, rating: 4.5, motor: 'simple', velocidad: 2.5, carga: 70, alturaMin: 72, alturaMax: 120,
+    ruido: 48, memorias: 4, anticolision: true, pesoEstructura: 20, garantia: 3,
+    tablero: true, ancho: 120, profundidad: 60, materialTablero: 'melamina',
+    img: 'https://m.media-amazon.com/images/I/71riXt3ntsL._AC_SL1500_.jpg',
+    alt: 'FEZIBO escritorio elevable eléctrico 120x60',
+    pros: ['Marca FEZIBO reconocida en escritorios elevables', 'Anticolisión y 4 memorias de altura', 'Estructura estable y bien acabada', '4,5 estrellas en Amazon'],
+    contras: ['Precio algo elevado para motor simple de 120 cm', 'Menos reseñas que la competencia directa', 'Sin extras destacables sobre el ErGear'],
+    veredicto: 'Opción fiable de marca reconocida. Buenos acabados, pero precio algo alto para sus prestaciones.',
+    idealPara: 'Eres de FEZIBO y buscas un 120 cm con buenas prestaciones.',
+    noEsPara: 'Comparas prestaciones: el ErGear ofrece lo mismo por menos.',
+    punt: [7.9, 7.9, 8.9, 7.9, 7.9],
+    define: 'Estructura estable y bien acabada, de marca reconocida.',
+  },
+  {
+    slug: 'vasagle-100', asin: 'B0FSQ8W2C1', marca: 'VASAGLE', modelo: '100x60', nombre: 'VASAGLE 100x60',
+    titular: '100x60: la opción más económica del mercado',
+    nota: 8.1, rating: 4.4, motor: 'simple', velocidad: 2.5, carga: 50, alturaMin: 72, alturaMax: 120,
+    ruido: 50, memorias: 3, anticolision: false, pesoEstructura: 18, garantia: 3,
+    tablero: true, ancho: 100, profundidad: 60, materialTablero: 'melamina',
+    img: 'https://m.media-amazon.com/images/I/71AyU88o8xL._AC_SL1500_.jpg',
+    alt: 'VASAGLE escritorio elevable eléctrico 100x60 barato',
+    pros: ['El escritorio elevable más barato del catálogo', 'Marca VASAGLE conocida y fiable', 'Compacto 100x60: ideal para espacios pequeños', 'Montaje sencillo en 20-30 minutos'],
+    contras: ['Tablero pequeño: justo para un monitor', 'Pocas reseñas todavía', 'Sin sistema anticolisión'],
+    veredicto: 'La opción más económica del mercado. Ideal para quien quiere probar un escritorio elevable sin gastar mucho.',
+    idealPara: 'Tienes el presupuesto ajustado y poco espacio.',
+    noEsPara: 'Necesitas más de un monitor encima o quieres anticolisión.',
+    punt: [6.9, 6.9, 9.9, 9.9, 5.9],
+    define: 'Compacto 100x60, ideal para espacios pequeños.',
+  },
+];
+
+const CRITERIOS = ['Calidad de construcción', 'Estabilidad', 'Facilidad de montaje', 'Relación calidad-precio', 'Funcionalidades'];
+const link = (asin) => `https://www.amazon.es/dp/${asin}?tag=${TAG}&linkCode=ogi&th=1&psc=1`;
+
+class Component extends DCLogic {
+  state = { slug: null, wide: true };
+
+  raiz = React.createRef();
+
+  medir = () => {
+    const el = this.raiz.current;
+    const ancho = (el && el.clientWidth) || window.innerWidth || 1180;
+    const wide = ancho >= 700;
+    if (wide !== this.state.wide) this.setState({ wide });
+  };
+
+  componentDidMount() {
+    this.medir();
+    const el = this.raiz.current;
+    if (el && typeof ResizeObserver !== 'undefined') {
+      this.ro = new ResizeObserver(this.medir);
+      this.ro.observe(el);
+    }
+    window.addEventListener('resize', this.medir);
+  }
+
+  componentWillUnmount() {
+    if (this.ro) this.ro.disconnect();
+    window.removeEventListener('resize', this.medir);
+  }
+
+  // Tres salidas de la misma categoría que el modelo que estás viendo: el
+  // escalón siguiente, el cambio de tamaño y el cambio de motor. Quien lee la
+  // VASAGLE de 100 cm no está comparando marcos de 160 kg. MODELOS ya viene
+  // ordenado por nota, así que el primero de cada filtro es el de mejor nota.
+  alternativas(actual) {
+    const resto = MODELOS.filter((p) => p.slug !== actual.slug);
+    const mejor = (fn) => resto.filter(fn)[0];
+    const cercanoArriba = (fn) => {
+      const l = resto.filter(fn);
+      return l[l.length - 1];
+    };
+    const anchoJusto = (mayor) => {
+      const l = resto.filter((p) => p.tablero && (mayor ? p.ancho > actual.ancho : p.ancho < actual.ancho));
+      if (!l.length) return undefined;
+      const objetivo = mayor
+        ? Math.min(...l.map((p) => p.ancho))
+        : Math.max(...l.map((p) => p.ancho));
+      return l.filter((p) => p.ancho === objetivo)[0];
+    };
+
+    const candidatos = [];
+    if (actual.tablero) {
+      candidatos.push(
+        [cercanoArriba((p) => p.tablero && p.nota > actual.nota), 'El siguiente escalón'],
+        [anchoJusto(true), 'Si quieres un tablero más grande'],
+        [anchoJusto(false), 'Si te vale uno más compacto'],
+        actual.motor === 'simple'
+          ? [mejor((p) => p.tablero && p.motor === 'doble'), 'Si quieres doble motor']
+          : [mejor((p) => p.tablero && p.motor === 'simple'), 'Si te sobra con motor simple'],
+        [mejor((p) => !p.tablero), 'Si prefieres elegir tu tablero'],
+      );
+    } else {
+      candidatos.push(
+        [mejor((p) => p.tablero), 'Si quieres tablero incluido'],
+        [mejor((p) => p.carga > actual.carga), 'Si necesitas más carga'],
+        [mejor((p) => !p.tablero), 'El otro marco del catálogo'],
+        [mejor((p) => p.tablero && p.motor === 'simple'), 'Si te sobra con motor simple'],
+      );
+    }
+    // Relleno: primero de la misma categoría de tablero, luego cualquiera.
+    candidatos.push(
+      ...resto.filter((p) => p.tablero === actual.tablero).map((p) => [p, actual.tablero ? 'También con tablero incluido' : 'También sin tablero']),
+      ...resto.map((p) => [p, 'También en el top del catálogo']),
+    );
+
+    const elegidas = [];
+    for (const [p, porque] of candidatos) {
+      if (elegidas.length === 3) break;
+      if (p && !elegidas.some((e) => e.slug === p.slug)) elegidas.push({ ...p, porque });
+    }
+
+    return elegidas.map((p) => ({
+      nombre: p.nombre,
+      nota: fmt(p.nota),
+      define: p.define,
+      img: p.img,
+      alt: p.alt,
+      porque: p.porque,
+      href: link(p.asin),
+    }));
+  }
+
+  renderVals() {
+    const slug = this.state.slug || this.props.modelo || 'flexispot-e7';
+    const i = Math.max(0, MODELOS.findIndex((p) => p.slug === slug));
+    const p = MODELOS[i];
+
+    const motorTxt = p.motor === 'doble' ? 'Doble' : 'Simple';
+    const tableroTxt = p.tablero ? `${p.ancho}x${p.profundidad} cm` : 'No incluido';
+
+    const standfirst = p.tablero
+      ? `${motorTxt === 'Doble' ? 'Doble motor' : 'Motor simple'}, ${p.carga} kg de carga y ${p.garantia} años de garantía. Tablero de ${p.ancho}x${p.profundidad} cm incluido.`
+      : `${motorTxt === 'Doble' ? 'Doble motor' : 'Motor simple'}, ${p.carga} kg de carga y ${p.garantia} años de garantía. No incluye tablero: eliges tú las medidas, el grosor y el acabado.`;
+
+    return {
+      raiz: this.raiz,
+      narrow: !this.state.wide,
+      mostrarDesglose: this.props.mostrarDesglose ?? true,
+      mostrarAlternativas: this.props.mostrarAlternativas ?? true,
+      pestanas: MODELOS.map((o) => ({
+        label: o.nombre,
+        onClick: () => this.setState({ slug: o.slug }),
+        bg: o.slug === p.slug ? VERDE : 'transparent',
+        fg: o.slug === p.slug ? CREMA : VERDE,
+      })),
+      m: {
+        nombre: p.nombre,
+        marca: p.marca,
+        titular: p.titular,
+        standfirst,
+        puesto: `Nº ${i + 1} de 12`,
+        nota: fmt(p.nota),
+        rating: fmt(p.rating),
+        img: p.img,
+        alt: p.alt,
+        href: link(p.asin),
+        pros: p.pros,
+        contras: p.contras,
+        veredicto: p.veredicto,
+        idealPara: p.idealPara,
+        noEsPara: p.noEsPara,
+        fichaA: [
+          { k: 'Motor', v: motorTxt },
+          { k: 'Velocidad', v: `${fmt(p.velocidad)} cm/s` },
+          { k: 'Carga máxima', v: `${p.carga} kg` },
+          { k: 'Recorrido', v: `${p.alturaMin}–${p.alturaMax} cm` },
+          { k: 'Ruido', v: `${p.ruido} dB` },
+        ],
+        fichaB: [
+          { k: 'Memorias', v: `${p.memorias} alturas` },
+          { k: 'Anticolisión', v: p.anticolision ? 'Sí' : 'No' },
+          { k: 'Peso estructura', v: `${p.pesoEstructura} kg` },
+          { k: 'Tablero', v: tableroTxt },
+          { k: 'Garantía', v: `${p.garantia} años` },
+        ],
+        desglose: p.punt.map((valor, j) => ({
+          nombre: CRITERIOS[j],
+          valor: fmt(valor),
+          pct: `${valor * 10}%`,
+        })),
+        tituloAlternativas: `Si el ${p.nombre} no te encaja`,
+        alternativas: this.alternativas(p),
+        cierreTitulo: i === 0 ? 'Nuestra recomendación de 2026' : `Nº ${i + 1} de los 12 analizados`,
+        cierre: i === 0
+          ? 'Nota 9,7 sobre 10, la más alta del catálogo. Si no te importa comprar el tablero aparte, es la compra.'
+          : `Nota ${fmt(p.nota)} sobre 10. ${p.idealPara}`,
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,6 +1,10 @@
 import Link from "next/link";
+import { getAllProducts } from "@/lib/products";
+import { firmaMetodologia } from "@/lib/metodologia";
 
 export function Footer() {
+  const total = getAllProducts().length;
+
   return (
     <footer className="footer-editorial">
       {/* Thin editorial rule at top */}
@@ -19,9 +23,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'rgba(255,255,255,0.55)' }}>
-              Análisis de escritorios elevables a partir de especificaciones
-              de fabricante y valoraciones de Amazon. No probamos los productos
-              fisicamente y lo contamos abierto en la metodologia.
+              {firmaMetodologia(total)}
             </p>
 
           </div>
@@ -34,6 +36,8 @@ export function Footer() {
                 { label: "Escritorios baratos", href: "/escritorio-elevable-barato" },
                 { label: "Flexispot E7 review", href: "/flexispot-e7-opiniones" },
                 { label: "Flexispot vs Maidesite", href: "/flexispot-vs-maidesite" },
+                { label: "MAIDeSITe T2 Pro MAX review", href: "/maidesite-t2-pro-opiniones" },
+                { label: "Fezibo review", href: "/fezibo-opiniones" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.65)' }}>
@@ -50,7 +54,7 @@ export function Footer() {
               {[
                 { label: "Comparador", href: "/comparador" },
                 { label: "Calculadora de altura", href: "/calculadora-altura" },
-                { label: "Que escritorio comprar", href: "/que-escritorio-elevable-comprar" },
+                { label: "Qué escritorio comprar", href: "/que-escritorio-elevable-comprar" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.65)' }}>
@@ -63,7 +67,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               <li>
                 <Link href="/metodologia" className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                  Metodologia
+                  Metodología
                 </Link>
               </li>
               <li>
@@ -80,9 +84,8 @@ export function Footer() {
 
         <div className="pt-8">
           <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
-            Participamos en el Programa de Afiliados de Amazon EU. Los enlaces a Amazon generan
-            una comision sin coste adicional para ti. Nuestras recomendaciones son independientes.
-            Precios orientativos — consulta Amazon para el precio final.
+            Participamos en el Programa de Afiliados de Amazon EU. La declaración
+            completa va bajo cada enlace.
           </p>
         </div>
       </div>

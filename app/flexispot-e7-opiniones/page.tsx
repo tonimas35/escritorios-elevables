@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getProductBySlug, getAllProducts } from "@/lib/products";
+import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
+import { AvisoAfiliado, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
 import { productSchema } from "@/lib/schema";
-import { priceBand, reviewsAprox } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Flexispot E7 opiniones y review 2026 — Merece la pena?",
@@ -41,11 +42,11 @@ export default function FlexispotE7ReviewPage() {
   const faqItems = [
     {
       q: "Merece la pena el Flexispot E7 en 2026?",
-      a: "Si. No ha aparecido nada que lo supere en su combinacion de estabilidad, motor y garantía. Compradores con 3-4 años de uso reportan cero problemas. Es ademas el modelo con mas valoraciones y mejor nota media del catalogo, y el unico junto al FLEXISPOT de 160x80 con cinco años de garantia.",
+      a: "Si. No ha aparecido nada que lo supere en su combinación de estabilidad, motor y garantía. Compradores con 3-4 años de uso reportan cero problemas. Es además el modelo con más valoraciones y mejor nota media del catálogo, y el único junto al FLEXISPOT de 160x80 con cinco años de garantía.",
     },
     {
       q: "El marco Flexispot merece la pena sin tablero?",
-      a: "El Pro anade tablero de bambu, 150 kg de carga y motor un poco más rápido por unos 70 EUR extra. Si tu setup es pesado (dos monitores con brazos) o quieres el mejor acabado, lo justifica. Para monitor + portatil, el E7 normal va sobrado.",
+      a: "El Pro añade tablero de bambú, 150 kg de carga y un motor un poco más rápido, con el sobrecoste que eso supone. Si tu setup es pesado (dos monitores con brazos) o quieres el mejor acabado, lo justifica. Para monitor + portátil, el E7 normal va sobrado.",
     },
     {
       q: "Se puede montar el Flexispot E7 solo?",
@@ -53,7 +54,7 @@ export default function FlexispotE7ReviewPage() {
     },
     {
       q: "Cuanto tarda en subir y bajar el E7?",
-      a: "Recorrido completo: 17 segundos. En la práctica, de sentado a de pie son 10-11 segundos. Con las 4 memorias, pulsas un boton y te olvidas.",
+      a: "Recorrido completo: 17 segundos. En la práctica, de sentado a de pie son 10-11 segundos. Con las 4 memorias, pulsas un botón y te olvidas.",
     },
     {
       q: "El E7 hace ruido en videollamadas?",
@@ -109,26 +110,22 @@ export default function FlexispotE7ReviewPage() {
 
           {/* Product info */}
           <div className="flex-1">
-            <p className="editorial-mark mb-2" style={{ color: 'var(--color-secondary)' }}>Review completa &middot; Marzo 2026</p>
+            <p className="editorial-mark mb-2" style={{ color: 'var(--color-secondary)' }}>Review completa &middot; {FECHA}</p>
             <h1 className="text-3xl md:text-4xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
               {product.nombre}
             </h1>
             <p className="text-sm mt-4" style={{ color: 'var(--text-muted)' }}>
-              Actualizado: septiembre 2026 · {reviewsAprox(product.num_reviews)} opiniones analizadas
+              Actualizado: {FECHA_EN_FRASE}
             </p>
 
             <div className="flex items-center gap-4 mt-4">
-              <span className="mono text-3xl font-bold">{priceBand(product.precio)}</span>
-              {product.precio_habitual && (
-                <span className="mono text-lg line-through" style={{ color: 'var(--text-muted)' }}>{product.precio_habitual}€</span>
-              )}
               <span className="mono font-bold text-sm px-2 py-1 rounded text-white" style={{ background: 'var(--color-secondary)' }}>
                 {product.puntuacion.total}/10
               </span>
             </div>
 
             <div className="flex items-center gap-2 mt-2">
-              <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{product.rating}★ en Amazon · {reviewsAprox(product.num_reviews)} opiniones</span>
+              <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{product.rating}★ en Amazon</span>
             </div>
 
             <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -136,11 +133,12 @@ export default function FlexispotE7ReviewPage() {
             </p>
 
             <div className="mt-4">
-              <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
+              <AffiliateButton asin={asin} size="lg" />
+              <AvisoAfiliado />
             </div>
 
             <p className="mt-2 text-xs" style={{ color: 'var(--text-muted)' }}>
-              Enlace de afiliado. Si compras a traves de el, recibimos una comision sin coste para ti.
+              Enlace de afiliado. Si compras a traves de el, recibimos una comisión sin coste para ti.
             </p>
           </div>
         </div>
@@ -174,7 +172,7 @@ export default function FlexispotE7ReviewPage() {
               { label: "Ruido", value: `${product.specs.ruido_db} dB`, detail: "Silencioso" },
               { label: "Garantía", value: `${product.specs.garantia_anos} años`, detail: "Flexispot oficial" },
               { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rápido" },
-              { label: "Anticolision", value: product.specs.sistema_anticolision ? "Si" : "No", detail: "Proteccion activa" },
+              { label: "Anticolision", value: product.specs.sistema_anticolision ? "Si" : "No", detail: "Protección activa" },
             ].map((spec, si) => (
               <FadeIn key={spec.label} delay={si * 40}>
                 <div className="p-4 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
@@ -211,12 +209,12 @@ export default function FlexispotE7ReviewPage() {
         </FadeIn>
 
         {[
-          { title: "Motor y rendimiento", text: "Doble motor LoctekMotion (fabricado por Flexispot, no comprado a terceros). A 3.8 cm/s, pasar de sentado a de pie tarda 10-11 segundos. Los 45 dB de ruido son un zumbido grave, no un chirrido. En videollamada, la otra persona no lo percibe. En una grabacion en silencio, el micro si lo captaria." },
-          { title: "Estabilidad (aquí es donde gana)", text: "La razon principal para comprar el E7. Tres secciones telescópicas (los baratos tienen dos) y base ancha y pesada. A máxima altura (123 cm), el movimiento lateral al escribir es mínimo. Con un barato de 150 EUR, la pantalla vibra y te cansa la vista al cabo de una hora. Con el E7, ese efecto desaparece. Es probablemente por lo que la gente que compra el E7 acaba usando más la posición de pie." },
-          { title: "Montaje: no es difícil, pero si pesado", text: "Instrucciones claras, herramientas incluidas, proceso sencillo. El problema es el peso: 32 kg de estructura. Con dos personas, 45 minutos tranquilos. Solo, hora y media y frustracion. Truco: pon el tablero boca abajo, atornilla la estructura encima, y entre dos levantais el conjunto montado." },
+          { title: "Motor y rendimiento", text: "Doble motor LoctekMotion (fabricado por Flexispot, no comprado a terceros). A 3.8 cm/s, pasar de sentado a de pie tarda 10-11 segundos. Los 45 dB de ruido son un zumbido grave, no un chirrido. En videollamada, la otra persona no lo percibe. En una grabación en silencio, el micro si lo captaría." },
+          { title: "Estabilidad (aquí es donde gana)", text: "La razón principal para comprar el E7. Tres secciones telescópicas (los baratos tienen dos) y base ancha y pesada. A máxima altura (123 cm), el movimiento lateral al escribir es mínimo. Con un modelo de gama de entrada, la pantalla vibra y te cansa la vista al cabo de una hora. Con el E7, ese efecto desaparece. Es probablemente por lo que la gente que compra el E7 acaba usando más la posición de pie." },
+          { title: "Montaje: no es difícil, pero si pesado", text: "Instrucciones claras, herramientas incluidas, proceso sencillo. El problema es el peso: 32 kg de estructura. Con dos personas, 45 minutos tranquilos. Solo, hora y media y frustración. Truco: pon el tablero boca abajo, atornilla la estructura encima, y entre dos levantáis el conjunto montado." },
           { title: "¿Para quien SI es el E7?", text: "Teletrabajo a jornada completa, setup con monitor grande (o dos), personas altas (rango hasta 123 cm). En resumen: compras, montas, y te olvidas del tema escritorios durante años." },
-          { title: "¿Para quien NO es el E7?", text: "Si tu setup es solo un portatil, estas pagando de más — cualquier modelo de la franja de 100-150 € cumple de sobra. Si quieres probar lo de trabajar de pie, empieza barato y haz upgrade después." },
-          { title: "Que dicen los compradores en Amazon", text: "He leido unas 200 opiniones. Lo positivo que más se repite: estabilidad, silencio y durabilidad a largo plazo. Lo negativo: algún tablero marcado al llegar (Flexispot sustituye gratis), instrucciones de cableado algo confusas, y el peso que sorprende a quien espera un mueble tipo IKEA. Si sabes que es un escritorio motorizado de 32 kg, no es complicado." },
+          { title: "¿Para quien NO es el E7?", text: "Si tu setup es solo un portátil, estás pagando de más: cualquier modelo de la gama de entrada cumple de sobra. Si quieres probar lo de trabajar de pie, empieza barato y haz upgrade después." },
+          { title: "Que dicen los compradores en Amazon", text: "He leído las opiniones publicadas. Lo positivo que más se repite: estabilidad, silencio y durabilidad a largo plazo. Lo negativo: algún tablero marcado al llegar (Flexispot sustituye gratis), instrucciones de cableado algo confusas, y el peso que sorprende a quien espera un mueble tipo IKEA. Si sabes que es un escritorio motorizado de 32 kg, no es complicado." },
         ].map((section, si) => (
           <FadeIn key={section.title} delay={si * 60}>
             <div>
@@ -234,7 +232,7 @@ export default function FlexispotE7ReviewPage() {
       {/* Ratings */}
       <FadeIn>
         <section>
-          <h2 className="text-2xl mb-6 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>Puntuacion</h2>
+          <h2 className="text-2xl mb-6 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>Puntuación</h2>
           <div className="max-w-md">
             <CompactRatings puntuacion={product.puntuacion} />
           </div>
@@ -250,7 +248,8 @@ export default function FlexispotE7ReviewPage() {
             No es barato, pero la estabilidad, el motor y la garantía no tienen rival a este precio. Si buscas algo para años, es la apuesta segura.
           </p>
           <div className="mt-4 inline-block">
-            <AffiliateButton asin={asin} showPrice={product.precio} size="lg" />
+            <AffiliateButton asin={asin} size="lg" />
+            <AvisoAfiliado />
           </div>
         </div>
       </FadeIn>
@@ -273,7 +272,6 @@ export default function FlexispotE7ReviewPage() {
                   <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Modelo</th>
                   <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Motor</th>
                   <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Nota</th>
-                  <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Precio</th>
                   <th className="text-center p-3 rounded-tr" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}></th>
                 </tr>
               </thead>
@@ -282,7 +280,6 @@ export default function FlexispotE7ReviewPage() {
                   <td className="p-3 font-semibold">Flexispot E7 (este)</td>
                   <td className="p-3 text-center">Doble</td>
                   <td className="p-3 text-center mono font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
-                  <td className="p-3 text-center mono font-bold">{priceBand(product.precio)}</td>
                   <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
                 </tr>
                 {alternatives.map(([altAsin, alt]) => (
@@ -290,12 +287,12 @@ export default function FlexispotE7ReviewPage() {
                     <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
                     <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple'}</td>
                     <td className="p-3 text-center mono font-bold">{alt.puntuacion.total}</td>
-                    <td className="p-3 text-center mono font-bold">{priceBand(alt.precio)}</td>
                     <td className="p-3 text-center"><AffiliateButton asin={altAsin} size="sm" /></td>
                   </tr>
                 ))}
               </tbody>
             </table>
+              <AvisoAfiliadoTabla />
           </div>
         </section>
       </FadeIn>
@@ -311,10 +308,10 @@ export default function FlexispotE7ReviewPage() {
               <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Flexispot vs Maidesite: comparativa completa</Link> — ¿Vale la pena el E7 o el Maidesite T2 Pro es suficiente?
             </p>
             <p>
-              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Todos los modelos comparados, desde 120 hasta 550 euros.
+              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Los 12 modelos comparados, de la gama de entrada a la premium.
             </p>
             <p>
-              <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Escritorios elevables baratos</Link> — Si el marco Flexispot se te va de presupuesto, aquí hay opciones desde 120 EUR.
+              <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Escritorios elevables baratos</Link> — Si el marco Flexispot se te va de presupuesto, aquí está la gama de entrada.
             </p>
           </div>
         </section>

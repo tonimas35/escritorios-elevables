@@ -7,6 +7,8 @@ const eslintConfig = defineConfig([
   ...nextTs,
   // Override default ignores of eslint-config-next.
   globalIgnores([
+    // Referencia visual del rediseño: prototipos exportados, no código del proyecto.
+    "design-ref/**",
     // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
