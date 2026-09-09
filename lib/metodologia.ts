@@ -1,4 +1,12 @@
 /**
+ * Frase de firma. Va literal en todos los sitios donde aparece el autor,
+ * para que la web diga siempre lo mismo sobre como se hace el analisis.
+ */
+export function firmaMetodologia(total: number): string {
+  return `${total} modelos analizados a partir de las fichas de fabricante y las valoraciones de Amazon.`;
+}
+
+/**
  * Los cinco apartados con los que se puntua cada modelo.
  *
  * Vivian dentro de app/metodologia/page.tsx. Al necesitarlos tambien la

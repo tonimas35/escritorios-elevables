@@ -1,3 +1,5 @@
+import { firmaMetodologia } from "@/lib/metodologia";
+
 /**
  * Firma del autor: monograma tipografico, sin foto. La frase de
  * metodologia acompaña a la firma en todos los sitios donde aparece.
@@ -11,10 +13,7 @@ export function Firma({ total }: { total: number }) {
       <p style={{ fontSize: 15, lineHeight: 1.45 }}>
         Por <strong>Toni</strong>
         <br />
-        <span style={{ color: "var(--bs-neutro-700)" }}>
-          {total} modelos analizados a partir de las fichas de fabricante y las
-          valoraciones de Amazon.
-        </span>
+        <span style={{ color: "var(--bs-neutro-700)" }}>{firmaMetodologia(total)}</span>
       </p>
     </div>
   );

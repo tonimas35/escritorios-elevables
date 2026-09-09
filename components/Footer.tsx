@@ -1,6 +1,10 @@
 import Link from "next/link";
+import { getAllProducts } from "@/lib/products";
+import { firmaMetodologia } from "@/lib/metodologia";
 
 export function Footer() {
+  const total = getAllProducts().length;
+
   return (
     <footer className="footer-editorial">
       {/* Thin editorial rule at top */}
@@ -19,9 +23,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'rgba(255,255,255,0.55)' }}>
-              Análisis de escritorios elevables a partir de especificaciones
-              de fabricante y valoraciones de Amazon. No probamos los productos
-              fisicamente y lo contamos abierto en la metodologia.
+              {firmaMetodologia(total)}
             </p>
 
           </div>
