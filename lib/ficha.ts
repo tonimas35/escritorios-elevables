@@ -178,3 +178,76 @@ export function etiquetasSpec(p: Product): string[] {
 export function metaFila(p: Product): string {
   return [motorCorto(p), carga(p), recorrido(p), `${coma(p.rating)}★`].join(" · ");
 }
+
+export interface Duda {
+  pregunta: string;
+  parrafos: string[];
+}
+
+/**
+ * Las tres dudas de la seccion 5.
+ *
+ * Todas las cifras se calculan del catalogo, no se escriben a mano. El
+ * prototipo dice "los 70 kg del modelo con tablero mas modesto" y con los
+ * datos del repo son 50: preferimos que el texto siga al dato.
+ */
+export function dudas(catalogo: [string, Product][]): Duda[] {
+  const ps = catalogo.map(([, p]) => p);
+  const cargas = ps.map((p) => p.specs.peso_max_carga_kg);
+  const conTablero = ps.filter((p) => p.incluye_tablero);
+  const marcos = ps.filter((p) => !p.incluye_tablero);
+  const dobles = ps.filter((p) => p.specs.tipo_motor === "doble");
+  const simples = ps.filter((p) => p.specs.tipo_motor === "simple");
+
+  const rango = (xs: number[]) => {
+    const min = Math.min(...xs);
+    const max = Math.max(...xs);
+    return min === max ? coma(min) : `${coma(min)}–${coma(max)}`;
+  };
+  const ruidos = (g: Product[]) =>
+    g.map((p) => p.specs.ruido_db).filter((r): r is number => r !== null);
+
+  const cargaMinConTablero = Math.min(...conTablero.map((p) => p.specs.peso_max_carga_kg));
+  const cargasMarcos = marcos
+    .map((p) => p.specs.peso_max_carga_kg)
+    .sort((a, b) => a - b)
+    .map((c) => `${c}`)
+    .join(" y ");
+
+  // ¿Son los marcos los de mas carga y mas recorrido del catalogo?
+  const porCarga = [...ps].sort((a, b) => b.specs.peso_max_carga_kg - a.specs.peso_max_carga_kg);
+  const porRecorrido = [...ps].sort(
+    (a, b) =>
+      b.specs.rango_altura_max_cm - b.specs.rango_altura_min_cm -
+      (a.specs.rango_altura_max_cm - a.specs.rango_altura_min_cm)
+  );
+  const marcosArriba =
+    marcos.every((m) => porCarga.slice(0, marcos.length).includes(m)) &&
+    marcos.every((m) => porRecorrido.slice(0, marcos.length).includes(m));
+
+  const nombresMarcos = marcos.map((p) => `${p.marca} ${p.modelo}`).join(" y ");
+
+  return [
+    {
+      pregunta: "¿Cuánta carga necesito de verdad?",
+      parrafos: [
+        `En el catálogo la carga declarada va de ${Math.min(...cargas)} a ${Math.max(...cargas)} kg, y el dato incluye todo lo que apoyes encima —el tablero también, si el modelo es solo marco. Un monitor, un portátil y accesorios no se acercan a los ${cargaMinConTablero} kg del modelo con tablero más modesto de la lista.`,
+        `La carga solo decide de verdad en dos casos: tablero grueso a medida o dos monitores con brazo. Ahí es donde tienen sentido los ${cargasMarcos} kg de los marcos.`,
+      ],
+    },
+    {
+      pregunta: "¿Marco solo o con tablero?",
+      parrafos: [
+        `${conTablero.length} de los ${ps.length} modelos vienen con tablero. Los ${marcos.length} que no —${nombresMarcos}—${marcosArriba ? " son también los más capaces en carga y recorrido:" : ":"} pagas estructura y eliges tú medidas, grosor y acabado.`,
+        "El tablero aparte es un coste que no publicamos porque no lo controlamos: depende del tablero que elijas. Súmalo antes de comparar un marco con una mesa completa, o la comparación no es honesta.",
+      ],
+    },
+    {
+      pregunta: "¿Un motor o dos?",
+      parrafos: [
+        `Los ${dobles.length} modelos de doble motor del catálogo suben a ${rango(dobles.map((p) => p.specs.velocidad_cm_s))} cm/s, declaran ${rango(ruidos(dobles))} dB y aguantan entre ${Math.min(...dobles.map((p) => p.specs.peso_max_carga_kg))} y ${Math.max(...dobles.map((p) => p.specs.peso_max_carga_kg))} kg. Los de motor simple se quedan en ${rango(simples.map((p) => p.specs.velocidad_cm_s))} cm/s, ${rango(ruidos(simples))} dB y ${rango(simples.map((p) => p.specs.peso_max_carga_kg))} kg.`,
+        "Si la mesa va a subir y bajar varias veces al día, la diferencia se nota. Si vas a alternar entre dos alturas fijas, el motor simple cumple.",
+      ],
+    },
+  ];
+}

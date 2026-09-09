@@ -5,6 +5,7 @@ import { coma } from "@/lib/format";
 import {
   carga,
   caminos,
+  dudas,
   etiquetasSpec,
   fichaTecnica,
   metaFila,
@@ -35,6 +36,8 @@ export default function Home() {
   const tresCaminos = caminos(catalogo);
   const podio = catalogo.slice(1, 3);
   const prosTop = top.pros.filter(publicable).slice(0, 3);
+
+  const tresDudas = dudas(catalogo);
 
   const filas: FilaComparativa[] = catalogo.map(([asin, p]) => ({
     asin,
@@ -345,6 +348,50 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* ============================================================
+          Nº 05 · Antes de comprar
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 05 · Antes de comprar</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Las tres dudas de siempre
+          </h2>
+
+          <div
+            className="flex flex-col"
+            style={{ gap: "var(--bs-hueco-bloques)", marginTop: 36 }}
+          >
+            {tresDudas.map((duda) => (
+              <div
+                key={duda.pregunta}
+                className="flex flex-wrap"
+                style={{ gap: "clamp(12px, 3vw, 40px)" }}
+              >
+                <h3 className="bs-h3" style={{ flex: "1 1 260px" }}>
+                  {duda.pregunta}
+                </h3>
+                <div style={{ flex: "1 1 380px" }}>
+                  {duda.parrafos.map((parrafo, i) => (
+                    <p
+                      key={i}
+                      className="bs-cuerpo"
+                      style={{
+                        marginTop: i === 0 ? 0 : 14,
+                        color: i === 0 ? "var(--bs-tinta)" : "var(--bs-neutro-800)",
+                      }}
+                    >
+                      {parrafo}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
