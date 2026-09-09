@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
 import { coma } from "@/lib/format";
 import {
@@ -398,6 +399,13 @@ export default function Home() {
                       {parrafo}
                     </p>
                   ))}
+                  {duda.enlace && (
+                    <p className="bs-cuerpo" style={{ marginTop: 14, color: "var(--bs-neutro-800)" }}>
+                      {duda.enlace.previo}{" "}
+                      <Link href={duda.enlace.href}>{duda.enlace.texto}</Link>{" "}
+                      {duda.enlace.posterior}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}

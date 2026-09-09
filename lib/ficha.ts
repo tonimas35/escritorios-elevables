@@ -182,6 +182,8 @@ export function metaFila(p: Product): string {
 export interface Duda {
   pregunta: string;
   parrafos: string[];
+  /** Enlace contextual, cuando la respuesta lleva de forma natural a una herramienta. */
+  enlace?: { previo: string; texto: string; href: string; posterior: string };
 }
 
 /**
@@ -241,6 +243,12 @@ export function dudas(catalogo: [string, Product][]): Duda[] {
         `${conTablero.length} de los ${ps.length} modelos vienen con tablero. Los ${marcos.length} que no —${nombresMarcos}—${marcosArriba ? " son también los más capaces en carga y recorrido:" : ":"} pagas estructura y eliges tú medidas, grosor y acabado.`,
         "El tablero aparte es un coste que no publicamos porque no lo controlamos: depende del tablero que elijas. Súmalo antes de comparar un marco con una mesa completa, o la comparación no es honesta.",
       ],
+      enlace: {
+        previo: "El recorrido solo importa si cubre tu altura de trabajo:",
+        texto: "calcula la tuya",
+        href: "/calculadora-altura",
+        posterior: "y compárala con el rango de cada modelo.",
+      },
     },
     {
       pregunta: "¿Un motor o dos?",

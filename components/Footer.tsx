@@ -36,6 +36,8 @@ export function Footer() {
                 { label: "Escritorios baratos", href: "/escritorio-elevable-barato" },
                 { label: "Flexispot E7 review", href: "/flexispot-e7-opiniones" },
                 { label: "Flexispot vs Maidesite", href: "/flexispot-vs-maidesite" },
+                { label: "MAIDeSITe T2 Pro MAX review", href: "/maidesite-t2-pro-opiniones" },
+                { label: "Fezibo review", href: "/fezibo-opiniones" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.65)' }}>
