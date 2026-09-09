@@ -94,7 +94,7 @@
 
 :root {
   /* Palette: Editorial Workshop — warm base + copper accent + forest green secondary */
-  --bg-primary: #faf8f6;
+  --bg-primary: var(--bs-papel);
   --bg-secondary: #f3f0ec;
   --bg-card: var(--bs-blanco);
   --bg-card-hover: #faf8f6;
@@ -999,6 +999,12 @@ input[type="range"]::-webkit-slider-thumb:hover {
    ---------------------------------------- */
 .bs-cifra {
   --bs-cifra-fondo: var(--bs-papel);
+  /* Contiene el mix-blend-mode de las planchas. Sin esto, la mezcla
+     promueve el documento entero a otra capa y Chromium cambia el
+     antialiasing del texto de TODA la pagina: la cabecera de la home se
+     rasterizaba distinta que la del resto del sitio. La construccion
+     pinta su propio fondo, asi que aislarla no la altera. */
+  isolation: isolate;
   position: relative;
   width: fit-content;
   line-height: 0.9;
@@ -1228,9 +1234,83 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: var(--bs-neutro-700);
 }
 
-/* La cabecera es pegajosa: sin esto, saltar a un ancla deja el titulo de la
-   seccion escondido detras de ella. Solo afecta al scroll, no a la maqueta. */
+/* Un poco de aire al saltar a un ancla, para que el titulo de la seccion no
+   quede pegado al borde. Solo afecta al scroll, no a la maqueta. */
 :target,
 [id]:not(html):not(body) {
-  scroll-margin-top: 72px;
+  scroll-margin-top: 24px;
+}
+
+/* ----------------------------------------
+   Cabecera Broadsheet
+   Sustituye a la barra pegajosa del sistema viejo. El riel se lee una vez
+   al principio; no persigue al lector.
+   ---------------------------------------- */
+.bs-cabecera {
+  background: var(--bs-papel);
+  color: var(--bs-tinta);
+  font-family: var(--bs-familia);
+  line-height: var(--bs-interlineado-base);
+}
+.bs-cabecera a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.bs-nav-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0 13px;
+  border-bottom: var(--bs-filete-fino);
+}
+.bs-nav {
+  display: none;
+  flex-wrap: wrap;
+  gap: clamp(14px, 2.2vw, 30px);
+}
+.bs-nav a {
+  font-size: var(--bs-etiqueta);
+  letter-spacing: var(--bs-track-etiqueta);
+  text-transform: uppercase;
+  color: var(--bs-tinta);
+}
+.bs-nav a:hover {
+  color: var(--bs-verde-botella);
+}
+.bs-nav a:focus-visible,
+.bs-menu-boton:focus-visible {
+  outline: 2px solid var(--bs-verde-botella);
+  outline-offset: 3px;
+}
+
+.bs-menu-boton {
+  font-family: var(--bs-familia);
+  font-size: var(--bs-etiqueta);
+  letter-spacing: var(--bs-track-etiqueta);
+  text-transform: uppercase;
+  color: var(--bs-verde-botella);
+  border: var(--bs-borde-etiqueta);
+  background: transparent;
+  padding: 7px 13px;
+  cursor: pointer;
+}
+.bs-menu-panel {
+  display: flex;
+  flex-direction: column;
+  border-top: var(--bs-filete-divisor);
+}
+.bs-menu-panel a {
+  padding: 11px 0;
+  border-bottom: var(--bs-filete-divisor);
+  font-size: 15px;
+}
+.bs-menu-panel a:hover {
+  color: var(--bs-verde-botella);
+}
+
+@media (min-width: 700px) {
+  .bs-nav { display: flex; }
+  .bs-menu { display: none; }
 }
