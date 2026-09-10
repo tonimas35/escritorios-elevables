@@ -238,8 +238,10 @@ h1, h2, h3 {
   color: var(--text-dark);
 }
 
+/* Peso 700: los H1 de las paginas interiores no compiten con el H1 del hero
+   de la home, que va a 600 dentro de .bs-pagina. */
 h1 {
-  font-weight: 900;
+  font-weight: 700;
 }
 h2 {
   font-weight: 700;
