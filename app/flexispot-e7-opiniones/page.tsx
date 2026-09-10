@@ -111,7 +111,7 @@ export default function FlexispotE7ReviewPage() {
           {/* Product info */}
           <div className="flex-1">
             <p className="editorial-mark mb-2" style={{ color: 'var(--color-secondary)' }}>Review completa &middot; {FECHA}</p>
-            <h1 className="text-3xl md:text-4xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+            <h1 className="text-3xl md:text-4xl mt-1 heading-accent" >
               {product.nombre}
             </h1>
             <p className="text-sm mt-4" style={{ color: 'var(--text-muted)' }}>
@@ -119,7 +119,7 @@ export default function FlexispotE7ReviewPage() {
             </p>
 
             <div className="flex items-center gap-4 mt-4">
-              <span className="mono font-bold text-sm px-2 py-1 rounded text-white" style={{ background: 'var(--color-secondary)' }}>
+              <span className="font-bold text-sm px-2 py-1 rounded text-white" style={{ background: 'var(--color-secondary)' }}>
                 {product.puntuacion.total}/10
               </span>
             </div>
@@ -158,7 +158,7 @@ export default function FlexispotE7ReviewPage() {
       {/* Specs grid */}
       <FadeIn>
         <section>
-          <h2 className="text-2xl mb-6 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-2xl mb-6 heading-accent" >
             Especificaciones tecnicas
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -177,7 +177,7 @@ export default function FlexispotE7ReviewPage() {
               <FadeIn key={spec.label} delay={si * 40}>
                 <div className="p-4 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
                   <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{spec.label}</p>
-                  <p className="mono text-lg font-bold mt-0.5">{spec.value}</p>
+                  <p className="text-lg font-bold mt-0.5">{spec.value}</p>
                   <p className="text-xs mt-0.5" style={{ color: 'var(--text-muted)' }}>{spec.detail}</p>
                 </div>
               </FadeIn>
@@ -191,7 +191,7 @@ export default function FlexispotE7ReviewPage() {
       {/* Pros and cons */}
       <FadeIn>
         <section>
-          <h2 className="text-2xl mb-6 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-2xl mb-6 heading-accent" >
             Pros y contras
           </h2>
           <ProsConsBox pros={product.pros} cons={product.contras} />
@@ -203,7 +203,7 @@ export default function FlexispotE7ReviewPage() {
       {/* Detailed review sections */}
       <section className="max-w-3xl space-y-8">
         <FadeIn>
-          <h2 className="text-2xl heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-2xl heading-accent" >
             Análisis detallado
           </h2>
         </FadeIn>
@@ -232,7 +232,7 @@ export default function FlexispotE7ReviewPage() {
       {/* Ratings */}
       <FadeIn>
         <section>
-          <h2 className="text-2xl mb-6 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>Puntuación</h2>
+          <h2 className="text-2xl mb-6 heading-accent" >Puntuación</h2>
           <div className="max-w-md">
             <CompactRatings puntuacion={product.puntuacion} />
           </div>
@@ -241,9 +241,9 @@ export default function FlexispotE7ReviewPage() {
 
       {/* CTA */}
       <FadeIn>
-        <div className="mt-10 p-6 rounded text-center noise-bg" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
+        <div className="mt-10 p-6 text-center" style={{ background: 'var(--bs-superficie)', borderLeft: '3px solid var(--bs-verde-botella)' }}>
           <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Veredicto</p>
-          <p className="text-xl mt-2" style={{ fontFamily: 'var(--font-display)' }}>{product.veredicto}</p>
+          <p className="text-xl mt-2" >{product.veredicto}</p>
           <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
             No es barato, pero la estabilidad, el motor y la garantía no tienen rival a este precio. Si buscas algo para años, es la apuesta segura.
           </p>
@@ -258,7 +258,7 @@ export default function FlexispotE7ReviewPage() {
       {/* Alternatives */}
       <FadeIn>
         <section>
-          <h2 className="text-2xl mb-4 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-2xl mb-4 heading-accent" >
             Alternativas al Flexispot E7
           </h2>
           <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
@@ -278,14 +278,14 @@ export default function FlexispotE7ReviewPage() {
                 <tr style={{ background: 'var(--accent-light)', borderBottom: '1px solid var(--border)' }}>
                   <td className="p-3 font-semibold">Flexispot E7 (este)</td>
                   <td className="p-3 text-center">Doble</td>
-                  <td className="p-3 text-center mono font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
+                  <td className="p-3 text-center font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
                   <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
                 </tr>
                 {alternatives.map(([altAsin, alt]) => (
                   <tr key={altAsin} className="hover:bg-[var(--accent-light)]" style={{ borderBottom: '1px solid var(--border)' }}>
                     <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
                     <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple'}</td>
-                    <td className="p-3 text-center mono font-bold">{alt.puntuacion.total}</td>
+                    <td className="p-3 text-center font-bold">{alt.puntuacion.total}</td>
                     <td className="p-3 text-center"><AffiliateButton asin={altAsin} size="sm" /></td>
                   </tr>
                 ))}
@@ -299,7 +299,7 @@ export default function FlexispotE7ReviewPage() {
       {/* Internal links */}
       <FadeIn>
         <section className="mt-10 max-w-3xl p-6 rounded" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--color-secondary)' }}>
-          <h3 className="text-lg font-semibold mb-3" style={{ fontFamily: 'var(--font-display)' }}>
+          <h3 className="text-lg font-semibold mb-3" >
             Sigue leyendo
           </h3>
           <div className="space-y-2 text-sm">
@@ -319,8 +319,8 @@ export default function FlexispotE7ReviewPage() {
       {/* FAQ */}
       <section className="mt-12 max-w-3xl">
         <FadeIn>
-          <div className="p-8 rounded-lg noise-bg" style={{ background: 'var(--bg-secondary)' }}>
-            <h2 className="text-2xl mb-2 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <div className="p-8" style={{ background: 'var(--bs-superficie)' }}>
+            <h2 className="text-2xl mb-2 heading-accent" >
               Preguntas frecuentes sobre el Flexispot E7
             </h2>
             <div className="mt-6">
