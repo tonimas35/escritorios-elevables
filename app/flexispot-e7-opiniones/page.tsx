@@ -11,7 +11,7 @@ import { FadeIn } from "@/components/FadeIn";
 import { productSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Flexispot E7 opiniones y review 2026 — Merece la pena?",
+  title: "Flexispot E7 opiniones y review 2026 — ¿Merece la pena?",
   description:
     "Review completa del Flexispot E7: el escritorio elevable más vendido. Analizamos motor, estabilidad, montaje y si merece la pena en 2026. Con opiniones reales.",
   alternates: { canonical: "/flexispot-e7-opiniones" },
@@ -41,27 +41,27 @@ export default function FlexispotE7ReviewPage() {
 
   const faqItems = [
     {
-      q: "Merece la pena el Flexispot E7 en 2026?",
-      a: "Si. No ha aparecido nada que lo supere en su combinación de estabilidad, motor y garantía. Compradores con 3-4 años de uso reportan cero problemas. Es además el modelo con más valoraciones y mejor nota media del catálogo, y el único junto al FLEXISPOT de 160x80 con cinco años de garantía.",
+      q: "¿Merece la pena el Flexispot E7 en 2026?",
+      a: "Sí. No ha aparecido nada que lo supere en su combinación de estabilidad, motor y garantía. Compradores con 3-4 años de uso reportan cero problemas. Es además el modelo con más valoraciones y mejor nota media del catálogo, y el único junto al FLEXISPOT de 160x80 con cinco años de garantía.",
     },
     {
-      q: "El marco Flexispot merece la pena sin tablero?",
+      q: "¿El marco Flexispot merece la pena sin tablero?",
       a: "El Pro añade tablero de bambú, 150 kg de carga y un motor un poco más rápido, con el sobrecoste que eso supone. Si tu setup es pesado (dos monitores con brazos) o quieres el mejor acabado, lo justifica. Para monitor + portátil, el E7 normal va sobrado.",
     },
     {
-      q: "Se puede montar el Flexispot E7 solo?",
+      q: "¿Se puede montar el Flexispot E7 solo?",
       a: "Se puede, pero no lo recomiendo. 32 kg de estructura y un momento critico al dar la vuelta al tablero. Con otra persona, 45 minutos. Solo, hora y media y alguna palabra mal sonante.",
     },
     {
-      q: "Cuanto tarda en subir y bajar el E7?",
+      q: "¿Cuánto tarda en subir y bajar el E7?",
       a: "Recorrido completo: 17 segundos. En la práctica, de sentado a de pie son 10-11 segundos. Con las 4 memorias, pulsas un botón y te olvidas.",
     },
     {
-      q: "El E7 hace ruido en videollamadas?",
+      q: "¿El E7 hace ruido en videollamadas?",
       a: "45 dB. En videollamada con Zoom o Teams, la otra persona no lo nota. Si grabas audio en silencio, el micro lo capta. Para uso normal, no molesta.",
     },
     {
-      q: "Que problemas tiene el Flexispot E7 según los compradores?",
+      q: "¿Qué problemas tiene el Flexispot E7 según los compradores?",
       a: "Lo que se repite: tablero con alguna marca al llegar (logistica, Flexispot sustituye gratis), instrucciones confusas en el paso de cableado, y algún controlador que se reinicia solo (se arregla recalibrando). No he encontrado quejas serias sobre motor o estructura fallando.",
     },
   ];
@@ -155,7 +155,7 @@ export default function FlexispotE7ReviewPage() {
       <FadeIn>
         <section>
           <h2 className="text-2xl mb-6 heading-accent" >
-            Especificaciones tecnicas
+            Especificaciones técnicas
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
@@ -168,7 +168,7 @@ export default function FlexispotE7ReviewPage() {
               { label: "Ruido", value: `${product.specs.ruido_db} dB`, detail: "Silencioso" },
               { label: "Garantía", value: `${product.specs.garantia_anos} años`, detail: "Flexispot oficial" },
               { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rápido" },
-              { label: "Anticolision", value: product.specs.sistema_anticolision ? "Si" : "No", detail: "Protección activa" },
+              { label: "Anticolisión", value: product.specs.sistema_anticolision ? "Sí" : "No", detail: "Protección activa" },
             ].map((spec, si) => (
               <FadeIn key={spec.label} delay={si * 40}>
                 <div className="p-4 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
@@ -205,12 +205,12 @@ export default function FlexispotE7ReviewPage() {
         </FadeIn>
 
         {[
-          { title: "Motor y rendimiento", text: "Doble motor LoctekMotion (fabricado por Flexispot, no comprado a terceros). A 3.8 cm/s, pasar de sentado a de pie tarda 10-11 segundos. Los 45 dB de ruido son un zumbido grave, no un chirrido. En videollamada, la otra persona no lo percibe. En una grabación en silencio, el micro si lo captaría." },
+          { title: "Motor y rendimiento", text: "Doble motor LoctekMotion (fabricado por Flexispot, no comprado a terceros). A 3.8 cm/s, pasar de sentado a de pie tarda 10-11 segundos. Los 45 dB de ruido son un zumbido grave, no un chirrido. En videollamada, la otra persona no lo percibe. En una grabación en silencio, el micro sí lo captaría." },
           { title: "Estabilidad (aquí es donde gana)", text: "La razón principal para comprar el E7. Tres secciones telescópicas (los baratos tienen dos) y base ancha y pesada. A máxima altura (123 cm), el movimiento lateral al escribir es mínimo. Con un modelo de gama de entrada, la pantalla vibra y te cansa la vista al cabo de una hora. Con el E7, ese efecto desaparece. Es probablemente por lo que la gente que compra el E7 acaba usando más la posición de pie." },
-          { title: "Montaje: no es difícil, pero si pesado", text: "Instrucciones claras, herramientas incluidas, proceso sencillo. El problema es el peso: 32 kg de estructura. Con dos personas, 45 minutos tranquilos. Solo, hora y media y frustración. Truco: pon el tablero boca abajo, atornilla la estructura encima, y entre dos levantáis el conjunto montado." },
-          { title: "¿Para quien SI es el E7?", text: "Teletrabajo a jornada completa, setup con monitor grande (o dos), personas altas (rango hasta 123 cm). En resumen: compras, montas, y te olvidas del tema escritorios durante años." },
-          { title: "¿Para quien NO es el E7?", text: "Si tu setup es solo un portátil, estás pagando de más: cualquier modelo de la gama de entrada cumple de sobra. Si quieres probar lo de trabajar de pie, empieza barato y haz upgrade después." },
-          { title: "Que dicen los compradores en Amazon", text: "He leído las opiniones publicadas. Lo positivo que más se repite: estabilidad, silencio y durabilidad a largo plazo. Lo negativo: algún tablero marcado al llegar (Flexispot sustituye gratis), instrucciones de cableado algo confusas, y el peso que sorprende a quien espera un mueble tipo IKEA. Si sabes que es un escritorio motorizado de 32 kg, no es complicado." },
+          { title: "Montaje: no es difícil, pero sí pesado", text: "Instrucciones claras, herramientas incluidas, proceso sencillo. El problema es el peso: 32 kg de estructura. Con dos personas, 45 minutos tranquilos. Solo, hora y media y frustración. Truco: pon el tablero boca abajo, atornilla la estructura encima, y entre dos levantáis el conjunto montado." },
+          { title: "¿Para quién SÍ es el E7?", text: "Teletrabajo a jornada completa, setup con monitor grande (o dos), personas altas (rango hasta 123 cm). En resumen: compras, montas, y te olvidas del tema escritorios durante años." },
+          { title: "¿Para quién NO es el E7?", text: "Si tu setup es solo un portátil, estás pagando de más: cualquier modelo de la gama de entrada cumple de sobra. Si quieres probar lo de trabajar de pie, empieza barato y haz upgrade después." },
+          { title: "Qué dicen los compradores en Amazon", text: "He leído las opiniones publicadas. Lo positivo que más se repite: estabilidad, silencio y durabilidad a largo plazo. Lo negativo: algún tablero marcado al llegar (Flexispot sustituye gratis), instrucciones de cableado algo confusas, y el peso que sorprende a quien espera un mueble tipo IKEA. Si sabes que es un escritorio motorizado de 32 kg, no es complicado." },
         ].map((section, si) => (
           <FadeIn key={section.title} delay={si * 60}>
             <div>

@@ -37,28 +37,28 @@ export default function EscritorioBaratoPage() {
 
   const faqItems = [
     {
-      q: "Cual es el escritorio elevable más barato que merece la pena?",
+      q: "¿Cuál es el escritorio elevable más barato que merece la pena?",
       a: `El ${winner?.[1].marca} ${winner?.[1].modelo}. Tiene anticolisión, 4 memorias y 5 años de garantía, cosas que no suelen venir juntas en la gama de entrada. Si buscas algo aún más contenido, el Fezibo cumple para un setup básico.`,
     },
     {
-      q: "Motor simple o doble para un escritorio barato?",
+      q: "¿Motor simple o doble para un escritorio barato?",
       a: "En la gama de entrada, casi todos llevan motor simple. Es más lento (20 seg el recorrido completo vs 12 del doble), pero para un setup normal de portátil y monitor va de sobra. Si quieres doble motor sin salirte de lo barato, el marco Flexispot es la opción, aunque tendrás que sumarle un tablero.",
     },
     {
-      q: "Cuanto dura un escritorio elevable barato?",
-      a: "Entre 3 y 7 años con uso normal (2-4 cambios al día). Los motores aguantan unos 10.000 ciclos. Los problemas que se ven en Amazon son casi siempre del controlador electronico, no del motor, y un reinicio suele arreglarlo.",
+      q: "¿Cuánto dura un escritorio elevable barato?",
+      a: "Entre 3 y 7 años con uso normal (2-4 cambios al día). Los motores aguantan unos 10.000 ciclos. Los problemas que se ven en Amazon son casi siempre del controlador electrónico, no del motor, y un reinicio suele arreglarlo.",
     },
     {
-      q: "Necesito herramientas especiales para montarlo?",
+      q: "¿Necesito herramientas especiales para montarlo?",
       a: "No, todos incluyen llaves Allen y tornillos. Montaje en 20-45 minutos. Los ligeros (Fezibo, Devoko) se montan solo; el VASAGLE (24 kg) mejor entre dos. Un destornillador eléctrico ayuda pero no es obligatorio.",
     },
     {
-      q: "Que sacrifico por comprar un escritorio elevable barato?",
+      q: "¿Qué sacrifico por comprar un escritorio elevable barato?",
       a: "Velocidad del motor (2.5 vs 3.8 cm/s), estabilidad a máxima altura (algo de vibración al escribir de pie) y acabado del tablero (melamina básica). También menos rango de altura (72-118 cm vs 58-125 cm), un problema si mides más de 1.85 m.",
     },
     {
-      q: "Anticolisión: es necesario en un escritorio barato?",
-      a: "Si. Para el motor si detecta un obstaculo (cajon, silla, rodilla). Sin anticolisión, el motor sigue y puede romper cosas. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena quedarse sin él por ahorrar un poco.",
+      q: "Anticolisión: ¿es necesario en un escritorio barato?",
+      a: "Sí. Para el motor si detecta un obstáculo (cajón, silla, rodilla). Sin anticolisión, el motor sigue y puede romper cosas. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena quedarse sin él por ahorrar un poco.",
     },
   ];
 
@@ -217,7 +217,7 @@ export default function EscritorioBaratoPage() {
           </h2>
           <div className="space-y-4 text-sm leading-relaxed">
             <p>
-              En esta franja, casi todos llevan motor simple: más lento y algo más ruidoso. Acepta eso de entrada. Lo que si deberías exigir: <strong>memorias de altura</strong> (si no, al cuarto día dejas de usarlo), <strong>tablero de al menos 120 cm</strong> si usas monitor externo, y <strong>anticolisión</strong> para que el motor pare si hay algo debajo.
+              En esta franja, casi todos llevan motor simple: más lento y algo más ruidoso. Acepta eso de entrada. Lo que sí deberías exigir: <strong>memorias de altura</strong> (si no, al cuarto día dejas de usarlo), <strong>tablero de al menos 120 cm</strong> si usas monitor externo, y <strong>anticolisión</strong> para que el motor pare si hay algo debajo.
             </p>
             <p>
               La garantía importa mucho. Los problemas con motores baratos aparecen entre el mes 8 y el 18. Con 5 años de cobertura, te despreocupas. Con 2, cada ruido raro te pone nervioso.

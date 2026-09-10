@@ -10,7 +10,7 @@ import { FadeIn } from "@/components/FadeIn";
 import { productSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Flexispot vs Maidesite 2026 — Cual es mejor?",
+  title: "Flexispot vs Maidesite 2026 — ¿Cuál es mejor?",
   description:
     "Comparativa Flexispot vs MAIDeSITe en 2026: marco contra marco y escritorio completo contra completo. Carga, altura, ruido y garantía.",
   alternates: { canonical: "/flexispot-vs-maidesite" },
@@ -43,19 +43,19 @@ export default function FlexispotVsMaidesitePage() {
 
   const faqItems = [
     {
-      q: "Flexispot o Maidesite: cual es mejor marca?",
+      q: "Flexispot o Maidesite: ¿cuál es mejor marca?",
       a: "Flexispot lleva más años, tiene más modelos y fabrica sus propios motores. Maidesite ofrece prestaciones similares a precios más bajos. Ambas dan 5 años de garantía y postventa en España. Como marca, Flexispot tiene más recorrido. Producto a producto, Maidesite compite bien.",
     },
     {
-      q: "Los motores de Flexispot y Maidesite son iguales?",
+      q: "¿Los motores de Flexispot y Maidesite son iguales?",
       a: "No. Flexispot fabrica los suyos (LoctekMotion); Maidesite compra a terceros de buena calidad. En specs rinden igual (3.8 cm/s, ruido parecido). Los Flexispot tienen algo mejor historial en reviews de 2-3 años, pero ambos aguantan 10.000+ ciclos.",
     },
     {
-      q: "Puedo usar un tablero diferente con estas marcas?",
-      a: "Si, las dos venden la estructura sola. Flexispot acepta tableros de 120-200 cm; Maidesite, de 120-180 cm. Mínimo 2 cm de grosor para que los tornillos agarren.",
+      q: "¿Puedo usar un tablero diferente con estas marcas?",
+      a: "Sí, las dos venden la estructura sola. Flexispot acepta tableros de 120-200 cm; Maidesite, de 120-180 cm. Mínimo 2 cm de grosor para que los tornillos agarren.",
     },
     {
-      q: "Cual tiene mejor servicio postventa en España?",
+      q: "¿Cuál tiene mejor servicio postventa en España?",
       a: "Flexispot: respuesta en 24-48h, envian recambio sin esperar devolución. Maidesite: 48-72h según compradores. Ambas gestionan garantías bien, pero Flexispot es más agil.",
     },
   ];
@@ -221,7 +221,7 @@ export default function FlexispotVsMaidesitePage() {
         {[
           { title: "Motor y velocidad", text: "Los dos llevan doble motor a 3,8 cm/s. Flexispot fabrica los suyos (LoctekMotion); MAIDeSITe los compra a terceros de buena calidad. En el uso diario la diferencia no se percibe." },
           { title: "Estabilidad", text: "Empate técnico con matices: 32 kg de estructura el Flexispot, 30 kg el MAIDeSITe, y tres secciones telescópicas en ambos. El MAIDeSITe sube más alto, y a máxima altura cualquier marco gana algo de juego lateral." },
-          { title: "Ruido", text: "45 dB los dos. Silenciosos para videollamadas; solo importaria si grabas audio profesional." },
+          { title: "Ruido", text: "45 dB los dos. Silenciosos para videollamadas; solo importaría si grabas audio profesional." },
           { title: "Capacidad de carga", text: "125 kg el Flexispot, 160 kg el MAIDeSITe. Un setup normal pesa 12-15 kg, así que ambos van sobrados. La cifra solo decide si montas algo realmente pesado encima." },
           { title: "Rango de altura", text: "Flexispot: 58-123 cm. MAIDeSITe: 65-135 cm. Si mides más de 1,88 m, el MAIDeSITe llega donde el otro no. Si eres bajo o usas silla baja, el Flexispot baja 7 cm más." },
           { title: "Lo que cuesta cada uno", text: "Ninguno de los dos incluye tablero, así que a los dos hay que sumarles ese coste. El Flexispot está bastante por debajo del MAIDeSITe y tiene mucho más recorrido de valoraciones detrás. Salvo que necesites los 160 kg de carga o los 135 cm de altura del MAIDeSITe, la elección racional es clara." },
