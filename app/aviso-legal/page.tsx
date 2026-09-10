@@ -72,7 +72,7 @@ export default function AvisoLegalPage() {
         <h2>Cookies</h2>
         <p>
           Este sitio utiliza cookies técnicas necesarias para su funcionamiento
-          y cookies analiticas de Google Analytics. Puedes desactivar las
+          y cookies analíticas de Google Analytics. Puedes desactivar las
           cookies en la configuración de tu navegador.
         </p>
 
