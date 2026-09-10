@@ -30,6 +30,16 @@ export interface Product {
   modelo: string;
   precio: number;
   precio_habitual: number | null;
+  /**
+   * Franja de precio publicada, con la fecha en que se comprobo en Amazon.
+   * Los tres van juntos: sin fecha no se publica la franja, porque una
+   * franja sin fecha vuelve a ser un precio que caduca en silencio.
+   * `null` mientras no se hayan verificado a mano.
+   */
+  precio_min: number | null;
+  precio_max: number | null;
+  /** ISO 8601, AAAA-MM-DD. */
+  precio_verificado: string | null;
   imagen: string;
   imagen_alt: string;
   rating: number;

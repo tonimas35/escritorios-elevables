@@ -273,3 +273,25 @@ export function exclusion(p: Product): { arranque: string; motivo: string } | nu
   if (!t.startsWith(PREFIJO_EXCLUSION)) return { arranque: "", motivo: t };
   return { arranque: PREFIJO_EXCLUSION, motivo: t.slice(PREFIJO_EXCLUSION.length).trim() };
 }
+
+/**
+ * Franja de precio con fecha de verificacion.
+ *
+ * Devuelve null si falta cualquiera de los tres datos: sin fecha la franja
+ * es un precio sin caducidad declarada, que es justo lo que se quiere
+ * evitar. Quien la llama no pinta nada cuando devuelve null.
+ */
+export function franjaPrecio(p: Product): string | null {
+  const { precio_min: min, precio_max: max, precio_verificado: fecha } = p;
+  if (min === null || max === null || !fecha) return null;
+
+  const d = new Date(fecha);
+  if (Number.isNaN(d.getTime())) return null;
+  const dd = String(d.getUTCDate()).padStart(2, "0");
+  const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
+
+  // "y", no "e": la "e" solo sustituye a la "y" delante de palabra que
+  // empiece por sonido /i/, y ningun numero en castellano lo hace (ocho,
+  // dieciocho, ciento... ninguno empieza por i).
+  return `Entre ${min} y ${max} € en Amazon · verificado el ${dd}/${mm}/${d.getUTCFullYear()}`;
+}

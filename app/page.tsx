@@ -12,6 +12,7 @@ import {
   metaFila,
   motorCorto,
   exclusion,
+  franjaPrecio,
   publicable,
   recorrido,
   garantia,
@@ -41,6 +42,7 @@ export default function Home() {
   const podio = catalogo.slice(1, 3);
   const prosTop = top.pros.filter(publicable).slice(0, 3);
   const exclusionTop = exclusion(top);
+  const franjaTop = franjaPrecio(top);
 
   const tresDudas = dudas(catalogo);
 
@@ -60,6 +62,7 @@ export default function Home() {
     tableroTxt: tablero(p),
     recorrido: recorrido(p),
     garantia: garantia(p),
+    franja: franjaPrecio(p),
   }));
 
   return (
@@ -84,7 +87,13 @@ export default function Home() {
               {standfirst(top, true)}
             </p>
 
-            <div style={{ marginTop: 24 }}>
+            {franjaTop && (
+              <p className="bs-afiliado" style={{ marginTop: 22 }}>
+                {franjaTop}
+              </p>
+            )}
+
+            <div style={{ marginTop: franjaTop ? 10 : 24 }}>
               <Afiliado />
             </div>
             <div style={{ marginTop: 10 }}>
@@ -193,6 +202,12 @@ export default function Home() {
                 </p>
 
                 <p style={{ fontSize: 16, lineHeight: 1.55 }}>{camino.texto}</p>
+
+                {franjaPrecio(camino.producto) && (
+                  <p className="bs-afiliado bs-afiliado-mini">
+                    {franjaPrecio(camino.producto)}
+                  </p>
+                )}
 
                 <Cta asin={camino.asin} ancho mini />
               </div>

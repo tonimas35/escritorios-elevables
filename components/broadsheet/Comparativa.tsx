@@ -29,6 +29,8 @@ export interface FilaComparativa {
   tableroTxt: string;
   recorrido: string;
   garantia: string;
+  /** Franja de precio ya formateada, o null si el modelo no la tiene. */
+  franja: string | null;
 }
 
 type Tablero = "todos" | "marco" | "tablero";
@@ -102,6 +104,10 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
 
   const flecha = (cual: Orden) => (orden === cual ? " ↓" : "");
 
+  // La columna de precio solo existe si hay algun modelo con franja
+  // verificada. Con los datos sin rellenar, la tabla queda como estaba.
+  const hayFranjas = filas.some((f) => f.franja);
+
   return (
     <>
       <div
@@ -157,6 +163,7 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
                 </button>
               </th>
               <th>Motor</th>
+              {hayFranjas && <th>Precio</th>}
               <th>
                 <button type="button" onClick={() => setOrden("nota")}>
                   Nota{flecha("nota")}
@@ -195,6 +202,9 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
                 <td>{f.tableroTxt}</td>
                 <td>{f.cargaTxt}</td>
                 <td>{f.motor}</td>
+                {hayFranjas && (
+                  <td style={{ fontSize: 13, color: "var(--bs-neutro-700)" }}>{f.franja ?? "—"}</td>
+                )}
                 <td style={{ fontSize: 19, fontWeight: 700 }}>{f.nota}</td>
                 <td>
                   <Cta asin={f.asin} texto="Ver en Amazon" mini />
@@ -245,6 +255,12 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
                       </span>
                     </span>
                   </div>
+
+                  {f.franja && (
+                    <p style={{ fontSize: 13, color: "var(--bs-neutro-700)", marginTop: 8 }}>
+                      {f.franja}
+                    </p>
+                  )}
 
                   <div className="flex flex-wrap" style={{ gap: 6, marginTop: 10 }}>
                     <span className="bs-spec">{f.motor}</span>
