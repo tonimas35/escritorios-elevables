@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { calculateErgonomicHeight } from "@/lib/calculator";
 import { ProductCard } from "@/components/ProductCard";
+import { AvisoAfiliadoPagina } from "@/components/AvisoAfiliado";
 import { FadeIn } from "@/components/FadeIn";
 import { getProductsInHeightRange } from "@/lib/products";
 
@@ -31,6 +32,7 @@ export default function CalculadoraPage() {
           <h1 className="text-3xl md:text-5xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
             Calculadora ergonómica
           </h1>
+          <AvisoAfiliadoPagina />
           <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
             Basado en la norma EN 527-1 y recomendaciones OSHA.
           </p>

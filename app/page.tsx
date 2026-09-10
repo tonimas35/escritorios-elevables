@@ -84,11 +84,11 @@ export default function Home() {
               {standfirst(top, true)}
             </p>
 
-            <div style={{ marginTop: 28 }}>
-              <Cta asin={asinTop} />
-            </div>
-            <div style={{ marginTop: 12 }}>
+            <div style={{ marginTop: 24 }}>
               <Afiliado />
+            </div>
+            <div style={{ marginTop: 10 }}>
+              <Cta asin={asinTop} />
             </div>
 
             <div style={{ marginTop: 28 }}>
@@ -195,7 +195,6 @@ export default function Home() {
                 <p style={{ fontSize: 16, lineHeight: 1.55 }}>{camino.texto}</p>
 
                 <Cta asin={camino.asin} ancho mini />
-                <Afiliado corta />
               </div>
             ))}
           </div>
@@ -295,9 +294,6 @@ export default function Home() {
 
                 <div style={{ marginTop: 24 }}>
                   <Cta asin={asinTop} ancho />
-                </div>
-                <div style={{ marginTop: 10 }}>
-                  <Afiliado />
                 </div>
               </div>
             </div>

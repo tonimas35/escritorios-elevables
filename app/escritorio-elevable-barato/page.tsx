@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
-import { AvisoAfiliado, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
+import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
@@ -161,6 +161,7 @@ export default function EscritorioBaratoPage() {
                   <span className="mono font-bold px-2 py-0.5 rounded text-sm text-white" style={{ background: ratingBg(winner[1].puntuacion.total) }}>
                     {winner[1].puntuacion.total}/10
                   </span>
+                  <AvisoAfiliadoPagina />
                   <AffiliateButton asin={winner[0]} size="sm" />
                 </div>
               </div>
@@ -307,7 +308,6 @@ export default function EscritorioBaratoPage() {
 
               <div className="mt-4">
                 <AffiliateButton asin={asin} size="lg" />
-                <AvisoAfiliado />
               </div>
             </section>
           </FadeIn>

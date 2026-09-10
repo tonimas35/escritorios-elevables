@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getProductBySlug } from "@/lib/products";
 import { FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
-import { AvisoAfiliado } from "@/components/AvisoAfiliado";
+import { AvisoAfiliadoPagina } from "@/components/AvisoAfiliado";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
 import { productSchema } from "@/lib/schema";
@@ -137,10 +137,10 @@ export default function FlexispotVsMaidesitePage() {
             No hay un ganador único, porque no compiten en el mismo sitio. Flexispot domina la entrada de gama: su marco es el mejor valorado del catálogo, con 4,7 de media. MAIDeSITe domina la capacidad: el T2 Pro MAX aguanta 160 kg y sube hasta 135 cm, cifras que Flexispot no ofrece en este catálogo. En escritorios completos, con tablero incluido, la cosa se aprieta entre el FLEXISPOT de 160x80 y el MAIDeSITe S2 Pro, y ahí deciden el tamaño del tablero y la garantía.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mt-4">
+            <AvisoAfiliadoPagina />
             <AffiliateButton asin={e7Asin} text="Flexispot E7 en Amazon" size="md" />
             <AffiliateButton asin={t2Asin} text="Maidesite T2 Pro en Amazon" size="md" />
           </div>
-          <AvisoAfiliado />
         </div>
       </FadeIn>
 
@@ -175,7 +175,6 @@ export default function FlexispotVsMaidesitePage() {
                   </div>
                   <div className="mt-4">
                     <AffiliateButton asin={productAsin} size="lg" />
-                    <AvisoAfiliado />
                   </div>
                 </div>
               </FadeIn>
@@ -303,7 +302,6 @@ export default function FlexispotVsMaidesitePage() {
                     </div>
                     <div className="mt-4">
                       <AffiliateButton asin={productAsin} size="lg" />
-                      <AvisoAfiliado />
                     </div>
                   </div>
                 </FadeIn>
@@ -336,7 +334,6 @@ export default function FlexispotVsMaidesitePage() {
             <AffiliateButton asin={e7Asin} text="Flexispot E7 en Amazon" size="lg" />
             <AffiliateButton asin={t2Asin} text="Maidesite T2 en Amazon" size="lg" />
           </div>
-          <AvisoAfiliado />
         </section>
       </FadeIn>
 

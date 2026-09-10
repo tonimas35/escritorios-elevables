@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { ProductCard } from "@/components/ProductCard";
+import { AvisoAfiliadoPagina } from "@/components/AvisoAfiliado";
 import { FadeIn } from "@/components/FadeIn";
 import { getAvailableProducts } from "@/lib/products";
 import type { Product } from "@/lib/types";
@@ -68,6 +69,9 @@ export default function TestPage() {
           <p className="editorial-mark" style={{ color: 'var(--color-secondary)' }}>Herramienta interactiva</p>
           <h1 className="text-3xl md:text-5xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>Tu escritorio ideal</h1>
           <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>4 preguntas. Recomendación personalizada.</p>
+          <div className="mt-4">
+            <AvisoAfiliadoPagina />
+          </div>
         </div>
       </FadeIn>
 
