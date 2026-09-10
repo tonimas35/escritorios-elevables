@@ -30,9 +30,14 @@ Necesita revisión y visto bueno antes de entrar en el JSON.
 
 ## Precios
 
-**Ni precios ni rangos de precio en ninguna parte.** Ni en componentes, ni en
-prosa, ni en `pros`/`contras`/`veredicto` del JSON, ni en datos estructurados.
-El CTA es "Ver precio actual en Amazon": el precio vive en Amazon.
+**Precio exacto: nunca. Franja amplia con fecha de verificación: sí, en el
+formato `franjaPrecio()` ya implementado.** La función vive en `lib/ficha.ts` y
+solo publica algo cuando los tres campos del modelo están rellenos
+(`precio_min`, `precio_max`, `precio_verificado` en `data/productos.json`); si
+falta uno, no se enseña franja. Ninguna cifra suelta fuera de ese formato: ni en
+componentes, ni en prosa, ni en `pros`/`contras`/`veredicto` del JSON, ni en
+datos estructurados. El CTA sigue siendo "Ver precio actual en Amazon": el
+precio al céntimo vive en Amazon.
 
 ## Alcance
 

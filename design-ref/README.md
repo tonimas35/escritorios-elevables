@@ -33,8 +33,11 @@ Estas no están abiertas a debate en la implementación:
 - **Verde botella (`#2d4a3e`) solo como color estructural**: cabeceras de tabla,
   filetes y franjas. **Nunca rellena un botón.** Como mucho aparece en bordes,
   etiquetas y el hover de los CTA.
-- **Sin precios ni rangos de precio en ninguna parte.** El CTA es siempre "Ver precio
-  actual en Amazon"; el precio vive en Amazon, no aquí.
+- **Precio exacto: nunca. Franja amplia con fecha de verificación: sí**, en el formato
+  `franjaPrecio()` ya implementado ("Entre X y Y € en Amazon · verificado el
+  DD/MM/AAAA"). Sale del modelo, de `precio_min`, `precio_max` y `precio_verificado`,
+  y no se publica mientras falte alguno de los tres. El CTA es siempre "Ver precio
+  actual en Amazon"; el precio al céntimo vive en Amazon, no aquí.
 - **Declaración de afiliado en gris pequeño (`#7d7979`, 12–13px) bajo cada CTA**, en
   una línea. No hay bloque grande de afiliado al final de la página.
 - **Avatar del autor: monograma "T"**, círculo de 44px con fondo verde botella y la
