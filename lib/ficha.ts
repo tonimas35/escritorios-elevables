@@ -295,3 +295,45 @@ export function franjaPrecio(p: Product): string | null {
   // dieciocho, ciento... ninguno empieza por i).
   return `Entre ${min} y ${max} € en Amazon · verificado el ${dd}/${mm}/${d.getUTCFullYear()}`;
 }
+
+/** La fecha de verificacion en DD/MM/AAAA, o null si el modelo no publica franja. */
+export function fechaVerificacion(p: Product): string | null {
+  if (p.precio_min === null || p.precio_max === null || !p.precio_verificado) return null;
+  const d = new Date(p.precio_verificado);
+  if (Number.isNaN(d.getTime())) return null;
+  const dd = String(d.getUTCDate()).padStart(2, "0");
+  const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
+  return `${dd}/${mm}/${d.getUTCFullYear()}`;
+}
+
+/**
+ * La franja sola, sin "en Amazon" ni fecha: "110–150 €".
+ *
+ * Es la forma que va en una celda de tabla. La frase entera repetida en doce
+ * filas dice doce veces lo mismo y deja sin sitio al resto de columnas; la
+ * cabecera ya dice "Precio" y la fecha va una vez en la nota al pie.
+ */
+export function franjaCorta(p: Product): string | null {
+  if (p.precio_min === null || p.precio_max === null || !p.precio_verificado) return null;
+  return `${p.precio_min}–${p.precio_max} €`;
+}
+
+/**
+ * Nota al pie que cubre las franjas de todas las filas de una tabla.
+ * Devuelve null si ninguna fila publica franja.
+ */
+export function notaFranjas(productos: Product[]): string | null {
+  const fechas = [...new Set(productos.map(fechaVerificacion).filter((f): f is string => !!f))];
+  if (fechas.length === 0) return null;
+  if (fechas.length === 1) {
+    return `Franjas de precio comprobadas en Amazon el ${fechas[0]}.`;
+  }
+  const orden = [...fechas].sort((a, b) => invierte(a).localeCompare(invierte(b)));
+  return `Franjas de precio comprobadas en Amazon entre el ${orden[0]} y el ${orden[orden.length - 1]}.`;
+}
+
+/** DD/MM/AAAA a AAAA-MM-DD, para poder ordenar fechas como texto. */
+function invierte(f: string): string {
+  const [dd, mm, aaaa] = f.split("/");
+  return `${aaaa}-${mm}-${dd}`;
+}

@@ -13,6 +13,8 @@ import {
   motorCorto,
   exclusion,
   franjaPrecio,
+  franjaCorta,
+  notaFranjas,
   publicable,
   recorrido,
   garantia,
@@ -43,6 +45,7 @@ export default function Home() {
   const prosTop = top.pros.filter(publicable).slice(0, 3);
   const exclusionTop = exclusion(top);
   const franjaTop = franjaPrecio(top);
+  const notaPrecios = notaFranjas(catalogo.map(([, p]) => p));
 
   const tresDudas = dudas(catalogo);
 
@@ -62,7 +65,7 @@ export default function Home() {
     tableroTxt: tablero(p),
     recorrido: recorrido(p),
     garantia: garantia(p),
-    franja: franjaPrecio(p),
+    franja: franjaCorta(p),
   }));
 
   return (
@@ -270,9 +273,9 @@ export default function Home() {
                   {tituloModelo(top)}
                 </h3>
 
-                {/* El campo `veredicto` de este modelo lleva un precio dentro,
-                    asi que no se publica. En su lugar va el resumen compuesto
-                    con specs, que dice lo mismo sin cifras que caducan. */}
+                {/* publicable() descarta el `veredicto` si trae un precio suelto
+                    dentro; entonces cae al resumen compuesto con specs, que dice
+                    lo mismo sin cifras que caducan. Hoy los doce lo pasan. */}
                 <p
                   style={{
                     fontSize: "clamp(16px, 1.6vw, 18px)",
@@ -360,9 +363,9 @@ export default function Home() {
           <Comparativa filas={filas} />
 
           <p className="bs-afiliado" style={{ marginTop: 20, maxWidth: "66ch" }}>
-            Nota sobre 10 según nuestra <a href="#metodologia">metodología</a>. Todos
-            los enlaces son de afiliado: si compras, Amazon nos paga una comisión y
-            tú pagas lo mismo.
+            Nota sobre 10 según nuestra <a href="#metodologia">metodología</a>.
+            {notaPrecios && ` ${notaPrecios}`} Todos los enlaces son de afiliado: si
+            compras, Amazon nos paga una comisión y tú pagas lo mismo.
           </p>
         </div>
       </section>
