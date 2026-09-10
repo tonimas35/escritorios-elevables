@@ -141,9 +141,9 @@ export default function MejorEscritorioPage() {
           <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
             Actualizado: {FECHA_EN_FRASE} &middot; 12 modelos analizados
           </p>
-          <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
-            Este artículo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequeña comisión sin coste adicional para ti.
-          </p>
+          <div className="mt-1">
+            <AvisoAfiliadoPagina />
+          </div>
           <div className="editorial-rule mt-6" />
         </FadeIn>
 
@@ -177,7 +177,6 @@ export default function MejorEscritorioPage() {
                   >
                     {topProduct.puntuacion.total}/10
                   </span>
-                  <AvisoAfiliadoPagina />
                   <AffiliateButton asin={topAsin} size="sm" />
                 </div>
               </div>
