@@ -216,9 +216,9 @@ export default function FeziboReviewPage() {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold">Que dicen los 2400 compradores</h3>
+          <h3 className="text-lg font-semibold">Qué dicen los compradores</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            La nota media de 4.3 con tantas opiniones es un dato fiable. Lo que más se repite: fácil de montar, funciona bien para lo que cuesta, y la bandeja para teclado incluida es un bonus inesperado. En lo negativo: tablero pequeño para quien esperaba algo más grande, estabilidad justa a máxima altura, y algún caso de motor que zumba más de la cuenta tras unos meses de uso.
+            Lo que más se repite en las opiniones publicadas: fácil de montar, funciona bien para lo que cuesta, y la bandeja para teclado incluida es un bonus inesperado. En lo negativo: tablero pequeño para quien esperaba algo más grande, estabilidad justa a máxima altura, y algún caso de motor que zumba más de la cuenta tras unos meses de uso.
           </p>
         </div>
       </section>
