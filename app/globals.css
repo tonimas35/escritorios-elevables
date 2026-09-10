@@ -195,7 +195,10 @@
   --gris-calido-claro: #f5f0eb;
   --gris-calido-oscuro: #ede8e0;
 
-  --font-display: 'Fraunces', Georgia, serif;
+  /* Fraunces fuera: su hoja ya no se carga. El token sobrevive porque lo
+     usan 12 ficheros del sistema viejo, y apunta al serif del rediseño en
+     lugar de caer a Georgia. */
+  --font-display: var(--bs-familia);
   --font-body: var(--font-source-serif), 'Source Serif 4', Georgia, serif;
   --font-mono: var(--font-jetbrains), 'JetBrains Mono', 'SF Mono', monospace;
 }
@@ -227,10 +230,11 @@ body {
   font-size: var(--texto-base);
 }
 
-/* Fraunces: distinctive variable serif with soft optical axis */
+/* Titulares del sistema viejo. Los ejes SOFT y WONK eran de Fraunces y no
+   existen en Source Serif 4, asi que se retiran. */
 h1, h2, h3 {
   font-family: var(--font-display);
-  font-variation-settings: 'SOFT' 100, 'WONK' 1;
+  font-variation-settings: normal;
   letter-spacing: var(--track-titulo);
   line-height: 1.1;
   color: var(--text-dark);
@@ -828,8 +832,8 @@ input[type="range"]::-webkit-slider-thumb:hover {
   line-height: var(--bs-interlineado-base);
   letter-spacing: normal;
 }
-/* Las reglas globales de h1/h2/h3 imponen Fraunces y pesos 900/700/500.
-   Dentro del rediseño manda el serif unico. */
+/* Las reglas globales de h1/h2/h3 imponen pesos 900/700/500 heredados del
+   sistema viejo. Dentro del rediseño manda el peso 600 del serif unico. */
 .bs-pagina h1,
 .bs-pagina h2,
 .bs-pagina h3 {
