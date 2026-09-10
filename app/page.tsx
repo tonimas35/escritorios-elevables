@@ -84,13 +84,6 @@ export default function Home() {
               {standfirst(top, true)}
             </p>
 
-            {exclusionTop && (
-              <p className="bs-exclusion bs-cuerpo" style={{ marginTop: 20 }}>
-                {exclusionTop.arranque && <strong>{exclusionTop.arranque}</strong>}{" "}
-                {exclusionTop.motivo}
-              </p>
-            )}
-
             <div style={{ marginTop: 28 }}>
               <Cta asin={asinTop} />
             </div>
