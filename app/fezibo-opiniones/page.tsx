@@ -84,9 +84,9 @@ export default function FeziboReviewPage() {
 
       {/* Breadcrumb */}
       <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
-        <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
+        <Link href="/" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Inicio</Link>
         {" "}&gt;{" "}
-        <Link href="/mejor-escritorio-elevable" className="hover:underline" style={{ color: 'var(--accent)' }}>Mejores escritorios</Link>
+        <Link href="/mejor-escritorio-elevable" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Mejores escritorios</Link>
         {" "}&gt;{" "}Fezibo opiniones
       </nav>
 
@@ -238,8 +238,8 @@ export default function FeziboReviewPage() {
       </section>
 
       {/* CTA */}
-      <div className="mt-10 p-6 rounded text-center" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--accent)' }}>
-        <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Veredicto</p>
+      <div className="mt-10 p-6 rounded text-center" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--verde-estructura)' }}>
+        <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>Veredicto</p>
         <p className="text-xl mt-2" >{product.veredicto}</p>
         <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
           No es el mejor escritorio elevable. Pero es la forma más barata de descubrir si trabajar de pie va contigo.
@@ -270,14 +270,14 @@ export default function FeziboReviewPage() {
               </tr>
             </thead>
             <tbody>
-              <tr style={{ background: 'var(--accent-light)', borderBottom: '1px solid var(--border)' }}>
+              <tr style={{ background: 'var(--verde-estructura-claro)', borderBottom: '1px solid var(--border)' }}>
                 <td className="p-3 font-semibold">Fezibo 120x60 (este)</td>
                 <td className="p-3 text-center">Simple</td>
                 <td className="p-3 text-center font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
                 <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
               </tr>
               {alternatives.map(([altAsin, alt]) => (
-                <tr key={altAsin} className="hover:bg-[var(--accent-light)]" style={{ borderBottom: '1px solid var(--border)' }}>
+                <tr key={altAsin} className="hover:bg-[var(--verde-estructura-claro)]" style={{ borderBottom: '1px solid var(--border)' }}>
                   <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
                   <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : alt.specs.tipo_motor === 'manual' ? 'Manual' : 'Simple'}</td>
                   <td className="p-3 text-center font-bold">{alt.puntuacion.total}</td>
@@ -297,13 +297,13 @@ export default function FeziboReviewPage() {
         </h3>
         <div className="space-y-2 text-sm">
           <p>
-            <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Escritorios elevables baratos</Link> — Toda la gama de entrada, comparada.
+            <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--verde-estructura)' }}>Escritorios elevables baratos</Link> — Toda la gama de entrada, comparada.
           </p>
           <p>
-            <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los mejores escritorios elevables de 2026</Link> — Si puedes estirar el presupuesto, aquí están todos.
+            <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los mejores escritorios elevables de 2026</Link> — Si puedes estirar el presupuesto, aquí están todos.
           </p>
           <p>
-            <Link href="/comparador" className="underline" style={{ color: 'var(--accent)' }}>Comparador interactivo</Link> — Filtra por precio, altura y motor para encontrar tu escritorio.
+            <Link href="/comparador" className="underline" style={{ color: 'var(--verde-estructura)' }}>Comparador interactivo</Link> — Filtra por precio, altura y motor para encontrar tu escritorio.
           </p>
         </div>
       </section>

@@ -93,7 +93,7 @@
 }
 
 :root {
-  /* Palette: Editorial Workshop — warm base + copper accent + forest green secondary */
+  /* Paleta del sistema viejo, ya reapuntada al Broadsheet. */
   --bg-primary: var(--bs-papel);
   --bg-secondary: var(--bs-superficie);
   /* Las tarjetas van sobre superficie; el blanco queda para el marco de
@@ -113,13 +113,13 @@
   /* El cobre desaparece del sitio. El token sobrevive porque lo usan las
      paginas del sistema viejo mientras se migran, y apunta al verde
      botella, que en Broadsheet es el color estructural. */
-  --accent: var(--bs-verde-botella);
-  --accent-hover: var(--bs-tinta);
-  --accent-subtle: var(--bs-verde-tinte);
-  --accent-light: var(--bs-verde-tinte);
-  --accent-glow: transparent;
+  --verde-estructura: var(--bs-verde-botella);
+  --verde-estructura-hover: var(--bs-tinta);
+  --verde-estructura-tenue: var(--bs-verde-tinte);
+  --verde-estructura-claro: var(--bs-verde-tinte);
+  --verde-estructura-halo: transparent;
 
-  /* Secondary accent: forest green */
+  /* Verde botella, el color estructural del sistema. */
   --color-secondary: var(--bs-verde-botella);
   --color-secondary-hover: #1f3830;
   --color-secondary-light: var(--bs-verde-tinte);
@@ -179,9 +179,9 @@
   --linea-suave: 1px solid var(--border);
 
   /* Sombras */
-  --shadow-boton: 0 8px 24px var(--accent-glow);
+  --shadow-boton: 0 8px 24px var(--verde-estructura-halo);
   --shadow-boton-secundario: 0 8px 24px rgba(45, 74, 62, 0.2);
-  --shadow-boton-mini: 0 4px 16px var(--accent-glow);
+  --shadow-boton-mini: 0 4px 16px var(--verde-estructura-halo);
   --shadow-imagen: inset 0 2px 8px rgba(44, 41, 38, 0.04);
 
   /* Movimiento */
@@ -207,9 +207,6 @@
 }
 
 @theme inline {
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-subtle: var(--accent-subtle);
   --color-pro: var(--pro);
   --color-con: var(--con);
 }
@@ -266,7 +263,7 @@ h3 {
 /* Editorial horizontal rule — thin copper line */
 .editorial-rule {
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, var(--accent) 20%, var(--accent) 80%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, var(--verde-estructura) 20%, var(--verde-estructura) 80%, transparent 100%);
   opacity: 0.4;
 }
 
@@ -501,7 +498,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   left: 0;
   width: 0;
   height: 1.5px;
-  background: var(--accent);
+  background: var(--verde-estructura);
   transition: width var(--dur-media);
 }
 .nav-link:hover {
@@ -541,8 +538,8 @@ input[type="range"]::-webkit-slider-thumb:hover {
   text-transform: uppercase;
   padding: var(--esp-tag);
   border-radius: var(--radio-tag);
-  background: var(--accent-subtle);
-  color: var(--accent);
+  background: var(--verde-estructura-tenue);
+  color: var(--verde-estructura);
 }
 
 .tag-secondary {
@@ -562,7 +559,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   font-weight: 600;
   letter-spacing: var(--track-seccion);
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--verde-estructura);
 }
 
 /* ========================================
@@ -630,7 +627,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
   display: block;
   width: 40px;
   height: 2px;
-  background: var(--accent);
+  background: var(--verde-estructura);
   margin-top: 12px;
 }
 
@@ -691,7 +688,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
    ======================================== */
 
 .pull-quote {
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--verde-estructura);
   padding-left: 24px;
   font-family: var(--bs-familia);
   font-style: italic;

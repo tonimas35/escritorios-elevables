@@ -104,7 +104,7 @@ export default function FlexispotVsMaidesitePage() {
 
       {/* Breadcrumb */}
       <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
-        <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
+        <Link href="/" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Inicio</Link>
         {" "}&gt;{" "}Flexispot vs Maidesite
       </nav>
 
@@ -132,7 +132,7 @@ export default function FlexispotVsMaidesitePage() {
       {/* TL;DR */}
       <FadeIn delay={200}>
         <div className="mt-8 p-6" style={{ background: 'var(--bs-superficie)', borderLeft: '3px solid var(--bs-verde-botella)' }}>
-          <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>TL;DR</p>
+          <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>TL;DR</p>
           <p className="mt-2 text-base leading-relaxed" style={{  color: 'var(--text-dark)' }}>
             No hay un ganador único, porque no compiten en el mismo sitio. Flexispot domina la entrada de gama: su marco es el mejor valorado del catálogo, con 4,7 de media. MAIDeSITe domina la capacidad: el T2 Pro MAX aguanta 160 kg y sube hasta 135 cm, cifras que Flexispot no ofrece en este catálogo. En escritorios completos, con tablero incluido, la cosa se aprieta entre el FLEXISPOT de 160x80 y el MAIDeSITe S2 Pro, y ahí deciden el tamaño del tablero y la garantía.
           </p>
@@ -160,8 +160,8 @@ export default function FlexispotVsMaidesitePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {[[e7Asin, e7Product] as const, [t2Asin, t2Product] as const].map(([productAsin, product], i) => (
               <FadeIn key={productAsin} delay={i * 120}>
-                <div className="p-6 rounded-lg product-card-hover" style={{ background: 'var(--bg-card)', border: i === 0 ? '2px solid var(--accent)' : '1px solid var(--border)' }}>
-                  {i === 0 && <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Recomendado</span>}
+                <div className="p-6 rounded-lg product-card-hover" style={{ background: 'var(--bg-card)', border: i === 0 ? '2px solid var(--verde-estructura)' : '1px solid var(--border)' }}>
+                  {i === 0 && <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>Recomendado</span>}
                   {i === 1 && <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Mejor precio</span>}
                   <div className="flex items-center gap-4 mt-2">
                     <div className="w-20 h-20 rounded-lg overflow-hidden flex items-center justify-center product-image-container">
@@ -247,7 +247,7 @@ export default function FlexispotVsMaidesitePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--accent)' }}>Flexispot E7</h3>
+              <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7</h3>
               <CompactRatings puntuacion={e7Product.puntuacion} />
             </div>
             <div>
@@ -344,13 +344,13 @@ export default function FlexispotVsMaidesitePage() {
           </h3>
           <div className="space-y-2 text-sm">
             <p>
-              <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: review completa</Link> — Análisis a fondo del E7 con todo lo bueno y lo malo.
+              <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7: review completa</Link> — Análisis a fondo del E7 con todo lo bueno y lo malo.
             </p>
             <p>
-              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Comparativa completa con todas las marcas.
+              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Comparativa completa con todas las marcas.
             </p>
             <p>
-              <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Escritorios elevables baratos</Link> — La gama de entrada analizada a fondo.
+              <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--verde-estructura)' }}>Escritorios elevables baratos</Link> — La gama de entrada analizada a fondo.
             </p>
           </div>
         </section>

@@ -107,7 +107,7 @@ export default function EscritorioBaratoPage() {
 
       {/* Breadcrumb */}
       <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
-        <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
+        <Link href="/" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Inicio</Link>
         {" "}&gt;{" "}Escritorios elevables baratos
       </nav>
 
@@ -140,7 +140,7 @@ export default function EscritorioBaratoPage() {
       {/* Winner callout */}
       {winner && (
         <FadeIn delay={200}>
-          <div className="mt-8 p-6 rounded" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
+          <div className="mt-8 p-6 rounded" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--verde-estructura)' }}>
             <div className="flex flex-col md:flex-row items-start gap-6">
               <div className="w-[140px] h-[140px] rounded-lg flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
                 <Image src={winner[1].imagen} alt={winner[1].imagen_alt} width={140} height={140} className="object-contain p-1" />
@@ -179,7 +179,7 @@ export default function EscritorioBaratoPage() {
             </thead>
             <tbody>
               {cheapProducts.map(([asin, product], i) => (
-                <tr key={asin} className="transition-colors hover:bg-[var(--accent-light)]" style={{ borderBottom: '1px solid var(--border)' }}>
+                <tr key={asin} className="transition-colors hover:bg-[var(--verde-estructura-claro)]" style={{ borderBottom: '1px solid var(--border)' }}>
                   <td className="p-3">
                     <span className="text-xs font-bold" style={{ color: 'var(--color-secondary)' }}>{String(i + 1).padStart(2, '0')}</span>
                   </td>
@@ -321,7 +321,7 @@ export default function EscritorioBaratoPage() {
               <strong style={{ color: 'var(--text-primary)' }}>El punto dulce:</strong> anticolisión, tableros de 120-140 cm y garantías de 3 a 5 años. Para teletrabajo estándar, cualquiera de estos cumple.
             </p>
             <p>
-              <strong style={{ color: 'var(--text-primary)' }}>Lo mejor de la franja:</strong> el marco Flexispot, con cinco años de garantía en la estructura. Y si necesitas más carga, el <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>MAIDeSITe T2 Pro MAX</Link> sube a otra liga.
+              <strong style={{ color: 'var(--text-primary)' }}>Lo mejor de la franja:</strong> el marco Flexispot, con cinco años de garantía en la estructura. Y si necesitas más carga, el <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>MAIDeSITe T2 Pro MAX</Link> sube a otra liga.
             </p>
           </div>
         </section>
@@ -335,10 +335,10 @@ export default function EscritorioBaratoPage() {
           </h3>
           <div className="space-y-2 text-sm">
             <p>
-              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Incluye modelos premium si decides subir de presupuesto.
+              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Incluye modelos premium si decides subir de presupuesto.
             </p>
             <p>
-              <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: opinion y review</Link> — El rey de los escritorios elevables, analizado a fondo.
+              <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7: opinion y review</Link> — El rey de los escritorios elevables, analizado a fondo.
             </p>
           </div>
         </section>

@@ -93,7 +93,7 @@ export default function TestPage() {
                 <button key={opt.value} onClick={() => handleAnswer(opt.value)}
                   className="w-full text-left p-4 rounded-lg text-sm font-medium transition-all product-card-hover"
                   style={{ border: '1px solid var(--border)', background: 'var(--bg-card)' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.background = 'var(--accent-light)'; }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--verde-estructura)'; e.currentTarget.style.background = 'var(--verde-estructura-claro)'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.background = 'var(--bg-card)'; }}
                 >{opt.label}</button>
               ))}
@@ -103,7 +103,7 @@ export default function TestPage() {
       ) : (
         <FadeIn>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] mb-1" style={{ color: 'var(--accent)' }}>Resultado</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] mb-1" style={{ color: 'var(--verde-estructura)' }}>Resultado</p>
             <h2 className="text-2xl mb-6 heading-accent" >Nuestras recomendaciones</h2>
             <div className="space-y-6">
               {results.map(({ asin, product }, i) => (
@@ -112,7 +112,7 @@ export default function TestPage() {
                 </FadeIn>
               ))}
             </div>
-            <button onClick={() => { setStep(0); setAnswers({}); }} className="mt-8 text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent)' }}>
+            <button onClick={() => { setStep(0); setAnswers({}); }} className="mt-8 text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>
               ← Repetir test
             </button>
           </div>

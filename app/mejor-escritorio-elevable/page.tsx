@@ -120,7 +120,7 @@ export default function MejorEscritorioPage() {
       <div className="max-w-5xl mx-auto px-6 py-12">
         {/* Breadcrumb */}
         <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
-          <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
+          <Link href="/" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Inicio</Link>
           {" "}&gt;{" "}Mejores escritorios elevables
         </nav>
 
@@ -153,7 +153,7 @@ export default function MejorEscritorioPage() {
 
         {/* Winner callout */}
         <FadeIn delay={200}>
-          <div className="mt-8 p-6 rounded" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
+          <div className="mt-8 p-6 rounded" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--verde-estructura)' }}>
             <div className="flex flex-col md:flex-row items-start gap-6">
               <div className="w-[160px] h-[160px] rounded-lg flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
                 <Image src={topProduct.imagen} alt={topProduct.imagen_alt} width={160} height={160} className="object-contain p-1" />
@@ -347,7 +347,7 @@ export default function MejorEscritorioPage() {
 
                     {/* Editorial analysis — pull quote style */}
                     {editorial && (
-                      <div className="mt-5 max-w-3xl pl-6" style={{ borderLeft: '2px solid var(--accent)', opacity: 0.9 }}>
+                      <div className="mt-5 max-w-3xl pl-6" style={{ borderLeft: '2px solid var(--verde-estructura)', opacity: 0.9 }}>
                         <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                           {editorial}
                         </p>
@@ -412,13 +412,13 @@ export default function MejorEscritorioPage() {
             </h2>
             <div className="space-y-2 text-sm">
               <p>
-                <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Mejores escritorios elevables baratos</Link> &mdash; Si vas a la gama de entrada, esta guía entra más al detalle.
+                <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--verde-estructura)' }}>Mejores escritorios elevables baratos</Link> &mdash; Si vas a la gama de entrada, esta guía entra más al detalle.
               </p>
               <p>
-                <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: opinion y review completa</Link> &mdash; Análisis a fondo del E7 con opiniones reales de compradores.
+                <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7: opinion y review completa</Link> &mdash; Análisis a fondo del E7 con opiniones reales de compradores.
               </p>
               <p>
-                <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Flexispot vs Maidesite: comparativa</Link> &mdash; Las dos marcas más vendidas cara a cara. Cual merece la pena?
+                <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot vs Maidesite: comparativa</Link> &mdash; Las dos marcas más vendidas cara a cara. Cual merece la pena?
               </p>
             </div>
           </section>

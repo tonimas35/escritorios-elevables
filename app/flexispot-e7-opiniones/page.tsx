@@ -95,9 +95,9 @@ export default function FlexispotE7ReviewPage() {
 
       {/* Breadcrumb */}
       <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
-        <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
+        <Link href="/" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Inicio</Link>
         {" "}&gt;{" "}
-        <Link href="/mejor-escritorio-elevable" className="hover:underline" style={{ color: 'var(--accent)' }}>Mejores escritorios</Link>
+        <Link href="/mejor-escritorio-elevable" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Mejores escritorios</Link>
         {" "}&gt;{" "}Flexispot E7 opiniones
       </nav>
 
@@ -242,7 +242,7 @@ export default function FlexispotE7ReviewPage() {
       {/* CTA */}
       <FadeIn>
         <div className="mt-10 p-6 text-center" style={{ background: 'var(--bs-superficie)', borderLeft: '3px solid var(--bs-verde-botella)' }}>
-          <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Veredicto</p>
+          <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>Veredicto</p>
           <p className="text-xl mt-2" >{product.veredicto}</p>
           <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
             No es barato, pero la estabilidad, el motor y la garantía no tienen rival a este precio. Si buscas algo para años, es la apuesta segura.
@@ -275,14 +275,14 @@ export default function FlexispotE7ReviewPage() {
                 </tr>
               </thead>
               <tbody>
-                <tr style={{ background: 'var(--accent-light)', borderBottom: '1px solid var(--border)' }}>
+                <tr style={{ background: 'var(--verde-estructura-claro)', borderBottom: '1px solid var(--border)' }}>
                   <td className="p-3 font-semibold">Flexispot E7 (este)</td>
                   <td className="p-3 text-center">Doble</td>
                   <td className="p-3 text-center font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
                   <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
                 </tr>
                 {alternatives.map(([altAsin, alt]) => (
-                  <tr key={altAsin} className="hover:bg-[var(--accent-light)]" style={{ borderBottom: '1px solid var(--border)' }}>
+                  <tr key={altAsin} className="hover:bg-[var(--verde-estructura-claro)]" style={{ borderBottom: '1px solid var(--border)' }}>
                     <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
                     <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple'}</td>
                     <td className="p-3 text-center font-bold">{alt.puntuacion.total}</td>
@@ -304,13 +304,13 @@ export default function FlexispotE7ReviewPage() {
           </h3>
           <div className="space-y-2 text-sm">
             <p>
-              <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Flexispot vs Maidesite: comparativa completa</Link> — ¿Vale la pena el E7 o el Maidesite T2 Pro es suficiente?
+              <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot vs Maidesite: comparativa completa</Link> — ¿Vale la pena el E7 o el Maidesite T2 Pro es suficiente?
             </p>
             <p>
-              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Los 12 modelos comparados, de la gama de entrada a la premium.
+              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Los 12 modelos comparados, de la gama de entrada a la premium.
             </p>
             <p>
-              <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Escritorios elevables baratos</Link> — Si el marco Flexispot se te va de presupuesto, aquí está la gama de entrada.
+              <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--verde-estructura)' }}>Escritorios elevables baratos</Link> — Si el marco Flexispot se te va de presupuesto, aquí está la gama de entrada.
             </p>
           </div>
         </section>

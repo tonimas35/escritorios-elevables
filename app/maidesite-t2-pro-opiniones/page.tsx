@@ -84,9 +84,9 @@ export default function MaidesiteT2ProReviewPage() {
 
       {/* Breadcrumb */}
       <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
-        <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
+        <Link href="/" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Inicio</Link>
         {" "}&gt;{" "}
-        <Link href="/mejor-escritorio-elevable" className="hover:underline" style={{ color: 'var(--accent)' }}>Mejores escritorios</Link>
+        <Link href="/mejor-escritorio-elevable" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Mejores escritorios</Link>
         {" "}&gt;{" "}Maidesite T2 Pro MAX opiniones
       </nav>
 
@@ -254,8 +254,8 @@ export default function MaidesiteT2ProReviewPage() {
       </section>
 
       {/* CTA */}
-      <div className="mt-10 p-6 rounded text-center" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--accent)' }}>
-        <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Veredicto</p>
+      <div className="mt-10 p-6 rounded text-center" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--verde-estructura)' }}>
+        <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>Veredicto</p>
         <p className="text-xl mt-2" >{product.veredicto}</p>
         <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
             El marco, más lo que te cueste el tablero. Compensa si necesitas su carga o su recorrido; si no, hay opciones más completas por menos.
@@ -286,14 +286,14 @@ export default function MaidesiteT2ProReviewPage() {
               </tr>
             </thead>
             <tbody>
-              <tr style={{ background: 'var(--accent-light)', borderBottom: '1px solid var(--border)' }}>
+              <tr style={{ background: 'var(--verde-estructura-claro)', borderBottom: '1px solid var(--border)' }}>
                 <td className="p-3 font-semibold">Maidesite T2 Pro MAX (este)</td>
                 <td className="p-3 text-center">Doble</td>
                 <td className="p-3 text-center font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
                 <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
               </tr>
               {alternatives.map(([altAsin, alt]) => (
-                <tr key={altAsin} className="hover:bg-[var(--accent-light)]" style={{ borderBottom: '1px solid var(--border)' }}>
+                <tr key={altAsin} className="hover:bg-[var(--verde-estructura-claro)]" style={{ borderBottom: '1px solid var(--border)' }}>
                   <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
                   <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : alt.specs.tipo_motor === 'manual' ? 'Manual' : 'Simple'}</td>
                   <td className="p-3 text-center font-bold">{alt.puntuacion.total}</td>
@@ -313,13 +313,13 @@ export default function MaidesiteT2ProReviewPage() {
         </h3>
         <div className="space-y-2 text-sm">
           <p>
-            <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: review completa</Link> — La referencia premium. Merece la pena pagar casi el doble?
+            <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7: review completa</Link> — La referencia premium. Merece la pena pagar casi el doble?
           </p>
           <p>
-            <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Flexispot vs Maidesite: comparativa</Link> — Enfrentamos las dos marcas cara a cara.
+            <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot vs Maidesite: comparativa</Link> — Enfrentamos las dos marcas cara a cara.
           </p>
           <p>
-            <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Todos los modelos comparados.
+            <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Todos los modelos comparados.
           </p>
         </div>
       </section>
