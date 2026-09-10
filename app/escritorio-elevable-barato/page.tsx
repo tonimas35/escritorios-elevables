@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
+import { coma } from "@/lib/format";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
@@ -81,12 +82,6 @@ export default function EscritorioBaratoPage() {
     })),
   };
 
-  const ratingBg = (score: number) =>
-    score >= 8.5
-      ? "var(--color-secondary)"
-      : score >= 7
-        ? "var(--rating-okay)"
-        : "var(--rating-bad)";
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
@@ -121,8 +116,8 @@ export default function EscritorioBaratoPage() {
         <p className="editorial-mark mb-3" style={{ color: 'var(--color-secondary)' }}>
           Guía de compra &middot; {FECHA}
         </p>
-        <h1 className="text-3xl md:text-5xl heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
-          Mejores escritorios elevables <span style={{ color: 'var(--accent)' }}>baratos</span> 2026
+        <h1 className="text-3xl md:text-5xl heading-accent" >
+          Mejores escritorios elevables baratos 2026
         </h1>
         <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
           Actualizado: {FECHA_EN_FRASE} &middot; {cheapProducts.length} modelos analizados de la gama de entrada
@@ -152,15 +147,13 @@ export default function EscritorioBaratoPage() {
               </div>
               <div className="flex-1">
                 <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--color-secondary)' }}>Ganador calidad-precio</p>
-                <h2 className="text-xl font-semibold mt-1" style={{ fontFamily: 'var(--font-display)' }}>
+                <h2 className="text-xl font-semibold mt-1" >
                   {winner[1].nombre}
                 </h2>
                 <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>{winner[1].veredicto}</p>
                 <div className="flex items-center gap-4 mt-3">
-                  <span className="mono text-2xl font-bold">{winner[1].puntuacion.total}</span>
-                  <span className="mono font-bold px-2 py-0.5 rounded text-sm text-white" style={{ background: ratingBg(winner[1].puntuacion.total) }}>
-                    {winner[1].puntuacion.total}/10
-                  </span>
+                  <span className="text-2xl font-bold">{coma(winner[1].puntuacion.total)}</span>
+                  <span className="text-xs" style={{ color: 'var(--text-muted)' }}>sobre 10</span>
                   <AffiliateButton asin={winner[0]} size="sm" />
                 </div>
               </div>
@@ -188,7 +181,7 @@ export default function EscritorioBaratoPage() {
               {cheapProducts.map(([asin, product], i) => (
                 <tr key={asin} className="transition-colors hover:bg-[var(--accent-light)]" style={{ borderBottom: '1px solid var(--border)' }}>
                   <td className="p-3">
-                    <span className="mono text-xs font-bold" style={{ color: 'var(--color-secondary)' }}>{String(i + 1).padStart(2, '0')}</span>
+                    <span className="text-xs font-bold" style={{ color: 'var(--color-secondary)' }}>{String(i + 1).padStart(2, '0')}</span>
                   </td>
                   <td className="p-3">
                     <div className="flex items-center gap-2">
@@ -201,10 +194,10 @@ export default function EscritorioBaratoPage() {
                       </div>
                     </div>
                   </td>
-                  <td className="p-3 text-center mono text-sm">{product.specs.ancho_tablero_cm}x{product.specs.profundidad_tablero_cm}</td>
-                  <td className="p-3 text-center mono text-sm">{product.specs.peso_max_carga_kg} kg</td>
+                  <td className="p-3 text-center text-sm">{product.specs.ancho_tablero_cm}x{product.specs.profundidad_tablero_cm}</td>
+                  <td className="p-3 text-center text-sm">{product.specs.peso_max_carga_kg} kg</td>
                   <td className="p-3 text-center text-sm" style={{ color: product.specs.sistema_anticolision ? 'var(--rating-good)' : 'var(--rating-bad)' }}>{product.specs.sistema_anticolision ? '✓' : '✗'}</td>
-                  <td className="p-3 text-center mono font-bold" style={{ color: ratingBg(product.puntuacion.total) }}>{product.puntuacion.total}</td>
+                  <td className="p-3 text-center font-bold" style={{ color: 'var(--bs-tinta)' }}>{coma(product.puntuacion.total)}</td>
                   <td className="p-3 text-center">
                     <AffiliateButton asin={asin} size="sm" />
                   </td>
@@ -219,7 +212,7 @@ export default function EscritorioBaratoPage() {
       {/* How to choose section */}
       <FadeIn>
         <div className="mt-12 max-w-3xl" style={{ color: 'var(--text-secondary)' }}>
-          <h2 className="text-2xl mb-4 heading-accent" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
+          <h2 className="text-2xl mb-4 heading-accent" style={{  color: 'var(--text-primary)' }}>
             Como elegir un escritorio elevable barato (sin arrepentirte)
           </h2>
           <div className="space-y-4 text-sm leading-relaxed">
@@ -260,8 +253,8 @@ export default function EscritorioBaratoPage() {
           <FadeIn key={asin} delay={i * 60}>
             <section id={product.slug}>
               <div className="flex items-baseline gap-3 mb-2">
-                <span className="mono text-sm font-bold" style={{ color: 'var(--color-secondary)' }}>#{String(i + 1).padStart(2, '0')}</span>
-                <h2 className="text-2xl" style={{ fontFamily: 'var(--font-display)' }}>
+                <span className="text-sm font-bold" style={{ color: 'var(--color-secondary)' }}>#{String(i + 1).padStart(2, '0')}</span>
+                <h2 className="text-2xl" >
                   {product.nombre}
                 </h2>
               </div>
@@ -280,7 +273,7 @@ export default function EscritorioBaratoPage() {
                     ].map((spec) => (
                       <div key={spec.label} className="p-2 rounded" style={{ background: 'var(--bg-secondary)' }}>
                         <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{spec.label}</p>
-                        <p className="mono text-sm font-semibold">{spec.value}</p>
+                        <p className="text-sm font-semibold">{spec.value}</p>
                       </div>
                     ))}
                   </div>
@@ -317,7 +310,7 @@ export default function EscritorioBaratoPage() {
       {/* Price tiers guide */}
       <FadeIn>
         <section className="mt-16 max-w-3xl">
-          <h2 className="text-2xl mb-4 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-2xl mb-4 heading-accent" >
             ¿Qué deberías exigir en cada escalón?
           </h2>
           <div className="space-y-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -337,7 +330,7 @@ export default function EscritorioBaratoPage() {
       {/* Internal links */}
       <FadeIn>
         <section className="mt-10 max-w-3xl p-6 rounded" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--color-secondary)' }}>
-          <h3 className="text-lg font-semibold mb-3" style={{ fontFamily: 'var(--font-display)' }}>
+          <h3 className="text-lg font-semibold mb-3" >
             Otras guías que te pueden interesar
           </h3>
           <div className="space-y-2 text-sm">
@@ -355,7 +348,7 @@ export default function EscritorioBaratoPage() {
       <section className="mt-16 max-w-3xl">
         <FadeIn>
           <div className="p-8 rounded-lg noise-bg" style={{ background: 'var(--bg-secondary)' }}>
-            <h2 className="text-2xl mb-2 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+            <h2 className="text-2xl mb-2 heading-accent" >
               Preguntas frecuentes
             </h2>
             <div className="mt-6">
