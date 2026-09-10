@@ -29,7 +29,7 @@ export interface FilaComparativa {
   tableroTxt: string;
   recorrido: string;
   garantia: string;
-  /** Franja de precio ya formateada, o null si el modelo no la tiene. */
+  /** Solo la franja: "110–150 €". La fecha va una vez en la nota al pie. */
   franja: string | null;
 }
 
@@ -203,7 +203,9 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
                 <td>{f.cargaTxt}</td>
                 <td>{f.motor}</td>
                 {hayFranjas && (
-                  <td style={{ fontSize: 13, color: "var(--bs-neutro-700)" }}>{f.franja ?? "—"}</td>
+                  <td style={{ fontSize: 14, color: "var(--bs-neutro-700)", whiteSpace: "nowrap" }}>
+                    {f.franja ?? "—"}
+                  </td>
                 )}
                 <td style={{ fontSize: 19, fontWeight: 700 }}>{f.nota}</td>
                 <td>
