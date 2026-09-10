@@ -72,7 +72,7 @@ export function standfirst(p: Product, esElMejor: boolean): string {
   const ficha = `${motorCorto(p)}, ${carga(p)} de carga y ${garantia(p)} de garantía.`;
   const cierre = p.incluye_tablero
     ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} incluido.`
-    : "No incluye tablero: ese lo eliges tú.";
+    : "No incluye tablero.";
   return `${nota} ${ficha} ${cierre}`;
 }
 
