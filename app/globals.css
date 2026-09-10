@@ -1300,3 +1300,8 @@ input[type="range"]::-webkit-slider-thumb:hover {
   .bs-nav { display: flex; }
   .bs-menu { display: none; }
 }
+
+/* La marca del riel enlaza a la home */
+.bs-riel-marca:hover {
+  color: var(--bs-verde-botella);
+}

@@ -7,21 +7,25 @@ export function Footer() {
 
   return (
     <footer className="footer-editorial">
-      {/* Thin editorial rule at top */}
-      <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(196, 122, 58, 0.4), transparent)' }} />
+      <div style={{ height: '1px', background: 'rgba(255, 255, 255, 0.2)' }} />
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2.5 mb-4">
-              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="4" y="20" width="24" height="3" rx="1.5" fill="#c47a3a" />
-                <path d="M16 5L21 12H11L16 5Z" fill="rgba(255,255,255,0.5)" />
-                <rect x="15" y="11" width="2" height="9" rx="1" fill="#c47a3a" />
-              </svg>
-              <span className="text-sm tracking-tight" style={{ fontFamily: 'var(--font-display)', fontWeight: 500, color: 'white' }}>
+            {/* La marca del pie es la unica via de vuelta a la home desde el
+                final de la pagina. Sin logo dibujado: el nombre es la marca. */}
+            <Link href="/" className="inline-block mb-4">
+              <span
+                style={{
+                  fontSize: 'var(--bs-etiqueta)',
+                  letterSpacing: 'var(--bs-track-etiqueta)',
+                  textTransform: 'uppercase',
+                  fontWeight: 600,
+                  color: 'white',
+                }}
+              >
                 Elevable
               </span>
-            </div>
+            </Link>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'rgba(255,255,255,0.55)' }}>
               {firmaMetodologia(total)}
             </p>
