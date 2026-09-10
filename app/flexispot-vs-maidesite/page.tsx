@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getProductBySlug } from "@/lib/products";
 import { FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
+import { FranjaPrecio } from "@/components/FranjaPrecio";
 import { AvisoAfiliadoPagina } from "@/components/AvisoAfiliado";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
@@ -173,6 +174,7 @@ export default function FlexispotVsMaidesitePage() {
                     </div>
                   </div>
                   <div className="mt-4">
+                    <FranjaPrecio product={product} />
                     <AffiliateButton asin={productAsin} size="lg" />
                   </div>
                 </div>
@@ -300,6 +302,7 @@ export default function FlexispotVsMaidesitePage() {
                       </div>
                     </div>
                     <div className="mt-4">
+                      <FranjaPrecio product={product} />
                       <AffiliateButton asin={productAsin} size="lg" />
                     </div>
                   </div>
