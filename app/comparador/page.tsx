@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { ProductCard } from "@/components/ProductCard";
+import { AvisoAfiliadoPagina } from "@/components/AvisoAfiliado";
 import { FadeIn } from "@/components/FadeIn";
 import { filterProducts } from "@/lib/products";
 
@@ -27,6 +28,7 @@ export default function ComparadorPage() {
           <h1 className="text-3xl md:text-5xl mt-2 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
             Comparador
           </h1>
+          <AvisoAfiliadoPagina />
           <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
             Filtra y compara. Encuentra tu escritorio en 30 segundos.
           </p>

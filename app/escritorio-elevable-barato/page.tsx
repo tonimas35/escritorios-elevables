@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
-import { AvisoAfiliado, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
+import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
@@ -127,9 +127,9 @@ export default function EscritorioBaratoPage() {
         <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
           Actualizado: {FECHA_EN_FRASE} &middot; {cheapProducts.length} modelos analizados de la gama de entrada
         </p>
-        <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
-          Este artículo contiene enlaces de afiliado. Si compras a traves de ellos, recibimos una pequeña comisión sin coste adicional para ti.
-        </p>
+        <div className="mt-1">
+          <AvisoAfiliadoPagina />
+        </div>
         <div className="editorial-rule mt-6" />
       </FadeIn>
 
@@ -307,7 +307,6 @@ export default function EscritorioBaratoPage() {
 
               <div className="mt-4">
                 <AffiliateButton asin={asin} size="lg" />
-                <AvisoAfiliado />
               </div>
             </section>
           </FadeIn>

@@ -12,7 +12,7 @@ export function CtaFijo({ asin, nombre }: { asin: string; nombre: string }) {
     <div className="bs-cta-fijo bs-solo-estrecho">
       <Cta asin={asin} texto={`Ver el ${nombre} en Amazon`} ancho mini />
       <p className="bs-afiliado bs-afiliado-mini" style={{ textAlign: "center", marginTop: 6 }}>
-        Nuestra recomendación · enlace de afiliado
+        Nuestra recomendación
       </p>
     </div>
   );

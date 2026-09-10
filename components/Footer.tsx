@@ -84,8 +84,8 @@ export function Footer() {
 
         <div className="pt-8">
           <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
-            Participamos en el Programa de Afiliados de Amazon EU. La declaración
-            completa va bajo cada enlace.
+            Participamos en el Programa de Afiliados de Amazon EU. El detalle
+            completo está en el aviso legal y en la metodología.
           </p>
         </div>
       </div>
