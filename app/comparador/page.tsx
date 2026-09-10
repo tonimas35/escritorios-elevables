@@ -25,7 +25,7 @@ export default function ComparadorPage() {
           <p className="editorial-mark" style={{ color: 'var(--color-secondary)' }}>
             Herramienta interactiva
           </p>
-          <h1 className="text-3xl md:text-5xl mt-2 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <h1 className="text-3xl md:text-5xl mt-2 heading-accent" >
             Comparador
           </h1>
           <AvisoAfiliadoPagina />
@@ -47,7 +47,7 @@ export default function ComparadorPage() {
               <div>
                 <label htmlFor="altura-slider" className="flex items-baseline justify-between text-sm font-medium">
                   <span>Altura max min</span>
-                  <span className="mono text-xs" style={{ color: 'var(--color-secondary)' }}>{alturaMax} cm</span>
+                  <span className="text-xs" style={{ color: 'var(--color-secondary)' }}>{alturaMax} cm</span>
                 </label>
                 <input id="altura-slider" type="range" min={100} max={130} step={5} value={alturaMax}
                   onChange={(e) => setAlturaMax(Number(e.target.value))} className="w-full mt-3" />
@@ -56,7 +56,7 @@ export default function ComparadorPage() {
               <div>
                 <label htmlFor="peso-slider" className="flex items-baseline justify-between text-sm font-medium">
                   <span>Carga min</span>
-                  <span className="mono text-xs" style={{ color: 'var(--color-secondary)' }}>{pesoMax} kg</span>
+                  <span className="text-xs" style={{ color: 'var(--color-secondary)' }}>{pesoMax} kg</span>
                 </label>
                 <input id="peso-slider" type="range" min={50} max={150} step={10} value={pesoMax}
                   onChange={(e) => setPesoMax(Number(e.target.value))} className="w-full mt-3" />
@@ -94,7 +94,7 @@ export default function ComparadorPage() {
         <div className="flex-1">
           <div className="flex items-center justify-between mb-6 pb-4" style={{ borderBottom: '1px solid var(--border)' }}>
             <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-              <span className="mono font-bold" style={{ color: 'var(--color-secondary)' }}>{filtered.length}</span> resultados
+              <span className="font-bold" style={{ color: 'var(--color-secondary)' }}>{filtered.length}</span> resultados
             </p>
             <select value={ordenar} onChange={(e) => setOrdenar(e.target.value as typeof ordenar)}
               className="text-xs font-medium px-3 py-2 rounded-sm" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}
@@ -106,7 +106,7 @@ export default function ComparadorPage() {
 
           {filtered.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-lg" style={{ fontFamily: 'var(--font-display)' }}>Sin resultados</p>
+              <p className="text-lg" >Sin resultados</p>
               <p className="text-sm mt-1" style={{ color: 'var(--text-muted)' }}>Amplia los filtros para ver escritorios.</p>
             </div>
           ) : (

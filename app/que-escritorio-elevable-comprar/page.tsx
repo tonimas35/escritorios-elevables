@@ -67,7 +67,7 @@ export default function TestPage() {
       <FadeIn>
         <div className="mb-10">
           <p className="editorial-mark" style={{ color: 'var(--color-secondary)' }}>Herramienta interactiva</p>
-          <h1 className="text-3xl md:text-5xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>Tu escritorio ideal</h1>
+          <h1 className="text-3xl md:text-5xl mt-1 heading-accent" >Tu escritorio ideal</h1>
           <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>4 preguntas. Recomendación personalizada.</p>
           <div className="mt-4">
             <AvisoAfiliadoPagina />
@@ -84,10 +84,10 @@ export default function TestPage() {
               ))}
             </div>
             <div className="flex items-baseline gap-4 mb-6">
-              <span className="mono text-3xl font-bold" style={{ color: 'var(--color-secondary)' }}>{String(step + 1).padStart(2, '0')}</span>
+              <span className="text-3xl font-bold" style={{ color: 'var(--color-secondary)' }}>{String(step + 1).padStart(2, '0')}</span>
               <span className="text-xs" style={{ color: 'var(--text-muted)' }}>/ {String(QUESTIONS.length).padStart(2, '0')}</span>
             </div>
-            <h2 className="text-2xl mb-6" style={{ fontFamily: 'var(--font-display)' }}>{QUESTIONS[step].text}</h2>
+            <h2 className="text-2xl mb-6" >{QUESTIONS[step].text}</h2>
             <div className="space-y-3">
               {QUESTIONS[step].options.map((opt) => (
                 <button key={opt.value} onClick={() => handleAnswer(opt.value)}
@@ -104,7 +104,7 @@ export default function TestPage() {
         <FadeIn>
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] mb-1" style={{ color: 'var(--accent)' }}>Resultado</p>
-            <h2 className="text-2xl mb-6 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>Nuestras recomendaciones</h2>
+            <h2 className="text-2xl mb-6 heading-accent" >Nuestras recomendaciones</h2>
             <div className="space-y-6">
               {results.map(({ asin, product }, i) => (
                 <FadeIn key={asin} delay={i * 120}>

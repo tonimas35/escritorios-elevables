@@ -95,25 +95,29 @@
 :root {
   /* Palette: Editorial Workshop — warm base + copper accent + forest green secondary */
   --bg-primary: var(--bs-papel);
-  --bg-secondary: #f3f0ec;
-  --bg-card: var(--bs-blanco);
-  --bg-card-hover: #faf8f6;
+  --bg-secondary: var(--bs-superficie);
+  /* Las tarjetas van sobre superficie; el blanco queda para el marco de
+     las fotos, que es lo unico blanco del sistema. */
+  --bg-card: var(--bs-superficie);
+  --bg-card-hover: var(--bs-superficie);
   --bg-dark: #2c2926;
   --bg-light: #faf7f2;
   --bg-light-secondary: #f0ebe3;
 
-  --text-primary: #2c2926;
-  --text-secondary: #5c564e;
-  --text-muted: #8a847a;
-  --text-dark: #1a1816;
-  --text-inverse: #faf7f2;
+  --text-primary: var(--bs-tinta);
+  --text-secondary: var(--bs-neutro-800);
+  --text-muted: var(--bs-neutro-700);
+  --text-dark: var(--bs-tinta);
+  --text-inverse: var(--bs-crema);
 
-  /* Primary accent: copper */
-  --accent: #c47a3a;
-  --accent-hover: #b06a2e;
-  --accent-subtle: rgba(196, 122, 58, 0.10);
-  --accent-light: rgba(196, 122, 58, 0.07);
-  --accent-glow: rgba(196, 122, 58, 0.20);
+  /* El cobre desaparece del sitio. El token sobrevive porque lo usan las
+     paginas del sistema viejo mientras se migran, y apunta al verde
+     botella, que en Broadsheet es el color estructural. */
+  --accent: var(--bs-verde-botella);
+  --accent-hover: var(--bs-tinta);
+  --accent-subtle: var(--bs-verde-tinte);
+  --accent-light: var(--bs-verde-tinte);
+  --accent-glow: transparent;
 
   /* Secondary accent: forest green */
   --color-secondary: var(--bs-verde-botella);
@@ -122,26 +126,27 @@
   --color-secondary-subtle: rgba(45, 74, 62, 0.10);
   --color-secondary-muted: rgba(45, 74, 62, 0.60);
 
+  /* Sin semaforo: el sistema no tiene ambar ni rojo. */
   --rating-good: var(--bs-verde-botella);
-  --rating-okay: #c9922a;
-  --rating-bad: #b84040;
+  --rating-okay: var(--bs-tinta);
+  --rating-bad: var(--bs-neutro-700);
 
-  --shadow-card: 0 1px 3px rgba(44,41,38,0.05), 0 4px 12px rgba(44,41,38,0.03);
-  --shadow-card-hover: 0 4px 12px rgba(44,41,38,0.08), 0 16px 40px rgba(44,41,38,0.06);
-  --shadow-editorial: 0 2px 8px rgba(44,41,38,0.04), 0 8px 24px rgba(44,41,38,0.05);
+  --shadow-card: none;
+  --shadow-card-hover: none;
+  --shadow-editorial: none;
 
   --pro: var(--bs-verde-botella);
-  --con: #b84040;
-  --border: #e5e0d8;
-  --border-light: #ece8e1;
-  --border-dark: #d5d0c8;
+  --con: var(--bs-neutro-700);
+  --border: var(--bs-divisor);
+  --border-light: var(--bs-divisor-fila);
+  --border-dark: var(--bs-tinta);
 
   /* Ojo: --radius-lg y --radius-xl pisan el tema de Tailwind v4 (rounded-lg
      y rounded-xl). Ya era asi antes del refactor; se deja igual para no
      cambiar el aspecto, pero conviene renombrarlos algun dia. */
-  --radius: 4px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
+  --radius: var(--bs-radio);
+  --radius-lg: var(--bs-radio);
+  --radius-xl: var(--bs-radio);
   --radio-tag: var(--bs-radio);
 
   /* Escala tipografica del sistema actual */
@@ -195,12 +200,10 @@
   --gris-calido-claro: #f5f0eb;
   --gris-calido-oscuro: #ede8e0;
 
-  /* Fraunces fuera: su hoja ya no se carga. El token sobrevive porque lo
-     usan 12 ficheros del sistema viejo, y apunta al serif del rediseño en
-     lugar de caer a Georgia. */
-  --font-display: var(--bs-familia);
   --font-body: var(--font-source-serif), 'Source Serif 4', Georgia, serif;
-  --font-mono: var(--font-jetbrains), 'JetBrains Mono', 'SF Mono', monospace;
+  /* Ya no hay monoespaciada: el sistema tiene una sola familia. El token
+     sobrevive para las paginas que aun escriben var(--font-mono). */
+  --font-mono: var(--bs-familia);
 }
 
 @theme inline {
@@ -230,10 +233,8 @@ body {
   font-size: var(--texto-base);
 }
 
-/* Titulares del sistema viejo. Los ejes SOFT y WONK eran de Fraunces y no
-   existen en Source Serif 4, asi que se retiran. */
 h1, h2, h3 {
-  font-family: var(--font-display);
+  font-family: var(--bs-familia);
   font-variation-settings: normal;
   letter-spacing: var(--track-titulo);
   line-height: 1.1;
@@ -250,10 +251,12 @@ h3 {
   font-weight: 500;
 }
 
+/* El sistema no tiene monoespaciada: una sola familia. La clase sobrevive
+   mientras quedan paginas del sistema viejo que la usan. */
 .mono {
-  font-family: var(--font-mono);
+  font-family: var(--bs-familia);
   font-variant-numeric: tabular-nums;
-  letter-spacing: var(--track-mono);
+  letter-spacing: normal;
 }
 
 /* ========================================
@@ -277,15 +280,16 @@ h3 {
 /* Editorial mark — small typographic detail */
 .editorial-mark {
   font-family: var(--font-mono);
-  font-size: var(--texto-etiqueta);
-  letter-spacing: var(--track-marca);
+  font-size: var(--bs-kicker);
+  letter-spacing: var(--bs-track-kicker);
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--bs-verde-botella);
+  font-family: var(--bs-familia);
 }
 
 /* Editorial large number — for product rankings */
 .editorial-number {
-  font-family: var(--font-display);
+  font-family: var(--bs-familia);
   font-weight: 900;
   font-variation-settings: 'SOFT' 100, 'WONK' 1;
   color: var(--color-secondary);
@@ -293,47 +297,7 @@ h3 {
   letter-spacing: var(--track-numeral);
 }
 
-/* Geometric grid background pattern */
-.grid-bg {
-  position: relative;
-}
-.grid-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
-  pointer-events: none;
-  background-image:
-    linear-gradient(var(--color-secondary) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-secondary) 1px, transparent 1px);
-  background-size: 48px 48px;
-  z-index: 0;
-}
-.grid-bg > * {
-  position: relative;
-  z-index: 1;
-}
 
-/* Gradient mesh for hero backgrounds */
-.hero-mesh {
-  position: relative;
-  overflow: hidden;
-}
-.hero-mesh::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 70% 30%, rgba(196, 122, 58, 0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 60% at 20% 70%, rgba(45, 74, 62, 0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(196, 122, 58, 0.03) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-}
-.hero-mesh > * {
-  position: relative;
-  z-index: 1;
-}
 
 /* ========================================
    ANIMATIONS
@@ -385,9 +349,7 @@ h3 {
   transition: transform var(--dur-card) var(--ease-suave), box-shadow var(--dur-card) ease, border-color var(--dur-media) ease;
 }
 .card-lift:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-card-hover);
-  border-color: var(--border-dark) !important;
+  border-color: var(--bs-verde-botella) !important;
 }
 
 /* Product card — editorial hover */
@@ -396,28 +358,9 @@ h3 {
   box-shadow: var(--shadow-card);
 }
 .product-card-hover:hover {
-  transform: translateY(-6px) scale(1.005);
-  box-shadow: var(--shadow-card-hover);
+  background: var(--bs-hover-fila);
 }
 
-/* Glow card on hover */
-.glow-card {
-  position: relative;
-  overflow: hidden;
-}
-.glow-card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, var(--accent-subtle), transparent, var(--color-secondary-subtle));
-  opacity: 0;
-  transition: opacity var(--dur-card);
-  z-index: -1;
-}
-.glow-card:hover::before {
-  opacity: 1;
-}
 
 /* ========================================
    DIVIDERS & RULES
@@ -487,34 +430,20 @@ input[type="range"]::-webkit-slider-thumb:hover {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: var(--accent);
-  color: white;
-  font-family: var(--font-body);
+  background: var(--bs-tinta);
+  color: var(--bs-crema);
+  font-family: var(--bs-familia);
   font-weight: 600;
-  font-size: var(--texto-boton);
-  letter-spacing: var(--track-boton);
-  text-transform: uppercase;
-  padding: var(--esp-boton);
-  border-radius: var(--radius);
-  transition: all var(--dur-media) var(--ease-suave);
-  position: relative;
-  overflow: hidden;
-}
-.btn-primary::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-  transform: translateX(-100%);
-  transition: transform var(--dur-lenta);
-}
-.btn-primary:hover::after {
-  transform: translateX(100%);
+  font-size: 15px;
+  letter-spacing: normal;
+  text-transform: none;
+  padding: 12px 22px;
+  border-radius: var(--bs-radio);
+  transition: background var(--dur-rapida);
 }
 .btn-primary:hover {
-  background: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-boton);
+  background: var(--bs-verde-botella);
+  color: var(--bs-crema);
 }
 
 .btn-secondary {
@@ -522,21 +451,17 @@ input[type="range"]::-webkit-slider-thumb:hover {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: var(--color-secondary);
-  color: white;
-  font-family: var(--font-body);
+  background: var(--bs-tinta);
+  color: var(--bs-crema);
+  font-family: var(--bs-familia);
   font-weight: 600;
-  font-size: var(--texto-boton);
-  letter-spacing: var(--track-boton);
-  text-transform: uppercase;
-  padding: var(--esp-boton);
-  border-radius: var(--radius);
-  transition: all var(--dur-media) var(--ease-suave);
+  font-size: 15px;
+  padding: 12px 22px;
+  border-radius: var(--bs-radio);
+  transition: background var(--dur-rapida);
 }
 .btn-secondary:hover {
-  background: var(--color-secondary-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-boton-secundario);
+  background: var(--bs-verde-botella);
 }
 
 .btn-outline {
@@ -548,13 +473,12 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: var(--text-primary);
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: var(--texto-boton);
-  letter-spacing: var(--track-boton);
-  text-transform: uppercase;
-  padding: var(--esp-boton);
-  border: 1px solid var(--border-dark);
-  border-radius: var(--radius);
-  transition: all var(--dur-media);
+  font-size: 15px;
+  padding: 12px 22px;
+  border: var(--bs-borde-etiqueta);
+  color: var(--bs-verde-botella);
+  border-radius: var(--bs-radio);
+  transition: background var(--dur-rapida);
 }
 .btn-outline:hover {
   background: var(--color-secondary-light);
@@ -592,21 +516,17 @@ input[type="range"]::-webkit-slider-thumb:hover {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--accent);
-  color: white;
+  background: var(--bs-tinta);
+  color: var(--bs-crema);
   font-weight: 600;
-  font-size: var(--texto-micro);
-  letter-spacing: var(--track-etiqueta);
-  text-transform: uppercase;
-  padding: var(--esp-boton-mini);
-  border-radius: var(--radius);
-  transition: all var(--dur-media);
+  font-size: 14px;
+  padding: 9px 16px;
+  border-radius: var(--bs-radio);
+  transition: background var(--dur-rapida);
   white-space: nowrap;
 }
 .btn-amazon:hover {
-  background: var(--accent-hover);
-  box-shadow: var(--shadow-boton-mini);
-  transform: translateY(-1px);
+  background: var(--bs-verde-botella);
 }
 
 /* ========================================
@@ -692,25 +612,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: var(--text-dark);
 }
 
-/* Noise texture overlay */
-.noise-bg {
-  position: relative;
-}
-.noise-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.02;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 200px 200px;
-  z-index: 0;
-}
-.noise-bg > * {
-  position: relative;
-  z-index: 1;
-}
 
 .section-warm {
   background: linear-gradient(170deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
@@ -718,9 +619,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 /* Warm product image container — gradient background */
 .product-image-container {
-  background: linear-gradient(145deg, var(--gris-calido-claro), var(--gris-calido-oscuro));
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-imagen);
+  background: var(--bs-blanco);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* Accent underline for headings */
@@ -764,20 +665,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   padding-right: 9999px;
 }
 
-/* Decorative large number */
-.decorative-number {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: var(--texto-numeral);
-  line-height: 1;
-  color: var(--color-secondary);
-  opacity: 0.06;
-  position: absolute;
-  top: -10px;
-  left: -5px;
-  pointer-events: none;
-  z-index: 0;
-}
 
 /* ========================================
    FOOTER
@@ -798,10 +685,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: white;
 }
 
-/* Legacy footer gradient — keeping for compat */
-.footer-gradient {
-  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--gris-calido-oscuro) 100%);
-}
 
 /* ========================================
    EDITORIAL PULL QUOTE
@@ -810,7 +693,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .pull-quote {
   border-left: 3px solid var(--accent);
   padding-left: 24px;
-  font-family: var(--font-display);
+  font-family: var(--bs-familia);
   font-style: italic;
   font-size: 1.15em;
   line-height: 1.5;
@@ -1317,4 +1200,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
 @media (min-width: 700px) {
   .bs-nav { display: flex; }
   .bs-menu { display: none; }
+}
+
+/* La marca del riel enlaza a la home */
+.bs-riel-marca:hover {
+  color: var(--bs-verde-botella);
 }

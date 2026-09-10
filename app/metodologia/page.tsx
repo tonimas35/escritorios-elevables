@@ -32,7 +32,7 @@ export default function MetodologiaPage() {
       <p className="editorial-mark" style={{ color: "var(--color-secondary)" }}>
         Metodología
       </p>
-      <h1 className="text-3xl md:text-4xl mt-2" style={{ fontFamily: "var(--font-display)" }}>
+      <h1 className="text-3xl md:text-4xl mt-2" >
         Cómo analizamos los escritorios
       </h1>
 
@@ -58,7 +58,7 @@ export default function MetodologiaPage() {
       <div className="divider my-8" />
 
       <section>
-        <h2 className="text-xl mb-4" style={{ fontFamily: "var(--font-display)" }}>
+        <h2 className="text-xl mb-4" >
           De dónde salen los datos
         </h2>
         <ul className="space-y-3 text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
@@ -82,7 +82,7 @@ export default function MetodologiaPage() {
       <div className="divider my-8" />
 
       <section>
-        <h2 className="text-xl mb-4" style={{ fontFamily: "var(--font-display)" }}>
+        <h2 className="text-xl mb-4" >
           Cómo puntuamos
         </h2>
         <p className="text-sm leading-relaxed mb-5" style={{ color: "var(--text-secondary)" }}>
@@ -106,7 +106,7 @@ export default function MetodologiaPage() {
       <div className="divider my-8" />
 
       <section>
-        <h2 className="text-xl mb-4" style={{ fontFamily: "var(--font-display)" }}>
+        <h2 className="text-xl mb-4" >
           Por qué no publicamos precios
         </h2>
         <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
@@ -121,7 +121,7 @@ export default function MetodologiaPage() {
       <div className="divider my-8" />
 
       <section>
-        <h2 className="text-xl mb-4" style={{ fontFamily: "var(--font-display)" }}>
+        <h2 className="text-xl mb-4" >
           Cómo se financia esto
         </h2>
         <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>

@@ -29,7 +29,7 @@ export default function CalculadoraPage() {
           <p className="editorial-mark" style={{ color: 'var(--color-secondary)' }}>
             Herramienta interactiva
           </p>
-          <h1 className="text-3xl md:text-5xl mt-1 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <h1 className="text-3xl md:text-5xl mt-1 heading-accent" >
             Calculadora ergonómica
           </h1>
           <AvisoAfiliadoPagina />
@@ -46,7 +46,7 @@ export default function CalculadoraPage() {
             <label htmlFor="estatura-slider" className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>
               Tu estatura
             </label>
-            <span className="mono text-3xl font-bold" style={{ color: 'var(--color-secondary)' }}>
+            <span className="text-3xl font-bold" style={{ color: 'var(--color-secondary)' }}>
               {estatura} <span className="text-sm font-normal" style={{ color: 'var(--text-muted)' }}>cm</span>
             </span>
           </div>
@@ -66,7 +66,7 @@ export default function CalculadoraPage() {
           <FadeIn key={stat.label} delay={200 + i * 80}>
             <div className="p-4 rounded-lg text-center" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-card)' }}>
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{stat.label}</p>
-              <p className="mono text-2xl font-bold mt-1"
+              <p className="text-2xl font-bold mt-1"
                 style={{ color: stat.highlight ? 'var(--accent)' : 'var(--text-primary)' }}>
                 {stat.value}
               </p>
@@ -77,8 +77,8 @@ export default function CalculadoraPage() {
       </div>
 
       <p className="mt-4 text-xs" style={{ color: 'var(--text-muted)' }}>
-        Rango necesario: <span className="mono font-semibold">{result.alturaSentado}</span> cm (sentado) —
-        <span className="mono font-semibold"> {result.alturaDePie}</span> cm (de pie)
+        Rango necesario: <span className="font-semibold">{result.alturaSentado}</span> cm (sentado) —
+        <span className="font-semibold"> {result.alturaDePie}</span> cm (de pie)
       </p>
 
       {/* Recommended */}
@@ -89,7 +89,7 @@ export default function CalculadoraPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] mb-1" style={{ color: 'var(--accent)' }}>
               Compatibles
             </p>
-            <h2 className="text-2xl mb-6 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+            <h2 className="text-2xl mb-6 heading-accent" >
               Escritorios que cubren tu rango
             </h2>
           </FadeIn>

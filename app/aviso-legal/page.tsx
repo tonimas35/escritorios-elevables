@@ -23,7 +23,7 @@ export default function AvisoLegalPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <p className="section-label mb-2">Legal</p>
-      <h1 className="text-3xl" style={{ fontFamily: 'var(--font-display)' }}>Aviso legal</h1>
+      <h1 className="text-3xl" >Aviso legal</h1>
 
       <section className="mt-8 space-y-6 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
         <h2>Afiliación con Amazon</h2>

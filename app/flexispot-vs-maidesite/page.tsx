@@ -109,8 +109,8 @@ export default function FlexispotVsMaidesitePage() {
       </nav>
 
       <FadeIn>
-        <h1 className="text-3xl md:text-5xl heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
-          <span style={{ color: 'var(--accent)' }}>Flexispot</span> vs Maidesite
+        <h1 className="text-3xl md:text-5xl heading-accent" >
+          Flexispot vs Maidesite
         </h1>
         <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
           Actualizado: {FECHA_EN_FRASE} · Las dos marcas más vendidas en Amazon España
@@ -131,9 +131,9 @@ export default function FlexispotVsMaidesitePage() {
 
       {/* TL;DR */}
       <FadeIn delay={200}>
-        <div className="mt-8 p-6 rounded noise-bg" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
+        <div className="mt-8 p-6" style={{ background: 'var(--bs-superficie)', borderLeft: '3px solid var(--bs-verde-botella)' }}>
           <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>TL;DR</p>
-          <p className="mt-2 text-base leading-relaxed" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-dark)' }}>
+          <p className="mt-2 text-base leading-relaxed" style={{  color: 'var(--text-dark)' }}>
             No hay un ganador único, porque no compiten en el mismo sitio. Flexispot domina la entrada de gama: su marco es el mejor valorado del catálogo, con 4,7 de media. MAIDeSITe domina la capacidad: el T2 Pro MAX aguanta 160 kg y sube hasta 135 cm, cifras que Flexispot no ofrece en este catálogo. En escritorios completos, con tablero incluido, la cosa se aprieta entre el FLEXISPOT de 160x80 y el MAIDeSITe S2 Pro, y ahí deciden el tamaño del tablero y la garantía.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mt-4">
@@ -146,7 +146,7 @@ export default function FlexispotVsMaidesitePage() {
       {/* Head to head: E7 vs T2 Pro */}
       <FadeIn>
         <section className="mt-12">
-          <h2 className="text-2xl mb-6 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-2xl mb-6 heading-accent" >
             Marco contra marco: FLEXISPOT vs T2 Pro MAX
           </h2>
 
@@ -168,7 +168,7 @@ export default function FlexispotVsMaidesitePage() {
                       <Image src={product.imagen} alt={product.imagen_alt} width={80} height={80} className="object-contain" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold" style={{ fontFamily: 'var(--font-display)' }}>{product.marca} {product.modelo}</h3>
+                      <h3 className="text-lg font-semibold" >{product.marca} {product.modelo}</h3>
                       <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ en Amazon</p>
                     </div>
                   </div>
@@ -194,11 +194,11 @@ export default function FlexispotVsMaidesitePage() {
                 {comparisons.map((row) => (
                   <tr key={row.label} style={{ borderBottom: '1px solid var(--border)' }}>
                     <td className="p-3 font-medium">{row.label}</td>
-                    <td className={`p-3 text-center mono ${row.winner === 'e7' ? 'font-bold' : ''}`}
+                    <td className={`p-3 text-center ${row.winner === 'e7' ? 'font-bold' : ''}`}
                       style={row.winner === 'e7' ? { color: 'var(--pro)' } : {}}>
                       {row.e7} {row.winner === 'e7' && '✓'}
                     </td>
-                    <td className={`p-3 text-center mono ${row.winner === 't2' ? 'font-bold' : ''}`}
+                    <td className={`p-3 text-center ${row.winner === 't2' ? 'font-bold' : ''}`}
                       style={row.winner === 't2' ? { color: 'var(--pro)' } : {}}>
                       {row.t2} {row.winner === 't2' && '✓'}
                     </td>
@@ -213,7 +213,7 @@ export default function FlexispotVsMaidesitePage() {
       {/* Analysis by criteria */}
       <section className="mt-12 max-w-3xl space-y-8">
         <FadeIn>
-          <h2 className="text-2xl mb-2 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-2xl mb-2 heading-accent" >
             Análisis por criterio
           </h2>
         </FadeIn>
@@ -242,7 +242,7 @@ export default function FlexispotVsMaidesitePage() {
       {/* Rating comparison */}
       <FadeIn>
         <section>
-          <h2 className="text-2xl mb-6 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-2xl mb-6 heading-accent" >
             Puntuaciones comparadas
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -264,7 +264,7 @@ export default function FlexispotVsMaidesitePage() {
       {eg1 && s2 && (
         <FadeIn>
           <section>
-            <h2 className="text-2xl mb-4 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+            <h2 className="text-2xl mb-4 heading-accent" >
               Con tablero incluido: FLEXISPOT 160x80 vs S2 Pro
             </h2>
             <div className="max-w-3xl mb-6 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -288,15 +288,15 @@ export default function FlexispotVsMaidesitePage() {
                     <div className="grid grid-cols-3 gap-2 mt-4 text-center">
                       <div className="p-2 rounded" style={{ background: 'var(--bg-secondary)' }}>
                         <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Carga</p>
-                        <p className="mono text-sm font-bold">{product.specs.peso_max_carga_kg} kg</p>
+                        <p className="text-sm font-bold">{product.specs.peso_max_carga_kg} kg</p>
                       </div>
                       <div className="p-2 rounded" style={{ background: 'var(--bg-secondary)' }}>
                         <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Garantía</p>
-                        <p className="mono text-sm font-bold">{product.specs.garantia_anos} años</p>
+                        <p className="text-sm font-bold">{product.specs.garantia_anos} años</p>
                       </div>
                       <div className="p-2 rounded" style={{ background: 'var(--bg-secondary)' }}>
                         <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Memorias</p>
-                        <p className="mono text-sm font-bold">{product.specs.presets_memoria}</p>
+                        <p className="text-sm font-bold">{product.specs.presets_memoria}</p>
                       </div>
                     </div>
                     <div className="mt-4">
@@ -315,7 +315,7 @@ export default function FlexispotVsMaidesitePage() {
       {/* Verdict */}
       <FadeIn>
         <section className="max-w-3xl">
-          <h2 className="text-2xl mb-4 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-2xl mb-4 heading-accent" >
             Veredicto: cual comprar
           </h2>
           <div className="space-y-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -339,7 +339,7 @@ export default function FlexispotVsMaidesitePage() {
       {/* Internal links */}
       <FadeIn>
         <section className="mt-10 max-w-3xl p-6 rounded" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--color-secondary)' }}>
-          <h3 className="text-lg font-semibold mb-3" style={{ fontFamily: 'var(--font-display)' }}>
+          <h3 className="text-lg font-semibold mb-3" >
             Otras guías
           </h3>
           <div className="space-y-2 text-sm">
@@ -359,8 +359,8 @@ export default function FlexispotVsMaidesitePage() {
       {/* FAQ */}
       <section className="mt-12 max-w-3xl">
         <FadeIn>
-          <div className="p-8 rounded-lg noise-bg" style={{ background: 'var(--bg-secondary)' }}>
-            <h2 className="text-2xl mb-2 heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
+          <div className="p-8" style={{ background: 'var(--bs-superficie)' }}>
+            <h2 className="text-2xl mb-2 heading-accent" >
               Preguntas frecuentes
             </h2>
             <div className="mt-6">

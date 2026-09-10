@@ -32,9 +32,7 @@ export function AffiliateButton({
       className={`btn-primary ${sizeClass}`}
     >
       {displayText}
-      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
-      </svg>
+      <span aria-hidden="true">→</span>
     </a>
   );
 }

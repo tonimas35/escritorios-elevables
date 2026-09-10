@@ -26,9 +26,11 @@ export function Header() {
     <header className="bs-cabecera">
       <div className="bs-contenido">
         <p className="bs-riel">
-          <span>
+          {/* La cabecera era un callejon sin salida: el nombre no enlazaba a
+              ningun sitio. Ahora es la via de vuelta a la home. */}
+          <Link href="/" className="bs-riel-marca">
             <strong>Elevable</strong> · Análisis independiente
-          </span>
+          </Link>
           <span>{FECHA}</span>
         </p>
 

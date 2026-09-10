@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
+import { coma } from "@/lib/format";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
@@ -93,12 +94,6 @@ export default function MejorEscritorioPage() {
   const midProducts = topProducts.filter(([, p]) => p.precio >= 150 && p.precio <= 300);
   const budgetProducts = topProducts.filter(([, p]) => p.precio < 150);
 
-  const ratingBg = (score: number) =>
-    score >= 8.5
-      ? "var(--color-secondary)"
-      : score >= 7
-        ? "var(--rating-okay)"
-        : "var(--rating-bad)";
 
   return (
     <div>
@@ -135,8 +130,8 @@ export default function MejorEscritorioPage() {
           <p className="editorial-mark mb-3" style={{ color: 'var(--color-secondary)' }}>
             Guía de compra &middot; {FECHA}
           </p>
-          <h1 className="text-3xl md:text-5xl heading-accent" style={{ fontFamily: 'var(--font-display)' }}>
-            Los <span style={{ color: 'var(--accent)' }}>12 mejores</span> escritorios elevables de 2026
+          <h1 className="text-3xl md:text-5xl heading-accent" >
+            Los 12 mejores escritorios elevables de 2026
           </h1>
           <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
             Actualizado: {FECHA_EN_FRASE} &middot; 12 modelos analizados
@@ -158,25 +153,22 @@ export default function MejorEscritorioPage() {
 
         {/* Winner callout */}
         <FadeIn delay={200}>
-          <div className="mt-8 p-6 rounded noise-bg" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
+          <div className="mt-8 p-6 rounded" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
             <div className="flex flex-col md:flex-row items-start gap-6">
               <div className="w-[160px] h-[160px] rounded-lg flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
                 <Image src={topProduct.imagen} alt={topProduct.imagen_alt} width={160} height={160} className="object-contain p-1" />
               </div>
               <div className="flex-1">
                 <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--color-secondary)' }}>Nuestro favorito</p>
-                <h2 className="text-xl font-semibold mt-1" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
+                <h2 className="text-xl font-semibold mt-1" style={{  color: 'var(--text-primary)' }}>
                   {topProduct.nombre}
                 </h2>
                 <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>{topProduct.veredicto}</p>
                 <div className="flex items-center gap-4 mt-3">
-                  <span className="tabular-nums text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>{topProduct.puntuacion.total}</span>
-                  <span
-                    className="tabular-nums font-bold px-2 py-0.5 rounded text-sm text-white"
-                    style={{ background: ratingBg(topProduct.puntuacion.total) }}
-                  >
-                    {topProduct.puntuacion.total}/10
+                  <span className="tabular-nums text-2xl font-bold">
+                    {coma(topProduct.puntuacion.total)}
                   </span>
+                  <span className="text-xs" style={{ color: 'var(--text-muted)' }}>sobre 10</span>
                   <AffiliateButton asin={topAsin} size="sm" />
                 </div>
               </div>
@@ -227,9 +219,9 @@ export default function MejorEscritorioPage() {
                     <td className="p-3 text-center">
                       <span
                         className="tabular-nums font-bold"
-                        style={{ color: ratingBg(product.puntuacion.total) }}
+                        style={{ color: 'var(--bs-tinta)' }}
                       >
-                        {product.puntuacion.total}
+                        {coma(product.puntuacion.total)}
                       </span>
                     </td>
                     <td className="p-3 text-center">
@@ -261,7 +253,7 @@ export default function MejorEscritorioPage() {
             <div className="max-w-5xl mx-auto px-6">
               <FadeIn>
                 <p className="editorial-mark" style={{ color: 'rgba(255,255,255,0.5)' }}>Sección I</p>
-                <p className="text-lg mt-1" style={{ fontFamily: 'var(--font-display)', color: 'white' }}>
+                <p className="text-lg mt-1" style={{  color: 'white' }}>
                   Gama premium
                 </p>
                 <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>
@@ -291,7 +283,7 @@ export default function MejorEscritorioPage() {
                   <div className="max-w-5xl mx-auto px-6">
                     <FadeIn>
                       <p className="editorial-mark" style={{ color: 'rgba(255,255,255,0.5)' }}>Sección II</p>
-                      <p className="text-lg mt-1" style={{ fontFamily: 'var(--font-display)', color: 'white' }}>
+                      <p className="text-lg mt-1" style={{  color: 'white' }}>
                         Gama media
                       </p>
                       <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>
@@ -306,7 +298,7 @@ export default function MejorEscritorioPage() {
                   <div className="max-w-5xl mx-auto px-6">
                     <FadeIn>
                       <p className="editorial-mark" style={{ color: 'rgba(255,255,255,0.5)' }}>Sección III</p>
-                      <p className="text-lg mt-1" style={{ fontFamily: 'var(--font-display)', color: 'white' }}>
+                      <p className="text-lg mt-1" style={{  color: 'white' }}>
                         Gama económica
                       </p>
                       <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>
@@ -319,14 +311,14 @@ export default function MejorEscritorioPage() {
 
               <section
                 id={product.slug}
-                className={`py-12 ${hasBand ? 'noise-bg' : ''}`}
+                className={`py-12 ${hasBand ? '' : ''}`}
                 style={hasBand ? { background: 'var(--bg-secondary)' } : {}}
               >
                 <div className="max-w-5xl mx-auto px-6">
                   <FadeIn delay={i * 50}>
                     <div className="flex items-baseline gap-4 mb-2">
                       <span className="editorial-number text-5xl" style={{ opacity: 0.12 }}>{String(i + 1).padStart(2, '0')}</span>
-                      <h2 className="text-2xl" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
+                      <h2 className="text-2xl" style={{  color: 'var(--text-primary)' }}>
                         {product.nombre}
                       </h2>
                     </div>
@@ -386,7 +378,7 @@ export default function MejorEscritorioPage() {
         <FadeIn>
           <section className="mt-16 max-w-3xl">
             <div className="editorial-rule mb-6" />
-            <h2 className="text-2xl mb-8 heading-accent" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
+            <h2 className="text-2xl mb-8 heading-accent" style={{  color: 'var(--text-primary)' }}>
               Como elegir el mejor escritorio elevable
             </h2>
             <div className="space-y-8 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -415,7 +407,7 @@ export default function MejorEscritorioPage() {
         {/* Internal links */}
         <FadeIn>
           <section className="mt-12 max-w-3xl p-6 rounded" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--color-secondary)' }}>
-            <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
+            <h2 className="text-lg font-semibold mb-3" style={{  color: 'var(--text-primary)' }}>
               Guias relacionadas
             </h2>
             <div className="space-y-2 text-sm">
@@ -435,8 +427,8 @@ export default function MejorEscritorioPage() {
         {/* FAQ */}
         <section className="mt-16 mb-8 max-w-3xl">
           <FadeIn>
-            <div className="p-8 rounded noise-bg" style={{ background: 'var(--bg-secondary)' }}>
-              <h2 className="text-2xl mb-2 heading-accent" style={{ fontFamily: 'var(--font-display)', color: 'var(--text-primary)' }}>
+            <div className="p-8 rounded" style={{ background: 'var(--bg-secondary)' }}>
+              <h2 className="text-2xl mb-2 heading-accent" style={{  color: 'var(--text-primary)' }}>
                 Preguntas frecuentes
               </h2>
               <div className="mt-6">

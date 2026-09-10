@@ -8,10 +8,13 @@ const RATING_LABELS: Record<string, string> = {
   funcionalidades: "Funciones",
 };
 
-function ratingColor(value: number): string {
-  if (value >= 8.5) return "var(--color-secondary)";
-  if (value >= 7) return "var(--rating-okay)";
-  return "var(--rating-bad)";
+/**
+ * Sin semaforo de color: el sistema no tiene ambar ni rojo, y pintar de
+ * rojo un 6,9 sobre 10 exagera la diferencia. La cifra va en tinta y el
+ * total, destacado por tamaño.
+ */
+function ratingColor(): string {
+  return "var(--bs-tinta)";
 }
 
 interface CompactRatingsProps {
@@ -32,7 +35,7 @@ export function CompactRatings({ puntuacion }: CompactRatingsProps) {
             </span>
             <span
               className="tabular-nums text-sm font-bold flex-shrink-0"
-              style={{ color: ratingColor(value as number) }}
+              style={{ color: ratingColor() }}
             >
               {value as number}
             </span>
@@ -46,7 +49,7 @@ export function CompactRatings({ puntuacion }: CompactRatingsProps) {
         </span>
         <span
           className="tabular-nums text-lg font-bold"
-          style={{ color: ratingColor(puntuacion.total) }}
+          style={{ color: ratingColor() }}
         >
           {puntuacion.total}
         </span>
