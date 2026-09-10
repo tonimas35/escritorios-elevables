@@ -200,11 +200,9 @@
   --gris-calido-claro: #f5f0eb;
   --gris-calido-oscuro: #ede8e0;
 
-  /* Fraunces fuera: su hoja ya no se carga. El token sobrevive porque lo
-     usan 12 ficheros del sistema viejo, y apunta al serif del rediseño en
-     lugar de caer a Georgia. */
-  --font-display: var(--bs-familia);
   --font-body: var(--font-source-serif), 'Source Serif 4', Georgia, serif;
+  /* Ya no hay monoespaciada: el sistema tiene una sola familia. El token
+     sobrevive para las paginas que aun escriben var(--font-mono). */
   --font-mono: var(--bs-familia);
 }
 
@@ -235,10 +233,8 @@ body {
   font-size: var(--texto-base);
 }
 
-/* Titulares del sistema viejo. Los ejes SOFT y WONK eran de Fraunces y no
-   existen en Source Serif 4, asi que se retiran. */
 h1, h2, h3 {
-  font-family: var(--font-display);
+  font-family: var(--bs-familia);
   font-variation-settings: normal;
   letter-spacing: var(--track-titulo);
   line-height: 1.1;
@@ -293,7 +289,7 @@ h3 {
 
 /* Editorial large number — for product rankings */
 .editorial-number {
-  font-family: var(--font-display);
+  font-family: var(--bs-familia);
   font-weight: 900;
   font-variation-settings: 'SOFT' 100, 'WONK' 1;
   color: var(--color-secondary);
@@ -301,47 +297,7 @@ h3 {
   letter-spacing: var(--track-numeral);
 }
 
-/* Geometric grid background pattern */
-.grid-bg {
-  position: relative;
-}
-.grid-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
-  pointer-events: none;
-  background-image:
-    linear-gradient(var(--color-secondary) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-secondary) 1px, transparent 1px);
-  background-size: 48px 48px;
-  z-index: 0;
-}
-.grid-bg > * {
-  position: relative;
-  z-index: 1;
-}
 
-/* Gradient mesh for hero backgrounds */
-.hero-mesh {
-  position: relative;
-  overflow: hidden;
-}
-.hero-mesh::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 70% 30%, rgba(196, 122, 58, 0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 60% at 20% 70%, rgba(45, 74, 62, 0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(196, 122, 58, 0.03) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-}
-.hero-mesh > * {
-  position: relative;
-  z-index: 1;
-}
 
 /* ========================================
    ANIMATIONS
@@ -405,24 +361,6 @@ h3 {
   background: var(--bs-hover-fila);
 }
 
-/* Glow card on hover */
-.glow-card {
-  position: relative;
-  overflow: hidden;
-}
-.glow-card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, var(--accent-subtle), transparent, var(--color-secondary-subtle));
-  opacity: 0;
-  transition: opacity var(--dur-card);
-  z-index: -1;
-}
-.glow-card:hover::before {
-  opacity: 1;
-}
 
 /* ========================================
    DIVIDERS & RULES
@@ -674,25 +612,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: var(--text-dark);
 }
 
-/* Noise texture overlay */
-.noise-bg {
-  position: relative;
-}
-.noise-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.02;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 200px 200px;
-  z-index: 0;
-}
-.noise-bg > * {
-  position: relative;
-  z-index: 1;
-}
 
 .section-warm {
   background: linear-gradient(170deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
@@ -746,20 +665,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   padding-right: 9999px;
 }
 
-/* Decorative large number */
-.decorative-number {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: var(--texto-numeral);
-  line-height: 1;
-  color: var(--color-secondary);
-  opacity: 0.06;
-  position: absolute;
-  top: -10px;
-  left: -5px;
-  pointer-events: none;
-  z-index: 0;
-}
 
 /* ========================================
    FOOTER
@@ -780,10 +685,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
   color: white;
 }
 
-/* Legacy footer gradient — keeping for compat */
-.footer-gradient {
-  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--gris-calido-oscuro) 100%);
-}
 
 /* ========================================
    EDITORIAL PULL QUOTE
@@ -792,7 +693,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .pull-quote {
   border-left: 3px solid var(--accent);
   padding-left: 24px;
-  font-family: var(--font-display);
+  font-family: var(--bs-familia);
   font-style: italic;
   font-size: 1.15em;
   line-height: 1.5;

@@ -153,7 +153,7 @@ export default function MejorEscritorioPage() {
 
         {/* Winner callout */}
         <FadeIn delay={200}>
-          <div className="mt-8 p-6 rounded noise-bg" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
+          <div className="mt-8 p-6 rounded" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
             <div className="flex flex-col md:flex-row items-start gap-6">
               <div className="w-[160px] h-[160px] rounded-lg flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
                 <Image src={topProduct.imagen} alt={topProduct.imagen_alt} width={160} height={160} className="object-contain p-1" />
@@ -311,7 +311,7 @@ export default function MejorEscritorioPage() {
 
               <section
                 id={product.slug}
-                className={`py-12 ${hasBand ? 'noise-bg' : ''}`}
+                className={`py-12 ${hasBand ? '' : ''}`}
                 style={hasBand ? { background: 'var(--bg-secondary)' } : {}}
               >
                 <div className="max-w-5xl mx-auto px-6">
@@ -427,7 +427,7 @@ export default function MejorEscritorioPage() {
         {/* FAQ */}
         <section className="mt-16 mb-8 max-w-3xl">
           <FadeIn>
-            <div className="p-8 rounded noise-bg" style={{ background: 'var(--bg-secondary)' }}>
+            <div className="p-8 rounded" style={{ background: 'var(--bg-secondary)' }}>
               <h2 className="text-2xl mb-2 heading-accent" style={{  color: 'var(--text-primary)' }}>
                 Preguntas frecuentes
               </h2>

@@ -140,7 +140,7 @@ export default function EscritorioBaratoPage() {
       {/* Winner callout */}
       {winner && (
         <FadeIn delay={200}>
-          <div className="mt-8 p-6 rounded noise-bg" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
+          <div className="mt-8 p-6 rounded" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
             <div className="flex flex-col md:flex-row items-start gap-6">
               <div className="w-[140px] h-[140px] rounded-lg flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
                 <Image src={winner[1].imagen} alt={winner[1].imagen_alt} width={140} height={140} className="object-contain p-1" />
@@ -228,7 +228,7 @@ export default function EscritorioBaratoPage() {
 
       {/* What you sacrifice section */}
       <FadeIn>
-        <div className="mt-8 max-w-3xl p-6 rounded-lg noise-bg" style={{ background: 'var(--bg-secondary)' }}>
+        <div className="mt-8 max-w-3xl p-6 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
           <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>
             Que sacrificas por el precio (hablando claro)
           </h3>
@@ -347,7 +347,7 @@ export default function EscritorioBaratoPage() {
       {/* FAQ for SEO */}
       <section className="mt-16 max-w-3xl">
         <FadeIn>
-          <div className="p-8 rounded-lg noise-bg" style={{ background: 'var(--bg-secondary)' }}>
+          <div className="p-8 rounded-lg" style={{ background: 'var(--bg-secondary)' }}>
             <h2 className="text-2xl mb-2 heading-accent" >
               Preguntas frecuentes
             </h2>
