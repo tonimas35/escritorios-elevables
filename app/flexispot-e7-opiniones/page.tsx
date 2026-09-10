@@ -136,10 +136,6 @@ export default function FlexispotE7ReviewPage() {
               <AvisoAfiliadoPagina />
               <AffiliateButton asin={asin} size="lg" />
             </div>
-
-            <p className="mt-2 text-xs" style={{ color: 'var(--text-muted)' }}>
-              Enlace de afiliado. Si compras a traves de el, recibimos una comisión sin coste para ti.
-            </p>
           </div>
         </div>
       </FadeIn>
