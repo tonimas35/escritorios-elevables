@@ -58,7 +58,7 @@ export function ProductCard({
 
   if (size === "compact") {
     return (
-      <div className="flex items-center gap-4 p-4 rounded product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--accent)' }}>
+      <div className="flex items-center gap-4 p-4 rounded product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--verde-estructura)' }}>
         <div className="w-20 h-20 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden product-image-container">
           {isRemoteImage ? (
             <Image
@@ -97,7 +97,7 @@ export function ProductCard({
   const tableroLabel = `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm`;
 
   return (
-    <div className="relative overflow-hidden rounded product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--accent)' }}>
+    <div className="relative overflow-hidden rounded product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--verde-estructura)' }}>
       {(badge || rank) && (
         <div className="flex items-center gap-2 px-5 pt-4">
           {rank !== undefined && rank > 0 && (

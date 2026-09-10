@@ -33,8 +33,11 @@ Estas no están abiertas a debate en la implementación:
 - **Verde botella (`#2d4a3e`) solo como color estructural**: cabeceras de tabla,
   filetes y franjas. **Nunca rellena un botón.** Como mucho aparece en bordes,
   etiquetas y el hover de los CTA.
-- **Sin precios ni rangos de precio en ninguna parte.** El CTA es siempre "Ver precio
-  actual en Amazon"; el precio vive en Amazon, no aquí.
+- **Precio exacto: nunca. Franja amplia con fecha de verificación: sí**, en el formato
+  `franjaPrecio()` ya implementado ("Entre X y Y € en Amazon · verificado el
+  DD/MM/AAAA"). Sale del modelo, de `precio_min`, `precio_max` y `precio_verificado`,
+  y no se publica mientras falte alguno de los tres. El CTA es siempre "Ver precio
+  actual en Amazon"; el precio al céntimo vive en Amazon, no aquí.
 - **Declaración de afiliado en gris pequeño (`#7d7979`, 12–13px) bajo cada CTA**, en
   una línea. No hay bloque grande de afiliado al final de la página.
 - **Avatar del autor: monograma "T"**, círculo de 44px con fondo verde botella y la
@@ -66,12 +69,21 @@ que existan notas que se sostengan.
 
 ### El criterio "relación calidad-precio"
 
-Sin resolver. El campo `relacion_calidad_precio` existe en `data/productos.json` y es
-uno de los cinco apartados, pero **contradice la decisión de no publicar precios**: es
-un juicio sobre el precio en una página que, por decisión de diseño, no dice cuánto
-cuesta nada. Puntuar la relación calidad-precio sin enseñar el precio no es
-comprobable por el lector.
+Sigue sin resolver, pero **ya no por el motivo de antes**. La razón original era que la
+web no decía cuánto cuesta nada, así que un juicio sobre el precio no había manera de
+contrastarlo. Desde que la regla admite franja con fecha de verificación, esa
+objeción ha caducado: el lector ve un orden de magnitud.
 
-No se muestra en ninguna pantalla mientras la contradicción siga abierta. Salidas
-posibles, ninguna elegida todavía: retirar el criterio, renombrarlo a algo que no
-hable de precio, o reabrir la decisión sobre publicar precios.
+Lo que queda en pie son dos problemas distintos:
+
+1. **La franja es amplia a propósito y de una fecha concreta.** Sirve para situar el
+   modelo, no para sostener una nota al décimo. Entre el mínimo y el máximo de la
+   franja, la relación calidad-precio de un mismo modelo cambia, y el precio de hoy
+   no es el del día en que se verificó.
+2. **La nota está puesta a mano, como las demás.** Mismo problema que la matriz: no
+   hay medición detrás ni criterio documentado que diga cómo se llega a esa cifra.
+
+`relacion_calidad_precio` sigue en `data/productos.json` y sigue sin mostrarse en
+ninguna pantalla. Salidas posibles, ninguna elegida todavía: retirar el criterio,
+renombrarlo a algo que no hable de precio, o definir por escrito cómo se calcula
+contra la franja publicada y recalcular las doce notas con esa regla.

@@ -138,13 +138,13 @@ export default function MetodologiaPage() {
       <div className="divider my-8" />
 
       <div className="flex flex-wrap gap-4 text-sm">
-        <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: "var(--accent)" }}>
+        <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: "var(--verde-estructura)" }}>
           Ver la comparativa
         </Link>
-        <Link href="/comparador" className="underline" style={{ color: "var(--accent)" }}>
+        <Link href="/comparador" className="underline" style={{ color: "var(--verde-estructura)" }}>
           Comparador
         </Link>
-        <Link href="/que-escritorio-elevable-comprar" className="underline" style={{ color: "var(--accent)" }}>
+        <Link href="/que-escritorio-elevable-comprar" className="underline" style={{ color: "var(--verde-estructura)" }}>
           Test de recomendación
         </Link>
       </div>

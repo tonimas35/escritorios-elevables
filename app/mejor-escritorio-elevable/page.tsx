@@ -12,7 +12,7 @@ import { FadeIn } from "@/components/FadeIn";
 import { productSchema, itemListSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "12 mejores escritorios elevables 2026 — Guia de compra",
+  title: "12 mejores escritorios elevables 2026 — Guía de compra",
   description:
     "Comparativa de los 12 mejores escritorios elevables eléctricos de 2026. De la gama de entrada a la premium. Análisis con datos reales, pros/contras y recomendaciones.",
   alternates: { canonical: "/mejor-escritorio-elevable" },
@@ -50,32 +50,32 @@ export default function MejorEscritorioPage() {
 
   const faqItems = [
     {
-      q: "Merece la pena un escritorio elevable?",
-      a: "Depende de si vas a usarlo. Un escritorio elevable solo aporta algo si de verdad lo subes: el patron habitual es alternar unos 30 minutos sentado y 15 de pie. Si trabajas sentado más de cuatro horas al día y sabes que vas a cambiar de postura, compensa. Si sospechas que lo vas a dejar siempre a la misma altura, te sale más barato una mesa normal.",
+      q: "¿Merece la pena un escritorio elevable?",
+      a: "Depende de si vas a usarlo. Un escritorio elevable solo aporta algo si de verdad lo subes: el patrón habitual es alternar unos 30 minutos sentado y 15 de pie. Si trabajas sentado más de cuatro horas al día y sabes que vas a cambiar de postura, compensa. Si sospechas que lo vas a dejar siempre a la misma altura, te sale más barato una mesa normal.",
     },
     {
-      q: "Motor simple o doble: cual elijo?",
+      q: "Motor simple o doble: ¿cuál elijo?",
       a: "El doble es más rápido (3.8 vs 2.5 cm/s), más silencioso y reparte mejor el esfuerzo. Si cambias de posición varias veces al día, se nota. Pero si el presupuesto manda, un motor simple cumple bien \u2014 prioriza estabilidad y garantía antes que esto.",
     },
     {
-      q: "Cuanto peso soportan estos escritorios?",
-      a: "De 50 kg los baratos a 160 kg los premium. Un setup normal (monitor + portátil + trastos) pesa unos 12-15 kg, así que incluso el más básico va sobrado. Solo preocupate si tienes varios monitores con brazo o equipos pesados encima.",
+      q: "¿Cuánto peso soportan estos escritorios?",
+      a: "De 50 kg los baratos a 160 kg los premium. Un setup normal (monitor + portátil + trastos) pesa unos 12-15 kg, así que incluso el más básico va sobrado. Solo preocúpate si tienes varios monitores con brazo o equipos pesados encima.",
     },
     {
-      q: "Puedo montar un escritorio elevable solo?",
-      a: "Los ligeros, por debajo de 22 kg, como el Fezibo o los Devoko, si. Los pesados como el E7 (32 kg) son un engorro en solitario al dar la vuelta al tablero. Como referencia: por encima de 25 kg, mejor entre dos.",
+      q: "¿Puedo montar un escritorio elevable solo?",
+      a: "Los ligeros, por debajo de 22 kg, como el Fezibo o los Devoko, sí. Los pesados como el E7 (32 kg) son un engorro en solitario al dar la vuelta al tablero. Como referencia: por encima de 25 kg, mejor entre dos.",
     },
     {
-      q: "Que garantía tienen?",
+      q: "¿Qué garantía tienen?",
       a: "En España la garantía legal mínima son tres años para cualquier producto nuevo, así que ese es el suelo de todo el catálogo. Por encima de eso, Flexispot ofrece cinco años en la estructura, que es la garantía comercial más larga del catálogo. Si un motor falla suele hacerlo en los primeros meses, pero al ser electrónica con partes móviles esos dos años de más tienen valor.",
     },
     {
-      q: "Cuanta electricidad consume un escritorio elevable?",
+      q: "¿Cuánta electricidad consume un escritorio elevable?",
       a: "Prácticamente nada. El motor funciona 10-20 segundos cada vez que cambias de altura. Consumo anual: unos 2-3 kWh, menos de 1 euro al año en la factura.",
     },
     {
       q: "¿Se nota mucho la diferencia entre la gama de entrada y la premium?",
-      a: "En estabilidad de pie, ruido y rango de altura, si. Para uso normal, uno de gama media con anticolisión va bien. Si pasas 8 horas diarias y necesitas que no vibre nada al escribir de pie, el salto a gama media-alta se nota.",
+      a: "En estabilidad de pie, ruido y rango de altura, sí. Para uso normal, uno de gama media con anticolisión va bien. Si pasas 8 horas diarias y necesitas que no vibre nada al escribir de pie, el salto a gama media-alta se nota.",
     },
   ];
 
@@ -120,7 +120,7 @@ export default function MejorEscritorioPage() {
       <div className="max-w-5xl mx-auto px-6 py-12">
         {/* Breadcrumb */}
         <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
-          <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
+          <Link href="/" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Inicio</Link>
           {" "}&gt;{" "}Mejores escritorios elevables
         </nav>
 
@@ -153,7 +153,7 @@ export default function MejorEscritorioPage() {
 
         {/* Winner callout */}
         <FadeIn delay={200}>
-          <div className="mt-8 p-6 rounded" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
+          <div className="mt-8 p-6 rounded" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--verde-estructura)' }}>
             <div className="flex flex-col md:flex-row items-start gap-6">
               <div className="w-[160px] h-[160px] rounded-lg flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
                 <Image src={topProduct.imagen} alt={topProduct.imagen_alt} width={160} height={160} className="object-contain p-1" />
@@ -347,7 +347,7 @@ export default function MejorEscritorioPage() {
 
                     {/* Editorial analysis — pull quote style */}
                     {editorial && (
-                      <div className="mt-5 max-w-3xl pl-6" style={{ borderLeft: '2px solid var(--accent)', opacity: 0.9 }}>
+                      <div className="mt-5 max-w-3xl pl-6" style={{ borderLeft: '2px solid var(--verde-estructura)', opacity: 0.9 }}>
                         <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                           {editorial}
                         </p>
@@ -384,11 +384,11 @@ export default function MejorEscritorioPage() {
             <div className="space-y-8 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               {[
                 { title: "El motor: simple vs doble", text: "El doble es más rápido (3.8 vs 2.5 cm/s), más silencioso y más estable al moverse. Si cambias de posición 4+ veces al día con un setup pesado, merece la pena. Si lo mueves dos veces al día con un portátil, el simple cumple." },
-                { title: "Estabilidad: importa más de lo que crees", text: "De pie, el escritorio esta a 110-120 cm y cualquier vibración se amplifica. Si la pantalla tiembla al teclear, te cansas la vista. Busca patas con tres secciones telescópicas y estructura pesada. el marco Flexispot es el mejor del catálogo en este apartado; en los baratos hay que aceptar algo de movimiento." },
+                { title: "Estabilidad: importa más de lo que crees", text: "De pie, el escritorio está a 110-120 cm y cualquier vibración se amplifica. Si la pantalla tiembla al teclear, te cansas la vista. Busca patas con tres secciones telescópicas y estructura pesada. el marco Flexispot es el mejor del catálogo en este apartado; en los baratos hay que aceptar algo de movimiento." },
                 { title: "Ruido: ojo si haces videollamadas", text: "Baratos: 50-52 dB (se oye). Premium: 43-45 dB (casi no se nota). Si cambias de altura durante una llamada, con 50 dB la otra persona lo percibe. Con 43, no." },
                 { title: "Rango de altura: ojo si mides más de 1.85 m", text: "Baratos: 72-118 cm. Premium: 58-125 cm. Si mides más de 1.85 m y el escritorio llega solo a 118 cm, vas a trabajar encorvado. El E7 llega a 123 cm y el Maidesite T2 Pro a 127 cm." },
                 { title: "Garantía y postventa", text: "Flexispot y Maidesite dan 5 años; marcas baratas, 2. Los problemas graves suelen aparecer en los primeros 6 meses. Si puedes elegir, 5 años siempre \u2014 tiene electronica y partes moviles." },
-                { title: "Anticolisión: no te la juegues", text: "Para el motor si detecta un obstaculo al bajar. Sin anticolisión, el motor sigue y puede romper cajones o el propio mecanismo. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena ahorrar y quedarse sin el." },
+                { title: "Anticolisión: no te la juegues", text: "Para el motor si detecta un obstáculo al bajar. Sin anticolisión, el motor sigue y puede romper cajones o el propio mecanismo. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena ahorrar y quedarse sin el." },
               ].map((item, i) => (
                 <FadeIn key={item.title} delay={i * 80}>
                   <div className="relative pl-14">
@@ -412,13 +412,13 @@ export default function MejorEscritorioPage() {
             </h2>
             <div className="space-y-2 text-sm">
               <p>
-                <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Mejores escritorios elevables baratos</Link> &mdash; Si vas a la gama de entrada, esta guía entra más al detalle.
+                <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--verde-estructura)' }}>Mejores escritorios elevables baratos</Link> &mdash; Si vas a la gama de entrada, esta guía entra más al detalle.
               </p>
               <p>
-                <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: opinion y review completa</Link> &mdash; Análisis a fondo del E7 con opiniones reales de compradores.
+                <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7: opinion y review completa</Link> &mdash; Análisis a fondo del E7 con opiniones reales de compradores.
               </p>
               <p>
-                <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Flexispot vs Maidesite: comparativa</Link> &mdash; Las dos marcas más vendidas cara a cara. Cual merece la pena?
+                <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot vs Maidesite: comparativa</Link> &mdash; Las dos marcas más vendidas cara a cara. ¿Cuál merece la pena?
               </p>
             </div>
           </section>

@@ -67,7 +67,7 @@ export default function CalculadoraPage() {
             <div className="p-4 rounded-lg text-center" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-card)' }}>
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{stat.label}</p>
               <p className="text-2xl font-bold mt-1"
-                style={{ color: stat.highlight ? 'var(--accent)' : 'var(--text-primary)' }}>
+                style={{ color: stat.highlight ? 'var(--verde-estructura)' : 'var(--text-primary)' }}>
                 {stat.value}
               </p>
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{stat.unit}</p>
@@ -86,7 +86,7 @@ export default function CalculadoraPage() {
         <div className="mt-12">
           <div className="divider mb-8" />
           <FadeIn>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] mb-1" style={{ color: 'var(--accent)' }}>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] mb-1" style={{ color: 'var(--verde-estructura)' }}>
               Compatibles
             </p>
             <h2 className="text-2xl mb-6 heading-accent" >

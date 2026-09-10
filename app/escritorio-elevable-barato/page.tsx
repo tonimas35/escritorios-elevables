@@ -37,28 +37,28 @@ export default function EscritorioBaratoPage() {
 
   const faqItems = [
     {
-      q: "Cual es el escritorio elevable más barato que merece la pena?",
+      q: "¿Cuál es el escritorio elevable más barato que merece la pena?",
       a: `El ${winner?.[1].marca} ${winner?.[1].modelo}. Tiene anticolisión, 4 memorias y 5 años de garantía, cosas que no suelen venir juntas en la gama de entrada. Si buscas algo aún más contenido, el Fezibo cumple para un setup básico.`,
     },
     {
-      q: "Motor simple o doble para un escritorio barato?",
+      q: "¿Motor simple o doble para un escritorio barato?",
       a: "En la gama de entrada, casi todos llevan motor simple. Es más lento (20 seg el recorrido completo vs 12 del doble), pero para un setup normal de portátil y monitor va de sobra. Si quieres doble motor sin salirte de lo barato, el marco Flexispot es la opción, aunque tendrás que sumarle un tablero.",
     },
     {
-      q: "Cuanto dura un escritorio elevable barato?",
-      a: "Entre 3 y 7 años con uso normal (2-4 cambios al día). Los motores aguantan unos 10.000 ciclos. Los problemas que se ven en Amazon son casi siempre del controlador electronico, no del motor, y un reinicio suele arreglarlo.",
+      q: "¿Cuánto dura un escritorio elevable barato?",
+      a: "Entre 3 y 7 años con uso normal (2-4 cambios al día). Los motores aguantan unos 10.000 ciclos. Los problemas que se ven en Amazon son casi siempre del controlador electrónico, no del motor, y un reinicio suele arreglarlo.",
     },
     {
-      q: "Necesito herramientas especiales para montarlo?",
+      q: "¿Necesito herramientas especiales para montarlo?",
       a: "No, todos incluyen llaves Allen y tornillos. Montaje en 20-45 minutos. Los ligeros (Fezibo, Devoko) se montan solo; el VASAGLE (24 kg) mejor entre dos. Un destornillador eléctrico ayuda pero no es obligatorio.",
     },
     {
-      q: "Que sacrifico por comprar un escritorio elevable barato?",
+      q: "¿Qué sacrifico por comprar un escritorio elevable barato?",
       a: "Velocidad del motor (2.5 vs 3.8 cm/s), estabilidad a máxima altura (algo de vibración al escribir de pie) y acabado del tablero (melamina básica). También menos rango de altura (72-118 cm vs 58-125 cm), un problema si mides más de 1.85 m.",
     },
     {
-      q: "Anticolisión: es necesario en un escritorio barato?",
-      a: "Si. Para el motor si detecta un obstaculo (cajon, silla, rodilla). Sin anticolisión, el motor sigue y puede romper cosas. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena quedarse sin él por ahorrar un poco.",
+      q: "Anticolisión: ¿es necesario en un escritorio barato?",
+      a: "Sí. Para el motor si detecta un obstáculo (cajón, silla, rodilla). Sin anticolisión, el motor sigue y puede romper cosas. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena quedarse sin él por ahorrar un poco.",
     },
   ];
 
@@ -107,7 +107,7 @@ export default function EscritorioBaratoPage() {
 
       {/* Breadcrumb */}
       <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
-        <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
+        <Link href="/" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Inicio</Link>
         {" "}&gt;{" "}Escritorios elevables baratos
       </nav>
 
@@ -140,7 +140,7 @@ export default function EscritorioBaratoPage() {
       {/* Winner callout */}
       {winner && (
         <FadeIn delay={200}>
-          <div className="mt-8 p-6 rounded" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--accent)' }}>
+          <div className="mt-8 p-6 rounded" style={{ background: 'linear-gradient(135deg, var(--color-secondary-light), white)', borderLeft: '3px solid var(--verde-estructura)' }}>
             <div className="flex flex-col md:flex-row items-start gap-6">
               <div className="w-[140px] h-[140px] rounded-lg flex-shrink-0 overflow-hidden flex items-center justify-center product-image-container">
                 <Image src={winner[1].imagen} alt={winner[1].imagen_alt} width={140} height={140} className="object-contain p-1" />
@@ -179,7 +179,7 @@ export default function EscritorioBaratoPage() {
             </thead>
             <tbody>
               {cheapProducts.map(([asin, product], i) => (
-                <tr key={asin} className="transition-colors hover:bg-[var(--accent-light)]" style={{ borderBottom: '1px solid var(--border)' }}>
+                <tr key={asin} className="transition-colors hover:bg-[var(--verde-estructura-claro)]" style={{ borderBottom: '1px solid var(--border)' }}>
                   <td className="p-3">
                     <span className="text-xs font-bold" style={{ color: 'var(--color-secondary)' }}>{String(i + 1).padStart(2, '0')}</span>
                   </td>
@@ -217,7 +217,7 @@ export default function EscritorioBaratoPage() {
           </h2>
           <div className="space-y-4 text-sm leading-relaxed">
             <p>
-              En esta franja, casi todos llevan motor simple: más lento y algo más ruidoso. Acepta eso de entrada. Lo que si deberías exigir: <strong>memorias de altura</strong> (si no, al cuarto día dejas de usarlo), <strong>tablero de al menos 120 cm</strong> si usas monitor externo, y <strong>anticolisión</strong> para que el motor pare si hay algo debajo.
+              En esta franja, casi todos llevan motor simple: más lento y algo más ruidoso. Acepta eso de entrada. Lo que sí deberías exigir: <strong>memorias de altura</strong> (si no, al cuarto día dejas de usarlo), <strong>tablero de al menos 120 cm</strong> si usas monitor externo, y <strong>anticolisión</strong> para que el motor pare si hay algo debajo.
             </p>
             <p>
               La garantía importa mucho. Los problemas con motores baratos aparecen entre el mes 8 y el 18. Con 5 años de cobertura, te despreocupas. Con 2, cada ruido raro te pone nervioso.
@@ -321,7 +321,7 @@ export default function EscritorioBaratoPage() {
               <strong style={{ color: 'var(--text-primary)' }}>El punto dulce:</strong> anticolisión, tableros de 120-140 cm y garantías de 3 a 5 años. Para teletrabajo estándar, cualquiera de estos cumple.
             </p>
             <p>
-              <strong style={{ color: 'var(--text-primary)' }}>Lo mejor de la franja:</strong> el marco Flexispot, con cinco años de garantía en la estructura. Y si necesitas más carga, el <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>MAIDeSITe T2 Pro MAX</Link> sube a otra liga.
+              <strong style={{ color: 'var(--text-primary)' }}>Lo mejor de la franja:</strong> el marco Flexispot, con cinco años de garantía en la estructura. Y si necesitas más carga, el <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>MAIDeSITe T2 Pro MAX</Link> sube a otra liga.
             </p>
           </div>
         </section>
@@ -335,10 +335,10 @@ export default function EscritorioBaratoPage() {
           </h3>
           <div className="space-y-2 text-sm">
             <p>
-              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Incluye modelos premium si decides subir de presupuesto.
+              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Incluye modelos premium si decides subir de presupuesto.
             </p>
             <p>
-              <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: opinion y review</Link> — El rey de los escritorios elevables, analizado a fondo.
+              <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7: opinion y review</Link> — El rey de los escritorios elevables, analizado a fondo.
             </p>
           </div>
         </section>

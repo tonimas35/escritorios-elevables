@@ -10,7 +10,7 @@ import { CompactRatings } from "@/components/CompactRatings";
 import { productSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "MAIDeSITe T2 Pro MAX opiniones y review 2026 — Merece la pena?",
+  title: "MAIDeSITe T2 Pro MAX opiniones y review 2026 — ¿Merece la pena?",
   description:
     "Review del MAIDeSITe T2 Pro MAX: el marco con más carga del mercado (160 kg) y más recorrido (65-135 cm). No incluye tablero. Analizamos si compensa.",
   alternates: { canonical: "/maidesite-t2-pro-opiniones" },
@@ -40,19 +40,19 @@ export default function MaidesiteT2ProReviewPage() {
 
   const faqItems = [
     {
-      q: "El MAIDeSITe T2 Pro MAX incluye tablero?",
+      q: "¿El MAIDeSITe T2 Pro MAX incluye tablero?",
       a: "No. Es solo la estructura: las patas, el motor y el panel de control. El tablero se compra aparte y admite hasta 200x80 cm. Cuenta con el coste del tablero aparte, y hazte la cuenta total antes de compararlo con modelos que ya vienen con tablero.",
     },
     {
-      q: "Cuanto peso aguanta de verdad?",
+      q: "¿Cuánto peso aguanta de verdad?",
       a: "160 kg según el fabricante, la cifra más alta de esta comparativa. Para que te hagas una idea, un setup exigente (dos monitores de 27 pulgadas con brazo, torre, altavoces y portátil) ronda los 40 kg. Aquí vas a ir sobrado pase lo que pase, que es justo el argumento de este modelo.",
     },
     {
-      q: "Sirve para una persona muy alta?",
+      q: "¿Sirve para una persona muy alta?",
       a: "Es de lo mejor que hay para eso. Sube hasta 135 cm, más que cualquier otro modelo del catálogo, que se quedan en 120-123 cm. Si mides más de 1,90 m y has probado escritorios que se te quedan cortos de pie, este resuelve el problema. Recuerda sumar el grosor del tablero a esa altura.",
     },
     {
-      q: "Cuanto tarda en montarse?",
+      q: "¿Cuánto tarda en montarse?",
       a: "Entre 40 minutos y una hora, y mejor entre dos personas: la estructura pesa 30 kg. Al no incluir tablero, tendrás que taladrar los agujeros de fijación en el tuyo si no vienen ya hechos, así que suma ese rato.",
     },
   ];
@@ -84,9 +84,9 @@ export default function MaidesiteT2ProReviewPage() {
 
       {/* Breadcrumb */}
       <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
-        <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
+        <Link href="/" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Inicio</Link>
         {" "}&gt;{" "}
-        <Link href="/mejor-escritorio-elevable" className="hover:underline" style={{ color: 'var(--accent)' }}>Mejores escritorios</Link>
+        <Link href="/mejor-escritorio-elevable" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Mejores escritorios</Link>
         {" "}&gt;{" "}Maidesite T2 Pro MAX opiniones
       </nav>
 
@@ -124,10 +124,6 @@ export default function MaidesiteT2ProReviewPage() {
             <AvisoAfiliadoPagina />
             <AffiliateButton asin={asin} size="lg" />
           </div>
-
-          <p className="mt-2 text-xs" style={{ color: 'var(--text-muted)' }}>
-            Enlace de afiliado. Si compras a traves de el, recibimos una comisión sin coste para ti.
-          </p>
         </div>
       </div>
 
@@ -146,7 +142,7 @@ export default function MaidesiteT2ProReviewPage() {
       {/* Specs grid */}
       <section>
         <h2 className="text-2xl mb-6" >
-          Especificaciones tecnicas
+          Especificaciones técnicas
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
@@ -159,7 +155,7 @@ export default function MaidesiteT2ProReviewPage() {
             { label: "Ruido", value: `${product.specs.ruido_db} dB`, detail: "Aceptable" },
             { label: "Garantía", value: `${product.specs.garantia_anos} años`, detail: "Maidesite oficial" },
             { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rápido" },
-            { label: "Anticolision", value: product.specs.sistema_anticolision ? "Si" : "No", detail: "Protección activa" },
+            { label: "Anticolisión", value: product.specs.sistema_anticolision ? "Sí" : "No", detail: "Protección activa" },
           ].map((spec) => (
             <div key={spec.label} className="p-4 rounded" style={{ background: 'var(--bg-secondary)' }}>
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{spec.label}</p>
@@ -189,7 +185,7 @@ export default function MaidesiteT2ProReviewPage() {
         </h2>
 
         <div>
-          <h3 className="text-lg font-semibold">Que estás pagando exactamente</h3>
+          <h3 className="text-lg font-semibold">Qué estás pagando exactamente</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             Un marco sin tablero, en la gama alta. Lo que compras es capacidad: doble motor, 160 kg de carga útil y tres secciones telescópicas que permiten bajar hasta 65 cm y subir hasta 135. Para comparar, el resto de modelos del catálogo se mueven entre 50 y 125 kg, y ninguno pasa de 123 cm.
           </p>
@@ -219,21 +215,21 @@ export default function MaidesiteT2ProReviewPage() {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold">Para quien SI es el T2 Pro MAX</h3>
+          <h3 className="text-lg font-semibold">Para quién SÍ es el T2 Pro MAX</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             Si ya tienes un tablero que te gusta, si quieres unas medidas que nadie vende montadas, o si tu equipo pesa más de lo normal. Los 160 kg y los 135 cm de altura máxima no los da ningún otro modelo de esta comparativa, y para personas por encima de 1,90 m ese recorrido extra se nota.
           </p>
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold">Para quien NO es</h3>
+          <h3 className="text-lg font-semibold">Para quién NO es</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             Si quieres abrir la caja y tenerlo funcionando, porque aquí te falta la mitad del mueble. Si sumas marco y tablero, un modelo con tablero incluido puede dejarte mejor equipado por menos. Y si tu setup es un portátil y un monitor, estás pagando una capacidad de carga que no vas a usar.
           </p>
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold">Que dicen los compradores</h3>
+          <h3 className="text-lg font-semibold">Qué dicen los compradores</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             Acumula una media de 4,5 estrellas en Amazon España sobre 5. Lo que más se repite en positivo es la solidez de la estructura y lo bien que sube y baja incluso cargada; varios compradores mencionan que lo eligieron precisamente por la capacidad de carga.
           </p>
@@ -254,8 +250,8 @@ export default function MaidesiteT2ProReviewPage() {
       </section>
 
       {/* CTA */}
-      <div className="mt-10 p-6 rounded text-center" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--accent)' }}>
-        <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Veredicto</p>
+      <div className="mt-10 p-6 rounded text-center" style={{ background: 'var(--color-secondary-light)', borderLeft: '3px solid var(--verde-estructura)' }}>
+        <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>Veredicto</p>
         <p className="text-xl mt-2" >{product.veredicto}</p>
         <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
             El marco, más lo que te cueste el tablero. Compensa si necesitas su carga o su recorrido; si no, hay opciones más completas por menos.
@@ -286,14 +282,14 @@ export default function MaidesiteT2ProReviewPage() {
               </tr>
             </thead>
             <tbody>
-              <tr style={{ background: 'var(--accent-light)', borderBottom: '1px solid var(--border)' }}>
+              <tr style={{ background: 'var(--verde-estructura-claro)', borderBottom: '1px solid var(--border)' }}>
                 <td className="p-3 font-semibold">Maidesite T2 Pro MAX (este)</td>
                 <td className="p-3 text-center">Doble</td>
                 <td className="p-3 text-center font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
                 <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
               </tr>
               {alternatives.map(([altAsin, alt]) => (
-                <tr key={altAsin} className="hover:bg-[var(--accent-light)]" style={{ borderBottom: '1px solid var(--border)' }}>
+                <tr key={altAsin} className="hover:bg-[var(--verde-estructura-claro)]" style={{ borderBottom: '1px solid var(--border)' }}>
                   <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
                   <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : alt.specs.tipo_motor === 'manual' ? 'Manual' : 'Simple'}</td>
                   <td className="p-3 text-center font-bold">{alt.puntuacion.total}</td>
@@ -313,13 +309,13 @@ export default function MaidesiteT2ProReviewPage() {
         </h3>
         <div className="space-y-2 text-sm">
           <p>
-            <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: review completa</Link> — La referencia premium. Merece la pena pagar casi el doble?
+            <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7: review completa</Link> — La referencia premium. Merece la pena pagar casi el doble?
           </p>
           <p>
-            <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--accent)' }}>Flexispot vs Maidesite: comparativa</Link> — Enfrentamos las dos marcas cara a cara.
+            <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot vs Maidesite: comparativa</Link> — Enfrentamos las dos marcas cara a cara.
           </p>
           <p>
-            <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Todos los modelos comparados.
+            <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Todos los modelos comparados.
           </p>
         </div>
       </section>

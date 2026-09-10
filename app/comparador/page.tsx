@@ -82,7 +82,7 @@ export default function ComparadorPage() {
 
               <button
                 onClick={() => { setAlturaMax(100); setPesoMax(50); setMotor("cualquiera"); }}
-                className="text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--accent)' }}
+                className="text-xs font-medium uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}
               >
                 Resetear
               </button>

@@ -10,7 +10,7 @@ import { FadeIn } from "@/components/FadeIn";
 import { productSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Flexispot vs Maidesite 2026 — Cual es mejor?",
+  title: "Flexispot vs Maidesite 2026 — ¿Cuál es mejor?",
   description:
     "Comparativa Flexispot vs MAIDeSITe en 2026: marco contra marco y escritorio completo contra completo. Carga, altura, ruido y garantía.",
   alternates: { canonical: "/flexispot-vs-maidesite" },
@@ -43,19 +43,19 @@ export default function FlexispotVsMaidesitePage() {
 
   const faqItems = [
     {
-      q: "Flexispot o Maidesite: cual es mejor marca?",
+      q: "Flexispot o Maidesite: ¿cuál es mejor marca?",
       a: "Flexispot lleva más años, tiene más modelos y fabrica sus propios motores. Maidesite ofrece prestaciones similares a precios más bajos. Ambas dan 5 años de garantía y postventa en España. Como marca, Flexispot tiene más recorrido. Producto a producto, Maidesite compite bien.",
     },
     {
-      q: "Los motores de Flexispot y Maidesite son iguales?",
+      q: "¿Los motores de Flexispot y Maidesite son iguales?",
       a: "No. Flexispot fabrica los suyos (LoctekMotion); Maidesite compra a terceros de buena calidad. En specs rinden igual (3.8 cm/s, ruido parecido). Los Flexispot tienen algo mejor historial en reviews de 2-3 años, pero ambos aguantan 10.000+ ciclos.",
     },
     {
-      q: "Puedo usar un tablero diferente con estas marcas?",
-      a: "Si, las dos venden la estructura sola. Flexispot acepta tableros de 120-200 cm; Maidesite, de 120-180 cm. Mínimo 2 cm de grosor para que los tornillos agarren.",
+      q: "¿Puedo usar un tablero diferente con estas marcas?",
+      a: "Sí, las dos venden la estructura sola. Flexispot acepta tableros de 120-200 cm; Maidesite, de 120-180 cm. Mínimo 2 cm de grosor para que los tornillos agarren.",
     },
     {
-      q: "Cual tiene mejor servicio postventa en España?",
+      q: "¿Cuál tiene mejor servicio postventa en España?",
       a: "Flexispot: respuesta en 24-48h, envian recambio sin esperar devolución. Maidesite: 48-72h según compradores. Ambas gestionan garantías bien, pero Flexispot es más agil.",
     },
   ];
@@ -104,7 +104,7 @@ export default function FlexispotVsMaidesitePage() {
 
       {/* Breadcrumb */}
       <nav className="text-xs mb-6" style={{ color: 'var(--text-muted)' }}>
-        <Link href="/" className="hover:underline" style={{ color: 'var(--accent)' }}>Inicio</Link>
+        <Link href="/" className="hover:underline" style={{ color: 'var(--verde-estructura)' }}>Inicio</Link>
         {" "}&gt;{" "}Flexispot vs Maidesite
       </nav>
 
@@ -132,7 +132,7 @@ export default function FlexispotVsMaidesitePage() {
       {/* TL;DR */}
       <FadeIn delay={200}>
         <div className="mt-8 p-6" style={{ background: 'var(--bs-superficie)', borderLeft: '3px solid var(--bs-verde-botella)' }}>
-          <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>TL;DR</p>
+          <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>TL;DR</p>
           <p className="mt-2 text-base leading-relaxed" style={{  color: 'var(--text-dark)' }}>
             No hay un ganador único, porque no compiten en el mismo sitio. Flexispot domina la entrada de gama: su marco es el mejor valorado del catálogo, con 4,7 de media. MAIDeSITe domina la capacidad: el T2 Pro MAX aguanta 160 kg y sube hasta 135 cm, cifras que Flexispot no ofrece en este catálogo. En escritorios completos, con tablero incluido, la cosa se aprieta entre el FLEXISPOT de 160x80 y el MAIDeSITe S2 Pro, y ahí deciden el tamaño del tablero y la garantía.
           </p>
@@ -160,8 +160,8 @@ export default function FlexispotVsMaidesitePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {[[e7Asin, e7Product] as const, [t2Asin, t2Product] as const].map(([productAsin, product], i) => (
               <FadeIn key={productAsin} delay={i * 120}>
-                <div className="p-6 rounded-lg product-card-hover" style={{ background: 'var(--bg-card)', border: i === 0 ? '2px solid var(--accent)' : '1px solid var(--border)' }}>
-                  {i === 0 && <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--accent)' }}>Recomendado</span>}
+                <div className="p-6 rounded-lg product-card-hover" style={{ background: 'var(--bg-card)', border: i === 0 ? '2px solid var(--verde-estructura)' : '1px solid var(--border)' }}>
+                  {i === 0 && <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>Recomendado</span>}
                   {i === 1 && <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Mejor precio</span>}
                   <div className="flex items-center gap-4 mt-2">
                     <div className="w-20 h-20 rounded-lg overflow-hidden flex items-center justify-center product-image-container">
@@ -221,7 +221,7 @@ export default function FlexispotVsMaidesitePage() {
         {[
           { title: "Motor y velocidad", text: "Los dos llevan doble motor a 3,8 cm/s. Flexispot fabrica los suyos (LoctekMotion); MAIDeSITe los compra a terceros de buena calidad. En el uso diario la diferencia no se percibe." },
           { title: "Estabilidad", text: "Empate técnico con matices: 32 kg de estructura el Flexispot, 30 kg el MAIDeSITe, y tres secciones telescópicas en ambos. El MAIDeSITe sube más alto, y a máxima altura cualquier marco gana algo de juego lateral." },
-          { title: "Ruido", text: "45 dB los dos. Silenciosos para videollamadas; solo importaria si grabas audio profesional." },
+          { title: "Ruido", text: "45 dB los dos. Silenciosos para videollamadas; solo importaría si grabas audio profesional." },
           { title: "Capacidad de carga", text: "125 kg el Flexispot, 160 kg el MAIDeSITe. Un setup normal pesa 12-15 kg, así que ambos van sobrados. La cifra solo decide si montas algo realmente pesado encima." },
           { title: "Rango de altura", text: "Flexispot: 58-123 cm. MAIDeSITe: 65-135 cm. Si mides más de 1,88 m, el MAIDeSITe llega donde el otro no. Si eres bajo o usas silla baja, el Flexispot baja 7 cm más." },
           { title: "Lo que cuesta cada uno", text: "Ninguno de los dos incluye tablero, así que a los dos hay que sumarles ese coste. El Flexispot está bastante por debajo del MAIDeSITe y tiene mucho más recorrido de valoraciones detrás. Salvo que necesites los 160 kg de carga o los 135 cm de altura del MAIDeSITe, la elección racional es clara." },
@@ -247,7 +247,7 @@ export default function FlexispotVsMaidesitePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--accent)' }}>Flexispot E7</h3>
+              <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7</h3>
               <CompactRatings puntuacion={e7Product.puntuacion} />
             </div>
             <div>
@@ -344,13 +344,13 @@ export default function FlexispotVsMaidesitePage() {
           </h3>
           <div className="space-y-2 text-sm">
             <p>
-              <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--accent)' }}>Flexispot E7: review completa</Link> — Análisis a fondo del E7 con todo lo bueno y lo malo.
+              <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7: review completa</Link> — Análisis a fondo del E7 con todo lo bueno y lo malo.
             </p>
             <p>
-              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--accent)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Comparativa completa con todas las marcas.
+              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Comparativa completa con todas las marcas.
             </p>
             <p>
-              <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--accent)' }}>Escritorios elevables baratos</Link> — La gama de entrada analizada a fondo.
+              <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--verde-estructura)' }}>Escritorios elevables baratos</Link> — La gama de entrada analizada a fondo.
             </p>
           </div>
         </section>
