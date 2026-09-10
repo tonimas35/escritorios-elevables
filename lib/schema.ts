@@ -37,16 +37,41 @@ export function productSchema(asin: string, p: Product, pageUrl?: string) {
     // reviewCount o ratingCount— asi que se retira entero. La valoracion
     // propia sigue publicandose en `review`, que si es visible: es la nota
     // sobre 10 que aparece en la ficha.
-    offers: {
-      // Sin `price` a proposito. Amazon cambia precios a diario y no tenemos
-      // acceso a la API para mantenerlos al dia; declarar un precio obsoleto
-      // incumple el Operating Agreement y hace que Google retire el rich
-      // result por discrepancia. Mejor no declararlo que declararlo mal.
-      "@type": "Offer",
-      priceCurrency: "EUR",
-      availability: "https://schema.org/InStock",
-      url: affiliateLink(asin),
-    },
+    // AggregateOffer con lowPrice/highPrice, no Offer con `price`.
+    //
+    // El precio exacto sigue sin declararse: Amazon lo cambia a diario, no
+    // tenemos acceso a su API para mantenerlo al dia, y publicar uno obsoleto
+    // hace que Google retire el rich result por discrepancia. Lo que si se
+    // puede declarar es la franja, porque es exactamente lo que el lector ve
+    // en la pagina, con su fecha de verificacion. Google exige que lo
+    // declarado se corresponda con lo visible, y aqui se corresponde.
+    //
+    // AggregateOffer ademas describe lo que este sitio es —un comparador que
+    // enlaza a un vendedor— en vez de una ficha de comerciante, que es como
+    // Google interpretaba el Offer suelto y por lo que reclamaba
+    // shippingDetails y hasMerchantReturnPolicy. Esos datos son de Amazon,
+    // no nuestros, y declararlos seria inventar.
+    //
+    // Si el modelo no tiene los tres campos de precio, se cae al Offer sin
+    // precio de antes: es preferible el aviso de Search Console a un dato
+    // inventado.
+    offers:
+      p.precio_min !== null && p.precio_max !== null && p.precio_verificado
+        ? {
+            "@type": "AggregateOffer",
+            priceCurrency: "EUR",
+            lowPrice: p.precio_min,
+            highPrice: p.precio_max,
+            offerCount: 1,
+            availability: "https://schema.org/InStock",
+            url: affiliateLink(asin),
+          }
+        : {
+            "@type": "Offer",
+            priceCurrency: "EUR",
+            availability: "https://schema.org/InStock",
+            url: affiliateLink(asin),
+          },
     additionalProperty: [
       { "@type": "PropertyValue", name: "Tipo de motor", value: p.specs.tipo_motor },
       { "@type": "PropertyValue", name: "Altura minima", value: `${p.specs.rango_altura_min_cm} cm` },

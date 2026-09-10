@@ -5,6 +5,7 @@ import { getProductBySlug, getAllProducts } from "@/lib/products";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
+import { FranjaPrecio } from "@/components/FranjaPrecio";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { productSchema } from "@/lib/schema";
@@ -121,6 +122,7 @@ export default function MaidesiteT2ProReviewPage() {
           </p>
 
           <div className="mt-4">
+            <FranjaPrecio product={product} />
             <AvisoAfiliadoPagina />
             <AffiliateButton asin={asin} size="lg" />
           </div>

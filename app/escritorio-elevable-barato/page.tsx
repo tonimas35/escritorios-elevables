@@ -6,6 +6,7 @@ import { coma } from "@/lib/format";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
+import { FranjaPrecio } from "@/components/FranjaPrecio";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
@@ -299,6 +300,7 @@ export default function EscritorioBaratoPage() {
               </p>
 
               <div className="mt-4">
+                <FranjaPrecio product={product} />
                 <AffiliateButton asin={asin} size="lg" />
               </div>
             </section>
