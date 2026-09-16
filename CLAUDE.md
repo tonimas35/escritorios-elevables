@@ -6,9 +6,11 @@ Aplican a todas las sesiones, siempre, sin que haga falta recordarlas.
 
 ## Antes de empezar
 
-**Lee `PLAN.md` y este fichero al empezar cualquier sesión.** `PLAN.md` tiene la
-auditoría del repo y el plan de migración por fases; `design-ref/README.md`, las
-decisiones de diseño ya cerradas y lo que queda fuera de alcance.
+**Lee `PLAN.md`, `MANTENIMIENTO.md` y este fichero al empezar cualquier sesión.**
+`PLAN.md` tiene la auditoría del repo y el plan de migración por fases;
+`MANTENIMIENTO.md`, el índice del catálogo —ASIN, slug, dónde sale cada modelo—
+y la rutina de revisión; `design-ref/README.md`, las decisiones de diseño ya
+cerradas y lo que queda fuera de alcance.
 
 ## Afiliación
 
