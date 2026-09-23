@@ -15,12 +15,18 @@ export interface ProductSpecs {
   garantia_anos: number;
 }
 
+/**
+ * Nota calculada por `calcularNota()` en lib/nota.ts con la formula de
+ * METODO.md §5. No se guarda en el JSON: lib/products.ts la calcula al
+ * cargar el catalogo. Cada apartado va de 0 a 10.
+ */
 export interface ProductScore {
-  calidad_construccion: number;
   estabilidad: number;
-  facilidad_montaje: number;
-  relacion_calidad_precio: number;
-  funcionalidades: number;
+  funciones: number;
+  recorrido: number;
+  garantia: number;
+  /** `null` si el modelo no llega al minimo de valoraciones en Amazon. */
+  valoracion: number | null;
   total: number;
 }
 

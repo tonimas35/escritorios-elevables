@@ -1,11 +1,13 @@
 import type { ProductScore } from "@/lib/types";
+import { coma } from "@/lib/format";
 
+// Los apartados de `calcularNota()` (lib/nota.ts), en el orden de su peso.
 const RATING_LABELS: Record<string, string> = {
-  calidad_construccion: "Construcción",
   estabilidad: "Estabilidad",
-  facilidad_montaje: "Montaje",
-  relacion_calidad_precio: "Calidad/precio",
-  funcionalidades: "Funciones",
+  funciones: "Funciones",
+  recorrido: "Recorrido",
+  garantia: "Garantía",
+  valoracion: "Compradores",
 };
 
 /**
@@ -37,7 +39,8 @@ export function CompactRatings({ puntuacion }: CompactRatingsProps) {
               className="tabular-nums text-sm font-bold flex-shrink-0"
               style={{ color: ratingColor() }}
             >
-              {value as number}
+              {/* Sin volumen de valoraciones el apartado no cuenta (METODO.md §5). */}
+              {value === null ? "—" : coma(value as number)}
             </span>
           </div>
         ))}
@@ -51,7 +54,7 @@ export function CompactRatings({ puntuacion }: CompactRatingsProps) {
           className="tabular-nums text-lg font-bold"
           style={{ color: ratingColor() }}
         >
-          {puntuacion.total}
+          {coma(puntuacion.total)}
         </span>
       </div>
     </div>
