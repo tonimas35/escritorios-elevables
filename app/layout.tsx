@@ -15,11 +15,11 @@ const sourceSerif = Source_Serif_4({
 
 export const metadata: Metadata = {
   title: {
-    default: "Elevable — Análisis y Comparativas",
+    default: "Escritorios elevables 2026: comparativa y guía de compra — Elevable",
     template: "%s — Elevable",
   },
   description:
-    "Encuentra tu escritorio elevable ideal. Comparativas, análisis y herramientas interactivas basadas en datos reales.",
+    "Qué escritorio elevable comprar en 2026: comparativa por especificaciones de fabricante, franjas de precio con fecha de verificación y herramientas para elegir.",
   metadataBase: new URL("https://elevable.es"),
   openGraph: {
     type: "website",
