@@ -19,3 +19,9 @@ export function fechaCorta(iso: string): string {
   const [aaaa, mm, dd] = iso.split("-");
   return `${dd}/${mm}/${aaaa}`;
 }
+
+/**
+ * Ultima revision del contenido del sitio, en ISO. Es el `lastmod` del
+ * sitemap: se cambia a mano, como FECHA, cuando se toca contenido de verdad.
+ */
+export const REVISION = "2026-09-23";

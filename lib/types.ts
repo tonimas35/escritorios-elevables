@@ -71,6 +71,12 @@ export interface Product {
    */
   define: string;
   slug: string;
+  /**
+   * H1 de la ficha del modelo. Texto editorial: entra en el JSON solo con
+   * visto bueno (CLAUDE.md). Sin titular, el modelo no tiene ficha de
+   * plantilla (lib/rutas.ts).
+   */
+  titular?: string;
 
   // Trazabilidad del catalogo (METODO.md §6). Opcionales mientras falten
   // datos en algun modelo; pasan a obligatorios cuando esten los doce.
