@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 import { getAllProducts } from "@/lib/products";
 import { fichaPorSegmento, fichasDePlantilla } from "@/lib/rutas";
 import { coma, nota } from "@/lib/format";
-import { exclusion, franjaPrecio, garantia, motorLargo, publicable, recorrido, standfirst } from "@/lib/ficha";
+import { exclusion, franjaPrecio, garantia, metaFila, motorLargo, publicable, recorrido, standfirst } from "@/lib/ficha";
 import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { productSchema } from "@/lib/schema";
+import { alternativas } from "@/lib/alternativas";
+import { rutaFicha } from "@/lib/rutas";
 import { CRITERIOS } from "@/lib/metodologia";
 import Link from "next/link";
 import { Cifra } from "@/components/broadsheet/Cifra";
@@ -74,6 +76,7 @@ export default async function FichaModelo({ params }: Props) {
   const pros = p.pros.filter(publicable);
   const contras = p.contras.filter(publicable);
   const excl = exclusion(p);
+  const alts = alternativas(p, catalogo);
   const ruta = `/${segmento}`;
   const breadcrumb = {
     "@context": "https://schema.org",
@@ -295,6 +298,48 @@ export default async function FichaModelo({ params }: Props) {
               {p.veredicto}
             </p>
           )}
+        </div>
+      </section>
+      {/* ============================================================
+          Alternativas
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Alternativas</p>
+          <h2 className="bs-h2" style={{ marginTop: 12, fontSize: "var(--bs-h2-ficha)" }}>
+            Si este no te encaja
+          </h2>
+          <div style={{ marginTop: 24 }}>
+            {alts.map(({ motivo, producto: q }) => {
+              const qAsin = getAllProducts().find(([, x]) => x.slug === q.slug)![0];
+              const qRuta = rutaFicha(q);
+              return (
+                <div key={q.slug} className="bs-fila">
+                  <div className="bs-marco" style={{ padding: 6, flex: "0 0 auto" }}>
+                    <div style={{ width: 62, height: 56 }}>
+                      <Image
+                        src={q.imagen}
+                        alt={q.imagen_alt}
+                        width={62}
+                        height={56}
+                        style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                      />
+                    </div>
+                  </div>
+                  <div style={{ flex: "1 1 220px" }}>
+                    <p className="bs-etiqueta">{motivo}</p>
+                    <p style={{ fontSize: 16, fontWeight: 600, marginTop: 4 }}>
+                      {qRuta ? <Link href={qRuta}>{q.marca} {q.modelo}</Link> : `${q.marca} ${q.modelo}`}
+                    </p>
+                    <p style={{ fontSize: 13, color: "var(--bs-neutro-700)" }}>{metaFila(q)}</p>
+                    {q.define && <p style={{ fontSize: 14, marginTop: 4 }}>{q.define}</p>}
+                  </div>
+                  <span style={{ fontSize: 22, fontWeight: 700 }}>{nota(q.puntuacion.total)}</span>
+                  <Cta asin={qAsin} mini />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
     </div>
