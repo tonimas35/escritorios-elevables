@@ -7,6 +7,8 @@ import { coma, nota } from "@/lib/format";
 import { franjaPrecio, garantia, motorLargo, recorrido, standfirst } from "@/lib/ficha";
 import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { productSchema } from "@/lib/schema";
+import { CRITERIOS } from "@/lib/metodologia";
+import Link from "next/link";
 import { Cifra } from "@/components/broadsheet/Cifra";
 import { Cta } from "@/components/broadsheet/Cta";
 import { Afiliado } from "@/components/broadsheet/Afiliado";
@@ -65,6 +67,10 @@ export default async function FichaModelo({ params }: Props) {
       ["Garantía", garantia(p)],
     ],
   ];
+  // Los apartados de calcularNota(), en el orden y con el nombre de
+  // CRITERIOS, que es lo que publica la metodologia.
+  const claves = ["estabilidad", "funciones", "recorrido", "garantia", "valoracion"] as const;
+  const desglose = claves.map((k, i) => ({ nombre: CRITERIOS[i].nombre, valor: p.puntuacion[k] }));
   const ruta = `/${segmento}`;
   const breadcrumb = {
     "@context": "https://schema.org",
@@ -186,6 +192,57 @@ export default async function FichaModelo({ params }: Props) {
               </dl>
             ))}
           </div>
+        </div>
+      </section>
+      {/* ============================================================
+          Desglose de la nota
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28, maxWidth: 720 }}>
+          <p className="bs-kicker">Desglose de la nota</p>
+          <h2 className="bs-h2" style={{ marginTop: 12, fontSize: "var(--bs-h2-ficha)" }}>
+            De dónde sale el {nota(p.puntuacion.total)}
+          </h2>
+          <div className="flex flex-col" style={{ gap: 12, marginTop: 24 }}>
+            {desglose.map((d) => (
+              <div key={d.nombre} className="flex items-center" style={{ gap: 12 }}>
+                {/* 190px en escritorio; en movil encoge para que barra y cifra
+                    quepan en la misma linea que la etiqueta. */}
+                <span style={{ flex: "0 1 190px", fontSize: 15, lineHeight: 1.3 }}>{d.nombre}</span>
+                <span
+                  aria-hidden="true"
+                  style={{ flex: "1 1 60px", height: 8, background: "#eae7e7", position: "relative" }}
+                >
+                  {d.valor !== null && (
+                    <span
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        width: `${d.valor * 10}%`,
+                        background: "var(--bs-verde-botella)",
+                      }}
+                    />
+                  )}
+                </span>
+                <span style={{ flex: "0 0 40px", textAlign: "right", fontWeight: 600 }}>
+                  {d.valor !== null ? nota(d.valor) : "—"}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div
+            className="flex items-center justify-between"
+            style={{ borderTop: "1px solid var(--bs-tinta)", marginTop: 16, paddingTop: 10 }}
+          >
+            <span style={{ fontSize: 15 }}>Nota global</span>
+            <span style={{ fontSize: 20, fontWeight: 700 }}>{nota(p.puntuacion.total)}</span>
+          </div>
+          <p style={{ fontSize: 14, marginTop: 12, color: "var(--bs-neutro-700)" }}>
+            Media ponderada de los cinco apartados.
+            {p.puntuacion.valoracion === null &&
+              " Este modelo no llega a 100 valoraciones en Amazon, así que la valoración de compradores no cuenta."}{" "}
+            <Link href="/metodologia">Cómo se calcula</Link>.
+          </p>
         </div>
       </section>
     </div>
