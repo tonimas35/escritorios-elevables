@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { getAllProducts } from "@/lib/products";
 import { fichaPorSegmento, fichasDePlantilla } from "@/lib/rutas";
 import { coma, nota } from "@/lib/format";
-import { franjaPrecio, garantia, motorLargo, recorrido, standfirst } from "@/lib/ficha";
+import { exclusion, franjaPrecio, garantia, motorLargo, publicable, recorrido, standfirst } from "@/lib/ficha";
 import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { productSchema } from "@/lib/schema";
 import { CRITERIOS } from "@/lib/metodologia";
@@ -71,6 +71,9 @@ export default async function FichaModelo({ params }: Props) {
   // CRITERIOS, que es lo que publica la metodologia.
   const claves = ["estabilidad", "funciones", "recorrido", "garantia", "valoracion"] as const;
   const desglose = claves.map((k, i) => ({ nombre: CRITERIOS[i].nombre, valor: p.puntuacion[k] }));
+  const pros = p.pros.filter(publicable);
+  const contras = p.contras.filter(publicable);
+  const excl = exclusion(p);
   const ruta = `/${segmento}`;
   const breadcrumb = {
     "@context": "https://schema.org",
@@ -243,6 +246,55 @@ export default async function FichaModelo({ params }: Props) {
               " Este modelo no llega a 100 valoraciones en Amazon, así que la valoración de compradores no cuenta."}{" "}
             <Link href="/metodologia">Cómo se calcula</Link>.
           </p>
+        </div>
+      </section>
+      {/* ============================================================
+          Si y no
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Sí y no</p>
+          <h2 className="bs-h2" style={{ marginTop: 12, fontSize: "var(--bs-h2-ficha)" }}>
+            Para quién es y para quién no
+          </h2>
+          <div className="flex flex-wrap" style={{ gap: "28px 48px", marginTop: 24 }}>
+            <div style={{ flex: "1 1 300px" }}>
+              <h3 className="bs-h3">Es tu mesa si</h3>
+              {p.ideal_para && (
+                <p style={{ fontStyle: "italic", marginTop: 10, fontSize: 16 }}>{p.ideal_para}</p>
+              )}
+              <div className="flex flex-col" style={{ gap: 8, marginTop: 14 }}>
+                {pros.map((t) => (
+                  <p key={t} className="bs-pro">
+                    <span aria-hidden="true">✓</span>
+                    <span>{t}</span>
+                  </p>
+                ))}
+              </div>
+            </div>
+            <div style={{ flex: "1 1 300px" }}>
+              <h3 className="bs-h3">No es tu mesa si</h3>
+              {excl && (
+                <p className="bs-exclusion" style={{ marginTop: 10, fontSize: 16 }}>
+                  {/* El arranque "No es tu mesa si" ya es el titulo de la columna. */}
+                  {excl.motivo.charAt(0).toUpperCase() + excl.motivo.slice(1)}
+                </p>
+              )}
+              <div className="flex flex-col" style={{ gap: 8, marginTop: 14 }}>
+                {contras.map((t) => (
+                  <p key={t} className="bs-pro">
+                    <span aria-hidden="true" style={{ color: "var(--bs-neutro-700)" }}>×</span>
+                    <span>{t}</span>
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+          {publicable(p.veredicto) && (
+            <p className="bs-cuerpo" style={{ maxWidth: "66ch", marginTop: 28 }}>
+              {p.veredicto}
+            </p>
+          )}
         </div>
       </section>
     </div>
