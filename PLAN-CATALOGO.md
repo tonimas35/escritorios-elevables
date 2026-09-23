@@ -1,5 +1,15 @@
 # Plan: catálogo con método profesional (elevable.es)
 
+> **Estado a 23/09/2026:** fases 0 a 4 hechas. `METODO.md` aprobado; datos con
+> campos de trazabilidad; `npm run validar`, `npm test` y CI en GitHub
+> Actions; nota calculada en `lib/nota.ts` y aplicada en todas las páginas.
+> Dos desviaciones del plan: la franja no se guarda en el JSON (se calcula en
+> `lib/nota.ts`, ver METODO.md §6) y la fórmula se escribió antes que el
+> validador, porque este la necesita para contar modelos por franja.
+> **Siguiente: fase 5** (barrido de mercado, necesita a Toni en Amazon).
+> Pendientes de datos: `fuente_specs`, `specs_verificado` y `nota_resenas` en
+> los doce modelos (`npm run validar` los lista).
+
 ## Contexto
 
 El catálogo de 12 modelos se eligió en marzo de 2026 y no hay nada escrito que
