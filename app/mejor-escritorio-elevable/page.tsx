@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
-import { coma } from "@/lib/format";
+import { coma, nota } from "@/lib/format";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
@@ -165,7 +165,7 @@ export default function MejorEscritorioPage() {
                 <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>{topProduct.veredicto}</p>
                 <div className="flex items-center gap-4 mt-3">
                   <span className="tabular-nums text-2xl font-bold">
-                    {coma(topProduct.puntuacion.total)}
+                    {nota(topProduct.puntuacion.total)}
                   </span>
                   <span className="text-xs" style={{ color: 'var(--text-muted)' }}>sobre 10</span>
                   <AffiliateButton asin={topAsin} size="sm" />
@@ -220,7 +220,7 @@ export default function MejorEscritorioPage() {
                         className="tabular-nums font-bold"
                         style={{ color: 'var(--bs-tinta)' }}
                       >
-                        {coma(product.puntuacion.total)}
+                        {nota(product.puntuacion.total)}
                       </span>
                     </td>
                     <td className="p-3 text-center">

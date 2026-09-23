@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProductBySlug, getAllProducts } from "@/lib/products";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
-import { coma } from "@/lib/format";
+import { coma, nota } from "@/lib/format";
 import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
@@ -112,7 +112,7 @@ export default function MaidesiteT2ProReviewPage() {
 
           <div className="flex items-center gap-4 mt-4">
             <span className="font-bold text-sm px-2 py-1 rounded" style={{ background: 'var(--pro)', color: 'white' }}>
-              {coma(product.puntuacion.total)}/10
+              {nota(product.puntuacion.total)}/10
             </span>
             {enFranja && (
               <span className="text-sm" style={{ color: 'var(--text-muted)' }}>
@@ -295,14 +295,14 @@ export default function MaidesiteT2ProReviewPage() {
               <tr style={{ background: 'var(--verde-estructura-claro)', borderBottom: '1px solid var(--border)' }}>
                 <td className="p-3 font-semibold">Maidesite T2 Pro MAX (este)</td>
                 <td className="p-3 text-center">Doble</td>
-                <td className="p-3 text-center font-bold" style={{ color: 'var(--pro)' }}>{coma(product.puntuacion.total)}</td>
+                <td className="p-3 text-center font-bold" style={{ color: 'var(--pro)' }}>{nota(product.puntuacion.total)}</td>
                 <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
               </tr>
               {alternatives.map(([altAsin, alt]) => (
                 <tr key={altAsin} className="hover:bg-[var(--verde-estructura-claro)]" style={{ borderBottom: '1px solid var(--border)' }}>
                   <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
                   <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : alt.specs.tipo_motor === 'manual' ? 'Manual' : 'Simple'}</td>
-                  <td className="p-3 text-center font-bold">{coma(alt.puntuacion.total)}</td>
+                  <td className="p-3 text-center font-bold">{nota(alt.puntuacion.total)}</td>
                   <td className="p-3 text-center"><AffiliateButton asin={altAsin} size="sm" /></td>
                 </tr>
               ))}

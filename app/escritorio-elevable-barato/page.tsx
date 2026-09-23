@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
-import { coma } from "@/lib/format";
+import { coma, nota } from "@/lib/format";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
@@ -153,7 +153,7 @@ export default function EscritorioBaratoPage() {
                 </h2>
                 <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>{winner[1].veredicto}</p>
                 <div className="flex items-center gap-4 mt-3">
-                  <span className="text-2xl font-bold">{coma(winner[1].puntuacion.total)}</span>
+                  <span className="text-2xl font-bold">{nota(winner[1].puntuacion.total)}</span>
                   <span className="text-xs" style={{ color: 'var(--text-muted)' }}>sobre 10</span>
                   <AffiliateButton asin={winner[0]} size="sm" />
                 </div>
@@ -198,7 +198,7 @@ export default function EscritorioBaratoPage() {
                   <td className="p-3 text-center text-sm">{product.specs.ancho_tablero_cm}x{product.specs.profundidad_tablero_cm}</td>
                   <td className="p-3 text-center text-sm">{product.specs.peso_max_carga_kg} kg</td>
                   <td className="p-3 text-center text-sm" style={{ color: product.specs.sistema_anticolision ? 'var(--rating-good)' : 'var(--rating-bad)' }}>{product.specs.sistema_anticolision ? '✓' : '✗'}</td>
-                  <td className="p-3 text-center font-bold" style={{ color: 'var(--bs-tinta)' }}>{coma(product.puntuacion.total)}</td>
+                  <td className="p-3 text-center font-bold" style={{ color: 'var(--bs-tinta)' }}>{nota(product.puntuacion.total)}</td>
                   <td className="p-3 text-center">
                     <AffiliateButton asin={asin} size="sm" />
                   </td>

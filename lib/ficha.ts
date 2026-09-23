@@ -1,5 +1,5 @@
 import type { Product } from "./types";
-import { coma } from "./format";
+import { coma, nota } from "./format";
 
 /**
  * Etiquetas de especificacion para las pantallas del rediseño.
@@ -68,12 +68,12 @@ export function fichaTecnica(p: Product): [string, string][] {
  * recuentos de reseñas dentro del texto, y no pueden publicarse.
  */
 export function standfirst(p: Product, esElMejor: boolean): string {
-  const nota = `Nota ${coma(p.puntuacion.total)} sobre 10${esElMejor ? ", la más alta del catálogo" : ""}.`;
+  const frase = `Nota ${nota(p.puntuacion.total)} sobre 10${esElMejor ? ", la más alta del catálogo" : ""}.`;
   const ficha = `${motorCorto(p)}, ${carga(p)} de carga y ${garantia(p)} de garantía.`;
   const cierre = p.incluye_tablero
     ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} incluido.`
     : "No incluye tablero.";
-  return `${nota} ${ficha} ${cierre}`;
+  return `${frase} ${ficha} ${cierre}`;
 }
 
 export interface Camino {

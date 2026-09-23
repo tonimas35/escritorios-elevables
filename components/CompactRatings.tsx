@@ -1,5 +1,5 @@
 import type { ProductScore } from "@/lib/types";
-import { coma } from "@/lib/format";
+import { coma, nota } from "@/lib/format";
 
 // Los apartados de `calcularNota()` (lib/nota.ts), en el orden de su peso.
 const RATING_LABELS: Record<string, string> = {
@@ -40,7 +40,7 @@ export function CompactRatings({ puntuacion }: CompactRatingsProps) {
               style={{ color: ratingColor() }}
             >
               {/* Sin volumen de valoraciones el apartado no cuenta (METODO.md §5). */}
-              {value === null ? "—" : coma(value as number)}
+              {value === null ? "—" : nota(value as number)}
             </span>
           </div>
         ))}
@@ -54,7 +54,7 @@ export function CompactRatings({ puntuacion }: CompactRatingsProps) {
           className="tabular-nums text-lg font-bold"
           style={{ color: ratingColor() }}
         >
-          {coma(puntuacion.total)}
+          {nota(puntuacion.total)}
         </span>
       </div>
     </div>

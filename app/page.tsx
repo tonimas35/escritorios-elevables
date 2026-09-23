@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
-import { coma } from "@/lib/format";
+import { coma, nota } from "@/lib/format";
 import {
   carga,
   caminos,
@@ -56,7 +56,7 @@ export default function Home() {
     nombre: `${p.marca} ${p.modelo}`,
     imagen: p.imagen,
     alt: p.imagen_alt,
-    nota: coma(p.puntuacion.total),
+    nota: nota(p.puntuacion.total),
     notaNum: p.puntuacion.total,
     rating: coma(p.rating),
     motor: motorCorto(p),
@@ -147,7 +147,7 @@ export default function Home() {
                     <br />
                   </>
                 )}
-                Nota <strong style={{ color: "var(--bs-tinta)" }}>{coma(top.puntuacion.total)}</strong> sobre 10 · {coma(top.rating)}★
+                Nota <strong style={{ color: "var(--bs-tinta)" }}>{nota(top.puntuacion.total)}</strong> sobre 10 · {coma(top.rating)}★
               </span>
             </div>
 
@@ -209,7 +209,7 @@ export default function Home() {
                 </h3>
 
                 <p style={{ fontSize: 15, color: "var(--bs-neutro-700)" }}>
-                  Nota <strong style={{ color: "var(--bs-tinta)" }}>{coma(camino.producto.puntuacion.total)}</strong>
+                  Nota <strong style={{ color: "var(--bs-tinta)" }}>{nota(camino.producto.puntuacion.total)}</strong>
                   {" · "}
                   {coma(camino.producto.rating)}★ en Amazon
                   {camino.asin === asinTop && (
@@ -264,7 +264,7 @@ export default function Home() {
                 {/* La cifra grande de la tarjeta ya es la posicion ("01");
                     la nota va en texto (METODO.md §5). */}
                 <p style={{ fontSize: 15, marginTop: 14, color: "var(--bs-neutro-700)" }}>
-                  Nota <strong style={{ color: "var(--bs-tinta)" }}>{coma(top.puntuacion.total)}</strong> sobre 10
+                  Nota <strong style={{ color: "var(--bs-tinta)" }}>{nota(top.puntuacion.total)}</strong> sobre 10
                   {" · "}
                   {coma(top.rating)}★ en Amazon
                 </p>
@@ -355,7 +355,7 @@ export default function Home() {
                   <p style={{ fontSize: 14, marginTop: 4 }}>{p.define}</p>
                 )}
               </div>
-              <span style={{ fontSize: 22, fontWeight: 700 }}>{coma(p.puntuacion.total)}</span>
+              <span style={{ fontSize: 22, fontWeight: 700 }}>{nota(p.puntuacion.total)}</span>
               <Cta asin={asin} mini />
             </div>
           ))}
