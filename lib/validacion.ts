@@ -41,7 +41,7 @@ const SPECS: (keyof Product["specs"])[] = [
   "garantia_anos",
 ];
 
-const TEXTOS: (keyof Product)[] = ["veredicto", "ideal_para", "no_es_para", "define"];
+const TEXTOS: (keyof Product)[] = ["veredicto", "ideal_para", "no_es_para", "define", "titular"];
 
 const FECHA = /^\d{4}-\d{2}-\d{2}$/;
 
