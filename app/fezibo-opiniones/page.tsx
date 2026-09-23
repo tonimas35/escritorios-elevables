@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProductBySlug, getAllProducts } from "@/lib/products";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
+import { coma } from "@/lib/format";
+import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
 import { FranjaPrecio } from "@/components/FranjaPrecio";
@@ -13,7 +15,7 @@ import { productSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Fezibo escritorio elevable opiniones y review 2026 — ¿Merece la pena?",
   description:
-    "Review honesta del Fezibo 120x60: el escritorio elevable eléctrico más barato. Analizamos si merece la pena, para quién es y para quién no.",
+    "Review honesta del Fezibo 120x60, un escritorio elevable eléctrico de gama de entrada. Analizamos si merece la pena, para quién es y para quién no.",
   alternates: { canonical: "/fezibo-opiniones" },
 };
 
@@ -21,6 +23,7 @@ export default function FeziboReviewPage() {
   const result = getProductBySlug("fezibo-120");
   if (!result) return <p>Producto no encontrado</p>;
   const [asin, product] = result;
+  const enFranja = posicionEnFranja(product, getAllProducts().map(([, p]) => p));
 
   const alternatives = getAllProducts()
     .filter(([, p]) => p.slug !== "fezibo-120" && p.disponible && p.precio <= 250)
@@ -42,7 +45,7 @@ export default function FeziboReviewPage() {
   const faqItems = [
     {
       q: "¿El Fezibo merece la pena?",
-      a: "Si tu expectativa es un escritorio elevable básico que sube y baja sin problemas, sí. No esperes la estabilidad de un Flexispot E7 ni la velocidad de un doble motor. Pero para un estudiante o alguien que quiere probar un elevable por primera vez, es la forma más barata de hacerlo con motor eléctrico.",
+      a: "Si tu expectativa es un escritorio elevable básico que sube y baja sin problemas, sí. No esperes la estabilidad de un Flexispot E7 ni la velocidad de un doble motor. Pero para un estudiante o alguien que quiere probar un elevable por primera vez, es una forma sencilla de hacerlo con motor eléctrico, aunque en el catálogo hay modelos de un motor más baratos.",
     },
     {
       q: "¿El Fezibo sirve para trabajar 8 horas al día?",
@@ -109,12 +112,17 @@ export default function FeziboReviewPage() {
 
           <div className="flex items-center gap-4 mt-4">
             <span className="font-bold text-sm px-2 py-1 rounded" style={{ background: 'var(--pro)', color: 'white' }}>
-              {product.puntuacion.total}/10
+              {coma(product.puntuacion.total)}/10
             </span>
+            {enFranja && (
+              <span className="text-sm" style={{ color: 'var(--text-muted)' }}>
+                Nº {enFranja.posicion} de {enFranja.de} · {NOMBRE_FRANJA[enFranja.franja]}
+              </span>
+            )}
           </div>
 
           <div className="flex items-center gap-2 mt-2">
-            <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{product.rating}★ en Amazon</span>
+            <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{coma(product.rating)}★ en Amazon</span>
           </div>
 
           <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -132,7 +140,7 @@ export default function FeziboReviewPage() {
       {/* Editorial intro */}
       <div className="mt-10 max-w-3xl space-y-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
         <p>
-          El Fezibo es el escritorio elevable eléctrico más barato que puedes comprar ahora mismo en Amazon España. Con motor. Sube y baja pulsando un botón. Hace cinco años esto habría parecido ciencia ficción. Hoy es una realidad, pero con matices importantes que necesitas conocer antes de comprar.
+          El Fezibo es un escritorio elevable eléctrico de gama de entrada: un motor, tablero de 120x60 y lo básico para subir y bajar pulsando un botón. No es el más barato del catálogo, y tiene matices importantes que necesitas conocer antes de comprar.
         </p>
         <p>
           He analizado las opiniones en Amazon, he comparado sus specs con los otros modelos baratos del mercado, y tengo claro para quién tiene sentido y para quién no. Si tu presupuesto es ajustado, esto te interesa.
@@ -189,7 +197,7 @@ export default function FeziboReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Un elevable con motor en la gama de entrada: ¿qué sacrificas?</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            El motor simple es lento (2.5 cm/s) y ruidoso comparado con los doble motor. El recorrido completo tarda unos 18 segundos, que se sienten largos cuando vienes de un escritorio eléctrico rápido. Pero si es tu primer elevable, no lo vas a notar. Las 3 memorias de altura te permiten guardar tus posiciones favoritas y olvidarte.
+            El motor simple es lento (2.5 cm/s) y ruidoso comparado con los doble motor. El recorrido completo tarda unos 18 segundos, que se sienten largos cuando vienes de un escritorio eléctrico rápido. Pero si es tu primer elevable, no lo vas a notar. Las {product.specs.presets_memoria} memorias de altura te permiten guardar tus posiciones favoritas y olvidarte.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             No tiene anticolisión. Si la mesa choca con algo al bajar, el motor sigue empujando. Es el sacrificio más relevante del precio bajo. Si tienes una cajonera debajo, ojo. La solución casera: pon un tope adhesivo a la altura del obstáculo.
@@ -240,7 +248,7 @@ export default function FeziboReviewPage() {
         <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>Veredicto</p>
         <p className="text-xl mt-2" >{product.veredicto}</p>
         <p className="mt-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-          No es el mejor escritorio elevable. Pero es la forma más barata de descubrir si trabajar de pie va contigo.
+          No es el mejor escritorio elevable. Es una forma sencilla de descubrir si trabajar de pie va contigo.
         </p>
         <div className="mt-4 inline-block">
           <AffiliateButton asin={asin} size="lg" />
@@ -271,14 +279,14 @@ export default function FeziboReviewPage() {
               <tr style={{ background: 'var(--verde-estructura-claro)', borderBottom: '1px solid var(--border)' }}>
                 <td className="p-3 font-semibold">Fezibo 120x60 (este)</td>
                 <td className="p-3 text-center">Simple</td>
-                <td className="p-3 text-center font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
+                <td className="p-3 text-center font-bold" style={{ color: 'var(--pro)' }}>{coma(product.puntuacion.total)}</td>
                 <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
               </tr>
               {alternatives.map(([altAsin, alt]) => (
                 <tr key={altAsin} className="hover:bg-[var(--verde-estructura-claro)]" style={{ borderBottom: '1px solid var(--border)' }}>
                   <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
                   <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : alt.specs.tipo_motor === 'manual' ? 'Manual' : 'Simple'}</td>
-                  <td className="p-3 text-center font-bold">{alt.puntuacion.total}</td>
+                  <td className="p-3 text-center font-bold">{coma(alt.puntuacion.total)}</td>
                   <td className="p-3 text-center"><AffiliateButton asin={altAsin} size="sm" /></td>
                 </tr>
               ))}
