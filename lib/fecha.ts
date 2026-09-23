@@ -13,3 +13,9 @@ export const FECHA = "Septiembre de 2026";
 
 /** La misma fecha en minuscula, para cuando va dentro de una frase. */
 export const FECHA_EN_FRASE = "septiembre de 2026";
+
+/** Fecha ISO (AAAA-MM-DD) escrita como DD/MM/AAAA. */
+export function fechaCorta(iso: string): string {
+  const [aaaa, mm, dd] = iso.split("-");
+  return `${dd}/${mm}/${aaaa}`;
+}
