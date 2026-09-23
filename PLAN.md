@@ -5,6 +5,12 @@
 >
 > Estado al escribir este plan: nada implementado. Tag `pre-rediseno` sobre el
 > estado previo (commit `a9a5495`; ver la nota al final sobre su push).
+>
+> **Estado a 23/09/2026:** F0–F4 y F6 hechas (todo el sitio está en Broadsheet
+> desde el 10/09). **Pendiente: F5**, la plantilla de ficha para los modelos sin
+> página propia, que pasa a ser la Fase 6 de `PLAN-CATALOGO.md`. §7.4 resuelta:
+> `aggregateRating` retirado del schema (commit `e1b78f4`). El resto de este
+> fichero se conserva como registro de cómo se hizo.
 
 ## Regla que manda sobre todo
 

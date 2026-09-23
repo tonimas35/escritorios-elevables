@@ -4,6 +4,16 @@
 > **Cómo usar este fichero:** cada bloque (B1…B5) es autocontenido. En una sesión
 > nueva de Claude Code basta con decir *"ejecuta el bloque B1 de SEO-PLAN.md"*.
 > No hace falta arrastrar el contexto de la conversación original.
+>
+> **Estado a 23/09/2026:** las cifras de §1 son del 07/09 y están superadas.
+> Hecho desde entonces: B0, B1 salvo los H1 de las reviews (siguen siendo el
+> título de Amazon; necesitan el campo `titular`, pendiente de aprobación), B2,
+> las 89 menciones de precio en prosa (ya no queda ninguna), franjas de precio
+> con fecha y `AggregateOffer`, 308 de www a elevable.es y retirada del
+> `nofollow`. Search Console: 10 de 12 páginas indexadas. Las reviews tienen
+> ~1.100 palabras renderizadas, no ~3.000. B3 (fichas nuevas) y el hueco de
+> catálogo entre 160 y 370 € pasan a `PLAN-CATALOGO.md`. Siguen vigentes B3.5
+> (canal IA), B4 y B5.
 
 ---
 
