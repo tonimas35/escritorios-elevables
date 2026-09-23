@@ -39,7 +39,7 @@ export default function EscritorioBaratoPage() {
   const faqItems = [
     {
       q: "¿Cuál es el escritorio elevable más barato que merece la pena?",
-      a: `El ${winner?.[1].marca} ${winner?.[1].modelo}. Tiene anticolisión, 4 memorias y 5 años de garantía, cosas que no suelen venir juntas en la gama de entrada. Si buscas algo aún más contenido, el Fezibo cumple para un setup básico.`,
+      a: `El ${winner?.[1].marca} ${winner?.[1].modelo}. Tiene anticolisión, 4 memorias y 5 años de garantía, cosas que no suelen venir juntas en la gama de entrada. Si buscas algo aún más contenido, el VASAGLE de 100x60 es el más barato del catálogo y cumple para un portátil y poco más.`,
     },
     {
       q: "¿Motor simple o doble para un escritorio barato?",
@@ -133,7 +133,7 @@ export default function EscritorioBaratoPage() {
       <FadeIn delay={100}>
         <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <p>
-            No necesitas irte a la gama alta. Si tu setup es portátil + monitor + teclado, la gama de entrada te vale. Mi recomendación rápida: el <strong>marco Flexispot</strong> si quieres lo mejor de esta franja, el <strong>ErGear de 120x60</strong> si buscas anticolisión, y el <strong>Fezibo</strong> para probar con lo mínimo.
+            No necesitas irte a la gama alta. Si tu setup es portátil + monitor + teclado, la gama de entrada te vale. Mi recomendación rápida: el <strong>marco Flexispot</strong> si quieres lo mejor de esta franja, el <strong>ErGear de 120x60</strong> si buscas anticolisión, y el <strong>VASAGLE de 100x60</strong>, el más barato del catálogo, para probar con lo mínimo.
           </p>
         </div>
       </FadeIn>
@@ -191,7 +191,7 @@ export default function EscritorioBaratoPage() {
                       </div>
                       <div>
                         <p className="font-semibold text-sm">{product.marca} {product.modelo}</p>
-                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★</p>
+                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{coma(product.rating)}★</p>
                       </div>
                     </div>
                   </td>
