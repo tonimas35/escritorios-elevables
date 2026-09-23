@@ -142,5 +142,17 @@
     "tipo": "cambio_nota",
     "slug": "vasagle-100",
     "motivo": "La nota pasa de 8,1 (puesta a mano) a 3,0, calculada con la fórmula publicada en la metodología."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "sanodesk-140",
+    "motivo": "Decíamos que SANODESK es submarca de Flexispot con «calidad garantizada». Fuentes de terceros coinciden en que ambas marcas son del mismo fabricante, Loctek; «calidad garantizada» no tenía respaldo y se retira."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "fezibo-120",
+    "motivo": "Especificaciones en revisión: Amazon muestra datos distintos según la variante (memorias, recorrido y velocidad) y no coinciden del todo con los publicados. Se corregirán con la ficha de la variante que enlazamos."
   }
 ]
