@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Qué escritorio elevable comprar: test de 4 preguntas",
@@ -105,13 +106,13 @@ export default function QueComprarLayout({ children }: { children: React.ReactNo
             Los datos salen de la ficha del fabricante en Amazon España, los
             mismos que alimentan el resto del sitio. Puedes ver el criterio
             completo en la{" "}
-            <a href="/metodologia" style={{ color: "var(--verde-estructura)", textDecoration: "underline" }}>
+            <Link href="/metodologia" style={{ color: "var(--verde-estructura)", textDecoration: "underline" }}>
               metodología
-            </a>{" "}
+            </Link>{" "}
             o filtrar tú mismo los doce modelos en el{" "}
-            <a href="/comparador" style={{ color: "var(--verde-estructura)", textDecoration: "underline" }}>
+            <Link href="/comparador" style={{ color: "var(--verde-estructura)", textDecoration: "underline" }}>
               comparador
-            </a>
+            </Link>
             .
           </p>
           <p>
