@@ -1,9 +1,9 @@
 # Método editorial del catálogo
 
-> **BORRADOR para revisión (23/09/2026).** Nada de lo que dice este fichero se
-> aplica todavía a los datos ni a la web. Las cifras marcadas **[decidir]** son
-> propuestas. Cuando Toni las apruebe, este fichero pasa a ser la regla y se
-> ejecutan las fases 2 a 4 de `PLAN-CATALOGO.md`.
+> **Aprobado por Toni el 23/09/2026**, con todas las cifras tal como estaban
+> propuestas. Es la regla del catálogo. Solo queda abierta la dirección del
+> canal de correcciones (§8). Cambiar una cifra de este fichero es cambiar el
+> método: se hace aquí primero, con fecha, y luego en el código.
 
 Este documento dice qué modelos recomienda elevable.es, por qué, cómo se puntúan
 y cuándo se sustituyen. Todo lo que publica la web sobre un modelo tiene que
@@ -23,7 +23,7 @@ poder explicarse con este fichero y con `data/productos.json`.
 4. **El método es público.** Franjas, requisitos, fórmula y registro de cambios
    se publican en `/metodologia`.
 
-## 2. Franjas **[decidir límites]**
+## 2. Franjas
 
 | Franja | Qué entra | Precio (franja verificada) |
 |---|---|---|
@@ -45,7 +45,7 @@ poder explicarse con este fichero y con `data/productos.json`.
 Un modelo entra solo si cumple **todos**:
 
 1. Se vende y se envía en Amazon.es y tiene stock el día de la revisión.
-2. Nota media en Amazon **≥ 4,3** con **al menos 100 valoraciones** **[decidir]**.
+2. Nota media en Amazon **≥ 4,3** con **al menos 100 valoraciones**.
    Menos volumen no es señal fiable.
 3. Specs completas (las 14 de `specs`) sacadas de la ficha del fabricante o de
    la de Amazon, con la URL guardada en `fuente_specs`.
@@ -59,7 +59,7 @@ Un modelo entra solo si cumple **todos**:
 - Descatalogado, o sin stock durante más de 30 días.
 - Deja de cumplir algún requisito de §3.
 - Aparece un candidato en la misma franja que lo supera en **0,3 puntos** o
-  más **[decidir]**. Por debajo de ese margen no se rota: sería rotar por ruido.
+  más. Por debajo de ese margen no se rota: sería rotar por ruido.
 
 Un modelo que sale y tenía página propia redirige (301) a su sucesor. Nunca se
 deja un 404.
@@ -73,7 +73,7 @@ fórmula se publica.
 **Umbrales absolutos**: la nota de un modelo no cambia porque entre o salga
 otro. Cada apartado va de 0 a 10.
 
-### Apartados y pesos **[decidir pesos]**
+### Apartados y pesos
 
 | Apartado | Peso | Cómo se calcula |
 |---|---|---|
@@ -131,13 +131,13 @@ Lo que enseña:
 4. **La franja C tiene solo dos modelos y ninguno entre 180 y 350 €.** Es el
    hueco que hay que cubrir en el primer barrido.
 
-### Cómo se publica la nota **[decidir]**
+### Cómo se publica la nota
 
 Una nota absoluta pone a los escritorios baratos entre 3 y 5. Es honesto (un
 escritorio de 80 € no tiene las prestaciones de uno de 400 €), pero un 4,9 en
-grande puede leerse como "malo". Propuesta: la cifra grande de la ficha pasa a
-ser la **posición en su franja** ("Nº 1 de la franja A") y la nota absoluta se
-enseña al lado, más pequeña, con un enlace a esta fórmula.
+grande puede leerse como "malo". Por eso la cifra grande de la ficha es la
+**posición en su franja** ("Nº 1 de la franja A") y la nota absoluta se enseña
+al lado, más pequeña, con un enlace a esta fórmula.
 
 ## 6. Fuentes y fechas por modelo
 
@@ -145,13 +145,16 @@ Campos nuevos en `data/productos.json` (Fase 2 del plan):
 
 | Campo | Qué es |
 |---|---|
-| `franja` | A, B, C o M |
 | `fuente_specs` | URL de la ficha de donde salen las specs |
 | `specs_verificado` | Fecha (AAAA-MM-DD) en que se comprobaron las specs |
 | `alta` | Fecha en que entró en el catálogo |
 | `estado` | `activo`, `en_revision` o `retirado` |
 | `sucesor` | Slug del modelo que lo sustituye, si se retira |
 | `nota_resenas` | Resumen de la revisión de reseñas de 1–2★ |
+
+La **franja no se guarda**: se calcula en `lib/nota.ts` con la regla de §2 a
+partir de `incluye_tablero`, `precio_min` y `precio_max`. Guardarla sería tener
+dos fuentes que pueden contradecirse.
 
 Siguen como están: `precio_min`, `precio_max` y `precio_verificado` (ya con su
 regla en `CLAUDE.md`). `num_reviews` se usa para el umbral de §3 y no se
@@ -168,11 +171,11 @@ fecha, modelo y motivo, y se publica en `/metodologia`. Ejemplo de entrada:
   "sucesor": "ergear-120" }
 ```
 
-## 8. Correcciones **[decidir canal]**
+## 8. Correcciones
 
 Si alguien avisa de un error, se comprueba, se corrige y queda en el registro
-de §7 como tipo `correccion`. Hoy la web no tiene canal de contacto: hay que
-elegir uno (un correo dedicado es lo mínimo).
+de §7 como tipo `correccion`. El canal es un correo dedicado, pendiente de
+crear: hoy la web no tiene ningún contacto.
 
 ## 9. Calendario
 
@@ -182,11 +185,7 @@ elegir uno (un correo dedicado es lo mínimo).
 | Trimestre | Barrido de mercado por franja (§3 y §4) y reseñas negativas de los activos | 3–4 h |
 | Semestre | Revisar esta fórmula. Nunca para favorecer lo que más vende | 1 h |
 
-## Decisiones pendientes para aprobar este borrador
+## Pendiente
 
-1. Límites de las franjas (§2).
-2. Umbral de valoraciones: 4,3 y 100 (§3).
-3. Margen para sustituir: 0,3 puntos (§4).
-4. Pesos y umbrales de la fórmula (§5).
-5. Cómo se publica la nota: posición en la franja en grande y nota absoluta al lado (§5).
-6. Canal de correcciones (§8).
+- **Dirección del canal de correcciones** (§8). Aprobado que sea un correo
+  dedicado; falta crearlo y decir cuál es.
