@@ -26,8 +26,6 @@ export default function MejorEscritorioPage() {
 
   const [topAsin, topProduct] = topProducts[0];
 
-  const top3 = topProducts.slice(0, 3);
-
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -204,7 +202,7 @@ export default function MejorEscritorioPage() {
                         </div>
                         <div>
                           <p className="font-semibold text-sm" style={{ color: 'var(--text-primary)' }}>{product.marca} {product.modelo}</p>
-                          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}&#9733;</p>
+                          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{coma(product.rating)}&#9733;</p>
                         </div>
                       </a>
                     </td>
