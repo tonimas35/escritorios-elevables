@@ -261,14 +261,13 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <div className="flex items-end gap-3" style={{ marginTop: 18 }}>
-                  <Cifra valor={top.puntuacion.total} tamano="54px" fondo="var(--bs-superficie)" />
-                  <span style={{ fontSize: 14, paddingBottom: 5, color: "var(--bs-neutro-700)" }}>
-                    sobre 10
-                    <br />
-                    {coma(top.rating)}★ en Amazon
-                  </span>
-                </div>
+                {/* La cifra grande de la tarjeta ya es la posicion ("01");
+                    la nota va en texto (METODO.md §5). */}
+                <p style={{ fontSize: 15, marginTop: 14, color: "var(--bs-neutro-700)" }}>
+                  Nota <strong style={{ color: "var(--bs-tinta)" }}>{coma(top.puntuacion.total)}</strong> sobre 10
+                  {" · "}
+                  {coma(top.rating)}★ en Amazon
+                </p>
               </div>
 
               <div style={{ flex: "1 1 340px" }}>
