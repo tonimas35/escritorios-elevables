@@ -460,7 +460,13 @@ export default function Home() {
             <div style={{ flex: "1 1 320px" }}>
               <h3 className="bs-h3">Cómo puntuamos</h3>
               <p className="bs-cuerpo" style={{ marginTop: 12, color: "var(--bs-neutro-800)" }}>
-                Cada modelo recibe una nota sobre 10 en cinco apartados.
+                Cada modelo recibe una nota sobre 10 en cinco apartados, calculada
+                a partir de sus datos con una{" "}
+                <Link href="/metodologia" className="underline">
+                  fórmula publicada
+                </Link>
+                . La nota es absoluta: un escritorio básico no la tiene alta, por
+                eso comparamos dentro de cada franja de precio.
               </p>
               <div className="flex flex-col" style={{ gap: 16, marginTop: 20 }}>
                 {CRITERIOS.map((c) => (
@@ -468,7 +474,12 @@ export default function Home() {
                     key={c.nombre}
                     style={{ paddingLeft: 14, borderLeft: "2px solid var(--bs-verde-botella)" }}
                   >
-                    <p style={{ fontSize: 16, fontWeight: 600 }}>{c.nombre}</p>
+                    <p style={{ fontSize: 16, fontWeight: 600 }}>
+                      {c.nombre}{" "}
+                      <span style={{ fontWeight: 400, color: "var(--bs-neutro-700)" }}>
+                        · {Math.round(c.peso * 100)} %
+                      </span>
+                    </p>
                     <p style={{ fontSize: 15, color: "var(--bs-neutro-800)", marginTop: 2 }}>
                       {c.base}
                     </p>
@@ -489,10 +500,10 @@ export default function Home() {
                   redondeada a la baja porque solo puede subir.
                 </li>
                 <li>
-                  <strong>Precios:</strong> no los publicamos. Amazon los cambia a
-                  diario y una cifra escrita hoy engaña en una semana; el importe
-                  exacto lo ves en Amazon, que es el único sitio donde siempre es
-                  correcto.
+                  <strong>Precios:</strong> solo una franja amplia con la fecha en
+                  que la comprobamos en Amazon, nunca una cifra exacta. Amazon
+                  cambia los precios a diario; el importe del día solo es fiable
+                  allí.
                 </li>
               </ul>
 
@@ -504,7 +515,8 @@ export default function Home() {
                 enlace de la web, Amazon nos paga un porcentaje y tú pagas lo mismo.
                 No cobramos de ninguna marca ni aceptamos productos a cambio de
                 reseñas, entre otras cosas porque no hacemos reseñas de uso. El
-                orden de los modelos sale de la puntuación, no de la comisión.
+                orden de los modelos sale de la puntuación, no de la comisión, que
+                en escritorios es el mismo porcentaje para todas las marcas.
               </p>
 
               <div style={{ marginTop: 26 }}>
