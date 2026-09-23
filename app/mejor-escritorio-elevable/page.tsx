@@ -145,7 +145,7 @@ export default function MejorEscritorioPage() {
         <FadeIn delay={100}>
           <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
-              Hemos reunido las especificaciones de 12 escritorios elevables a la venta en Amazon España, de la gama de entrada a la premium, y las hemos ordenado con los mismos cinco criterios para todos. En corto: el <strong>marco Flexispot</strong> es la mejor compra si ya tienes tablero o quieres montar uno a medida; el <strong>FLEXISPOT de 160x80</strong> es el más completo de los que vienen listos para usar; y el <strong>MAIDeSITe T2 Pro MAX</strong> solo compensa si necesitas sus 160 kg de carga. Cómo puntuamos y qué no hacemos está en la <a href="/metodologia" style={{ textDecoration: 'underline' }}>metodología</a>.
+              Hemos reunido las especificaciones de 12 escritorios elevables a la venta en Amazon España, de la gama de entrada a la premium, y las hemos ordenado con los mismos cinco criterios para todos. En corto: el <strong>marco Flexispot</strong> es la mejor compra si ya tienes tablero o quieres montar uno a medida; el <strong>FLEXISPOT de 160x80</strong> es el más completo de los que vienen listos para usar; y el <strong>MAIDeSITe T2 Pro MAX</strong> solo compensa si necesitas sus 160 kg de carga. Cómo puntuamos y qué no hacemos está en la <Link href="/metodologia" style={{ textDecoration: 'underline' }}>metodología</Link>.
             </p>
           </div>
         </FadeIn>
