@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProductBySlug, getAllProducts } from "@/lib/products";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
+import { coma } from "@/lib/format";
+import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
 import { FranjaPrecio } from "@/components/FranjaPrecio";
@@ -23,6 +25,7 @@ export default function FlexispotE7ReviewPage() {
   const result = getProductBySlug("flexispot-e7");
   if (!result) return <p>Producto no encontrado</p>;
   const [asin, product] = result;
+  const enFranja = posicionEnFranja(product, getAllProducts().map(([, p]) => p));
 
   // Get alternatives for comparison
   const alternatives = getAllProducts()
@@ -43,7 +46,7 @@ export default function FlexispotE7ReviewPage() {
   const faqItems = [
     {
       q: "¿Merece la pena el Flexispot E7 en 2026?",
-      a: "Sí. No ha aparecido nada que lo supere en su combinación de estabilidad, motor y garantía. Compradores con 3-4 años de uso reportan cero problemas. Es además el modelo con más valoraciones y mejor nota media del catálogo, y el único junto al FLEXISPOT de 160x80 con cinco años de garantía.",
+      a: "Sí. No ha aparecido nada que lo supere en su combinación de estabilidad, motor y garantía. Compradores con 3-4 años de uso reportan cero problemas. Es además el de mejor nota media en Amazon de todo el catálogo, y el único junto al FLEXISPOT de 160x80 con cinco años de garantía.",
     },
     {
       q: "¿El marco Flexispot merece la pena sin tablero?",
@@ -121,12 +124,17 @@ export default function FlexispotE7ReviewPage() {
 
             <div className="flex items-center gap-4 mt-4">
               <span className="font-bold text-sm px-2 py-1 rounded text-white" style={{ background: 'var(--color-secondary)' }}>
-                {product.puntuacion.total}/10
+                {coma(product.puntuacion.total)}/10
               </span>
+              {enFranja && (
+                <span className="text-sm" style={{ color: 'var(--text-muted)' }}>
+                  Nº {enFranja.posicion} de {enFranja.de} · {NOMBRE_FRANJA[enFranja.franja]}
+                </span>
+              )}
             </div>
 
             <div className="flex items-center gap-2 mt-2">
-              <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{product.rating}★ en Amazon</span>
+              <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{coma(product.rating)}★ en Amazon</span>
             </div>
 
             <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -146,7 +154,7 @@ export default function FlexispotE7ReviewPage() {
       <FadeIn delay={100}>
         <div className="mt-10 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <p>
-              El marco del E7 lleva años siendo de lo más recomendado en foros y en YouTube, y los números acompañan: es el producto con más valoraciones de todo el catálogo y el que mejor nota media saca. Doble motor, 125 kg de carga y cinco años de garantía en la estructura. El matiz importante es que viene sin tablero, así que hay que sumar ese gasto antes de compararlo con un escritorio completo.
+              El marco del E7 lleva años siendo de lo más recomendado en foros y en YouTube, y los números acompañan: es el que mejor nota media saca en Amazon de todo el catálogo. Doble motor, 125 kg de carga y cinco años de garantía en la estructura. El matiz importante es que viene sin tablero, así que hay que sumar ese gasto antes de compararlo con un escritorio completo.
             </p>
         </div>
       </FadeIn>
@@ -276,14 +284,14 @@ export default function FlexispotE7ReviewPage() {
                 <tr style={{ background: 'var(--verde-estructura-claro)', borderBottom: '1px solid var(--border)' }}>
                   <td className="p-3 font-semibold">Flexispot E7 (este)</td>
                   <td className="p-3 text-center">Doble</td>
-                  <td className="p-3 text-center font-bold" style={{ color: 'var(--pro)' }}>{product.puntuacion.total}</td>
+                  <td className="p-3 text-center font-bold" style={{ color: 'var(--pro)' }}>{coma(product.puntuacion.total)}</td>
                   <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
                 </tr>
                 {alternatives.map(([altAsin, alt]) => (
                   <tr key={altAsin} className="hover:bg-[var(--verde-estructura-claro)]" style={{ borderBottom: '1px solid var(--border)' }}>
                     <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
                     <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple'}</td>
-                    <td className="p-3 text-center font-bold">{alt.puntuacion.total}</td>
+                    <td className="p-3 text-center font-bold">{coma(alt.puntuacion.total)}</td>
                     <td className="p-3 text-center"><AffiliateButton asin={altAsin} size="sm" /></td>
                   </tr>
                 ))}
