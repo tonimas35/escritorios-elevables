@@ -342,6 +342,30 @@ export default async function FichaModelo({ params }: Props) {
           </div>
         </div>
       </section>
+      {/* ============================================================
+          Cierre
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion flex flex-wrap" style={{ paddingTop: 28, gap: "24px 48px" }}>
+          <div style={{ flex: "1 1 360px" }}>
+            <h2 className="bs-h2" style={{ fontSize: "var(--bs-h2-ficha)" }}>
+              ¿Es para ti el {p.marca} {p.modelo}?
+            </h2>
+            <p className="bs-cuerpo" style={{ marginTop: 12, maxWidth: "58ch", color: "var(--bs-neutro-800)" }}>
+              {enFranja
+                ? `Es el número ${enFranja.posicion} de ${enFranja.de} en su franja (${NOMBRE_FRANJA[enFranja.franja].toLowerCase()}), con una nota de ${nota(p.puntuacion.total)} sobre 10. `
+                : `Tiene una nota de ${nota(p.puntuacion.total)} sobre 10. `}
+              Si encaja con lo que buscas, el precio de hoy está en Amazon.
+            </p>
+          </div>
+          <div style={{ flex: "0 1 340px" }}>
+            <Cta asin={asin} ancho />
+            <div style={{ marginTop: 10 }}>
+              <Afiliado />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
