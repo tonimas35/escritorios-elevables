@@ -28,6 +28,7 @@ import { Afiliado } from "@/components/broadsheet/Afiliado";
 import { Firma } from "@/components/broadsheet/Firma";
 import { Comparativa, type FilaComparativa } from "@/components/broadsheet/Comparativa";
 import { CRITERIOS } from "@/lib/metodologia";
+import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { CtaFijo } from "@/components/broadsheet/CtaFijo";
 
 export const metadata: Metadata = {
@@ -46,6 +47,7 @@ export default function Home() {
   const exclusionTop = exclusion(top);
   const franjaTop = franjaPrecio(top);
   const notaPrecios = notaFranjas(catalogo.map(([, p]) => p));
+  const enFranjaTop = posicionEnFranja(top, catalogo.map(([, p]) => p));
 
   const tresDudas = dudas(catalogo);
 
@@ -122,8 +124,15 @@ export default function Home() {
               </div>
             </div>
 
+            {/* La cifra grande es la posicion en su franja y la nota va al
+                lado, pequeña (METODO.md §5, "Como se publica la nota"). */}
             <div className="flex items-end gap-3" style={{ marginTop: 22 }}>
-              <Cifra valor={top.puntuacion.total} tamano="clamp(58px, 7vw, 82px)" />
+              {enFranjaTop && (
+                <Cifra
+                  valor={String(enFranjaTop.posicion).padStart(2, "0")}
+                  tamano="clamp(58px, 7vw, 82px)"
+                />
+              )}
               <span
                 style={{
                   fontSize: 14,
@@ -132,9 +141,13 @@ export default function Home() {
                   color: "var(--bs-neutro-700)",
                 }}
               >
-                sobre 10
-                <br />
-                Nº 1 de {catalogo.length} · {coma(top.rating)}★
+                {enFranjaTop && (
+                  <>
+                    de {enFranjaTop.de} · {NOMBRE_FRANJA[enFranjaTop.franja]}
+                    <br />
+                  </>
+                )}
+                Nota <strong style={{ color: "var(--bs-tinta)" }}>{coma(top.puntuacion.total)}</strong> sobre 10 · {coma(top.rating)}★
               </span>
             </div>
 
