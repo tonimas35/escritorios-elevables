@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
-import { coma } from "@/lib/format";
+import { coma, nota } from "@/lib/format";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
@@ -25,8 +25,6 @@ export default function MejorEscritorioPage() {
     .sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total);
 
   const [topAsin, topProduct] = topProducts[0];
-
-  const top3 = topProducts.slice(0, 3);
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -147,7 +145,7 @@ export default function MejorEscritorioPage() {
         <FadeIn delay={100}>
           <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
-              Hemos reunido las especificaciones de 12 escritorios elevables a la venta en Amazon España, de la gama de entrada a la premium, y las hemos ordenado con los mismos cinco criterios para todos. En corto: el <strong>marco Flexispot</strong> es la mejor compra si ya tienes tablero o quieres montar uno a medida; el <strong>FLEXISPOT de 160x80</strong> es el más completo de los que vienen listos para usar; y el <strong>MAIDeSITe T2 Pro MAX</strong> solo compensa si necesitas sus 160 kg de carga. Cómo puntuamos y qué no hacemos está en la <a href="/metodologia" style={{ textDecoration: 'underline' }}>metodología</a>.
+              Hemos reunido las especificaciones de 12 escritorios elevables a la venta en Amazon España, de la gama de entrada a la premium, y las hemos ordenado con los mismos cinco criterios para todos. En corto: el <strong>marco Flexispot</strong> es la mejor compra si ya tienes tablero o quieres montar uno a medida; el <strong>FLEXISPOT de 160x80</strong> es el más completo de los que vienen listos para usar; y el <strong>MAIDeSITe T2 Pro MAX</strong> solo compensa si necesitas sus 160 kg de carga. Cómo puntuamos y qué no hacemos está en la <Link href="/metodologia" style={{ textDecoration: 'underline' }}>metodología</Link>.
             </p>
           </div>
         </FadeIn>
@@ -167,7 +165,7 @@ export default function MejorEscritorioPage() {
                 <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>{topProduct.veredicto}</p>
                 <div className="flex items-center gap-4 mt-3">
                   <span className="tabular-nums text-2xl font-bold">
-                    {coma(topProduct.puntuacion.total)}
+                    {nota(topProduct.puntuacion.total)}
                   </span>
                   <span className="text-xs" style={{ color: 'var(--text-muted)' }}>sobre 10</span>
                   <AffiliateButton asin={topAsin} size="sm" />
@@ -204,7 +202,7 @@ export default function MejorEscritorioPage() {
                         </div>
                         <div>
                           <p className="font-semibold text-sm" style={{ color: 'var(--text-primary)' }}>{product.marca} {product.modelo}</p>
-                          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}&#9733;</p>
+                          <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{coma(product.rating)}&#9733;</p>
                         </div>
                       </a>
                     </td>
@@ -222,7 +220,7 @@ export default function MejorEscritorioPage() {
                         className="tabular-nums font-bold"
                         style={{ color: 'var(--bs-tinta)' }}
                       >
-                        {coma(product.puntuacion.total)}
+                        {nota(product.puntuacion.total)}
                       </span>
                     </td>
                     <td className="p-3 text-center">

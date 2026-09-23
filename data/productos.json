@@ -46,19 +46,17 @@
       "Todavía con pocas valoraciones",
       "Sin sistema anticolisión"
     ],
-    "veredicto": "La opción más económica del mercado. Ideal para quien quiere probar un escritorio elevable sin gastar mucho.",
-    "puntuacion": {
-      "calidad_construccion": 6.9,
-      "estabilidad": 6.9,
-      "facilidad_montaje": 9.9,
-      "relacion_calidad_precio": 9.9,
-      "funcionalidades": 5.9,
-      "total": 8.1
-    },
+    "veredicto": "La opción más económica del catálogo. Ideal para quien quiere probar un escritorio elevable sin gastar mucho.",
     "ideal_para": "Presupuestos ajustados y espacios pequeños.",
     "no_es_para": "No es tu mesa si vas a poner encima algo más que un portátil y un monitor: 50 kg es la carga más baja del catálogo y 100 cm el tablero más estrecho.",
     "define": "El más pequeño del catálogo: 100 cm de tablero y 50 kg de carga, los dos mínimos.",
-    "slug": "vasagle-100"
+    "slug": "vasagle-100",
+    "alta": "2026-03-25",
+    "estado": "activo",
+    "sucesor": null,
+    "fuente_specs": null,
+    "specs_verificado": null,
+    "nota_resenas": null
   },
   "B0D9MGDDHD": {
     "nombre": "ErGear Escritorio Elevable Eléctrico 120x60cm",
@@ -108,19 +106,17 @@
       "Tablero de melamina básico",
       "Rango de altura limitado (72-120 cm)"
     ],
-    "veredicto": "La mejor relación calidad-precio en escritorios elevables de gama de entrada. 4,6 estrellas lo avalan.",
-    "puntuacion": {
-      "calidad_construccion": 7.9,
-      "estabilidad": 7.9,
-      "facilidad_montaje": 8.9,
-      "relacion_calidad_precio": 10,
-      "funcionalidades": 7.9,
-      "total": 8.8
-    },
+    "veredicto": "Un 120x60 de gama de entrada con anticolisión, 4 memorias y 4,6 estrellas en Amazon.",
     "ideal_para": "Quien busca el mejor escritorio elevable barato con buenas prestaciones.",
     "no_es_para": "No es tu mesa si vas a montar dos monitores: 70 kg de carga y un tablero de 120x60 se quedan cortos.",
     "define": "",
-    "slug": "ergear-120"
+    "slug": "ergear-120",
+    "alta": "2026-03-25",
+    "estado": "activo",
+    "sucesor": null,
+    "fuente_specs": null,
+    "specs_verificado": null,
+    "nota_resenas": null
   },
   "B0CF29CLCP": {
     "nombre": "VASAGLE Escritorio Elevable Eléctrico 160x60cm",
@@ -170,18 +166,16 @@
       "Profundidad de 60 cm puede quedar justa"
     ],
     "veredicto": "El escritorio elevable grande más asequible del catálogo: 160 cm de tablero en la gama de entrada.",
-    "puntuacion": {
-      "calidad_construccion": 7.9,
-      "estabilidad": 6.9,
-      "facilidad_montaje": 7.9,
-      "relacion_calidad_precio": 10,
-      "funcionalidades": 7.9,
-      "total": 8.7
-    },
     "ideal_para": "Quien necesita un tablero grande sin irse de la gama de entrada.",
     "no_es_para": "No es tu mesa si quieres fondo de sobra: mide 160 cm de ancho pero solo 60 de fondo, el mismo que los de 120.",
     "define": "El único de 160x60: el tablero más ancho con el fondo de la gama de entrada.",
-    "slug": "vasagle-160"
+    "slug": "vasagle-160",
+    "alta": "2026-03-25",
+    "estado": "activo",
+    "sucesor": null,
+    "fuente_specs": null,
+    "specs_verificado": null,
+    "nota_resenas": null
   },
   "B0CKVPFSTD": {
     "nombre": "Devoko Escritorio Elevable Eléctrico 120x60cm",
@@ -231,18 +225,16 @@
       "Tablero de 120x60: justo para dual monitor"
     ],
     "veredicto": "Alternativa sólida al ErGear con buenos acabados. Buena opción si buscas algo más robusto en la misma medida.",
-    "puntuacion": {
-      "calidad_construccion": 7.9,
-      "estabilidad": 7.9,
-      "facilidad_montaje": 8.9,
-      "relacion_calidad_precio": 8.9,
-      "funcionalidades": 7.9,
-      "total": 8.7
-    },
     "ideal_para": "Quien quiere un escritorio de 120 cm con buenos acabados.",
     "no_es_para": "No es tu mesa si vas a montar dos monitores: 70 kg de carga y un tablero de 120x60 se quedan cortos.",
     "define": "",
-    "slug": "devoko-120"
+    "slug": "devoko-120",
+    "alta": "2026-03-25",
+    "estado": "activo",
+    "sucesor": null,
+    "fuente_specs": null,
+    "specs_verificado": null,
+    "nota_resenas": null
   },
   "B0DZCV1MVF": {
     "nombre": "FEZIBO Escritorio Elevable Eléctrico 120x60cm",
@@ -292,18 +284,16 @@
       "Sin extras destacables sobre el ErGear"
     ],
     "veredicto": "Opción fiable de marca reconocida. Buenos acabados pero precio algo alto para sus prestaciones.",
-    "puntuacion": {
-      "calidad_construccion": 7.9,
-      "estabilidad": 7.9,
-      "facilidad_montaje": 8.9,
-      "relacion_calidad_precio": 7.9,
-      "funcionalidades": 7.9,
-      "total": 8.5
-    },
     "ideal_para": "Fans de FEZIBO que buscan un 120 cm con buenas prestaciones.",
     "no_es_para": "No es tu mesa si vas a montar dos monitores: 70 kg de carga y un tablero de 120x60 se quedan cortos.",
     "define": "",
-    "slug": "fezibo-120"
+    "slug": "fezibo-120",
+    "alta": "2026-03-25",
+    "estado": "activo",
+    "sucesor": null,
+    "fuente_specs": null,
+    "specs_verificado": null,
+    "nota_resenas": null
   },
   "B0CV4V22XL": {
     "nombre": "SONGMICS Escritorio Elevable Eléctrico 160x70cm",
@@ -343,7 +333,7 @@
       "recomendado"
     ],
     "pros": [
-      "El más valorado del catálogo, con 4,5 estrellas",
+      "4,5 estrellas de media en Amazon",
       "Tablero grande de 160x70 cm: espacio de sobra",
       "80 kg de carga con anticolisión y 4 memorias",
       "Marca SONGMICS de confianza"
@@ -353,19 +343,17 @@
       "Pesado (~27 kg): montar entre dos recomendado",
       "Garantía de solo 3 años"
     ],
-    "veredicto": "El escritorio elevable con más opiniones positivas en Amazon. Tablero generoso de 160x70 cm.",
-    "puntuacion": {
-      "calidad_construccion": 8.9,
-      "estabilidad": 7.9,
-      "facilidad_montaje": 7.9,
-      "relacion_calidad_precio": 9.9,
-      "funcionalidades": 7.9,
-      "total": 9.1
-    },
-    "ideal_para": "Quien quiere el escritorio más probado y valorado con tablero grande.",
+    "veredicto": "Tablero generoso de 160x70 cm, un solo motor y 4,5 estrellas en Amazon.",
+    "ideal_para": "Quien quiere un tablero grande de 160x70 sin pasar a doble motor.",
     "no_es_para": "No es tu mesa si el hueco no llega a 160 cm de ancho, o si quieres doble motor: este va con motor simple y 80 kg.",
     "define": "",
-    "slug": "songmics-160"
+    "slug": "songmics-160",
+    "alta": "2026-03-25",
+    "estado": "activo",
+    "sucesor": null,
+    "fuente_specs": null,
+    "specs_verificado": null,
+    "nota_resenas": null
   },
   "B0CKVPZ93G": {
     "nombre": "Devoko Escritorio Elevable Eléctrico 160x70cm",
@@ -415,18 +403,16 @@
       "Pesado (~28 kg): necesita ayuda para montar"
     ],
     "veredicto": "Alternativa al SONGMICS con acabados premium. Buen escritorio grande.",
-    "puntuacion": {
-      "calidad_construccion": 8.9,
-      "estabilidad": 7.9,
-      "facilidad_montaje": 7.9,
-      "relacion_calidad_precio": 8.9,
-      "funcionalidades": 7.9,
-      "total": 8.9
-    },
     "ideal_para": "Quien busca un escritorio de 160 cm con acabados superiores.",
     "no_es_para": "No es tu mesa si el hueco no llega a 160 cm de ancho, o si quieres doble motor: este va con motor simple y 80 kg.",
     "define": "",
-    "slug": "devoko-160"
+    "slug": "devoko-160",
+    "alta": "2026-03-25",
+    "estado": "activo",
+    "sucesor": null,
+    "fuente_specs": null,
+    "specs_verificado": null,
+    "nota_resenas": null
   },
   "B0CDLBJ1VW": {
     "nombre": "SANODESK Escritorio Elevable Eléctrico 140x60cm",
@@ -475,19 +461,17 @@
       "Solo 60 cm de profundidad",
       "Motor simple estándar"
     ],
-    "veredicto": "Calidad Flexispot bajo marca SANODESK. El mejor valorado con 4,6 estrellas pero precio algo alto.",
-    "puntuacion": {
-      "calidad_construccion": 8.9,
-      "estabilidad": 8.9,
-      "facilidad_montaje": 8.9,
-      "relacion_calidad_precio": 7.9,
-      "funcionalidades": 7.9,
-      "total": 9.2
-    },
+    "veredicto": "Tablero de 140x60 con un solo motor y 4,6 estrellas en Amazon, aunque su precio es algo alto para ser de motor simple.",
     "ideal_para": "Quien quiere calidad Flexispot sin pagar precio premium.",
     "no_es_para": "No es tu mesa si vas a subirla y bajarla a todas horas: motor simple y 80 kg de carga.",
     "define": "El único de 140x60: el tablero intermedio, más ancho que los de 120 sin llegar a los 160.",
-    "slug": "sanodesk-140"
+    "slug": "sanodesk-140",
+    "alta": "2026-03-25",
+    "estado": "activo",
+    "sucesor": null,
+    "fuente_specs": null,
+    "specs_verificado": null,
+    "nota_resenas": null
   },
   "B084KW7N8C": {
     "nombre": "Flexispot E7 Estructura Escritorio Elevable Doble Motor",
@@ -537,19 +521,17 @@
       "Montaje requiere dos personas",
       "Coste total sube con tablero a medida"
     ],
-    "veredicto": "El mejor marco elevable del mercado. Doble motor Flexispot, sin tablero.",
-    "puntuacion": {
-      "calidad_construccion": 9.9,
-      "estabilidad": 9.9,
-      "facilidad_montaje": 7.9,
-      "relacion_calidad_precio": 9.9,
-      "funcionalidades": 8.9,
-      "total": 9.7
-    },
+    "veredicto": "El marco con la nota más alta del catálogo. Doble motor Flexispot, sin tablero.",
     "ideal_para": "Quien quiere la mejor estructura y elegir su propio tablero a medida.",
     "no_es_para": "No es tu mesa si quieres comprar una sola vez: no incluye tablero, y sus 32 kg de estructura piden dos personas para montarla.",
     "define": "Baja hasta 58 cm, más que ningún otro, y es el único marco con cinco años de garantía.",
-    "slug": "flexispot-e7"
+    "slug": "flexispot-e7",
+    "alta": "2026-03-23",
+    "estado": "activo",
+    "sucesor": null,
+    "fuente_specs": null,
+    "specs_verificado": null,
+    "nota_resenas": null
   },
   "B0DG2VTCXS": {
     "nombre": "MAIDeSITe T2 Pro MAX Marco Escritorio Elevable Doble Motor 160kg",
@@ -599,18 +581,16 @@
       "Pocas reviews aún"
     ],
     "veredicto": "El marco más capaz del catálogo: 160 kg de carga y un recorrido de 65 a 135 cm que no tiene ningún otro modelo. No incluye tablero, así que suma ese coste aparte, pero a cambio te deja elegir medidas y acabado.",
-    "puntuacion": {
-      "calidad_construccion": 9.8,
-      "estabilidad": 9.9,
-      "facilidad_montaje": 8.8,
-      "relacion_calidad_precio": 9,
-      "funcionalidades": 9.7,
-      "total": 9.4
-    },
     "ideal_para": "Quien ya tiene tablero o quiere montar uno a medida y necesita máxima carga.",
     "no_es_para": "No es tu mesa si quieres comprar una sola vez: no incluye tablero, y su garantía es de 3 años, dos menos que la de los Flexispot.",
     "define": "El de más carga y más recorrido: 160 kg y de 65 a 135 cm, alturas a las que no llega ningún otro.",
-    "slug": "maidesite-t2-pro-max"
+    "slug": "maidesite-t2-pro-max",
+    "alta": "2026-03-25",
+    "estado": "activo",
+    "sucesor": null,
+    "fuente_specs": null,
+    "specs_verificado": null,
+    "nota_resenas": null
   },
   "B09TQR3MMM": {
     "nombre": "MAIDeSITe S2 Pro Escritorio Elevable 140x70 Doble Motor con Tablero",
@@ -659,18 +639,16 @@
       "Pocas reviews"
     ],
     "veredicto": "Doble motor con tablero de 140x70 incluido y acabado por encima de la media del catálogo. Pagas por construcción, no por popularidad.",
-    "puntuacion": {
-      "calidad_construccion": 9.6,
-      "estabilidad": 9.7,
-      "facilidad_montaje": 9,
-      "relacion_calidad_precio": 8.8,
-      "funcionalidades": 9.5,
-      "total": 9.3
-    },
     "ideal_para": "Escritorio grande y silencioso para trabajar muchas horas de pie.",
     "no_es_para": "No es tu mesa si buscas recorrido: sus 72–120 cm son los mismos que los de la gama de entrada, pese al doble motor.",
     "define": "La mesa completa con más carga: 120 kg, más que cualquier otro modelo con tablero incluido.",
-    "slug": "maidesite-s2-pro"
+    "slug": "maidesite-s2-pro",
+    "alta": "2026-03-23",
+    "estado": "activo",
+    "sucesor": null,
+    "fuente_specs": null,
+    "specs_verificado": null,
+    "nota_resenas": null
   },
   "B09R746JHX": {
     "nombre": "FLEXISPOT Escritorio Elevable 160x80 Doble Motor con Tablero",
@@ -719,18 +697,16 @@
       "Carga max 100kg",
       "Precio alto"
     ],
-    "veredicto": "El premium más respaldado del catálogo, con cinco años de garantía que ningún otro modelo ofrece. Tablero entero de 160x80 incluido. Su límite es la carga: 100 kg, menor que la de los marcos MAIDeSITe.",
-    "puntuacion": {
-      "calidad_construccion": 9.7,
-      "estabilidad": 9.8,
-      "facilidad_montaje": 9.2,
-      "relacion_calidad_precio": 9.3,
-      "funcionalidades": 9.5,
-      "total": 9.5
-    },
+    "veredicto": "El premium más respaldado: cinco años de garantía, que en el catálogo solo comparte con el marco E7. Tablero entero de 160x80 incluido. Su límite es la carga: 100 kg, menor que la de los marcos MAIDeSITe.",
     "ideal_para": "Quien quiere una mesa grande de marca conocida y con respaldo de garantía.",
     "no_es_para": "No es tu mesa si tu setup pesa o vas justo de hueco: se queda en 100 kg, menos que los dos marcos, y ocupa 160 cm.",
     "define": "El único tablero de 80 cm de fondo del catálogo, con doble motor y cinco años de garantía.",
-    "slug": "flexispot-160x80"
+    "slug": "flexispot-160x80",
+    "alta": "2026-03-27",
+    "estado": "activo",
+    "sucesor": null,
+    "fuente_specs": null,
+    "specs_verificado": null,
+    "nota_resenas": null
   }
 }

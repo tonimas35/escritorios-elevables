@@ -1,0 +1,98 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import type { Product, ProductMap } from "./types";
+import { calcularNota, franja, posicionEnFranja, PESOS } from "./nota.ts";
+
+const catalogo = Object.values(
+  JSON.parse(readFileSync(new URL("../data/productos.json", import.meta.url), "utf8")) as ProductMap,
+).map((p) => ({ ...p, puntuacion: calcularNota(p) }));
+
+const porSlug = (slug: string) => catalogo.find((p) => p.slug === slug)!;
+
+/** Modelo sintetico: se parte de uno real y se cambia lo que se quiere probar. */
+function con(base: string, cambios: { specs?: Partial<Product["specs"]> } & Partial<Omit<Product, "specs">>): Product {
+  const p = porSlug(base);
+  return { ...p, ...cambios, specs: { ...p.specs, ...(cambios.specs ?? {}) } } as Product;
+}
+
+test("los pesos suman 1", () => {
+  const suma = Object.values(PESOS).reduce((s, x) => s + x, 0);
+  assert.ok(Math.abs(suma - 1) < 1e-9);
+});
+
+test("todas las notas y apartados quedan entre 0 y 10 con un decimal", () => {
+  for (const p of catalogo) {
+    for (const [k, v] of Object.entries(p.puntuacion)) {
+      if (v === null) continue;
+      assert.ok(v >= 0 && v <= 10, `${p.slug}.${k} = ${v}`);
+      assert.equal(Math.round(v * 10) / 10, v, `${p.slug}.${k} tiene más de un decimal`);
+    }
+  }
+});
+
+test("reproduce la simulación aprobada en METODO.md §5", () => {
+  const esperado: Record<string, number> = {
+    "flexispot-e7": 8.6,
+    "maidesite-t2-pro-max": 8.5,
+    "flexispot-160x80": 7.1,
+    "maidesite-s2-pro": 7.0,
+    "sanodesk-140": 5.2,
+    "devoko-160": 5.1,
+    "songmics-160": 5.0,
+    "ergear-120": 4.9,
+    "vasagle-160": 4.9,
+    "devoko-120": 4.8,
+    "fezibo-120": 4.7,
+    "vasagle-100": 3.0,
+  };
+  for (const [slug, total] of Object.entries(esperado)) {
+    assert.equal(porSlug(slug).puntuacion.total, total, slug);
+  }
+});
+
+test("umbrales absolutos: la nota no depende del resto del catálogo", () => {
+  const e7 = porSlug("flexispot-e7");
+  assert.deepEqual(calcularNota(e7), e7.puntuacion);
+});
+
+test("los extremos se recortan a 0 y 10", () => {
+  const tope = calcularNota(con("flexispot-e7", { specs: { peso_max_carga_kg: 500, peso_estructura_kg: 100 } }));
+  assert.equal(tope.estabilidad, 10);
+  const suelo = calcularNota(con("vasagle-100", { specs: { peso_max_carga_kg: 10, peso_estructura_kg: 5 } }));
+  assert.equal(suelo.estabilidad, 1.5); // solo el motor simple: 0,3 × 5
+});
+
+test("sin 100 valoraciones el apartado no cuenta y el resto se reescala", () => {
+  const t2 = porSlug("maidesite-t2-pro-max"); // 76 valoraciones
+  assert.equal(t2.puntuacion.valoracion, null);
+  const n = t2.puntuacion;
+  const sinValoracion =
+    (n.estabilidad * PESOS.estabilidad + n.funciones * PESOS.funciones + n.recorrido * PESOS.recorrido + n.garantia * PESOS.garantia) /
+    (1 - PESOS.valoracion);
+  assert.ok(Math.abs(sinValoracion - n.total) <= 0.1);
+});
+
+test("sin dato de ruido, funciones no se inventa un valor", () => {
+  const conRuido = calcularNota(porSlug("flexispot-e7"));
+  const sinRuido = calcularNota(con("flexispot-e7", { specs: { ruido_db: null } }));
+  assert.notEqual(conRuido.funciones, sinRuido.funciones);
+  assert.ok(sinRuido.funciones >= 0 && sinRuido.funciones <= 10);
+});
+
+test("franja por el punto medio de la franja de precio verificada", () => {
+  assert.equal(franja(porSlug("flexispot-e7")), "M");
+  assert.equal(franja(porSlug("vasagle-100")), "A"); // 70–90
+  assert.equal(franja(porSlug("devoko-120")), "A"); // 100–130, medio 115
+  assert.equal(franja(porSlug("fezibo-120")), "B"); // 120–160
+  assert.equal(franja(porSlug("flexispot-160x80")), "C");
+  assert.equal(franja({ incluye_tablero: true, precio_min: null, precio_max: null }), null);
+  assert.equal(franja({ incluye_tablero: true, precio_min: 600, precio_max: 800 }), null);
+  assert.equal(franja({ incluye_tablero: true, precio_min: 100, precio_max: 140 }), "A"); // medio 120: límite incluido
+});
+
+test("posición en franja: el E7 es el primero de los marcos", () => {
+  assert.deepEqual(posicionEnFranja(porSlug("flexispot-e7"), catalogo), { franja: "M", posicion: 1, de: 2 });
+  const b = catalogo.filter((p) => franja(p) === "B").map((p) => posicionEnFranja(p, catalogo)!.posicion).sort();
+  assert.deepEqual(b, b.map((_, i) => i + 1), "posiciones consecutivas y sin empates");
+});

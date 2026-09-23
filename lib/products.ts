@@ -1,8 +1,16 @@
 import productosData from "@/data/productos.json";
 import type { Product, ProductMap } from "./types";
+import { calcularNota } from "./nota";
 
-const productos = productosData as unknown as ProductMap;
-const allEntries: [string, Product][] = Object.entries(productos) as [string, Product][];
+// La nota no se guarda en el JSON: se calcula aqui, una vez, con la
+// formula de METODO.md §5. Asi todas las paginas leen la misma.
+const productos: ProductMap = Object.fromEntries(
+  Object.entries(productosData as unknown as ProductMap).map(([asin, p]) => [
+    asin,
+    { ...p, puntuacion: calcularNota(p) },
+  ]),
+);
+const allEntries: [string, Product][] = Object.entries(productos);
 
 export function getAllProducts(): [string, Product][] {
   return allEntries;

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { AffiliateButton } from "./AffiliateButton";
 import type { Product } from "@/lib/types";
+import { coma, nota } from "@/lib/format";
 
 interface ProductCardProps {
   asin: string;
@@ -11,19 +12,18 @@ interface ProductCardProps {
   rank?: number;
 }
 
+/**
+ * Un solo color para todas las notas. Con la nota calculada (METODO.md §5)
+ * un escritorio básico saca entre 3 y 5 aunque sea el mejor de su franja;
+ * un semaforo por tramos lo pintaria como malo, que no es lo que dice.
+ */
 function RatingBadge({ score }: { score: number }) {
-  const bg =
-    score >= 8.5
-      ? "var(--color-secondary)"
-      : score >= 7
-        ? "var(--rating-okay)"
-        : "var(--rating-bad)";
   return (
     <span
       className="inline-flex items-center justify-center text-white font-bold text-sm rounded px-2 py-0.5 tabular-nums"
-      style={{ background: bg, fontFamily: 'var(--font-mono)' }}
+      style={{ background: "var(--color-secondary)", fontFamily: 'var(--font-mono)' }}
     >
-      {score}
+      {nota(score)}
     </span>
   );
 }
@@ -80,7 +80,7 @@ export function ProductCard({
           <div className="flex items-center gap-2 mt-1">
             <RatingBadge score={product.puntuacion.total} />
             <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-              {product.rating}&#9733;
+              {coma(product.rating)}&#9733;
             </span>
           </div>
         </div>
@@ -94,7 +94,10 @@ export function ProductCard({
   const motorLabel =
     product.specs.tipo_motor === "doble" ? "Doble motor" : "Motor simple";
   const cargaLabel = `${product.specs.peso_max_carga_kg} kg`;
-  const tableroLabel = `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm`;
+  // Los marcos llevan 0x0 en el JSON: no tienen tablero que medir.
+  const tableroLabel = product.incluye_tablero
+    ? `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm`
+    : "Sin tablero";
 
   return (
     <div className="relative overflow-hidden rounded product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderTop: '2px solid var(--verde-estructura)' }}>
@@ -145,7 +148,7 @@ export function ProductCard({
         <div className="flex items-center gap-2 mb-3">
           <RatingBadge score={product.puntuacion.total} />
           <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-            {product.rating}&#9733;
+            {coma(product.rating)}&#9733;
           </span>
         </div>
 

@@ -13,3 +13,15 @@ export const FECHA = "Septiembre de 2026";
 
 /** La misma fecha en minuscula, para cuando va dentro de una frase. */
 export const FECHA_EN_FRASE = "septiembre de 2026";
+
+/** Fecha ISO (AAAA-MM-DD) escrita como DD/MM/AAAA. */
+export function fechaCorta(iso: string): string {
+  const [aaaa, mm, dd] = iso.split("-");
+  return `${dd}/${mm}/${aaaa}`;
+}
+
+/**
+ * Ultima revision del contenido del sitio, en ISO. Es el `lastmod` del
+ * sitemap: se cambia a mano, como FECHA, cuando se toca contenido de verdad.
+ */
+export const REVISION = "2026-09-23";

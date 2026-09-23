@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
-import { coma } from "@/lib/format";
+import { coma, nota } from "@/lib/format";
 import {
   carga,
   caminos,
@@ -28,6 +28,7 @@ import { Afiliado } from "@/components/broadsheet/Afiliado";
 import { Firma } from "@/components/broadsheet/Firma";
 import { Comparativa, type FilaComparativa } from "@/components/broadsheet/Comparativa";
 import { CRITERIOS } from "@/lib/metodologia";
+import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { CtaFijo } from "@/components/broadsheet/CtaFijo";
 
 export const metadata: Metadata = {
@@ -46,6 +47,7 @@ export default function Home() {
   const exclusionTop = exclusion(top);
   const franjaTop = franjaPrecio(top);
   const notaPrecios = notaFranjas(catalogo.map(([, p]) => p));
+  const enFranjaTop = posicionEnFranja(top, catalogo.map(([, p]) => p));
 
   const tresDudas = dudas(catalogo);
 
@@ -54,7 +56,7 @@ export default function Home() {
     nombre: `${p.marca} ${p.modelo}`,
     imagen: p.imagen,
     alt: p.imagen_alt,
-    nota: coma(p.puntuacion.total),
+    nota: nota(p.puntuacion.total),
     notaNum: p.puntuacion.total,
     rating: coma(p.rating),
     motor: motorCorto(p),
@@ -122,8 +124,15 @@ export default function Home() {
               </div>
             </div>
 
+            {/* La cifra grande es la posicion en su franja y la nota va al
+                lado, pequeña (METODO.md §5, "Como se publica la nota"). */}
             <div className="flex items-end gap-3" style={{ marginTop: 22 }}>
-              <Cifra valor={top.puntuacion.total} tamano="clamp(58px, 7vw, 82px)" />
+              {enFranjaTop && (
+                <Cifra
+                  valor={String(enFranjaTop.posicion).padStart(2, "0")}
+                  tamano="clamp(58px, 7vw, 82px)"
+                />
+              )}
               <span
                 style={{
                   fontSize: 14,
@@ -132,9 +141,13 @@ export default function Home() {
                   color: "var(--bs-neutro-700)",
                 }}
               >
-                sobre 10
-                <br />
-                Nº 1 de {catalogo.length} · {coma(top.rating)}★
+                {enFranjaTop && (
+                  <>
+                    de {enFranjaTop.de} · {NOMBRE_FRANJA[enFranjaTop.franja]}
+                    <br />
+                  </>
+                )}
+                Nota <strong style={{ color: "var(--bs-tinta)" }}>{nota(top.puntuacion.total)}</strong> sobre 10 · {coma(top.rating)}★
               </span>
             </div>
 
@@ -196,7 +209,7 @@ export default function Home() {
                 </h3>
 
                 <p style={{ fontSize: 15, color: "var(--bs-neutro-700)" }}>
-                  Nota <strong style={{ color: "var(--bs-tinta)" }}>{coma(camino.producto.puntuacion.total)}</strong>
+                  Nota <strong style={{ color: "var(--bs-tinta)" }}>{nota(camino.producto.puntuacion.total)}</strong>
                   {" · "}
                   {coma(camino.producto.rating)}★ en Amazon
                   {camino.asin === asinTop && (
@@ -248,14 +261,13 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <div className="flex items-end gap-3" style={{ marginTop: 18 }}>
-                  <Cifra valor={top.puntuacion.total} tamano="54px" fondo="var(--bs-superficie)" />
-                  <span style={{ fontSize: 14, paddingBottom: 5, color: "var(--bs-neutro-700)" }}>
-                    sobre 10
-                    <br />
-                    {coma(top.rating)}★ en Amazon
-                  </span>
-                </div>
+                {/* La cifra grande de la tarjeta ya es la posicion ("01");
+                    la nota va en texto (METODO.md §5). */}
+                <p style={{ fontSize: 15, marginTop: 14, color: "var(--bs-neutro-700)" }}>
+                  Nota <strong style={{ color: "var(--bs-tinta)" }}>{nota(top.puntuacion.total)}</strong> sobre 10
+                  {" · "}
+                  {coma(top.rating)}★ en Amazon
+                </p>
               </div>
 
               <div style={{ flex: "1 1 340px" }}>
@@ -343,7 +355,7 @@ export default function Home() {
                   <p style={{ fontSize: 14, marginTop: 4 }}>{p.define}</p>
                 )}
               </div>
-              <span style={{ fontSize: 22, fontWeight: 700 }}>{coma(p.puntuacion.total)}</span>
+              <span style={{ fontSize: 22, fontWeight: 700 }}>{nota(p.puntuacion.total)}</span>
               <Cta asin={asin} mini />
             </div>
           ))}
@@ -448,7 +460,13 @@ export default function Home() {
             <div style={{ flex: "1 1 320px" }}>
               <h3 className="bs-h3">Cómo puntuamos</h3>
               <p className="bs-cuerpo" style={{ marginTop: 12, color: "var(--bs-neutro-800)" }}>
-                Cada modelo recibe una nota sobre 10 en cinco apartados.
+                Cada modelo recibe una nota sobre 10 en cinco apartados, calculada
+                a partir de sus datos con una{" "}
+                <Link href="/metodologia" className="underline">
+                  fórmula publicada
+                </Link>
+                . La nota es absoluta: un escritorio básico no la tiene alta, por
+                eso comparamos dentro de cada franja de precio.
               </p>
               <div className="flex flex-col" style={{ gap: 16, marginTop: 20 }}>
                 {CRITERIOS.map((c) => (
@@ -456,7 +474,12 @@ export default function Home() {
                     key={c.nombre}
                     style={{ paddingLeft: 14, borderLeft: "2px solid var(--bs-verde-botella)" }}
                   >
-                    <p style={{ fontSize: 16, fontWeight: 600 }}>{c.nombre}</p>
+                    <p style={{ fontSize: 16, fontWeight: 600 }}>
+                      {c.nombre}{" "}
+                      <span style={{ fontWeight: 400, color: "var(--bs-neutro-700)" }}>
+                        · {Math.round(c.peso * 100)} %
+                      </span>
+                    </p>
                     <p style={{ fontSize: 15, color: "var(--bs-neutro-800)", marginTop: 2 }}>
                       {c.base}
                     </p>
@@ -477,10 +500,10 @@ export default function Home() {
                   redondeada a la baja porque solo puede subir.
                 </li>
                 <li>
-                  <strong>Precios:</strong> no los publicamos. Amazon los cambia a
-                  diario y una cifra escrita hoy engaña en una semana; el importe
-                  exacto lo ves en Amazon, que es el único sitio donde siempre es
-                  correcto.
+                  <strong>Precios:</strong> solo una franja amplia con la fecha en
+                  que la comprobamos en Amazon, nunca una cifra exacta. Amazon
+                  cambia los precios a diario; el importe del día solo es fiable
+                  allí.
                 </li>
               </ul>
 
@@ -492,7 +515,8 @@ export default function Home() {
                 enlace de la web, Amazon nos paga un porcentaje y tú pagas lo mismo.
                 No cobramos de ninguna marca ni aceptamos productos a cambio de
                 reseñas, entre otras cosas porque no hacemos reseñas de uso. El
-                orden de los modelos sale de la puntuación, no de la comisión.
+                orden de los modelos sale de la puntuación, no de la comisión, que
+                en escritorios es el mismo porcentaje para todas las marcas.
               </p>
 
               <div style={{ marginTop: 26 }}>

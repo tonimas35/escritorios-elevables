@@ -1,0 +1,146 @@
+[
+  {
+    "fecha": "2026-03-23",
+    "tipo": "alta",
+    "slug": "flexispot-e7",
+    "motivo": "Catálogo inicial de marzo de 2026, elegido antes de que existiera un método escrito."
+  },
+  {
+    "fecha": "2026-03-23",
+    "tipo": "alta",
+    "slug": "maidesite-s2-pro",
+    "motivo": "Catálogo inicial de marzo de 2026, elegido antes de que existiera un método escrito."
+  },
+  {
+    "fecha": "2026-03-25",
+    "tipo": "alta",
+    "slug": "devoko-120",
+    "motivo": "Catálogo inicial de marzo de 2026, elegido antes de que existiera un método escrito."
+  },
+  {
+    "fecha": "2026-03-25",
+    "tipo": "alta",
+    "slug": "devoko-160",
+    "motivo": "Catálogo inicial de marzo de 2026, elegido antes de que existiera un método escrito."
+  },
+  {
+    "fecha": "2026-03-25",
+    "tipo": "alta",
+    "slug": "ergear-120",
+    "motivo": "Catálogo inicial de marzo de 2026, elegido antes de que existiera un método escrito."
+  },
+  {
+    "fecha": "2026-03-25",
+    "tipo": "alta",
+    "slug": "fezibo-120",
+    "motivo": "Catálogo inicial de marzo de 2026, elegido antes de que existiera un método escrito."
+  },
+  {
+    "fecha": "2026-03-25",
+    "tipo": "alta",
+    "slug": "maidesite-t2-pro-max",
+    "motivo": "Catálogo inicial de marzo de 2026, elegido antes de que existiera un método escrito."
+  },
+  {
+    "fecha": "2026-03-25",
+    "tipo": "alta",
+    "slug": "sanodesk-140",
+    "motivo": "Catálogo inicial de marzo de 2026, elegido antes de que existiera un método escrito."
+  },
+  {
+    "fecha": "2026-03-25",
+    "tipo": "alta",
+    "slug": "songmics-160",
+    "motivo": "Catálogo inicial de marzo de 2026, elegido antes de que existiera un método escrito."
+  },
+  {
+    "fecha": "2026-03-25",
+    "tipo": "alta",
+    "slug": "vasagle-100",
+    "motivo": "Catálogo inicial de marzo de 2026, elegido antes de que existiera un método escrito."
+  },
+  {
+    "fecha": "2026-03-25",
+    "tipo": "alta",
+    "slug": "vasagle-160",
+    "motivo": "Catálogo inicial de marzo de 2026, elegido antes de que existiera un método escrito."
+  },
+  {
+    "fecha": "2026-03-27",
+    "tipo": "alta",
+    "slug": "flexispot-160x80",
+    "motivo": "Catálogo inicial de marzo de 2026, elegido antes de que existiera un método escrito."
+  },
+  {
+    "fecha": "2026-09-23",
+    "tipo": "cambio_nota",
+    "slug": "flexispot-e7",
+    "motivo": "La nota pasa de 9,7 (puesta a mano) a 8,6, calculada con la fórmula publicada en la metodología."
+  },
+  {
+    "fecha": "2026-09-23",
+    "tipo": "cambio_nota",
+    "slug": "maidesite-t2-pro-max",
+    "motivo": "La nota pasa de 9,4 (puesta a mano) a 8,5, calculada con la fórmula publicada en la metodología."
+  },
+  {
+    "fecha": "2026-09-23",
+    "tipo": "cambio_nota",
+    "slug": "flexispot-160x80",
+    "motivo": "La nota pasa de 9,5 (puesta a mano) a 7,1, calculada con la fórmula publicada en la metodología."
+  },
+  {
+    "fecha": "2026-09-23",
+    "tipo": "cambio_nota",
+    "slug": "maidesite-s2-pro",
+    "motivo": "La nota pasa de 9,3 (puesta a mano) a 7,0, calculada con la fórmula publicada en la metodología."
+  },
+  {
+    "fecha": "2026-09-23",
+    "tipo": "cambio_nota",
+    "slug": "sanodesk-140",
+    "motivo": "La nota pasa de 9,2 (puesta a mano) a 5,2, calculada con la fórmula publicada en la metodología."
+  },
+  {
+    "fecha": "2026-09-23",
+    "tipo": "cambio_nota",
+    "slug": "devoko-160",
+    "motivo": "La nota pasa de 8,9 (puesta a mano) a 5,1, calculada con la fórmula publicada en la metodología."
+  },
+  {
+    "fecha": "2026-09-23",
+    "tipo": "cambio_nota",
+    "slug": "songmics-160",
+    "motivo": "La nota pasa de 9,1 (puesta a mano) a 5,0, calculada con la fórmula publicada en la metodología."
+  },
+  {
+    "fecha": "2026-09-23",
+    "tipo": "cambio_nota",
+    "slug": "ergear-120",
+    "motivo": "La nota pasa de 8,8 (puesta a mano) a 4,9, calculada con la fórmula publicada en la metodología."
+  },
+  {
+    "fecha": "2026-09-23",
+    "tipo": "cambio_nota",
+    "slug": "vasagle-160",
+    "motivo": "La nota pasa de 8,7 (puesta a mano) a 4,9, calculada con la fórmula publicada en la metodología."
+  },
+  {
+    "fecha": "2026-09-23",
+    "tipo": "cambio_nota",
+    "slug": "devoko-120",
+    "motivo": "La nota pasa de 8,7 (puesta a mano) a 4,8, calculada con la fórmula publicada en la metodología."
+  },
+  {
+    "fecha": "2026-09-23",
+    "tipo": "cambio_nota",
+    "slug": "fezibo-120",
+    "motivo": "La nota pasa de 8,5 (puesta a mano) a 4,7, calculada con la fórmula publicada en la metodología."
+  },
+  {
+    "fecha": "2026-09-23",
+    "tipo": "cambio_nota",
+    "slug": "vasagle-100",
+    "motivo": "La nota pasa de 8,1 (puesta a mano) a 3,0, calculada con la fórmula publicada en la metodología."
+  }
+]

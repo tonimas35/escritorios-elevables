@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { coma, nota } from "@/lib/format";
 import { getProductBySlug } from "@/lib/products";
 import { FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
@@ -29,17 +30,30 @@ export default function FlexispotVsMaidesitePage() {
   const [e7Asin, e7Product] = e7;
   const [t2Asin, t2Product] = t2;
 
-  const comparisons = [
-    { label: "Motor", e7: "Doble", t2: "Doble", winner: "tie" as const },
-    { label: "Rango altura", e7: `${e7Product.specs.rango_altura_min_cm}–${e7Product.specs.rango_altura_max_cm} cm`, t2: `${t2Product.specs.rango_altura_min_cm}–${t2Product.specs.rango_altura_max_cm} cm`, winner: "t2" as const },
-    { label: "Carga máxima", e7: `${e7Product.specs.peso_max_carga_kg} kg`, t2: `${t2Product.specs.peso_max_carga_kg} kg`, winner: "e7" as const },
-    { label: "Velocidad", e7: `${e7Product.specs.velocidad_cm_s} cm/s`, t2: `${t2Product.specs.velocidad_cm_s} cm/s`, winner: "tie" as const },
-    { label: "Ruido", e7: `${e7Product.specs.ruido_db} dB`, t2: `${t2Product.specs.ruido_db} dB`, winner: "e7" as const },
-    { label: "Tablero", e7: `${e7Product.specs.ancho_tablero_cm}x${e7Product.specs.profundidad_tablero_cm} cm`, t2: `${t2Product.specs.ancho_tablero_cm}x${t2Product.specs.profundidad_tablero_cm} cm`, winner: "tie" as const },
-    { label: "Memorias", e7: `${e7Product.specs.presets_memoria}`, t2: `${t2Product.specs.presets_memoria}`, winner: "tie" as const },
-    { label: "Garantía", e7: `${e7Product.specs.garantia_anos} años`, t2: `${t2Product.specs.garantia_anos} años`, winner: "tie" as const },
-    { label: "Nota total", e7: `${e7Product.puntuacion.total}/10`, t2: `${t2Product.puntuacion.total}/10`, winner: "e7" as const },
-    { label: "Nota en Amazon", e7: `${e7Product.rating}★`, t2: `${t2Product.rating}★`, winner: "e7" as const },
+  // El ganador de cada fila sale de los datos, no se escribe a mano: la
+  // version anterior daba la carga al E7 (125 kg frente a 160) y el ruido
+  // al E7 con los dos en 45 dB.
+  type Ganador = "e7" | "t2" | "tie";
+  const gana = (a: number | null, b: number | null, masEsMejor = true): Ganador => {
+    if (a === null || b === null || a === b) return "tie";
+    return (a > b) === masEsMejor ? "e7" : "t2";
+  };
+  const tableroTxt = (p: typeof e7Product) =>
+    p.incluye_tablero ? `${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} cm` : "Sin tablero";
+
+  const comparisons: { label: string; e7: string; t2: string; winner: Ganador }[] = [
+    { label: "Motor", e7: "Doble", t2: "Doble", winner: "tie" },
+    // Recorrido: gana el que mejor cubre de 1,55 a 1,95 m, con el mismo
+    // criterio que la nota (apartado "recorrido" de lib/nota.ts).
+    { label: "Rango altura", e7: `${e7Product.specs.rango_altura_min_cm}–${e7Product.specs.rango_altura_max_cm} cm`, t2: `${t2Product.specs.rango_altura_min_cm}–${t2Product.specs.rango_altura_max_cm} cm`, winner: gana(e7Product.puntuacion.recorrido, t2Product.puntuacion.recorrido) },
+    { label: "Carga máxima", e7: `${e7Product.specs.peso_max_carga_kg} kg`, t2: `${t2Product.specs.peso_max_carga_kg} kg`, winner: gana(e7Product.specs.peso_max_carga_kg, t2Product.specs.peso_max_carga_kg) },
+    { label: "Velocidad", e7: `${coma(e7Product.specs.velocidad_cm_s)} cm/s`, t2: `${coma(t2Product.specs.velocidad_cm_s)} cm/s`, winner: gana(e7Product.specs.velocidad_cm_s, t2Product.specs.velocidad_cm_s) },
+    { label: "Ruido", e7: `${e7Product.specs.ruido_db} dB`, t2: `${t2Product.specs.ruido_db} dB`, winner: gana(e7Product.specs.ruido_db, t2Product.specs.ruido_db, false) },
+    { label: "Tablero", e7: tableroTxt(e7Product), t2: tableroTxt(t2Product), winner: "tie" },
+    { label: "Memorias", e7: `${e7Product.specs.presets_memoria}`, t2: `${t2Product.specs.presets_memoria}`, winner: gana(e7Product.specs.presets_memoria, t2Product.specs.presets_memoria) },
+    { label: "Garantía", e7: `${e7Product.specs.garantia_anos} años`, t2: `${t2Product.specs.garantia_anos} años`, winner: gana(e7Product.specs.garantia_anos, t2Product.specs.garantia_anos) },
+    { label: "Nota total", e7: `${nota(e7Product.puntuacion.total)}/10`, t2: `${nota(t2Product.puntuacion.total)}/10`, winner: gana(e7Product.puntuacion.total, t2Product.puntuacion.total) },
+    { label: "Nota en Amazon", e7: `${coma(e7Product.rating)}★`, t2: `${coma(t2Product.rating)}★`, winner: gana(e7Product.rating, t2Product.rating) },
   ];
 
   const faqItems = [
@@ -170,7 +184,7 @@ export default function FlexispotVsMaidesitePage() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold" >{product.marca} {product.modelo}</h3>
-                      <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ en Amazon</p>
+                      <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{coma(product.rating)}★ en Amazon</p>
                     </div>
                   </div>
                   <div className="mt-4">
@@ -189,7 +203,7 @@ export default function FlexispotVsMaidesitePage() {
                 <tr style={{ background: 'var(--color-secondary)', color: 'white' }}>
                   <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Especificación</th>
                   <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Flexispot E7</th>
-                  <th className="text-center p-3 rounded-tr" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Maidesite T2 Pro+</th>
+                  <th className="text-center p-3 rounded-tr" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>{t2Product.marca} {t2Product.modelo}</th>
                 </tr>
               </thead>
               <tbody>
@@ -284,7 +298,7 @@ export default function FlexispotVsMaidesitePage() {
                       </div>
                       <div>
                         <h3 className="font-semibold">{product.marca} {product.modelo}</h3>
-                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★ · {product.puntuacion.total}/10</p>
+                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{coma(product.rating)}★ · {nota(product.puntuacion.total)}/10</p>
                       </div>
                     </div>
                     <div className="grid grid-cols-3 gap-2 mt-4 text-center">

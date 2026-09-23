@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
-import { coma } from "@/lib/format";
+import { coma, nota } from "@/lib/format";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
@@ -39,7 +39,7 @@ export default function EscritorioBaratoPage() {
   const faqItems = [
     {
       q: "¿Cuál es el escritorio elevable más barato que merece la pena?",
-      a: `El ${winner?.[1].marca} ${winner?.[1].modelo}. Tiene anticolisión, 4 memorias y 5 años de garantía, cosas que no suelen venir juntas en la gama de entrada. Si buscas algo aún más contenido, el Fezibo cumple para un setup básico.`,
+      a: `El ${winner?.[1].marca} ${winner?.[1].modelo}. Tiene anticolisión, 4 memorias y 5 años de garantía, cosas que no suelen venir juntas en la gama de entrada. Si buscas algo aún más contenido, el VASAGLE de 100x60 es el más barato del catálogo y cumple para un portátil y poco más.`,
     },
     {
       q: "¿Motor simple o doble para un escritorio barato?",
@@ -133,7 +133,7 @@ export default function EscritorioBaratoPage() {
       <FadeIn delay={100}>
         <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <p>
-            No necesitas irte a la gama alta. Si tu setup es portátil + monitor + teclado, la gama de entrada te vale. Mi recomendación rápida: el <strong>marco Flexispot</strong> si quieres lo mejor de esta franja, el <strong>ErGear de 120x60</strong> si buscas anticolisión, y el <strong>Fezibo</strong> para probar con lo mínimo.
+            No necesitas irte a la gama alta. Si tu setup es portátil + monitor + teclado, la gama de entrada te vale. Mi recomendación rápida: el <strong>marco Flexispot</strong> si quieres lo mejor de esta franja, el <strong>ErGear de 120x60</strong> si buscas anticolisión, y el <strong>VASAGLE de 100x60</strong>, el más barato del catálogo, para probar con lo mínimo.
           </p>
         </div>
       </FadeIn>
@@ -153,7 +153,7 @@ export default function EscritorioBaratoPage() {
                 </h2>
                 <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>{winner[1].veredicto}</p>
                 <div className="flex items-center gap-4 mt-3">
-                  <span className="text-2xl font-bold">{coma(winner[1].puntuacion.total)}</span>
+                  <span className="text-2xl font-bold">{nota(winner[1].puntuacion.total)}</span>
                   <span className="text-xs" style={{ color: 'var(--text-muted)' }}>sobre 10</span>
                   <AffiliateButton asin={winner[0]} size="sm" />
                 </div>
@@ -191,14 +191,14 @@ export default function EscritorioBaratoPage() {
                       </div>
                       <div>
                         <p className="font-semibold text-sm">{product.marca} {product.modelo}</p>
-                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{product.rating}★</p>
+                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{coma(product.rating)}★</p>
                       </div>
                     </div>
                   </td>
                   <td className="p-3 text-center text-sm">{product.specs.ancho_tablero_cm}x{product.specs.profundidad_tablero_cm}</td>
                   <td className="p-3 text-center text-sm">{product.specs.peso_max_carga_kg} kg</td>
                   <td className="p-3 text-center text-sm" style={{ color: product.specs.sistema_anticolision ? 'var(--rating-good)' : 'var(--rating-bad)' }}>{product.specs.sistema_anticolision ? '✓' : '✗'}</td>
-                  <td className="p-3 text-center font-bold" style={{ color: 'var(--bs-tinta)' }}>{coma(product.puntuacion.total)}</td>
+                  <td className="p-3 text-center font-bold" style={{ color: 'var(--bs-tinta)' }}>{nota(product.puntuacion.total)}</td>
                   <td className="p-3 text-center">
                     <AffiliateButton asin={asin} size="sm" />
                   </td>

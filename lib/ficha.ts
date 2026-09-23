@@ -1,5 +1,5 @@
 import type { Product } from "./types";
-import { coma } from "./format";
+import { coma, nota } from "./format";
 
 /**
  * Etiquetas de especificacion para las pantallas del rediseño.
@@ -68,12 +68,12 @@ export function fichaTecnica(p: Product): [string, string][] {
  * recuentos de reseñas dentro del texto, y no pueden publicarse.
  */
 export function standfirst(p: Product, esElMejor: boolean): string {
-  const nota = `Nota ${coma(p.puntuacion.total)} sobre 10${esElMejor ? ", la más alta del catálogo" : ""}.`;
+  const frase = `Nota ${nota(p.puntuacion.total)} sobre 10${esElMejor ? ", la más alta del catálogo" : ""}.`;
   const ficha = `${motorCorto(p)}, ${carga(p)} de carga y ${garantia(p)} de garantía.`;
   const cierre = p.incluye_tablero
     ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} incluido.`
     : "No incluye tablero.";
-  return `${nota} ${ficha} ${cierre}`;
+  return `${frase} ${ficha} ${cierre}`;
 }
 
 export interface Camino {
@@ -139,21 +139,12 @@ export function caminos(catalogo: [string, Product][]): Camino[] {
 }
 
 /**
- * Guardarrail: hoy varios `pros`, `contras` y `veredicto` de
- * data/productos.json llevan precios ("solo 107 EUR") o recuentos de
- * reseñas ("951 valoraciones") metidos en la frase, y la regla del
- * proyecto es que no aparezcan en ninguna parte.
- *
- * Mientras el JSON no este saneado (fase F1 de PLAN.md), esta funcion
- * decide que frases se pueden publicar. Lo correcto es corregir el dato,
- * no filtrarlo al renderizar: esto es un parche con fecha de caducidad.
+ * Guardarrail al renderizar. El JSON ya esta saneado y el validador del
+ * catalogo (scripts/validar-catalogo.ts) rechaza cualquier frase con precio
+ * o recuento de reseñas, asi que esto solo protege de un dato que se cuele
+ * sin pasar por el validador.
  */
-const CIFRA_PROHIBIDA =
-  /\d[\d.,]*\s*(€|EUR|euros)|\d[\d.,]*\+?\s*(opiniones|valoraciones|reviews|resenas|reseñas)|\(\d+\)/i;
-
-export function publicable(texto: string): boolean {
-  return !CIFRA_PROHIBIDA.test(texto);
-}
+export { publicable } from "./cifras";
 
 /** Titulo del modelo compuesto con lo que dice el catalogo. */
 export function tituloModelo(p: Product): string {

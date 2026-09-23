@@ -1,3 +1,5 @@
+import { PESOS } from "./nota";
+
 /**
  * Frase de firma. Va literal en todos los sitios donde aparece el autor,
  * para que la web diga siempre lo mismo sobre como se hace el analisis.
@@ -7,31 +9,37 @@ export function firmaMetodologia(total: number): string {
 }
 
 /**
- * Los cinco apartados con los que se puntua cada modelo.
+ * Los cinco apartados de la nota, con su peso y lo que miden. Es la
+ * version legible de `calcularNota()` en lib/nota.ts y de METODO.md §5:
+ * si cambia uno, cambian los tres.
  *
- * Vivian dentro de app/metodologia/page.tsx. Al necesitarlos tambien la
- * seccion 6 de la home, se suben aqui para que no haya dos copias que
- * puedan divergir.
+ * Los pesos se leen de `PESOS` para que el texto publicado no pueda
+ * divergir de la formula.
  */
 export const CRITERIOS = [
   {
-    nombre: "Calidad de construcción",
-    base: "Materiales, grosor del perfil, número de secciones telescópicas y peso de la estructura.",
+    nombre: "Estabilidad y estructura",
+    peso: PESOS.estabilidad,
+    base: "Carga máxima declarada, motor doble o simple y peso de la estructura.",
   },
   {
-    nombre: "Estabilidad",
-    base: "Carga máxima declarada, peso propio y altura máxima. A más recorrido, más palanca.",
+    nombre: "Funciones",
+    peso: PESOS.funciones,
+    base: "Memorias de altura, anticolisión, velocidad y ruido.",
   },
   {
-    nombre: "Facilidad de montaje",
-    base: "Peso de las piezas, si el tablero viene perforado y lo que reportan las valoraciones.",
+    nombre: "Recorrido",
+    peso: PESOS.recorrido,
+    base: "Altura mínima y máxima: si sirve de sentado a una persona de 1,55 m y de pie a una de 1,95 m.",
   },
   {
-    nombre: "Relación calidad-precio",
-    base: "Prestaciones frente al precio dentro de su franja, no en términos absolutos.",
+    nombre: "Garantía",
+    peso: PESOS.garantia,
+    base: "Años de garantía que declara el fabricante.",
   },
   {
-    nombre: "Funcionalidades",
-    base: "Memorias de altura, anticolisión, velocidad, ruido y garantía.",
+    nombre: "Valoración de compradores",
+    peso: PESOS.valoracion,
+    base: "Nota media en Amazon España, solo si tiene al menos 100 valoraciones. Si no llega, este apartado no cuenta.",
   },
 ];
