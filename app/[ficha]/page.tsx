@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { getAllProducts } from "@/lib/products";
 import { fichaPorSegmento, fichasDePlantilla } from "@/lib/rutas";
 import { coma, nota } from "@/lib/format";
-import { franjaPrecio, standfirst } from "@/lib/ficha";
+import { franjaPrecio, garantia, motorLargo, recorrido, standfirst } from "@/lib/ficha";
 import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { productSchema } from "@/lib/schema";
 import { Cifra } from "@/components/broadsheet/Cifra";
@@ -49,6 +49,22 @@ export default async function FichaModelo({ params }: Props) {
   const franja = franjaPrecio(p);
   const esElMejor = disponibles.every((q) => q.puntuacion.total <= p.puntuacion.total);
 
+  const tecnica: [string, string][][] = [
+    [
+      ["Motor", motorLargo(p)],
+      ["Velocidad", `${coma(p.specs.velocidad_cm_s)} cm/s`],
+      ["Carga máxima", `${p.specs.peso_max_carga_kg} kg`],
+      ["Recorrido", recorrido(p)],
+      ["Ruido", p.specs.ruido_db !== null ? `${p.specs.ruido_db} dB` : "Sin dato"],
+    ],
+    [
+      ["Memorias", String(p.specs.presets_memoria)],
+      ["Anticolisión", p.specs.sistema_anticolision ? "Sí" : "No"],
+      ["Peso estructura", `${p.specs.peso_estructura_kg} kg`],
+      ["Tablero", p.incluye_tablero ? `${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} cm` : "No incluido"],
+      ["Garantía", garantia(p)],
+    ],
+  ];
   const ruta = `/${segmento}`;
   const breadcrumb = {
     "@context": "https://schema.org",
@@ -146,6 +162,29 @@ export default async function FichaModelo({ params }: Props) {
                 Nota <strong style={{ color: "var(--bs-tinta)" }}>{nota(p.puntuacion.total)}</strong> sobre 10 · {coma(p.rating)}★
               </span>
             </div>
+          </div>
+        </div>
+      </section>
+      {/* ============================================================
+          Ficha tecnica
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Ficha técnica</p>
+          <h2 className="bs-h2" style={{ marginTop: 12, fontSize: "var(--bs-h2-ficha)" }}>
+            Lo que declara el fabricante
+          </h2>
+          <div className="flex flex-wrap" style={{ gap: "10px 48px", marginTop: 24 }}>
+            {tecnica.map((columna, i) => (
+              <dl key={i} className="bs-ficha" style={{ flex: "1 1 280px", fontSize: 16, gap: "10px 20px" }}>
+                {columna.map(([etiqueta, valor]) => (
+                  <div key={etiqueta} style={{ display: "contents" }}>
+                    <dt>{etiqueta}</dt>
+                    <dd>{valor}</dd>
+                  </div>
+                ))}
+              </dl>
+            ))}
           </div>
         </div>
       </section>
