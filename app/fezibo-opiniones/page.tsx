@@ -104,7 +104,7 @@ export default function FeziboReviewPage() {
         <div className="flex-1">
           <p className="editorial-mark mb-2" style={{ color: 'var(--color-secondary)' }}>Review completa &middot; {FECHA}</p>
           <h1 className="text-3xl md:text-4xl mt-1 heading-accent" >
-            {product.nombre}
+            {product.titular ?? product.nombre}
           </h1>
           <p className="text-sm mt-2" style={{ color: 'var(--text-muted)' }}>
             Actualizado: {FECHA_EN_FRASE}

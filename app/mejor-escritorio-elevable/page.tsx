@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
+import { rutaFicha } from "@/lib/rutas";
 import { coma, nota } from "@/lib/format";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
@@ -332,7 +333,7 @@ export default function MejorEscritorioPage() {
                           {[
                             { label: "Motor", value: product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple' },
                             { label: "Carga max", value: `${product.specs.peso_max_carga_kg} kg` },
-                            { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm` },
+                            { label: "Tablero", value: product.incluye_tablero ? `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm` : "Sin tablero" },
                           ].map((spec) => (
                             <div key={spec.label} className="p-2 rounded" style={{ background: hasBand ? 'var(--bg-card)' : 'var(--bg-secondary)' }}>
                               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{spec.label}</p>
@@ -360,6 +361,14 @@ export default function MejorEscritorioPage() {
                     <p className="mt-3 text-sm" style={{ color: 'var(--text-secondary)' }}>
                       <strong style={{ color: 'var(--text-primary)' }}>Ideal para:</strong> {product.ideal_para}
                     </p>
+
+                    {rutaFicha(product) && (
+                      <p className="mt-3 text-sm">
+                        <Link href={rutaFicha(product)!} className="underline" style={{ color: 'var(--verde-estructura)' }}>
+                          Ficha completa del {product.marca} {product.modelo}
+                        </Link>
+                      </p>
+                    )}
 
                     <div className="mt-4">
                       <FranjaPrecio product={product} />

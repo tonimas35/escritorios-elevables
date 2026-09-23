@@ -81,3 +81,17 @@ test("el registro de cambios solo admite slugs del catálogo", () => {
 test("avisa de franjas con más de tres modelos", () => {
   assert.match(avisos(real).join("\n"), /franja B: \d modelos activos \(máximo 3\)/);
 });
+
+test("el titular tampoco puede llevar precio", () => {
+  const c = catalogoCon("vasagle-100", (p) => (p.titular = "VASAGLE 100x60 por 79 €"));
+  assert.match(errores(c).join("\n"), /cifra prohibida en titular/);
+});
+
+test("el filtro de cifras no confunde un nombre de modelo con un recuento", () => {
+  const c = catalogoCon("flexispot-e7", (p) => (p.titular = "Flexispot E7, opiniones: marco de doble motor"));
+  assert.deepEqual(errores(c), []);
+  for (const mal of ["2.100 valoraciones", "951 opiniones", "2100+ reviews", "12,50 €", "110 EUR"]) {
+    const c2 = catalogoCon("flexispot-e7", (p) => (p.veredicto = mal));
+    assert.match(errores(c2).join("\n"), /cifra prohibida/, mal);
+  }
+});
