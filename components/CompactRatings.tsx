@@ -1,5 +1,5 @@
 import type { ProductScore } from "@/lib/types";
-import { coma, nota } from "@/lib/format";
+import { nota } from "@/lib/format";
 
 // Los apartados de `calcularNota()` (lib/nota.ts), en el orden de su peso.
 const RATING_LABELS: Record<string, string> = {
