@@ -46,7 +46,7 @@ export default function FlexispotE7ReviewPage() {
   const faqItems = [
     {
       q: "¿Merece la pena el Flexispot E7 en 2026?",
-      a: "Sí. No ha aparecido nada que lo supere en su combinación de estabilidad, motor y garantía. Compradores con 3-4 años de uso reportan cero problemas. Es además el de mejor nota media en Amazon de todo el catálogo, y el único junto al FLEXISPOT de 160x80 con cinco años de garantía.",
+      a: "Sí, si ya tienes tablero o quieres montar uno a medida. Es el modelo con la nota más alta del catálogo, el de mejor nota media en Amazon y el único junto al FLEXISPOT de 160x80 con cinco años de garantía.",
     },
     {
       q: "¿El marco Flexispot merece la pena sin tablero?",
@@ -154,7 +154,7 @@ export default function FlexispotE7ReviewPage() {
       <FadeIn delay={100}>
         <div className="mt-10 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <p>
-              El marco del E7 lleva años siendo de lo más recomendado en foros y en YouTube, y los números acompañan: es el que mejor nota media saca en Amazon de todo el catálogo. Doble motor, 125 kg de carga y cinco años de garantía en la estructura. El matiz importante es que viene sin tablero, así que hay que sumar ese gasto antes de compararlo con un escritorio completo.
+              El marco del E7 tiene la nota más alta del catálogo y es el que mejor nota media saca en Amazon. Doble motor, 125 kg de carga y cinco años de garantía en la estructura. El matiz importante es que viene sin tablero, así que hay que sumar ese gasto antes de compararlo con un escritorio completo.
             </p>
         </div>
       </FadeIn>
