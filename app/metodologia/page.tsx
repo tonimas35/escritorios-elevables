@@ -73,8 +73,9 @@ export default function MetodologiaPage() {
             subir.
           </li>
           <li>
-            <strong style={{ color: "var(--text-primary)" }}>Precios:</strong> no los
-            publicamos. El importe exacto lo ves en Amazon.
+            <strong style={{ color: "var(--text-primary)" }}>Precios:</strong> una franja
+            amplia comprobada a mano en Amazon, con la fecha de la comprobación. El
+            importe exacto lo ves en Amazon.
           </li>
         </ul>
       </section>
@@ -86,14 +87,21 @@ export default function MetodologiaPage() {
           Cómo puntuamos
         </h2>
         <p className="text-sm leading-relaxed mb-5" style={{ color: "var(--text-secondary)" }}>
-          Cada modelo recibe una nota sobre 10 en cinco apartados. La nota global es
-          su media ponderada.
+          Cada modelo recibe una nota sobre 10 en cinco apartados, calculada con sus
+          datos y nunca puesta a mano. La nota global es su media ponderada con los
+          pesos de abajo. Los umbrales son absolutos: la nota de un modelo no cambia
+          porque entre o salga otro del catálogo. Si un modelo no llega a 100
+          valoraciones en Amazon, ese apartado no cuenta y los otros cuatro se
+          reparten su peso.
         </p>
         <div className="space-y-4">
           {CRITERIOS.map((c) => (
             <div key={c.nombre} className="pl-4" style={{ borderLeft: "2px solid var(--color-secondary)" }}>
               <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
-                {c.nombre}
+                {c.nombre}{" "}
+                <span style={{ fontWeight: 400, color: "var(--text-muted)" }}>
+                  · {Math.round(c.peso * 100)} %
+                </span>
               </p>
               <p className="text-sm leading-relaxed mt-1" style={{ color: "var(--text-secondary)" }}>
                 {c.base}
@@ -107,14 +115,15 @@ export default function MetodologiaPage() {
 
       <section>
         <h2 className="text-xl mb-4" >
-          Por qué no publicamos precios
+          Por qué no publicamos precios exactos
         </h2>
         <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
           Amazon cambia precios a diario. Una cifra escrita hoy está desactualizada
           en una semana, y mostrar un precio que ya no existe es engañar al lector.
-          Por eso no publicamos ninguno —ni cifras ni franjas— y dejamos que el
-          importe lo veas en Amazon, que es el único sitio donde siempre es
-          correcto.
+          Por eso publicamos solo una franja amplia con la
+          fecha en que la comprobamos, que sirve para situar cada modelo, y el
+          importe del día lo ves en Amazon, que es el único sitio donde siempre es
+          correcto. Las franjas se revisan cada mes o mes y medio.
         </p>
       </section>
 
@@ -131,7 +140,9 @@ export default function MetodologiaPage() {
           cosas porque no hacemos reseñas de uso.
         </p>
         <p className="text-sm leading-relaxed mt-3" style={{ color: "var(--text-secondary)" }}>
-          El orden de los modelos sale de la puntuación, no de la comisión.
+          El orden de los modelos sale de la puntuación, no de la comisión. En
+          escritorios, además, Amazon paga el mismo porcentaje por todas las
+          marcas, así que no hay ninguna que nos convenga más que otra.
         </p>
       </section>
 
