@@ -51,52 +51,76 @@ Tres campos del JSON gobiernan el reparto. Conviene saberlo antes de tocarlos:
   doce) y `/mejor-escritorio-elevable` reparte en premium (`> 300`), medio
   (`150–300`) y entrada (`< 150`). Si alguien lo borra pensando que sobra porque
   ahora publicamos franjas, esas páginas se rompen sin dar ningún error.
-- **`puntuacion.total`** — ordena el ranking en todas las listas.
+- **La nota** — ordena el ranking en todas las listas. Ya no está en el JSON:
+  la calcula `lib/nota.ts` con la fórmula de `METODO.md` §5 a partir de
+  `specs`, `rating` y `num_reviews`. Cambiar una spec cambia la nota.
+- **`precio_min` y `precio_max`** — deciden la franja (A, B, C o M, por el
+  punto medio) y con ella la posición del modelo y sus alternativas.
+- **`titular`** — si lo tiene y no tiene review propia, el modelo tiene
+  ficha en `/{slug}-opiniones` y entra en el sitemap.
 
 ## Rutina
 
-### Cada mes o mes y medio: las franjas de precio
+El criterio está en `METODO.md`; esto es el cómo. Antes y después de tocar
+datos: `npm run validar` (errores rompen, avisos avisan) y `npm test`. La CI de
+GitHub los ejecuta también en cada push.
 
-La web muestra "verificado el DD/MM/AAAA" en cada modelo. Esa fecha envejece a
-la vista del lector, así que hay que tocarla aunque el precio no se mueva.
+### Cada mes (~1 h, el día 15): franjas de precio y stock
 
-1. Abre cada ASIN en Amazon y mira el precio.
-2. En `data/productos.json`, ajusta si hace falta `precio_min` y `precio_max`
-   (criterio actual: ±15 % sobre el precio visto, redondeado a la decena).
-3. Pon `precio_verificado` a la fecha de hoy, **siempre**, en formato
-   `AAAA-MM-DD`.
+1. `npm run validar`: lista las franjas con más de 45 días.
+2. Abre cada ASIN activo en Amazon.es. ¿Tiene stock? Si lleva más de 30 días
+   sin él, es motivo de salida (METODO.md §4).
+3. En `data/productos.json`, ajusta `precio_min` y `precio_max` si hace falta
+   (±15 % sobre el precio visto, redondeado a la decena) y pon
+   `precio_verificado` a la fecha de hoy, **siempre**, en `AAAA-MM-DD`. Los
+   tres campos van juntos; `null` en los tres retira la franja.
+4. Si un modelo cambia de franja al moverse el precio, su posición y sus
+   alternativas cambian solas. Revisa que su titular siga siendo cierto.
 
-Los tres campos van juntos: `franjaPrecio()` en `lib/ficha.ts` no publica nada
-si falta alguno. Poner `null` en los tres es la forma limpia de retirar una
-franja de la que ya no te fías.
+### Cada trimestre (3–4 h, enero, abril, julio y octubre): barrido de mercado
 
-### Cada trimestre: el catálogo
+1. Por franja (A, B, C, M), los ~10 más vendidos y las novedades en Amazon.es.
+2. Filtro de entrada (METODO.md §3): nota ≥ 4,3 con 100 valoraciones o más,
+   specs completas con fuente, garantía declarada, sin clones de lo que ya hay.
+3. De los que pasan, las 20 reseñas de 1–2★ más recientes: ¿se repite algún
+   fallo? Resumen en `nota_resenas`.
+4. Claude calcula la nota de candidatos y activos y propone entradas y
+   salidas por franja. Solo se sustituye con 0,3 puntos o más de diferencia.
+5. Cada alta, baja o corrección, con fecha y motivo, en
+   `data/cambios-catalogo.json`. Se publica solo en `/metodologia`.
+6. Rellena en los activos lo que falte: `fuente_specs`, `specs_verificado`
+   (las specs caducan a los 120 días) y `nota_resenas`.
+7. Relee los titulares y las frases con "del catálogo": dependen de qué
+   modelos haya.
 
-1. **ASIN vivos.** Un modelo descatalogado es un enlace de afiliado muerto:
-   pierdes la venta y el lector se encuentra un "no disponible". Si ha muerto,
-   `disponible: false`.
-2. **Specs.** Los fabricantes cambian versiones sin cambiar el ASIN. Compara
-   `specs` con la ficha de Amazon.
-3. **Altas y bajas.** Ver abajo.
+### Cada semestre (1 h): la fórmula
+
+Revisar pesos y umbrales de `METODO.md` §5. Nunca para favorecer lo que más
+vende o más comisión deja. Si cambian, se cambia primero `METODO.md`, con
+fecha, luego `lib/nota.ts`, y cada nota que se mueva va al registro.
 
 ### Al dar de alta o de baja un modelo
 
-**Baja rápida:** `disponible: false`. Sale de las listas y no rompe nada.
+**Baja rápida:** `disponible: false` y `estado: "retirado"`, con entrada en el
+registro. Sale de las listas, del sitemap y de las alternativas.
+
+**Baja con sucesor:** además, `sucesor` con el slug del que lo sustituye. Si
+tenía página propia, esa URL debe redirigir (301) al sucesor en
+`next.config.ts`, nunca quedarse en 404.
 
 **Baja definitiva:** antes de borrar la entrada del JSON, comprueba que su
-`slug` no esté fijado en ninguna página (`grep -rn 'getProductBySlug(' app/`).
-Los modelos de la tabla con ficha propia no se pueden borrar sin retirar también
-esas páginas y sus entradas del `sitemap.xml`.
+`slug` no esté fijado en ninguna página (`grep -rn 'getProductBySlug(' app/`)
+ni en `RUTAS_FIJAS` de `lib/rutas.ts`.
 
-**Alta:** replica la estructura de una entrada existente. Campos obligatorios
-para que no se rompa nada: `slug`, `nombre`, `marca`, `modelo`, `precio`,
-`disponible`, `puntuacion`, `specs`, `imagen`, `imagen_alt`. Deja
-`precio_min`/`precio_max`/`precio_verificado` a `null` hasta que mires el precio
-de verdad.
+**Alta:** replica la estructura de una entrada existente. Obligatorios:
+`slug`, `nombre`, `marca`, `modelo`, `precio`, `disponible`, `specs`
+completas, `imagen`, `imagen_alt`, más `alta`, `estado` y la fuente de las
+specs. La franja de precio a `null` hasta mirar el precio de verdad. La ficha
+en `/{slug}-opiniones` aparece sola cuando el modelo tiene `titular`, que
+necesita visto bueno antes de entrar.
 
 **El tamaño del catálogo lo decide lo que puedes mantener a mano, no el
-mercado.** Doce fichas se revisan en un rato; veinte son una tarde entera cada
-mes y medio, y una tarea que se abandona. Rotar antes que acumular.
+mercado.** Tres por franja como máximo. Rotar antes que acumular.
 
 ## La API de Publicidad de Productos: descartada
 
