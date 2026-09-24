@@ -53,7 +53,7 @@ export default function EscritorioBaratoPage() {
   };
   const ruidosBaratos = baratos.map((p) => p.specs.ruido_db).filter((r): r is number => r !== null);
   const anticolisionBarato = [...baratos]
-    .filter((p) => p.specs.sistema_anticolision)
+    .filter((p) => p.specs.sistema_anticolision && p.incluye_tablero)
     .sort((a, b) => medio(a) - medio(b))[0];
   const dobles = todos.filter((p) => p.specs.tipo_motor === "doble" && p.disponible);
 
@@ -225,7 +225,7 @@ export default function EscritorioBaratoPage() {
                       </div>
                     </div>
                   </td>
-                  <td className="p-3 text-center text-sm">{product.specs.ancho_tablero_cm}x{product.specs.profundidad_tablero_cm}</td>
+                  <td className="p-3 text-center text-sm">{product.incluye_tablero ? `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm}` : "Sin tablero"}</td>
                   <td className="p-3 text-center text-sm">{product.specs.peso_max_carga_kg} kg</td>
                   {/* null es "la ficha no lo dice": se marca aparte, no como un no. */}
                   <td className="p-3 text-center text-sm" style={{ color: product.specs.sistema_anticolision === null ? 'var(--text-muted)' : product.specs.sistema_anticolision ? 'var(--rating-good)' : 'var(--rating-bad)' }}>{product.specs.sistema_anticolision === null ? 'Sin dato' : product.specs.sistema_anticolision ? '✓' : '✗'}</td>
@@ -301,7 +301,7 @@ export default function EscritorioBaratoPage() {
                     {[
                       { label: "Motor", value: product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple' },
                       { label: "Carga max", value: `${product.specs.peso_max_carga_kg} kg` },
-                      { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm` },
+                      { label: "Tablero", value: product.incluye_tablero ? `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm` : "Sin tablero" },
                     ].map((spec) => (
                       <div key={spec.label} className="p-2 rounded" style={{ background: 'var(--bg-secondary)' }}>
                         <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{spec.label}</p>
