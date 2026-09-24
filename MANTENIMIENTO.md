@@ -21,7 +21,7 @@ Si al leer esto la tabla no coincide con el JSON, manda el JSON.
 | `B0CV4V22XL` | `songmics-160` | SONGMICS 160x70 | 120–160 € | — |
 | `B0CKVPZ93G` | `devoko-160` | Devoko 160x70 | 110–180 € | — |
 | `B0CDLBJ1VW` | `sanodesk-140` | SANODESK 140x60 | 140–180 € | — |
-| `B084KW7N8C` | `flexispot-e7` | Flexispot E7 (marco) | 110–150 € | `/flexispot-e7-opiniones`, `/flexispot-vs-maidesite` |
+| `B084KW7N8C` | `flexispot-eg1` | FLEXISPOT EG1 (marco) | 110–150 € | `/flexispot-eg1-opiniones` (plantilla; `/flexispot-e7-opiniones` redirige), `/flexispot-vs-maidesite` |
 | `B0DG2VTCXS` | `maidesite-t2-pro-max` | MAIDeSITe T2 Pro MAX | 310–430 € | `/maidesite-t2-pro-opiniones`, `/flexispot-vs-maidesite` |
 | `B09TQR3MMM` | `maidesite-s2-pro` | MAIDeSITe S2 Pro 140x70 | 370–490 € | `/flexispot-vs-maidesite` |
 | `B09R746JHX` | `flexispot-160x80` | FLEXISPOT 160x80 | 350–470 € | `/flexispot-vs-maidesite` |
@@ -79,6 +79,11 @@ GitHub los ejecuta también en cada push.
 
 ### Cada trimestre (3–4 h, enero, abril, julio y octubre): barrido de mercado
 
+0. **Que el ASIN sea el modelo que nombramos.** El 24/09/2026 se descubrió
+   que el "Flexispot E7" que enlazábamos desde marzo era un EG1: otro marco,
+   de un motor. En cada activo, comprobar que el título y las fotos de la
+   ficha de Amazon corresponden al nombre y a las specs que publicamos, no
+   solo que las specs sueltas cuadren.
 1. Por franja (A, B, C, M), los ~10 más vendidos y las novedades en Amazon.es.
 2. Filtro de entrada (METODO.md §3): nota ≥ 4,3 con 100 valoraciones o más,
    specs completas con fuente, garantía declarada, sin clones de lo que ya hay.
