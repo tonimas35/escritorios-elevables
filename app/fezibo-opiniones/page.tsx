@@ -226,8 +226,13 @@ export default function FeziboReviewPage() {
 
         <div>
           <h3 className="text-lg font-semibold">Qué dicen los compradores</h3>
+          {/* Solo lo que tiene fuente: la media de Amazon y el resumen de la
+              revision de reseñas de 1-2 estrellas (METODO.md §3), cuando exista. */}
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Lo que más se repite en las opiniones publicadas: fácil de montar, funciona bien para lo que cuesta, y la bandeja para teclado incluida es un bonus inesperado. En lo negativo: tablero pequeño para quien esperaba algo más grande, estabilidad justa a máxima altura, y algún caso de motor que zumba más de la cuenta tras unos meses de uso.
+            {coma(product.rating)} estrellas de media en Amazon España.{" "}
+            {product.nota_resenas
+              ? product.nota_resenas
+              : "Todavía no hemos revisado sus reseñas de una y dos estrellas con nuestro método; cuando lo hagamos, el resumen estará aquí."}
           </p>
         </div>
       </section>

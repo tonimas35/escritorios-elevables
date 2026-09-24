@@ -29,8 +29,14 @@ poder explicarse con este fichero y con `data/productos.json`.
 | **A** | Escritorio completo (con tablero) | hasta 120 € |
 | **B** | Escritorio completo | 120–250 € |
 | **C** | Escritorio completo | 250–500 € |
-| **M** | Marco sin tablero | cualquier precio |
+| **M1** | Marco sin tablero | hasta 250 € |
+| **M2** | Marco sin tablero | 250–500 € |
 
+- Los marcos iban en una sola franja M hasta el 24/09/2026. Se parte en dos,
+  aprobado por Toni, porque juntaba un marco de gama media con uno de gama
+  alta y su posición comparaba notas que §5 dice que no se comparan.
+- Sin franja de precio verificada, un modelo no tiene franja, sea completo o
+  marco.
 - Se asigna por el **punto medio** de `precio_min`–`precio_max`, porque las
   franjas publicadas se solapan con los límites (ej.: Devoko 120, 100–130 €,
   punto medio 115 → A).
@@ -172,6 +178,9 @@ Aprobado por Toni el 24/09/2026:
   distintas no se comparan, el veredicto de la home da el primero de cada
   franja, no un ganador absoluto. Por la misma razón ninguna ficha dice "la
   nota más alta del catálogo".
+- **La sección de detalle de la home** ("El podio") es el nº 1 de la franja B
+  y sus dos siguientes, no la nota más alta del catálogo. El CTA fijo del
+  móvil apunta a ese mismo modelo.
 
 ## 6. Fuentes y fechas por modelo
 

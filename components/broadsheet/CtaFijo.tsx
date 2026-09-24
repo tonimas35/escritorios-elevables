@@ -7,12 +7,12 @@ import { Cta } from "./Cta";
  * del servidor. El hueco que ocupa se reserva con padding-bottom en
  * .bs-pagina; si no, tapa el final del contenido.
  */
-export function CtaFijo({ asin, nombre }: { asin: string; nombre: string }) {
+export function CtaFijo({ asin, nombre, etiqueta }: { asin: string; nombre: string; etiqueta: string }) {
   return (
     <div className="bs-cta-fijo bs-solo-estrecho">
       <Cta asin={asin} texto={`Ver el ${nombre} en Amazon`} ancho mini />
       <p className="bs-afiliado bs-afiliado-mini" style={{ textAlign: "center", marginTop: 6 }}>
-        Nuestra recomendación
+        {etiqueta}
       </p>
     </div>
   );

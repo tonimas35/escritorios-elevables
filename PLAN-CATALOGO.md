@@ -8,7 +8,7 @@
 > validador, porque este la necesita para contar modelos por franja.
 > **24/09/2026:** el "Flexispot E7" enlazado resultó ser un EG1; corregido
 > (datos, ficha, redirección y textos). **En el barrido de octubre, buscar el
-> E7 real** para la franja M. La nota se mide ya contra la gama de precio
+> E7 real** para la franja de marcos que le toque por precio (M1 o M2). La nota se mide ya contra la gama de precio
 > (METODO.md §5).
 > **Siguiente: fase 5** (barrido de mercado, necesita a Toni en Amazon).
 > Pendientes de datos: `fuente_specs`, `specs_verificado` y `nota_resenas` en
