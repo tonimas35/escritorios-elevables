@@ -54,8 +54,11 @@ Un modelo entra solo si cumple **todos**:
    Menos volumen no es señal fiable.
 3. Specs completas (las 14 de `specs`) sacadas de la ficha del fabricante o de
    la de Amazon, con la URL guardada en `fuente_specs`.
-4. Garantía declarada por escrito. Un modelo activo sin garantía declarada no
-   se retira de inmediato, pero sale en el siguiente barrido si no aparece.
+4. ~~Garantía declarada por escrito.~~ Retirado el 24/09/2026 como requisito
+   de entrada: en la gama barata casi ninguna ficha de Amazon declara los años,
+   y exigirlo dejaba sin cubrir las franjas más asequibles. La garantía sigue
+   contando en la nota cuando la ficha la declara (§5), y en la web se dice
+   "Sin dato" cuando no.
 5. Revisión de las **20 reseñas de 1–2 estrellas más recientes**: sin un patrón
    repetido de fallo de motor, de inestabilidad o de piezas que llegan rotas.
    Lo encontrado se resume en `nota_resenas`, aunque sea "nada relevante".

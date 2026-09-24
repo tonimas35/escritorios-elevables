@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { getAllProducts } from "@/lib/products";
+import { getAllProducts, getAvailableProducts } from "@/lib/products";
 import { rutaFicha } from "@/lib/rutas";
 import { coma, nota } from "@/lib/format";
 import { NOMBRE_FRANJA, posicionEnFranja, type Franja } from "@/lib/nota";
@@ -14,10 +14,14 @@ import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
 import { productSchema, itemListSchema } from "@/lib/schema";
 
+// El numero sale del catalogo: cuando un modelo se retira, el titulo no
+// sigue prometiendo los que habia.
+const N = getAvailableProducts().length;
+
 export const metadata: Metadata = {
-  title: "12 mejores escritorios elevables 2026 — Guía de compra",
+  title: `${N} mejores escritorios elevables 2026 — Guía de compra`,
   description:
-    "Comparativa de los 12 mejores escritorios elevables eléctricos de 2026. De la gama de entrada a la premium. Análisis con datos reales, pros/contras y recomendaciones.",
+    `Comparativa de los ${N} mejores escritorios elevables eléctricos de 2026. De la gama de entrada a la premium. Análisis con datos reales, pros/contras y recomendaciones.`,
   alternates: { canonical: "/mejor-escritorio-elevable" },
 };
 
@@ -69,7 +73,7 @@ export default function MejorEscritorioPage() {
   // ItemList: la estructura que describe una comparativa "los mejores X",
   // y la que mejor interpretan buscadores y asistentes de IA.
   const listSchema = itemListSchema(
-    "Los 12 mejores escritorios elevables de 2026",
+    `Los ${N} mejores escritorios elevables de 2026`,
     topProducts,
     "/mejor-escritorio-elevable"
   );
@@ -157,10 +161,10 @@ export default function MejorEscritorioPage() {
             Guía de compra &middot; {FECHA}
           </p>
           <h1 className="text-3xl md:text-5xl heading-accent" >
-            Los 12 mejores escritorios elevables de 2026
+            Los {N} mejores escritorios elevables de 2026
           </h1>
           <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
-            Actualizado: {FECHA_EN_FRASE} &middot; 12 modelos analizados
+            Actualizado: {FECHA_EN_FRASE} &middot; {N} modelos analizados
           </p>
           <div className="mt-1">
             <AvisoAfiliadoPagina />
@@ -301,7 +305,7 @@ export default function MejorEscritorioPage() {
 
         {topProducts.map(([asin, product], i) => {
           // El texto editorial sale del catálogo: una sola fuente de verdad,
-          // cubre los 12 productos y se actualiza con los datos.
+          // cubre todos los productos y se actualiza con los datos.
           const editorial = product.veredicto || "";
 
           const isFirstMid = midProducts.length > 0 && product.slug === midProducts[0][1].slug;
