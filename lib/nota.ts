@@ -3,7 +3,7 @@
  * METODO.md §2 y §5. Sustituyen a la nota puesta a mano.
  *
  * La nota mide cada escritorio contra lo que se puede esperar en su gama de
- * precio: en cada dato, 5 es lo minimo aceptable en la gama y 10 lo mejor
+ * precio: en cada dato, 6 es lo minimo aceptable en la gama y 10 lo mejor
  * esperable. Los umbrales son fijos por gama: la nota de un modelo no cambia
  * porque entre o salga otro del catalogo. Cambiar un peso o un umbral es
  * cambiar el metodo: se cambia primero en METODO.md, con fecha, y despues
@@ -52,47 +52,54 @@ interface Umbrales {
 
 export const UMBRALES: Record<Gama, Umbrales> = {
   entrada: {
-    carga: [50, 80],
-    motor: { simple: 7, doble: 10, manual: 0 },
-    estructura: [15, 25],
-    velocidad: [2, 3],
-    ruido: [55, 45],
-    alturaMin: [74, 70],
-    alturaMax: [115, 122],
+    carga: [50, 75],
+    motor: { simple: 8, doble: 10, manual: 0 },
+    estructura: [15, 23],
+    velocidad: [2, 2.8],
+    ruido: [55, 47],
+    alturaMin: [74, 71],
+    alturaMax: [115, 120],
     garantia: [2, 4],
   },
   media: {
-    carga: [70, 100],
-    motor: { simple: 7, doble: 10, manual: 0 },
-    estructura: [20, 32],
-    velocidad: [2, 3],
-    ruido: [55, 45],
-    alturaMin: [74, 68],
-    alturaMax: [116, 125],
-    garantia: [2, 5],
+    carga: [70, 95],
+    motor: { simple: 8, doble: 10, manual: 0 },
+    estructura: [20, 30],
+    velocidad: [2, 2.8],
+    ruido: [55, 47],
+    alturaMin: [74, 69],
+    alturaMax: [116, 123],
+    garantia: [2, 4],
   },
   alta: {
-    carga: [100, 160],
-    motor: { simple: 2, doble: 10, manual: 0 },
-    estructura: [28, 40],
-    velocidad: [3, 4],
-    ruido: [50, 42],
-    alturaMin: [72, 62],
-    alturaMax: [118, 130],
+    carga: [100, 150],
+    motor: { simple: 3, doble: 10, manual: 0 },
+    estructura: [28, 38],
+    velocidad: [3, 3.8],
+    ruido: [50, 44],
+    alturaMin: [72, 64],
+    alturaMax: [118, 128],
     garantia: [3, 5],
   },
 };
 
 /** Umbrales comunes a todas las gamas (METODO.md §5). */
 export const MEMORIAS: Umbral = [2, 4];
-export const VALORACION: Umbral = [4.0, 4.7];
+export const VALORACION: Umbral = [4.0, 4.6];
+
+/** Puntos de un dato en su minimo aceptable y en su nivel excelente (§5). */
+export const PUNTOS_MINIMO = 6;
+export const PUNTOS_EXCELENTE = 10;
+/** Anticolision: si la tiene, 10; si no, estos puntos. */
+export const SIN_ANTICOLISION = 3;
 
 /**
- * Minimo aceptable -> 5, excelente -> 10, en linea recta y recortado a 0-10.
+ * Minimo aceptable -> 6, excelente -> 10, en linea recta y recortado a 0-10.
  * `minimo` puede ser mayor que `excelente` (ruido, altura minima).
  */
 function escala(valor: number, [minimo, excelente]: Umbral): number {
-  const x = 5 + (5 * (valor - minimo)) / (excelente - minimo);
+  const x =
+    PUNTOS_MINIMO + ((PUNTOS_EXCELENTE - PUNTOS_MINIMO) * (valor - minimo)) / (excelente - minimo);
   return Math.max(0, Math.min(10, x));
 }
 
@@ -130,7 +137,7 @@ export function calcularNota(p: Product): ProductScore {
   // en vez de inventar un valor que baje o suba la media.
   const funciones = media([
     escala(s.presets_memoria, MEMORIAS),
-    s.sistema_anticolision ? 10 : 2,
+    s.sistema_anticolision ? 10 : SIN_ANTICOLISION,
     ...(s.velocidad_cm_s !== null ? [escala(s.velocidad_cm_s, u.velocidad)] : []),
     ...(s.ruido_db !== null ? [escala(s.ruido_db, u.ruido)] : []),
   ]);
