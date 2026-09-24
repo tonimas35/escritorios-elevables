@@ -31,20 +31,22 @@ test("todas las notas y apartados quedan entre 0 y 10 con un decimal", () => {
   }
 });
 
-test("reproduce la simulación aprobada en METODO.md §5", () => {
+// Notas con las specs verificadas contra Amazon.es el 24/09/2026. Si una
+// cambia sin que cambien los datos, ha cambiado la formula sin querer.
+test("reproduce las notas del catálogo verificado el 24/09/2026", () => {
   const esperado: Record<string, number> = {
-    "maidesite-t2-pro-max": 9.2,
-    "ergear-120": 9.1,
-    "devoko-120": 9.1,
-    "sanodesk-140": 8.6,
-    "devoko-160": 8.6,
-    "songmics-160": 8.5,
-    "flexispot-160x80": 8.5,
-    "vasagle-160": 8.4,
+    "maidesite-t2-pro-max": 9.4,
+    "vasagle-100": 9.3,
+    "ergear-120": 8.9,
+    "maidesite-s2-pro": 8.9,
     "flexispot-eg1": 8.2,
-    "maidesite-s2-pro": 8.1,
-    "fezibo-120": 7.9,
-    "vasagle-100": 7.5,
+    "songmics-160": 8.1,
+    "devoko-120": 8,
+    "fezibo-120": 8,
+    "vasagle-160": 7.9,
+    "sanodesk-140": 7.8,
+    "devoko-160": 7.1,
+    "flexispot-160x80": 6.8,
   };
   for (const [slug, total] of Object.entries(esperado)) {
     assert.equal(porSlug(slug).puntuacion.total, total, slug);
@@ -151,8 +153,8 @@ test("la misma ficha puntúa más en una gama más barata", () => {
 });
 
 test("sin velocidad ni peso de estructura, esos datos no cuentan y no se inventan", () => {
-  const base = porSlug("songmics-160");
+  const con_ = calcularNota(con("songmics-160", { specs: { velocidad_cm_s: 2.5, peso_estructura_kg: 27 } }));
   const sin = calcularNota(con("songmics-160", { specs: { velocidad_cm_s: null, peso_estructura_kg: null } }));
   for (const v of Object.values(sin)) if (v !== null) assert.ok(v >= 0 && v <= 10);
-  assert.notDeepEqual(sin, base.puntuacion);
+  assert.notDeepEqual(sin, con_);
 });

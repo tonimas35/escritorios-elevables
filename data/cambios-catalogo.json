@@ -316,5 +316,143 @@
     "tipo": "cambio_nota",
     "slug": "vasagle-100",
     "motivo": "La nota pasa de 6,5 a 7,5: se reajusta la escala para que lo mínimo aceptable en cada gama valga 6 puntos en vez de 5."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "vasagle-100",
+    "motivo": "Specs verificadas contra su ficha de Amazon.es: carga 50 kg → 70 kg; velocidad 2,5 cm/s → sin dato; ruido 50 dB → 48 dB; peso de la estructura 18 kg → sin dato; memorias 3 → 4; anticolisión no → sin dato; garantía 3 años → sin dato. Lo que la ficha no declara queda sin dato y no cuenta en la nota (METODO.md §5)."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "vasagle-100",
+    "motivo": "La nota pasa de 7,5 a 9,3 al corregir sus specs y su valoración con la ficha de Amazon.es."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "ergear-120",
+    "motivo": "Specs verificadas contra su ficha de Amazon.es: altura máxima 120 cm → 118 cm; carga 70 kg → 80 kg; velocidad 2,5 cm/s → sin dato; ruido 48 dB → 55 dB; peso de la estructura 20 kg → sin dato; anticolisión sí → sin dato; garantía 3 años → sin dato. Lo que la ficha no declara queda sin dato y no cuenta en la nota (METODO.md §5)."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "ergear-120",
+    "motivo": "La nota pasa de 9,1 a 8,9 al corregir sus specs y su valoración con la ficha de Amazon.es."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "vasagle-160",
+    "motivo": "Specs verificadas contra su ficha de Amazon.es: carga 80 kg → 70 kg; velocidad 2,5 cm/s → sin dato; peso de la estructura 25 kg → sin dato; garantía 3 años → sin dato; fondo del tablero 60 cm → 70 cm. Lo que la ficha no declara queda sin dato y no cuenta en la nota (METODO.md §5)."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "vasagle-160",
+    "motivo": "La nota pasa de 8,4 a 7,9 al corregir sus specs y su valoración con la ficha de Amazon.es."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "devoko-120",
+    "motivo": "Specs verificadas contra su ficha de Amazon.es: altura mínima 72 cm → 73 cm; altura máxima 120 cm → 118 cm; velocidad 2,5 cm/s → sin dato; ruido 48 dB → sin dato; peso de la estructura 21 kg → sin dato; memorias 4 → 2; anticolisión sí → sin dato; garantía 3 años → sin dato. Lo que la ficha no declara queda sin dato y no cuenta en la nota (METODO.md §5)."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "devoko-120",
+    "motivo": "La nota pasa de 9,1 a 8 al corregir sus specs y su valoración con la ficha de Amazon.es."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "fezibo-120",
+    "motivo": "Specs verificadas contra su ficha de Amazon.es: velocidad 2,5 cm/s → sin dato; ruido sin dato → 50 dB; peso de la estructura 20 kg → sin dato; garantía 3 años → sin dato. Lo que la ficha no declara queda sin dato y no cuenta en la nota (METODO.md §5)."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "fezibo-120",
+    "motivo": "La nota pasa de 7,9 a 8 al corregir sus specs y su valoración con la ficha de Amazon.es."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "songmics-160",
+    "motivo": "Specs verificadas contra su ficha de Amazon.es: carga 80 kg → 70 kg; velocidad 2,5 cm/s → sin dato; ruido 50 dB → 48 dB; peso de la estructura 27 kg → sin dato; anticolisión sí → sin dato; garantía 3 años → sin dato. Lo que la ficha no declara queda sin dato y no cuenta en la nota (METODO.md §5)."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "songmics-160",
+    "motivo": "La nota pasa de 8,5 a 8,1 al corregir sus specs y su valoración con la ficha de Amazon.es."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "devoko-160",
+    "motivo": "Specs verificadas contra su ficha de Amazon.es: altura mínima 72 cm → 73 cm; altura máxima 120 cm → 118 cm; carga 80 kg → 70 kg; velocidad 2,5 cm/s → sin dato; ruido 48 dB → sin dato; peso de la estructura 28 kg → sin dato; memorias 4 → 2; anticolisión sí → sin dato; garantía 3 años → sin dato. Lo que la ficha no declara queda sin dato y no cuenta en la nota (METODO.md §5)."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "devoko-160",
+    "motivo": "La nota pasa de 8,6 a 7,1 al corregir sus specs y su valoración con la ficha de Amazon.es."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "sanodesk-140",
+    "motivo": "Specs verificadas contra su ficha de Amazon.es: altura mínima 72 cm → 73,5 cm; altura máxima 120 cm → 118 cm; carga 80 kg → 60 kg; velocidad 2,5 cm/s → sin dato; ruido 48 dB → sin dato; peso de la estructura 24 kg → sin dato. Lo que la ficha no declara queda sin dato y no cuenta en la nota (METODO.md §5)."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "sanodesk-140",
+    "motivo": "La nota pasa de 8,6 a 7,8 al corregir sus specs y su valoración con la ficha de Amazon.es."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "flexispot-eg1",
+    "motivo": "Specs verificadas contra su ficha de Amazon.es. Lo que la ficha no declara queda sin dato y no cuenta en la nota (METODO.md §5)."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "maidesite-t2-pro-max",
+    "motivo": "Specs verificadas contra su ficha de Amazon.es: velocidad 3,8 cm/s → 4 cm/s; ruido 45 dB → 47 dB; peso de la estructura 30 kg → 29 kg; memorias 4 → sin dato; garantía 3 años → sin dato. Lo que la ficha no declara queda sin dato y no cuenta en la nota (METODO.md §5)."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "maidesite-t2-pro-max",
+    "motivo": "La nota pasa de 9,2 a 9,4 al corregir sus specs y su valoración con la ficha de Amazon.es."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "maidesite-s2-pro",
+    "motivo": "Specs verificadas contra su ficha de Amazon.es: carga 120 kg → 125 kg; velocidad 3,5 cm/s → sin dato; ruido 45 dB → sin dato; peso de la estructura 35 kg → sin dato; garantía 3 años → 5 años. Lo que la ficha no declara queda sin dato y no cuenta en la nota (METODO.md §5)."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "maidesite-s2-pro",
+    "motivo": "La nota pasa de 8,1 a 8,9 al corregir sus specs y su valoración con la ficha de Amazon.es."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "flexispot-160x80",
+    "motivo": "Specs verificadas contra su ficha de Amazon.es: altura mínima 71 cm → 70 cm; altura máxima 121 cm → 119 cm; carga 100 kg → 70 kg; velocidad 3,5 cm/s → sin dato; ruido 48 dB → 68 dB; peso de la estructura 38 kg → sin dato; garantía 5 años → 3 años (5 el marco y 3 el motor: cuenta la menor). Lo que la ficha no declara queda sin dato y no cuenta en la nota (METODO.md §5)."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "flexispot-160x80",
+    "motivo": "La nota pasa de 8,5 a 6,8 al corregir sus specs y su valoración con la ficha de Amazon.es."
   }
 ]
