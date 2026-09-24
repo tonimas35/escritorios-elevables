@@ -2,11 +2,13 @@ export interface ProductSpecs {
   tipo_motor: "simple" | "doble" | "manual";
   rango_altura_min_cm: number;
   rango_altura_max_cm: number;
-  velocidad_cm_s: number;
+  /** `null` si la ficha no lo declara: no se estima. */
+  velocidad_cm_s: number | null;
   peso_max_carga_kg: number;
   ancho_tablero_cm: number;
   profundidad_tablero_cm: number;
-  peso_estructura_kg: number;
+  /** `null` si la ficha no lo declara: no se estima. */
+  peso_estructura_kg: number | null;
   ruido_db: number | null;
   presets_memoria: number;
   sistema_anticolision: boolean;

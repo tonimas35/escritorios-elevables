@@ -38,6 +38,8 @@ export default function FlexispotVsMaidesitePage() {
     if (a === null || b === null || a === b) return "tie";
     return (a > b) === masEsMejor ? "e7" : "t2";
   };
+  const velocidadTxt = (p: typeof e7Product) =>
+    p.specs.velocidad_cm_s !== null ? `${coma(p.specs.velocidad_cm_s)} cm/s` : "Sin dato";
   const tableroTxt = (p: typeof e7Product) =>
     p.incluye_tablero ? `${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} cm` : "Sin tablero";
 
@@ -47,7 +49,7 @@ export default function FlexispotVsMaidesitePage() {
     // criterio que la nota (apartado "recorrido" de lib/nota.ts).
     { label: "Rango altura", e7: `${e7Product.specs.rango_altura_min_cm}–${e7Product.specs.rango_altura_max_cm} cm`, t2: `${t2Product.specs.rango_altura_min_cm}–${t2Product.specs.rango_altura_max_cm} cm`, winner: gana(e7Product.puntuacion.recorrido, t2Product.puntuacion.recorrido) },
     { label: "Carga máxima", e7: `${e7Product.specs.peso_max_carga_kg} kg`, t2: `${t2Product.specs.peso_max_carga_kg} kg`, winner: gana(e7Product.specs.peso_max_carga_kg, t2Product.specs.peso_max_carga_kg) },
-    { label: "Velocidad", e7: `${coma(e7Product.specs.velocidad_cm_s)} cm/s`, t2: `${coma(t2Product.specs.velocidad_cm_s)} cm/s`, winner: gana(e7Product.specs.velocidad_cm_s, t2Product.specs.velocidad_cm_s) },
+    { label: "Velocidad", e7: velocidadTxt(e7Product), t2: velocidadTxt(t2Product), winner: gana(e7Product.specs.velocidad_cm_s, t2Product.specs.velocidad_cm_s) },
     { label: "Ruido", e7: `${e7Product.specs.ruido_db} dB`, t2: `${t2Product.specs.ruido_db} dB`, winner: gana(e7Product.specs.ruido_db, t2Product.specs.ruido_db, false) },
     { label: "Tablero", e7: tableroTxt(e7Product), t2: tableroTxt(t2Product), winner: "tie" },
     { label: "Memorias", e7: `${e7Product.specs.presets_memoria}`, t2: `${t2Product.specs.presets_memoria}`, winner: gana(e7Product.specs.presets_memoria, t2Product.specs.presets_memoria) },

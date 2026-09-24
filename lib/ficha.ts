@@ -10,7 +10,7 @@ import { coma, nota } from "./format";
 
 export function motorLargo(p: Product): string {
   const tipo = p.specs.tipo_motor === "doble" ? "Doble" : p.specs.tipo_motor === "simple" ? "Simple" : "Manual";
-  return `${tipo} · ${coma(p.specs.velocidad_cm_s)} cm/s`;
+  return p.specs.velocidad_cm_s !== null ? `${tipo} · ${coma(p.specs.velocidad_cm_s)} cm/s` : tipo;
 }
 
 export function motorCorto(p: Product): string {
@@ -54,7 +54,7 @@ export function fichaTecnica(p: Product): [string, string][] {
     ["Recorrido", recorrido(p)],
     ["Memorias", memorias(p)],
     ["Ruido", ruido(p)],
-    ["Estructura", `${p.specs.peso_estructura_kg} kg`],
+    ["Estructura", p.specs.peso_estructura_kg !== null ? `${p.specs.peso_estructura_kg} kg` : null],
     ["Garantía", garantia(p)],
     ["Tablero", tablero(p)],
   ];
@@ -199,6 +199,8 @@ export function dudas(catalogo: [string, Product][]): Duda[] {
   };
   const ruidos = (g: Product[]) =>
     g.map((p) => p.specs.ruido_db).filter((r): r is number => r !== null);
+  const velocidades = (g: Product[]) =>
+    g.map((p) => p.specs.velocidad_cm_s).filter((v): v is number => v !== null);
 
   const cargaMinConTablero = Math.min(...conTablero.map((p) => p.specs.peso_max_carga_kg));
   const cargasMarcos = marcos
@@ -244,7 +246,7 @@ export function dudas(catalogo: [string, Product][]): Duda[] {
     {
       pregunta: "¿Un motor o dos?",
       parrafos: [
-        `Los ${dobles.length} modelos de doble motor del catálogo suben a ${rango(dobles.map((p) => p.specs.velocidad_cm_s))} cm/s, declaran ${rango(ruidos(dobles))} dB y aguantan entre ${Math.min(...dobles.map((p) => p.specs.peso_max_carga_kg))} y ${Math.max(...dobles.map((p) => p.specs.peso_max_carga_kg))} kg. Los de motor simple se quedan en ${rango(simples.map((p) => p.specs.velocidad_cm_s))} cm/s, ${rango(ruidos(simples))} dB y ${rango(simples.map((p) => p.specs.peso_max_carga_kg))} kg.`,
+        `Los ${dobles.length} modelos de doble motor del catálogo suben a ${rango(velocidades(dobles))} cm/s, declaran ${rango(ruidos(dobles))} dB y aguantan entre ${Math.min(...dobles.map((p) => p.specs.peso_max_carga_kg))} y ${Math.max(...dobles.map((p) => p.specs.peso_max_carga_kg))} kg. Los de motor simple se quedan en ${rango(velocidades(simples))} cm/s, ${rango(ruidos(simples))} dB y ${rango(simples.map((p) => p.specs.peso_max_carga_kg))} kg.`,
         "Si la mesa va a subir y bajar varias veces al día, la diferencia se nota. Si vas a alternar entre dos alturas fijas, el motor simple cumple.",
       ],
     },

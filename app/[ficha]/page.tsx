@@ -56,7 +56,7 @@ export default async function FichaModelo({ params }: Props) {
   const tecnica: [string, string][][] = [
     [
       ["Motor", motorLargo(p)],
-      ["Velocidad", `${coma(p.specs.velocidad_cm_s)} cm/s`],
+      ["Velocidad", p.specs.velocidad_cm_s !== null ? `${coma(p.specs.velocidad_cm_s)} cm/s` : "Sin dato"],
       ["Carga máxima", `${p.specs.peso_max_carga_kg} kg`],
       ["Recorrido", recorrido(p)],
       ["Ruido", p.specs.ruido_db !== null ? `${p.specs.ruido_db} dB` : "Sin dato"],
@@ -64,7 +64,7 @@ export default async function FichaModelo({ params }: Props) {
     [
       ["Memorias", String(p.specs.presets_memoria)],
       ["Anticolisión", p.specs.sistema_anticolision ? "Sí" : "No"],
-      ["Peso estructura", `${p.specs.peso_estructura_kg} kg`],
+      ["Peso estructura", p.specs.peso_estructura_kg !== null ? `${p.specs.peso_estructura_kg} kg` : "Sin dato"],
       ["Tablero", p.incluye_tablero ? `${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} cm` : "No incluido"],
       ["Garantía", garantia(p)],
     ],

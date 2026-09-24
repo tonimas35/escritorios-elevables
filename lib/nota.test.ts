@@ -111,3 +111,10 @@ test("la misma ficha puntúa más en una gama más barata", () => {
   const enAlta = calcularNota({ ...base, precio_min: 300, precio_max: 400 });
   assert.ok(enEntrada.total > base.puntuacion.total && base.puntuacion.total > enAlta.total);
 });
+
+test("sin velocidad ni peso de estructura, esos datos no cuentan y no se inventan", () => {
+  const base = porSlug("songmics-160");
+  const sin = calcularNota(con("songmics-160", { specs: { velocidad_cm_s: null, peso_estructura_kg: null } }));
+  for (const v of Object.values(sin)) if (v !== null) assert.ok(v >= 0 && v <= 10);
+  assert.notDeepEqual(sin, base.puntuacion);
+});
