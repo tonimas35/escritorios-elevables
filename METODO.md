@@ -1,9 +1,8 @@
 # Método editorial del catálogo
 
 > **Aprobado por Toni el 23/09/2026**, con todas las cifras tal como estaban
-> propuestas. Es la regla del catálogo. Solo queda abierta la dirección del
-> canal de correcciones (§8). Cambiar una cifra de este fichero es cambiar el
-> método: se hace aquí primero, con fecha, y luego en el código.
+> propuestas. Es la regla del catálogo. Cambiar una cifra de este fichero es
+> cambiar el método: se hace aquí primero, con fecha, y luego en el código.
 
 Este documento dice qué modelos recomienda elevable.es, por qué, cómo se puntúan
 y cuándo se sustituyen. Todo lo que publica la web sobre un modelo tiene que
@@ -196,8 +195,9 @@ fecha, modelo y motivo, y se publica en `/metodologia`. Ejemplo de entrada:
 ## 8. Correcciones
 
 Si alguien avisa de un error, se comprueba, se corrige y queda en el registro
-de §7 como tipo `correccion`. El canal es un correo dedicado, pendiente de
-crear: hoy la web no tiene ningún contacto.
+de §7 como tipo `correccion`. El canal es el correo
+**escritorioelevable@gmail.com** (24/09/2026), publicado en `/metodologia` y en
+el aviso legal desde `lib/contacto.ts`.
 
 ## 9. Calendario
 
@@ -206,8 +206,3 @@ crear: hoy la web no tiene ningún contacto.
 | Mes | Franjas de precio y stock de los activos | ~1 h |
 | Trimestre | Barrido de mercado por franja (§3 y §4) y reseñas negativas de los activos | 3–4 h |
 | Semestre | Revisar esta fórmula. Nunca para favorecer lo que más vende | 1 h |
-
-## Pendiente
-
-- **Dirección del canal de correcciones** (§8). Aprobado que sea un correo
-  dedicado; falta crearlo y decir cuál es.

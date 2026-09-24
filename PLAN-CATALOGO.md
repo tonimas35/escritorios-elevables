@@ -203,7 +203,7 @@ datos ni páginas cambia en esta fase.
 
 - Pesos exactos, umbral de valoraciones y margen para sustituir (Fase 1).
 - Límites exactos de las franjas (Fase 1).
-- Canal para correcciones: hoy la web no tiene contacto (Fase 7).
+- ~~Canal para correcciones~~: resuelto el 24/09, escritorioelevable@gmail.com (METODO.md §8).
 - Los "tres caminos" de la home, que hoy son por necesidad: si pasan a ser por
   franja, habría que reabrir una decisión de diseño (Fase 6).
 
