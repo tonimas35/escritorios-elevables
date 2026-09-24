@@ -188,8 +188,8 @@ export default function Home() {
                   Nota <strong style={{ color: "var(--bs-tinta)" }}>{nota(camino.producto.puntuacion.total)}</strong>
                   {" · "}
                   {coma(camino.producto.rating)}★ en Amazon
-                  {camino.asin === asinTop && (
-                    <span style={{ color: "var(--bs-tinta)" }}> · el del veredicto</span>
+                  {primeros.some(([asin]) => asin === camino.asin) && (
+                    <span style={{ color: "var(--bs-tinta)" }}> · nº 1 de su franja</span>
                   )}
                 </p>
 
