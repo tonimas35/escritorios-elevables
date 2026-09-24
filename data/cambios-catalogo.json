@@ -154,5 +154,11 @@
     "tipo": "correccion",
     "slug": "fezibo-120",
     "motivo": "Especificaciones en revisión: Amazon muestra datos distintos según la variante (memorias, recorrido y velocidad) y no coinciden del todo con los publicados. Se corregirán con la ficha de la variante que enlazamos."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "fezibo-120",
+    "motivo": "Especificaciones revisadas con la ficha de Amazon que enlazamos (variante blanca): 3 memorias, no 4 (se ven en la foto del mando); altura máxima 118 cm, no 120; el ruido solo se declara como «menos de 50 dB», así que retiramos la cifra exacta de 48; valoración actualizada a 4,6 con 294 opiniones. La nota se queda en 4,7. La velocidad sigue sin confirmar."
   }
 ]
