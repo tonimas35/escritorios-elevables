@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CORREO } from "@/lib/contacto";
 
 export const metadata: Metadata = {
   title: "Aviso legal",
@@ -78,8 +79,9 @@ export default function AvisoLegalPage() {
 
         <h2>Contacto</h2>
         <p>
-          Para cualquier consulta relacionada con este sitio, puedes
-          contactarnos a través de nuestro correo electrónico.
+          Para cualquier consulta relacionada con este sitio, o para avisarnos
+          de un error, escríbenos a{" "}
+          <a href={`mailto:${CORREO}`} className="underline" style={{ color: "var(--verde-estructura)" }}>{CORREO}</a>.
         </p>
       </section>
     </div>
