@@ -66,9 +66,12 @@ export function fichaTecnica(p: Product): [string, string][] {
  *
  * No usa `veredicto` del JSON a proposito: hoy varios llevan precios y
  * recuentos de reseñas dentro del texto, y no pueden publicarse.
+ *
+ * Sin "la nota más alta del catálogo": las notas de gamas distintas no se
+ * comparan (METODO.md §5, "Cómo se publica la nota").
  */
-export function standfirst(p: Product, esElMejor: boolean): string {
-  const frase = `Nota ${nota(p.puntuacion.total)} sobre 10${esElMejor ? ", la más alta del catálogo" : ""}.`;
+export function standfirst(p: Product): string {
+  const frase = `Nota ${nota(p.puntuacion.total)} sobre 10 en su gama de precio.`;
   const ficha = `${motorCorto(p)}, ${carga(p)} de carga y ${garantia(p)} de garantía.`;
   const cierre = p.incluye_tablero
     ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} incluido.`

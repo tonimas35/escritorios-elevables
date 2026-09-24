@@ -92,9 +92,25 @@ test("franja por el punto medio de la franja de precio verificada", () => {
 });
 
 test("posición en franja: el T2 Pro MAX es el primero de los marcos", () => {
-  assert.deepEqual(posicionEnFranja(porSlug("maidesite-t2-pro-max"), catalogo), { franja: "M", posicion: 1, de: 2 });
+  const t2 = posicionEnFranja(porSlug("maidesite-t2-pro-max"), catalogo)!;
+  assert.deepEqual([t2.franja, t2.posicion, t2.de], ["M", 1, 2]);
   const b = catalogo.filter((p) => franja(p) === "B").map((p) => posicionEnFranja(p, catalogo)!.posicion).sort();
-  assert.deepEqual(b, b.map((_, i) => i + 1), "posiciones consecutivas y sin empates");
+  assert.deepEqual(b, b.map((_, i) => i + 1), "posiciones consecutivas aunque haya empate técnico");
+});
+
+test("empate técnico: menos de 0,3 puntos en la misma franja", () => {
+  const base = porSlug("ergear-120");
+  const otro = (slug: string, total: number) =>
+    ({ ...base, slug, puntuacion: { ...base.puntuacion, total } }) as Product;
+  const grupo = [otro("a", 8.6), otro("b", 8.4), otro("c", 8.3)];
+  const empates = (slug: string) =>
+    posicionEnFranja(grupo.find((p) => p.slug === slug)!, grupo)!.empateCon.map((p) => p.slug);
+  assert.deepEqual(empates("a"), ["b"], "8,6 y 8,3 no empatan aunque la resta dé 0,2999…");
+  assert.deepEqual(empates("b"), ["a", "c"]);
+  assert.deepEqual(empates("c"), ["b"]);
+  // Los de otra franja no empatan aunque tengan la misma nota.
+  const marco = { ...otro("m", 8.6), incluye_tablero: false } as Product;
+  assert.deepEqual(posicionEnFranja(grupo[0], [...grupo, marco])!.empateCon.map((p) => p.slug), ["b"]);
 });
 
 test("gama por el punto medio de la franja de precio, marcos incluidos", () => {

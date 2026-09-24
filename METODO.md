@@ -160,6 +160,19 @@ en el registro de cambios.
 La cifra grande de la ficha es la **posición en su franja** ("Nº 1 de la franja
 A") y la nota se enseña al lado, más pequeña, con un enlace a esta fórmula.
 
+Aprobado por Toni el 24/09/2026:
+
+- **Empates.** Dos modelos de la misma franja cuya nota se diferencia en menos
+  de **0,3 puntos** (el mismo margen que §4 exige para rotar) se publican como
+  **empate técnico**, nombrando al otro. La posición se mantiene, porque el
+  orden hace falta, pero no se presenta como una ventaja real. El desempate
+  interno sigue siendo la valoración de Amazon y, después, el orden
+  alfabético.
+- **La home no nombra "el mejor" del catálogo.** Como las notas de gamas
+  distintas no se comparan, el veredicto de la home da el primero de cada
+  franja, no un ganador absoluto. Por la misma razón ninguna ficha dice "la
+  nota más alta del catálogo".
+
 ## 6. Fuentes y fechas por modelo
 
 Campos nuevos en `data/productos.json` (Fase 2 del plan):

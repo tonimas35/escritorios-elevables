@@ -3,14 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProductBySlug, getAllProducts } from "@/lib/products";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
-import { coma, nota } from "@/lib/format";
-import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
+import { nota } from "@/lib/format";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
 import { FranjaPrecio } from "@/components/FranjaPrecio";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { productSchema } from "@/lib/schema";
+import { PosicionNota } from "@/components/broadsheet/PosicionNota";
 
 export const metadata: Metadata = {
   title: "MAIDeSITe T2 Pro MAX opiniones y review 2026 — ¿Merece la pena?",
@@ -23,7 +23,7 @@ export default function MaidesiteT2ProReviewPage() {
   const result = getProductBySlug("maidesite-t2-pro-max");
   if (!result) return <p>Producto no encontrado</p>;
   const [asin, product] = result;
-  const enFranja = posicionEnFranja(product, getAllProducts().map(([, p]) => p));
+  const catalogo = getAllProducts().map(([, p]) => p);
 
   const alternatives = getAllProducts()
     .filter(([, p]) => p.slug !== "maidesite-t2-pro" && p.disponible)
@@ -110,19 +110,10 @@ export default function MaidesiteT2ProReviewPage() {
             Actualizado: {FECHA_EN_FRASE}
           </p>
 
-          <div className="flex items-center gap-4 mt-4">
-            <span className="font-bold text-sm px-2 py-1 rounded" style={{ background: 'var(--pro)', color: 'white' }}>
-              {nota(product.puntuacion.total)}/10
-            </span>
-            {enFranja && (
-              <span className="text-sm" style={{ color: 'var(--text-muted)' }}>
-                Nº {enFranja.posicion} de {enFranja.de} · {NOMBRE_FRANJA[enFranja.franja]}
-              </span>
-            )}
-          </div>
-
-          <div className="flex items-center gap-2 mt-2">
-            <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{coma(product.rating)}★ en Amazon</span>
+          {/* Posicion grande y nota pequeña, como en las fichas nuevas
+              (METODO.md §5). */}
+          <div className="mt-5">
+            <PosicionNota producto={product} catalogo={catalogo} tamano="clamp(52px, 6vw, 68px)" />
           </div>
 
           <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>

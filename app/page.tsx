@@ -8,7 +8,6 @@ import {
   caminos,
   dudas,
   etiquetasSpec,
-  fichaTecnica,
   metaFila,
   motorCorto,
   exclusion,
@@ -28,7 +27,8 @@ import { Afiliado } from "@/components/broadsheet/Afiliado";
 import { Firma } from "@/components/broadsheet/Firma";
 import { Comparativa, type FilaComparativa } from "@/components/broadsheet/Comparativa";
 import { CRITERIOS } from "@/lib/metodologia";
-import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
+import { NOMBRE_FRANJA, posicionEnFranja, type Franja } from "@/lib/nota";
+import { PosicionNota } from "@/components/broadsheet/PosicionNota";
 import { CtaFijo } from "@/components/broadsheet/CtaFijo";
 
 export const metadata: Metadata = {
@@ -45,9 +45,15 @@ export default function Home() {
   const podio = catalogo.slice(1, 3);
   const prosTop = top.pros.filter(publicable).slice(0, 3);
   const exclusionTop = exclusion(top);
-  const franjaTop = franjaPrecio(top);
   const notaPrecios = notaFranjas(catalogo.map(([, p]) => p));
-  const enFranjaTop = posicionEnFranja(top, catalogo.map(([, p]) => p));
+  const productos = catalogo.map(([, p]) => p);
+  // El primero de cada franja, en el orden de las franjas.
+  const primeros = (Object.keys(NOMBRE_FRANJA) as Franja[]).flatMap((f) =>
+    catalogo.filter(([, p]) => {
+      const pos = posicionEnFranja(p, productos);
+      return pos?.franja === f && pos.posicion === 1;
+    }),
+  );
 
   const tresDudas = dudas(catalogo);
 
@@ -76,95 +82,65 @@ export default function Home() {
           Nº 01 · Veredicto
           ============================================================ */}
       <section className="bs-contenido bs-seccion">
-        <div className="flex flex-wrap" style={{ gap: "var(--bs-hueco-hero)" }}>
-          <div style={{ flex: "1 1 400px" }}>
-            <p className="bs-kicker">Nº 01 · Veredicto</p>
+        <p className="bs-kicker">Nº 01 · Veredicto</p>
 
-            <h1 className="bs-h1" style={{ marginTop: 14 }}>
-              El mejor escritorio elevable de 2026 es el {top.marca}
-              &nbsp;{top.modelo}
-            </h1>
+        {/* Sin un "mejor" absoluto: las notas de gamas distintas no se
+            comparan, así que el veredicto es el primero de cada franja
+            (METODO.md §5, "Cómo se publica la nota"). */}
+        <h1 className="bs-h1" style={{ marginTop: 14, maxWidth: "22ch" }}>
+          Los mejores escritorios elevables de 2026, franja a franja
+        </h1>
 
-            <p
-              className="bs-standfirst"
-              style={{ maxWidth: "34ch", marginTop: 18 }}
-            >
-              {standfirst(top, true)}
-            </p>
+        <p className="bs-standfirst" style={{ maxWidth: "46ch", marginTop: 18 }}>
+          Cada escritorio se mide contra lo que se puede esperar por su precio.
+          Estos son los primeros de cada franja.
+        </p>
 
-            {franjaTop && (
-              <p className="bs-afiliado" style={{ marginTop: 22 }}>
-                {franjaTop}
-              </p>
-            )}
-
-            <div style={{ marginTop: franjaTop ? 10 : 24 }}>
-              <Afiliado />
-            </div>
-            <div style={{ marginTop: 10 }}>
-              <Cta asin={asinTop} />
-            </div>
-
-            <div style={{ marginTop: 28 }}>
-              <Firma total={catalogo.length} />
-            </div>
-          </div>
-
-          <div style={{ flex: "0 1 340px" }}>
-            <div className="bs-marco" style={{ padding: 16 }}>
-              <div style={{ height: "clamp(180px, 22vw, 250px)" }}>
-                <Image
-                  src={top.imagen}
-                  alt={top.imagen_alt}
-                  width={340}
-                  height={250}
-                  priority
-                  style={{ width: "100%", height: "100%", objectFit: "contain" }}
-                />
+        {/* Cuatro franjas: en escritorio van de dos en dos, porque el CTA
+            no cabe en un cuarto de ancho; en movil, una columna. */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
+            gap: "32px var(--bs-hueco-columnas)",
+            marginTop: 36,
+          }}
+        >
+          {primeros.map(([asin, p]) => (
+            <div key={asin} className="bs-camino">
+              <div className="bs-marco" style={{ padding: 10 }}>
+                <div style={{ height: 130 }}>
+                  <Image
+                    src={p.imagen}
+                    alt={p.imagen_alt}
+                    width={280}
+                    height={130}
+                    priority
+                    style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                  />
+                </div>
               </div>
-            </div>
 
-            {/* La cifra grande es la posicion en su franja y la nota va al
-                lado, pequeña (METODO.md §5, "Como se publica la nota"). */}
-            <div className="flex items-end gap-3" style={{ marginTop: 22 }}>
-              {enFranjaTop && (
-                <Cifra
-                  valor={String(enFranjaTop.posicion).padStart(2, "0")}
-                  tamano="clamp(58px, 7vw, 82px)"
-                />
+              <h2 className="bs-h3">
+                {p.marca} {p.modelo}
+              </h2>
+
+              <PosicionNota producto={p} catalogo={productos} tamano="44px" />
+
+              {franjaPrecio(p) && (
+                <p className="bs-afiliado bs-afiliado-mini">{franjaPrecio(p)}</p>
               )}
-              <span
-                style={{
-                  fontSize: 14,
-                  lineHeight: 1.35,
-                  paddingBottom: 7,
-                  color: "var(--bs-neutro-700)",
-                }}
-              >
-                {enFranjaTop && (
-                  <>
-                    de {enFranjaTop.de} · {NOMBRE_FRANJA[enFranjaTop.franja]}
-                    <br />
-                  </>
-                )}
-                Nota <strong style={{ color: "var(--bs-tinta)" }}>{nota(top.puntuacion.total)}</strong> sobre 10 · {coma(top.rating)}★
-              </span>
-            </div>
 
-            <div style={{ marginTop: 26, borderTop: "var(--bs-filete-seccion)", paddingTop: 14 }}>
-              <p className="bs-etiqueta" style={{ marginBottom: 12 }}>
-                Ficha técnica
-              </p>
-              <dl className="bs-ficha">
-                {fichaTecnica(top).map(([etiqueta, valor]) => (
-                  <div key={etiqueta} style={{ display: "contents" }}>
-                    <dt>{etiqueta}</dt>
-                    <dd>{valor}</dd>
-                  </div>
-                ))}
-              </dl>
+              <Cta asin={asin} ancho mini />
             </div>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap items-end" style={{ gap: "16px 40px", marginTop: 28 }}>
+          <div style={{ flex: "1 1 320px", maxWidth: "62ch" }}>
+            <Afiliado />
           </div>
+          <Firma total={catalogo.length} />
         </div>
       </section>
 
@@ -295,7 +271,7 @@ export default function Home() {
                     marginTop: 14,
                   }}
                 >
-                  {publicable(top.veredicto) ? top.veredicto : standfirst(top, true)}
+                  {publicable(top.veredicto) ? top.veredicto : standfirst(top)}
                 </p>
 
                 <div className="flex flex-wrap" style={{ gap: 7, marginTop: 18 }}>
