@@ -11,7 +11,8 @@ export function firmaMetodologia(total: number): string {
 /**
  * Los cinco apartados de la nota, con su peso y lo que miden. Es la
  * version legible de `calcularNota()` en lib/nota.ts y de METODO.md §5:
- * si cambia uno, cambian los tres.
+ * si cambia uno, cambian los tres. Cada dato se mide contra lo que se
+ * puede esperar en la gama de precio del modelo.
  *
  * Los pesos se leen de `PESOS` para que el texto publicado no pueda
  * divergir de la formula.

@@ -9,7 +9,7 @@
  * Funcion pura, sin alias de rutas, para poder probarla con node --test.
  */
 import type { Product } from "./types";
-import { franja } from "./nota.ts";
+import { franja, gama, type Gama } from "./nota.ts";
 
 export interface Alternativa {
   motivo: string;
@@ -28,10 +28,12 @@ export function alternativas(actual: Product, catalogo: Product[], cuantas = 3):
   const candidatas: [string, Product | undefined][] = [];
 
   if (actual.incluye_tablero) {
-    // El mas cercano por arriba, no el mejor del catalogo.
-    const escalon = conTablero
-      .filter((p) => p.puntuacion.total > actual.puntuacion.total)
-      .sort((a, b) => a.puntuacion.total - b.puntuacion.total || porNota(a, b))[0];
+    // La nota mide contra la gama de precio (METODO.md §5), asi que no se
+    // compara entre gamas: el siguiente escalon es el mejor de la gama de
+    // precio inmediatamente superior. En la gama alta no hay escalon.
+    const siguiente: Record<Gama, Gama | null> = { entrada: "media", media: "alta", alta: null };
+    const gamaEscalon = siguiente[gama(actual)];
+    const escalon = gamaEscalon ? conTablero.find((p) => gama(p) === gamaEscalon) : undefined;
     // Mas grande o mas compacto: primero dentro de su franja de precio
     // (METODO.md §2). Quien mira un completo de 100-160 € no busca uno mas
     // pequeño de 400 €. Si en la franja no hay otro ancho, cualquiera.
@@ -46,7 +48,7 @@ export function alternativas(actual: Product, catalogo: Product[], cuantas = 3):
     const doble = actual.specs.tipo_motor !== "doble";
 
     candidatas.push(
-      ["El siguiente escalón", escalon],
+      ["Si puedes subir de presupuesto", escalon],
       ["Si quieres un tablero más grande", deTamano((a) => a > ancho, false)],
       ["Si te vale uno más compacto", deTamano((a) => a < ancho, true)],
       doble

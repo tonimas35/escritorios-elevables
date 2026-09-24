@@ -2,9 +2,12 @@
  * Nota y franja de cada modelo, calculadas con la regla publicada en
  * METODO.md §2 y §5. Sustituyen a la nota puesta a mano.
  *
- * Umbrales absolutos: la nota de un modelo no cambia porque entre o salga
- * otro del catalogo. Cambiar un peso o un umbral es cambiar el metodo: se
- * cambia primero en METODO.md, con fecha, y despues aqui.
+ * La nota mide cada escritorio contra lo que se puede esperar en su gama de
+ * precio: en cada dato, 5 es lo minimo aceptable en la gama y 10 lo mejor
+ * esperable. Los umbrales son fijos por gama: la nota de un modelo no cambia
+ * porque entre o salga otro del catalogo. Cambiar un peso o un umbral es
+ * cambiar el metodo: se cambia primero en METODO.md, con fecha, y despues
+ * aqui.
  *
  * Sin alias de rutas: lo importan tambien el validador y los tests, que se
  * ejecutan con Node fuera de Next.
@@ -32,41 +35,110 @@ export const PESOS = {
 /** Por debajo de estas valoraciones la nota de Amazon no cuenta (§3 y §5). */
 export const MIN_VALORACIONES = 100;
 
-/** Recta entre dos umbrales, recortada a 0-10. `de` puede ser mayor que `a`. */
-function escala(valor: number, de: number, a: number): number {
-  const x = ((valor - de) / (a - de)) * 10;
+export type Gama = "entrada" | "media" | "alta";
+
+/** Pares [minimo aceptable, excelente] de METODO.md §5, por gama. */
+type Umbral = [number, number];
+interface Umbrales {
+  carga: Umbral;
+  motor: { simple: number; doble: number; manual: number };
+  estructura: Umbral;
+  velocidad: Umbral;
+  ruido: Umbral;
+  alturaMin: Umbral;
+  alturaMax: Umbral;
+  garantia: Umbral;
+}
+
+export const UMBRALES: Record<Gama, Umbrales> = {
+  entrada: {
+    carga: [50, 80],
+    motor: { simple: 7, doble: 10, manual: 0 },
+    estructura: [15, 25],
+    velocidad: [2, 3],
+    ruido: [55, 45],
+    alturaMin: [74, 70],
+    alturaMax: [115, 122],
+    garantia: [2, 4],
+  },
+  media: {
+    carga: [70, 100],
+    motor: { simple: 7, doble: 10, manual: 0 },
+    estructura: [20, 32],
+    velocidad: [2, 3],
+    ruido: [55, 45],
+    alturaMin: [74, 68],
+    alturaMax: [116, 125],
+    garantia: [2, 5],
+  },
+  alta: {
+    carga: [100, 160],
+    motor: { simple: 2, doble: 10, manual: 0 },
+    estructura: [28, 40],
+    velocidad: [3, 4],
+    ruido: [50, 42],
+    alturaMin: [72, 62],
+    alturaMax: [118, 130],
+    garantia: [3, 5],
+  },
+};
+
+/** Umbrales comunes a todas las gamas (METODO.md §5). */
+export const MEMORIAS: Umbral = [2, 4];
+export const VALORACION: Umbral = [4.0, 4.7];
+
+/**
+ * Minimo aceptable -> 5, excelente -> 10, en linea recta y recortado a 0-10.
+ * `minimo` puede ser mayor que `excelente` (ruido, altura minima).
+ */
+function escala(valor: number, [minimo, excelente]: Umbral): number {
+  const x = 5 + (5 * (valor - minimo)) / (excelente - minimo);
   return Math.max(0, Math.min(10, x));
 }
 
 const media = (xs: number[]) => xs.reduce((s, x) => s + x, 0) / xs.length;
 const decimal = (x: number) => Math.round(x * 10) / 10;
 
+/**
+ * Gama de precio (METODO.md §5): por el punto medio de la franja verificada,
+ * sin separar marcos de completos. Sin franja verificada se usa `precio`,
+ * el dato interno que ya segmenta las paginas y que no se publica.
+ */
+export function gama(p: Pick<Product, "precio" | "precio_min" | "precio_max">): Gama {
+  const medio =
+    p.precio_min != null && p.precio_max != null ? (p.precio_min + p.precio_max) / 2 : p.precio;
+  if (medio <= 120) return "entrada";
+  if (medio <= 250) return "media";
+  return "alta";
+}
+
 export function calcularNota(p: Product): ProductScore {
   const s = p.specs;
+  const u = UMBRALES[gama(p)];
 
   const estabilidad =
-    0.5 * escala(s.peso_max_carga_kg, 40, 150) +
-    0.3 * (s.tipo_motor === "doble" ? 10 : 5) +
-    0.2 * escala(s.peso_estructura_kg, 15, 40);
+    0.5 * escala(s.peso_max_carga_kg, u.carga) +
+    0.3 * u.motor[s.tipo_motor] +
+    0.2 * escala(s.peso_estructura_kg, u.estructura);
 
   // El ruido falta en algunas fichas: si no hay dato, no cuenta, en vez
   // de inventar un valor que baje o suba la media.
   const funciones = media([
-    escala(s.presets_memoria, 0, 4),
-    s.sistema_anticolision ? 10 : 0,
-    escala(s.velocidad_cm_s, 2, 4),
-    ...(s.ruido_db !== null ? [escala(s.ruido_db, 55, 42)] : []),
+    escala(s.presets_memoria, MEMORIAS),
+    s.sistema_anticolision ? 10 : 2,
+    escala(s.velocidad_cm_s, u.velocidad),
+    ...(s.ruido_db !== null ? [escala(s.ruido_db, u.ruido)] : []),
   ]);
 
   const recorrido = media([
-    escala(s.rango_altura_min_cm, 75, 60),
-    escala(s.rango_altura_max_cm, 115, 130),
+    escala(s.rango_altura_min_cm, u.alturaMin),
+    escala(s.rango_altura_max_cm, u.alturaMax),
   ]);
 
-  const garantia = escala(s.garantia_anos, 1, 5);
+  const garantia = escala(s.garantia_anos, u.garantia);
 
   const valoracion =
-    p.num_reviews >= MIN_VALORACIONES ? escala(p.rating, 4.0, 4.8) : null;
+    p.num_reviews >= MIN_VALORACIONES ? escala(p.rating, VALORACION) : null;
 
   // Sin volumen de valoraciones, ese apartado sale y los demas se reescalan.
   const partes: [number, number][] = [
