@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProductBySlug, getAllProducts } from "@/lib/products";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
-import { nota } from "@/lib/format";
+import { coma, nota } from "@/lib/format";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
 import { FranjaPrecio } from "@/components/FranjaPrecio";
@@ -42,6 +42,12 @@ export default function FeziboReviewPage() {
 
   const prodSchema = productSchema(asin, product, "/fezibo-opiniones");
 
+  // Cifras derivadas de la ficha, no escritas a mano: si cambia el JSON,
+  // el texto cambia con él.
+  const s = product.specs;
+  const recorridoCm = s.rango_altura_max_cm - s.rango_altura_min_cm;
+  const segundos = s.velocidad_cm_s ? Math.round(recorridoCm / s.velocidad_cm_s) : null;
+
   const faqItems = [
     {
       q: "¿El Fezibo merece la pena?",
@@ -57,7 +63,7 @@ export default function FeziboReviewPage() {
     },
     {
       q: "¿El Fezibo es ruidoso?",
-      a: "A 50 dB es audible pero no molesto. Es como el ruido de fondo de una oficina tranquila. En una videollamada, la otra persona no lo nota. Solo tarda unos 18 segundos en hacer el recorrido completo, así que el ruido es breve.",
+      a: `${s.ruido_db !== null ? `El fabricante declara ${s.ruido_db} dB.` : "La ficha del fabricante no declara el nivel de ruido, así que no damos una cifra."}${segundos ? ` El recorrido completo dura unos ${segundos} segundos, así que el ruido, sea cual sea, es breve.` : ""}`,
     },
   ];
 
@@ -148,15 +154,15 @@ export default function FeziboReviewPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { label: "Motor", value: "Simple", detail: "Básico pero funcional" },
-            { label: "Rango de altura", value: `${product.specs.rango_altura_min_cm}–${product.specs.rango_altura_max_cm} cm`, detail: "44 cm de recorrido" },
-            { label: "Velocidad", value: `${product.specs.velocidad_cm_s} cm/s`, detail: "Estándar" },
+            { label: "Rango de altura", value: `${product.specs.rango_altura_min_cm}–${product.specs.rango_altura_max_cm} cm`, detail: `${coma(recorridoCm)} cm de recorrido` },
+            { label: "Velocidad", value: s.velocidad_cm_s !== null ? `${coma(s.velocidad_cm_s)} cm/s` : "Sin dato", detail: "Estándar" },
             { label: "Carga máxima", value: `${product.specs.peso_max_carga_kg} kg`, detail: "Setup ligero" },
             { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm`, detail: product.specs.material_tablero || '' },
-            { label: "Peso estructura", value: `${product.specs.peso_estructura_kg} kg`, detail: "Ligero" },
-            { label: "Ruido", value: `${product.specs.ruido_db} dB`, detail: "Audible" },
+            { label: "Peso estructura", value: s.peso_estructura_kg !== null ? `${s.peso_estructura_kg} kg` : "Sin dato", detail: "Ligero" },
+            { label: "Ruido", value: s.ruido_db !== null ? `${s.ruido_db} dB` : "Sin dato", detail: s.ruido_db !== null ? "Audible" : "No lo declara el fabricante" },
             { label: "Garantía", value: `${product.specs.garantia_anos} años`, detail: "Estándar" },
             { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rápido" },
-            { label: "Anticolisión", value: product.specs.sistema_anticolision ? "Sí" : "No", detail: "No incluido" },
+            { label: "Anticolisión", value: s.sistema_anticolision ? "Sí" : "No", detail: s.sistema_anticolision ? "Incluido" : "No incluido" },
           ].map((spec) => (
             <div key={spec.label} className="p-4 rounded" style={{ background: 'var(--bg-secondary)' }}>
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{spec.label}</p>
@@ -188,17 +194,19 @@ export default function FeziboReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Un elevable con motor en la gama de entrada: ¿qué sacrificas?</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            El motor simple es lento (2.5 cm/s) y ruidoso comparado con los doble motor. El recorrido completo tarda unos 18 segundos, que se sienten largos cuando vienes de un escritorio eléctrico rápido. Pero si es tu primer elevable, no lo vas a notar. Las {product.specs.presets_memoria} memorias de altura te permiten guardar tus posiciones favoritas y olvidarte.
+            El motor simple es más lento que los de doble motor{s.velocidad_cm_s !== null && <> ({coma(s.velocidad_cm_s)} cm/s)</>}.{segundos && <> El recorrido completo tarda unos {segundos} segundos, que se sienten largos cuando vienes de un escritorio eléctrico rápido.</>} Pero si es tu primer elevable, no lo vas a notar. Las {product.specs.presets_memoria} memorias de altura te permiten guardar tus posiciones favoritas y olvidarte.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            No tiene anticolisión. Si la mesa choca con algo al bajar, el motor sigue empujando. Es el sacrificio más relevante del precio bajo. Si tienes una cajonera debajo, ojo. La solución casera: pon un tope adhesivo a la altura del obstáculo.
+            {s.sistema_anticolision
+              ? "Según la ficha del fabricante, tiene sistema anticolisión: si al bajar choca con algo, se detiene."
+              : "No tiene anticolisión. Si la mesa choca con algo al bajar, el motor sigue empujando. Si tienes una cajonera debajo, ojo."}
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold">Estabilidad: lo justo</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Con 16 kg de estructura y patas de dos secciones, la estabilidad es la mínima aceptable. A posición de pie (110+ cm), el tablero se mueve al escribir. No es dramático con un portátil, pero con un monitor de 27 pulgadas en brazo, se nota. Para personas por encima de 1.80 m, la altura máxima de 116 cm puede quedarse justa.
+            Un solo motor y {s.peso_max_carga_kg} kg de carga admitida{s.peso_estructura_kg !== null ? `, con ${s.peso_estructura_kg} kg de estructura` : ""}: dan para un monitor, un portátil y los periféricos, y se quedan cortos para un setup pesado con brazos y varios monitores. Para personas por encima de 1,80 m, la altura máxima de {coma(s.rango_altura_max_cm)} cm puede quedarse justa.
           </p>
         </div>
 
@@ -212,7 +220,7 @@ export default function FeziboReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Para quién NO es</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Teletrabajadores a jornada completa que necesitan espacio para dual monitor. Personas altas (más de 1.80 m) que necesitan el escritorio por encima de 116 cm. Quien tenga monitores pesados o un setup de más de 30-40 kg. Y si ya tienes un elevable y quieres mejorar, el salto que se nota es a uno de doble motor, como el FLEXISPOT de 160x80 o el MAIDeSITe S2 Pro, que ya vienen con tablero.
+            Teletrabajadores a jornada completa que necesitan espacio para dual monitor. Personas altas (más de 1.80 m) que necesitan el escritorio por encima de {coma(s.rango_altura_max_cm)} cm. Quien tenga monitores pesados o un setup de más de 30-40 kg. Y si ya tienes un elevable y quieres mejorar, el salto que se nota es a uno de doble motor, como el FLEXISPOT de 160x80 o el MAIDeSITe S2 Pro, que ya vienen con tablero.
           </p>
         </div>
 
