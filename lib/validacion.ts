@@ -12,7 +12,7 @@
  */
 import type { CambioCatalogo, Product, ProductMap } from "./types";
 import { CIFRA_PROHIBIDA } from "./cifras.ts";
-import { calcularNota, franja } from "./nota.ts";
+import { calcularNota, franja, NOMBRE_FRANJA } from "./nota.ts";
 
 export interface Resultado {
   errores: string[];
@@ -158,7 +158,7 @@ export function validarCatalogo(
   }
 
   // Cobertura de franjas (METODO.md §2): al menos dos modelos por franja.
-  const porFranja: Record<string, number> = { A: 0, B: 0, C: 0, M: 0 };
+  const porFranja: Record<string, number> = Object.fromEntries(Object.keys(NOMBRE_FRANJA).map((f) => [f, 0]));
   for (const [, p] of entradas) {
     if (!p.disponible) continue;
     const f = franja(p);

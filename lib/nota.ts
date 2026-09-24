@@ -14,13 +14,14 @@
  */
 import type { Product, ProductScore } from "./types";
 
-export type Franja = "A" | "B" | "C" | "M";
+export type Franja = "A" | "B" | "C" | "M1" | "M2";
 
 export const NOMBRE_FRANJA: Record<Franja, string> = {
   A: "Completos hasta 120 €",
   B: "Completos de 120 a 250 €",
   C: "Completos de 250 a 500 €",
-  M: "Marcos sin tablero",
+  M1: "Marcos hasta 250 €",
+  M2: "Marcos de 250 a 500 €",
 };
 
 /** Pesos de METODO.md §5. Suman 1. */
@@ -176,12 +177,17 @@ export function calcularNota(p: Product): ProductScore {
 /**
  * Franja del modelo (METODO.md §2). Se asigna por el punto medio de la
  * franja de precio verificada. Sin franja verificada, o por encima de
- * 500 €, no tiene franja: `null`.
+ * 500 €, no tiene franja: `null`. Los marcos van aparte y en dos franjas,
+ * para no juntar en una posicion marcos de gamas distintas.
  */
 export function franja(p: Pick<Product, "incluye_tablero" | "precio_min" | "precio_max">): Franja | null {
-  if (!p.incluye_tablero) return "M";
   if (p.precio_min == null || p.precio_max == null) return null;
   const medio = (p.precio_min + p.precio_max) / 2;
+  if (!p.incluye_tablero) {
+    if (medio <= 250) return "M1";
+    if (medio <= 500) return "M2";
+    return null;
+  }
   if (medio <= 120) return "A";
   if (medio <= 250) return "B";
   if (medio <= 500) return "C";

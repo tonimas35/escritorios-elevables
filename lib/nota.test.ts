@@ -81,7 +81,9 @@ test("sin dato de ruido, funciones no se inventa un valor", () => {
 });
 
 test("franja por el punto medio de la franja de precio verificada", () => {
-  assert.equal(franja(porSlug("flexispot-eg1")), "M");
+  assert.equal(franja(porSlug("flexispot-eg1")), "M1"); // marco de 110–150
+  assert.equal(franja(porSlug("maidesite-t2-pro-max")), "M2"); // marco de 310–430
+  assert.equal(franja({ incluye_tablero: false, precio_min: null, precio_max: null }), null); // marco sin franja verificada
   assert.equal(franja(porSlug("vasagle-100")), "A"); // 70–90
   assert.equal(franja(porSlug("devoko-120")), "A"); // 100–130, medio 115
   assert.equal(franja(porSlug("fezibo-120")), "B"); // 120–160
@@ -91,9 +93,11 @@ test("franja por el punto medio de la franja de precio verificada", () => {
   assert.equal(franja({ incluye_tablero: true, precio_min: 100, precio_max: 140 }), "A"); // medio 120: límite incluido
 });
 
-test("posición en franja: el T2 Pro MAX es el primero de los marcos", () => {
+test("posición en franja: cada marco solo se compara con los de su franja", () => {
   const t2 = posicionEnFranja(porSlug("maidesite-t2-pro-max"), catalogo)!;
-  assert.deepEqual([t2.franja, t2.posicion, t2.de], ["M", 1, 2]);
+  assert.deepEqual([t2.franja, t2.posicion, t2.de], ["M2", 1, 1]);
+  const eg1 = posicionEnFranja(porSlug("flexispot-eg1"), catalogo)!;
+  assert.deepEqual([eg1.franja, eg1.posicion, eg1.de], ["M1", 1, 1]);
   const b = catalogo.filter((p) => franja(p) === "B").map((p) => posicionEnFranja(p, catalogo)!.posicion).sort();
   assert.deepEqual(b, b.map((_, i) => i + 1), "posiciones consecutivas aunque haya empate técnico");
 });
