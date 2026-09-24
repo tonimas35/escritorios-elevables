@@ -11,10 +11,10 @@ import { alternativas } from "@/lib/alternativas";
 import { rutaFicha } from "@/lib/rutas";
 import { CRITERIOS } from "@/lib/metodologia";
 import Link from "next/link";
-import { Cifra } from "@/components/broadsheet/Cifra";
 import { Cta } from "@/components/broadsheet/Cta";
 import { Afiliado } from "@/components/broadsheet/Afiliado";
 import { Firma } from "@/components/broadsheet/Firma";
+import { PosicionNota } from "@/components/broadsheet/PosicionNota";
 
 /**
  * Plantilla de ficha de modelo (design-ref/code/README.md, pantalla 2).
@@ -154,24 +154,8 @@ export default async function FichaModelo({ params }: Props) {
               </div>
             </div>
 
-            {/* La cifra grande es la posicion en la franja; la nota, al lado
-                y en pequeño (METODO.md §5). */}
-            <div className="flex items-end gap-3" style={{ marginTop: 22 }}>
-              {enFranja && (
-                <Cifra
-                  valor={String(enFranja.posicion).padStart(2, "0")}
-                  tamano="clamp(58px, 7vw, 82px)"
-                />
-              )}
-              <span style={{ fontSize: 14, lineHeight: 1.35, paddingBottom: 7, color: "var(--bs-neutro-700)" }}>
-                {enFranja && (
-                  <>
-                    de {enFranja.de} · {NOMBRE_FRANJA[enFranja.franja]}
-                    <br />
-                  </>
-                )}
-                Nota <strong style={{ color: "var(--bs-tinta)" }}>{nota(p.puntuacion.total)}</strong> sobre 10 · {coma(p.rating)}★
-              </span>
+            <div style={{ marginTop: 22 }}>
+              <PosicionNota producto={p} catalogo={catalogo} />
             </div>
           </div>
         </div>
