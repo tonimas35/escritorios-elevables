@@ -319,7 +319,7 @@ export default function MaidesiteT2ProReviewPage() {
         </h3>
         <div className="space-y-2 text-sm">
           <p>
-            <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7: review completa</Link> — La referencia premium. Merece la pena pagar casi el doble?
+            <Link href="/flexispot-eg1-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>FLEXISPOT EG1: ficha completa</Link> — El otro marco del catálogo: de un motor y bastante más barato.
           </p>
           <p>
             <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot vs Maidesite: comparativa</Link> — Enfrentamos las dos marcas cara a cara.
