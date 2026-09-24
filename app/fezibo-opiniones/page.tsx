@@ -56,7 +56,7 @@ export default function FeziboReviewPage() {
     },
     {
       q: "¿El Fezibo sirve para trabajar 8 horas al día?",
-      a: "Puede, pero no lo recomiendo como escritorio principal para jornada completa. Con 70 kg de carga y un tablero de 120x60 cm, el espacio y la capacidad son justos. Si teletrabajas a jornada completa, invierte un poco más en algo con tablero más grande y más carga, como el SANODESK de 140x60 (80 kg).",
+      a: "Puede, pero no lo recomiendo como escritorio principal para jornada completa. Con 70 kg de carga y un tablero de 120x60 cm, el espacio y la capacidad son justos. Si teletrabajas a jornada completa, invierte un poco más en algo con tablero más grande y más carga.",
     },
     {
       q: "¿Qué puedo poner encima del Fezibo?",
