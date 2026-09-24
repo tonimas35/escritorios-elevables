@@ -54,7 +54,8 @@ Un modelo entra solo si cumple **todos**:
    Menos volumen no es señal fiable.
 3. Specs completas (las 14 de `specs`) sacadas de la ficha del fabricante o de
    la de Amazon, con la URL guardada en `fuente_specs`.
-4. Garantía declarada por escrito.
+4. Garantía declarada por escrito. Un modelo activo sin garantía declarada no
+   se retira de inmediato, pero sale en el siguiente barrido si no aparece.
 5. Revisión de las **20 reseñas de 1–2 estrellas más recientes**: sin un patrón
    repetido de fallo de motor, de inestabilidad o de piezas que llegan rotas.
    Lo encontrado se resume en `nota_resenas`, aunque sea "nada relevante".
@@ -127,8 +128,23 @@ gama: la nota de un modelo no cambia porque entre o salga otro.
 
 En todas las gamas: memorias 2 → 4; anticolisión sí 10, no 3; valoración de
 compradores 4,0 → 4,6 estrellas, y solo con 100 valoraciones o más (§3). Si la
-ficha no declara velocidad, ruido o peso de la estructura, ese dato no cuenta
-y los demás de su apartado se reparten el peso.
+ficha no declara velocidad, ruido, peso de la estructura, número de memorias
+o si tiene anticolisión, ese dato no cuenta y los demás de su apartado se
+reparten el peso. Si no declara la garantía, el apartado de garantía no cuenta
+y los demás apartados se reescalan, igual que la valoración sin volumen.
+
+- **Garantía compuesta** (por ejemplo, 5 años el marco y 3 el motor): cuenta
+  la menor, porque es la que cubre la pieza que antes falla.
+- **Carga:** la que la ficha da en movimiento. Si solo da una cifra, esa.
+- **Si la ficha se contradice** (los puntos destacados dicen una cosa y la
+  tabla de detalles otra), manda lo que declara el fabricante en el título y
+  los puntos destacados; la tabla de Amazon solo se usa si ellos no lo dicen.
+- **El peso de la estructura** solo cuenta en marcos, donde el "peso del
+  artículo" es el de la estructura. En un escritorio completo ese peso
+  incluye el tablero y no sirve.
+
+Añadido el 24/09/2026 al verificar las doce fichas contra Amazon: varias
+cifras que había en el catálogo no aparecían en ninguna fuente.
 
 **Consecuencia:** las notas de gamas distintas **no se comparan entre sí**. Un
 8 en la gama de entrada y un 8 en la alta dicen lo mismo, "muy bueno para lo
@@ -143,8 +159,9 @@ que la mida).
 ### Simulación del 24/09/2026 (escala con mínimo 5)
 
 Primera versión de la nota por gama, con los datos de ese día sin verificar
-(ver §6). Con el reajuste a mínimo 6 las notas quedan entre 7,5 y 9,2: están
-en el registro de cambios.
+(ver §6). Con el reajuste a mínimo 6 las notas quedaban entre 7,5 y 9,2, y
+tras verificar las doce fichas contra Amazon.es (24/09/2026) entre 6,8 y 9,4.
+Todas están en el registro de cambios.
 
 | Modelo | Gama | Primera versión | Nota por gama |
 |---|---|---|---|

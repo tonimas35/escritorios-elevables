@@ -31,20 +31,22 @@ test("todas las notas y apartados quedan entre 0 y 10 con un decimal", () => {
   }
 });
 
-test("reproduce la simulación aprobada en METODO.md §5", () => {
+// Notas con las specs verificadas contra Amazon.es el 24/09/2026. Si una
+// cambia sin que cambien los datos, ha cambiado la formula sin querer.
+test("reproduce las notas del catálogo verificado el 24/09/2026", () => {
   const esperado: Record<string, number> = {
-    "maidesite-t2-pro-max": 9.2,
-    "ergear-120": 9.1,
-    "devoko-120": 9.1,
-    "sanodesk-140": 8.6,
-    "devoko-160": 8.6,
-    "songmics-160": 8.5,
-    "flexispot-160x80": 8.5,
-    "vasagle-160": 8.4,
+    "maidesite-t2-pro-max": 9.4,
+    "vasagle-100": 9.3,
+    "ergear-120": 8.9,
+    "maidesite-s2-pro": 8.9,
     "flexispot-eg1": 8.2,
-    "maidesite-s2-pro": 8.1,
-    "fezibo-120": 7.9,
-    "vasagle-100": 7.5,
+    "songmics-160": 8.1,
+    "devoko-120": 8,
+    "fezibo-120": 8,
+    "vasagle-160": 7.9,
+    "sanodesk-140": 7.8,
+    "devoko-160": 7.1,
+    "flexispot-160x80": 6.8,
   };
   for (const [slug, total] of Object.entries(esperado)) {
     assert.equal(porSlug(slug).puntuacion.total, total, slug);
@@ -64,20 +66,38 @@ test("los extremos se recortan a 0 y 10", () => {
 });
 
 test("sin 100 valoraciones el apartado no cuenta y el resto se reescala", () => {
-  const t2 = porSlug("maidesite-t2-pro-max"); // 76 valoraciones
-  assert.equal(t2.puntuacion.valoracion, null);
-  const n = t2.puntuacion;
+  const n = calcularNota(con("maidesite-t2-pro-max", { num_reviews: 50, specs: { garantia_anos: 3, presets_memoria: 4 } }));
+  assert.equal(n.valoracion, null);
   const sinValoracion =
-    (n.estabilidad * PESOS.estabilidad + n.funciones * PESOS.funciones + n.recorrido * PESOS.recorrido + n.garantia * PESOS.garantia) /
+    (n.estabilidad * PESOS.estabilidad + n.funciones! * PESOS.funciones + n.recorrido * PESOS.recorrido + n.garantia! * PESOS.garantia) /
     (1 - PESOS.valoracion);
   assert.ok(Math.abs(sinValoracion - n.total) <= 0.1);
+});
+
+test("sin garantía declarada, el apartado no cuenta y el resto se reescala", () => {
+  const n = calcularNota(con("songmics-160", { specs: { garantia_anos: null } }));
+  assert.equal(n.garantia, null);
+  const pesos = PESOS.estabilidad + PESOS.funciones + PESOS.recorrido + (n.valoracion !== null ? PESOS.valoracion : 0);
+  const esperado =
+    (n.estabilidad * PESOS.estabilidad + n.funciones! * PESOS.funciones + n.recorrido * PESOS.recorrido + (n.valoracion ?? 0) * PESOS.valoracion) / pesos;
+  assert.ok(Math.abs(esperado - n.total) <= 0.1);
+});
+
+test("memorias o anticolisión sin dato no cuentan como un no", () => {
+  const base = { specs: { presets_memoria: 4, sistema_anticolision: true, velocidad_cm_s: null, ruido_db: null } };
+  const sinAnticolision = calcularNota(con("songmics-160", { specs: { ...base.specs, sistema_anticolision: null } }));
+  const conNo = calcularNota(con("songmics-160", { specs: { ...base.specs, sistema_anticolision: false } }));
+  assert.ok(sinAnticolision.funciones! > conNo.funciones!, "sin dato no penaliza como un no");
+  const nada = calcularNota(con("songmics-160", { specs: { presets_memoria: null, sistema_anticolision: null, velocidad_cm_s: null, ruido_db: null } }));
+  assert.equal(nada.funciones, null);
+  assert.ok(nada.total >= 0 && nada.total <= 10);
 });
 
 test("sin dato de ruido, funciones no se inventa un valor", () => {
   const conRuido = calcularNota(porSlug("songmics-160")); // 50 dB
   const sinRuido = calcularNota(con("songmics-160", { specs: { ruido_db: null } }));
   assert.notEqual(conRuido.funciones, sinRuido.funciones);
-  assert.ok(sinRuido.funciones >= 0 && sinRuido.funciones <= 10);
+  assert.ok(sinRuido.funciones! >= 0 && sinRuido.funciones! <= 10);
 });
 
 test("franja por el punto medio de la franja de precio verificada", () => {
@@ -133,8 +153,8 @@ test("la misma ficha puntúa más en una gama más barata", () => {
 });
 
 test("sin velocidad ni peso de estructura, esos datos no cuentan y no se inventan", () => {
-  const base = porSlug("songmics-160");
+  const con_ = calcularNota(con("songmics-160", { specs: { velocidad_cm_s: 2.5, peso_estructura_kg: 27 } }));
   const sin = calcularNota(con("songmics-160", { specs: { velocidad_cm_s: null, peso_estructura_kg: null } }));
   for (const v of Object.values(sin)) if (v !== null) assert.ok(v >= 0 && v <= 10);
-  assert.notDeepEqual(sin, base.puntuacion);
+  assert.notDeepEqual(sin, con_);
 });

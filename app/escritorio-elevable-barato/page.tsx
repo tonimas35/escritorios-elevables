@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
 import { coma, nota } from "@/lib/format";
+import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
@@ -25,7 +26,36 @@ export default function EscritorioBaratoPage() {
     .filter(([, p]) => p.disponible && p.precio < 220)
     .sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total);
 
-  const winner = cheapProducts[0];
+  // Las notas de gamas distintas no se comparan (METODO.md §5): el que se
+  // recomienda es el nº 1 de la franja mas barata, no la nota mas alta.
+  const todos = getAllProducts().map(([, p]) => p);
+  const winner =
+    cheapProducts.find(([, p]) => {
+      const pos = posicionEnFranja(p, todos);
+      return pos?.franja === "A" && pos.posicion === 1;
+    }) ?? cheapProducts[0];
+  const medio = (p: (typeof todos)[number]) => (p.precio_min !== null && p.precio_max !== null ? (p.precio_min + p.precio_max) / 2 : p.precio);
+  const masBarato = [...cheapProducts].sort(([, a], [, b]) => medio(a) - medio(b))[0];
+  const w = winner?.[1];
+  const rasgos = w
+    ? [
+        w.specs.presets_memoria !== null ? `${w.specs.presets_memoria} memorias` : null,
+        `${w.specs.peso_max_carga_kg} kg de carga`,
+        w.specs.sistema_anticolision ? "anticolisión" : null,
+        w.specs.garantia_anos !== null ? `${w.specs.garantia_anos} años de garantía` : null,
+      ].filter((x): x is string => x !== null)
+    : [];
+  const enLista = (xs: string[]) => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} y ${xs.at(-1)}`);
+  const baratos = cheapProducts.map(([, p]) => p);
+  const rango = (xs: number[]) => {
+    const [a, b] = [Math.min(...xs), Math.max(...xs)];
+    return a === b ? coma(a) : `${coma(a)} y ${coma(b)}`;
+  };
+  const ruidosBaratos = baratos.map((p) => p.specs.ruido_db).filter((r): r is number => r !== null);
+  const anticolisionBarato = [...baratos]
+    .filter((p) => p.specs.sistema_anticolision && p.incluye_tablero)
+    .sort((a, b) => medio(a) - medio(b))[0];
+  const dobles = todos.filter((p) => p.specs.tipo_motor === "doble" && p.disponible);
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -39,27 +69,27 @@ export default function EscritorioBaratoPage() {
   const faqItems = [
     {
       q: "¿Cuál es el escritorio elevable más barato que merece la pena?",
-      a: `El ${winner?.[1].marca} ${winner?.[1].modelo}. Tiene anticolisión, 4 memorias y 5 años de garantía, cosas que no suelen venir juntas en la gama de entrada. Si buscas algo aún más contenido, el VASAGLE de 100x60 es el más barato del catálogo y cumple para un portátil y poco más.`,
+      a: `El ${w?.marca} ${w?.modelo}, el nº 1 de los ${NOMBRE_FRANJA.A.toLowerCase()}: ${enLista(rasgos)}.${masBarato && masBarato[0] !== winner?.[0] ? ` Si buscas lo más barato del catálogo, el ${masBarato[1].marca} ${masBarato[1].modelo}.` : ""}`,
     },
     {
       q: "¿Motor simple o doble para un escritorio barato?",
-      a: "En la gama de entrada, casi todos llevan motor simple. Es más lento (20 seg el recorrido completo vs 12 del doble), pero para un setup normal de portátil y monitor va de sobra. Ninguno de los baratos del catálogo lleva doble motor: el más asequible con doble motor es el marco MAIDeSITe T2 Pro MAX, ya en la gama alta y sin tablero.",
+      a: "En la gama de entrada, casi todos llevan motor simple. Es más lento y aguanta menos carga, pero para un setup normal de portátil y monitor va de sobra. Ninguno de los baratos del catálogo lleva doble motor: el más asequible con doble motor es el marco MAIDeSITe T2 Pro MAX, ya en la gama alta y sin tablero.",
     },
     {
       q: "¿Cuánto dura un escritorio elevable barato?",
-      a: "Entre 3 y 7 años con uso normal (2-4 cambios al día). Los motores aguantan unos 10.000 ciclos. Los problemas que se ven en Amazon son casi siempre del controlador electrónico, no del motor, y un reinicio suele arreglarlo.",
+      a: "Los fabricantes que lo declaran prueban el motor para entre 20.000 y 50.000 ciclos de subida y bajada, que con 2-4 cambios al día son muchos años. Aparte, en España la garantía legal es de tres años.",
     },
     {
       q: "¿Necesito herramientas especiales para montarlo?",
-      a: "No, todos incluyen llaves Allen y tornillos. Montaje en 20-45 minutos. Los ligeros (Fezibo, Devoko) se montan solo; el VASAGLE (24 kg) mejor entre dos. Un destornillador eléctrico ayuda pero no es obligatorio.",
+      a: "No: los fabricantes incluyen las herramientas básicas y las instrucciones. Si el paquete pasa de 25 kg, mejor montarlo entre dos. Un destornillador eléctrico ayuda pero no es obligatorio.",
     },
     {
       q: "¿Qué sacrifico por comprar un escritorio elevable barato?",
-      a: "Velocidad del motor (2.5 vs 3.8 cm/s), estabilidad a máxima altura (algo de vibración al escribir de pie) y acabado del tablero (melamina básica). También menos recorrido: los baratos suben hasta 116-120 cm y los de doble motor hasta 120-135 cm, algo que se nota si eres alto y trabajas de pie.",
+      a: `Velocidad y carga del motor, estabilidad a máxima altura y acabado del tablero. También recorrido: los baratos suben hasta entre ${rango(baratos.map((p) => p.specs.rango_altura_max_cm))} cm y los de doble motor hasta entre ${rango(dobles.map((p) => p.specs.rango_altura_max_cm))} cm, algo que se nota si eres alto y trabajas de pie.`,
     },
     {
       q: "Anticolisión: ¿es necesario en un escritorio barato?",
-      a: "Sí. Para el motor si detecta un obstáculo (cajón, silla, rodilla). Sin anticolisión, el motor sigue y puede romper cosas. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena quedarse sin él por ahorrar un poco.",
+      a: `Sí. Para el motor si detecta un obstáculo (cajón, silla, rodilla). Sin anticolisión, el motor sigue y puede romper cosas.${anticolisionBarato ? ` Entre los baratos, el más asequible que la declara es el ${anticolisionBarato.marca} ${anticolisionBarato.modelo}.` : ""} Si la ficha no la menciona, no des por hecho que la tiene.`,
     },
   ];
 
@@ -133,7 +163,7 @@ export default function EscritorioBaratoPage() {
       <FadeIn delay={100}>
         <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <p>
-            No necesitas irte a la gama alta. Si tu setup es portátil + monitor + teclado, la gama de entrada te vale. Mi recomendación rápida: el <strong>marco Flexispot</strong> si ya tienes tablero, el <strong>ErGear de 120x60</strong> si buscas anticolisión, y el <strong>VASAGLE de 100x60</strong>, el más barato del catálogo, para probar con lo mínimo.
+            No necesitas irte a la gama alta. Si tu setup es portátil + monitor + teclado, la gama de entrada te vale. Mi recomendación rápida: el <strong>marco Flexispot</strong> si ya tienes tablero{anticolisionBarato && <>, el <strong>{anticolisionBarato.marca} {anticolisionBarato.modelo}</strong> si buscas anticolisión</>}{masBarato && <>, y el <strong>{masBarato[1].marca} {masBarato[1].modelo}</strong>, el más barato del catálogo, para probar con lo mínimo</>}.
           </p>
         </div>
       </FadeIn>
@@ -147,7 +177,7 @@ export default function EscritorioBaratoPage() {
                 <Image src={winner[1].imagen} alt={winner[1].imagen_alt} width={140} height={140} className="object-contain p-1" />
               </div>
               <div className="flex-1">
-                <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--color-secondary)' }}>Ganador calidad-precio</p>
+                <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--color-secondary)' }}>Nº 1 · {NOMBRE_FRANJA.A}</p>
                 <h2 className="text-xl font-semibold mt-1" >
                   {winner[1].nombre}
                 </h2>
@@ -195,9 +225,10 @@ export default function EscritorioBaratoPage() {
                       </div>
                     </div>
                   </td>
-                  <td className="p-3 text-center text-sm">{product.specs.ancho_tablero_cm}x{product.specs.profundidad_tablero_cm}</td>
+                  <td className="p-3 text-center text-sm">{product.incluye_tablero ? `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm}` : "Sin tablero"}</td>
                   <td className="p-3 text-center text-sm">{product.specs.peso_max_carga_kg} kg</td>
-                  <td className="p-3 text-center text-sm" style={{ color: product.specs.sistema_anticolision ? 'var(--rating-good)' : 'var(--rating-bad)' }}>{product.specs.sistema_anticolision ? '✓' : '✗'}</td>
+                  {/* null es "la ficha no lo dice": se marca aparte, no como un no. */}
+                  <td className="p-3 text-center text-sm" style={{ color: product.specs.sistema_anticolision === null ? 'var(--text-muted)' : product.specs.sistema_anticolision ? 'var(--rating-good)' : 'var(--rating-bad)' }}>{product.specs.sistema_anticolision === null ? 'Sin dato' : product.specs.sistema_anticolision ? '✓' : '✗'}</td>
                   <td className="p-3 text-center font-bold" style={{ color: 'var(--bs-tinta)' }}>{nota(product.puntuacion.total)}</td>
                   <td className="p-3 text-center">
                     <AffiliateButton asin={asin} size="sm" />
@@ -221,7 +252,7 @@ export default function EscritorioBaratoPage() {
               En esta franja, casi todos llevan motor simple: más lento y algo más ruidoso. Acepta eso de entrada. Lo que sí deberías exigir: <strong>memorias de altura</strong> (si no, al cuarto día dejas de usarlo), <strong>tablero de al menos 120 cm</strong> si usas monitor externo, y <strong>anticolisión</strong> para que el motor pare si hay algo debajo.
             </p>
             <p>
-              La garantía importa mucho. Los problemas con motores baratos aparecen entre el mes 8 y el 18. Con 5 años de cobertura, te despreocupas. Con 2, cada ruido raro te pone nervioso.
+              La garantía importa mucho, y muchas fichas baratas no declaran los años. Si no lo dice, cuenta con la legal de tres años. Si dos modelos te convencen igual, elige el que la declara.
             </p>
           </div>
         </div>
@@ -238,7 +269,7 @@ export default function EscritorioBaratoPage() {
               Motor simple va sobrado para un setup normal. Lo que notas es la estabilidad a máxima altura: si mides 1.85 m, hay algo de vibración lateral al escribir de pie. No dramatica, pero perceptible.
             </p>
             <p>
-              El tablero de melamina se siente menos sólido que bambu. Una alfombrilla de escritorio lo soluciona. El ruido (50 dB vs 43 dB en premium) se nota en una habitación en silencio, pero solo dura 10-20 segundos cada vez que cambias de altura.
+              Los tableros baratos son de aglomerado o madera de ingeniería. El ruido{ruidosBaratos.length > 0 && <> (los que lo declaran dan entre {rango(ruidosBaratos)} dB)</>} se nota en una habitación en silencio, pero solo mientras cambias de altura.
             </p>
           </div>
         </div>
@@ -270,7 +301,7 @@ export default function EscritorioBaratoPage() {
                     {[
                       { label: "Motor", value: product.specs.tipo_motor === 'doble' ? 'Doble' : 'Simple' },
                       { label: "Carga max", value: `${product.specs.peso_max_carga_kg} kg` },
-                      { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm` },
+                      { label: "Tablero", value: product.incluye_tablero ? `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm` : "Sin tablero" },
                     ].map((spec) => (
                       <div key={spec.label} className="p-2 rounded" style={{ background: 'var(--bg-secondary)' }}>
                         <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{spec.label}</p>
@@ -317,10 +348,10 @@ export default function EscritorioBaratoPage() {
           </h2>
           <div className="space-y-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
-              <strong style={{ color: 'var(--text-primary)' }}>Para probar:</strong> motor simple, tableros de 100 cm, casi ninguno con anticolisión. Con solo un portátil encima va bien.
+              <strong style={{ color: 'var(--text-primary)' }}>Para probar:</strong> motor simple y tableros de 100 cm. Con solo un portátil encima va bien.
             </p>
             <p>
-              <strong style={{ color: 'var(--text-primary)' }}>El punto dulce:</strong> anticolisión, tableros de 120-140 cm y garantías de 3 a 5 años. Para teletrabajo estándar, cualquiera de estos cumple.
+              <strong style={{ color: 'var(--text-primary)' }}>El punto dulce:</strong> memorias de altura, tableros de 120-140 cm y, si la ficha la declara, anticolisión. Para teletrabajo estándar, cualquiera de estos cumple.
             </p>
             <p>
               <strong style={{ color: 'var(--text-primary)' }}>Si ya tienes tablero:</strong> el marco Flexispot EG1, con cinco años de garantía en la estructura. Y si necesitas más carga, el <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>MAIDeSITe T2 Pro MAX</Link> sube a otra liga.

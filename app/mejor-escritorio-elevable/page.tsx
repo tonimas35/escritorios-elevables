@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
 import { rutaFicha } from "@/lib/rutas";
 import { coma, nota } from "@/lib/format";
+import { NOMBRE_FRANJA, posicionEnFranja, type Franja } from "@/lib/nota";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
@@ -25,7 +26,32 @@ export default function MejorEscritorioPage() {
     .filter(([, p]) => p.disponible)
     .sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total);
 
-  const [topAsin, topProduct] = topProducts[0];
+  // Las notas de gamas distintas no se comparan (METODO.md §5): el favorito
+  // es el nº 1 de la franja B, como el podio de la home, y la entradilla
+  // nombra el primero de cada franja.
+  const productos = topProducts.map(([, p]) => p);
+  const primeroDe = (f: Franja) =>
+    topProducts.find(([, p]) => {
+      const pos = posicionEnFranja(p, productos);
+      return pos?.franja === f && pos.posicion === 1;
+    });
+  const [topAsin, topProduct] = primeroDe("B") ?? topProducts[0];
+  const nombre = (x: (typeof topProducts)[number] | undefined) => (x ? `${x[1].marca} ${x[1].modelo}` : null);
+
+  // Cifras de la guia, calculadas del catalogo y solo con lo declarado.
+  const rango = (xs: number[]) => {
+    const [a, b] = [Math.min(...xs), Math.max(...xs)];
+    return a === b ? coma(a) : `${coma(a)} y ${coma(b)}`;
+  };
+  const dobles = productos.filter((p) => p.specs.tipo_motor === "doble");
+  const simples = productos.filter((p) => p.specs.tipo_motor === "simple");
+  const cargas = productos.map((p) => p.specs.peso_max_carga_kg);
+  const ruidos = (g: typeof productos) => g.map((p) => p.specs.ruido_db).filter((r): r is number => r !== null);
+  const alturas = (g: typeof productos) => g.map((p) => p.specs.rango_altura_max_cm);
+  const masAlto = [...productos].sort((a, b) => b.specs.rango_altura_max_cm - a.specs.rango_altura_max_cm)[0];
+  const anticolisionBarato = [...productos]
+    .filter((p) => p.specs.sistema_anticolision && p.incluye_tablero && p.precio_min !== null)
+    .sort((a, b) => (a.precio_min! + a.precio_max!) - (b.precio_min! + b.precio_max!))[0];
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -55,19 +81,19 @@ export default function MejorEscritorioPage() {
     },
     {
       q: "Motor simple o doble: ¿cuál elijo?",
-      a: "El doble es más rápido (3.8 vs 2.5 cm/s), más silencioso y reparte mejor el esfuerzo. Si cambias de posición varias veces al día, se nota. Pero si el presupuesto manda, un motor simple cumple bien \u2014 prioriza estabilidad y garantía antes que esto.",
+      a: `El doble reparte el esfuerzo entre las dos patas: en el catálogo, los de doble motor declaran entre ${rango(dobles.map((p) => p.specs.peso_max_carga_kg))} kg de carga en movimiento, y los de uno, entre ${rango(simples.map((p) => p.specs.peso_max_carga_kg))}. Si cambias de posición varias veces al día con un setup pesado, se nota. Si el presupuesto manda, un motor simple cumple bien \u2014 prioriza estabilidad y garantía antes que esto.`,
     },
     {
       q: "¿Cuánto peso soportan estos escritorios?",
-      a: "De 50 kg los baratos a 160 kg los premium. Un setup normal (monitor + portátil + trastos) pesa unos 12-15 kg, así que incluso el más básico va sobrado. Solo preocúpate si tienes varios monitores con brazo o equipos pesados encima.",
+      a: `De ${Math.min(...cargas)} a ${Math.max(...cargas)} kg según el modelo. Un setup normal (monitor + portátil + trastos) pesa unos 12-15 kg, así que incluso el más básico va sobrado. Solo preocúpate si tienes varios monitores con brazo o equipos pesados encima.`,
     },
     {
       q: "¿Puedo montar un escritorio elevable solo?",
-      a: "Los ligeros, por debajo de 22 kg, como el Fezibo o los Devoko, sí. Los pesados como el FLEXISPOT de 160x80 (38 kg) son un engorro en solitario al dar la vuelta al tablero. Como referencia: por encima de 25 kg, mejor entre dos.",
+      a: "Depende del peso del paquete, y muchas fichas no lo declaran. Como referencia: por encima de 25 kg, mejor entre dos, y con un tablero de 160 cm cuesta darle la vuelta en solitario.",
     },
     {
       q: "¿Qué garantía tienen?",
-      a: "En España la garantía legal mínima son tres años para cualquier producto nuevo, así que ese es el suelo de todo el catálogo. Por encima de eso, Flexispot ofrece cinco años en la estructura, que es la garantía comercial más larga del catálogo. Si un motor falla suele hacerlo en los primeros meses, pero al ser electrónica con partes móviles esos dos años de más tienen valor.",
+      a: "En España la garantía legal mínima son tres años para cualquier producto nuevo, así que ese es el suelo de todo el catálogo. Por encima de eso, el MAIDeSITe S2 Pro declara cinco años, y los Flexispot, cinco en la estructura y tres en el motor. Varias fichas de Amazon no dicen cuántos años dan: en esos casos cuenta la legal.",
     },
     {
       q: "¿Cuánta electricidad consume un escritorio elevable?",
@@ -146,7 +172,16 @@ export default function MejorEscritorioPage() {
         <FadeIn delay={100}>
           <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
-              Hemos reunido las especificaciones de 12 escritorios elevables a la venta en Amazon España, de la gama de entrada a la premium, y las hemos ordenado con los mismos cinco criterios para todos. En corto: el <strong>marco Flexispot</strong> es la mejor compra si ya tienes tablero o quieres montar uno a medida; el <strong>FLEXISPOT de 160x80</strong> es el más completo de los que vienen listos para usar; y el <strong>MAIDeSITe T2 Pro MAX</strong> solo compensa si necesitas sus 160 kg de carga. Cómo puntuamos y qué no hacemos está en la <Link href="/metodologia" style={{ textDecoration: 'underline' }}>metodología</Link>.
+              Hemos reunido las especificaciones de {topProducts.length} escritorios elevables a la venta en Amazon España, de la gama de entrada a la premium, y cada uno se mide contra lo que se puede esperar por su precio. En corto, el primero de cada franja:{" "}
+              {(Object.keys(NOMBRE_FRANJA) as Franja[])
+                .map((f) => [f, nombre(primeroDe(f))] as const)
+                .filter(([, n]) => n)
+                .map(([f, n], i, xs) => (
+                  <span key={f}>
+                    <strong>{n}</strong> ({NOMBRE_FRANJA[f].toLowerCase()}){i < xs.length - 2 ? ", " : i === xs.length - 2 ? " y " : "."}
+                  </span>
+                ))}{" "}
+              Cómo puntuamos y qué no hacemos está en la <Link href="/metodologia" style={{ textDecoration: 'underline' }}>metodología</Link>.
             </p>
           </div>
         </FadeIn>
@@ -159,7 +194,7 @@ export default function MejorEscritorioPage() {
                 <Image src={topProduct.imagen} alt={topProduct.imagen_alt} width={160} height={160} className="object-contain p-1" />
               </div>
               <div className="flex-1">
-                <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--color-secondary)' }}>Nuestro favorito</p>
+                <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--color-secondary)' }}>Nº 1 · {NOMBRE_FRANJA.B}</p>
                 <h2 className="text-xl font-semibold mt-1" style={{  color: 'var(--text-primary)' }}>
                   {topProduct.nombre}
                 </h2>
@@ -392,12 +427,12 @@ export default function MejorEscritorioPage() {
             </h2>
             <div className="space-y-8 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               {[
-                { title: "El motor: simple vs doble", text: "El doble es más rápido (3.8 vs 2.5 cm/s), más silencioso y más estable al moverse. Si cambias de posición 4+ veces al día con un setup pesado, merece la pena. Si lo mueves dos veces al día con un portátil, el simple cumple." },
-                { title: "Estabilidad: importa más de lo que crees", text: "De pie, el escritorio está a 110-120 cm y cualquier vibración se amplifica. Si la pantalla tiembla al teclear, te cansas la vista. Busca estructura pesada y doble motor: en el catálogo, los de doble motor pesan entre 30 y 38 kg. En los baratos hay que aceptar algo de movimiento." },
-                { title: "Ruido: ojo si haces videollamadas", text: "Los de un motor del catálogo declaran entre 48 y 50 dB; los de doble motor, entre 45 y 48 dB. Si cambias de altura durante una llamada, 50 dB se oyen; 45, casi nada." },
-                { title: "Rango de altura: ojo si eres alto", text: "Los baratos del catálogo suben hasta 116-120 cm; los de doble motor, hasta 120-135 cm. Si eres alto y trabajas de pie, un escritorio que se queda en 116 cm te obliga a encorvarte. El que más sube es el MAIDeSITe T2 Pro MAX, hasta 135 cm. La calculadora de altura te dice cuánto necesitas." },
-                { title: "Garantía y postventa", text: "Flexispot y Maidesite dan 5 años; marcas baratas, 2. Los problemas graves suelen aparecer en los primeros 6 meses. Si puedes elegir, 5 años siempre \u2014 tiene electrónica y partes móviles." },
-                { title: "Anticolisión: no te la juegues", text: "Para el motor si detecta un obstáculo al bajar. Sin anticolisión, el motor sigue y puede romper cajones o el propio mecanismo. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena ahorrar y quedarse sin el." },
+                { title: "El motor: simple vs doble", text: `El doble reparte el esfuerzo entre las dos patas: en el catálogo, los de doble motor mueven entre ${rango(dobles.map((p) => p.specs.peso_max_carga_kg))} kg, y los de uno, entre ${rango(simples.map((p) => p.specs.peso_max_carga_kg))}. Si cambias de posición 4+ veces al día con un setup pesado, merece la pena. Si lo mueves dos veces al día con un portátil, el simple cumple.` },
+                { title: "Estabilidad: importa más de lo que crees", text: "De pie, el escritorio está a 110-120 cm y cualquier vibración se amplifica. Si la pantalla tiembla al teclear, te cansas la vista. Busca doble motor y una estructura robusta. En los baratos hay que aceptar algo de movimiento." },
+                { title: "Ruido: ojo si haces videollamadas", text: `No todas las fichas lo declaran. Las que sí: entre ${rango(ruidos(simples))} dB los de un motor y entre ${rango(ruidos(dobles))} dB los de doble motor. Si cambias de altura durante una llamada, 50 dB se oyen.` },
+                { title: "Rango de altura: ojo si eres alto", text: `Los de un motor del catálogo suben hasta entre ${rango(alturas(simples))} cm; los de doble motor, entre ${rango(alturas(dobles))} cm. Si eres alto y trabajas de pie, un escritorio que se queda corto te obliga a encorvarte. El que más sube es el ${masAlto.marca} ${masAlto.modelo}, hasta ${coma(masAlto.specs.rango_altura_max_cm)} cm. La calculadora de altura te dice cuánto necesitas.` },
+                { title: "Garantía y postventa", text: "Pocas fichas declaran los años: el MAIDeSITe S2 Pro da cinco; los Flexispot, cinco en la estructura y tres en el motor; el SANODESK, tres. En el resto cuenta la garantía legal. Si puedes elegir, más años siempre \u2014 tiene electrónica y partes móviles." },
+                { title: "Anticolisión: no te la juegues", text: `Para el motor si detecta un obstáculo al bajar. Sin anticolisión, el motor sigue y puede romper cajones o el propio mecanismo.${anticolisionBarato ? ` Entre los que vienen con tablero, el más asequible que la declara es el ${anticolisionBarato.marca} ${anticolisionBarato.modelo}.` : ""} Si la ficha no la menciona, no des por hecho que la tiene.` },
               ].map((item, i) => (
                 <FadeIn key={item.title} delay={i * 80}>
                   <div className="relative pl-14">

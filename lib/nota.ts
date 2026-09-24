@@ -136,29 +136,33 @@ export function calcularNota(p: Product): ProductScore {
 
   // Velocidad y ruido faltan en algunas fichas: si no hay dato, no cuentan,
   // en vez de inventar un valor que baje o suba la media.
-  const funciones = media([
-    escala(s.presets_memoria, MEMORIAS),
-    s.sistema_anticolision ? 10 : SIN_ANTICOLISION,
+  // Lo mismo con memorias y anticolision: `null` es "la ficha no lo dice",
+  // no "no lo tiene".
+  const funcionesDatos = [
+    ...(s.presets_memoria !== null ? [escala(s.presets_memoria, MEMORIAS)] : []),
+    ...(s.sistema_anticolision !== null ? [s.sistema_anticolision ? 10 : SIN_ANTICOLISION] : []),
     ...(s.velocidad_cm_s !== null ? [escala(s.velocidad_cm_s, u.velocidad)] : []),
     ...(s.ruido_db !== null ? [escala(s.ruido_db, u.ruido)] : []),
-  ]);
+  ];
+  const funciones = funcionesDatos.length ? media(funcionesDatos) : null;
 
   const recorrido = media([
     escala(s.rango_altura_min_cm, u.alturaMin),
     escala(s.rango_altura_max_cm, u.alturaMax),
   ]);
 
-  const garantia = escala(s.garantia_anos, u.garantia);
+  const garantia = s.garantia_anos !== null ? escala(s.garantia_anos, u.garantia) : null;
 
   const valoracion =
     p.num_reviews >= MIN_VALORACIONES ? escala(p.rating, VALORACION) : null;
 
-  // Sin volumen de valoraciones, ese apartado sale y los demas se reescalan.
+  // Sin volumen de valoraciones, sin garantia declarada o sin ningun dato de
+  // funciones, ese apartado sale y los demas se reescalan.
   const partes: [number, number][] = [
     [estabilidad, PESOS.estabilidad],
-    [funciones, PESOS.funciones],
+    ...(funciones !== null ? [[funciones, PESOS.funciones] as [number, number]] : []),
     [recorrido, PESOS.recorrido],
-    [garantia, PESOS.garantia],
+    ...(garantia !== null ? [[garantia, PESOS.garantia] as [number, number]] : []),
     ...(valoracion !== null ? [[valoracion, PESOS.valoracion] as [number, number]] : []),
   ];
   const peso = partes.reduce((t, [, w]) => t + w, 0);
@@ -166,9 +170,9 @@ export function calcularNota(p: Product): ProductScore {
 
   return {
     estabilidad: decimal(estabilidad),
-    funciones: decimal(funciones),
+    funciones: funciones === null ? null : decimal(funciones),
     recorrido: decimal(recorrido),
-    garantia: decimal(garantia),
+    garantia: garantia === null ? null : decimal(garantia),
     valoracion: valoracion === null ? null : decimal(valoracion),
     total: decimal(total),
   };

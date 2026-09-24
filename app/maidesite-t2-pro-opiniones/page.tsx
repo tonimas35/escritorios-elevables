@@ -10,12 +10,13 @@ import { FranjaPrecio } from "@/components/FranjaPrecio";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { productSchema } from "@/lib/schema";
+import { anticolision, garantia, SIN_DATO } from "@/lib/ficha";
 import { PosicionNota } from "@/components/broadsheet/PosicionNota";
 
 export const metadata: Metadata = {
   title: "MAIDeSITe T2 Pro MAX opiniones y review 2026 — ¿Merece la pena?",
   description:
-    "Review del MAIDeSITe T2 Pro MAX: el marco con más carga del mercado (160 kg) y más recorrido (65-135 cm). No incluye tablero. Analizamos si compensa.",
+    "Review del MAIDeSITe T2 Pro MAX: el marco con más carga del catálogo (160 kg) y más recorrido (65-135 cm). No incluye tablero. Analizamos si compensa.",
   alternates: { canonical: "/maidesite-t2-pro-opiniones" },
 };
 
@@ -65,7 +66,7 @@ export default function MaidesiteT2ProReviewPage() {
     },
     {
       q: "¿Cuánto tarda en montarse?",
-      a: "Mejor entre dos personas: la estructura pesa 30 kg. Al no incluir tablero, tendrás que taladrar los agujeros de fijación en el tuyo si no vienen ya hechos.",
+      a: `Mejor entre dos personas${s.peso_estructura_kg !== null ? `: la estructura pesa ${s.peso_estructura_kg} kg` : ""}. Al no incluir tablero, tendrás que taladrar los agujeros de fijación en el tuyo si no vienen ya hechos.`,
     },
   ];
 
@@ -162,9 +163,9 @@ export default function MaidesiteT2ProReviewPage() {
             { label: "Tablero", value: s.tablero_incluido ? `${s.ancho_tablero_cm}x${s.profundidad_tablero_cm} cm` : "No incluido", detail: s.tablero_incluido ? s.material_tablero || '' : "Solo el marco" },
             { label: "Peso estructura", value: s.peso_estructura_kg !== null ? `${s.peso_estructura_kg} kg` : "Sin dato", detail: "Manejable" },
             { label: "Ruido", value: s.ruido_db !== null ? `${s.ruido_db} dB` : "Sin dato", detail: "Aceptable" },
-            { label: "Garantía", value: `${product.specs.garantia_anos} años`, detail: "Maidesite oficial" },
-            { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rápido" },
-            { label: "Anticolisión", value: product.specs.sistema_anticolision ? "Sí" : "No", detail: "Protección activa" },
+            { label: "Garantía", value: garantia(product), detail: s.garantia_anos !== null ? "Maidesite oficial" : "No la declara la ficha" },
+            { label: "Presets", value: s.presets_memoria !== null ? `${s.presets_memoria} memorias` : SIN_DATO, detail: s.presets_memoria !== null ? "Ajuste rápido" : "No lo declara la ficha" },
+            { label: "Anticolisión", value: anticolision(product), detail: s.sistema_anticolision ? "Protección activa" : "" },
           ].map((spec) => (
             <div key={spec.label} className="p-4 rounded" style={{ background: 'var(--bg-secondary)' }}>
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{spec.label}</p>
@@ -196,20 +197,22 @@ export default function MaidesiteT2ProReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Qué estás pagando exactamente</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Un marco sin tablero, en la gama alta. Lo que compras es capacidad: doble motor, 160 kg de carga útil y tres secciones telescópicas que permiten bajar hasta 65 cm y subir hasta 135. Para comparar, el resto de modelos del catálogo se mueven entre {Math.min(...cargas)} y {Math.max(...cargas)} kg, y ninguno pasa de {coma(alturaOtros)} cm.
+            Un marco sin tablero, en la gama alta. Lo que compras es capacidad: doble motor, 160 kg de carga útil y un recorrido que baja hasta 65 cm y sube hasta 135. Para comparar, el resto de modelos del catálogo se mueven entre {Math.min(...cargas)} y {Math.max(...cargas)} kg, y ninguno pasa de {coma(alturaOtros)} cm.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            El panel Piano-Master lleva cuatro memorias de altura y sistema anticolisión. A 45 dB, el ruido al subir es discreto: audible en una habitación en silencio, irrelevante en una videollamada. La velocidad, 3,8 cm/s, está en la parte alta del catálogo.
+            El panel Piano-Master lleva {s.presets_memoria !== null ? `${s.presets_memoria} memorias de altura` : "memorias de altura"}{s.sistema_anticolision ? " y sistema anticolisión" : ""}.
+            {s.ruido_db !== null && <> El fabricante declara menos de {s.ruido_db} dB al subir.</>}
+            {s.velocidad_cm_s !== null && <> La velocidad, {coma(s.velocidad_cm_s)} cm/s, {s.velocidad_cm_s >= Math.max(...otros.map((p) => p.specs.velocidad_cm_s ?? 0)) ? "es la más alta del catálogo" : "está en la parte alta del catálogo"}.</>}
           </p>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold">Estabilidad: bien, pero no excelente</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Los 135 cm de altura máxima son el mayor recorrido del catálogo, y eso lo hace apto para personas muy altas o para trabajar de pie con teclado elevado. Pero cuánto más sube una estructura, más palanca hay: a máxima altura, cualquier marco de tres secciones tiene más balanceo lateral que a altura de trabajo normal.
+            Los 135 cm de altura máxima son el mayor recorrido del catálogo, y eso lo hace apto para personas muy altas o para trabajar de pie con teclado elevado. Pero cuánto más sube una estructura, más palanca hay: a máxima altura, cualquier marco tiene más balanceo lateral que a altura de trabajo normal.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            En el rango habitual de trabajo de pie, entre 105 y 115 cm, la estructura de tres secciones y los 30 kg de peso propio juegan a favor. Con 160 kg de carga admitida, un setup de dos monitores en brazo más equipo pesado entra sin acercarse al límite.
+            En el rango habitual de trabajo de pie, entre 105 y 115 cm, {s.peso_estructura_kg !== null ? `los ${s.peso_estructura_kg} kg de peso propio de la estructura juegan a favor. ` : ""}Con 160 kg de carga admitida, un setup de dos monitores en brazo más equipo pesado entra sin acercarse al límite.
           </p>
         </div>
 

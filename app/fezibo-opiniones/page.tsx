@@ -10,6 +10,7 @@ import { FranjaPrecio } from "@/components/FranjaPrecio";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { productSchema } from "@/lib/schema";
+import { anticolision, garantia, SIN_DATO } from "@/lib/ficha";
 import { PosicionNota } from "@/components/broadsheet/PosicionNota";
 
 export const metadata: Metadata = {
@@ -55,7 +56,7 @@ export default function FeziboReviewPage() {
     },
     {
       q: "¿El Fezibo sirve para trabajar 8 horas al día?",
-      a: "Puede, pero no lo recomiendo como escritorio principal para jornada completa. Con 70 kg de carga y un tablero de 120x60 cm, el espacio y la capacidad son justos. Si teletrabajas a jornada completa, invierte un poco más en algo con tablero más grande y más carga, como el SANODESK de 140x60 (80 kg).",
+      a: "Puede, pero no lo recomiendo como escritorio principal para jornada completa. Con 70 kg de carga y un tablero de 120x60 cm, el espacio y la capacidad son justos. Si teletrabajas a jornada completa, invierte un poco más en algo con tablero más grande y más carga.",
     },
     {
       q: "¿Qué puedo poner encima del Fezibo?",
@@ -160,9 +161,9 @@ export default function FeziboReviewPage() {
             { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm`, detail: product.specs.material_tablero || '' },
             { label: "Peso estructura", value: s.peso_estructura_kg !== null ? `${s.peso_estructura_kg} kg` : "Sin dato", detail: "Ligero" },
             { label: "Ruido", value: s.ruido_db !== null ? `${s.ruido_db} dB` : "Sin dato", detail: s.ruido_db !== null ? "Audible" : "No lo declara el fabricante" },
-            { label: "Garantía", value: `${product.specs.garantia_anos} años`, detail: "Estándar" },
-            { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rápido" },
-            { label: "Anticolisión", value: s.sistema_anticolision ? "Sí" : "No", detail: s.sistema_anticolision ? "Incluido" : "No incluido" },
+            { label: "Garantía", value: garantia(product), detail: s.garantia_anos !== null ? "Estándar" : "No la declara el fabricante" },
+            { label: "Presets", value: s.presets_memoria !== null ? `${s.presets_memoria} memorias` : SIN_DATO, detail: "Ajuste rápido" },
+            { label: "Anticolisión", value: anticolision(product), detail: s.sistema_anticolision === null ? "No lo declara el fabricante" : s.sistema_anticolision ? "Incluido" : "No incluido" },
           ].map((spec) => (
             <div key={spec.label} className="p-4 rounded" style={{ background: 'var(--bg-secondary)' }}>
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{spec.label}</p>
@@ -194,10 +195,12 @@ export default function FeziboReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Un elevable con motor en la gama de entrada: ¿qué sacrificas?</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            El motor simple es más lento que los de doble motor{s.velocidad_cm_s !== null && <> ({coma(s.velocidad_cm_s)} cm/s)</>}.{segundos && <> El recorrido completo tarda unos {segundos} segundos, que se sienten largos cuando vienes de un escritorio eléctrico rápido.</>} Pero si es tu primer elevable, no lo vas a notar. Las {product.specs.presets_memoria} memorias de altura te permiten guardar tus posiciones favoritas y olvidarte.
+            El motor simple es más lento que los de doble motor{s.velocidad_cm_s !== null && <> ({coma(s.velocidad_cm_s)} cm/s)</>}.{segundos && <> El recorrido completo tarda unos {segundos} segundos, que se sienten largos cuando vienes de un escritorio eléctrico rápido.</>} Pero si es tu primer elevable, no lo vas a notar.{s.presets_memoria !== null && <> Las {s.presets_memoria} memorias de altura te permiten guardar tus posiciones favoritas y olvidarte.</>}
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            {s.sistema_anticolision
+            {s.sistema_anticolision === null
+              ? "La ficha del fabricante no dice si tiene sistema anticolisión."
+              : s.sistema_anticolision
               ? "Según la ficha del fabricante, tiene sistema anticolisión: si al bajar choca con algo, se detiene."
               : "No tiene anticolisión. Si la mesa choca con algo al bajar, el motor sigue empujando. Si tienes una cajonera debajo, ojo."}
           </p>

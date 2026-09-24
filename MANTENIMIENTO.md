@@ -15,7 +15,7 @@ Si al leer esto la tabla no coincide con el JSON, manda el JSON.
 |---|---|---|---|---|
 | `B0FSQ8W2C1` | `vasagle-100` | VASAGLE 100x60 | 70–90 € | — |
 | `B0D9MGDDHD` | `ergear-120` | ErGear 120x60 | 90–120 € | — |
-| `B0CF29CLCP` | `vasagle-160` | VASAGLE 160x60 | 100–160 € | — |
+| `B0CF29CLCP` | `vasagle-160` | VASAGLE 160x70 | 100–160 € | — |
 | `B0CKVPFSTD` | `devoko-120` | Devoko 120x60 | 100–130 € | — |
 | `B0DZCV1MVF` | `fezibo-120` | FEZIBO 120x60 | 120–160 € | `/fezibo-opiniones` |
 | `B0CV4V22XL` | `songmics-160` | SONGMICS 160x70 | 120–160 € | — |

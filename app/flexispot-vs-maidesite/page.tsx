@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { coma, nota } from "@/lib/format";
-import { motorCorto, recorrido } from "@/lib/ficha";
+import { garantia, motorCorto, recorrido, SIN_DATO } from "@/lib/ficha";
 import { getProductBySlug } from "@/lib/products";
 import { FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
@@ -58,8 +58,8 @@ export default function FlexispotVsMaidesitePage() {
     { label: "Velocidad", e7: velocidadTxt(e7Product), t2: velocidadTxt(t2Product), winner: gana(e7Product.specs.velocidad_cm_s, t2Product.specs.velocidad_cm_s) },
     { label: "Ruido", e7: ruidoTxt(e7Product), t2: ruidoTxt(t2Product), winner: gana(e7Product.specs.ruido_db, t2Product.specs.ruido_db, false) },
     { label: "Tablero", e7: tableroTxt(e7Product), t2: tableroTxt(t2Product), winner: "tie" },
-    { label: "Memorias", e7: `${e7Product.specs.presets_memoria}`, t2: `${t2Product.specs.presets_memoria}`, winner: gana(e7Product.specs.presets_memoria, t2Product.specs.presets_memoria) },
-    { label: "Garantía", e7: `${e7Product.specs.garantia_anos} años`, t2: `${t2Product.specs.garantia_anos} años`, winner: gana(e7Product.specs.garantia_anos, t2Product.specs.garantia_anos) },
+    { label: "Memorias", e7: `${e7Product.specs.presets_memoria ?? SIN_DATO}`, t2: `${t2Product.specs.presets_memoria ?? SIN_DATO}`, winner: gana(e7Product.specs.presets_memoria, t2Product.specs.presets_memoria) },
+    { label: "Garantía", e7: garantia(e7Product), t2: garantia(t2Product), winner: gana(e7Product.specs.garantia_anos, t2Product.specs.garantia_anos) },
     // Sin ganador: cada nota se mide contra su gama de precio (METODO.md §5)
     // y estos dos marcos estan en gamas distintas.
     { label: "Nota en su gama", e7: `${nota(e7Product.puntuacion.total)}/10`, t2: `${nota(t2Product.puntuacion.total)}/10`, winner: "tie" },
@@ -72,7 +72,7 @@ export default function FlexispotVsMaidesitePage() {
   const faqItems = [
     {
       q: "Flexispot o Maidesite: ¿cuál es mejor marca?",
-      a: `Depende del modelo, no de la marca. En este catálogo, el marco de Flexispot (EG1) es el más asequible y el mejor valorado en Amazon (${coma(e7Product.rating)} de media), y el de MAIDeSITe (T2 Pro MAX) es el que más carga y más altura ofrece. En escritorios completos, el FLEXISPOT de 160x80 da 5 años de garantía y el MAIDeSITe S2 Pro, 3.`,
+      a: `Depende del modelo, no de la marca. En este catálogo, el marco de Flexispot (EG1) es el más asequible y el mejor valorado en Amazon (${coma(e7Product.rating)} de media), y el de MAIDeSITe (T2 Pro MAX) es el que más carga y más altura ofrece. En escritorios completos, el FLEXISPOT de 160x80 da 5 años en el marco y 3 en el motor${s2 && s2[1].specs.garantia_anos !== null ? `, y el MAIDeSITe S2 Pro, ${s2[1].specs.garantia_anos}` : ""}.`,
     },
     {
       q: "¿Los motores de Flexispot y Maidesite son iguales?",
@@ -247,7 +247,7 @@ export default function FlexispotVsMaidesitePage() {
           { title: "Motor", text: `El Flexispot lleva un motor; el MAIDeSITe, dos. El doble motor reparte el esfuerzo entre las dos patas y es lo que le permite declarar ${t2Product.specs.peso_max_carga_kg} kg frente a los ${e7Product.specs.peso_max_carga_kg} kg que mueve el Flexispot. La ficha del Flexispot no declara la velocidad.` },
           { title: "Capacidad de carga", text: `${e7Product.specs.peso_max_carga_kg} kg en movimiento el Flexispot (100 kg en estático), ${t2Product.specs.peso_max_carga_kg} kg el MAIDeSITe. Para un portátil y un monitor, los dos sobran; para dos monitores en brazo y equipo pesado, el MAIDeSITe.` },
           { title: "Rango de altura", text: `Flexispot: ${coma(e7Product.specs.rango_altura_min_cm)}–${coma(e7Product.specs.rango_altura_max_cm)} cm. MAIDeSITe: ${t2Product.specs.rango_altura_min_cm}–${t2Product.specs.rango_altura_max_cm} cm. El MAIDeSITe sube casi 20 cm más, que es lo que importa si eres alto y trabajas de pie.` },
-          { title: "Garantía", text: `El Flexispot da 5 años en el marco y 3 en el motor; el MAIDeSITe, ${t2Product.specs.garantia_anos} años.` },
+          { title: "Garantía", text: `El Flexispot da 5 años en el marco y 3 en el motor. ${t2Product.specs.garantia_anos !== null ? `El MAIDeSITe, ${t2Product.specs.garantia_anos} años.` : "La ficha del MAIDeSITe en Amazon no declara los años de garantía."}` },
           { title: "Lo que cuesta cada uno", text: "Ninguno de los dos incluye tablero, así que a los dos hay que sumarles ese coste. El Flexispot cuesta bastante menos y tiene muchas más valoraciones detrás. Salvo que necesites la carga o la altura del MAIDeSITe, el Flexispot cumple para un setup normal." },
         ].map((section, si) => (
           <FadeIn key={section.title} delay={si * 60}>
@@ -293,7 +293,7 @@ export default function FlexispotVsMaidesitePage() {
             </h2>
             <div className="max-w-3xl mb-6 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               <p>
-            Los dos llegan completos, sin comprar nada aparte. El FLEXISPOT de 160x80 ofrece el tablero más grande y cinco años de garantía, pero se queda en 100 kg de carga. El MAIDeSITe S2 Pro trae tablero de 140x70, 120 kg y un acabado algo más cuidado. Si quieres superficie y respaldo, el Flexispot; si quieres carga, el MAIDeSITe.
+            Los dos llegan completos, sin comprar nada aparte. El FLEXISPOT de 160x80 ofrece el tablero más grande, de {eg1[1].specs.ancho_tablero_cm}x{eg1[1].specs.profundidad_tablero_cm}, pero mueve {eg1[1].specs.peso_max_carga_kg} kg. El MAIDeSITe S2 Pro trae tablero de {s2[1].specs.ancho_tablero_cm}x{s2[1].specs.profundidad_tablero_cm} y {s2[1].specs.peso_max_carga_kg} kg de carga. Si quieres superficie, el Flexispot; si quieres carga, el MAIDeSITe.
           </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -316,11 +316,11 @@ export default function FlexispotVsMaidesitePage() {
                       </div>
                       <div className="p-2 rounded" style={{ background: 'var(--bg-secondary)' }}>
                         <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Garantía</p>
-                        <p className="text-sm font-bold">{product.specs.garantia_anos} años</p>
+                        <p className="text-sm font-bold">{garantia(product)}</p>
                       </div>
                       <div className="p-2 rounded" style={{ background: 'var(--bg-secondary)' }}>
                         <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Memorias</p>
-                        <p className="text-sm font-bold">{product.specs.presets_memoria}</p>
+                        <p className="text-sm font-bold">{product.specs.presets_memoria ?? SIN_DATO}</p>
                       </div>
                     </div>
                     <div className="mt-4">
