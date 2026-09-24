@@ -33,18 +33,18 @@ test("todas las notas y apartados quedan entre 0 y 10 con un decimal", () => {
 
 test("reproduce la simulación aprobada en METODO.md §5", () => {
   const esperado: Record<string, number> = {
-    "flexispot-eg1": 7.6, // 9,9 en la simulación: llevaba specs de un E7 que no era (ver registro 24/09)
-    "maidesite-t2-pro-max": 8.7,
-    "ergear-120": 8.3,
-    "devoko-120": 8.2,
-    "flexispot-160x80": 7.8,
-    "sanodesk-140": 7.7,
-    "devoko-160": 7.7,
-    "vasagle-160": 7.6,
-    "songmics-160": 7.6,
-    "maidesite-s2-pro": 7.4,
-    "fezibo-120": 7.1,
-    "vasagle-100": 6.5,
+    "maidesite-t2-pro-max": 9.2,
+    "ergear-120": 9.1,
+    "devoko-120": 9.1,
+    "sanodesk-140": 8.6,
+    "devoko-160": 8.6,
+    "songmics-160": 8.5,
+    "flexispot-160x80": 8.5,
+    "vasagle-160": 8.4,
+    "flexispot-eg1": 8.2,
+    "maidesite-s2-pro": 8.1,
+    "fezibo-120": 7.9,
+    "vasagle-100": 7.5,
   };
   for (const [slug, total] of Object.entries(esperado)) {
     assert.equal(porSlug(slug).puntuacion.total, total, slug);
@@ -60,7 +60,7 @@ test("los extremos se recortan a 0 y 10", () => {
   const tope = calcularNota(con("maidesite-t2-pro-max", { specs: { peso_max_carga_kg: 500, peso_estructura_kg: 100 } }));
   assert.equal(tope.estabilidad, 10);
   const suelo = calcularNota(con("vasagle-100", { specs: { peso_max_carga_kg: 10, peso_estructura_kg: 5 } }));
-  assert.equal(suelo.estabilidad, 2.1); // solo el motor simple en gama de entrada: 0,3 × 7
+  assert.equal(suelo.estabilidad, 2.6); // motor simple en gama de entrada (0,3 × 8) y estructura muy ligera (0,2 × 1)
 });
 
 test("sin 100 valoraciones el apartado no cuenta y el resto se reescala", () => {

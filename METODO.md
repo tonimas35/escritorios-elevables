@@ -60,7 +60,8 @@ Un modelo entra solo si cumple **todos**:
 - Deja de cumplir algún requisito de §3.
 - Aparece un candidato en la misma franja que lo supera en **0,3 puntos** o
   más. Por debajo de ese margen no se rota: sería rotar por ruido.
-- Su nota baja de **6,5** (añadido el 24/09/2026). Es una regla interna: **no
+- Su nota baja de **7,5** (añadido el 24/09/2026 con 6,5; subido a 7,5 el
+  mismo día al pasar la escala de §5 a mínimo 6). Es una regla interna: **no
   se publica en la web**. `npm run validar` avisa de los que están por debajo.
 
 Un modelo que sale y tenía página propia redirige (301) a su sucesor. Nunca se
@@ -96,23 +97,33 @@ y **alta** de 250 a 500 €. Sin franja verificada se usa el campo interno
 
 ### Umbrales
 
-En cada dato, **5 = lo mínimo aceptable en esa gama** y **10 = lo mejor que se
+> **Reajuste del 24/09/2026, aprobado por Toni.** La escala pasa a dar **6
+> puntos al mínimo aceptable** (antes 5) y se afinan los niveles de
+> "excelente", los puntos fijos del motor y la anticolisión, y la valoración
+> de compradores. Motivo: con el mínimo en 5, lo que recomendamos quedaba en
+> notas de 6,5 a 8,7, y el lector lee un 6 o un 7 como un aprobado justo en
+> algo que le recomendamos. Todas las notas suben entre 0,5 y 1 punto; el
+> orden apenas cambia.
+
+En cada dato, **6 = lo mínimo aceptable en esa gama** y **10 = lo mejor que se
 puede esperar en ella**, en línea recta y recortado entre 0 y 10. Son fijos por
 gama: la nota de un modelo no cambia porque entre o salga otro.
 
-| Dato (5 → 10) | Entrada | Media | Alta |
+| Dato (6 → 10) | Entrada | Media | Alta |
 |---|---|---|---|
-| Carga | 50 → 80 kg | 70 → 100 kg | 100 → 160 kg |
-| Motor (puntos) | simple 7 · doble 10 | simple 7 · doble 10 | simple 2 · doble 10 |
-| Peso de la estructura | 15 → 25 kg | 20 → 32 kg | 28 → 40 kg |
-| Velocidad | 2 → 3 cm/s | 2 → 3 cm/s | 3 → 4 cm/s |
-| Ruido | 55 → 45 dB | 55 → 45 dB | 50 → 42 dB |
-| Altura mínima | 74 → 70 cm | 74 → 68 cm | 72 → 62 cm |
-| Altura máxima | 115 → 122 cm | 116 → 125 cm | 118 → 130 cm |
-| Garantía | 2 → 4 años | 2 → 5 años | 3 → 5 años |
+| Carga | 50 → 75 kg | 70 → 95 kg | 100 → 150 kg |
+| Motor (puntos) | simple 8 · doble 10 | simple 8 · doble 10 | simple 3 · doble 10 |
+| Peso de la estructura | 15 → 23 kg | 20 → 30 kg | 28 → 38 kg |
+| Velocidad | 2 → 2,8 cm/s | 2 → 2,8 cm/s | 3 → 3,8 cm/s |
+| Ruido | 55 → 47 dB | 55 → 47 dB | 50 → 44 dB |
+| Altura mínima | 74 → 71 cm | 74 → 69 cm | 72 → 64 cm |
+| Altura máxima | 115 → 120 cm | 116 → 123 cm | 118 → 128 cm |
+| Garantía | 2 → 4 años | 2 → 4 años | 3 → 5 años |
 
-En todas las gamas: memorias 2 → 4; anticolisión sí 10, no 2; valoración de
-compradores 4,0 → 4,7 estrellas, y solo con 100 valoraciones o más (§3).
+En todas las gamas: memorias 2 → 4; anticolisión sí 10, no 3; valoración de
+compradores 4,0 → 4,6 estrellas, y solo con 100 valoraciones o más (§3). Si la
+ficha no declara velocidad, ruido o peso de la estructura, ese dato no cuenta
+y los demás de su apartado se reparten el peso.
 
 **Consecuencia:** las notas de gamas distintas **no se comparan entre sí**. Un
 8 en la gama de entrada y un 8 en la alta dicen lo mismo, "muy bueno para lo
@@ -124,9 +135,11 @@ que cuesta", no que sean iguales. Por eso las alternativas suben de gama con
 calidad-precio (ahora lo hacen las gamas) y facilidad de montaje (no hay dato
 que la mida).
 
-### Simulación del 24/09/2026
+### Simulación del 24/09/2026 (escala con mínimo 5)
 
-Con los datos de ese día, sin verificar (ver §6):
+Primera versión de la nota por gama, con los datos de ese día sin verificar
+(ver §6). Con el reajuste a mínimo 6 las notas quedan entre 7,5 y 9,2: están
+en el registro de cambios.
 
 | Modelo | Gama | Primera versión | Nota por gama |
 |---|---|---|---|

@@ -23,7 +23,7 @@ export interface Resultado {
  * Nota por debajo de la cual un modelo no se recomienda (METODO.md §4).
  * Regla interna: no se publica en la web.
  */
-export const NOTA_MINIMA = 6.5;
+export const NOTA_MINIMA = 7.5;
 
 /** Dias desde los que una franja de precio se considera vieja. */
 export const DIAS_FRANJA = 45;
