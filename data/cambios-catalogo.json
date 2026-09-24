@@ -244,5 +244,77 @@
     "tipo": "cambio_nota",
     "slug": "flexispot-eg1",
     "motivo": "La nota pasa de 9,9 a 7,6 al corregir sus datos. Deja de ser el número 1 de los marcos."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "maidesite-t2-pro-max",
+    "motivo": "La nota pasa de 8,7 a 9,2: se reajusta la escala para que lo mínimo aceptable en cada gama valga 6 puntos en vez de 5."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "ergear-120",
+    "motivo": "La nota pasa de 8,3 a 9,1: se reajusta la escala para que lo mínimo aceptable en cada gama valga 6 puntos en vez de 5."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "devoko-120",
+    "motivo": "La nota pasa de 8,2 a 9,1: se reajusta la escala para que lo mínimo aceptable en cada gama valga 6 puntos en vez de 5."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "sanodesk-140",
+    "motivo": "La nota pasa de 7,7 a 8,6: se reajusta la escala para que lo mínimo aceptable en cada gama valga 6 puntos en vez de 5."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "devoko-160",
+    "motivo": "La nota pasa de 7,7 a 8,6: se reajusta la escala para que lo mínimo aceptable en cada gama valga 6 puntos en vez de 5."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "songmics-160",
+    "motivo": "La nota pasa de 7,6 a 8,5: se reajusta la escala para que lo mínimo aceptable en cada gama valga 6 puntos en vez de 5."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "flexispot-160x80",
+    "motivo": "La nota pasa de 7,8 a 8,5: se reajusta la escala para que lo mínimo aceptable en cada gama valga 6 puntos en vez de 5."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "vasagle-160",
+    "motivo": "La nota pasa de 7,6 a 8,4: se reajusta la escala para que lo mínimo aceptable en cada gama valga 6 puntos en vez de 5."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "flexispot-eg1",
+    "motivo": "La nota pasa de 7,6 a 8,2: se reajusta la escala para que lo mínimo aceptable en cada gama valga 6 puntos en vez de 5."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "maidesite-s2-pro",
+    "motivo": "La nota pasa de 7,4 a 8,1: se reajusta la escala para que lo mínimo aceptable en cada gama valga 6 puntos en vez de 5."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "fezibo-120",
+    "motivo": "La nota pasa de 7,1 a 7,9: se reajusta la escala para que lo mínimo aceptable en cada gama valga 6 puntos en vez de 5."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "vasagle-100",
+    "motivo": "La nota pasa de 6,5 a 7,5: se reajusta la escala para que lo mínimo aceptable en cada gama valga 6 puntos en vez de 5."
   }
 ]
