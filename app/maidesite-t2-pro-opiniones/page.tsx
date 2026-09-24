@@ -329,7 +329,7 @@ export default function MaidesiteT2ProReviewPage() {
             <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot vs Maidesite: comparativa</Link> — Enfrentamos las dos marcas cara a cara.
           </p>
           <p>
-            <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Todos los modelos comparados.
+            <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los mejores escritorios elevables de 2026</Link> — Todos los modelos comparados.
           </p>
         </div>
       </section>

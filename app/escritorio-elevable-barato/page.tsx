@@ -368,7 +368,7 @@ export default function EscritorioBaratoPage() {
           </h3>
           <div className="space-y-2 text-sm">
             <p>
-              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Incluye modelos premium si decides subir de presupuesto.
+              <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los mejores escritorios elevables de 2026</Link> — Incluye modelos premium si decides subir de presupuesto.
             </p>
             <p>
               <Link href="/flexispot-eg1-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>FLEXISPOT EG1: ficha completa</Link> — El marco más asequible del catálogo.
