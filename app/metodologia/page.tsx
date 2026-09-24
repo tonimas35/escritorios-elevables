@@ -16,6 +16,7 @@ import {
 } from "@/lib/nota";
 import { coma } from "@/lib/format";
 import { fechaCorta } from "@/lib/fecha";
+import { CORREO } from "@/lib/contacto";
 import cambiosData from "@/data/cambios-catalogo.json";
 import type { CambioCatalogo } from "@/lib/types";
 
@@ -286,7 +287,11 @@ export default function MetodologiaPage() {
         </h2>
         <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
           Cada alta, baja, cambio de nota o corrección del catálogo, con su fecha y
-          su motivo. Si ves un error, lo corregimos y queda aquí.
+          su motivo. Si ves un error, escríbenos a{" "}
+          <a href={`mailto:${CORREO}`} className="underline" style={{ color: "var(--verde-estructura)" }}>
+            {CORREO}
+          </a>
+          : lo comprobamos, lo corregimos y queda aquí.
         </p>
         <ol className="space-y-3 text-sm">
           {cambios.map((c, i) => (
