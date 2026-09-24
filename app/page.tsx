@@ -40,11 +40,7 @@ export default function Home() {
     .filter(([, p]) => p.disponible)
     .sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total);
 
-  const [asinTop, top] = catalogo[0];
   const tresCaminos = caminos(catalogo);
-  const podio = catalogo.slice(1, 3);
-  const prosTop = top.pros.filter(publicable).slice(0, 3);
-  const exclusionTop = exclusion(top);
   const notaPrecios = notaFranjas(catalogo.map(([, p]) => p));
   const productos = catalogo.map(([, p]) => p);
   // El primero de cada franja, en el orden de las franjas.
@@ -54,6 +50,25 @@ export default function Home() {
       return pos?.franja === f && pos.posicion === 1;
     }),
   );
+
+  // Seccion 3: el nº 1 de la franja B y sus dos siguientes, no la nota mas
+  // alta del catalogo, que mezclaria gamas (METODO.md §5). Si la franja B
+  // se quedara vacia, el primero de la primera franja con modelos.
+  const enFranja = (f: Franja) =>
+    catalogo
+      .map(([asin, p]) => ({ asin, p, pos: posicionEnFranja(p, productos) }))
+      .filter((x) => x.pos?.franja === f)
+      .sort((a, b) => a.pos!.posicion - b.pos!.posicion)
+      .map(({ asin, p }): [string, typeof p] => [asin, p]);
+  const franjaDestacada: Franja = enFranja("B").length
+    ? "B"
+    : (posicionEnFranja(primeros[0][1], productos)?.franja ?? "B");
+  const grupoDestacado = enFranja(franjaDestacada);
+  const [asinTop, top] = grupoDestacado[0] ?? primeros[0];
+  const podio = grupoDestacado.slice(1, 3);
+  const prosTop = top.pros.filter(publicable).slice(0, 3);
+  const exclusionTop = exclusion(top);
+  const empateTop = posicionEnFranja(top, productos)?.empateCon ?? [];
 
   const tresDudas = dudas(catalogo);
 
@@ -215,13 +230,13 @@ export default function Home() {
         <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
           <p className="bs-kicker">Nº 03 · El podio</p>
           <h2 className="bs-h2" style={{ marginTop: 12 }}>
-            La recomendación, en detalle
+            {NOMBRE_FRANJA[franjaDestacada]}, en detalle
           </h2>
 
           <div className="bs-tarjeta" style={{ marginTop: 32 }}>
             <div className="flex items-center gap-4" style={{ marginBottom: 22 }}>
               <Cifra valor="01" tamano="40px" fondo="var(--bs-superficie)" />
-              <span className="bs-sello">Recomendado</span>
+              <span className="bs-sello">Nº 1 de su franja</span>
             </div>
 
             <div className="flex flex-wrap" style={{ gap: "clamp(20px, 3vw, 36px)" }}>
@@ -244,6 +259,11 @@ export default function Home() {
                   {" · "}
                   {coma(top.rating)}★ en Amazon
                 </p>
+                {empateTop.length > 0 && (
+                  <p style={{ fontSize: 13, lineHeight: 1.4, marginTop: 8, color: "var(--bs-neutro-700)" }}>
+                    Empate técnico con {empateTop.map((q) => `${q.marca} ${q.modelo}`).join(", ").replace(/, ([^,]*)$/, " y $1")}.
+                  </p>
+                )}
               </div>
 
               <div style={{ flex: "1 1 340px" }}>
@@ -305,9 +325,11 @@ export default function Home() {
             </div>
           </div>
 
-          <p className="bs-kicker" style={{ marginTop: 44, marginBottom: 6 }}>
-            Y si no, estos dos
-          </p>
+          {podio.length > 0 && (
+            <p className="bs-kicker" style={{ marginTop: 44, marginBottom: 6 }}>
+              Los siguientes de la franja
+            </p>
+          )}
           {podio.map(([asin, p], i) => (
             <div key={asin} className="bs-fila">
               <Cifra valor={String(i + 2).padStart(2, "0")} tamano="26px" />
@@ -506,7 +528,7 @@ export default function Home() {
         </div>
       </section>
 
-      <CtaFijo asin={asinTop} nombre={`${top.marca} ${top.modelo}`} />
+      <CtaFijo asin={asinTop} nombre={`${top.marca} ${top.modelo}`} etiqueta={`Nº 1 · ${NOMBRE_FRANJA[franjaDestacada]}`} />
     </div>
   );
 }
