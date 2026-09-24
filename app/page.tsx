@@ -283,7 +283,7 @@ export default function Home() {
 
                 {/* publicable() descarta el `veredicto` si trae un precio suelto
                     dentro; entonces cae al resumen compuesto con specs, que dice
-                    lo mismo sin cifras que caducan. Hoy los doce lo pasan. */}
+                    lo mismo sin cifras que caducan. Hoy todos lo pasan. */}
                 <p
                   style={{
                     fontSize: "clamp(16px, 1.6vw, 18px)",

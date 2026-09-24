@@ -131,7 +131,7 @@
     "imagen_alt": "VASAGLE escritorio elevable eléctrico 160x70 grande barato",
     "rating": 4.3,
     "num_reviews": 1042,
-    "disponible": true,
+    "disponible": false,
     "tipo": "simple",
     "incluye_tablero": true,
     "specs": {
@@ -171,8 +171,8 @@
     "titular": "VASAGLE 160x70: 160 cm de tablero con un solo motor",
     "slug": "vasagle-160",
     "alta": "2026-03-25",
-    "estado": "activo",
-    "sucesor": null,
+    "estado": "retirado",
+    "sucesor": "songmics-160",
     "fuente_specs": "https://www.amazon.es/dp/B0CF29CLCP",
     "specs_verificado": "2026-09-24",
     "nota_resenas": null
@@ -364,7 +364,7 @@
     "imagen_alt": "Devoko escritorio elevable eléctrico 160x70 grande",
     "rating": 4.6,
     "num_reviews": 823,
-    "disponible": true,
+    "disponible": false,
     "tipo": "simple",
     "incluye_tablero": true,
     "specs": {
@@ -402,8 +402,8 @@
     "define": "",
     "slug": "devoko-160",
     "alta": "2026-03-25",
-    "estado": "activo",
-    "sucesor": null,
+    "estado": "retirado",
+    "sucesor": "songmics-160",
     "fuente_specs": "https://www.amazon.es/dp/B0CKVPZ93G",
     "specs_verificado": "2026-09-24",
     "nota_resenas": null

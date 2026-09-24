@@ -79,7 +79,12 @@ test("el registro de cambios solo admite slugs del catálogo", () => {
 });
 
 test("avisa de franjas con más de tres modelos", () => {
-  assert.match(avisos(real).join("\n"), /franja B: \d modelos activos \(máximo 3\)/);
+  // Se reactiva un modelo retirado de la franja B para pasar de tres.
+  const c = catalogoCon("vasagle-160", (p) => {
+    p.disponible = true;
+    p.estado = "activo";
+  });
+  assert.match(avisos(c).join("\n"), /franja B: \d modelos activos \(máximo 3\)/);
 });
 
 test("el titular tampoco puede llevar precio", () => {

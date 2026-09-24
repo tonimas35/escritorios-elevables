@@ -454,5 +454,19 @@
     "tipo": "cambio_nota",
     "slug": "flexispot-160x80",
     "motivo": "La nota pasa de 8,5 a 6,8 al corregir sus specs y su valoración con la ficha de Amazon.es."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "baja",
+    "slug": "devoko-160",
+    "motivo": "La franja de completos de 120 a 250 € tenía cinco modelos y el máximo son tres (METODO.md §2). Sale el de nota más baja de la franja (7,1).",
+    "sucesor": "songmics-160"
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "baja",
+    "slug": "vasagle-160",
+    "motivo": "Casi un clon del SONGMICS 160x70: mismo fabricante, mismo tablero de 160x70, mismas alturas y carga. Entre clones se queda el de mejor valoración con más volumen (METODO.md §2), que es el SONGMICS.",
+    "sucesor": "songmics-160"
   }
 ]
