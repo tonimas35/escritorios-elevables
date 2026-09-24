@@ -24,6 +24,10 @@ import type { CambioCatalogo } from "@/lib/types";
 // primero. Los slugs se traducen a nombre con el catalogo actual.
 // Tabla de umbrales de METODO.md §5, leida de lib/nota.ts para que lo
 // publicado no pueda divergir de la formula.
+// El numero de franjas sale de NOMBRE_FRANJA: si se parte o se une una
+// franja (METODO.md §2), el texto no se queda desfasado.
+const EN_LETRA: Record<number, string> = { 3: "tres", 4: "cuatro", 5: "cinco", 6: "seis", 7: "siete" };
+const numeroFranjas = EN_LETRA[Object.keys(NOMBRE_FRANJA).length] ?? String(Object.keys(NOMBRE_FRANJA).length);
 const GAMAS: Gama[] = ["entrada", "media", "alta"];
 const NOMBRE_GAMA: Record<Gama, string> = { entrada: "Entrada", media: "Media", alta: "Alta" };
 type Umbrales = (typeof UMBRALES)[Gama];
@@ -204,9 +208,9 @@ export default function MetodologiaPage() {
         </h2>
         <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
           Recomendamos lo mejor de cada franja de precio, no lo que más comisión
-          deja. Por eso el catálogo se reparte en cuatro franjas, con dos o tres
-          modelos en cada una, y ninguna se queda sin cubrir, tampoco la más
-          barata:
+          deja. Por eso el catálogo se reparte en {numeroFranjas} franjas, con tres modelos
+          como máximo en cada una, y ninguna se queda sin cubrir, tampoco la
+          más barata:
         </p>
         <ul className="space-y-1 text-sm mb-5" style={{ color: "var(--text-secondary)" }}>
           {(Object.keys(NOMBRE_FRANJA) as Franja[]).map((f) => (
