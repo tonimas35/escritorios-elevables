@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProductBySlug, getAllProducts } from "@/lib/products";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
-import { nota } from "@/lib/format";
+import { coma, nota } from "@/lib/format";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { AvisoAfiliadoPagina, AvisoAfiliadoTabla } from "@/components/AvisoAfiliado";
 import { FranjaPrecio } from "@/components/FranjaPrecio";
@@ -25,8 +25,16 @@ export default function MaidesiteT2ProReviewPage() {
   const [asin, product] = result;
   const catalogo = getAllProducts().map(([, p]) => p);
 
+  // Comparaciones con el resto del catalogo, calculadas y no escritas a
+  // mano: si entra o sale un modelo, el texto sigue siendo cierto.
+  const s = product.specs;
+  const otros = catalogo.filter((p) => p.disponible && p.slug !== product.slug);
+  const alturaOtros = Math.max(...otros.map((p) => p.specs.rango_altura_max_cm));
+  const cargas = otros.map((p) => p.specs.peso_max_carga_kg);
+  const recorridoCm = s.rango_altura_max_cm - s.rango_altura_min_cm;
+
   const alternatives = getAllProducts()
-    .filter(([, p]) => p.slug !== "maidesite-t2-pro" && p.disponible)
+    .filter(([, p]) => p.slug !== product.slug && p.disponible)
     .sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total)
     .slice(0, 3);
 
@@ -53,11 +61,11 @@ export default function MaidesiteT2ProReviewPage() {
     },
     {
       q: "¿Sirve para una persona muy alta?",
-      a: "Es de lo mejor que hay para eso. Sube hasta 135 cm, más que cualquier otro modelo del catálogo, que se quedan en 120-123 cm. Si mides más de 1,90 m y has probado escritorios que se te quedan cortos de pie, este resuelve el problema. Recuerda sumar el grosor del tablero a esa altura.",
+      a: `Es de lo mejor que hay para eso. Sube hasta ${coma(s.rango_altura_max_cm)} cm, más que cualquier otro modelo del catálogo, que llegan como mucho a ${coma(alturaOtros)} cm. Si mides más de 1,90 m y has probado escritorios que se te quedan cortos de pie, este resuelve el problema. Recuerda sumar el grosor del tablero a esa altura.`,
     },
     {
       q: "¿Cuánto tarda en montarse?",
-      a: "Entre 40 minutos y una hora, y mejor entre dos personas: la estructura pesa 30 kg. Al no incluir tablero, tendrás que taladrar los agujeros de fijación en el tuyo si no vienen ya hechos, así que suma ese rato.",
+      a: "Mejor entre dos personas: la estructura pesa 30 kg. Al no incluir tablero, tendrás que taladrar los agujeros de fijación en el tuyo si no vienen ya hechos.",
     },
   ];
 
@@ -148,12 +156,12 @@ export default function MaidesiteT2ProReviewPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { label: "Motor", value: "Doble motor", detail: "Mejor tracción" },
-            { label: "Rango de altura", value: `${product.specs.rango_altura_min_cm}–${product.specs.rango_altura_max_cm} cm`, detail: "65 cm de recorrido" },
-            { label: "Velocidad", value: `${product.specs.velocidad_cm_s} cm/s`, detail: "De los más rápidos del catálogo" },
+            { label: "Rango de altura", value: `${product.specs.rango_altura_min_cm}–${product.specs.rango_altura_max_cm} cm`, detail: `${coma(recorridoCm)} cm de recorrido` },
+            { label: "Velocidad", value: s.velocidad_cm_s !== null ? `${coma(s.velocidad_cm_s)} cm/s` : "Sin dato", detail: "De los más rápidos del catálogo" },
             { label: "Carga máxima", value: `${product.specs.peso_max_carga_kg} kg`, detail: "Setup completo" },
-            { label: "Tablero", value: `${product.specs.ancho_tablero_cm}x${product.specs.profundidad_tablero_cm} cm`, detail: product.specs.material_tablero || '' },
-            { label: "Peso estructura", value: `${product.specs.peso_estructura_kg} kg`, detail: "Manejable" },
-            { label: "Ruido", value: `${product.specs.ruido_db} dB`, detail: "Aceptable" },
+            { label: "Tablero", value: s.tablero_incluido ? `${s.ancho_tablero_cm}x${s.profundidad_tablero_cm} cm` : "No incluido", detail: s.tablero_incluido ? s.material_tablero || '' : "Solo el marco" },
+            { label: "Peso estructura", value: s.peso_estructura_kg !== null ? `${s.peso_estructura_kg} kg` : "Sin dato", detail: "Manejable" },
+            { label: "Ruido", value: s.ruido_db !== null ? `${s.ruido_db} dB` : "Sin dato", detail: "Aceptable" },
             { label: "Garantía", value: `${product.specs.garantia_anos} años`, detail: "Maidesite oficial" },
             { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rápido" },
             { label: "Anticolisión", value: product.specs.sistema_anticolision ? "Sí" : "No", detail: "Protección activa" },
@@ -188,10 +196,10 @@ export default function MaidesiteT2ProReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Qué estás pagando exactamente</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Un marco sin tablero, en la gama alta. Lo que compras es capacidad: doble motor, 160 kg de carga útil y tres secciones telescópicas que permiten bajar hasta 65 cm y subir hasta 135. Para comparar, el resto de modelos del catálogo se mueven entre 50 y 125 kg, y ninguno pasa de 123 cm.
+            Un marco sin tablero, en la gama alta. Lo que compras es capacidad: doble motor, 160 kg de carga útil y tres secciones telescópicas que permiten bajar hasta 65 cm y subir hasta 135. Para comparar, el resto de modelos del catálogo se mueven entre {Math.min(...cargas)} y {Math.max(...cargas)} kg, y ninguno pasa de {coma(alturaOtros)} cm.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            El panel Piano-Master lleva cuatro memorias de altura y sistema anticolisión. A 45 dB, el ruido al subir es discreto: audible en una habitación en silencio, irrelevante en una videollamada. La velocidad, 3,8 cm/s, esta en la parte alta del catálogo.
+            El panel Piano-Master lleva cuatro memorias de altura y sistema anticolisión. A 45 dB, el ruido al subir es discreto: audible en una habitación en silencio, irrelevante en una videollamada. La velocidad, 3,8 cm/s, está en la parte alta del catálogo.
           </p>
         </div>
 
