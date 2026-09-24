@@ -197,7 +197,8 @@ export default function EscritorioBaratoPage() {
                   </td>
                   <td className="p-3 text-center text-sm">{product.specs.ancho_tablero_cm}x{product.specs.profundidad_tablero_cm}</td>
                   <td className="p-3 text-center text-sm">{product.specs.peso_max_carga_kg} kg</td>
-                  <td className="p-3 text-center text-sm" style={{ color: product.specs.sistema_anticolision ? 'var(--rating-good)' : 'var(--rating-bad)' }}>{product.specs.sistema_anticolision ? '✓' : '✗'}</td>
+                  {/* null es "la ficha no lo dice": se marca aparte, no como un no. */}
+                  <td className="p-3 text-center text-sm" style={{ color: product.specs.sistema_anticolision === null ? 'var(--text-muted)' : product.specs.sistema_anticolision ? 'var(--rating-good)' : 'var(--rating-bad)' }}>{product.specs.sistema_anticolision === null ? 'Sin dato' : product.specs.sistema_anticolision ? '✓' : '✗'}</td>
                   <td className="p-3 text-center font-bold" style={{ color: 'var(--bs-tinta)' }}>{nota(product.puntuacion.total)}</td>
                   <td className="p-3 text-center">
                     <AffiliateButton asin={asin} size="sm" />
