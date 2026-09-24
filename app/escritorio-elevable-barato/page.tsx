@@ -43,7 +43,7 @@ export default function EscritorioBaratoPage() {
     },
     {
       q: "¿Motor simple o doble para un escritorio barato?",
-      a: "En la gama de entrada, casi todos llevan motor simple. Es más lento (20 seg el recorrido completo vs 12 del doble), pero para un setup normal de portátil y monitor va de sobra. Si quieres doble motor sin salirte de lo barato, el marco Flexispot es la opción, aunque tendrás que sumarle un tablero.",
+      a: "En la gama de entrada, casi todos llevan motor simple. Es más lento (20 seg el recorrido completo vs 12 del doble), pero para un setup normal de portátil y monitor va de sobra. Ninguno de los baratos del catálogo lleva doble motor: el más asequible con doble motor es el marco MAIDeSITe T2 Pro MAX, ya en la gama alta y sin tablero.",
     },
     {
       q: "¿Cuánto dura un escritorio elevable barato?",
@@ -55,7 +55,7 @@ export default function EscritorioBaratoPage() {
     },
     {
       q: "¿Qué sacrifico por comprar un escritorio elevable barato?",
-      a: "Velocidad del motor (2.5 vs 3.8 cm/s), estabilidad a máxima altura (algo de vibración al escribir de pie) y acabado del tablero (melamina básica). También menos rango de altura (72-118 cm vs 58-125 cm), un problema si mides más de 1.85 m.",
+      a: "Velocidad del motor (2.5 vs 3.8 cm/s), estabilidad a máxima altura (algo de vibración al escribir de pie) y acabado del tablero (melamina básica). También menos recorrido: los baratos suben hasta 116-120 cm y los de doble motor hasta 120-135 cm, algo que se nota si eres alto y trabajas de pie.",
     },
     {
       q: "Anticolisión: ¿es necesario en un escritorio barato?",
@@ -133,7 +133,7 @@ export default function EscritorioBaratoPage() {
       <FadeIn delay={100}>
         <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <p>
-            No necesitas irte a la gama alta. Si tu setup es portátil + monitor + teclado, la gama de entrada te vale. Mi recomendación rápida: el <strong>marco Flexispot</strong> si quieres lo mejor de esta franja, el <strong>ErGear de 120x60</strong> si buscas anticolisión, y el <strong>VASAGLE de 100x60</strong>, el más barato del catálogo, para probar con lo mínimo.
+            No necesitas irte a la gama alta. Si tu setup es portátil + monitor + teclado, la gama de entrada te vale. Mi recomendación rápida: el <strong>marco Flexispot</strong> si ya tienes tablero, el <strong>ErGear de 120x60</strong> si buscas anticolisión, y el <strong>VASAGLE de 100x60</strong>, el más barato del catálogo, para probar con lo mínimo.
           </p>
         </div>
       </FadeIn>
@@ -323,7 +323,7 @@ export default function EscritorioBaratoPage() {
               <strong style={{ color: 'var(--text-primary)' }}>El punto dulce:</strong> anticolisión, tableros de 120-140 cm y garantías de 3 a 5 años. Para teletrabajo estándar, cualquiera de estos cumple.
             </p>
             <p>
-              <strong style={{ color: 'var(--text-primary)' }}>Lo mejor de la franja:</strong> el marco Flexispot, con cinco años de garantía en la estructura. Y si necesitas más carga, el <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>MAIDeSITe T2 Pro MAX</Link> sube a otra liga.
+              <strong style={{ color: 'var(--text-primary)' }}>Si ya tienes tablero:</strong> el marco Flexispot EG1, con cinco años de garantía en la estructura. Y si necesitas más carga, el <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>MAIDeSITe T2 Pro MAX</Link> sube a otra liga.
             </p>
           </div>
         </section>
@@ -340,7 +340,7 @@ export default function EscritorioBaratoPage() {
               <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Incluye modelos premium si decides subir de presupuesto.
             </p>
             <p>
-              <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7: opinion y review</Link> — El rey de los escritorios elevables, analizado a fondo.
+              <Link href="/flexispot-eg1-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>FLEXISPOT EG1: ficha completa</Link> — El marco más asequible del catálogo.
             </p>
           </div>
         </section>
