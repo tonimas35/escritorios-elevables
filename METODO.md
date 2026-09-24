@@ -60,103 +60,45 @@ Un modelo entra solo si cumple **todos**:
 - Deja de cumplir algún requisito de §3.
 - Aparece un candidato en la misma franja que lo supera en **0,3 puntos** o
   más. Por debajo de ese margen no se rota: sería rotar por ruido.
+- Su nota baja de **6,5** (añadido el 24/09/2026). Es una regla interna: **no
+  se publica en la web**. `npm run validar` avisa de los que están por debajo.
 
 Un modelo que sale y tenía página propia redirige (301) a su sucesor. Nunca se
 deja un 404.
 
 ## 5. La nota
 
-Sustituye a la nota actual, que está puesta a mano. Se calcula en el build con
-una función pura (`lib/nota.ts`, Fase 4) a partir de los datos del JSON, y la
-fórmula se publica.
+> **Cambio del 24/09/2026, aprobado por Toni.** La primera versión (23/09)
+> medía cada escritorio contra el mejor del mercado, con umbrales únicos:
+> los de 100 € sacaban entre 3 y 5 aunque cumplieran lo que prometen, y el
+> lector lo leía como un suspenso. Ahora cada escritorio se mide contra lo que
+> se puede esperar en su **gama de precio**.
 
-**Umbrales absolutos**: la nota de un modelo no cambia porque entre o salga
-otro. Cada apartado va de 0 a 10.
+Se calcula en el build con una función pura (`lib/nota.ts`) a partir de los
+datos del JSON, y la fórmula se publica.
+
+### Gamas
+
+Por el punto medio de la franja de precio verificada, igual que §2, pero sin
+separar marcos de completos: **entrada** hasta 120 €, **media** de 120 a 250 €
+y **alta** de 250 a 500 €. Sin franja verificada se usa el campo interno
+`precio`.
 
 ### Apartados y pesos
 
-| Apartado | Peso | Cómo se calcula |
+| Apartado | Peso | Qué mide |
 |---|---|---|
-| Estabilidad y estructura | 35 % | 50 % carga (40 kg → 0, 150 kg → 10) · 30 % motor (doble 10, simple 5) · 20 % peso de la estructura (15 kg → 0, 40 kg → 10) |
-| Funciones | 25 % | Media de: memorias (4 o más → 10) · anticolisión (sí 10, no 0) · velocidad (2 cm/s → 0, 4 cm/s → 10) · ruido (55 dB → 0, 42 dB → 10) |
-| Recorrido | 15 % | Media de: altura mínima (75 cm → 0, 60 cm → 10) y máxima (115 cm → 0, 130 cm → 10). Cubrir de 1,55 a 1,95 m de estatura |
-| Garantía | 10 % | 1 año → 0, 5 años → 10 |
-| Valoración de compradores | 15 % | Nota media de Amazon (4,0 → 0, 4,8 → 10). Solo con 100 valoraciones o más; si no, este apartado no cuenta y los demás se reescalan |
+| Estabilidad y estructura | 35 % | 50 % carga · 30 % motor · 20 % peso de la estructura |
+| Funciones | 25 % | Media de memorias, anticolisión, velocidad y ruido (si hay dato) |
+| Recorrido | 15 % | Media de altura mínima y máxima |
+| Garantía | 10 % | Años declarados |
+| Valoración de compradores | 15 % | Nota media en Amazon, solo con 100 valoraciones o más; si no, no cuenta y los demás se reescalan |
 
-Entre los extremos, lineal. Fuera de ellos, se queda en 0 o en 10. Total =
-media ponderada, con un decimal.
+### Umbrales
 
-**Salen dos apartados de los actuales:**
-- **Relación calidad-precio.** Comparar por precio ya lo hacen las franjas.
-  Con esto queda cerrado lo que tenía abierto `design-ref/README.md`.
-- **Facilidad de montaje.** No hay dato que la mida. Pasa a pros y contras
-  cuando haya una fuente (instrucciones del fabricante o reseñas).
-
-Queda fuera de la nota "calidad de construcción" como apartado aparte: los
-datos que la sostienen (peso de la estructura, motor) ya están en estabilidad.
-El número de secciones telescópicas no está en el JSON; si se añade con
-fuente, puede entrar aquí.
-
-### Simulación sobre el catálogo actual
-
-Con los pesos de arriba y los datos de hoy de `data/productos.json`:
-
-| Modelo | Franja | Nota nueva | Nota actual |
-|---|---|---|---|
-| Flexispot E7 | M | 8,6 | 9,7 |
-| MAIDeSITe T2 Pro MAX | M | 8,5 | 9,4 |
-| FLEXISPOT 160x80 | C | 7,1 | 9,5 |
-| MAIDeSITe S2 Pro | C | 7,0 | 9,3 |
-| SANODESK 140 | B | 5,2 | 9,2 |
-| Devoko 160 | B | 5,1 | 8,9 |
-| SONGMICS 160 | B | 5,0 | 9,1 |
-| ErGear 120 | A | 4,9 | 8,8 |
-| VASAGLE 160 | B | 4,9 | 8,7 |
-| Devoko 120 | A | 4,8 | 8,7 |
-| FEZIBO 120 | B | 4,7 | 8,5 |
-| VASAGLE 100 | A | 3,0 | 8,1 |
-
-Lo que enseña:
-
-1. **Las notas actuales están infladas.** Ninguna baja de 8,1 cuando entre el
-   modelo más básico y el más completo hay una diferencia enorme de carga,
-   motor, velocidad y recorrido. La fórmula la hace visible.
-2. **El orden de arriba casi no cambia**: el E7 sigue primero. Donde sí cambia
-   es en la zona media (SONGMICS baja, Devoko 160 sube).
-3. **Sobran clones en las franjas A y B.** Siete de los doce modelos son
-   escritorios de un motor, 72–120 cm, 70–80 kg y 3 años: prácticamente el
-   mismo producto con distinto ancho de tablero.
-   Cuatro de ellos tienen `define` vacío justo por eso. Ocupan sitio que
-   debería ser para algo distinto.
-4. **La franja C tiene solo dos modelos y ninguno entre 180 y 350 €.** Es el
-   hueco que hay que cubrir en el primer barrido.
-
-### Cómo se publica la nota
-
-Una nota absoluta pone a los escritorios baratos entre 3 y 5. Es honesto (un
-escritorio de 80 € no tiene las prestaciones de uno de 400 €), pero un 4,9 en
-grande puede leerse como "malo". Por eso la cifra grande de la ficha es la
-**posición en su franja** ("Nº 1 de la franja A") y la nota absoluta se enseña
-al lado, más pequeña, con un enlace a esta fórmula.
-
-## 5 bis. PROPUESTA: nota por gama de precio (borrador 24/09/2026)
-
-> **Pendiente de aprobación. No aplicada.** Sustituiría a la fórmula de §5.
-
-**Por qué.** Con la escala de §5, un escritorio de 100 € que hace bien lo que
-promete saca un 4 o un 5, porque se le mide contra uno de 400 €. El lector lee
-"4,7 sobre 10" como un suspenso, y no es lo que queremos decir: si lo
-recomendamos es porque está bien *para lo que cuesta*.
-
-**Cómo.** Mismos apartados y pesos que §5. Cambian los umbrales: cada **gama**
-tiene los suyos, fijos y publicados. En cada dato, **5 = lo mínimo aceptable en
-esa gama** y **10 = lo mejor que se puede esperar en ella**, en línea recta y
-recortado entre 0 y 10. Los umbrales no dependen del resto del catálogo: la
-nota de un modelo no cambia porque entre otro.
-
-**Gama** por el punto medio de la franja de precio verificada, igual que §2,
-pero sin separar marcos de completos: **entrada** hasta 120 €, **media** de 120
-a 250 € y **alta** de 250 a 500 €.
+En cada dato, **5 = lo mínimo aceptable en esa gama** y **10 = lo mejor que se
+puede esperar en ella**, en línea recta y recortado entre 0 y 10. Son fijos por
+gama: la nota de un modelo no cambia porque entre o salga otro.
 
 | Dato (5 → 10) | Entrada | Media | Alta |
 |---|---|---|---|
@@ -172,15 +114,23 @@ a 250 € y **alta** de 250 a 500 €.
 En todas las gamas: memorias 2 → 4; anticolisión sí 10, no 2; valoración de
 compradores 4,0 → 4,7 estrellas, y solo con 100 valoraciones o más (§3).
 
-**Norma de entrada nueva:** un modelo con **nota por debajo de 6,5** no se
-recomienda y sale en el siguiente barrido. Así, todo lo publicado queda entre
-6,5 y 10 porque se ha elegido así, no porque se haya estirado la escala.
+**Consecuencia:** las notas de gamas distintas **no se comparan entre sí**. Un
+8 en la gama de entrada y un 8 en la alta dicen lo mismo, "muy bueno para lo
+que cuesta", no que sean iguales. Por eso las alternativas suben de gama con
+"Si puedes subir de presupuesto" en vez de ordenar por nota
+(`lib/alternativas.ts`).
 
-**Simulación con los datos de hoy** (sin verificar: ver el aviso de abajo):
+**Salen dos apartados de la primera versión de la nota:** relación
+calidad-precio (ahora lo hacen las gamas) y facilidad de montaje (no hay dato
+que la mida).
 
-| Modelo | Gama | Nota §5 hoy | Nota propuesta |
+### Simulación del 24/09/2026
+
+Con los datos de ese día, sin verificar (ver §6):
+
+| Modelo | Gama | Primera versión | Nota por gama |
 |---|---|---|---|
-| "Flexispot E7" (ver aviso) | media | 8,6 | 9,9 |
+| "Flexispot E7" (el ASIN es un EG1: se corrige aparte) | media | 8,6 | 9,9 |
 | MAIDeSITe T2 Pro MAX | alta | 8,5 | 8,7 |
 | ErGear 120 | entrada | 4,9 | 8,3 |
 | Devoko 120 | entrada | 4,8 | 8,2 |
@@ -193,18 +143,10 @@ recomienda y sale en el siguiente barrido. Así, todo lo publicado queda entre
 | Fezibo 120 | media | 4,7 | 7,1 |
 | VASAGLE 100 | entrada | 3,0 | 6,5 |
 
-**Avisos antes de aprobar:**
+### Cómo se publica la nota
 
-- El "E7" lleva specs de un E7, pero el ASIN es otro marco (EG1). Con sus datos
-  reales su nota bajará. Se corrige aparte.
-- 11 de 12 modelos tienen specs sin verificar, y varias ya se sabe que no
-  cuadran con Amazon (ErGear, los dos Devoko, VASAGLE 100, SONGMICS, S2 Pro).
-  Las notas definitivas saldrán del barrido de octubre, con datos comprobados.
-- VASAGLE 100 queda justo en el límite (6,5). Con datos verificados puede
-  quedar por encima o salir.
-- Los umbrales son una propuesta razonada, no una medición. Se pueden
-  discutir, pero una vez aprobados solo se cambian aquí, con fecha, y nunca
-  para que un modelo concreto suba o baje.
+La cifra grande de la ficha es la **posición en su franja** ("Nº 1 de la franja
+A") y la nota se enseña al lado, más pequeña, con un enlace a esta fórmula.
 
 ## 6. Fuentes y fechas por modelo
 
