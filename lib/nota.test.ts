@@ -118,7 +118,7 @@ test("posición en franja: cada marco solo se compara con los de su franja", () 
   assert.deepEqual([t2.franja, t2.posicion, t2.de], ["M2", 1, 1]);
   const eg1 = posicionEnFranja(porSlug("flexispot-eg1"), catalogo)!;
   assert.deepEqual([eg1.franja, eg1.posicion, eg1.de], ["M1", 1, 1]);
-  const b = catalogo.filter((p) => franja(p) === "B").map((p) => posicionEnFranja(p, catalogo)!.posicion).sort();
+  const b = catalogo.filter((p) => p.disponible && franja(p) === "B").map((p) => posicionEnFranja(p, catalogo)!.posicion).sort();
   assert.deepEqual(b, b.map((_, i) => i + 1), "posiciones consecutivas aunque haya empate técnico");
 });
 
