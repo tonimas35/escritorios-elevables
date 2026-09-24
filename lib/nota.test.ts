@@ -64,20 +64,38 @@ test("los extremos se recortan a 0 y 10", () => {
 });
 
 test("sin 100 valoraciones el apartado no cuenta y el resto se reescala", () => {
-  const t2 = porSlug("maidesite-t2-pro-max"); // 76 valoraciones
-  assert.equal(t2.puntuacion.valoracion, null);
-  const n = t2.puntuacion;
+  const n = calcularNota(con("maidesite-t2-pro-max", { num_reviews: 50, specs: { garantia_anos: 3, presets_memoria: 4 } }));
+  assert.equal(n.valoracion, null);
   const sinValoracion =
-    (n.estabilidad * PESOS.estabilidad + n.funciones * PESOS.funciones + n.recorrido * PESOS.recorrido + n.garantia * PESOS.garantia) /
+    (n.estabilidad * PESOS.estabilidad + n.funciones! * PESOS.funciones + n.recorrido * PESOS.recorrido + n.garantia! * PESOS.garantia) /
     (1 - PESOS.valoracion);
   assert.ok(Math.abs(sinValoracion - n.total) <= 0.1);
+});
+
+test("sin garantía declarada, el apartado no cuenta y el resto se reescala", () => {
+  const n = calcularNota(con("songmics-160", { specs: { garantia_anos: null } }));
+  assert.equal(n.garantia, null);
+  const pesos = PESOS.estabilidad + PESOS.funciones + PESOS.recorrido + (n.valoracion !== null ? PESOS.valoracion : 0);
+  const esperado =
+    (n.estabilidad * PESOS.estabilidad + n.funciones! * PESOS.funciones + n.recorrido * PESOS.recorrido + (n.valoracion ?? 0) * PESOS.valoracion) / pesos;
+  assert.ok(Math.abs(esperado - n.total) <= 0.1);
+});
+
+test("memorias o anticolisión sin dato no cuentan como un no", () => {
+  const base = { specs: { presets_memoria: 4, sistema_anticolision: true, velocidad_cm_s: null, ruido_db: null } };
+  const sinAnticolision = calcularNota(con("songmics-160", { specs: { ...base.specs, sistema_anticolision: null } }));
+  const conNo = calcularNota(con("songmics-160", { specs: { ...base.specs, sistema_anticolision: false } }));
+  assert.ok(sinAnticolision.funciones! > conNo.funciones!, "sin dato no penaliza como un no");
+  const nada = calcularNota(con("songmics-160", { specs: { presets_memoria: null, sistema_anticolision: null, velocidad_cm_s: null, ruido_db: null } }));
+  assert.equal(nada.funciones, null);
+  assert.ok(nada.total >= 0 && nada.total <= 10);
 });
 
 test("sin dato de ruido, funciones no se inventa un valor", () => {
   const conRuido = calcularNota(porSlug("songmics-160")); // 50 dB
   const sinRuido = calcularNota(con("songmics-160", { specs: { ruido_db: null } }));
   assert.notEqual(conRuido.funciones, sinRuido.funciones);
-  assert.ok(sinRuido.funciones >= 0 && sinRuido.funciones <= 10);
+  assert.ok(sinRuido.funciones! >= 0 && sinRuido.funciones! <= 10);
 });
 
 test("franja por el punto medio de la franja de precio verificada", () => {

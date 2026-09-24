@@ -10,11 +10,17 @@ export interface ProductSpecs {
   /** `null` si la ficha no lo declara: no se estima. */
   peso_estructura_kg: number | null;
   ruido_db: number | null;
-  presets_memoria: number;
-  sistema_anticolision: boolean;
+  /** `null` si la ficha no lo declara: no se estima. */
+  presets_memoria: number | null;
+  /** `null` si la ficha no dice si lo tiene: no declararlo no es "no". */
+  sistema_anticolision: boolean | null;
   tablero_incluido: boolean;
   material_tablero: string | null;
-  garantia_anos: number;
+  /**
+   * `null` si la ficha no la declara. Garantia compuesta (marco y motor):
+   * la menor (METODO.md §5).
+   */
+  garantia_anos: number | null;
 }
 
 /**
@@ -24,9 +30,11 @@ export interface ProductSpecs {
  */
 export interface ProductScore {
   estabilidad: number;
-  funciones: number;
+  /** `null` si la ficha no declara ninguno de sus datos. */
+  funciones: number | null;
   recorrido: number;
-  garantia: number;
+  /** `null` si la ficha no declara la garantia. */
+  garantia: number | null;
   /** `null` si el modelo no llega al minimo de valoraciones en Amazon. */
   valoracion: number | null;
   total: number;
