@@ -232,5 +232,17 @@
     "tipo": "cambio_nota",
     "slug": "vasagle-100",
     "motivo": "La nota pasa de 3,0 a 6,5: desde hoy cada escritorio se mide contra lo que se puede esperar en su gama de precio, no contra el mejor del mercado."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "correccion",
+    "slug": "flexispot-e7",
+    "motivo": "Lo presentábamos como Flexispot E7 (doble motor, 125 kg, 58–123 cm). El producto que enlazamos es otro marco de Flexispot, el EG1: un motor, 70 kg en movimiento (100 en estático), 71,5–116 cm, 4 memorias, anticolisión y 5 años de garantía en el marco y 3 en el motor. Corregidos nombre, datos y textos con su ficha de Amazon. Velocidad, ruido y peso de la estructura no aparecen en la ficha y quedan sin dato."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "flexispot-e7",
+    "motivo": "La nota pasa de 9,9 a 7,6 al corregir sus datos. Deja de ser el número 1 de los marcos."
   }
 ]

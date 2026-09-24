@@ -33,7 +33,7 @@ test("todas las notas y apartados quedan entre 0 y 10 con un decimal", () => {
 
 test("reproduce la simulación aprobada en METODO.md §5", () => {
   const esperado: Record<string, number> = {
-    "flexispot-e7": 9.9,
+    "flexispot-e7": 7.6, // 9,9 en la simulación: llevaba specs de un E7 que no era (ver registro 24/09)
     "maidesite-t2-pro-max": 8.7,
     "ergear-120": 8.3,
     "devoko-120": 8.2,
@@ -57,7 +57,7 @@ test("umbrales fijos por gama: la nota no depende del resto del catálogo", () =
 });
 
 test("los extremos se recortan a 0 y 10", () => {
-  const tope = calcularNota(con("flexispot-e7", { specs: { peso_max_carga_kg: 500, peso_estructura_kg: 100 } }));
+  const tope = calcularNota(con("maidesite-t2-pro-max", { specs: { peso_max_carga_kg: 500, peso_estructura_kg: 100 } }));
   assert.equal(tope.estabilidad, 10);
   const suelo = calcularNota(con("vasagle-100", { specs: { peso_max_carga_kg: 10, peso_estructura_kg: 5 } }));
   assert.equal(suelo.estabilidad, 2.1); // solo el motor simple en gama de entrada: 0,3 × 7
@@ -91,8 +91,8 @@ test("franja por el punto medio de la franja de precio verificada", () => {
   assert.equal(franja({ incluye_tablero: true, precio_min: 100, precio_max: 140 }), "A"); // medio 120: límite incluido
 });
 
-test("posición en franja: el E7 es el primero de los marcos", () => {
-  assert.deepEqual(posicionEnFranja(porSlug("flexispot-e7"), catalogo), { franja: "M", posicion: 1, de: 2 });
+test("posición en franja: el T2 Pro MAX es el primero de los marcos", () => {
+  assert.deepEqual(posicionEnFranja(porSlug("maidesite-t2-pro-max"), catalogo), { franja: "M", posicion: 1, de: 2 });
   const b = catalogo.filter((p) => franja(p) === "B").map((p) => posicionEnFranja(p, catalogo)!.posicion).sort();
   assert.deepEqual(b, b.map((_, i) => i + 1), "posiciones consecutivas y sin empates");
 });
