@@ -63,7 +63,7 @@ export default function MejorEscritorioPage() {
     },
     {
       q: "¿Puedo montar un escritorio elevable solo?",
-      a: "Los ligeros, por debajo de 22 kg, como el Fezibo o los Devoko, sí. Los pesados como el E7 (32 kg) son un engorro en solitario al dar la vuelta al tablero. Como referencia: por encima de 25 kg, mejor entre dos.",
+      a: "Los ligeros, por debajo de 22 kg, como el Fezibo o los Devoko, sí. Los pesados como el FLEXISPOT de 160x80 (38 kg) son un engorro en solitario al dar la vuelta al tablero. Como referencia: por encima de 25 kg, mejor entre dos.",
     },
     {
       q: "¿Qué garantía tienen?",
@@ -393,9 +393,9 @@ export default function MejorEscritorioPage() {
             <div className="space-y-8 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               {[
                 { title: "El motor: simple vs doble", text: "El doble es más rápido (3.8 vs 2.5 cm/s), más silencioso y más estable al moverse. Si cambias de posición 4+ veces al día con un setup pesado, merece la pena. Si lo mueves dos veces al día con un portátil, el simple cumple." },
-                { title: "Estabilidad: importa más de lo que crees", text: "De pie, el escritorio está a 110-120 cm y cualquier vibración se amplifica. Si la pantalla tiembla al teclear, te cansas la vista. Busca patas con tres secciones telescópicas y estructura pesada. el marco Flexispot es el mejor del catálogo en este apartado; en los baratos hay que aceptar algo de movimiento." },
-                { title: "Ruido: ojo si haces videollamadas", text: "Baratos: 50-52 dB (se oye). Premium: 43-45 dB (casi no se nota). Si cambias de altura durante una llamada, con 50 dB la otra persona lo percibe. Con 43, no." },
-                { title: "Rango de altura: ojo si mides más de 1.85 m", text: "Baratos: 72-118 cm. Premium: 58-125 cm. Si mides más de 1.85 m y el escritorio llega solo a 118 cm, vas a trabajar encorvado. El E7 llega a 123 cm y el Maidesite T2 Pro a 127 cm." },
+                { title: "Estabilidad: importa más de lo que crees", text: "De pie, el escritorio está a 110-120 cm y cualquier vibración se amplifica. Si la pantalla tiembla al teclear, te cansas la vista. Busca estructura pesada y doble motor: en el catálogo, los de doble motor pesan entre 30 y 38 kg. En los baratos hay que aceptar algo de movimiento." },
+                { title: "Ruido: ojo si haces videollamadas", text: "Los de un motor del catálogo declaran entre 48 y 50 dB; los de doble motor, entre 45 y 48 dB. Si cambias de altura durante una llamada, 50 dB se oyen; 45, casi nada." },
+                { title: "Rango de altura: ojo si eres alto", text: "Los baratos del catálogo suben hasta 116-120 cm; los de doble motor, hasta 120-135 cm. Si eres alto y trabajas de pie, un escritorio que se queda en 116 cm te obliga a encorvarte. El que más sube es el MAIDeSITe T2 Pro MAX, hasta 135 cm. La calculadora de altura te dice cuánto necesitas." },
                 { title: "Garantía y postventa", text: "Flexispot y Maidesite dan 5 años; marcas baratas, 2. Los problemas graves suelen aparecer en los primeros 6 meses. Si puedes elegir, 5 años siempre \u2014 tiene electrónica y partes móviles." },
                 { title: "Anticolisión: no te la juegues", text: "Para el motor si detecta un obstáculo al bajar. Sin anticolisión, el motor sigue y puede romper cajones o el propio mecanismo. Lo encuentras ya en la gama de entrada (ErGear), así que no merece la pena ahorrar y quedarse sin el." },
               ].map((item, i) => (
@@ -424,7 +424,7 @@ export default function MejorEscritorioPage() {
                 <Link href="/escritorio-elevable-barato" className="underline" style={{ color: 'var(--verde-estructura)' }}>Mejores escritorios elevables baratos</Link> &mdash; Si vas a la gama de entrada, esta guía entra más al detalle.
               </p>
               <p>
-                <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7: opinion y review completa</Link> &mdash; Análisis a fondo del E7 con opiniones reales de compradores.
+                <Link href="/flexispot-eg1-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>FLEXISPOT EG1: ficha completa</Link> &mdash; El marco más asequible del catálogo, con su nota desglosada.
               </p>
               <p>
                 <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot vs Maidesite: comparativa</Link> &mdash; Las dos marcas más vendidas cara a cara. ¿Cuál merece la pena?
