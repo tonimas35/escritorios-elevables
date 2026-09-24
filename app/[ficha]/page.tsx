@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { getAllProducts } from "@/lib/products";
 import { fichaPorSegmento, fichasDePlantilla } from "@/lib/rutas";
 import { coma, nota } from "@/lib/format";
-import { exclusion, franjaPrecio, garantia, metaFila, motorLargo, publicable, recorrido, standfirst } from "@/lib/ficha";
+import { anticolision, exclusion, franjaPrecio, garantia, metaFila, motorLargo, publicable, recorrido, SIN_DATO, standfirst } from "@/lib/ficha";
 import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { productSchema } from "@/lib/schema";
 import { alternativas } from "@/lib/alternativas";
@@ -61,8 +61,8 @@ export default async function FichaModelo({ params }: Props) {
       ["Ruido", p.specs.ruido_db !== null ? `${p.specs.ruido_db} dB` : "Sin dato"],
     ],
     [
-      ["Memorias", String(p.specs.presets_memoria)],
-      ["Anticolisión", p.specs.sistema_anticolision ? "Sí" : "No"],
+      ["Memorias", p.specs.presets_memoria !== null ? String(p.specs.presets_memoria) : SIN_DATO],
+      ["Anticolisión", anticolision(p)],
       ["Peso estructura", p.specs.peso_estructura_kg !== null ? `${p.specs.peso_estructura_kg} kg` : "Sin dato"],
       ["Tablero", p.incluye_tablero ? `${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} cm` : "No incluido"],
       ["Garantía", garantia(p)],
@@ -227,9 +227,11 @@ export default async function FichaModelo({ params }: Props) {
             <span style={{ fontSize: 20, fontWeight: 700 }}>{nota(p.puntuacion.total)}</span>
           </div>
           <p style={{ fontSize: 14, marginTop: 12, color: "var(--bs-neutro-700)" }}>
-            Media ponderada de los cinco apartados.
+            Media ponderada de los apartados con dato.
             {p.puntuacion.valoracion === null &&
-              " Este modelo no llega a 100 valoraciones en Amazon, así que la valoración de compradores no cuenta."}{" "}
+              " Este modelo no llega a 100 valoraciones en Amazon, así que la valoración de compradores no cuenta."}
+            {p.puntuacion.garantia === null &&
+              " La ficha no declara la garantía, así que ese apartado no cuenta."}{" "}
             <Link href="/metodologia">Cómo se calcula</Link>.
           </p>
         </div>
