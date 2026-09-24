@@ -72,7 +72,7 @@ export default function FlexispotVsMaidesitePage() {
   const faqItems = [
     {
       q: "Flexispot o Maidesite: ¿cuál es mejor marca?",
-      a: `Depende del modelo, no de la marca. En este catálogo, el marco de Flexispot (EG1) es el más asequible y el mejor valorado en Amazon (${coma(e7Product.rating)} de media), y el de MAIDeSITe (T2 Pro MAX) es el que más carga y más altura ofrece. En escritorios completos, el FLEXISPOT de 160x80 da 5 años de garantía y el MAIDeSITe S2 Pro, 3.`,
+      a: `Depende del modelo, no de la marca. En este catálogo, el marco de Flexispot (EG1) es el más asequible y el mejor valorado en Amazon (${coma(e7Product.rating)} de media), y el de MAIDeSITe (T2 Pro MAX) es el que más carga y más altura ofrece. En escritorios completos, el FLEXISPOT de 160x80 da 5 años en el marco y 3 en el motor${s2 && s2[1].specs.garantia_anos !== null ? `, y el MAIDeSITe S2 Pro, ${s2[1].specs.garantia_anos}` : ""}.`,
     },
     {
       q: "¿Los motores de Flexispot y Maidesite son iguales?",
@@ -293,7 +293,7 @@ export default function FlexispotVsMaidesitePage() {
             </h2>
             <div className="max-w-3xl mb-6 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               <p>
-            Los dos llegan completos, sin comprar nada aparte. El FLEXISPOT de 160x80 ofrece el tablero más grande y cinco años de garantía, pero se queda en 100 kg de carga. El MAIDeSITe S2 Pro trae tablero de 140x70, 120 kg y un acabado algo más cuidado. Si quieres superficie y respaldo, el Flexispot; si quieres carga, el MAIDeSITe.
+            Los dos llegan completos, sin comprar nada aparte. El FLEXISPOT de 160x80 ofrece el tablero más grande, de {eg1[1].specs.ancho_tablero_cm}x{eg1[1].specs.profundidad_tablero_cm}, pero mueve {eg1[1].specs.peso_max_carga_kg} kg. El MAIDeSITe S2 Pro trae tablero de {s2[1].specs.ancho_tablero_cm}x{s2[1].specs.profundidad_tablero_cm} y {s2[1].specs.peso_max_carga_kg} kg de carga. Si quieres superficie, el Flexispot; si quieres carga, el MAIDeSITe.
           </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
