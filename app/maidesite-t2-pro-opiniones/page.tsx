@@ -10,6 +10,7 @@ import { FranjaPrecio } from "@/components/FranjaPrecio";
 import { ProsConsBox } from "@/components/ProsConsBox";
 import { CompactRatings } from "@/components/CompactRatings";
 import { productSchema } from "@/lib/schema";
+import { anticolision, garantia, SIN_DATO } from "@/lib/ficha";
 import { PosicionNota } from "@/components/broadsheet/PosicionNota";
 
 export const metadata: Metadata = {
@@ -162,9 +163,9 @@ export default function MaidesiteT2ProReviewPage() {
             { label: "Tablero", value: s.tablero_incluido ? `${s.ancho_tablero_cm}x${s.profundidad_tablero_cm} cm` : "No incluido", detail: s.tablero_incluido ? s.material_tablero || '' : "Solo el marco" },
             { label: "Peso estructura", value: s.peso_estructura_kg !== null ? `${s.peso_estructura_kg} kg` : "Sin dato", detail: "Manejable" },
             { label: "Ruido", value: s.ruido_db !== null ? `${s.ruido_db} dB` : "Sin dato", detail: "Aceptable" },
-            { label: "Garantía", value: `${product.specs.garantia_anos} años`, detail: "Maidesite oficial" },
-            { label: "Presets", value: `${product.specs.presets_memoria} memorias`, detail: "Ajuste rápido" },
-            { label: "Anticolisión", value: product.specs.sistema_anticolision ? "Sí" : "No", detail: "Protección activa" },
+            { label: "Garantía", value: garantia(product), detail: s.garantia_anos !== null ? "Maidesite oficial" : "No la declara la ficha" },
+            { label: "Presets", value: s.presets_memoria !== null ? `${s.presets_memoria} memorias` : SIN_DATO, detail: s.presets_memoria !== null ? "Ajuste rápido" : "No lo declara la ficha" },
+            { label: "Anticolisión", value: anticolision(product), detail: s.sistema_anticolision ? "Protección activa" : "" },
           ].map((spec) => (
             <div key={spec.label} className="p-4 rounded" style={{ background: 'var(--bg-secondary)' }}>
               <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{spec.label}</p>
@@ -199,7 +200,9 @@ export default function MaidesiteT2ProReviewPage() {
             Un marco sin tablero, en la gama alta. Lo que compras es capacidad: doble motor, 160 kg de carga útil y tres secciones telescópicas que permiten bajar hasta 65 cm y subir hasta 135. Para comparar, el resto de modelos del catálogo se mueven entre {Math.min(...cargas)} y {Math.max(...cargas)} kg, y ninguno pasa de {coma(alturaOtros)} cm.
           </p>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            El panel Piano-Master lleva cuatro memorias de altura y sistema anticolisión. A 45 dB, el ruido al subir es discreto: audible en una habitación en silencio, irrelevante en una videollamada. La velocidad, 3,8 cm/s, está en la parte alta del catálogo.
+            El panel Piano-Master lleva {s.presets_memoria !== null ? `${s.presets_memoria} memorias de altura` : "memorias de altura"}{s.sistema_anticolision ? " y sistema anticolisión" : ""}.
+            {s.ruido_db !== null && <> El fabricante declara menos de {s.ruido_db} dB al subir.</>}
+            {s.velocidad_cm_s !== null && <> La velocidad, {coma(s.velocidad_cm_s)} cm/s, {s.velocidad_cm_s >= Math.max(...otros.map((p) => p.specs.velocidad_cm_s ?? 0)) ? "es la más alta del catálogo" : "está en la parte alta del catálogo"}.</>}
           </p>
         </div>
 
