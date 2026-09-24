@@ -33,7 +33,7 @@ test("todas las notas y apartados quedan entre 0 y 10 con un decimal", () => {
 
 test("reproduce la simulación aprobada en METODO.md §5", () => {
   const esperado: Record<string, number> = {
-    "flexispot-e7": 7.6, // 9,9 en la simulación: llevaba specs de un E7 que no era (ver registro 24/09)
+    "flexispot-eg1": 7.6, // 9,9 en la simulación: llevaba specs de un E7 que no era (ver registro 24/09)
     "maidesite-t2-pro-max": 8.7,
     "ergear-120": 8.3,
     "devoko-120": 8.2,
@@ -52,7 +52,7 @@ test("reproduce la simulación aprobada en METODO.md §5", () => {
 });
 
 test("umbrales fijos por gama: la nota no depende del resto del catálogo", () => {
-  const e7 = porSlug("flexispot-e7");
+  const e7 = porSlug("flexispot-eg1");
   assert.deepEqual(calcularNota(e7), e7.puntuacion);
 });
 
@@ -81,7 +81,7 @@ test("sin dato de ruido, funciones no se inventa un valor", () => {
 });
 
 test("franja por el punto medio de la franja de precio verificada", () => {
-  assert.equal(franja(porSlug("flexispot-e7")), "M");
+  assert.equal(franja(porSlug("flexispot-eg1")), "M");
   assert.equal(franja(porSlug("vasagle-100")), "A"); // 70–90
   assert.equal(franja(porSlug("devoko-120")), "A"); // 100–130, medio 115
   assert.equal(franja(porSlug("fezibo-120")), "B"); // 120–160
@@ -100,7 +100,7 @@ test("posición en franja: el T2 Pro MAX es el primero de los marcos", () => {
 test("gama por el punto medio de la franja de precio, marcos incluidos", () => {
   assert.equal(gama(porSlug("vasagle-100")), "entrada"); // 70–90
   assert.equal(gama(porSlug("fezibo-120")), "media"); // 120–160
-  assert.equal(gama(porSlug("flexispot-e7")), "media"); // marco de 110–150
+  assert.equal(gama(porSlug("flexispot-eg1")), "media"); // marco de 110–150
   assert.equal(gama(porSlug("maidesite-t2-pro-max")), "alta"); // marco de 310–430
   assert.equal(gama({ precio: 100, precio_min: null, precio_max: null }), "entrada"); // sin franja: precio interno
 });

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 
 export default function FlexispotVsMaidesitePage() {
-  const e7 = getProductBySlug("flexispot-e7");
+  const e7 = getProductBySlug("flexispot-eg1");
   const t2 = getProductBySlug("maidesite-t2-pro-max");
   const eg1 = getProductBySlug("flexispot-160x80");
   const s2 = getProductBySlug("maidesite-s2-pro");
