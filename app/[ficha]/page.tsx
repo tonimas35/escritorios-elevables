@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = f.producto;
   return {
     title: `${p.marca} ${p.modelo} opiniones 2026: ficha y análisis`,
-    description: standfirst(p, false),
+    description: standfirst(p),
     alternates: { canonical: `/${f.segmento}` },
   };
 }
@@ -51,7 +51,6 @@ export default async function FichaModelo({ params }: Props) {
   const disponibles = catalogo.filter((q) => q.disponible);
   const enFranja = posicionEnFranja(p, catalogo);
   const franja = franjaPrecio(p);
-  const esElMejor = disponibles.every((q) => q.puntuacion.total <= p.puntuacion.total);
 
   const tecnica: [string, string][][] = [
     [
@@ -121,7 +120,7 @@ export default async function FichaModelo({ params }: Props) {
             </h1>
 
             <p className="bs-standfirst" style={{ maxWidth: "38ch", marginTop: 18 }}>
-              {standfirst(p, esElMejor)}
+              {standfirst(p)}
             </p>
 
             {franja && (

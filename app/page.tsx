@@ -89,7 +89,7 @@ export default function Home() {
               className="bs-standfirst"
               style={{ maxWidth: "34ch", marginTop: 18 }}
             >
-              {standfirst(top, true)}
+              {standfirst(top)}
             </p>
 
             {franjaTop && (
@@ -295,7 +295,7 @@ export default function Home() {
                     marginTop: 14,
                   }}
                 >
-                  {publicable(top.veredicto) ? top.veredicto : standfirst(top, true)}
+                  {publicable(top.veredicto) ? top.veredicto : standfirst(top)}
                 </p>
 
                 <div className="flex flex-wrap" style={{ gap: 7, marginTop: 18 }}>
