@@ -33,7 +33,7 @@ test("todas las notas y apartados quedan entre 0 y 10 con un decimal", () => {
 
 test("reproduce la simulación aprobada en METODO.md §5", () => {
   const esperado: Record<string, number> = {
-    "flexispot-e7": 9.9,
+    "flexispot-eg1": 7.6, // 9,9 en la simulación: llevaba specs de un E7 que no era (ver registro 24/09)
     "maidesite-t2-pro-max": 8.7,
     "ergear-120": 8.3,
     "devoko-120": 8.2,
@@ -52,12 +52,12 @@ test("reproduce la simulación aprobada en METODO.md §5", () => {
 });
 
 test("umbrales fijos por gama: la nota no depende del resto del catálogo", () => {
-  const e7 = porSlug("flexispot-e7");
+  const e7 = porSlug("flexispot-eg1");
   assert.deepEqual(calcularNota(e7), e7.puntuacion);
 });
 
 test("los extremos se recortan a 0 y 10", () => {
-  const tope = calcularNota(con("flexispot-e7", { specs: { peso_max_carga_kg: 500, peso_estructura_kg: 100 } }));
+  const tope = calcularNota(con("maidesite-t2-pro-max", { specs: { peso_max_carga_kg: 500, peso_estructura_kg: 100 } }));
   assert.equal(tope.estabilidad, 10);
   const suelo = calcularNota(con("vasagle-100", { specs: { peso_max_carga_kg: 10, peso_estructura_kg: 5 } }));
   assert.equal(suelo.estabilidad, 2.1); // solo el motor simple en gama de entrada: 0,3 × 7
@@ -81,7 +81,7 @@ test("sin dato de ruido, funciones no se inventa un valor", () => {
 });
 
 test("franja por el punto medio de la franja de precio verificada", () => {
-  assert.equal(franja(porSlug("flexispot-e7")), "M");
+  assert.equal(franja(porSlug("flexispot-eg1")), "M");
   assert.equal(franja(porSlug("vasagle-100")), "A"); // 70–90
   assert.equal(franja(porSlug("devoko-120")), "A"); // 100–130, medio 115
   assert.equal(franja(porSlug("fezibo-120")), "B"); // 120–160
@@ -91,8 +91,8 @@ test("franja por el punto medio de la franja de precio verificada", () => {
   assert.equal(franja({ incluye_tablero: true, precio_min: 100, precio_max: 140 }), "A"); // medio 120: límite incluido
 });
 
-test("posición en franja: el E7 es el primero de los marcos", () => {
-  assert.deepEqual(posicionEnFranja(porSlug("flexispot-e7"), catalogo), { franja: "M", posicion: 1, de: 2 });
+test("posición en franja: el T2 Pro MAX es el primero de los marcos", () => {
+  assert.deepEqual(posicionEnFranja(porSlug("maidesite-t2-pro-max"), catalogo), { franja: "M", posicion: 1, de: 2 });
   const b = catalogo.filter((p) => franja(p) === "B").map((p) => posicionEnFranja(p, catalogo)!.posicion).sort();
   assert.deepEqual(b, b.map((_, i) => i + 1), "posiciones consecutivas y sin empates");
 });
@@ -100,7 +100,7 @@ test("posición en franja: el E7 es el primero de los marcos", () => {
 test("gama por el punto medio de la franja de precio, marcos incluidos", () => {
   assert.equal(gama(porSlug("vasagle-100")), "entrada"); // 70–90
   assert.equal(gama(porSlug("fezibo-120")), "media"); // 120–160
-  assert.equal(gama(porSlug("flexispot-e7")), "media"); // marco de 110–150
+  assert.equal(gama(porSlug("flexispot-eg1")), "media"); // marco de 110–150
   assert.equal(gama(porSlug("maidesite-t2-pro-max")), "alta"); // marco de 310–430
   assert.equal(gama({ precio: 100, precio_min: null, precio_max: null }), "entrada"); // sin franja: precio interno
 });
@@ -110,4 +110,11 @@ test("la misma ficha puntúa más en una gama más barata", () => {
   const enEntrada = calcularNota({ ...base, precio_min: 80, precio_max: 100 });
   const enAlta = calcularNota({ ...base, precio_min: 300, precio_max: 400 });
   assert.ok(enEntrada.total > base.puntuacion.total && base.puntuacion.total > enAlta.total);
+});
+
+test("sin velocidad ni peso de estructura, esos datos no cuentan y no se inventan", () => {
+  const base = porSlug("songmics-160");
+  const sin = calcularNota(con("songmics-160", { specs: { velocidad_cm_s: null, peso_estructura_kg: null } }));
+  for (const v of Object.values(sin)) if (v !== null) assert.ok(v >= 0 && v <= 10);
+  assert.notDeepEqual(sin, base.puntuacion);
 });

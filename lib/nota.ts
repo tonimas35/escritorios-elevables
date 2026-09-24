@@ -116,17 +116,22 @@ export function calcularNota(p: Product): ProductScore {
   const s = p.specs;
   const u = UMBRALES[gama(p)];
 
+  // Carga 50 %, motor 30 %, estructura 20 %. Si la ficha no declara el
+  // peso de la estructura, no cuenta y los otros dos se reparten su peso.
+  const est: [number, number][] = [
+    [escala(s.peso_max_carga_kg, u.carga), 0.5],
+    [u.motor[s.tipo_motor], 0.3],
+    ...(s.peso_estructura_kg !== null ? [[escala(s.peso_estructura_kg, u.estructura), 0.2] as [number, number]] : []),
+  ];
   const estabilidad =
-    0.5 * escala(s.peso_max_carga_kg, u.carga) +
-    0.3 * u.motor[s.tipo_motor] +
-    0.2 * escala(s.peso_estructura_kg, u.estructura);
+    est.reduce((t, [v, w]) => t + v * w, 0) / est.reduce((t, [, w]) => t + w, 0);
 
-  // El ruido falta en algunas fichas: si no hay dato, no cuenta, en vez
-  // de inventar un valor que baje o suba la media.
+  // Velocidad y ruido faltan en algunas fichas: si no hay dato, no cuentan,
+  // en vez de inventar un valor que baje o suba la media.
   const funciones = media([
     escala(s.presets_memoria, MEMORIAS),
     s.sistema_anticolision ? 10 : 2,
-    escala(s.velocidad_cm_s, u.velocidad),
+    ...(s.velocidad_cm_s !== null ? [escala(s.velocidad_cm_s, u.velocidad)] : []),
     ...(s.ruido_db !== null ? [escala(s.ruido_db, u.ruido)] : []),
   ]);
 

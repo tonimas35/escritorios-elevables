@@ -13,7 +13,6 @@ import type { Product } from "./types";
 import { getAllProducts } from "./products";
 
 export const RUTAS_FIJAS: Record<string, string> = {
-  "flexispot-e7": "/flexispot-e7-opiniones",
   "fezibo-120": "/fezibo-opiniones",
   "maidesite-t2-pro-max": "/maidesite-t2-pro-opiniones",
 };

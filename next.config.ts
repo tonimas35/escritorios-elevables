@@ -22,6 +22,15 @@ const nextConfig: NextConfig = {
         destination: "https://elevable.es/:ruta*",
         permanent: true,
       },
+      {
+        // El ASIN que se presentaba como "Flexispot E7" es un EG1
+        // (data/cambios-catalogo.json, 24/09/2026). La review del E7
+        // describia otro producto y se retira; su URL, ya indexada, lleva a
+        // la ficha del modelo real en vez de dar un 404.
+        source: "/flexispot-e7-opiniones",
+        destination: "/flexispot-eg1-opiniones",
+        permanent: true,
+      },
     ];
   },
   images: {

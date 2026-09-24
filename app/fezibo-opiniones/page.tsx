@@ -45,7 +45,7 @@ export default function FeziboReviewPage() {
   const faqItems = [
     {
       q: "¿El Fezibo merece la pena?",
-      a: "Si tu expectativa es un escritorio elevable básico que sube y baja sin problemas, sí. No esperes la estabilidad de un Flexispot E7 ni la velocidad de un doble motor. Pero para un estudiante o alguien que quiere probar un elevable por primera vez, es una forma sencilla de hacerlo con motor eléctrico, aunque en el catálogo hay modelos de un motor más baratos.",
+      a: "Si tu expectativa es un escritorio elevable básico que sube y baja sin problemas, sí. No esperes la carga ni la velocidad de un doble motor. Pero para un estudiante o alguien que quiere probar un elevable por primera vez, es una forma sencilla de hacerlo con motor eléctrico, aunque en el catálogo hay modelos de un motor más baratos.",
     },
     {
       q: "¿El Fezibo sirve para trabajar 8 horas al día?",
@@ -221,7 +221,7 @@ export default function FeziboReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Para quién NO es</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Teletrabajadores a jornada completa que necesitan espacio para dual monitor. Personas altas (más de 1.80 m) que necesitan el escritorio por encima de 116 cm. Quien tenga monitores pesados o un setup de más de 30-40 kg. Y si ya tienes un elevable y quieres mejorar, el salto del Fezibo al marco Flexispot se nota, aunque tengas que ponerle tablero aparte.
+            Teletrabajadores a jornada completa que necesitan espacio para dual monitor. Personas altas (más de 1.80 m) que necesitan el escritorio por encima de 116 cm. Quien tenga monitores pesados o un setup de más de 30-40 kg. Y si ya tienes un elevable y quieres mejorar, el salto que se nota es a uno de doble motor, como el FLEXISPOT de 160x80 o el MAIDeSITe S2 Pro, que ya vienen con tablero.
           </p>
         </div>
 

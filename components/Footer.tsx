@@ -38,7 +38,7 @@ export function Footer() {
               {[
                 { label: "Mejores escritorios 2026", href: "/mejor-escritorio-elevable" },
                 { label: "Escritorios baratos", href: "/escritorio-elevable-barato" },
-                { label: "Flexispot E7 review", href: "/flexispot-e7-opiniones" },
+                { label: "Flexispot EG1", href: "/flexispot-eg1-opiniones" },
                 { label: "Flexispot vs Maidesite", href: "/flexispot-vs-maidesite" },
                 { label: "MAIDeSITe T2 Pro MAX review", href: "/maidesite-t2-pro-opiniones" },
                 { label: "Fezibo review", href: "/fezibo-opiniones" },

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { coma, nota } from "@/lib/format";
+import { motorCorto, recorrido } from "@/lib/ficha";
 import { getProductBySlug } from "@/lib/products";
 import { FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
 
 
 export default function FlexispotVsMaidesitePage() {
-  const e7 = getProductBySlug("flexispot-e7");
+  const e7 = getProductBySlug("flexispot-eg1");
   const t2 = getProductBySlug("maidesite-t2-pro-max");
   const eg1 = getProductBySlug("flexispot-160x80");
   const s2 = getProductBySlug("maidesite-s2-pro");
@@ -30,48 +31,56 @@ export default function FlexispotVsMaidesitePage() {
   const [e7Asin, e7Product] = e7;
   const [t2Asin, t2Product] = t2;
 
-  // El ganador de cada fila sale de los datos, no se escribe a mano: la
-  // version anterior daba la carga al E7 (125 kg frente a 160) y el ruido
-  // al E7 con los dos en 45 dB.
+  // El ganador de cada fila sale de los datos, no se escribe a mano. La
+  // variable se llama e7 por historia: es el marco FLEXISPOT EG1 (el ASIN
+  // se presentaba como E7 hasta el 24/09/2026).
   type Ganador = "e7" | "t2" | "tie";
   const gana = (a: number | null, b: number | null, masEsMejor = true): Ganador => {
     if (a === null || b === null || a === b) return "tie";
     return (a > b) === masEsMejor ? "e7" : "t2";
   };
+  const velocidadTxt = (p: typeof e7Product) =>
+    p.specs.velocidad_cm_s !== null ? `${coma(p.specs.velocidad_cm_s)} cm/s` : "Sin dato";
+  const ruidoTxt = (p: typeof e7Product) =>
+    p.specs.ruido_db !== null ? `${p.specs.ruido_db} dB` : "Sin dato";
+  const motores = (p: typeof e7Product) => (p.specs.tipo_motor === "doble" ? 2 : 1);
+  const tramo = (p: typeof e7Product) => p.specs.rango_altura_max_cm - p.specs.rango_altura_min_cm;
   const tableroTxt = (p: typeof e7Product) =>
     p.incluye_tablero ? `${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} cm` : "Sin tablero";
 
   const comparisons: { label: string; e7: string; t2: string; winner: Ganador }[] = [
-    { label: "Motor", e7: "Doble", t2: "Doble", winner: "tie" },
-    // Recorrido: gana el que mejor cubre de 1,55 a 1,95 m, con el mismo
-    // criterio que la nota (apartado "recorrido" de lib/nota.ts).
-    { label: "Rango altura", e7: `${e7Product.specs.rango_altura_min_cm}–${e7Product.specs.rango_altura_max_cm} cm`, t2: `${t2Product.specs.rango_altura_min_cm}–${t2Product.specs.rango_altura_max_cm} cm`, winner: gana(e7Product.puntuacion.recorrido, t2Product.puntuacion.recorrido) },
+    { label: "Motor", e7: motorCorto(e7Product), t2: motorCorto(t2Product), winner: gana(motores(e7Product), motores(t2Product)) },
+    // Recorrido: gana el de mas centimetros entre la altura minima y la
+    // maxima. No se usa el apartado de la nota: se mide contra la gama de
+    // precio y los dos marcos estan en gamas distintas.
+    { label: "Rango altura", e7: recorrido(e7Product), t2: recorrido(t2Product), winner: gana(tramo(e7Product), tramo(t2Product)) },
     { label: "Carga máxima", e7: `${e7Product.specs.peso_max_carga_kg} kg`, t2: `${t2Product.specs.peso_max_carga_kg} kg`, winner: gana(e7Product.specs.peso_max_carga_kg, t2Product.specs.peso_max_carga_kg) },
-    { label: "Velocidad", e7: `${coma(e7Product.specs.velocidad_cm_s)} cm/s`, t2: `${coma(t2Product.specs.velocidad_cm_s)} cm/s`, winner: gana(e7Product.specs.velocidad_cm_s, t2Product.specs.velocidad_cm_s) },
-    { label: "Ruido", e7: `${e7Product.specs.ruido_db} dB`, t2: `${t2Product.specs.ruido_db} dB`, winner: gana(e7Product.specs.ruido_db, t2Product.specs.ruido_db, false) },
+    { label: "Velocidad", e7: velocidadTxt(e7Product), t2: velocidadTxt(t2Product), winner: gana(e7Product.specs.velocidad_cm_s, t2Product.specs.velocidad_cm_s) },
+    { label: "Ruido", e7: ruidoTxt(e7Product), t2: ruidoTxt(t2Product), winner: gana(e7Product.specs.ruido_db, t2Product.specs.ruido_db, false) },
     { label: "Tablero", e7: tableroTxt(e7Product), t2: tableroTxt(t2Product), winner: "tie" },
     { label: "Memorias", e7: `${e7Product.specs.presets_memoria}`, t2: `${t2Product.specs.presets_memoria}`, winner: gana(e7Product.specs.presets_memoria, t2Product.specs.presets_memoria) },
     { label: "Garantía", e7: `${e7Product.specs.garantia_anos} años`, t2: `${t2Product.specs.garantia_anos} años`, winner: gana(e7Product.specs.garantia_anos, t2Product.specs.garantia_anos) },
-    { label: "Nota total", e7: `${nota(e7Product.puntuacion.total)}/10`, t2: `${nota(t2Product.puntuacion.total)}/10`, winner: gana(e7Product.puntuacion.total, t2Product.puntuacion.total) },
+    // Sin ganador: cada nota se mide contra su gama de precio (METODO.md §5)
+    // y estos dos marcos estan en gamas distintas.
+    { label: "Nota en su gama", e7: `${nota(e7Product.puntuacion.total)}/10`, t2: `${nota(t2Product.puntuacion.total)}/10`, winner: "tie" },
     { label: "Nota en Amazon", e7: `${coma(e7Product.rating)}★`, t2: `${coma(t2Product.rating)}★`, winner: gana(e7Product.rating, t2Product.rating) },
   ];
 
+  // Solo lo que dicen los datos del catalogo y las fichas de Amazon. Las
+  // afirmaciones sobre fabricas de motores, tiempos de postventa o
+  // historial de averias no tenian fuente y se retiraron el 24/09/2026.
   const faqItems = [
     {
       q: "Flexispot o Maidesite: ¿cuál es mejor marca?",
-      a: "Flexispot lleva más años, tiene más modelos y fabrica sus propios motores. Maidesite ofrece prestaciones similares a precios más bajos. Ambas dan 5 años de garantía y postventa en España. Como marca, Flexispot tiene más recorrido. Producto a producto, Maidesite compite bien.",
+      a: `Depende del modelo, no de la marca. En este catálogo, el marco de Flexispot (EG1) es el más asequible y el mejor valorado en Amazon (${coma(e7Product.rating)} de media), y el de MAIDeSITe (T2 Pro MAX) es el que más carga y más altura ofrece. En escritorios completos, el FLEXISPOT de 160x80 da 5 años de garantía y el MAIDeSITe S2 Pro, 3.`,
     },
     {
       q: "¿Los motores de Flexispot y Maidesite son iguales?",
-      a: "No. Flexispot fabrica los suyos (LoctekMotion); Maidesite compra a terceros de buena calidad. En specs rinden igual (3.8 cm/s, ruido parecido). Los Flexispot tienen algo mejor historial en reviews de 2-3 años, pero ambos aguantan 10.000+ ciclos.",
+      a: `No en estos modelos. El marco de Flexispot (EG1) lleva un motor y mueve ${e7Product.specs.peso_max_carga_kg} kg; el T2 Pro MAX de MAIDeSITe lleva dos y declara ${t2Product.specs.peso_max_carga_kg} kg. Los dos escritorios completos, el FLEXISPOT de 160x80 y el MAIDeSITe S2 Pro, llevan doble motor.`,
     },
     {
       q: "¿Puedo usar un tablero diferente con estas marcas?",
-      a: "Sí, las dos venden la estructura sola. Flexispot acepta tableros de 120-200 cm; Maidesite, de 120-180 cm. Mínimo 2 cm de grosor para que los tornillos agarren.",
-    },
-    {
-      q: "¿Cuál tiene mejor servicio postventa en España?",
-      a: "Flexispot: respuesta en 24-48h, envian recambio sin esperar devolución. Maidesite: 48-72h según compradores. Ambas gestionan garantías bien, pero Flexispot es más agil.",
+      a: "Sí, las dos venden la estructura sola. Según su ficha, el marco de Flexispot (EG1) admite tableros de 100 a 160 cm de largo y de 50 a 80 cm de fondo. Del T2 Pro MAX no tenemos ese dato verificado: compruébalo en su ficha de Amazon antes de comprar el tablero.",
     },
   ];
 
@@ -139,7 +148,7 @@ export default function FlexispotVsMaidesitePage() {
       <FadeIn delay={100}>
         <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <p>
-            Las dos marcas que más se venden en Amazon España. La pregunta de siempre: ¿cual compro? Respuesta corta: Flexispot gana en calidad, Maidesite gana en precio. Aquí van los datos.
+            Dos marcas que se venden mucho en Amazon España. La pregunta de siempre: ¿cuál compro? Respuesta corta: depende de si buscas precio o capacidad. Aquí van los datos.
           </p>
         </div>
       </FadeIn>
@@ -149,16 +158,16 @@ export default function FlexispotVsMaidesitePage() {
         <div className="mt-8 p-6" style={{ background: 'var(--bs-superficie)', borderLeft: '3px solid var(--bs-verde-botella)' }}>
           <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>TL;DR</p>
           <p className="mt-2 text-base leading-relaxed" style={{  color: 'var(--text-dark)' }}>
-            No hay un ganador único, porque no compiten en el mismo sitio. Flexispot domina la entrada de gama: su marco es el mejor valorado del catálogo, con 4,7 de media. MAIDeSITe domina la capacidad: el T2 Pro MAX aguanta 160 kg y sube hasta 135 cm, cifras que Flexispot no ofrece en este catálogo. En escritorios completos, con tablero incluido, la cosa se aprieta entre el FLEXISPOT de 160x80 y el MAIDeSITe S2 Pro, y ahí deciden el tamaño del tablero y la garantía.
+            No hay un ganador único, porque no compiten en el mismo sitio. Flexispot domina el precio: su marco, el EG1, es el más asequible y el mejor valorado del catálogo, con {coma(e7Product.rating)} de media, aunque lleva un solo motor. MAIDeSITe domina la capacidad: el T2 Pro MAX aguanta 160 kg y sube hasta 135 cm, cifras que Flexispot no ofrece en este catálogo. En escritorios completos, con tablero incluido, la cosa se aprieta entre el FLEXISPOT de 160x80 y el MAIDeSITe S2 Pro, y ahí deciden el tamaño del tablero y la garantía.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mt-4">
-            <AffiliateButton asin={e7Asin} text="Flexispot E7 en Amazon" size="md" />
+            <AffiliateButton asin={e7Asin} text="Flexispot EG1 en Amazon" size="md" />
             <AffiliateButton asin={t2Asin} text="Maidesite T2 Pro en Amazon" size="md" />
           </div>
         </div>
       </FadeIn>
 
-      {/* Head to head: E7 vs T2 Pro */}
+      {/* Cara a cara: EG1 contra T2 Pro MAX */}
       <FadeIn>
         <section className="mt-12">
           <h2 className="text-2xl mb-6 heading-accent" >
@@ -202,7 +211,7 @@ export default function FlexispotVsMaidesitePage() {
               <thead>
                 <tr style={{ background: 'var(--color-secondary)', color: 'white' }}>
                   <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Especificación</th>
-                  <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Flexispot E7</th>
+                  <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>{e7Product.marca} {e7Product.modelo}</th>
                   <th className="text-center p-3 rounded-tr" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>{t2Product.marca} {t2Product.modelo}</th>
                 </tr>
               </thead>
@@ -235,12 +244,11 @@ export default function FlexispotVsMaidesitePage() {
         </FadeIn>
 
         {[
-          { title: "Motor y velocidad", text: "Los dos llevan doble motor a 3,8 cm/s. Flexispot fabrica los suyos (LoctekMotion); MAIDeSITe los compra a terceros de buena calidad. En el uso diario la diferencia no se percibe." },
-          { title: "Estabilidad", text: "Empate técnico con matices: 32 kg de estructura el Flexispot, 30 kg el MAIDeSITe, y tres secciones telescópicas en ambos. El MAIDeSITe sube más alto, y a máxima altura cualquier marco gana algo de juego lateral." },
-          { title: "Ruido", text: "45 dB los dos. Silenciosos para videollamadas; solo importaría si grabas audio profesional." },
-          { title: "Capacidad de carga", text: "125 kg el Flexispot, 160 kg el MAIDeSITe. Un setup normal pesa 12-15 kg, así que ambos van sobrados. La cifra solo decide si montas algo realmente pesado encima." },
-          { title: "Rango de altura", text: "Flexispot: 58-123 cm. MAIDeSITe: 65-135 cm. Si mides más de 1,88 m, el MAIDeSITe llega donde el otro no. Si eres bajo o usas silla baja, el Flexispot baja 7 cm más." },
-          { title: "Lo que cuesta cada uno", text: "Ninguno de los dos incluye tablero, así que a los dos hay que sumarles ese coste. El Flexispot está bastante por debajo del MAIDeSITe y tiene mucho más recorrido de valoraciones detrás. Salvo que necesites los 160 kg de carga o los 135 cm de altura del MAIDeSITe, la elección racional es clara." },
+          { title: "Motor", text: `El Flexispot lleva un motor; el MAIDeSITe, dos. El doble motor reparte el esfuerzo entre las dos patas y es lo que le permite declarar ${t2Product.specs.peso_max_carga_kg} kg frente a los ${e7Product.specs.peso_max_carga_kg} kg que mueve el Flexispot. La ficha del Flexispot no declara la velocidad.` },
+          { title: "Capacidad de carga", text: `${e7Product.specs.peso_max_carga_kg} kg en movimiento el Flexispot (100 kg en estático), ${t2Product.specs.peso_max_carga_kg} kg el MAIDeSITe. Para un portátil y un monitor, los dos sobran; para dos monitores en brazo y equipo pesado, el MAIDeSITe.` },
+          { title: "Rango de altura", text: `Flexispot: ${coma(e7Product.specs.rango_altura_min_cm)}–${coma(e7Product.specs.rango_altura_max_cm)} cm. MAIDeSITe: ${t2Product.specs.rango_altura_min_cm}–${t2Product.specs.rango_altura_max_cm} cm. El MAIDeSITe sube casi 20 cm más, que es lo que importa si eres alto y trabajas de pie.` },
+          { title: "Garantía", text: `El Flexispot da 5 años en el marco y 3 en el motor; el MAIDeSITe, ${t2Product.specs.garantia_anos} años.` },
+          { title: "Lo que cuesta cada uno", text: "Ninguno de los dos incluye tablero, así que a los dos hay que sumarles ese coste. El Flexispot cuesta bastante menos y tiene muchas más valoraciones detrás. Salvo que necesites la carga o la altura del MAIDeSITe, el Flexispot cumple para un setup normal." },
         ].map((section, si) => (
           <FadeIn key={section.title} delay={si * 60}>
             <div>
@@ -263,7 +271,7 @@ export default function FlexispotVsMaidesitePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7</h3>
+              <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--verde-estructura)' }}>{e7Product.marca} {e7Product.modelo}</h3>
               <CompactRatings puntuacion={e7Product.puntuacion} />
             </div>
             <div>
@@ -337,7 +345,7 @@ export default function FlexispotVsMaidesitePage() {
           </h2>
           <div className="space-y-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
-            <strong style={{ color: 'var(--text-primary)' }}>Marco FLEXISPOT:</strong> el historial más sólido del catálogo, con 4,7 de media en Amazon. Suma el tablero aparte.
+            <strong style={{ color: 'var(--text-primary)' }}>Marco FLEXISPOT:</strong> el más asequible y el mejor valorado del catálogo, con {coma(e7Product.rating)} de media en Amazon, pero con un solo motor. Suma el tablero aparte.
           </p>
             <p>
             <strong style={{ color: 'var(--text-primary)' }}>MAIDeSITe T2 Pro MAX:</strong> solo si necesitas sus 160 kg de carga o sus 135 cm de altura; si no, estás pagando de más. También viene sin tablero.
@@ -347,7 +355,7 @@ export default function FlexispotVsMaidesitePage() {
           </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
-            <AffiliateButton asin={e7Asin} text="Flexispot E7 en Amazon" size="lg" />
+            <AffiliateButton asin={e7Asin} text="Flexispot EG1 en Amazon" size="lg" />
             <AffiliateButton asin={t2Asin} text="Maidesite T2 en Amazon" size="lg" />
           </div>
         </section>
@@ -361,7 +369,7 @@ export default function FlexispotVsMaidesitePage() {
           </h3>
           <div className="space-y-2 text-sm">
             <p>
-              <Link href="/flexispot-e7-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>Flexispot E7: review completa</Link> — Análisis a fondo del E7 con todo lo bueno y lo malo.
+              <Link href="/flexispot-eg1-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>FLEXISPOT EG1: ficha completa</Link> — Datos, nota desglosada y alternativas del marco de Flexispot.
             </p>
             <p>
               <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los 12 mejores escritorios elevables de 2026</Link> — Comparativa completa con todas las marcas.

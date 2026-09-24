@@ -42,19 +42,19 @@ test("un escritorio completo no propone un marco antes que otro completo", () =>
 });
 
 test("un marco propone primero el mejor escritorio con tablero", () => {
-  const alt = alternativas(de("flexispot-e7"), catalogo);
+  const alt = alternativas(de("flexispot-eg1"), catalogo);
   assert.equal(alt[0].motivo, "Si quieres tablero incluido");
   const mejorCompleto = catalogo
     .filter((p) => p.incluye_tablero)
     .sort((a, b) => b.puntuacion.total - a.puntuacion.total || b.rating - a.rating || a.slug.localeCompare(b.slug))[0];
   assert.equal(alt[0].producto.slug, mejorCompleto.slug);
-  assert.ok(slugs("flexispot-e7").includes("maidesite-t2-pro-max"), "más carga");
+  assert.ok(slugs("flexispot-eg1").includes("maidesite-t2-pro-max"), "más carga");
 });
 
 test("un modelo no disponible no aparece como alternativa", () => {
-  const sinE7 = catalogo.map((p) => (p.slug === "flexispot-e7" ? { ...p, disponible: false } : p));
+  const sinE7 = catalogo.map((p) => (p.slug === "flexispot-eg1" ? { ...p, disponible: false } : p));
   for (const p of sinE7) {
-    assert.ok(!alternativas(p, sinE7).some((a) => a.producto.slug === "flexispot-e7"), p.slug);
+    assert.ok(!alternativas(p, sinE7).some((a) => a.producto.slug === "flexispot-eg1"), p.slug);
   }
 });
 

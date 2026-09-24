@@ -27,19 +27,19 @@ test("el catálogo real no tiene errores", () => {
 });
 
 test("precio suelto o recuento de reseñas en el texto es error", () => {
-  const c1 = catalogoCon("flexispot-e7", (p) => p.pros.push("Cuesta solo 110 €"));
+  const c1 = catalogoCon("flexispot-eg1", (p) => p.pros.push("Cuesta solo 110 €"));
   assert.match(errores(c1).join("\n"), /cifra prohibida en pros/);
-  const c2 = catalogoCon("flexispot-e7", (p) => (p.veredicto = "Con más de 500 valoraciones"));
+  const c2 = catalogoCon("flexispot-eg1", (p) => (p.veredicto = "Con más de 500 valoraciones"));
   assert.match(errores(c2).join("\n"), /cifra prohibida en veredicto/);
 });
 
 test("franja de precio incompleta es error", () => {
-  const c = catalogoCon("flexispot-e7", (p) => (p.precio_verificado = null));
+  const c = catalogoCon("flexispot-eg1", (p) => (p.precio_verificado = null));
   assert.match(errores(c).join("\n"), /van juntos o ninguno/);
 });
 
 test("franja con mínimo mayor que máximo es error", () => {
-  const c = catalogoCon("flexispot-e7", (p) => (p.precio_min = 200));
+  const c = catalogoCon("flexispot-eg1", (p) => (p.precio_min = 200));
   assert.match(errores(c).join("\n"), /precio_min mayor que precio_max/);
 });
 
@@ -69,7 +69,7 @@ test("sucesor inexistente o no disponible es error", () => {
 });
 
 test("falta un campo de specs es error", () => {
-  const c = catalogoCon("flexispot-e7", (p) => delete (p.specs as Partial<Product["specs"]>).garantia_anos);
+  const c = catalogoCon("flexispot-eg1", (p) => delete (p.specs as Partial<Product["specs"]>).garantia_anos);
   assert.match(errores(c).join("\n"), /specs.garantia_anos/);
 });
 
@@ -88,10 +88,10 @@ test("el titular tampoco puede llevar precio", () => {
 });
 
 test("el filtro de cifras no confunde un nombre de modelo con un recuento", () => {
-  const c = catalogoCon("flexispot-e7", (p) => (p.titular = "Flexispot E7, opiniones: marco de doble motor"));
+  const c = catalogoCon("flexispot-eg1", (p) => (p.titular = "Flexispot E7, opiniones: marco de doble motor"));
   assert.deepEqual(errores(c), []);
   for (const mal of ["2.100 valoraciones", "951 opiniones", "2100+ reviews", "12,50 €", "110 EUR"]) {
-    const c2 = catalogoCon("flexispot-e7", (p) => (p.veredicto = mal));
+    const c2 = catalogoCon("flexispot-eg1", (p) => (p.veredicto = mal));
     assert.match(errores(c2).join("\n"), /cifra prohibida/, mal);
   }
 });
