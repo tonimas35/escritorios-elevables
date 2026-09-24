@@ -31,6 +31,14 @@ const nextConfig: NextConfig = {
         destination: "/flexispot-eg1-opiniones",
         permanent: true,
       },
+      {
+        // VASAGLE 160x70, retirado el 24/09/2026 (data/cambios-catalogo.json).
+        // Su sucesor, el SONGMICS 160x70, no tiene ficha propia todavia:
+        // la URL lleva a la guia, donde sale el sucesor, en vez de a un 404.
+        source: "/vasagle-160-opiniones",
+        destination: "/mejor-escritorio-elevable",
+        permanent: true,
+      },
     ];
   },
   images: {
