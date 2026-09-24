@@ -12,12 +12,18 @@
  */
 import type { CambioCatalogo, Product, ProductMap } from "./types";
 import { CIFRA_PROHIBIDA } from "./cifras.ts";
-import { franja } from "./nota.ts";
+import { calcularNota, franja } from "./nota.ts";
 
 export interface Resultado {
   errores: string[];
   avisos: string[];
 }
+
+/**
+ * Nota por debajo de la cual un modelo no se recomienda (METODO.md §4).
+ * Regla interna: no se publica en la web.
+ */
+export const NOTA_MINIMA = 6.5;
 
 /** Dias desde los que una franja de precio se considera vieja. */
 export const DIAS_FRANJA = 45;
@@ -132,6 +138,11 @@ export function validarCatalogo(
     if (esFecha(p.specs_verificado)) {
       const d = dias(p.specs_verificado, hoy);
       if (d > DIAS_SPECS && p.disponible) avisos.push(`${id}: specs verificadas hace ${d} días (revisar cada ${DIAS_SPECS})`);
+    }
+
+    if (p.disponible && p.specs) {
+      const nota = calcularNota(p).total;
+      if (nota < NOTA_MINIMA) avisos.push(`${id}: nota ${nota.toFixed(1).replace(".", ",")} por debajo de ${String(NOTA_MINIMA).replace(".", ",")}: sale en el próximo barrido (METODO.md §4)`);
     }
 
     if (p.disponible) {

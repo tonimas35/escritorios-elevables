@@ -95,3 +95,9 @@ test("el filtro de cifras no confunde un nombre de modelo con un recuento", () =
     assert.match(errores(c2).join("\n"), /cifra prohibida/, mal);
   }
 });
+
+test("avisa, sin romper, de un modelo por debajo de la nota mínima", () => {
+  const c = catalogoCon("vasagle-100", (p) => (p.specs.sistema_anticolision = false, p.specs.presets_memoria = 0));
+  assert.deepEqual(errores(c), []);
+  assert.match(avisos(c).join("\n"), /vasagle-100: nota .* por debajo de 6,?5/);
+});

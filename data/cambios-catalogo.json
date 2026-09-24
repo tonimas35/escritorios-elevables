@@ -160,5 +160,77 @@
     "tipo": "correccion",
     "slug": "fezibo-120",
     "motivo": "Especificaciones revisadas con la ficha de Amazon que enlazamos (variante blanca): 3 memorias, no 4 (se ven en la foto del mando); altura máxima 118 cm, no 120; el ruido solo se declara como «menos de 50 dB», así que retiramos la cifra exacta de 48; valoración actualizada a 4,6 con 294 opiniones. La nota se queda en 4,7. La velocidad sigue sin confirmar."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "flexispot-e7",
+    "motivo": "La nota pasa de 8,6 a 9,9: desde hoy cada escritorio se mide contra lo que se puede esperar en su gama de precio, no contra el mejor del mercado."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "maidesite-t2-pro-max",
+    "motivo": "La nota pasa de 8,5 a 8,7: desde hoy cada escritorio se mide contra lo que se puede esperar en su gama de precio, no contra el mejor del mercado."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "ergear-120",
+    "motivo": "La nota pasa de 4,9 a 8,3: desde hoy cada escritorio se mide contra lo que se puede esperar en su gama de precio, no contra el mejor del mercado."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "devoko-120",
+    "motivo": "La nota pasa de 4,8 a 8,2: desde hoy cada escritorio se mide contra lo que se puede esperar en su gama de precio, no contra el mejor del mercado."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "flexispot-160x80",
+    "motivo": "La nota pasa de 7,1 a 7,8: desde hoy cada escritorio se mide contra lo que se puede esperar en su gama de precio, no contra el mejor del mercado."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "sanodesk-140",
+    "motivo": "La nota pasa de 5,2 a 7,7: desde hoy cada escritorio se mide contra lo que se puede esperar en su gama de precio, no contra el mejor del mercado."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "devoko-160",
+    "motivo": "La nota pasa de 5,1 a 7,7: desde hoy cada escritorio se mide contra lo que se puede esperar en su gama de precio, no contra el mejor del mercado."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "vasagle-160",
+    "motivo": "La nota pasa de 4,9 a 7,6: desde hoy cada escritorio se mide contra lo que se puede esperar en su gama de precio, no contra el mejor del mercado."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "songmics-160",
+    "motivo": "La nota pasa de 5,0 a 7,6: desde hoy cada escritorio se mide contra lo que se puede esperar en su gama de precio, no contra el mejor del mercado."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "maidesite-s2-pro",
+    "motivo": "La nota pasa de 7,0 a 7,4: desde hoy cada escritorio se mide contra lo que se puede esperar en su gama de precio, no contra el mejor del mercado."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "fezibo-120",
+    "motivo": "La nota pasa de 4,7 a 7,1: desde hoy cada escritorio se mide contra lo que se puede esperar en su gama de precio, no contra el mejor del mercado."
+  },
+  {
+    "fecha": "2026-09-24",
+    "tipo": "cambio_nota",
+    "slug": "vasagle-100",
+    "motivo": "La nota pasa de 3,0 a 6,5: desde hoy cada escritorio se mide contra lo que se puede esperar en su gama de precio, no contra el mejor del mercado."
   }
 ]

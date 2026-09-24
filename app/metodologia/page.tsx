@@ -2,13 +2,39 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
 import { CRITERIOS } from "@/lib/metodologia";
-import { MIN_VALORACIONES, NOMBRE_FRANJA, type Franja } from "@/lib/nota";
+import {
+  MEMORIAS,
+  MIN_VALORACIONES,
+  NOMBRE_FRANJA,
+  UMBRALES,
+  VALORACION,
+  type Franja,
+  type Gama,
+} from "@/lib/nota";
+import { coma } from "@/lib/format";
 import { fechaCorta } from "@/lib/fecha";
 import cambiosData from "@/data/cambios-catalogo.json";
 import type { CambioCatalogo } from "@/lib/types";
 
 // Registro publico de cambios del catalogo (METODO.md §7), el mas reciente
 // primero. Los slugs se traducen a nombre con el catalogo actual.
+// Tabla de umbrales de METODO.md §5, leida de lib/nota.ts para que lo
+// publicado no pueda divergir de la formula.
+const GAMAS: Gama[] = ["entrada", "media", "alta"];
+const NOMBRE_GAMA: Record<Gama, string> = { entrada: "Entrada", media: "Media", alta: "Alta" };
+type Umbrales = (typeof UMBRALES)[Gama];
+const rango = ([a, b]: [number, number], unidad: string) => `${coma(a)} → ${coma(b)} ${unidad}`;
+const FILAS_UMBRALES: [string, (u: Umbrales) => string][] = [
+  ["Carga", (u) => rango(u.carga, "kg")],
+  ["Motor", (u) => `simple ${u.motor.simple} · doble ${u.motor.doble}`],
+  ["Peso de la estructura", (u) => rango(u.estructura, "kg")],
+  ["Velocidad", (u) => rango(u.velocidad, "cm/s")],
+  ["Ruido", (u) => rango(u.ruido, "dB")],
+  ["Altura mínima", (u) => rango(u.alturaMin, "cm")],
+  ["Altura máxima", (u) => rango(u.alturaMax, "cm")],
+  ["Garantía", (u) => rango(u.garantia, "años")],
+];
+
 const TIPO_CAMBIO: Record<CambioCatalogo["tipo"], string> = {
   alta: "Alta",
   baja: "Baja",
@@ -107,10 +133,18 @@ export default function MetodologiaPage() {
         <p className="text-sm leading-relaxed mb-5" style={{ color: "var(--text-secondary)" }}>
           Cada modelo recibe una nota sobre 10 en cinco apartados, calculada con sus
           datos y nunca puesta a mano. La nota global es su media ponderada con los
-          pesos de abajo. Los umbrales son absolutos: la nota de un modelo no cambia
-          porque entre o salga otro del catálogo. Si un modelo no llega a 100
-          valoraciones en Amazon, ese apartado no cuenta y los otros cuatro se
-          reparten su peso.
+          pesos de abajo. Si un modelo no llega a 100 valoraciones en Amazon, ese
+          apartado no cuenta y los otros cuatro se reparten su peso.
+        </p>
+        <p className="text-sm leading-relaxed mb-5" style={{ color: "var(--text-secondary)" }}>
+          <strong style={{ color: "var(--text-primary)" }}>Cada escritorio se mide
+          contra lo que se puede esperar en su gama de precio</strong>, no contra el
+          más caro del mercado: entrada (hasta 120 €), media (de 120 a 250 €) o alta
+          (de 250 a 500 €). En cada dato, un 5 es lo mínimo aceptable en esa gama y un
+          10, lo mejor que se puede pedirle. Por eso un 8 en la gama de entrada y un 8
+          en la alta significan lo mismo, «muy bueno para lo que cuesta», y no que
+          sean escritorios iguales. Los umbrales son fijos: la nota de un modelo no
+          cambia porque entre o salga otro del catálogo.
         </p>
         <div className="space-y-4">
           {CRITERIOS.map((c) => (
@@ -126,6 +160,35 @@ export default function MetodologiaPage() {
               </p>
             </div>
           ))}
+        </div>
+        <div className="overflow-x-auto mt-6">
+          <table className="w-full text-sm" style={{ borderCollapse: "collapse" }}>
+            <caption className="text-left text-sm font-semibold pb-2" style={{ color: "var(--text-primary)" }}>
+              Umbrales por gama: de lo mínimo aceptable (5) a lo mejor esperable (10)
+            </caption>
+            <thead>
+              <tr style={{ borderBottom: "1px solid var(--border)" }}>
+                <th className="text-left py-2 pr-3 font-semibold">Dato</th>
+                {GAMAS.map((g) => (
+                  <th key={g} className="text-left py-2 pr-3 font-semibold">{NOMBRE_GAMA[g]}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody style={{ color: "var(--text-secondary)" }}>
+              {FILAS_UMBRALES.map(([dato, valor]) => (
+                <tr key={dato} style={{ borderBottom: "1px solid var(--border)" }}>
+                  <td className="py-2 pr-3" style={{ color: "var(--text-primary)" }}>{dato}</td>
+                  {GAMAS.map((g) => (
+                    <td key={g} className="py-2 pr-3 whitespace-nowrap">{valor(UMBRALES[g])}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
+            En todas las gamas: memorias de {MEMORIAS[0]} a {MEMORIAS[1]}; anticolisión, sí 10 y no 2;
+            valoración de compradores de {coma(VALORACION[0])} a {coma(VALORACION[1])} estrellas.
+          </p>
         </div>
       </section>
 

@@ -13,9 +13,9 @@ interface ProductCardProps {
 }
 
 /**
- * Un solo color para todas las notas. Con la nota calculada (METODO.md §5)
- * un escritorio básico saca entre 3 y 5 aunque sea el mejor de su franja;
- * un semaforo por tramos lo pintaria como malo, que no es lo que dice.
+ * Un solo color para todas las notas. La nota se mide contra la gama de
+ * precio de cada modelo (METODO.md §5): un semaforo por tramos compararia
+ * notas de gamas distintas, que no son comparables.
  */
 function RatingBadge({ score }: { score: number }) {
   return (

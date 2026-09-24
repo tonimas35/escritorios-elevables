@@ -465,8 +465,8 @@ export default function Home() {
                 <Link href="/metodologia" className="underline">
                   fórmula publicada
                 </Link>
-                . La nota es absoluta: un escritorio básico no la tiene alta, por
-                eso comparamos dentro de cada franja de precio.
+. Cada escritorio se mide contra lo que se puede esperar en su gama
+                de precio, no contra el más caro del mercado.
               </p>
               <div className="flex flex-col" style={{ gap: 16, marginTop: 20 }}>
                 {CRITERIOS.map((c) => (

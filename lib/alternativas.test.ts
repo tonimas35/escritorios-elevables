@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import type { ProductMap } from "./types";
 import { calcularNota } from "./nota.ts";
 import { alternativas } from "./alternativas.ts";
+import { gama } from "./nota.ts";
 
 const catalogo = Object.values(
   JSON.parse(readFileSync(new URL("../data/productos.json", import.meta.url), "utf8")) as ProductMap,
@@ -20,14 +21,17 @@ test("siempre tres, sin repetir y sin el propio modelo", () => {
   }
 });
 
-test("un escritorio completo propone primero el escalón más cercano por arriba", () => {
-  const vasagle = de("vasagle-100"); // la nota más baja
-  const [primera] = alternativas(vasagle, catalogo);
-  assert.equal(primera.motivo, "El siguiente escalón");
-  const porEncima = catalogo
-    .filter((p) => p.incluye_tablero && p.puntuacion.total > vasagle.puntuacion.total)
-    .map((p) => p.puntuacion.total);
-  assert.equal(primera.producto.puntuacion.total, Math.min(...porEncima));
+test("el escalón es el mejor de la gama de precio siguiente, no una nota más alta de otra gama", () => {
+  const alt = alternativas(de("vasagle-100"), catalogo); // gama de entrada
+  const escalon = alt.find((a) => a.motivo === "Si puedes subir de presupuesto");
+  assert.ok(escalon);
+  assert.equal(gama(escalon.producto), "media");
+  const mejorMedia = catalogo
+    .filter((p) => p.incluye_tablero && gama(p) === "media")
+    .sort((a, b) => b.puntuacion.total - a.puntuacion.total || b.rating - a.rating)[0];
+  assert.equal(escalon.producto.slug, mejorMedia.slug);
+  // En la gama alta no hay escalón.
+  assert.ok(!alternativas(de("maidesite-s2-pro"), catalogo).some((a) => a.motivo === "Si puedes subir de presupuesto"));
 });
 
 test("un escritorio completo no propone un marco antes que otro completo", () => {
@@ -40,7 +44,10 @@ test("un escritorio completo no propone un marco antes que otro completo", () =>
 test("un marco propone primero el mejor escritorio con tablero", () => {
   const alt = alternativas(de("flexispot-e7"), catalogo);
   assert.equal(alt[0].motivo, "Si quieres tablero incluido");
-  assert.equal(alt[0].producto.slug, "flexispot-160x80");
+  const mejorCompleto = catalogo
+    .filter((p) => p.incluye_tablero)
+    .sort((a, b) => b.puntuacion.total - a.puntuacion.total || b.rating - a.rating || a.slug.localeCompare(b.slug))[0];
+  assert.equal(alt[0].producto.slug, mejorCompleto.slug);
   assert.ok(slugs("flexispot-e7").includes("maidesite-t2-pro-max"), "más carga");
 });
 
