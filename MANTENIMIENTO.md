@@ -54,7 +54,7 @@ Tres campos del JSON gobiernan el reparto. Conviene saberlo antes de tocarlos:
 - **La nota** — ordena el ranking en todas las listas. Ya no está en el JSON:
   la calcula `lib/nota.ts` con la fórmula de `METODO.md` §5 a partir de
   `specs`, `rating` y `num_reviews`. Cambiar una spec cambia la nota.
-- **`precio_min` y `precio_max`** — deciden la franja (A, B, C o M, por el
+- **`precio_min` y `precio_max`** — deciden la franja (A, B, C, M1 o M2, por el
   punto medio) y con ella la posición del modelo y sus alternativas.
 - **`titular`** — si lo tiene y no tiene review propia, el modelo tiene
   ficha en `/{slug}-opiniones` y entra en el sitemap.
@@ -84,7 +84,7 @@ GitHub los ejecuta también en cada push.
    de un motor. En cada activo, comprobar que el título y las fotos de la
    ficha de Amazon corresponden al nombre y a las specs que publicamos, no
    solo que las specs sueltas cuadren.
-1. Por franja (A, B, C, M), los ~10 más vendidos y las novedades en Amazon.es.
+1. Por franja (A, B, C, M1, M2), los ~10 más vendidos y las novedades en Amazon.es.
 2. Filtro de entrada (METODO.md §3): nota ≥ 4,3 con 100 valoraciones o más,
    specs completas con fuente, garantía declarada, sin clones de lo que ya hay.
 3. De los que pasan, las 20 reseñas de 1–2★ más recientes: ¿se repite algún
