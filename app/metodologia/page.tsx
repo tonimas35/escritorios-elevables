@@ -5,6 +5,9 @@ import { CRITERIOS } from "@/lib/metodologia";
 import {
   MEMORIAS,
   MIN_VALORACIONES,
+  PUNTOS_EXCELENTE,
+  PUNTOS_MINIMO,
+  SIN_ANTICOLISION,
   NOMBRE_FRANJA,
   UMBRALES,
   VALORACION,
@@ -140,7 +143,7 @@ export default function MetodologiaPage() {
           <strong style={{ color: "var(--text-primary)" }}>Cada escritorio se mide
           contra lo que se puede esperar en su gama de precio</strong>, no contra el
           más caro del mercado: entrada (hasta 120 €), media (de 120 a 250 €) o alta
-          (de 250 a 500 €). En cada dato, un 5 es lo mínimo aceptable en esa gama y un
+          (de 250 a 500 €). En cada dato, un 6 es lo mínimo aceptable en esa gama y un
           10, lo mejor que se puede pedirle. Por eso un 8 en la gama de entrada y un 8
           en la alta significan lo mismo, «muy bueno para lo que cuesta», y no que
           sean escritorios iguales. Los umbrales son fijos: la nota de un modelo no
@@ -164,7 +167,7 @@ export default function MetodologiaPage() {
         <div className="overflow-x-auto mt-6">
           <table className="w-full text-sm" style={{ borderCollapse: "collapse" }}>
             <caption className="text-left text-sm font-semibold pb-2" style={{ color: "var(--text-primary)" }}>
-              Umbrales por gama: de lo mínimo aceptable (5) a lo mejor esperable (10)
+              Umbrales por gama: de lo mínimo aceptable ({PUNTOS_MINIMO}) a lo mejor esperable ({PUNTOS_EXCELENTE})
             </caption>
             <thead>
               <tr style={{ borderBottom: "1px solid var(--border)" }}>
@@ -186,7 +189,7 @@ export default function MetodologiaPage() {
             </tbody>
           </table>
           <p className="text-xs mt-2" style={{ color: "var(--text-muted)" }}>
-            En todas las gamas: memorias de {MEMORIAS[0]} a {MEMORIAS[1]}; anticolisión, sí 10 y no 2;
+            En todas las gamas: memorias de {MEMORIAS[0]} a {MEMORIAS[1]}; anticolisión, sí 10 y no {SIN_ANTICOLISION};
             valoración de compradores de {coma(VALORACION[0])} a {coma(VALORACION[1])} estrellas.
           </p>
         </div>
