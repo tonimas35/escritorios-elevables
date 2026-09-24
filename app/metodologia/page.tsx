@@ -67,7 +67,7 @@ const breadcrumbSchema = {
 };
 
 export default function MetodologiaPage() {
-  const total = getAllProducts().length;
+  const total = getAllProducts().filter(([, p]) => p.disponible).length;
   const nombre = (slug: string) => {
     const p = getAllProducts().find(([, q]) => q.slug === slug)?.[1];
     return p ? `${p.marca} ${p.modelo}` : slug;
