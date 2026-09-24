@@ -159,8 +159,9 @@ que la mida).
 ### Simulación del 24/09/2026 (escala con mínimo 5)
 
 Primera versión de la nota por gama, con los datos de ese día sin verificar
-(ver §6). Con el reajuste a mínimo 6 las notas quedan entre 7,5 y 9,2: están
-en el registro de cambios.
+(ver §6). Con el reajuste a mínimo 6 las notas quedaban entre 7,5 y 9,2, y
+tras verificar las doce fichas contra Amazon.es (24/09/2026) entre 6,8 y 9,4.
+Todas están en el registro de cambios.
 
 | Modelo | Gama | Primera versión | Nota por gama |
 |---|---|---|---|

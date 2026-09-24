@@ -10,9 +10,12 @@
 > (datos, ficha, redirección y textos). **En el barrido de octubre, buscar el
 > E7 real** para la franja de marcos que le toque por precio (M1 o M2). La nota se mide ya contra la gama de precio
 > (METODO.md §5).
-> **Siguiente: fase 5** (barrido de mercado, necesita a Toni en Amazon).
-> Pendientes de datos: `fuente_specs`, `specs_verificado` y `nota_resenas` en
-> los doce modelos (`npm run validar` los lista).
+> **24/09/2026, tarde:** el entorno ya llega a Amazon.es. Las doce fichas
+> están verificadas contra su ASIN (`fuente_specs`, `specs_verificado`): se
+> corrigieron muchas cifras y lo que la ficha no declara quedó sin dato.
+> **Siguiente: fase 5** (barrido de mercado, el 13/10 con la tarea
+> automática). Pendiente de datos: `nota_resenas` en los doce modelos y el
+> tipo de motor del S2 Pro, que su ficha no declara.
 
 ## Contexto
 
