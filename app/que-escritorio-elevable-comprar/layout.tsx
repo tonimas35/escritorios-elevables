@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getAvailableProducts } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Qué escritorio elevable comprar: test de 4 preguntas",
@@ -49,8 +50,8 @@ export default function QueComprarLayout({ children }: { children: React.ReactNo
           <p>
             No es un cuestionario de personalidad ni una excusa para pedirte el
             correo. Son cuatro decisiones que de verdad cambian qué escritorio te
-            conviene, y el test las cruza con las especificaciones de los doce
-            modelos del catálogo para dejarte los tres que mejor encajan.
+            conviene, y el test las cruza con las especificaciones de los{" "}
+            {getAvailableProducts().length} modelos del catálogo para dejarte los tres que mejor encajan.
           </p>
         </section>
 
@@ -109,7 +110,7 @@ export default function QueComprarLayout({ children }: { children: React.ReactNo
             <Link href="/metodologia" style={{ color: "var(--verde-estructura)", textDecoration: "underline" }}>
               metodología
             </Link>{" "}
-            o filtrar tú mismo los doce modelos en el{" "}
+            o filtrar tú mismo los {getAvailableProducts().length} modelos en el{" "}
             <Link href="/comparador" style={{ color: "var(--verde-estructura)", textDecoration: "underline" }}>
               comparador
             </Link>
