@@ -189,14 +189,33 @@ export function franja(p: Pick<Product, "incluye_tablero" | "precio_min" | "prec
 }
 
 /**
+ * Diferencia de nota por debajo de la cual dos modelos de la misma franja
+ * se publican como empate tecnico (METODO.md §5). Es el mismo margen que
+ * exige §4 para rotar un modelo.
+ */
+export const MARGEN_EMPATE = 0.3;
+
+/**
+ * Las notas van con un decimal: se comparan en decimas enteras para que
+ * 8,6 - 8,3 no quede en 0,29999 por el redondeo de coma flotante.
+ */
+function empatan(a: number, b: number): boolean {
+  return Math.round(Math.abs(a - b) * 10) < Math.round(MARGEN_EMPATE * 10);
+}
+
+/**
  * Posicion del modelo dentro de su franja entre los disponibles, por nota.
  * Empate: gana la valoracion de Amazon; si sigue, el orden alfabetico del
  * slug, para que el resultado no dependa del orden del JSON.
+ *
+ * `empateCon` son los otros modelos de la franja a menos de MARGEN_EMPATE,
+ * en el orden de la franja: la posicion se mantiene, pero se publica que la
+ * diferencia no es real.
  */
 export function posicionEnFranja(
   p: Product,
   catalogo: Product[],
-): { franja: Franja; posicion: number; de: number } | null {
+): { franja: Franja; posicion: number; de: number; empateCon: Product[] } | null {
   const f = franja(p);
   if (!f) return null;
   const grupo = catalogo
@@ -208,5 +227,9 @@ export function posicionEnFranja(
         a.slug.localeCompare(b.slug),
     );
   const i = grupo.findIndex((q) => q.slug === p.slug);
-  return i === -1 ? null : { franja: f, posicion: i + 1, de: grupo.length };
+  if (i === -1) return null;
+  const empateCon = grupo.filter(
+    (q) => q.slug !== p.slug && empatan(q.puntuacion.total, p.puntuacion.total),
+  );
+  return { franja: f, posicion: i + 1, de: grupo.length, empateCon };
 }
