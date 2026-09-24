@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { getAllProducts } from "@/lib/products";
+import { getAvailableProducts } from "@/lib/products";
 import { firmaMetodologia } from "@/lib/metodologia";
 
 export function Footer() {
-  const total = getAllProducts().length;
+  // Solo los disponibles: un modelo retirado sigue en el JSON (METODO.md §6)
+  // pero ya no esta "analizado" en la web.
+  const total = getAvailableProducts().length;
 
   return (
     <footer className="footer-editorial">
