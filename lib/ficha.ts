@@ -20,7 +20,7 @@ export function motorCorto(p: Product): string {
 }
 
 export function recorrido(p: Product): string {
-  return `${p.specs.rango_altura_min_cm}–${p.specs.rango_altura_max_cm} cm`;
+  return `${coma(p.specs.rango_altura_min_cm)}–${coma(p.specs.rango_altura_max_cm)} cm`;
 }
 
 export function carga(p: Product): string {
@@ -111,7 +111,7 @@ export function caminos(catalogo: [string, Product][]): Camino[] {
       subtitulo: "El tablero lo eliges tú",
       asin,
       producto: p,
-      texto: `${motorCorto(p)}, ${carga(p)} y recorrido de ${p.specs.rango_altura_min_cm} a ${p.specs.rango_altura_max_cm} cm. El tablero, a tu medida.`,
+      texto: `${motorCorto(p)}, ${carga(p)} y recorrido de ${coma(p.specs.rango_altura_min_cm)} a ${coma(p.specs.rango_altura_max_cm)} cm. El tablero, a tu medida.`,
     });
   }
   if (conTablero) {
@@ -132,7 +132,7 @@ export function caminos(catalogo: [string, Product][]): Camino[] {
       subtitulo: "Cuando manda la carga",
       asin,
       producto: p,
-      texto: `${carga(p)} de carga y recorrido de ${p.specs.rango_altura_min_cm} a ${p.specs.rango_altura_max_cm} cm, lo más amplio del catálogo. ${p.incluye_tablero ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} incluido.` : "Tampoco incluye tablero."}`,
+      texto: `${carga(p)} de carga y recorrido de ${coma(p.specs.rango_altura_min_cm)} a ${coma(p.specs.rango_altura_max_cm)} cm, lo más amplio del catálogo. ${p.incluye_tablero ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} incluido.` : "Tampoco incluye tablero."}`,
     });
   }
   return salida;
