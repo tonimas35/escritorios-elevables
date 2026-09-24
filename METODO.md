@@ -139,6 +139,73 @@ grande puede leerse como "malo". Por eso la cifra grande de la ficha es la
 **posición en su franja** ("Nº 1 de la franja A") y la nota absoluta se enseña
 al lado, más pequeña, con un enlace a esta fórmula.
 
+## 5 bis. PROPUESTA: nota por gama de precio (borrador 24/09/2026)
+
+> **Pendiente de aprobación. No aplicada.** Sustituiría a la fórmula de §5.
+
+**Por qué.** Con la escala de §5, un escritorio de 100 € que hace bien lo que
+promete saca un 4 o un 5, porque se le mide contra uno de 400 €. El lector lee
+"4,7 sobre 10" como un suspenso, y no es lo que queremos decir: si lo
+recomendamos es porque está bien *para lo que cuesta*.
+
+**Cómo.** Mismos apartados y pesos que §5. Cambian los umbrales: cada **gama**
+tiene los suyos, fijos y publicados. En cada dato, **5 = lo mínimo aceptable en
+esa gama** y **10 = lo mejor que se puede esperar en ella**, en línea recta y
+recortado entre 0 y 10. Los umbrales no dependen del resto del catálogo: la
+nota de un modelo no cambia porque entre otro.
+
+**Gama** por el punto medio de la franja de precio verificada, igual que §2,
+pero sin separar marcos de completos: **entrada** hasta 120 €, **media** de 120
+a 250 € y **alta** de 250 a 500 €.
+
+| Dato (5 → 10) | Entrada | Media | Alta |
+|---|---|---|---|
+| Carga | 50 → 80 kg | 70 → 100 kg | 100 → 160 kg |
+| Motor (puntos) | simple 7 · doble 10 | simple 7 · doble 10 | simple 2 · doble 10 |
+| Peso de la estructura | 15 → 25 kg | 20 → 32 kg | 28 → 40 kg |
+| Velocidad | 2 → 3 cm/s | 2 → 3 cm/s | 3 → 4 cm/s |
+| Ruido | 55 → 45 dB | 55 → 45 dB | 50 → 42 dB |
+| Altura mínima | 74 → 70 cm | 74 → 68 cm | 72 → 62 cm |
+| Altura máxima | 115 → 122 cm | 116 → 125 cm | 118 → 130 cm |
+| Garantía | 2 → 4 años | 2 → 5 años | 3 → 5 años |
+
+En todas las gamas: memorias 2 → 4; anticolisión sí 10, no 2; valoración de
+compradores 4,0 → 4,7 estrellas, y solo con 100 valoraciones o más (§3).
+
+**Norma de entrada nueva:** un modelo con **nota por debajo de 6,5** no se
+recomienda y sale en el siguiente barrido. Así, todo lo publicado queda entre
+6,5 y 10 porque se ha elegido así, no porque se haya estirado la escala.
+
+**Simulación con los datos de hoy** (sin verificar: ver el aviso de abajo):
+
+| Modelo | Gama | Nota §5 hoy | Nota propuesta |
+|---|---|---|---|
+| "Flexispot E7" (ver aviso) | media | 8,6 | 9,9 |
+| MAIDeSITe T2 Pro MAX | alta | 8,5 | 8,7 |
+| ErGear 120 | entrada | 4,9 | 8,3 |
+| Devoko 120 | entrada | 4,8 | 8,2 |
+| FLEXISPOT 160x80 | alta | 7,1 | 7,8 |
+| SANODESK 140 | media | 5,2 | 7,7 |
+| Devoko 160 | media | 5,1 | 7,7 |
+| VASAGLE 160 | media | 4,9 | 7,6 |
+| SONGMICS 160 | media | 5,0 | 7,6 |
+| MAIDeSITe S2 Pro | alta | 7,0 | 7,4 |
+| Fezibo 120 | media | 4,7 | 7,1 |
+| VASAGLE 100 | entrada | 3,0 | 6,5 |
+
+**Avisos antes de aprobar:**
+
+- El "E7" lleva specs de un E7, pero el ASIN es otro marco (EG1). Con sus datos
+  reales su nota bajará. Se corrige aparte.
+- 11 de 12 modelos tienen specs sin verificar, y varias ya se sabe que no
+  cuadran con Amazon (ErGear, los dos Devoko, VASAGLE 100, SONGMICS, S2 Pro).
+  Las notas definitivas saldrán del barrido de octubre, con datos comprobados.
+- VASAGLE 100 queda justo en el límite (6,5). Con datos verificados puede
+  quedar por encima o salir.
+- Los umbrales son una propuesta razonada, no una medición. Se pueden
+  discutir, pero una vez aprobados solo se cambian aquí, con fecha, y nunca
+  para que un modelo concreto suba o baje.
+
 ## 6. Fuentes y fechas por modelo
 
 Campos nuevos en `data/productos.json` (Fase 2 del plan):
