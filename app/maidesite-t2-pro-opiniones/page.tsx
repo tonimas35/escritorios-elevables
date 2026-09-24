@@ -239,11 +239,13 @@ export default function MaidesiteT2ProReviewPage() {
 
         <div>
           <h3 className="text-lg font-semibold">Qué dicen los compradores</h3>
+          {/* Solo lo que tiene fuente: la media de Amazon y el resumen de la
+              revision de reseñas de 1-2 estrellas (METODO.md §3), cuando exista. */}
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Acumula una media de 4,5 estrellas en Amazon España sobre 5. Lo que más se repite en positivo es la solidez de la estructura y lo bien que sube y baja incluso cargada; varios compradores mencionan que lo eligieron precisamente por la capacidad de carga.
-          </p>
-          <p className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            En lo negativo, la queja recurrente es la que cabe esperar: llega sin tablero y no todo el mundo lo tiene claro al comprar. También aparece el peso de la estructura, 30 kg, que hace recomendable montarlo entre dos personas. Su historial de valoraciones es todavía corto comparado con marcas más veteranas.
+            {coma(product.rating)} estrellas de media en Amazon España.{" "}
+            {product.nota_resenas
+              ? product.nota_resenas
+              : "Todavía no hemos revisado sus reseñas de una y dos estrellas con nuestro método; cuando lo hagamos, el resumen estará aquí."}
           </p>
         </div>
       </section>
