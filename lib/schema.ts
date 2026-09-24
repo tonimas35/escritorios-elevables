@@ -78,7 +78,10 @@ export function productSchema(asin: string, p: Product, pageUrl?: string) {
       { "@type": "PropertyValue", name: "Altura maxima", value: `${p.specs.rango_altura_max_cm} cm` },
       { "@type": "PropertyValue", name: "Carga maxima", value: `${p.specs.peso_max_carga_kg} kg` },
       { "@type": "PropertyValue", name: "Tablero incluido", value: p.specs.tablero_incluido ? "Si" : "No" },
-      { "@type": "PropertyValue", name: "Garantia", value: `${p.specs.garantia_anos} años` },
+      // Sin garantia declarada no se publica: un dato vacio no va al schema.
+      ...(p.specs.garantia_anos !== null
+        ? [{ "@type": "PropertyValue", name: "Garantia", value: `${p.specs.garantia_anos} años` }]
+        : []),
     ],
   };
 }

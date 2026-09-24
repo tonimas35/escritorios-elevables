@@ -27,9 +27,16 @@ export function carga(p: Product): string {
   return `${p.specs.peso_max_carga_kg} kg`;
 }
 
+/** `null` en la ficha es "no lo declara": se escribe "Sin dato", nunca "No". */
+export const SIN_DATO = "Sin dato";
+
 export function memorias(p: Product): string {
-  const base = `${p.specs.presets_memoria}`;
+  const base = p.specs.presets_memoria === null ? SIN_DATO : `${p.specs.presets_memoria}`;
   return p.specs.sistema_anticolision ? `${base} · anticolisión` : base;
+}
+
+export function anticolision(p: Product): string {
+  return p.specs.sistema_anticolision === null ? SIN_DATO : p.specs.sistema_anticolision ? "Sí" : "No";
 }
 
 export function ruido(p: Product): string | null {
@@ -37,7 +44,7 @@ export function ruido(p: Product): string | null {
 }
 
 export function garantia(p: Product): string {
-  return `${p.specs.garantia_anos} años`;
+  return p.specs.garantia_anos === null ? SIN_DATO : `${p.specs.garantia_anos} años`;
 }
 
 export function tablero(p: Product): string {
@@ -72,7 +79,10 @@ export function fichaTecnica(p: Product): [string, string][] {
  */
 export function standfirst(p: Product): string {
   const frase = `Nota ${nota(p.puntuacion.total)} sobre 10 en su gama de precio.`;
-  const ficha = `${motorCorto(p)}, ${carga(p)} de carga y ${garantia(p)} de garantía.`;
+  const ficha =
+    p.specs.garantia_anos !== null
+      ? `${motorCorto(p)}, ${carga(p)} de carga y ${garantia(p)} de garantía.`
+      : `${motorCorto(p)} y ${carga(p)} de carga.`;
   const cierre = p.incluye_tablero
     ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} incluido.`
     : "No incluye tablero.";
@@ -125,17 +135,23 @@ export function caminos(catalogo: [string, Product][]): Camino[] {
       subtitulo: "Montar y usar, sin más compras",
       asin,
       producto: p,
-      texto: `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm}${material}, ${motorCorto(p).toLowerCase()} y ${garantia(p)} de garantía.`,
+      texto:
+        p.specs.garantia_anos !== null
+          ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm}${material}, ${motorCorto(p).toLowerCase()} y ${garantia(p)} de garantía.`
+          : `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm}${material} y ${motorCorto(p).toLowerCase()}.`,
     });
   }
   if (masCarga) {
     const [asin, p] = masCarga;
+    // "Lo mas amplio" solo si lo es: se comprueba contra el catalogo.
+    const tramo = (q: Product) => q.specs.rango_altura_max_cm - q.specs.rango_altura_min_cm;
+    const elMasAmplio = catalogo.every(([, q]) => tramo(q) <= tramo(p));
     salida.push({
       etiqueta: "Dos monitores o setup grande",
       subtitulo: "Cuando manda la carga",
       asin,
       producto: p,
-      texto: `${carga(p)} de carga y recorrido de ${coma(p.specs.rango_altura_min_cm)} a ${coma(p.specs.rango_altura_max_cm)} cm, lo más amplio del catálogo. ${p.incluye_tablero ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} incluido.` : "Tampoco incluye tablero."}`,
+      texto: `${carga(p)} de carga y recorrido de ${coma(p.specs.rango_altura_min_cm)} a ${coma(p.specs.rango_altura_max_cm)} cm${elMasAmplio ? ", lo más amplio del catálogo" : ""}. ${p.incluye_tablero ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} incluido.` : "Tampoco incluye tablero."}`,
     });
   }
   return salida;
@@ -161,9 +177,9 @@ export function etiquetasSpec(p: Product): string[] {
     motorLargo(p),
     carga(p),
     recorrido(p),
-    `${p.specs.presets_memoria} memorias`,
+    p.specs.presets_memoria !== null ? `${p.specs.presets_memoria} memorias` : null,
     p.specs.sistema_anticolision ? "Anticolisión" : null,
-    `${p.specs.garantia_anos} años de garantía`,
+    p.specs.garantia_anos !== null ? `${p.specs.garantia_anos} años de garantía` : null,
   ];
   return fuera.filter((x): x is string => x !== null);
 }
@@ -204,6 +220,19 @@ export function dudas(catalogo: [string, Product][]): Duda[] {
     g.map((p) => p.specs.ruido_db).filter((r): r is number => r !== null);
   const velocidades = (g: Product[]) =>
     g.map((p) => p.specs.velocidad_cm_s).filter((v): v is number => v !== null);
+
+  const enLista = (xs: string[]) => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} y ${xs.at(-1)}`);
+  // Velocidad y ruido solo de los modelos que los declaran (METODO.md §5):
+  // si ninguno de un grupo los declara, esa cifra no se da.
+  const datosMotor = (g: Product[]) => {
+    const v = velocidades(g);
+    const r = ruidos(g);
+    return [
+      ...(v.length ? [`suben a ${rango(v)} cm/s`] : []),
+      ...(r.length ? [`declaran ${rango(r)} dB`] : []),
+      `aguantan ${rango(g.map((p) => p.specs.peso_max_carga_kg))} kg`,
+    ];
+  };
 
   const cargaMinConTablero = Math.min(...conTablero.map((p) => p.specs.peso_max_carga_kg));
   const cargasMarcos = marcos
@@ -249,7 +278,7 @@ export function dudas(catalogo: [string, Product][]): Duda[] {
     {
       pregunta: "¿Un motor o dos?",
       parrafos: [
-        `Los ${dobles.length} modelos de doble motor del catálogo suben a ${rango(velocidades(dobles))} cm/s, declaran ${rango(ruidos(dobles))} dB y aguantan entre ${Math.min(...dobles.map((p) => p.specs.peso_max_carga_kg))} y ${Math.max(...dobles.map((p) => p.specs.peso_max_carga_kg))} kg. Los de motor simple se quedan en ${rango(velocidades(simples))} cm/s, ${rango(ruidos(simples))} dB y ${rango(simples.map((p) => p.specs.peso_max_carga_kg))} kg.`,
+        `Los ${dobles.length} modelos de doble motor del catálogo ${enLista(datosMotor(dobles))}. Los de motor simple ${enLista(datosMotor(simples))}.`,
         "Si la mesa va a subir y bajar varias veces al día, la diferencia se nota. Si vas a alternar entre dos alturas fijas, el motor simple cumple.",
       ],
     },
