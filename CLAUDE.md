@@ -6,9 +6,11 @@ Aplican a todas las sesiones, siempre, sin que haga falta recordarlas.
 
 ## Antes de empezar
 
-**Lee `PLAN-CATALOGO.md`, `PLAN.md`, `MANTENIMIENTO.md` y este fichero al
-empezar cualquier sesión.** `PLAN-CATALOGO.md` es el plan en curso: método de
-selección, nota calculada y rotación del catálogo; `PLAN.md`, la auditoría del
+**Lee `SEO-PLAN.md` §0, `PLAN-CATALOGO.md`, `PLAN.md`, `MANTENIMIENTO.md` y este
+fichero al empezar cualquier sesión.** `SEO-PLAN.md` §0 es el plan en curso:
+dónde está el tráfico y qué toca, por orden. `PLAN-CATALOGO.md`, el método de
+selección, la nota calculada y la rotación del catálogo (en mantenimiento
+desde el 25/09); `PLAN.md`, la auditoría del
 repo y el plan de migración por fases (casi terminado);
 `MANTENIMIENTO.md`, el índice del catálogo —ASIN, slug, dónde sale cada modelo—
 y la rutina de revisión; `design-ref/README.md`, las decisiones de diseño ya

@@ -11,6 +11,11 @@
 > página propia, que pasa a ser la Fase 6 de `PLAN-CATALOGO.md`. §7.4 resuelta:
 > `aggregateRating` retirado del schema (commit `e1b78f4`). El resto de este
 > fichero se conserva como registro de cómo se hizo.
+>
+> **25/09/2026:** F5 hecha (los diez modelos activos tienen ficha propia). Sigue
+> pendiente de rehacer con los componentes de la home y las fichas
+> `/mejor-escritorio-elevable`, la página que cita ChatGPT: es la P2 de
+> `SEO-PLAN.md` §0.
 
 ## Regla que manda sobre todo
 
