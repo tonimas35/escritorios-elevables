@@ -42,7 +42,8 @@ export function Footer() {
                 { label: "Escritorios baratos", href: "/escritorio-elevable-barato" },
                 { label: "Flexispot EG1", href: "/flexispot-eg1-opiniones" },
                 { label: "Flexispot vs Maidesite", href: "/flexispot-vs-maidesite" },
-                { label: "MAIDeSITe T2 Pro MAX review", href: "/maidesite-t2-pro-opiniones" },
+                { label: "SANODESK vs Flexispot", href: "/sanodesk-vs-flexispot" },
+                { label: "MAIDeSITe T2 Pro Plus", href: "/maidesite-t2-pro-plus-opiniones" },
                 { label: "Fezibo review", href: "/fezibo-opiniones" },
               ].map((item) => (
                 <li key={item.href}>

@@ -1,9 +1,11 @@
 /**
  * Donde vive la ficha de cada modelo.
  *
- * Tres reviews largas tienen ruta propia y ya indexada, con un nombre que no
- * sale del slug (PLAN.md §7.2): se conservan tal cual. El resto de modelos
- * usa la plantilla de app/[ficha] en `/{slug}-opiniones`.
+ * Las reviews largas con ruta propia y ya indexada, cuyo nombre no sale del
+ * slug (PLAN.md §7.2), se conservan tal cual. Hoy solo queda la del FEZIBO:
+ * las del E7 y el T2 Pro MAX se retiraron con sus modelos y sus URL
+ * redirigen al sucesor (next.config.ts). El resto de modelos usa la
+ * plantilla de app/[ficha] en `/{slug}-opiniones`.
  *
  * Un modelo solo tiene ficha de plantilla cuando tiene `titular`: es el H1
  * de la pagina y, por CLAUDE.md, necesita visto bueno antes de entrar en el
@@ -14,7 +16,6 @@ import { getAllProducts } from "./products";
 
 export const RUTAS_FIJAS: Record<string, string> = {
   "fezibo-120": "/fezibo-opiniones",
-  "maidesite-t2-pro-max": "/maidesite-t2-pro-opiniones",
 };
 
 const SUFIJO = "-opiniones";

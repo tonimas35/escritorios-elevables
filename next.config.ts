@@ -39,6 +39,14 @@ const nextConfig: NextConfig = {
         destination: "/songmics-160-opiniones",
         permanent: true,
       },
+      {
+        // MAIDeSITe T2 Pro MAX, retirado el 25/09/2026 por no llegar a 100
+        // valoraciones (data/cambios-catalogo.json). Su review, ya indexada,
+        // lleva a la ficha de su sucesor, el T2 Pro Plus.
+        source: "/maidesite-t2-pro-opiniones",
+        destination: "/maidesite-t2-pro-plus-opiniones",
+        permanent: true,
+      },
     ];
   },
   images: {

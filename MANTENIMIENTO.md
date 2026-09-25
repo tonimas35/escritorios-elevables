@@ -7,7 +7,7 @@ no cambian), dónde aparece cada modelo y qué hay que revisar cada cuánto.
 
 Si al leer esto la tabla no coincide con el JSON, manda el JSON.
 
-## El catálogo: 10 modelos activos y 2 retirados
+## El catálogo: 13 modelos activos y 3 retirados
 
 Última revisión de precios: **25/09/2026**.
 
@@ -22,9 +22,13 @@ Si al leer esto la tabla no coincide con el JSON, manda el JSON.
 | `B0CKVPZ93G` | `devoko-160` | ~~Devoko 160x70~~ retirado el 24/09/2026 (sucesor `songmics-160`) | — | — |
 | `B0CDLBJ1VW` | `sanodesk-140` | SANODESK 140x60 | 140–180 € | `/sanodesk-140-opiniones` (plantilla) |
 | `B084KW7N8C` | `flexispot-eg1` | FLEXISPOT EG1 (marco) | 110–150 € | `/flexispot-eg1-opiniones` (plantilla; `/flexispot-e7-opiniones` redirige), `/flexispot-vs-maidesite` |
-| `B0DG2VTCXS` | `maidesite-t2-pro-max` | MAIDeSITe T2 Pro MAX | 310–430 € | `/maidesite-t2-pro-opiniones`, `/flexispot-vs-maidesite` |
+| `B0DG2VTCXS` | `maidesite-t2-pro-max` | ~~MAIDeSITe T2 Pro MAX~~ retirado el 25/09/2026 (sucesor `maidesite-t2-pro-plus`) | — | `/maidesite-t2-pro-opiniones` redirige a `/maidesite-t2-pro-plus-opiniones` |
 | `B09TQR3MMM` | `maidesite-s2-pro` | MAIDeSITe S2 Pro 140x70 | 370–490 € | `/maidesite-s2-pro-opiniones` (plantilla), `/flexispot-vs-maidesite` |
 | `B09R746JHX` | `flexispot-160x80` | FLEXISPOT 160x80 | 350–470 € | `/flexispot-160x80-opiniones` (plantilla), `/flexispot-vs-maidesite` |
+| `B0CQNV8WBS` | `ergear-marco` | ErGear marco 2 motores | 140–180 € | `/ergear-marco-opiniones` (plantilla) |
+| `B08DXZ6JJ5` | `maidesite-t1` | MAIDeSITe T1 (marco) | 150–210 € | `/maidesite-t1-opiniones` (plantilla) |
+| `B083T9Z4SG` | `maidesite-t2-pro-dual` | MAIDeSITe T2 Pro (marco) | 250–340 € | `/maidesite-t2-pro-dual-opiniones` (plantilla) |
+| `B087JF3B5S` | `maidesite-t2-pro-plus` | MAIDeSITe T2 Pro Plus (marco) | 290–390 € | `/maidesite-t2-pro-plus-opiniones` (plantilla) |
 
 Los activos salen además en la home, en `/mejor-escritorio-elevable` y en
 `/comparador`.
