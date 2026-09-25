@@ -10,7 +10,6 @@ const catalogo = Object.values(
   JSON.parse(readFileSync(new URL("../data/productos.json", import.meta.url), "utf8")) as ProductMap,
 ).map((p) => ({ ...p, puntuacion: calcularNota(p) }));
 const de = (slug: string) => catalogo.find((p) => p.slug === slug)!;
-const slugs = (slug: string) => alternativas(de(slug), catalogo).map((a) => a.producto.slug);
 
 test("siempre tres, sin repetir y sin el propio modelo", () => {
   for (const p of catalogo) {
@@ -48,7 +47,8 @@ test("un marco propone primero el mejor escritorio con tablero", () => {
     .filter((p) => p.incluye_tablero)
     .sort((a, b) => b.puntuacion.total - a.puntuacion.total || b.rating - a.rating || a.slug.localeCompare(b.slug))[0];
   assert.equal(alt[0].producto.slug, mejorCompleto.slug);
-  assert.ok(slugs("flexispot-eg1").includes("maidesite-t2-pro-max"), "más carga");
+  const masCarga = alternativas(de("flexispot-eg1"), catalogo).find((a) => a.motivo === "Si necesitas más carga");
+  assert.ok(masCarga && masCarga.producto.specs.peso_max_carga_kg > de("flexispot-eg1").specs.peso_max_carga_kg, "más carga");
 });
 
 test("un modelo no disponible no aparece como alternativa", () => {

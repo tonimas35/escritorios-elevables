@@ -36,6 +36,11 @@ test("todas las notas y apartados quedan entre 0 y 10 con un decimal", () => {
 test("reproduce las notas del catálogo verificado el 24/09/2026", () => {
   const esperado: Record<string, number> = {
     "maidesite-t2-pro-max": 9.4,
+    // Marcos del barrido del 25/09/2026.
+    "maidesite-t2-pro-plus": 9.5,
+    "ergear-marco": 9.1,
+    "maidesite-t2-pro-dual": 8.7,
+    "maidesite-t1": 8.6,
     "vasagle-100": 9.3,
     "ergear-120": 8.9,
     "maidesite-s2-pro": 8.9,
@@ -114,10 +119,15 @@ test("franja por el punto medio de la franja de precio verificada", () => {
 });
 
 test("posición en franja: cada marco solo se compara con los de su franja", () => {
-  const t2 = posicionEnFranja(porSlug("maidesite-t2-pro-max"), catalogo)!;
-  assert.deepEqual([t2.franja, t2.posicion, t2.de], ["M2", 1, 1]);
-  const eg1 = posicionEnFranja(porSlug("flexispot-eg1"), catalogo)!;
-  assert.deepEqual([eg1.franja, eg1.posicion, eg1.de], ["M1", 1, 1]);
+  const activos = catalogo.filter((p) => p.disponible);
+  for (const m of activos.filter((p) => !p.incluye_tablero)) {
+    const pos = posicionEnFranja(m, catalogo)!;
+    assert.ok(pos.franja === "M1" || pos.franja === "M2", m.slug);
+    // Solo cuenta marcos de su misma franja, nunca escritorios completos.
+    assert.equal(pos.de, activos.filter((q) => franja(q) === pos.franja).length, m.slug);
+  }
+  assert.equal(posicionEnFranja(porSlug("flexispot-eg1"), catalogo)!.franja, "M1");
+  assert.equal(posicionEnFranja(porSlug("maidesite-t2-pro-plus"), catalogo)!.franja, "M2");
   const b = catalogo.filter((p) => p.disponible && franja(p) === "B").map((p) => posicionEnFranja(p, catalogo)!.posicion).sort();
   assert.deepEqual(b, b.map((_, i) => i + 1), "posiciones consecutivas aunque haya empate técnico");
 });
