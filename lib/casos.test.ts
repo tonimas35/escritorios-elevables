@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import type { Product, ProductMap } from "./types";
 import { calcularNota } from "./nota.ts";
-import { casos } from "./casos.ts";
+import { casos, casosMarcos } from "./casos.ts";
 import { publicable } from "./cifras.ts";
 
 const catalogo = Object.values(
@@ -57,4 +57,22 @@ test("un empate se deshace por nota, no por el orden del JSON", () => {
   const b = mk("b-mejor", 9);
   assert.equal(caso("espacio", [a, b])!.producto.slug, "b-mejor");
   assert.equal(caso("espacio", [b, a])!.producto.slug, "b-mejor");
+});
+
+test("casosMarcos: solo bases activas, publicables y con el dato del que dependen", () => {
+  const cs = casosMarcos(catalogo);
+  assert.ok(cs.length > 0);
+  for (const c of cs) {
+    assert.ok(c.producto.disponible && !c.producto.incluye_tablero, c.id);
+    assert.ok(publicable(c.motivo), `${c.id}: ${c.motivo}`);
+  }
+  const marcos = activos.filter((p) => !p.incluye_tablero);
+  const doble = cs.find((c) => c.id === "doble");
+  if (doble) assert.equal(doble.producto.specs.tipo_motor, "doble");
+  const carga = cs.find((c) => c.id === "carga")!;
+  assert.ok(marcos.every((p) => p.specs.peso_max_carga_kg <= carga.producto.specs.peso_max_carga_kg));
+  const anti = cs.find((c) => c.id === "anticolision");
+  if (anti) assert.equal(anti.producto.specs.sistema_anticolision, true);
+  const garantia = cs.find((c) => c.id === "garantia");
+  if (garantia) assert.notEqual(garantia.producto.specs.garantia_anos, null);
 });
