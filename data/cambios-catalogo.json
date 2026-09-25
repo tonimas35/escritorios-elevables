@@ -468,5 +468,11 @@
     "slug": "vasagle-160",
     "motivo": "Casi un clon del SONGMICS 160x70: mismo fabricante, mismo tablero de 160x70, mismas alturas y carga. Entre clones se queda el de mejor valoración con más volumen (METODO.md §2), que es el SONGMICS.",
     "sucesor": "songmics-160"
+  },
+  {
+    "fecha": "2026-09-25",
+    "tipo": "correccion",
+    "slug": "ergear-120",
+    "motivo": "La imagen era la del Devoko 120x60: los dos modelos apuntaban al mismo fichero de Amazon desde el alta. Se cambia por la foto principal de la ficha del ErGear 120x60 en Amazon.es, comprobada el 25/09/2026."
   }
 ]
