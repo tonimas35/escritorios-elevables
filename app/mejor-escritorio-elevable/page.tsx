@@ -68,6 +68,25 @@ export default function MejorEscritorioPage() {
   const fechaFranjas = notaFranjas(productos);
   const losCasos = casos(productos);
 
+  const filas: FilaComparativa[] = catalogo.map(([asin, p]) => ({
+    asin,
+    nombre: `${p.marca} ${p.modelo}`,
+    imagen: p.imagen,
+    alt: p.imagen_alt,
+    nota: nota(p.puntuacion.total),
+    notaNum: p.puntuacion.total,
+    rating: coma(p.rating),
+    motor: motorCorto(p),
+    carga: p.specs.peso_max_carga_kg,
+    cargaTxt: carga(p),
+    ancho: p.specs.ancho_tablero_cm,
+    tablero: p.incluye_tablero,
+    tableroTxt: tablero(p),
+    recorrido: recorrido(p),
+    garantia: garantia(p),
+    franja: franjaCorta(p),
+  }));
+
   // Datos estructurados de lo que la pagina ensena, en el mismo orden.
   const ordenPagina = [...grupos.flatMap((g) => g.modelos.map(({ asin, p }) => [asin, p] as [string, Product])), ...sinFranja];
   const schema = {
@@ -213,6 +232,24 @@ export default function MejorEscritorioPage() {
         </div>
       </section>
 
+      {/* ============================================================
+          Nº 03 · Comparativa
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 03 · Comparativa</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Los {N} modelos, lado a lado
+          </h2>
+          <Comparativa filas={filas} />
+          <p className="bs-afiliado" style={{ marginTop: 20, maxWidth: "66ch" }}>
+            Nota sobre 10 según nuestra <Link href="/metodologia">metodología</Link>, medida
+            dentro de cada franja de precio.{fechaFranjas && ` ${fechaFranjas}`} Todos los
+            enlaces son de afiliado: si compras, Amazon nos paga una comisión y tú
+            pagas lo mismo.
+          </p>
+        </div>
+      </section>
 
 
 
