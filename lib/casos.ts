@@ -134,3 +134,70 @@ export function casos(catalogo: Product[]): Caso[] {
 
   return salida;
 }
+
+/**
+ * Los mismos casos, solo entre bases (marcos sin tablero), para
+ * /bases-elevables (SEO-PLAN.md §0, P4). Quien busca una base ya ha decidido
+ * poner su propio tablero: aquí se compara marco con marco.
+ */
+export function casosMarcos(catalogo: Product[]): Caso[] {
+  const marcos = catalogo.filter((p) => p.disponible && !p.incluye_tablero);
+  const conFranja = marcos.filter((p) => p.precio_min !== null && p.precio_max !== null);
+  const salida: Caso[] = [];
+
+  const dobles = conFranja.filter((p) => p.specs.tipo_motor === "doble");
+  const dobleBarato = mejor(dobles, puntoMedio, false);
+  if (dobleBarato) {
+    salida.push({
+      id: "doble",
+      situacion: "Si quieres doble motor gastando lo mínimo",
+      producto: dobleBarato,
+      motivo: `La base de doble motor más asequible del catálogo: ${dobleBarato.specs.peso_max_carga_kg} kg y de ${coma(dobleBarato.specs.rango_altura_min_cm)} a ${coma(dobleBarato.specs.rango_altura_max_cm)} cm.`,
+    });
+  }
+
+  const tramo = (p: Product) => p.specs.rango_altura_max_cm - p.specs.rango_altura_min_cm;
+  const amplio = mejor(marcos, tramo, true);
+  if (amplio) {
+    salida.push({
+      id: "recorrido",
+      situacion: "Si eres muy alto o muy bajo",
+      producto: amplio,
+      motivo: `Va de ${coma(amplio.specs.rango_altura_min_cm)} a ${coma(amplio.specs.rango_altura_max_cm)} cm, el recorrido más amplio de las bases${empate(amplio, marcos, tramo)}.`,
+    });
+  }
+
+  const fuerte = mejor(marcos, (p) => p.specs.peso_max_carga_kg, true);
+  if (fuerte) {
+    salida.push({
+      id: "carga",
+      situacion: "Si vas a poner un tablero pesado o dos monitores",
+      producto: fuerte,
+      motivo: `${fuerte.specs.peso_max_carga_kg} kg de carga, la mayor de las bases${empate(fuerte, marcos, (p) => p.specs.peso_max_carga_kg)}. La carga incluye el tablero.`,
+    });
+  }
+
+  const conGarantia = conFranja.filter((p) => p.specs.garantia_anos !== null);
+  const maxGarantia = Math.max(...conGarantia.map((p) => p.specs.garantia_anos!));
+  const garantiaBarata = mejor(conGarantia.filter((p) => p.specs.garantia_anos === maxGarantia), puntoMedio, false);
+  if (garantiaBarata) {
+    salida.push({
+      id: "garantia",
+      situacion: "Si quieres la garantía más larga gastando poco",
+      producto: garantiaBarata,
+      motivo: `Declara ${maxGarantia} años de garantía, lo máximo entre las bases, y es la más asequible de las que los dan.`,
+    });
+  }
+
+  const seguro = mejor(conFranja.filter((p) => p.specs.sistema_anticolision === true), puntoMedio, false);
+  if (seguro) {
+    salida.push({
+      id: "anticolision",
+      situacion: "Si quieres anticolisión al menor precio",
+      producto: seguro,
+      motivo: "La base más asequible de las que declaran anticolisión: el motor se para si choca con algo al bajar.",
+    });
+  }
+
+  return salida;
+}

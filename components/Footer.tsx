@@ -40,6 +40,7 @@ export function Footer() {
               {[
                 { label: "Mejores escritorios 2026", href: "/mejor-escritorio-elevable" },
                 { label: "Escritorios baratos", href: "/escritorio-elevable-barato" },
+                { label: "Bases elevables", href: "/bases-elevables" },
                 { label: "Flexispot EG1", href: "/flexispot-eg1-opiniones" },
                 { label: "Flexispot vs Maidesite", href: "/flexispot-vs-maidesite" },
                 { label: "SANODESK vs Flexispot", href: "/sanodesk-vs-flexispot" },

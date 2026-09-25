@@ -112,7 +112,10 @@ la primera página de Google. La primera, SANODESK vs FLEXISPOT, que ya tiene
 búsquedas y no tiene página. Se calculan del catálogo y no cruzan notas de
 franjas distintas.
 
-**P4. Marcos ("bases elevables").** Hay demanda y el catálogo tiene un marco por
+**P4. Marcos ("bases elevables").** ✅ *Hecho el 25/09: barrido de marcos
+(entran ErGear marco de 2 motores, MAIDeSITe T1, T2 Pro y T2 Pro Plus; sale el
+T2 Pro MAX por no llegar a 100 valoraciones; PR #23) y página
+`/bases-elevables`.* Hay demanda y el catálogo tiene un marco por
 franja (M1 y M2 por debajo del mínimo de dos). Primero adelantar al barrido de
 octubre la búsqueda de marcos (*Toni:* capturas de los marcos más vendidos en
 Amazon.es con "Envío desde / Vendido por"); después, la página.

@@ -474,6 +474,9 @@ export default function MejorEscritorioPage() {
               <Link href="/escritorio-elevable-barato">Escritorios elevables baratos</Link>: la gama de entrada, con más detalle.
             </li>
             <li>
+              <Link href="/bases-elevables">Bases elevables</Link>: los marcos sin tablero, para poner el tuyo.
+            </li>
+            <li>
               <Link href="/flexispot-vs-maidesite">Flexispot vs MAIDeSITe</Link>: las dos marcas cara a cara.
             </li>
             <li>
