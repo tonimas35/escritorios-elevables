@@ -72,7 +72,10 @@ por donde ya muestra que se puede ganar, las comparativas.
 
 ### Qué toca, por orden
 
-**P1. Bing, para llegar a ChatGPT.** Cuando ChatGPT busca en la web se apoya
+**P1. Bing, para llegar a ChatGPT.** ✅ *Hecho el 25/09: web dada de alta en Bing
+Webmaster Tools con el sitemap, e IndexNow tras cada despliegue a producción
+(`scripts/indexnow.ts`). Mirar en Bing, a partir del 27/09, "Search Performance"
+y "AI Performance" (citas en Copilot).* Cuando ChatGPT busca en la web se apoya
 sobre todo en el índice de Bing, no en el de Google. Si la web no está bien
 indexada en Bing, ChatGPT solo encuentra una parte.
 - *Toni:* dar de alta la web en Bing Webmaster Tools importándola desde Search
