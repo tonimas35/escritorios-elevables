@@ -56,6 +56,47 @@ export default function BasesElevablesPage() {
   const losCasos = casosMarcos(catalogo);
   const nombre = (p: Product) => `${p.marca} ${p.modelo}`;
 
+  // Cifras calculadas del catálogo, solo con lo declarado.
+  const rango = (xs: number[]) => {
+    const [a, b] = [Math.min(...xs), Math.max(...xs)];
+    return a === b ? `${coma(a)}` : `${coma(a)} a ${coma(b)}`;
+  };
+  const entre = (xs: number[]) => {
+    const [a, b] = [Math.min(...xs), Math.max(...xs)];
+    return a === b ? `${coma(a)}` : `${coma(a)} y ${coma(b)}`;
+  };
+  const cargas = (g: Product[]) => g.map((p) => p.specs.peso_max_carga_kg);
+  const marcosDobles = marcos.filter((p) => p.specs.tipo_motor === "doble");
+  const marcosSimples = marcos.filter((p) => p.specs.tipo_motor === "simple");
+
+  const guia: { title: string; text: string; enlace?: { texto: string; href: string } }[] = [
+    {
+      title: "Base o escritorio completo",
+      text: `Con una base eliges tú el tablero: medidas, grosor y acabado. Además, las bases del catálogo aguantan de ${rango(cargas(marcos))} kg, y los escritorios completos, de ${rango(cargas(completos))} kg. A cambio, el tablero se paga aparte: súmalo antes de comparar precios con una mesa completa.`,
+    },
+    {
+      title: "La carga incluye el tablero",
+      text: "La carga que declara cada base es todo lo que va encima, tablero incluido. Un tablero macizo grande pesa bastante más que uno de aglomerado: réstalo de la carga antes de contar monitores y equipo.",
+    },
+    {
+      title: "Las medidas que admite",
+      text: "Cada base admite un rango de largos y fondos de tablero, y las patas se ajustan a él. Comprueba en la ficha de Amazon de la base que el tablero que quieres cabe antes de comprarlo.",
+    },
+    ...(marcosDobles.length && marcosSimples.length
+      ? [
+          {
+            title: "Un motor o dos",
+            text: `En el catálogo, las bases de doble motor declaran de ${rango(cargas(marcosDobles))} kg y las de un motor, de ${rango(cargas(marcosSimples))} kg. El doble reparte el esfuerzo entre las dos patas: se nota con tableros grandes o equipo pesado.`,
+          },
+        ]
+      : []),
+    {
+      title: "El recorrido",
+      text: `Las bases del catálogo bajan hasta entre ${entre(marcos.map((p) => p.specs.rango_altura_min_cm))} cm y suben hasta entre ${entre(marcos.map((p) => p.specs.rango_altura_max_cm))} cm, sin contar el grosor del tablero. Si eres muy alto o muy bajo, es lo primero que hay que mirar.`,
+      enlace: { texto: "Calcula la altura que necesitas", href: "/calculadora-altura" },
+    },
+  ];
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -295,6 +336,33 @@ export default function BasesElevablesPage() {
         </div>
       </section>
 
+      {/* ============================================================
+          Nº 04 · Cómo elegir
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 04 · Cómo elegir</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Antes de comprar una base
+          </h2>
+          <div className="flex flex-col" style={{ gap: 28, marginTop: 32, maxWidth: "66ch" }}>
+            {guia.map((item) => (
+              <div key={item.title} style={{ paddingLeft: 14, borderLeft: "2px solid var(--bs-verde-botella)" }}>
+                <h3 className="bs-h3">{item.title}</h3>
+                <p className="bs-cuerpo" style={{ marginTop: 8, color: "var(--bs-neutro-800)" }}>
+                  {item.text}
+                  {item.enlace && (
+                    <>
+                      {" "}
+                      <Link href={item.enlace.href}>{item.enlace.texto}</Link>.
+                    </>
+                  )}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
     </div>
   );
