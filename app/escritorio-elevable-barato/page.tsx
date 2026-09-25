@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
+import { rutaFicha } from "@/lib/rutas";
 import { coma, nota } from "@/lib/format";
 import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
@@ -56,6 +57,15 @@ export default function EscritorioBaratoPage() {
     .filter((p) => p.specs.sistema_anticolision && p.incluye_tablero)
     .sort((a, b) => medio(a) - medio(b))[0];
   const dobles = todos.filter((p) => p.specs.tipo_motor === "doble" && p.disponible);
+  // Se calculan para que el texto no se quede viejo cuando cambia el
+  // catalogo: el doble motor mas asequible y, entre los marcos baratos,
+  // el que mas carga aguanta.
+  const dobleMasBarato = [...dobles].sort((a, b) => medio(a) - medio(b))[0];
+  const hayCompletoDobleBarato = baratos.some((p) => p.incluye_tablero && p.specs.tipo_motor === "doble");
+  const cargaEg1 = todos.find((p) => p.slug === "flexispot-eg1")?.specs.peso_max_carga_kg ?? 0;
+  const marcoFuerte = baratos
+    .filter((p) => !p.incluye_tablero && p.specs.peso_max_carga_kg > cargaEg1)
+    .sort((a, b) => b.specs.peso_max_carga_kg - a.specs.peso_max_carga_kg)[0];
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -73,7 +83,7 @@ export default function EscritorioBaratoPage() {
     },
     {
       q: "¿Motor simple o doble para un escritorio barato?",
-      a: "En la gama de entrada, casi todos llevan motor simple. Es más lento y aguanta menos carga, pero para un setup normal de portátil y monitor va de sobra. Ninguno de los baratos del catálogo lleva doble motor: el más asequible con doble motor es el marco MAIDeSITe T2 Pro MAX, ya en la gama alta y sin tablero.",
+      a: `En la gama de entrada, casi todos llevan motor simple. Es más lento y aguanta menos carga, pero para un setup normal de portátil y monitor va de sobra.${hayCompletoDobleBarato ? "" : " Ninguno de los baratos con tablero incluido lleva doble motor."}${dobleMasBarato ? ` El más asequible con doble motor es el ${dobleMasBarato.marca} ${dobleMasBarato.modelo}${dobleMasBarato.incluye_tablero ? "" : ", un marco sin tablero"}.` : ""}`,
     },
     {
       q: "¿Cuánto dura un escritorio elevable barato?",
@@ -354,7 +364,15 @@ export default function EscritorioBaratoPage() {
               <strong style={{ color: 'var(--text-primary)' }}>El punto dulce:</strong> memorias de altura, tableros de 120-140 cm y, si la ficha la declara, anticolisión. Para teletrabajo estándar, cualquiera de estos cumple.
             </p>
             <p>
-              <strong style={{ color: 'var(--text-primary)' }}>Si ya tienes tablero:</strong> el marco Flexispot EG1, con cinco años de garantía en la estructura. Y si necesitas más carga, el <Link href="/flexispot-vs-maidesite" className="underline" style={{ color: 'var(--verde-estructura)' }}>MAIDeSITe T2 Pro MAX</Link> sube a otra liga.
+              <strong style={{ color: 'var(--text-primary)' }}>Si ya tienes tablero:</strong> el marco Flexispot EG1, con cinco años de garantía en la estructura. {marcoFuerte && (
+                <>
+                  {" "}Y si necesitas más carga, el{" "}
+                  <Link href={rutaFicha(marcoFuerte) ?? "/mejor-escritorio-elevable"} className="underline" style={{ color: 'var(--verde-estructura)' }}>
+                    {marcoFuerte.marca} {marcoFuerte.modelo}
+                  </Link>{" "}
+                  aguanta {marcoFuerte.specs.peso_max_carga_kg} kg{marcoFuerte.specs.tipo_motor === "doble" ? " con doble motor" : ""}.
+                </>
+              )}
             </p>
           </div>
         </section>
