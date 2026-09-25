@@ -24,9 +24,22 @@
 
 ### Dónde estamos
 
-**Dinero.** 45 € de comisión acumulada desde abril (9 pedidos). ~1 clic de
-afiliado al día durante dos trimestres seguidos. EPC ~0,28 €. La conversión es
-sana (4–8 %): **el problema no es la web, es cuánta gente llega.**
+**Dinero** (Amazon Afiliados, 1 ene – 24 sep 2026): 270 clics, 16 productos
+pedidos, conversión 5,93 %, 1.089,85 € facturados y **53,50 € de comisión**.
+**EPC ~0,20 €.** Septiembre es el mejor mes en clics (~65, frente a ~26 en
+agosto). La conversión es sana: **el problema no es la web, es cuánta gente
+llega.**
+
+**Qué se vende:** escritorios de **100–150 €** (pedidos sueltos de 104, 107,
+116, 116 y 141 €: franjas de entrada y media y el marco EG1) más compras
+colaterales de 13–50 € dentro de la cookie de 24 h. **Ningún modelo de
+300–500 € se ha vendido.** Por eso la guía pone arriba el nº 1 de cada franja
+y no empuja los caros.
+
+**GA4, 90 días (27 jun – 24 sep):** 173 sesiones; ChatGPT 56 %, directo 29 %,
+Google 14 % (este último con el 31 % de los clics a Amazon y creciendo desde
+agosto). `/mejor-escritorio-elevable` da el 52 % de los clics a Amazon con el
+29 % de las vistas.
 
 **Tráfico** (GA4, 28 días al 06/09; pendiente de actualizar):
 
@@ -62,8 +75,8 @@ estructurados en la home y en las fichas, y `/llms.txt`.
 
 El trabajo de catálogo era necesario: sin datos fiables no hay nada que
 recomendar, ni a Google ni a ChatGPT. **Pero no era el cuello de botella.**
-Para llegar a ~100 €/mes hacen falta ~12 clics de afiliado al día: **unas diez
-veces el tráfico de hoy.** Eso no lo mueve pulir el catálogo; lo mueve llegar a
+Para llegar a ~100 €/mes, con un EPC de ~0,20 €, hacen falta ~500 clics de
+afiliado al mes, **~17 al día**: unas ocho veces el tráfico de hoy. Eso no lo mueve pulir el catálogo; lo mueve llegar a
 más gente por el canal que ya funciona, que es ChatGPT, y abrir el de Google
 por donde ya muestra que se puede ganar, las comparativas.
 
@@ -84,14 +97,17 @@ indexada en Bing, ChatGPT solo encuentra una parte.
 - *Claude:* IndexNow, para que cada despliegue avise a Bing de las páginas que
   cambian.
 
-**P2. `/mejor-escritorio-elevable`, la página que cita ChatGPT.** Es la página
+**P2. `/mejor-escritorio-elevable`, la página que cita ChatGPT.** ✅ *Hecho el
+25/09 (PR #20): respuesta corta por franja, "Cuál comprar si…" (`lib/casos.ts`),
+comparativa, modelo a modelo por franja, cómo elegir y preguntas frecuentes, sin
+cifras sin fuente.* Es la página
 que más vale y la que menos se ha tocado: no se ha rehecho con los componentes
 de la home y las fichas. Objetivo: que responda en las primeras líneas lo que
 se le pregunta a un asistente (cuál comprar según presupuesto y uso), con la
 nota dentro de su franja, franjas con fecha y enlace a cada ficha. Un commit por
 sección y verificación a 375 y 1440 px, como siempre.
 
-**P3. Comparativas "marca vs marca"**, el único tipo de página que ya está en
+**P3. Comparativas "marca vs marca"** (SANODESK vs FLEXISPOT hecha el 25/09), el único tipo de página que ya está en
 la primera página de Google. La primera, SANODESK vs FLEXISPOT, que ya tiene
 búsquedas y no tiene página. Se calculan del catálogo y no cruzan notas de
 franjas distintas.
@@ -128,7 +144,7 @@ Una vez al mes, el día 15 junto con la revisión de franjas:
 
 | Métrica | 25/09 | Objetivo 3 meses | Objetivo 6 meses |
 |---|---|---|---|
-| Clics de afiliado / día | ~1 | 3 | 10 |
+| Clics de afiliado / día (Amazon) | ~2 (sep) | 5 | 17 |
 | Sesiones desde ChatGPT (28 días) | 29 (al 06/09) | ×3 | ×10 |
 | Clics de Google (28 días) | ~2–3 | 30 | 100 |
 | Consultas en página 1 de Google | 1 | 5 | 15 |
