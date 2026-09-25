@@ -68,6 +68,19 @@ export default function MejorEscritorioPage() {
   const fechaFranjas = notaFranjas(productos);
   const losCasos = casos(productos);
 
+  // Cifras de la guia, calculadas del catalogo y solo con lo declarado.
+  const rango = (xs: number[]) => {
+    const [a, b] = [Math.min(...xs), Math.max(...xs)];
+    return a === b ? coma(a) : `${coma(a)} y ${coma(b)}`;
+  };
+  const dobles = productos.filter((p) => p.specs.tipo_motor === "doble");
+  const simples = productos.filter((p) => p.specs.tipo_motor === "simple");
+  const cargas = productos.map((p) => p.specs.peso_max_carga_kg);
+  const ruidos = (g: Product[]) => g.map((p) => p.specs.ruido_db).filter((r): r is number => r !== null);
+  const alturas = (g: Product[]) => g.map((p) => p.specs.rango_altura_max_cm);
+  const masAlto = [...productos].sort((a, b) => b.specs.rango_altura_max_cm - a.specs.rango_altura_max_cm)[0];
+  const anticolisionBarato = losCasos.find((c) => c.id === "anticolision")?.producto;
+
   const filas: FilaComparativa[] = catalogo.map(([asin, p]) => ({
     asin,
     nombre: `${p.marca} ${p.modelo}`,
@@ -86,6 +99,15 @@ export default function MejorEscritorioPage() {
     garantia: garantia(p),
     franja: franjaCorta(p),
   }));
+
+  const guia = [
+    { title: "El motor: simple o doble", text: `El doble reparte el esfuerzo entre las dos patas: en el catálogo, los de doble motor mueven entre ${rango(dobles.map((p) => p.specs.peso_max_carga_kg))} kg, y los de uno, entre ${rango(simples.map((p) => p.specs.peso_max_carga_kg))}. Si cambias de posición varias veces al día con un setup pesado, merece la pena. Si lo mueves dos veces al día con un portátil, el simple cumple.` },
+    { title: "Estabilidad: importa más de lo que crees", text: "De pie, el tablero está mucho más alto y cualquier vibración se amplifica. Si la pantalla tiembla al teclear, te cansas la vista. El doble motor y una estructura robusta ayudan. En los baratos hay que aceptar algo de movimiento." },
+    { title: "Ruido: ojo si haces videollamadas", text: `No todas las fichas lo declaran. Las que sí: entre ${rango(ruidos(simples))} dB los de un motor y entre ${rango(ruidos(dobles))} dB los de doble motor. Si cambias de altura durante una llamada, se oye.` },
+    { title: "Rango de altura: ojo si eres alto", text: `Los de un motor del catálogo suben hasta entre ${rango(alturas(simples))} cm; los de doble motor, entre ${rango(alturas(dobles))} cm. Si eres alto y trabajas de pie, un escritorio que se queda corto te obliga a encorvarte. El que más sube es el ${masAlto.marca} ${masAlto.modelo}, hasta ${coma(masAlto.specs.rango_altura_max_cm)} cm.`, enlace: { texto: "Calcula la altura que necesitas", href: "/calculadora-altura" } },
+    { title: "Garantía y postventa", text: "Pocas fichas declaran los años: el MAIDeSITe S2 Pro da cinco; los Flexispot, cinco en la estructura y tres en el motor; el SANODESK, tres. En el resto cuenta la garantía legal. Si puedes elegir, más años siempre: tiene electrónica y partes móviles." },
+    { title: "Anticolisión: no te la juegues", text: `Para el motor si detecta un obstáculo al bajar. Sin anticolisión, el motor sigue y puede romper cajones o el propio mecanismo.${anticolisionBarato ? ` Entre los que vienen con tablero, el más asequible que la declara es el ${anticolisionBarato.marca} ${anticolisionBarato.modelo}.` : ""} Si la ficha no la menciona, no des por hecho que la tiene.` },
+  ];
 
   // Datos estructurados de lo que la pagina ensena, en el mismo orden.
   const ordenPagina = [...grupos.flatMap((g) => g.modelos.map(({ asin, p }) => [asin, p] as [string, Product])), ...sinFranja];
@@ -355,6 +377,33 @@ export default function MejorEscritorioPage() {
         </div>
       </section>
 
+      {/* ============================================================
+          Nº 05 · Cómo elegir
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 05 · Cómo elegir</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Lo que de verdad importa
+          </h2>
+          <div className="flex flex-col" style={{ gap: 28, marginTop: 32, maxWidth: "66ch" }}>
+            {guia.map((item) => (
+              <div key={item.title} style={{ paddingLeft: 14, borderLeft: "2px solid var(--bs-verde-botella)" }}>
+                <h3 className="bs-h3">{item.title}</h3>
+                <p className="bs-cuerpo" style={{ marginTop: 8, color: "var(--bs-neutro-800)" }}>
+                  {item.text}
+                  {item.enlace && (
+                    <>
+                      {" "}
+                      <Link href={item.enlace.href}>{item.enlace.texto}</Link>.
+                    </>
+                  )}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
     </div>
   );
