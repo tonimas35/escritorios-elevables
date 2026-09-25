@@ -67,6 +67,23 @@ export default function SanodeskVsFlexispotPage() {
     return `Si quieres la mesa completa con tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm}: ${motorCorto(p).toLowerCase()}, ${carga(p)} y ${recorrido(p)}.`;
   };
 
+  const filas: [string, (p: Product) => string][] = [
+    ["Franja de precio", (p) => franjaCorta(p) ?? SIN_DATO],
+    ["Posición en su franja", (p) => {
+      const pos = posicionEnFranja(p, catalogo);
+      return pos ? `${pos.posicion} de ${pos.de} · nota ${nota(p.puntuacion.total)}` : `Nota ${nota(p.puntuacion.total)}`;
+    }],
+    ["Tablero", tablero],
+    ["Motor", motorLargo],
+    ["Carga", carga],
+    ["Recorrido", recorrido],
+    ["Memorias", (p) => (p.specs.presets_memoria !== null ? `${p.specs.presets_memoria}` : SIN_DATO)],
+    ["Anticolisión", anticolision],
+    ["Ruido", (p) => (p.specs.ruido_db !== null ? `${p.specs.ruido_db} dB` : SIN_DATO)],
+    ["Garantía", garantia],
+    ["Valoración en Amazon", (p) => `${coma(p.rating)}★`],
+  ];
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -150,6 +167,50 @@ export default function SanodeskVsFlexispotPage() {
         </div>
       </section>
 
+      {/* ============================================================
+          Nº 02 · Cara a cara
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 02 · Cara a cara</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Lo que declara cada ficha
+          </h2>
+          <div style={{ overflowX: "auto", marginTop: 28 }}>
+            <table style={{ width: "100%", minWidth: 560, borderCollapse: "collapse", fontSize: 15 }}>
+              <thead>
+                <tr>
+                  <th style={{ textAlign: "left", padding: "10px 12px 10px 0" }} />
+                  {modelos.map(([asin, p]) => (
+                    <th key={asin} scope="col" style={{ textAlign: "left", padding: "10px 12px", fontWeight: 600 }}>
+                      {nombre(p)}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {filas.map(([etiqueta, valor]) => (
+                  <tr key={etiqueta} style={{ borderTop: "var(--bs-filete-fino)" }}>
+                    <th scope="row" style={{ textAlign: "left", padding: "10px 12px 10px 0", fontWeight: 400, color: "var(--bs-neutro-700)" }}>
+                      {etiqueta}
+                    </th>
+                    {modelos.map(([asin, p]) => (
+                      <td key={asin} style={{ padding: "10px 12px" }}>
+                        {valor(p)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="bs-afiliado" style={{ marginTop: 16, maxWidth: "66ch" }}>
+            {fechaFranjas && `${fechaFranjas} `}«Sin dato» significa que la ficha del fabricante no lo declara; no lo
+            estimamos. La nota se mide dentro de cada franja de precio, así que
+            no se compara entre modelos de franjas distintas.
+          </p>
+        </div>
+      </section>
 
 
     </div>
