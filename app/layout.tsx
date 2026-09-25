@@ -4,6 +4,7 @@ import { Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ORGANIZACION } from "@/lib/schema";
 
 const GA_ID = "G-DYSVBYSJN7";
 
@@ -58,9 +59,16 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Elevable",
-              url: "https://elevable.es",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  name: "Elevable",
+                  url: "https://elevable.es",
+                  inLanguage: "es-ES",
+                  publisher: { "@id": ORGANIZACION["@id"] },
+                },
+                ORGANIZACION,
+              ],
             }),
           }}
         />

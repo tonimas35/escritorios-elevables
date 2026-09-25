@@ -1,7 +1,23 @@
 import { affiliateLink } from "./affiliate";
+import { CORREO } from "./contacto";
 import type { Product } from "./types";
 
 const SITE = "https://elevable.es";
+
+/**
+ * Quien publica la web. Lo leen buscadores y asistentes de IA para saber de
+ * donde sale lo que citan; el metodo y el contacto son publicos.
+ */
+export const ORGANIZACION = {
+  "@type": "Organization",
+  "@id": `${SITE}/#organizacion`,
+  name: "Elevable",
+  url: SITE,
+  email: CORREO,
+  description:
+    "Comparativa independiente de escritorios elevables a la venta en Amazon España, con una nota calculada con un método público y franjas de precio con fecha de verificación.",
+  publishingPrinciples: `${SITE}/metodologia`,
+};
 
 /**
  * Schema.org Product completo para un producto del catalogo.
@@ -72,18 +88,33 @@ export function productSchema(asin: string, p: Product, pageUrl?: string) {
             availability: "https://schema.org/InStock",
             url: affiliateLink(asin),
           },
-    additionalProperty: [
-      { "@type": "PropertyValue", name: "Tipo de motor", value: p.specs.tipo_motor },
-      { "@type": "PropertyValue", name: "Altura minima", value: `${p.specs.rango_altura_min_cm} cm` },
-      { "@type": "PropertyValue", name: "Altura maxima", value: `${p.specs.rango_altura_max_cm} cm` },
-      { "@type": "PropertyValue", name: "Carga maxima", value: `${p.specs.peso_max_carga_kg} kg` },
-      { "@type": "PropertyValue", name: "Tablero incluido", value: p.specs.tablero_incluido ? "Si" : "No" },
-      // Sin garantia declarada no se publica: un dato vacio no va al schema.
-      ...(p.specs.garantia_anos !== null
-        ? [{ "@type": "PropertyValue", name: "Garantia", value: `${p.specs.garantia_anos} años` }]
-        : []),
-    ],
+    // Solo lo que declara la ficha del fabricante: un dato en null no se
+    // publica, ni como "No" ni como cero (METODO.md §5).
+    additionalProperty: especificaciones(p).map(([name, value]) => ({ "@type": "PropertyValue", name, value })),
   };
+}
+
+/**
+ * Especificaciones declaradas del modelo, como pares [nombre, valor]. Las
+ * usan el schema de producto y /llms.txt, para que los dos digan lo mismo.
+ */
+export function especificaciones(p: Product): [string, string][] {
+  const s = p.specs;
+  const coma = (n: number) => String(n).replace(".", ",");
+  const filas: [string, string | null][] = [
+    ["Tipo de motor", s.tipo_motor === "doble" ? "Doble motor" : s.tipo_motor === "simple" ? "Un motor" : "Manual"],
+    ["Altura mínima", `${coma(s.rango_altura_min_cm)} cm`],
+    ["Altura máxima", `${coma(s.rango_altura_max_cm)} cm`],
+    ["Carga máxima", `${coma(s.peso_max_carga_kg)} kg`],
+    ["Tablero incluido", s.tablero_incluido ? "Sí" : "No"],
+    ["Medidas del tablero", s.tablero_incluido ? `${s.ancho_tablero_cm}x${s.profundidad_tablero_cm} cm` : null],
+    ["Memorias de altura", s.presets_memoria !== null ? String(s.presets_memoria) : null],
+    ["Sistema anticolisión", s.sistema_anticolision === null ? null : s.sistema_anticolision ? "Sí" : "No"],
+    ["Velocidad", s.velocidad_cm_s !== null ? `${coma(s.velocidad_cm_s)} cm/s` : null],
+    ["Ruido declarado", s.ruido_db !== null ? `${s.ruido_db} dB` : null],
+    ["Garantía", s.garantia_anos !== null ? `${s.garantia_anos} años` : null],
+  ];
+  return filas.filter((f): f is [string, string] => f[1] !== null);
 }
 
 /** ItemList: la estructura que describe una comparativa "los mejores X". */

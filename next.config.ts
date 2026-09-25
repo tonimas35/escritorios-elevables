@@ -33,10 +33,10 @@ const nextConfig: NextConfig = {
       },
       {
         // VASAGLE 160x70, retirado el 24/09/2026 (data/cambios-catalogo.json).
-        // Su sucesor, el SONGMICS 160x70, no tiene ficha propia todavia:
-        // la URL lleva a la guia, donde sale el sucesor, en vez de a un 404.
+        // La URL, ya indexada, lleva a la ficha de su sucesor, el SONGMICS
+        // 160x70, en vez de dar un 404.
         source: "/vasagle-160-opiniones",
-        destination: "/mejor-escritorio-elevable",
+        destination: "/songmics-160-opiniones",
         permanent: true,
       },
     ];

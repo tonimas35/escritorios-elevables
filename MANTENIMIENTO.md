@@ -13,18 +13,18 @@ Si al leer esto la tabla no coincide con el JSON, manda el JSON.
 
 | ASIN | slug | Modelo | Franja | Ficha propia |
 |---|---|---|---|---|
-| `B0FSQ8W2C1` | `vasagle-100` | VASAGLE 100x60 | 70–90 € | — |
-| `B0D9MGDDHD` | `ergear-120` | ErGear 120x60 | 90–120 € | — |
-| `B0CF29CLCP` | `vasagle-160` | ~~VASAGLE 160x70~~ retirado el 24/09/2026 (sucesor `songmics-160`) | — | `/vasagle-160-opiniones` redirige a `/mejor-escritorio-elevable` |
-| `B0CKVPFSTD` | `devoko-120` | Devoko 120x60 | 100–130 € | — |
+| `B0FSQ8W2C1` | `vasagle-100` | VASAGLE 100x60 | 70–90 € | `/vasagle-100-opiniones` (plantilla) |
+| `B0D9MGDDHD` | `ergear-120` | ErGear 120x60 | 90–120 € | — (titular aprobado; se publica cuando tenga su imagen: hoy lleva la del Devoko 120) |
+| `B0CF29CLCP` | `vasagle-160` | ~~VASAGLE 160x70~~ retirado el 24/09/2026 (sucesor `songmics-160`) | — | `/vasagle-160-opiniones` redirige a `/songmics-160-opiniones` |
+| `B0CKVPFSTD` | `devoko-120` | Devoko 120x60 | 100–130 € | `/devoko-120-opiniones` (plantilla) |
 | `B0DZCV1MVF` | `fezibo-120` | FEZIBO 120x60 | 100–160 € | `/fezibo-opiniones` |
-| `B0CV4V22XL` | `songmics-160` | SONGMICS 160x70 | 120–160 € | — |
+| `B0CV4V22XL` | `songmics-160` | SONGMICS 160x70 | 120–160 € | `/songmics-160-opiniones` (plantilla) |
 | `B0CKVPZ93G` | `devoko-160` | ~~Devoko 160x70~~ retirado el 24/09/2026 (sucesor `songmics-160`) | — | — |
-| `B0CDLBJ1VW` | `sanodesk-140` | SANODESK 140x60 | 140–180 € | — |
+| `B0CDLBJ1VW` | `sanodesk-140` | SANODESK 140x60 | 140–180 € | `/sanodesk-140-opiniones` (plantilla) |
 | `B084KW7N8C` | `flexispot-eg1` | FLEXISPOT EG1 (marco) | 110–150 € | `/flexispot-eg1-opiniones` (plantilla; `/flexispot-e7-opiniones` redirige), `/flexispot-vs-maidesite` |
 | `B0DG2VTCXS` | `maidesite-t2-pro-max` | MAIDeSITe T2 Pro MAX | 310–430 € | `/maidesite-t2-pro-opiniones`, `/flexispot-vs-maidesite` |
-| `B09TQR3MMM` | `maidesite-s2-pro` | MAIDeSITe S2 Pro 140x70 | 370–490 € | `/flexispot-vs-maidesite` |
-| `B09R746JHX` | `flexispot-160x80` | FLEXISPOT 160x80 | 350–470 € | `/flexispot-vs-maidesite` |
+| `B09TQR3MMM` | `maidesite-s2-pro` | MAIDeSITe S2 Pro 140x70 | 370–490 € | `/maidesite-s2-pro-opiniones` (plantilla), `/flexispot-vs-maidesite` |
+| `B09R746JHX` | `flexispot-160x80` | FLEXISPOT 160x80 | 350–470 € | `/flexispot-160x80-opiniones` (plantilla), `/flexispot-vs-maidesite` |
 
 Los activos salen además en la home, en `/mejor-escritorio-elevable` y en
 `/comparador`.
