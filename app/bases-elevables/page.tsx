@@ -97,6 +97,34 @@ export default function BasesElevablesPage() {
     },
   ];
 
+  const faqItems: { q: string; a: string }[] = [
+    {
+      q: "¿Qué es una base elevable?",
+      a: "Es la estructura de un escritorio elevable sin tablero: las patas con el motor, el travesaño y el mando. Se monta con el tablero que elijas, nuevo o uno que ya tengas.",
+    },
+    {
+      q: "¿Cuál es la mejor base elevable?",
+      a: `Depende de lo que quieras gastar, porque cada base se mide contra lo que se puede esperar por su precio. ${primeros
+        .map((p) => {
+          const pos = posicionEnFranja(p, catalogo)!;
+          return `En ${NOMBRE_FRANJA[pos.franja].toLowerCase()}, la primera es la ${nombre(p)} (nota ${nota(p.puntuacion.total)}).`;
+        })
+        .join(" ")}`,
+    },
+    {
+      q: "¿Me compensa una base o un escritorio completo?",
+      a: `La base compensa si ya tienes tablero, si quieres unas medidas o un acabado concretos, o si necesitas más carga: las bases del catálogo llegan a ${Math.max(...cargas(marcos))} kg. Si quieres comprar una sola vez y montar, el escritorio completo es más sencillo.`,
+    },
+    {
+      q: "¿La carga máxima incluye el tablero?",
+      a: "Sí. La carga declarada es todo lo que soporta la base, así que el peso del tablero cuenta. Con un tablero pesado, deja margen.",
+    },
+    {
+      q: "¿Una base de un motor es suficiente?",
+      a: "Para un tablero normal con un monitor y un portátil, sí. El doble motor tiene sentido con tableros grandes o pesados, dos monitores con brazo o si vas a cambiar de altura muchas veces al día.",
+    },
+  ];
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -118,6 +146,14 @@ export default function BasesElevablesPage() {
           position: i + 1,
           name: nombre(p),
           url: `${SITE}${RUTA}#${p.slug}`,
+        })),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqItems.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
         })),
       },
     ],
@@ -364,6 +400,47 @@ export default function BasesElevablesPage() {
         </div>
       </section>
 
+      {/* ============================================================
+          Nº 05 · Preguntas frecuentes
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 05 · Preguntas frecuentes</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Bases elevables, en corto
+          </h2>
+          <div className="flex flex-col" style={{ gap: "var(--bs-hueco-bloques)", marginTop: 36 }}>
+            {faqItems.map((f) => (
+              <div key={f.q} className="flex flex-wrap" style={{ gap: "clamp(12px, 3vw, 40px)" }}>
+                <h3 className="bs-h3" style={{ flex: "1 1 260px" }}>
+                  {f.q}
+                </h3>
+                <p className="bs-cuerpo" style={{ flex: "1 1 380px" }}>
+                  {f.a}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <h3 className="bs-h3" style={{ marginTop: 56 }}>
+            Sigue leyendo
+          </h3>
+          <ul className="flex flex-col" style={{ gap: 10, marginTop: 14, fontSize: 16 }}>
+            <li>
+              <Link href="/mejor-escritorio-elevable">Los mejores escritorios elevables de 2026</Link>: todo el catálogo, con y sin tablero.
+            </li>
+            <li>
+              <Link href="/flexispot-vs-maidesite">Flexispot vs MAIDeSITe</Link>: las dos marcas de bases, cara a cara.
+            </li>
+            <li>
+              <Link href="/calculadora-altura">Calculadora de altura</Link>: la altura de trabajo según tu estatura.
+            </li>
+            <li>
+              <Link href="/metodologia">Metodología</Link>: cómo se calcula la nota y qué no hacemos.
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }
