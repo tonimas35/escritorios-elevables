@@ -18,6 +18,7 @@ const PAGINAS: Entrada[] = [
   { ruta: "/mejor-escritorio-elevable", frecuencia: "weekly", prioridad: 0.9 },
   { ruta: "/escritorio-elevable-barato", frecuencia: "weekly", prioridad: 0.9 },
   { ruta: "/flexispot-vs-maidesite", frecuencia: "monthly", prioridad: 0.8 },
+  { ruta: "/sanodesk-vs-flexispot", frecuencia: "monthly", prioridad: 0.8 },
   { ruta: "/que-escritorio-elevable-comprar", frecuencia: "monthly", prioridad: 0.8 },
   { ruta: "/comparador", frecuencia: "monthly", prioridad: 0.7 },
   { ruta: "/calculadora-altura", frecuencia: "monthly", prioridad: 0.5 },
