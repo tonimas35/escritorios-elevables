@@ -13,6 +13,7 @@ export const ORGANIZACION = {
   "@id": `${SITE}/#organizacion`,
   name: "Elevable",
   url: SITE,
+  logo: `${SITE}/logo.png`,
   email: CORREO,
   description:
     "Comparativa independiente de escritorios elevables a la venta en Amazon España, con una nota calculada con un método público y franjas de precio con fecha de verificación.",
