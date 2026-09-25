@@ -193,6 +193,107 @@ export default function BasesElevablesPage() {
         </div>
       </section>
 
+      {/* ============================================================
+          Nº 03 · Base a base
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 03 · Base a base</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Las {marcos.length} bases, franja a franja
+          </h2>
+
+          {[
+            ...grupos.map((g) => ({ titulo: NOMBRE_FRANJA[g.f], modelos: g.modelos })),
+            ...(sinFranja.length ? [{ titulo: "Sin franja de precio verificada", modelos: sinFranja }] : []),
+          ].map((grupo) => (
+            <div key={grupo.titulo} style={{ marginTop: 48 }}>
+              <h3 className="bs-h3" style={{ paddingBottom: 10, borderBottom: "var(--bs-filete-fino)" }}>
+                {grupo.titulo}
+              </h3>
+              <div className="flex flex-col" style={{ gap: 24, marginTop: 24 }}>
+                {grupo.modelos.map((p) => {
+                  const pros = p.pros.filter(publicable).slice(0, 3);
+                  const contras = p.contras.filter(publicable).slice(0, 2);
+                  const excl = exclusion(p);
+                  const ruta = rutaFicha(p);
+                  return (
+                    <article key={p.slug} id={p.slug} className="bs-tarjeta" style={{ scrollMarginTop: 80 }}>
+                      <div className="flex flex-wrap" style={{ gap: "clamp(20px, 3vw, 36px)" }}>
+                        <div style={{ flex: "0 1 230px" }}>
+                          <div className="bs-marco" style={{ padding: 12 }}>
+                            <div style={{ height: 170 }}>
+                              <Image
+                                src={p.imagen}
+                                alt={p.imagen_alt}
+                                width={230}
+                                height={170}
+                                style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div style={{ flex: "1 1 340px" }}>
+                          <h4 className="bs-h3">{nombre(p)}</h4>
+                          <div style={{ marginTop: 10 }}>
+                            <PosicionNota producto={p} catalogo={catalogo} tamano="40px" />
+                          </div>
+                          {publicable(p.veredicto) && (
+                            <p style={{ fontSize: "clamp(16px, 1.6vw, 18px)", lineHeight: 1.55, marginTop: 12 }}>
+                              {p.veredicto}
+                            </p>
+                          )}
+                          <div className="flex flex-wrap" style={{ gap: 7, marginTop: 16 }}>
+                            {etiquetasSpec(p).map((e) => (
+                              <span key={e} className="bs-spec">
+                                {e}
+                              </span>
+                            ))}
+                          </div>
+                          <div className="flex flex-col" style={{ gap: 8, marginTop: 18 }}>
+                            {pros.map((t) => (
+                              <p key={t} className="bs-pro">
+                                <span aria-hidden="true">✓</span>
+                                <span>{t}</span>
+                              </p>
+                            ))}
+                            {contras.map((t) => (
+                              <p key={t} className="bs-pro">
+                                <span aria-hidden="true" style={{ color: "var(--bs-neutro-700)" }}>×</span>
+                                <span>{t}</span>
+                              </p>
+                            ))}
+                          </div>
+                          {excl && (
+                            <p className="bs-exclusion" style={{ marginTop: 16, fontSize: 15 }}>
+                              {excl.arranque && <strong>{excl.arranque}</strong>} {excl.motivo}
+                            </p>
+                          )}
+                          {franjaPrecio(p) && (
+                            <p className="bs-afiliado bs-afiliado-mini" style={{ marginTop: 18 }}>
+                              {franjaPrecio(p)}
+                            </p>
+                          )}
+                          <div className="flex flex-wrap items-center" style={{ gap: "12px 24px", marginTop: 12 }}>
+                            <div style={{ flex: "1 1 260px", maxWidth: 340 }}>
+                              <Cta asin={asinDe.get(p.slug)!} ancho />
+                            </div>
+                            {ruta && (
+                              <Link href={ruta} style={{ fontSize: 15 }}>
+                                Ficha completa de la {nombre(p)}
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
 
     </div>
