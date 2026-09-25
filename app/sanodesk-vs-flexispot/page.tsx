@@ -118,6 +118,33 @@ export default function SanodeskVsFlexispotPage() {
     );
   }
 
+  const faq: { q: string; a: string }[] = [];
+  if (sano && eg1 && fx160) {
+    const pos = (p: Product) => posicionEnFranja(p, catalogo);
+    const enFranja = (p: Product) => {
+      const x = pos(p);
+      return x ? `nº ${x.posicion} de ${x.de} en ${NOMBRE_FRANJA[x.franja].toLowerCase()}` : "sin franja verificada";
+    };
+    faq.push(
+      {
+        q: "¿Qué es mejor, SANODESK o FLEXISPOT?",
+        a: `Depende de qué necesites, porque no compiten en el mismo precio. El ${nombre(sano)} es una mesa completa asequible con anticolisión (${enFranja(sano)}). De FLEXISPOT, el ${nombre(eg1)} es el marco más asequible del catálogo (${enFranja(eg1)}) y el ${nombre(fx160)} es una mesa grande con doble motor (${enFranja(fx160)}).`,
+      },
+      {
+        q: "¿Cuál es más barato?",
+        a: `El ${nombre(eg1)}, pero no trae tablero. Con tablero incluido, el ${nombre(sano)} cuesta bastante menos que el ${nombre(fx160)}. Las franjas se comprueban en Amazon con fecha; el precio del día solo es fiable allí.`,
+      },
+      {
+        q: "¿Cuál tiene más garantía?",
+        a: `Los tres declaran al menos ${Math.min(sano.specs.garantia_anos ?? 0, eg1.specs.garantia_anos ?? 0, fx160.specs.garantia_anos ?? 0)} años. Los FLEXISPOT declaran cinco en la estructura y tres en el motor; el SANODESK, tres.`,
+      },
+      {
+        q: "¿Cuál es más silencioso?",
+        a: `No se puede saber con los datos: solo el ${nombre(fx160)} declara el ruido (${fx160.specs.ruido_db} dB). Preferimos decirlo antes que suponerlo.`,
+      },
+    );
+  }
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -127,6 +154,14 @@ export default function SanodeskVsFlexispotPage() {
           { "@type": "ListItem", position: 1, name: "Inicio", item: SITE },
           { "@type": "ListItem", position: 2, name: "SANODESK vs FLEXISPOT", item: `${SITE}${RUTA}` },
         ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
       },
     ],
   };
@@ -274,6 +309,47 @@ export default function SanodeskVsFlexispotPage() {
         </div>
       </section>
 
+      {/* ============================================================
+          Nº 04 · Preguntas frecuentes
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 04 · Preguntas frecuentes</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            SANODESK o FLEXISPOT, en corto
+          </h2>
+          <div className="flex flex-col" style={{ gap: "var(--bs-hueco-bloques)", marginTop: 36 }}>
+            {faq.map((f) => (
+              <div key={f.q} className="flex flex-wrap" style={{ gap: "clamp(12px, 3vw, 40px)" }}>
+                <h3 className="bs-h3" style={{ flex: "1 1 260px" }}>
+                  {f.q}
+                </h3>
+                <p className="bs-cuerpo" style={{ flex: "1 1 380px" }}>
+                  {f.a}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <h3 className="bs-h3" style={{ marginTop: 56 }}>
+            Sigue leyendo
+          </h3>
+          <ul className="flex flex-col" style={{ gap: 10, marginTop: 14, fontSize: 16 }}>
+            <li>
+              <Link href="/mejor-escritorio-elevable">Los mejores escritorios elevables de 2026</Link>: todo el catálogo, franja a franja.
+            </li>
+            <li>
+              <Link href="/flexispot-vs-maidesite">Flexispot vs MAIDeSITe</Link>: la otra comparativa de marcas.
+            </li>
+            <li>
+              <Link href="/calculadora-altura">Calculadora de altura</Link>: la altura de trabajo según tu estatura.
+            </li>
+            <li>
+              <Link href="/metodologia">Metodología</Link>: cómo se calcula la nota y qué no hacemos.
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }
