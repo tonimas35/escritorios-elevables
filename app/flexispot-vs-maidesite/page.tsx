@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { coma, nota } from "@/lib/format";
 import { garantia, motorCorto, recorrido, SIN_DATO } from "@/lib/ficha";
-import { getProductBySlug } from "@/lib/products";
+import { getAvailableProducts, getProductBySlug } from "@/lib/products";
+import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { FranjaPrecio } from "@/components/FranjaPrecio";
@@ -30,6 +31,13 @@ export default function FlexispotVsMaidesitePage() {
 
   const [e7Asin, e7Product] = e7;
   const [t2Asin, t2Product] = t2;
+  // Cada marco se presenta por su franja, no con un «recomendado» que
+  // compararía notas de franjas distintas (METODO.md §5).
+  const catalogo = getAvailableProducts().map(([, p]) => p);
+  const franjaDe = (p: typeof e7Product) => {
+    const pos = posicionEnFranja(p, catalogo);
+    return pos ? `Nº ${pos.posicion} · ${NOMBRE_FRANJA[pos.franja]}` : null;
+  };
 
   // El ganador de cada fila sale de los datos, no se escribe a mano. La
   // variable se llama e7 por historia: es el marco FLEXISPOT EG1 (el ASIN
@@ -184,9 +192,8 @@ export default function FlexispotVsMaidesitePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {[[e7Asin, e7Product] as const, [t2Asin, t2Product] as const].map(([productAsin, product], i) => (
               <FadeIn key={productAsin} delay={i * 120}>
-                <div className="p-6 rounded-lg product-card-hover" style={{ background: 'var(--bg-card)', border: i === 0 ? '2px solid var(--verde-estructura)' : '1px solid var(--border)' }}>
-                  {i === 0 && <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>Recomendado</span>}
-                  {i === 1 && <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Mejor precio</span>}
+                <div className="p-6 rounded-lg product-card-hover" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+                  {franjaDe(product) && <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>{franjaDe(product)}</span>}
                   <div className="flex items-center gap-4 mt-2">
                     <div className="w-20 h-20 rounded-lg overflow-hidden flex items-center justify-center product-image-container">
                       <Image src={product.imagen} alt={product.imagen_alt} width={80} height={80} className="object-contain" />
@@ -248,7 +255,7 @@ export default function FlexispotVsMaidesitePage() {
           { title: "Capacidad de carga", text: `${e7Product.specs.peso_max_carga_kg} kg en movimiento el Flexispot (100 kg en estático), ${t2Product.specs.peso_max_carga_kg} kg el MAIDeSITe. Para un portátil y un monitor, los dos sobran; para dos monitores en brazo y equipo pesado, el MAIDeSITe.` },
           { title: "Rango de altura", text: `Flexispot: ${coma(e7Product.specs.rango_altura_min_cm)}–${coma(e7Product.specs.rango_altura_max_cm)} cm. MAIDeSITe: ${t2Product.specs.rango_altura_min_cm}–${t2Product.specs.rango_altura_max_cm} cm. El MAIDeSITe baja ${coma(e7Product.specs.rango_altura_min_cm - t2Product.specs.rango_altura_min_cm)} cm más y sube ${coma(t2Product.specs.rango_altura_max_cm - e7Product.specs.rango_altura_max_cm)} cm más, que es lo que importa si eres muy bajo o muy alto.` },
           { title: "Garantía", text: `El Flexispot da 5 años en el marco y 3 en el motor. ${t2Product.specs.garantia_anos !== null ? `El MAIDeSITe, ${t2Product.specs.garantia_anos} años.` : "La ficha del MAIDeSITe en Amazon no declara los años de garantía."}` },
-          { title: "Lo que cuesta cada uno", text: "Ninguno de los dos incluye tablero, así que a los dos hay que sumarles ese coste. El Flexispot cuesta bastante menos y tiene muchas más valoraciones detrás. Salvo que necesites la carga o la altura del MAIDeSITe, el Flexispot cumple para un setup normal." },
+          { title: "Lo que cuesta cada uno", text: `Ninguno de los dos incluye tablero, así que a los dos hay que sumarles ese coste. El Flexispot cuesta bastante menos: ${[e7Product, t2Product].map((p) => { const f = posicionEnFranja(p, catalogo); return f ? `el ${p.marca} ${p.modelo} está en ${NOMBRE_FRANJA[f.franja].toLowerCase()}` : null; }).filter(Boolean).join(" y ")}. Salvo que necesites la carga o el recorrido del MAIDeSITe, el Flexispot cumple para un setup normal.` },
         ].map((section, si) => (
           <FadeIn key={section.title} delay={si * 60}>
             <div>
