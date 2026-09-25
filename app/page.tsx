@@ -30,6 +30,7 @@ import { CRITERIOS } from "@/lib/metodologia";
 import { NOMBRE_FRANJA, posicionEnFranja, type Franja } from "@/lib/nota";
 import { PosicionNota } from "@/components/broadsheet/PosicionNota";
 import { CtaFijo } from "@/components/broadsheet/CtaFijo";
+import { rutaFicha } from "@/lib/rutas";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -72,6 +73,48 @@ export default function Home() {
 
   const tresDudas = dudas(catalogo);
 
+  // Datos estructurados de lo que la home ya enseña: el nº 1 de cada franja
+  // (seccion 1) y las tres dudas (seccion 5). Buscadores y asistentes de IA
+  // citan mejor lo que esta declarado; no se declara nada que no sea visible.
+  const SITE = "https://elevable.es";
+  const schemaHome = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ItemList",
+        name: "Los mejores escritorios elevables de 2026, franja a franja",
+        // Franjas distintas no se ordenan entre si (METODO.md §5).
+        itemListOrder: "https://schema.org/ItemListUnordered",
+        numberOfItems: primeros.length,
+        itemListElement: primeros.map(([, p], i) => {
+          const pos = posicionEnFranja(p, productos);
+          const ruta = rutaFicha(p);
+          return {
+            "@type": "ListItem",
+            position: i + 1,
+            name: `${p.marca} ${p.modelo}`,
+            description: `Nº 1 de ${pos!.de} · ${NOMBRE_FRANJA[pos!.franja]}. Nota ${nota(p.puntuacion.total)} sobre 10.`,
+            url: ruta ? `${SITE}${ruta}` : `${SITE}/mejor-escritorio-elevable#${p.slug}`,
+          };
+        }),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: tresDudas.map((d) => ({
+          "@type": "Question",
+          name: d.pregunta,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: [
+              ...d.parrafos,
+              ...(d.enlace ? [`${d.enlace.previo} ${d.enlace.texto} ${d.enlace.posterior}`] : []),
+            ].join(" "),
+          },
+        })),
+      },
+    ],
+  };
+
   const filas: FilaComparativa[] = catalogo.map(([asin, p]) => ({
     asin,
     nombre: `${p.marca} ${p.modelo}`,
@@ -93,6 +136,7 @@ export default function Home() {
 
   return (
     <div className="bs-pagina">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaHome) }} />
       {/* ============================================================
           Nº 01 · Veredicto
           ============================================================ */}
