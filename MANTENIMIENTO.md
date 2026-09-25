@@ -9,7 +9,7 @@ Si al leer esto la tabla no coincide con el JSON, manda el JSON.
 
 ## El catálogo: 12 modelos
 
-Última revisión de precios: **10/09/2026**.
+Última revisión de precios: **25/09/2026**.
 
 | ASIN | slug | Modelo | Franja | Ficha propia |
 |---|---|---|---|---|
@@ -17,7 +17,7 @@ Si al leer esto la tabla no coincide con el JSON, manda el JSON.
 | `B0D9MGDDHD` | `ergear-120` | ErGear 120x60 | 90–120 € | — |
 | `B0CF29CLCP` | `vasagle-160` | ~~VASAGLE 160x70~~ retirado el 24/09/2026 (sucesor `songmics-160`) | — | `/vasagle-160-opiniones` redirige a `/mejor-escritorio-elevable` |
 | `B0CKVPFSTD` | `devoko-120` | Devoko 120x60 | 100–130 € | — |
-| `B0DZCV1MVF` | `fezibo-120` | FEZIBO 120x60 | 120–160 € | `/fezibo-opiniones` |
+| `B0DZCV1MVF` | `fezibo-120` | FEZIBO 120x60 | 100–160 € | `/fezibo-opiniones` |
 | `B0CV4V22XL` | `songmics-160` | SONGMICS 160x70 | 120–160 € | — |
 | `B0CKVPZ93G` | `devoko-160` | ~~Devoko 160x70~~ retirado el 24/09/2026 (sucesor `songmics-160`) | — | — |
 | `B0CDLBJ1VW` | `sanodesk-140` | SANODESK 140x60 | 140–180 € | — |
