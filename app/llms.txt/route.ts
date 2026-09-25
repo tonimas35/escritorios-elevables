@@ -26,6 +26,7 @@ const SITE = "https://elevable.es";
 const PAGINAS: [string, string, string][] = [
   ["/mejor-escritorio-elevable", "Mejores escritorios elevables", "el catálogo completo, modelo a modelo, con guía de compra"],
   ["/escritorio-elevable-barato", "Escritorios elevables baratos", "los modelos de las franjas más bajas"],
+  ["/bases-elevables", "Bases elevables", "los marcos sin tablero, por franja y según el caso"],
   ["/que-escritorio-elevable-comprar", "Qué escritorio elevable comprar", "guía para elegir según el uso"],
   ["/flexispot-vs-maidesite", "Flexispot vs MAIDeSITe", "comparativa entre las dos marcas"],
   ["/sanodesk-vs-flexispot", "SANODESK vs FLEXISPOT", "comparativa entre las dos marcas"],
