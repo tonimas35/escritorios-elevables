@@ -498,5 +498,12 @@
     "tipo": "alta",
     "slug": "maidesite-t2-pro-plus",
     "motivo": "Barrido de marcos: vendido en Amazon.es y enviado por Amazon, 4,8★ con 1.832 valoraciones. Nº 1 de la franja de marcos de 250 a 500 €."
+  },
+  {
+    "fecha": "2026-09-25",
+    "tipo": "baja",
+    "slug": "maidesite-t2-pro-max",
+    "motivo": "Tiene 77 valoraciones y el método exige al menos 100 (METODO.md §3); sale por no cumplir los requisitos (§4). Lo sustituye el T2 Pro Plus, de la misma familia, con 1.832 valoraciones, mejor nota (9,5 frente a 9,4) y 5 años de garantía declarados. Retirada confirmada por Toni el 25/09/2026.",
+    "sucesor": "maidesite-t2-pro-plus"
   }
 ]

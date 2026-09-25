@@ -544,7 +544,7 @@
     "imagen_alt": "MAIDeSITe T2 Pro MAX marco de escritorio elevable doble motor 160 kg",
     "rating": 4.5,
     "num_reviews": 77,
-    "disponible": true,
+    "disponible": false,
     "tipo": "doble",
     "incluye_tablero": false,
     "specs": {
@@ -585,8 +585,8 @@
     "titular": "MAIDeSITe T2 Pro MAX, opiniones: 160 kg de carga y hasta 135 cm",
     "slug": "maidesite-t2-pro-max",
     "alta": "2026-03-25",
-    "estado": "activo",
-    "sucesor": null,
+    "estado": "retirado",
+    "sucesor": "maidesite-t2-pro-plus",
     "fuente_specs": "https://www.amazon.es/dp/B0DG2VTCXS",
     "specs_verificado": "2026-09-24",
     "nota_resenas": null
