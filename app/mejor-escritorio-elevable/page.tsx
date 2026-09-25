@@ -109,6 +109,37 @@ export default function MejorEscritorioPage() {
     { title: "Anticolisión: no te la juegues", text: `Para el motor si detecta un obstáculo al bajar. Sin anticolisión, el motor sigue y puede romper cajones o el propio mecanismo.${anticolisionBarato ? ` Entre los que vienen con tablero, el más asequible que la declara es el ${anticolisionBarato.marca} ${anticolisionBarato.modelo}.` : ""} Si la ficha no la menciona, no des por hecho que la tiene.` },
   ];
 
+  const faqItems = [
+    {
+      q: "¿Cuál es el mejor escritorio elevable?",
+      a: `Depende de lo que quieras gastar, porque cada escritorio se mide contra lo que se puede esperar por su precio. El primero de cada franja: ${primeros.map(({ p, pos }) => `${NOMBRE_FRANJA[pos!.franja].toLowerCase()}, el ${p.marca} ${p.modelo} (nota ${nota(p.puntuacion.total)})`).join("; ")}.`,
+    },
+    {
+      q: "¿Merece la pena un escritorio elevable?",
+      a: "Depende de si vas a usarlo. Un escritorio elevable solo aporta algo si de verdad lo subes y alternas entre sentado y de pie a lo largo del día. Si sospechas que lo vas a dejar siempre a la misma altura, te sale más barato una mesa normal.",
+    },
+    {
+      q: "Motor simple o doble: ¿cuál elijo?",
+      a: `El doble reparte el esfuerzo entre las dos patas: en el catálogo, los de doble motor declaran entre ${rango(dobles.map((p) => p.specs.peso_max_carga_kg))} kg de carga en movimiento, y los de uno, entre ${rango(simples.map((p) => p.specs.peso_max_carga_kg))}. Si cambias de posición varias veces al día con un setup pesado, se nota. Si el presupuesto manda, un motor simple cumple bien: prioriza estabilidad y garantía antes que esto.`,
+    },
+    {
+      q: "¿Cuánto peso soportan estos escritorios?",
+      a: `De ${Math.min(...cargas)} a ${Math.max(...cargas)} kg según el modelo, y el dato incluye todo lo que va encima, tablero incluido si lo compras aparte. Un monitor, un portátil y accesorios quedan lejos del mínimo; la carga solo decide con varios monitores con brazo o equipo pesado.`,
+    },
+    {
+      q: "¿Puedo montar un escritorio elevable solo?",
+      a: "Depende del peso del paquete, y muchas fichas no lo declaran. Con un tablero de 160 cm cuesta darle la vuelta en solitario: mejor entre dos.",
+    },
+    {
+      q: "¿Qué garantía tienen?",
+      a: "En España la garantía legal mínima son tres años para cualquier producto nuevo, así que ese es el suelo de todo el catálogo. Por encima de eso, el MAIDeSITe S2 Pro declara cinco años, y los Flexispot, cinco en la estructura y tres en el motor. Varias fichas de Amazon no dicen cuántos años dan: en esos casos cuenta la legal.",
+    },
+    {
+      q: "¿Se nota mucho la diferencia entre la gama de entrada y la alta?",
+      a: "En carga, doble motor y garantía, sí: los datos lo muestran. Para uso normal, uno de gama media con anticolisión va bien. Si pasas muchas horas al día de pie y necesitas que no vibre nada al escribir, el salto se nota.",
+    },
+  ];
+
   // Datos estructurados de lo que la pagina ensena, en el mismo orden.
   const ordenPagina = [...grupos.flatMap((g) => g.modelos.map(({ asin, p }) => [asin, p] as [string, Product])), ...sinFranja];
   const schema = {
@@ -132,6 +163,14 @@ export default function MejorEscritorioPage() {
           position: i + 1,
           name: `${p.marca} ${p.modelo}`,
           url: `${SITE}${RUTA}#${p.slug}`,
+        })),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqItems.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
         })),
       },
     ],
@@ -405,6 +444,50 @@ export default function MejorEscritorioPage() {
         </div>
       </section>
 
+      {/* ============================================================
+          Nº 06 · Preguntas frecuentes
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 06 · Preguntas frecuentes</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Antes de comprar
+          </h2>
+          <div className="flex flex-col" style={{ gap: "var(--bs-hueco-bloques)", marginTop: 36 }}>
+            {faqItems.map((f) => (
+              <div key={f.q} className="flex flex-wrap" style={{ gap: "clamp(12px, 3vw, 40px)" }}>
+                <h3 className="bs-h3" style={{ flex: "1 1 260px" }}>
+                  {f.q}
+                </h3>
+                <p className="bs-cuerpo" style={{ flex: "1 1 380px" }}>
+                  {f.a}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <h3 className="bs-h3" style={{ marginTop: 56 }}>
+            Sigue leyendo
+          </h3>
+          <ul className="flex flex-col" style={{ gap: 10, marginTop: 14, fontSize: 16 }}>
+            <li>
+              <Link href="/escritorio-elevable-barato">Escritorios elevables baratos</Link>: la gama de entrada, con más detalle.
+            </li>
+            <li>
+              <Link href="/flexispot-vs-maidesite">Flexispot vs MAIDeSITe</Link>: las dos marcas cara a cara.
+            </li>
+            <li>
+              <Link href="/comparador">Comparador</Link>: filtra el catálogo por carga, tablero y ancho.
+            </li>
+            <li>
+              <Link href="/calculadora-altura">Calculadora de altura</Link>: la altura de trabajo según tu estatura.
+            </li>
+            <li>
+              <Link href="/metodologia">Metodología</Link>: cómo se calcula la nota y qué no hacemos.
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }
