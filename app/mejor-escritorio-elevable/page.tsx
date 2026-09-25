@@ -66,6 +66,7 @@ export default function MejorEscritorioPage() {
   const sinFranja = catalogo.filter(([, p]) => !posicionEnFranja(p, productos));
   const primeros = grupos.map((g) => g.modelos[0]);
   const fechaFranjas = notaFranjas(productos);
+  const losCasos = casos(productos);
 
   // Datos estructurados de lo que la pagina ensena, en el mismo orden.
   const ordenPagina = [...grupos.flatMap((g) => g.modelos.map(({ asin, p }) => [asin, p] as [string, Product])), ...sinFranja];
@@ -162,6 +163,55 @@ export default function MejorEscritorioPage() {
         </div>
       </section>
 
+      {/* ============================================================
+          Nº 02 · Según tu caso
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 02 · Según tu caso</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Cuál comprar si…
+          </h2>
+          <p className="bs-cuerpo" style={{ maxWidth: "58ch", marginTop: 16, color: "var(--bs-neutro-800)" }}>
+            Lo que decide la compra casi nunca es la nota: es tu altura, tu
+            espacio o lo que vas a poner encima. Cada respuesta sale de lo que
+            declara la ficha del fabricante.
+          </p>
+
+          <div style={{ marginTop: 32 }}>
+            {losCasos.map((c) => {
+              const asin = asinDe.get(c.producto.slug)!;
+              const ruta = rutaFicha(c.producto);
+              return (
+                <div key={c.id} className="bs-fila">
+                  <div className="bs-marco" style={{ padding: 6, flex: "0 0 auto" }}>
+                    <div style={{ width: 62, height: 56 }}>
+                      <Image
+                        src={c.producto.imagen}
+                        alt={c.producto.imagen_alt}
+                        width={62}
+                        height={56}
+                        style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                      />
+                    </div>
+                  </div>
+                  <div style={{ flex: "1 1 300px" }}>
+                    <p className="bs-etiqueta">{c.situacion}</p>
+                    <h3 style={{ fontSize: 17, fontWeight: 600, marginTop: 4 }}>
+                      {ruta ? <Link href={ruta}>{c.producto.marca} {c.producto.modelo}</Link> : `${c.producto.marca} ${c.producto.modelo}`}
+                      <span style={{ fontWeight: 400, color: "var(--bs-neutro-700)" }}>
+                        {" "}· nota {nota(c.producto.puntuacion.total)}
+                      </span>
+                    </h3>
+                    <p style={{ fontSize: 15, marginTop: 4, color: "var(--bs-neutro-800)" }}>{c.motivo}</p>
+                  </div>
+                  <Cta asin={asin} mini />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
 
 
