@@ -84,6 +84,40 @@ export default function SanodeskVsFlexispotPage() {
     ["Valoración en Amazon", (p) => `${coma(p.rating)}★`],
   ];
 
+  const diferencias: { titulo: string; texto: string; enlace?: { texto: string; href: string } }[] = [];
+  const franjaDe = (p: Product) => {
+    const x = posicionEnFranja(p, catalogo);
+    return x ? NOMBRE_FRANJA[x.franja].toLowerCase() : "una franja sin verificar";
+  };
+  const masRuidoso =
+    fx160?.specs.ruido_db != null &&
+    catalogo.every((p) => p.specs.ruido_db === null || p.specs.ruido_db <= fx160.specs.ruido_db!);
+  if (sano && eg1 && fx160) {
+    diferencias.push(
+      {
+        titulo: "Tablero: incluido o no",
+        texto: `El ${nombre(sano)} trae tablero de ${sano.specs.ancho_tablero_cm}x${sano.specs.profundidad_tablero_cm} y el ${nombre(fx160)}, de ${fx160.specs.ancho_tablero_cm}x${fx160.specs.profundidad_tablero_cm}. El ${nombre(eg1)} es solo el marco: súmale el tablero antes de comparar precios, o la comparación no es justa.`,
+      },
+      {
+        titulo: "Motor y carga",
+        texto: `El ${nombre(fx160)} es el único con doble motor de los tres, pero declara ${fx160.specs.peso_max_carga_kg} kg, lo mismo que el ${nombre(eg1)} con uno. El ${nombre(sano)} declara ${sano.specs.peso_max_carga_kg} kg. Para un monitor y un portátil sobran los tres; para dos monitores con brazo, ninguno va holgado.`,
+      },
+      {
+        titulo: "Altura",
+        texto: `Los tres suben parecido: ${recorrido(sano)} el SANODESK, ${recorrido(eg1)} el EG1 y ${recorrido(fx160)} el 160x80. Si eres alto, ninguno destaca.`,
+        enlace: { texto: "Calcula la altura que necesitas", href: "/calculadora-altura" },
+      },
+      {
+        titulo: "Ruido",
+        texto: `Solo el ${nombre(fx160)} declara el ruido: ${fx160.specs.ruido_db} dB${masRuidoso ? ", el más alto del catálogo" : ""}. Las fichas del SANODESK y del EG1 no dan el dato.`,
+      },
+      {
+        titulo: "Precio",
+        texto: `El ${nombre(eg1)} está en ${franjaDe(eg1)} y el ${nombre(sano)}, en ${franjaDe(sano)}: los dos en la parte asequible. El ${nombre(fx160)} está en ${franjaDe(fx160)}, otra liga de precio. Las franjas exactas y su fecha están en la tabla de arriba.`,
+      },
+    );
+  }
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -212,6 +246,33 @@ export default function SanodeskVsFlexispotPage() {
         </div>
       </section>
 
+      {/* ============================================================
+          Nº 03 · Las diferencias
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 03 · Las diferencias</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Lo que de verdad los separa
+          </h2>
+          <div className="flex flex-col" style={{ gap: 28, marginTop: 32, maxWidth: "66ch" }}>
+            {diferencias.map((d) => (
+              <div key={d.titulo} style={{ paddingLeft: 14, borderLeft: "2px solid var(--bs-verde-botella)" }}>
+                <h3 className="bs-h3">{d.titulo}</h3>
+                <p className="bs-cuerpo" style={{ marginTop: 8, color: "var(--bs-neutro-800)" }}>
+                  {d.texto}
+                  {d.enlace && (
+                    <>
+                      {" "}
+                      <Link href={d.enlace.href}>{d.enlace.texto}</Link>.
+                    </>
+                  )}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
     </div>
   );
