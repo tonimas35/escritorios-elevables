@@ -14,6 +14,124 @@
 > ~1.100 palabras renderizadas, no ~3.000. B3 (fichas nuevas) y el hueco de
 > catálogo entre 160 y 370 € pasan a `PLAN-CATALOGO.md`. Siguen vigentes B3.5
 > (canal IA), B4 y B5.
+>
+> **Estado a 25/09/2026: manda el §0.** Es el plan en curso. Del §1 en adelante
+> queda como registro del diagnóstico del 07/09.
+
+---
+
+## 0. Zoom out del 25/09/2026: dónde estamos y qué toca
+
+### Dónde estamos
+
+**Dinero.** 45 € de comisión acumulada desde abril (9 pedidos). ~1 clic de
+afiliado al día durante dos trimestres seguidos. EPC ~0,28 €. La conversión es
+sana (4–8 %): **el problema no es la web, es cuánta gente llega.**
+
+**Tráfico** (GA4, 28 días al 06/09; pendiente de actualizar):
+
+| Canal | Sesiones | Calidad |
+|---|---|---|
+| **ChatGPT** | **54 %** | La mejor: 19 s de interacción |
+| Directo | 37 % | Baja: 4 s |
+| Google | 7 % | Casi nula |
+
+Casi todo lo que manda ChatGPT aterriza en **`/mejor-escritorio-elevable`**.
+
+**Google** (Search Console, 6 meses al 25/09): 13 clics, 702 impresiones,
+CTR 1,9 %, **posición media 28,7**. La indexación ya no es el problema (todas
+las fichas están en el sitemap y se ha pedido su indexación); ahora el
+problema es el ranking.
+
+| Consulta | Impr. | Posición | Lectura |
+|---|---|---|---|
+| elevable | 115 | 26,0 | Coincide con el dominio; poca intención de compra |
+| escritorios elevables | 94 | 54,0 | Genérica, muy disputada: largo plazo |
+| escritorio elevable | 83 | 45,0 | Ídem |
+| elevadesk | 25 | 28,8 | Marca que no cubrimos |
+| bases elevables | 21 | 42,3 | Demanda de marcos; solo tenemos 2 |
+| **maidesite vs flexispot** | 7 | **5,0** | **Única consulta en página 1** |
+
+**Qué hemos hecho del 23 al 25/09** (PR #10 a #17): el catálogo, con método. Las
+diez fichas verificadas contra Amazon.es, nota calculada por franja, franjas
+de precio con fecha, dos modelos retirados, una ficha propia para cada uno de
+los diez activos, la imagen equivocada del ErGear corregida, más datos
+estructurados en la home y en las fichas, y `/llms.txt`.
+
+### La lectura honesta
+
+El trabajo de catálogo era necesario: sin datos fiables no hay nada que
+recomendar, ni a Google ni a ChatGPT. **Pero no era el cuello de botella.**
+Para llegar a ~100 €/mes hacen falta ~12 clics de afiliado al día: **unas diez
+veces el tráfico de hoy.** Eso no lo mueve pulir el catálogo; lo mueve llegar a
+más gente por el canal que ya funciona, que es ChatGPT, y abrir el de Google
+por donde ya muestra que se puede ganar, las comparativas.
+
+**A partir de aquí el catálogo pasa a mantenimiento** (rutina de
+`MANTENIMIENTO.md`) y el esfuerzo va a tráfico.
+
+### Qué toca, por orden
+
+**P1. Bing, para llegar a ChatGPT.** Cuando ChatGPT busca en la web se apoya
+sobre todo en el índice de Bing, no en el de Google. Si la web no está bien
+indexada en Bing, ChatGPT solo encuentra una parte.
+- *Toni:* dar de alta la web en Bing Webmaster Tools importándola desde Search
+  Console (botón "Importar desde Google Search Console", 5 minutos). Da además,
+  por primera vez, datos de Bing y Copilot.
+- *Claude:* IndexNow, para que cada despliegue avise a Bing de las páginas que
+  cambian.
+
+**P2. `/mejor-escritorio-elevable`, la página que cita ChatGPT.** Es la página
+que más vale y la que menos se ha tocado: no se ha rehecho con los componentes
+de la home y las fichas. Objetivo: que responda en las primeras líneas lo que
+se le pregunta a un asistente (cuál comprar según presupuesto y uso), con la
+nota dentro de su franja, franjas con fecha y enlace a cada ficha. Un commit por
+sección y verificación a 375 y 1440 px, como siempre.
+
+**P3. Comparativas "marca vs marca"**, el único tipo de página que ya está en
+la primera página de Google. La primera, SANODESK vs FLEXISPOT, que ya tiene
+búsquedas y no tiene página. Se calculan del catálogo y no cruzan notas de
+franjas distintas.
+
+**P4. Marcos ("bases elevables").** Hay demanda y el catálogo tiene un marco por
+franja (M1 y M2 por debajo del mínimo de dos). Primero adelantar al barrido de
+octubre la búsqueda de marcos (*Toni:* capturas de los marcos más vendidos en
+Amazon.es con "Envío desde / Vendido por"); después, la página.
+
+**P5. Black Friday (27/11).** Revisión de franjas y stock la semana del 16/11,
+y que las páginas que reciben tráfico lleguen al día.
+
+**Aparcado a propósito:**
+- `nota_resenas` (revisión de las reseñas de 1–2★). Lo hará la tarea
+  automática del 13/10.
+- El texto de `define` en ErGear, Devoko, FEZIBO y SONGMICS. Necesita visto
+  bueno.
+- Consultas genéricas ("escritorio elevable"): no se persiguen de frente; llegan
+  con la autoridad (B5).
+
+### Datos que faltan para confirmar este orden
+
+Las cifras de tráfico y de dinero son del 07/09. Hay que refrescarlas:
+1. **GA4 → Adquisición de tráfico**, 28 días, "Fuente / medio de la sesión":
+   ¿sigue ChatGPT en el 54 %?
+2. **GA4 → Páginas y pantallas**, 28 días: qué páginas reciben visitas.
+3. **Amazon Afiliados**, 30 días, tabla de productos pedidos: ¿se venden
+   escritorios o compras colaterales de la cookie de 24 h?
+4. **Bing Webmaster Tools**: ¿dado de alta?
+
+### Cómo se mide
+
+Una vez al mes, el día 15 junto con la revisión de franjas:
+
+| Métrica | 25/09 | Objetivo 3 meses | Objetivo 6 meses |
+|---|---|---|---|
+| Clics de afiliado / día | ~1 | 3 | 10 |
+| Sesiones desde ChatGPT (28 días) | 29 (al 06/09) | ×3 | ×10 |
+| Clics de Google (28 días) | ~2–3 | 30 | 100 |
+| Consultas en página 1 de Google | 1 | 5 | 15 |
+
+Si a los 60 días de P1–P3 los clics de afiliado no se mueven, se replantea en
+vez de seguir añadiendo páginas.
 
 ---
 

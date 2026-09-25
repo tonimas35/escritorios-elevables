@@ -16,6 +16,13 @@
 > **Siguiente: fase 5** (barrido de mercado, el 13/10 con la tarea
 > automática). Pendiente de datos: `nota_resenas` en los doce modelos y el
 > tipo de motor del S2 Pro, que su ficha no declara.
+> **25/09/2026: el catálogo pasa a mantenimiento.** Diez modelos activos, todos
+> verificados, con franja fechada y ficha propia (fase 6 hecha). Las
+> prioridades del sitio son ahora de tráfico: ver `SEO-PLAN.md` §0. De este plan
+> sigue vivo el barrido de octubre (fase 5), con una prioridad: **marcos**, porque
+> M1 y M2 tienen un modelo cada una y "bases elevables" ya tiene búsquedas. La
+> revisión de reseñas de 1–2★ (`nota_resenas`) queda aparcada hasta la tarea
+> automática del 13/10.
 
 ## Contexto
 

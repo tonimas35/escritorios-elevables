@@ -7,7 +7,7 @@ no cambian), dónde aparece cada modelo y qué hay que revisar cada cuánto.
 
 Si al leer esto la tabla no coincide con el JSON, manda el JSON.
 
-## El catálogo: 12 modelos
+## El catálogo: 10 modelos activos y 2 retirados
 
 Última revisión de precios: **25/09/2026**.
 
@@ -31,11 +31,13 @@ Los activos salen además en la home, en `/mejor-escritorio-elevable` y en
 
 ### Huecos conocidos
 
-Cinco modelos tienen el campo `define` vacío porque **sus especificaciones no
-los distinguen de otro del catálogo**: `ergear-120`, `devoko-120`, `fezibo-120`,
-`songmics-160` y `devoko-160`. ErGear y FEZIBO de 120x60 son idénticos en todas
-las specs. Rellenarlos exige un dato que hoy no está en el JSON (acabado, tipo
-de mando, origen del motor); inventarlo está prohibido por `CLAUDE.md`.
+Cuatro modelos activos tienen el campo `define` vacío: `ergear-120`,
+`devoko-120`, `fezibo-120` y `songmics-160`. Se dejó así cuando sus specs no los
+distinguían entre sí; tras la verificación del 24–25/09 ya no son idénticos
+(el ErGear declara 80 kg, el Devoko trae soporte de monitor, el FEZIBO
+anticolisión y el SONGMICS es el de más valoraciones). Rellenarlos es texto
+editorial: necesita visto bueno de Toni antes de entrar en el JSON. Aparcado
+(`SEO-PLAN.md` §0).
 
 ## Qué decide dónde sale cada modelo
 
