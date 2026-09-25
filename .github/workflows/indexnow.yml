@@ -1,0 +1,17 @@
+# Tras cada despliegue correcto a producción en Vercel, avisa a Bing de las
+# URLs del sitio con IndexNow (scripts/indexnow.ts, SEO-PLAN.md §0, P1).
+name: IndexNow
+
+on:
+  deployment_status:
+
+jobs:
+  avisar:
+    if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/indexnow.ts
