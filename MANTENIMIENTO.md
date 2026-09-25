@@ -15,7 +15,7 @@ Si al leer esto la tabla no coincide con el JSON, manda el JSON.
 |---|---|---|---|---|
 | `B0FSQ8W2C1` | `vasagle-100` | VASAGLE 100x60 | 70–90 € | `/vasagle-100-opiniones` (plantilla) |
 | `B0D9MGDDHD` | `ergear-120` | ErGear 120x60 | 90–120 € | — (titular aprobado; se publica cuando tenga su imagen: hoy lleva la del Devoko 120) |
-| `B0CF29CLCP` | `vasagle-160` | ~~VASAGLE 160x70~~ retirado el 24/09/2026 (sucesor `songmics-160`) | — | `/vasagle-160-opiniones` redirige a `/mejor-escritorio-elevable` |
+| `B0CF29CLCP` | `vasagle-160` | ~~VASAGLE 160x70~~ retirado el 24/09/2026 (sucesor `songmics-160`) | — | `/vasagle-160-opiniones` redirige a `/songmics-160-opiniones` |
 | `B0CKVPFSTD` | `devoko-120` | Devoko 120x60 | 100–130 € | `/devoko-120-opiniones` (plantilla) |
 | `B0DZCV1MVF` | `fezibo-120` | FEZIBO 120x60 | 100–160 € | `/fezibo-opiniones` |
 | `B0CV4V22XL` | `songmics-160` | SONGMICS 160x70 | 120–160 € | `/songmics-160-opiniones` (plantilla) |
