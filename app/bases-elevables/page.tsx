@@ -53,6 +53,7 @@ export default function BasesElevablesPage() {
   const primeros = grupos.map((g) => g.modelos[0]);
   const ordenPagina = [...grupos.flatMap((g) => g.modelos), ...sinFranja];
   const fechaFranjas = notaFranjas(marcos);
+  const losCasos = casosMarcos(catalogo);
   const nombre = (p: Product) => `${p.marca} ${p.modelo}`;
 
   const schema = {
@@ -149,6 +150,48 @@ export default function BasesElevablesPage() {
         </div>
       </section>
 
+      {/* ============================================================
+          Nº 02 · Según tu caso
+          ============================================================ */}
+      <section className="bs-contenido bs-seccion">
+        <div className="bs-filete-seccion" style={{ paddingTop: 28 }}>
+          <p className="bs-kicker">Nº 02 · Según tu caso</p>
+          <h2 className="bs-h2" style={{ marginTop: 12 }}>
+            Qué base elegir si…
+          </h2>
+          <div style={{ marginTop: 32 }}>
+            {losCasos.map((c) => {
+              const ruta = rutaFicha(c.producto);
+              return (
+                <div key={c.id} className="bs-fila">
+                  <div className="bs-marco" style={{ padding: 6, flex: "0 0 auto" }}>
+                    <div style={{ width: 62, height: 56 }}>
+                      <Image
+                        src={c.producto.imagen}
+                        alt={c.producto.imagen_alt}
+                        width={62}
+                        height={56}
+                        style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                      />
+                    </div>
+                  </div>
+                  <div style={{ flex: "1 1 300px" }}>
+                    <p className="bs-etiqueta">{c.situacion}</p>
+                    <h3 style={{ fontSize: 17, fontWeight: 600, marginTop: 4 }}>
+                      {ruta ? <Link href={ruta}>{nombre(c.producto)}</Link> : nombre(c.producto)}
+                      <span style={{ fontWeight: 400, color: "var(--bs-neutro-700)" }}>
+                        {" "}· nota {nota(c.producto.puntuacion.total)}
+                      </span>
+                    </h3>
+                    <p style={{ fontSize: 15, marginTop: 4, color: "var(--bs-neutro-800)" }}>{c.motivo}</p>
+                  </div>
+                  <Cta asin={asinDe.get(c.producto.slug)!} mini />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
 
 
