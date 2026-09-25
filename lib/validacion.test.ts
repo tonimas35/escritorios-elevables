@@ -9,7 +9,15 @@ const leer = <T>(ruta: string): T =>
 
 const real = leer<ProductMap>("data/productos.json");
 const cambios = leer<CambioCatalogo[]>("data/cambios-catalogo.json");
-const HOY = new Date("2026-09-23");
+// "Hoy" es la ultima fecha de verificacion del catalogo: asi el test no
+// ve fechas futuras cada vez que se actualizan las franjas.
+const HOY = new Date(
+  Object.values(real)
+    .flatMap((p) => [p.precio_verificado, p.specs_verificado])
+    .filter((f): f is string => !!f)
+    .sort()
+    .at(-1)!,
+);
 
 /** Copia del catálogo real con un modelo modificado. */
 function catalogoCon(slug: string, cambio: (p: Product) => void): ProductMap {
