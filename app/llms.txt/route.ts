@@ -28,6 +28,7 @@ const PAGINAS: [string, string, string][] = [
   ["/escritorio-elevable-barato", "Escritorios elevables baratos", "los modelos de las franjas más bajas"],
   ["/que-escritorio-elevable-comprar", "Qué escritorio elevable comprar", "guía para elegir según el uso"],
   ["/flexispot-vs-maidesite", "Flexispot vs MAIDeSITe", "comparativa entre las dos marcas"],
+  ["/sanodesk-vs-flexispot", "SANODESK vs FLEXISPOT", "comparativa entre las dos marcas"],
   ["/comparador", "Comparador", "filtra el catálogo por motor, carga, altura y tablero"],
   ["/calculadora-altura", "Calculadora de altura", "la altura de trabajo sentado y de pie según tu estatura"],
 ];

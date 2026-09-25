@@ -477,6 +477,9 @@ export default function MejorEscritorioPage() {
               <Link href="/flexispot-vs-maidesite">Flexispot vs MAIDeSITe</Link>: las dos marcas cara a cara.
             </li>
             <li>
+              <Link href="/sanodesk-vs-flexispot">SANODESK vs FLEXISPOT</Link>: cuál comprar de las dos.
+            </li>
+            <li>
               <Link href="/comparador">Comparador</Link>: filtra el catálogo por carga, tablero y ancho.
             </li>
             <li>
