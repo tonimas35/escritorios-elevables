@@ -123,6 +123,26 @@ Amazon.es con "Envío desde / Vendido por"); después, la página.
 **P5. Black Friday (27/11).** Revisión de franjas y stock la semana del 16/11,
 y que las páginas que reciben tráfico lleguen al día.
 
+**P6. ¿Un segundo nicho? Decisión en la revisión del 15/10, no antes.**
+Idea de Toni (25/09): más dominios de afiliados para multiplicar ingresos.
+Conclusión de ese día: todavía no.
+- Hoy la web gana ~6 €/mes (53,50 € en 2026); los 50 €/mes son objetivo, no
+  resultado. Multiplicar algo no demostrado multiplica trabajo, no ingresos.
+- Cada dominio nuevo empieza sin autoridad ni citas de ChatGPT; el cuello de
+  botella es el tiempo de Toni (capturas y revisión mensual por catálogo), no
+  el dominio; y una red de webs de afiliados parecidas es el patrón que Google
+  castiga.
+- Lo reutilizable es la plantilla (catálogo JSON, nota calculada, fichas,
+  `llms.txt`, IndexNow, tests y validación): un segundo nicho costaría una
+  fracción de este.
+
+**Condición para empezar:** dos o tres meses seguidos por encima de 30–50 €
+de comisión. **Si se cumple:** un solo nicho, cercano y del mismo público
+(sillas ergonómicas, brazos de monitor, reposapiés; ya salen como compras
+colaterales en Amazon Afiliados), preferiblemente como sección de
+elevable.es para aprovechar su autoridad. Un dominio aparte solo si el tema
+no tiene relación.
+
 **Aparcado a propósito:**
 - `nota_resenas` (revisión de las reseñas de 1–2★). Lo hará la tarea
   automática del 13/10.
