@@ -80,7 +80,7 @@ export default function FlexispotVsMaidesitePage() {
   const faqItems = [
     {
       q: "Flexispot o Maidesite: ¿cuál es mejor marca?",
-      a: `Depende del modelo, no de la marca. En este catálogo, el marco de Flexispot (EG1) es el más asequible (${coma(e7Product.rating)} de media en Amazon), y el de MAIDeSITe (${t2Product.modelo}) es el que más recorrido ofrece, con ${t2Product.specs.peso_max_carga_kg} kg de carga. En escritorios completos, el FLEXISPOT de 160x80 da 5 años en el marco y 3 en el motor${s2 && s2[1].specs.garantia_anos !== null ? `, y el MAIDeSITe S2 Pro, ${s2[1].specs.garantia_anos}` : ""}.`,
+      a: `Depende del modelo, no de la marca. En este catálogo, el marco de Flexispot (EG1) está en la franja más barata de los marcos y es el más asequible de los que declaran anticolisión (${coma(e7Product.rating)} de media en Amazon), y el de MAIDeSITe (${t2Product.modelo}) es el que más recorrido ofrece, con ${t2Product.specs.peso_max_carga_kg} kg de carga. En escritorios completos, el FLEXISPOT de 160x80 da 5 años en el marco y 3 en el motor${s2 && s2[1].specs.garantia_anos !== null ? `, y el MAIDeSITe S2 Pro, ${s2[1].specs.garantia_anos}` : ""}.`,
     },
     {
       q: "¿Los motores de Flexispot y Maidesite son iguales?",
@@ -166,7 +166,7 @@ export default function FlexispotVsMaidesitePage() {
         <div className="mt-8 p-6" style={{ background: 'var(--bs-superficie)', borderLeft: '3px solid var(--bs-verde-botella)' }}>
           <p className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--verde-estructura)' }}>TL;DR</p>
           <p className="mt-2 text-base leading-relaxed" style={{  color: 'var(--text-dark)' }}>
-            No hay un ganador único, porque no compiten en el mismo sitio. Flexispot domina el precio: su marco, el EG1, es el marco más asequible del catálogo, con {coma(e7Product.rating)} de media en Amazon, aunque lleva un solo motor. MAIDeSITe domina la capacidad: el {t2Product.modelo} aguanta {t2Product.specs.peso_max_carga_kg} kg y va de {coma(t2Product.specs.rango_altura_min_cm)} a {coma(t2Product.specs.rango_altura_max_cm)} cm, cifras que Flexispot no ofrece en este catálogo. En escritorios completos, con tablero incluido, la cosa se aprieta entre el FLEXISPOT de 160x80 y el MAIDeSITe S2 Pro, y ahí deciden el tamaño del tablero y la garantía.
+            No hay un ganador único, porque no compiten en el mismo sitio. Flexispot domina el precio: su marco, el EG1, está en la franja más barata de los marcos y es el más asequible de los que declaran anticolisión, con {coma(e7Product.rating)} de media en Amazon, aunque lleva un solo motor. MAIDeSITe domina la capacidad: el {t2Product.modelo} aguanta {t2Product.specs.peso_max_carga_kg} kg y va de {coma(t2Product.specs.rango_altura_min_cm)} a {coma(t2Product.specs.rango_altura_max_cm)} cm, cifras que Flexispot no ofrece en este catálogo. En escritorios completos, con tablero incluido, la cosa se aprieta entre el FLEXISPOT de 160x80 y el MAIDeSITe S2 Pro, y ahí deciden el tamaño del tablero y la garantía.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 mt-4">
             <AffiliateButton asin={e7Asin} text="Flexispot EG1 en Amazon" size="md" />
@@ -276,6 +276,9 @@ export default function FlexispotVsMaidesitePage() {
           <h2 className="text-2xl mb-6 heading-accent" >
             Puntuaciones comparadas
           </h2>
+          <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
+            Cada nota se mide contra lo que se puede esperar por su precio, y estos dos marcos están en franjas distintas: sirven para ver en qué destaca cada uno, no para decidir cuál es mejor.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--verde-estructura)' }}>{e7Product.marca} {e7Product.modelo}</h3>
@@ -352,7 +355,7 @@ export default function FlexispotVsMaidesitePage() {
           </h2>
           <div className="space-y-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <p>
-            <strong style={{ color: 'var(--text-primary)' }}>Marco FLEXISPOT:</strong> el marco más asequible del catálogo, con {coma(e7Product.rating)} de media en Amazon, pero con un solo motor. Suma el tablero aparte.
+            <strong style={{ color: 'var(--text-primary)' }}>Marco FLEXISPOT:</strong> de la franja más barata de los marcos y el más asequible con anticolisión, con {coma(e7Product.rating)} de media en Amazon, pero con un solo motor. Suma el tablero aparte.
           </p>
             <p>
             <strong style={{ color: 'var(--text-primary)' }}>MAIDeSITe {t2Product.modelo}:</strong> solo si necesitas sus {t2Product.specs.peso_max_carga_kg} kg de carga o su recorrido de {coma(t2Product.specs.rango_altura_min_cm)} a {coma(t2Product.specs.rango_altura_max_cm)} cm; si no, estás pagando de más. También viene sin tablero.
