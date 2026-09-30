@@ -45,7 +45,7 @@ export function Footer() {
                 { label: "Flexispot vs Maidesite", href: "/flexispot-vs-maidesite" },
                 { label: "SANODESK vs Flexispot", href: "/sanodesk-vs-flexispot" },
                 { label: "MAIDeSITe T2 Pro Plus", href: "/maidesite-t2-pro-plus-opiniones" },
-                { label: "Fezibo review", href: "/fezibo-opiniones" },
+                { label: "FEZIBO 120x60", href: "/fezibo-opiniones" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.65)' }}>
