@@ -114,7 +114,7 @@ export function casos(catalogo: Product[]): Caso[] {
       id: "marco",
       situacion: "Si quieres elegir tu propio tablero",
       producto: marcoBarato,
-      motivo: `El marco más asequible del catálogo: ${marcoBarato.specs.peso_max_carga_kg} kg y de ${coma(marcoBarato.specs.rango_altura_min_cm)} a ${coma(marcoBarato.specs.rango_altura_max_cm)} cm. El tablero se compra aparte.`,
+      motivo: `El marco más asequible del catálogo${empate(marcoBarato, marcosConFranja, puntoMedio)}: ${marcoBarato.specs.peso_max_carga_kg} kg y de ${coma(marcoBarato.specs.rango_altura_min_cm)} a ${coma(marcoBarato.specs.rango_altura_max_cm)} cm. El tablero se compra aparte.`,
     });
   }
 
