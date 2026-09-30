@@ -505,5 +505,11 @@
     "slug": "maidesite-t2-pro-max",
     "motivo": "Tiene 77 valoraciones y el método exige al menos 100 (METODO.md §3); sale por no cumplir los requisitos (§4). Lo sustituye el T2 Pro Plus, de la misma familia, con 1.832 valoraciones, mejor nota (9,5 frente a 9,4) y 5 años de garantía declarados. Retirada confirmada por Toni el 25/09/2026.",
     "sucesor": "maidesite-t2-pro-plus"
+  },
+  {
+    "fecha": "2026-09-30",
+    "tipo": "correccion",
+    "slug": "flexispot-eg1",
+    "motivo": "Revisión de precios del 30/09: en Amazon.es está por encima de su franja (110–150 €). Nueva franja 140–180 €; sigue en marcos hasta 250 € y su nota no cambia. Ya no es el marco más asequible del catálogo (comparte franja con el ErGear marco de 2 motores): se corrige esa frase donde aparecía."
   }
 ]
