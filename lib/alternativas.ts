@@ -24,6 +24,14 @@ export function alternativas(actual: Product, catalogo: Product[], cuantas = 3):
   const conTablero = resto.filter((p) => p.incluye_tablero);
   const marcos = resto.filter((p) => !p.incluye_tablero);
   const simpleConTablero = conTablero.filter((p) => p.specs.tipo_motor === "simple");
+  // Entre categorias distintas (un completo que propone un marco, o al
+  // reves) las franjas no coinciden, pero la gama de precio si: primero lo
+  // de su misma gama. Quien mira un escritorio de 140 € no busca un marco
+  // de 350 € como alternativa.
+  const suGama = (lista: Product[]) => [
+    ...lista.filter((p) => gama(p) === gama(actual)),
+    ...lista.filter((p) => gama(p) !== gama(actual)),
+  ];
 
   const candidatas: [string, Product | undefined][] = [];
 
@@ -54,20 +62,20 @@ export function alternativas(actual: Product, catalogo: Product[], cuantas = 3):
       doble
         ? ["Si quieres doble motor", conTablero.find((p) => p.specs.tipo_motor === "doble")]
         : ["Si te sobra con motor simple", simpleConTablero[0]],
-      ["Si prefieres elegir tu tablero", marcos[0]],
+      ["Si prefieres elegir tu tablero", suGama(marcos)[0]],
     );
   } else {
     candidatas.push(
       ["Si quieres tablero incluido", conTablero[0]],
-      ["Si necesitas más carga", resto.find((p) => p.specs.peso_max_carga_kg > actual.specs.peso_max_carga_kg)],
-      ["El otro marco del catálogo", marcos[0]],
+      ["Si necesitas más carga", suGama(resto).find((p) => p.specs.peso_max_carga_kg > actual.specs.peso_max_carga_kg)],
+      ["Otro marco de su gama de precio", suGama(marcos).find((p) => gama(p) === gama(actual))],
       ["Si te sobra con motor simple", simpleConTablero[0]],
     );
   }
 
   // Relleno garantizado: primero la misma categoria, luego cualquiera.
   const misma = actual.incluye_tablero ? conTablero : marcos;
-  for (const p of misma) candidatas.push([actual.incluye_tablero ? "También con tablero incluido" : "También sin tablero", p]);
+  for (const p of suGama(misma)) candidatas.push([actual.incluye_tablero ? "También con tablero incluido" : "También sin tablero", p]);
   for (const p of resto) candidatas.push(["También en el top del catálogo", p]);
 
   const vistos = new Set<string>();

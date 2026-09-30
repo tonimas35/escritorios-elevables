@@ -298,6 +298,9 @@ export default async function FichaModelo({ params }: Props) {
             {alts.map(({ motivo, producto: q }) => {
               const qAsin = getAllProducts().find(([, x]) => x.slug === q.slug)![0];
               const qRuta = rutaFicha(q);
+              // La nota de otra franja no se compara con la de este modelo:
+              // se publica junto a su puesto y su franja (METODO.md §5).
+              const qPos = posicionEnFranja(q, catalogo);
               return (
                 <div key={q.slug} className="bs-fila">
                   <div className="bs-marco" style={{ padding: 6, flex: "0 0 auto" }}>
@@ -317,9 +320,19 @@ export default async function FichaModelo({ params }: Props) {
                       {qRuta ? <Link href={qRuta}>{q.marca} {q.modelo}</Link> : `${q.marca} ${q.modelo}`}
                     </p>
                     <p style={{ fontSize: 13, color: "var(--bs-neutro-700)" }}>{metaFila(q)}</p>
+                    {qPos && (
+                      <p style={{ fontSize: 13, color: "var(--bs-neutro-700)" }}>
+                        Nº {qPos.posicion} de {qPos.de} en {NOMBRE_FRANJA[qPos.franja].toLowerCase()}
+                      </p>
+                    )}
                     {q.define && <p style={{ fontSize: 14, marginTop: 4 }}>{q.define}</p>}
                   </div>
-                  <span style={{ fontSize: 22, fontWeight: 700 }}>{nota(q.puntuacion.total)}</span>
+                  <span style={{ fontSize: 22, fontWeight: 700, textAlign: "center", lineHeight: 1.1 }}>
+                    {nota(q.puntuacion.total)}
+                    <span style={{ display: "block", fontSize: 11, fontWeight: 400, color: "var(--bs-neutro-700)" }}>
+                      en su franja
+                    </span>
+                  </span>
                   <Cta asin={qAsin} mini />
                 </div>
               );
