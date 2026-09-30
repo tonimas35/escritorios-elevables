@@ -3,17 +3,22 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import { Cta } from "./Cta";
+import type { InfoFranja } from "@/lib/comparativa";
 
 /**
- * Seccion 4: los 12 modelos, filtrables y ordenables.
+ * Seccion 4: los modelos del catálogo, filtrables y ordenables.
  *
  * Isla de cliente dentro de una pagina que sigue siendo Server Component.
  * Recibe filas ya calculadas para no serializar el catalogo entero.
  *
  * Filtrado y orden son derivados del estado, no estado en si.
+ *
+ * Por defecto se ordena por precio: franja a franja, de la más barata a la
+ * más cara, y dentro de cada franja por nota. No hay orden por nota a
+ * secas: las notas de franjas distintas no se comparan (METODO.md §5).
  */
 
-export interface FilaComparativa {
+export interface FilaComparativa extends InfoFranja {
   asin: string;
   nombre: string;
   imagen: string;
@@ -34,7 +39,22 @@ export interface FilaComparativa {
 }
 
 type Tablero = "todos" | "marco" | "tablero";
-type Orden = "nota" | "carga";
+type Orden = "precio" | "carga";
+
+/** El mismo texto que SIN_DATO de lib/ficha.ts, que no se importa aquí por ser isla de cliente. */
+const SIN_DATO = "Sin dato";
+
+/** Recorrido, valoración y garantía; al ordenar por carga, también la franja. */
+function meta(f: FilaComparativa, orden: Orden): string {
+  return [
+    f.recorrido,
+    `${f.rating}★`,
+    f.garantia !== SIN_DATO ? `garantía ${f.garantia}` : null,
+    orden === "carga" ? f.franjaNombre : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+}
 
 const TABLEROS: { valor: Tablero; label: string }[] = [
   { valor: "todos", label: "Todos" },
@@ -80,7 +100,7 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
   const [tablero, setTablero] = useState<Tablero>("todos");
   const [cargaMin, setCargaMin] = useState(0);
   const [anchoMin, setAnchoMin] = useState(0);
-  const [orden, setOrden] = useState<Orden>("nota");
+  const [orden, setOrden] = useState<Orden>("precio");
 
   const visibles = useMemo(() => {
     const filtradas = filas.filter((f) => {
@@ -91,7 +111,9 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
       return true;
     });
     return filtradas.sort((a, b) =>
-      orden === "carga" ? b.carga - a.carga : b.notaNum - a.notaNum
+      orden === "carga"
+        ? b.carga - a.carga
+        : a.franjaOrden - b.franjaOrden || (a.posicion ?? 99) - (b.posicion ?? 99)
     );
   }, [filas, tablero, cargaMin, anchoMin, orden]);
 
@@ -102,11 +124,17 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
         ? "1 modelo coincide"
         : `${visibles.length} modelos coinciden`;
 
-  const flecha = (cual: Orden) => (orden === cual ? " ↓" : "");
+  const flecha = (cual: Orden) => (orden === cual ? (cual === "precio" ? " ↑" : " ↓") : "");
+  // Cabecera de franja delante del primer modelo de cada una, solo al
+  // ordenar por precio.
+  const abreFranja = (i: number) =>
+    orden === "precio" && (i === 0 || visibles[i - 1].franjaOrden !== visibles[i].franjaOrden);
+
 
   // La columna de precio solo existe si hay algun modelo con franja
   // verificada. Con los datos sin rellenar, la tabla queda como estaba.
   const hayFranjas = filas.some((f) => f.franja);
+  const columnas = hayFranjas ? 8 : 7;
 
   return (
     <>
@@ -163,19 +191,30 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
                 </button>
               </th>
               <th>Motor</th>
-              {hayFranjas && <th>Precio</th>}
-              <th>
-                <button type="button" onClick={() => setOrden("nota")}>
-                  Nota{flecha("nota")}
-                </button>
-              </th>
+              {hayFranjas && (
+                <th>
+                  <button type="button" onClick={() => setOrden("precio")}>
+                    Precio{flecha("precio")}
+                  </button>
+                </th>
+              )}
+              <th>Nota en su franja</th>
               <th />
             </tr>
           </thead>
           <tbody>
-            {visibles.map((f, i) => (
+            {visibles.map((f, i) => [
+              abreFranja(i) && (
+                <tr key={`franja-${f.franjaOrden}`} className="bs-tabla-grupo">
+                  <th colSpan={columnas} scope="colgroup">
+                    {f.franjaNombre ?? "Sin franja verificada"}
+                  </th>
+                </tr>
+              ),
               <tr key={f.asin}>
-                <td style={{ color: "var(--bs-neutro-700)" }}>{i + 1}</td>
+                <td style={{ color: "var(--bs-neutro-700)" }}>
+                  {orden === "precio" && f.posicion !== null ? f.posicion : i + 1}
+                </td>
                 <td>
                   <div className="flex items-center gap-3">
                     <span className="bs-marco" style={{ padding: 4, flex: "0 0 auto" }}>
@@ -194,7 +233,7 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
                         {f.nombre}
                       </span>
                       <span style={{ fontSize: 13, color: "var(--bs-neutro-700)" }}>
-                        {f.recorrido} · {f.rating}★ · garantía {f.garantia}
+                        {meta(f, orden)}
                       </span>
                     </span>
                   </div>
@@ -207,12 +246,19 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
                     {f.franja ?? "—"}
                   </td>
                 )}
-                <td style={{ fontSize: 19, fontWeight: 700 }}>{f.nota}</td>
+                <td style={{ fontSize: 19, fontWeight: 700 }}>
+                  {f.nota}
+                  {f.posicionTxt && (
+                    <span style={{ display: "block", fontSize: 12, fontWeight: 400, color: "var(--bs-neutro-700)" }}>
+                      {f.posicionTxt}
+                    </span>
+                  )}
+                </td>
                 <td>
                   <Cta asin={f.asin} texto="Ver en Amazon" mini />
                 </td>
-              </tr>
-            ))}
+              </tr>,
+            ])}
           </tbody>
         </table>
       </div>
@@ -223,8 +269,8 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
           <span style={{ fontSize: 13, letterSpacing: "var(--bs-track-riel)", textTransform: "uppercase" }}>
             Orden
           </span>
-          <button type="button" aria-pressed={orden === "nota"} onClick={() => setOrden("nota")}>
-            Nota{flecha("nota")}
+          <button type="button" aria-pressed={orden === "precio"} onClick={() => setOrden("precio")}>
+            Precio{flecha("precio")}
           </button>
           <button type="button" aria-pressed={orden === "carga"} onClick={() => setOrden("carga")}>
             Carga{flecha("carga")}
@@ -232,18 +278,29 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
         </div>
 
         <ul className="bs-apilada">
-          {visibles.map((f, i) => (
+          {visibles.map((f, i) => [
+            abreFranja(i) && (
+              <li key={`franja-${f.franjaOrden}`} className="bs-apilada-grupo">
+                {f.franjaNombre ?? "Sin franja verificada"}
+              </li>
+            ),
             <li key={f.asin}>
               <div className="flex gap-3">
-                <span style={{ color: "var(--bs-neutro-700)", fontSize: 14 }}>{i + 1}</span>
+                <span style={{ color: "var(--bs-neutro-700)", fontSize: 14 }}>
+                  {orden === "precio" && f.posicion !== null ? f.posicion : i + 1}
+                </span>
                 <div style={{ flex: 1 }}>
                   <div className="flex items-start gap-3">
                     <div style={{ flex: 1 }}>
                       <p style={{ fontSize: 16, fontWeight: 600 }}>{f.nombre}</p>
                       <p style={{ fontSize: 13, color: "var(--bs-neutro-700)" }}>
-                        Nota <strong style={{ color: "var(--bs-tinta)" }}>{f.nota}</strong> ·{" "}
-                        {f.rating}★ · garantía {f.garantia}
+                        Nota <strong style={{ color: "var(--bs-tinta)" }}>{f.nota}</strong>
+                        {f.posicionTxt ? ` (${f.posicionTxt} en su franja)` : ""} · {f.rating}★
+                        {f.garantia !== SIN_DATO ? ` · garantía ${f.garantia}` : ""}
                       </p>
+                      {orden === "carga" && f.franjaNombre && (
+                        <p style={{ fontSize: 13, color: "var(--bs-neutro-700)" }}>{f.franjaNombre}</p>
+                      )}
                     </div>
                     <span className="bs-marco" style={{ padding: 4, flex: "0 0 auto" }}>
                       <span style={{ display: "block", width: 58, height: 52 }}>
@@ -276,8 +333,8 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
                   </div>
                 </div>
               </div>
-            </li>
-          ))}
+            </li>,
+          ])}
         </ul>
       </div>
     </>

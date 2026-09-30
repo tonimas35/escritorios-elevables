@@ -12,6 +12,7 @@ import { CompactRatings } from "@/components/CompactRatings";
 import { productSchema } from "@/lib/schema";
 import { anticolision, garantia, SIN_DATO } from "@/lib/ficha";
 import { PosicionNota } from "@/components/broadsheet/PosicionNota";
+import { franja, NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 
 export const metadata: Metadata = {
   title: "Fezibo escritorio elevable opiniones y review 2026 — ¿Merece la pena?",
@@ -26,10 +27,21 @@ export default function FeziboReviewPage() {
   const [asin, product] = result;
   const catalogo = getAllProducts().map(([, p]) => p);
 
-  const alternatives = getAllProducts()
-    .filter(([, p]) => p.slug !== "fezibo-120" && p.disponible && p.precio <= 250)
-    .sort(([, a], [, b]) => b.puntuacion.total - a.puntuacion.total)
-    .slice(0, 3);
+  // Alternativas: los otros de su franja y el nº 1 de la franja más
+  // barata. Nada de mezclar franjas por nota: cada nota se mide dentro de
+  // la suya (METODO.md §5).
+  const disponibles = getAllProducts().filter(([, p]) => p.disponible && p.slug !== "fezibo-120");
+  const suFranja = franja(product);
+  const pos = (p: typeof product) => posicionEnFranja(p, catalogo);
+  const deSuFranja = disponibles
+    .filter(([, p]) => suFranja !== null && franja(p) === suFranja)
+    .sort(([, a], [, b]) => (pos(a)?.posicion ?? 99) - (pos(b)?.posicion ?? 99));
+  const masBarata = disponibles.find(([, p]) => franja(p) === "A" && pos(p)?.posicion === 1);
+  const alternatives = [...deSuFranja, ...(masBarata && suFranja !== "A" ? [masBarata] : [])];
+  const enSuFranja = (p: typeof product) => {
+    const x = pos(p);
+    return x ? `nº ${x.posicion} de ${x.de} · ${NOMBRE_FRANJA[x.franja]}` : "—";
+  };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -141,7 +153,7 @@ export default function FeziboReviewPage() {
           El Fezibo es un escritorio elevable eléctrico de gama de entrada: un motor, tablero de 120x60 y lo básico para subir y bajar pulsando un botón. No es el más barato del catálogo, y tiene matices importantes que necesitas conocer antes de comprar.
         </p>
         <p>
-          He analizado las opiniones en Amazon, he comparado sus specs con los otros modelos baratos del mercado, y tengo claro para quién tiene sentido y para quién no. Si tu presupuesto es ajustado, esto te interesa.
+          He comparado sus especificaciones con las de los otros modelos del catálogo y su valoración en Amazon, y tengo claro para quién tiene sentido y para quién no. Si tu presupuesto es ajustado, esto te interesa.
         </p>
       </div>
 
@@ -223,7 +235,7 @@ export default function FeziboReviewPage() {
         <div>
           <h3 className="text-lg font-semibold">Para quién NO es</h3>
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Teletrabajadores a jornada completa que necesitan espacio para dual monitor. Personas altas (más de 1.80 m) que necesitan el escritorio por encima de {coma(s.rango_altura_max_cm)} cm. Quien tenga monitores pesados o un setup de más de 30-40 kg. Y si ya tienes un elevable y quieres mejorar, el salto que se nota es a uno de doble motor, como el FLEXISPOT de 160x80 o el MAIDeSITe S2 Pro, que ya vienen con tablero.
+            Teletrabajadores a jornada completa que necesitan espacio para dual monitor. Personas altas (más de 1,80 m) que necesitan el escritorio por encima de {coma(s.rango_altura_max_cm)} cm. Quien tenga monitores pesados o un setup de más de 30-40 kg. Y si ya tienes un elevable y quieres mejorar, el salto que se nota es a uno de doble motor, como el FLEXISPOT de 160x80 o el MAIDeSITe S2 Pro, que ya vienen con tablero.
           </p>
         </div>
 
@@ -232,10 +244,8 @@ export default function FeziboReviewPage() {
           {/* Solo lo que tiene fuente: la media de Amazon y el resumen de la
               revision de reseñas de 1-2 estrellas (METODO.md §3), cuando exista. */}
           <p className="mt-2 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            {coma(product.rating)} estrellas de media en Amazon España.{" "}
-            {product.nota_resenas
-              ? product.nota_resenas
-              : "Todavía no hemos revisado sus reseñas de una y dos estrellas con nuestro método; cuando lo hagamos, el resumen estará aquí."}
+            {coma(product.rating)} estrellas de media en Amazon España.
+            {product.nota_resenas && <> {product.nota_resenas}</>}
           </p>
         </div>
       </section>
@@ -270,31 +280,37 @@ export default function FeziboReviewPage() {
           Alternativas al Fezibo
         </h2>
         <p className="text-sm mb-6" style={{ color: 'var(--text-secondary)' }}>
-          Si puedes estirar un poco el presupuesto, estas opciones ofrecen mejoras significativas por poco dinero más.
+          Los otros modelos de su franja de precio y el mejor de la franja más barata. Cada nota se mide dentro de su franja: no se comparan entre franjas.
         </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
             <thead>
               <tr style={{ background: 'var(--color-secondary)', color: 'white' }}>
                 <th className="text-left p-3 rounded-tl" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Modelo</th>
-                <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Motor</th>
-                <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Nota</th>
+                <th className="hidden sm:table-cell text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Motor</th>
+                <th className="text-center p-3" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}>Nota en su franja</th>
                 <th className="text-center p-3 rounded-tr" style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}></th>
               </tr>
             </thead>
             <tbody>
               <tr style={{ background: 'var(--verde-estructura-claro)', borderBottom: '1px solid var(--border)' }}>
-                <td className="p-3 font-semibold">Fezibo 120x60 (este)</td>
-                <td className="p-3 text-center">Simple</td>
+                <td className="p-3 font-semibold">
+                  Fezibo 120x60 (este)
+                  <span className="block text-xs font-normal" style={{ color: 'var(--text-secondary)' }}>{enSuFranja(product)}</span>
+                </td>
+                <td className="hidden sm:table-cell p-3 text-center">Simple</td>
                 <td className="p-3 text-center font-bold" style={{ color: 'var(--pro)' }}>{nota(product.puntuacion.total)}</td>
-                <td className="p-3 text-center"><AffiliateButton asin={asin} size="sm" /></td>
+                <td className="p-3 text-center whitespace-nowrap"><AffiliateButton asin={asin} size="sm" text="Ver en Amazon" /></td>
               </tr>
               {alternatives.map(([altAsin, alt]) => (
                 <tr key={altAsin} className="hover:bg-[var(--verde-estructura-claro)]" style={{ borderBottom: '1px solid var(--border)' }}>
-                  <td className="p-3 font-semibold">{alt.marca} {alt.modelo}</td>
-                  <td className="p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : alt.specs.tipo_motor === 'manual' ? 'Manual' : 'Simple'}</td>
+                  <td className="p-3 font-semibold">
+                    {alt.marca} {alt.modelo}
+                    <span className="block text-xs font-normal" style={{ color: 'var(--text-secondary)' }}>{enSuFranja(alt)}</span>
+                  </td>
+                  <td className="hidden sm:table-cell p-3 text-center">{alt.specs.tipo_motor === 'doble' ? 'Doble' : alt.specs.tipo_motor === 'manual' ? 'Manual' : 'Simple'}</td>
                   <td className="p-3 text-center font-bold">{nota(alt.puntuacion.total)}</td>
-                  <td className="p-3 text-center"><AffiliateButton asin={altAsin} size="sm" /></td>
+                  <td className="p-3 text-center whitespace-nowrap"><AffiliateButton asin={altAsin} size="sm" text="Ver en Amazon" /></td>
                 </tr>
               ))}
             </tbody>

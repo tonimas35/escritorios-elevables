@@ -21,6 +21,12 @@ export interface ProductSpecs {
    * la menor (METODO.md §5).
    */
   garantia_anos: number | null;
+  /**
+   * Solo cuando la ficha da una garantia mayor para la estructura que para
+   * el motor (FLEXISPOT: 5 años el marco, 3 el motor). La nota sigue usando
+   * `garantia_anos`, la menor; esto es para decirlo entero en la web.
+   */
+  garantia_estructura_anos?: number | null;
 }
 
 /**

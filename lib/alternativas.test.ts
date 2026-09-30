@@ -64,3 +64,14 @@ test("más grande o más compacto: primero dentro de su franja de precio", () =>
   assert.ok(compacto, "tiene alternativa más compacta");
   assert.equal(compacto.producto.slug, "sanodesk-140", "el completo de 140 cm de su franja, no el S2 Pro");
 });
+
+test("entre categorías, primero la misma gama de precio", () => {
+  // Un completo de gama media no propone como «elige tu tablero» un marco de gama alta
+  // si hay uno de su gama.
+  const tablero = alternativas(de("songmics-160"), catalogo).find((a) => a.motivo === "Si prefieres elegir tu tablero");
+  if (tablero) assert.equal(gama(tablero.producto), gama(de("songmics-160")));
+  // Un marco de gama media busca más carga primero en su gama.
+  const carga = alternativas(de("flexispot-eg1"), catalogo).find((a) => a.motivo === "Si necesitas más carga");
+  assert.ok(carga);
+  assert.equal(gama(carga.producto), gama(de("flexispot-eg1")));
+});

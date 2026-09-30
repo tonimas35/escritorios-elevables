@@ -913,6 +913,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
   pointer-events: none;
   user-select: none;
 }
+.bs-cifra .plancha::before {
+  content: attr(data-cifra);
+}
 .bs-cifra .plancha-c { color: #0088b0; }
 .bs-cifra .plancha-m { color: #d6006c; translate: 0.036em 0.025em; }
 .bs-cifra .plancha-y { color: #edbb00; translate: -0.031em -0.023em; }
@@ -1071,6 +1074,27 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .bs-apilada > li {
   border-bottom: var(--bs-filete-divisor);
   padding: 14px 0;
+}
+/* Cabecera de franja dentro de la comparativa (ordenada por precio) */
+.bs-tabla tbody tr.bs-tabla-grupo {
+  border-bottom: 0;
+}
+.bs-tabla tbody tr.bs-tabla-grupo:hover {
+  background: none;
+}
+.bs-tabla-grupo th,
+.bs-apilada > li.bs-apilada-grupo {
+  padding: 22px 10px 8px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: var(--bs-track-riel);
+  text-transform: uppercase;
+  color: var(--bs-verde-botella);
+  border-bottom: 2px solid var(--bs-verde-botella);
+}
+.bs-apilada > li.bs-apilada-grupo {
+  padding: 22px 0 8px;
 }
 
 .bs-solo-ancho { display: none; }

@@ -114,7 +114,7 @@ export function casos(catalogo: Product[]): Caso[] {
       id: "marco",
       situacion: "Si quieres elegir tu propio tablero",
       producto: marcoBarato,
-      motivo: `El marco más asequible del catálogo: ${marcoBarato.specs.peso_max_carga_kg} kg y de ${coma(marcoBarato.specs.rango_altura_min_cm)} a ${coma(marcoBarato.specs.rango_altura_max_cm)} cm. El tablero se compra aparte.`,
+      motivo: `El marco más asequible del catálogo${empate(marcoBarato, marcosConFranja, puntoMedio)}: ${marcoBarato.specs.peso_max_carga_kg} kg y de ${coma(marcoBarato.specs.rango_altura_min_cm)} a ${coma(marcoBarato.specs.rango_altura_max_cm)} cm. El tablero se compra aparte.`,
     });
   }
 
@@ -180,12 +180,18 @@ export function casosMarcos(catalogo: Product[]): Caso[] {
   const conGarantia = conFranja.filter((p) => p.specs.garantia_anos !== null);
   const maxGarantia = Math.max(...conGarantia.map((p) => p.specs.garantia_anos!));
   const garantiaBarata = mejor(conGarantia.filter((p) => p.specs.garantia_anos === maxGarantia), puntoMedio, false);
+  // Garantía partida (5 años el marco, 3 el motor): cuenta la menor
+  // (METODO.md §5). Se dice para que no parezca que se olvida al que da 5
+  // en el marco y es más barato.
+  const partida = conGarantia.some(
+    (p) => (p.specs.garantia_estructura_anos ?? 0) > (p.specs.garantia_anos ?? 0),
+  );
   if (garantiaBarata) {
     salida.push({
       id: "garantia",
       situacion: "Si quieres la garantía más larga gastando poco",
       producto: garantiaBarata,
-      motivo: `Declara ${maxGarantia} años de garantía, lo máximo entre las bases, y es la más asequible de las que los dan.`,
+      motivo: `Declara ${maxGarantia} años de garantía, lo máximo entre las bases, y es la más asequible de las que los dan.${partida ? " Donde la garantía del marco y la del motor son distintas, cuenta la del motor, que es la menor." : ""}`,
     });
   }
 

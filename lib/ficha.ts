@@ -43,8 +43,33 @@ export function ruido(p: Product): string | null {
   return p.specs.ruido_db === null ? null : `${p.specs.ruido_db} dB`;
 }
 
+/**
+ * Años de garantía de la estructura cuando superan a los del conjunto
+ * (FLEXISPOT: 5 el marco, 3 el motor). Si no, null.
+ */
+function garantiaMarco(p: Product): number | null {
+  const e = p.specs.garantia_estructura_anos ?? null;
+  const a = p.specs.garantia_anos;
+  return e !== null && a !== null && e > a ? e : null;
+}
+
+/**
+ * Para celdas y listas: "5 años" o "5 años marco, 3 motor". Poner solo la
+ * menor, como hace la nota, contradecía a los pros de esos mismos modelos.
+ */
 export function garantia(p: Product): string {
-  return p.specs.garantia_anos === null ? SIN_DATO : `${p.specs.garantia_anos} años`;
+  if (p.specs.garantia_anos === null) return SIN_DATO;
+  const marco = garantiaMarco(p);
+  return marco !== null ? `${marco} años marco, ${p.specs.garantia_anos} motor` : `${p.specs.garantia_anos} años`;
+}
+
+/** Para prosa: "5 años de garantía" o "5 años de garantía en el marco (3 en el motor)". */
+export function garantiaFrase(p: Product): string | null {
+  if (p.specs.garantia_anos === null) return null;
+  const marco = garantiaMarco(p);
+  return marco !== null
+    ? `${marco} años de garantía en el marco (${p.specs.garantia_anos} en el motor)`
+    : `${p.specs.garantia_anos} años de garantía`;
 }
 
 export function tablero(p: Product): string {
@@ -81,7 +106,7 @@ export function standfirst(p: Product): string {
   const frase = `Nota ${nota(p.puntuacion.total)} sobre 10 en su gama de precio.`;
   const ficha =
     p.specs.garantia_anos !== null
-      ? `${motorCorto(p)}, ${carga(p)} de carga y ${garantia(p)} de garantía.`
+      ? `${motorCorto(p)}, ${carga(p)} de carga y ${garantiaFrase(p)}.`
       : `${motorCorto(p)} y ${carga(p)} de carga.`;
   const cierre = p.incluye_tablero
     ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} incluido.`
@@ -137,7 +162,7 @@ export function caminos(catalogo: [string, Product][]): Camino[] {
       producto: p,
       texto:
         p.specs.garantia_anos !== null
-          ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm}${material}, ${motorCorto(p).toLowerCase()} y ${garantia(p)} de garantía.`
+          ? `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm}${material}, ${motorCorto(p).toLowerCase()} y ${garantiaFrase(p)}.`
           : `Tablero de ${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm}${material} y ${motorCorto(p).toLowerCase()}.`,
     });
   }
@@ -179,7 +204,7 @@ export function etiquetasSpec(p: Product): string[] {
     recorrido(p),
     p.specs.presets_memoria !== null ? `${p.specs.presets_memoria} memorias` : null,
     p.specs.sistema_anticolision ? "Anticolisión" : null,
-    p.specs.garantia_anos !== null ? `${p.specs.garantia_anos} años de garantía` : null,
+    garantiaMarco(p) !== null ? `Garantía ${garantia(p)}` : garantiaFrase(p),
   ];
   return fuera.filter((x): x is string => x !== null);
 }
