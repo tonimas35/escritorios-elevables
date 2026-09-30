@@ -9,7 +9,7 @@ Si al leer esto la tabla no coincide con el JSON, manda el JSON.
 
 ## El catálogo: 13 modelos activos y 3 retirados
 
-Última revisión de precios: **25/09/2026**.
+Última revisión de precios: **30/09/2026** (la de octubre toca el 15/10).
 
 | ASIN | slug | Modelo | Franja | Ficha propia |
 |---|---|---|---|---|
@@ -21,7 +21,7 @@ Si al leer esto la tabla no coincide con el JSON, manda el JSON.
 | `B0CV4V22XL` | `songmics-160` | SONGMICS 160x70 | 120–160 € | `/songmics-160-opiniones` (plantilla) |
 | `B0CKVPZ93G` | `devoko-160` | ~~Devoko 160x70~~ retirado el 24/09/2026 (sucesor `songmics-160`) | — | — |
 | `B0CDLBJ1VW` | `sanodesk-140` | SANODESK 140x60 | 140–180 € | `/sanodesk-140-opiniones` (plantilla) |
-| `B084KW7N8C` | `flexispot-eg1` | FLEXISPOT EG1 (marco) | 110–150 € | `/flexispot-eg1-opiniones` (plantilla; `/flexispot-e7-opiniones` redirige), `/flexispot-vs-maidesite` |
+| `B084KW7N8C` | `flexispot-eg1` | FLEXISPOT EG1 (marco) | 140–180 € | `/flexispot-eg1-opiniones` (plantilla; `/flexispot-e7-opiniones` redirige), `/flexispot-vs-maidesite` |
 | `B0DG2VTCXS` | `maidesite-t2-pro-max` | ~~MAIDeSITe T2 Pro MAX~~ retirado el 25/09/2026 (sucesor `maidesite-t2-pro-plus`) | — | `/maidesite-t2-pro-opiniones` redirige a `/maidesite-t2-pro-plus-opiniones` |
 | `B09TQR3MMM` | `maidesite-s2-pro` | MAIDeSITe S2 Pro 140x70 | 370–490 € | `/maidesite-s2-pro-opiniones` (plantilla), `/flexispot-vs-maidesite` |
 | `B09R746JHX` | `flexispot-160x80` | FLEXISPOT 160x80 | 350–470 € | `/flexispot-160x80-opiniones` (plantilla), `/flexispot-vs-maidesite` |
@@ -75,7 +75,12 @@ GitHub los ejecuta también en cada push.
 
 1. `npm run validar`: lista las franjas con más de 45 días.
 2. Abre cada ASIN activo en Amazon.es. ¿Tiene stock? Si lleva más de 30 días
-   sin él, es motivo de salida (METODO.md §4).
+   sin él, es motivo de salida (METODO.md §4). Mira también quién lo vende y
+   quién lo envía. El 30/09: VASAGLE y SONGMICS, Amazon; ErGear 120x60,
+   ErGear marco, T1, T2 Pro y T2 Pro Plus, envío de Amazon; el resto, el
+   propio vendedor. Vigila si la oferta pasa a un revendedor que no es la
+   marca (el FEZIBO lo vende YNV Supplies): el precio y el stock cambian sin
+   aviso.
 3. En `data/productos.json`, ajusta `precio_min` y `precio_max` si hace falta
    (±15 % sobre el precio visto, redondeado a la decena) y pon
    `precio_verificado` a la fecha de hoy, **siempre**, en `AAAA-MM-DD`. Los

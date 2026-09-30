@@ -151,6 +151,33 @@ no tiene relación.
 - Consultas genéricas ("escritorio elevable"): no se persiguen de frente; llegan
   con la autoridad (B5).
 
+### Revisión del 30/09 (cinco días después de los cambios)
+
+Sin efecto medible todavía: del 26 al 29/09, 10 sesiones y 11 clics a
+Amazon; del 22 al 25/09, 14 sesiones y 9 clics. Es ruido.
+
+- **GA4, 28 días (2–29/09):** 85 sesiones (53 los 28 anteriores).
+  ChatGPT 39 (46 %), directo 22, Google 21 (4 los 28 anteriores). ChatGPT
+  hace el 62 % de los eventos clave. Es la única IA que manda tráfico. En
+  90 días, ChatGPT aterriza más en la home (41) que en la guía (36).
+- **Search Console, 6 meses:** 12 clics, 735 impresiones, posición 28.
+  En página 1: «maidesite vs flexispot» (4,6) y «flexispot vs maidesite»
+  (7,0). Cerca: «sanodesk vs flexispot» (11,2), «devoko escritorio
+  elevable» (11,0). Las fichas nuevas ya salen (devoko-120 en 9,5). 10 de
+  24 páginas indexadas. IA de Google: 7 impresiones en 3 meses.
+- **Amazon Afiliados, 30 días:** 75 clics, 7 pedidos, 186,50 €, 8,57 € de
+  comisión. **Los 7 pedidos son indirectos**: nadie compró el escritorio
+  enlazado. Amazon no da el desglose por producto con este volumen.
+- **GA4, dimensión «ASIN afiliado»** (`event_label` de `affiliate_click`)
+  registrada el 30/09: desde ese día, qué modelo se pulsa sale en GA4.
+  Antes no se puede reconstruir.
+- **Bing Webmaster y AI Performance:** sin revisar; pendiente de iniciar
+  sesión.
+- **Hecho ese día:** revisión de precios (el EG1 sube a 140–180 €), garantía
+  de marco y motor coherente, comparativa ordenada por franja, alternativas
+  de su gama de precio, texto provisional fuera de la review del FEZIBO y
+  cifras decorativas fuera del texto de la página.
+
 ### Datos que faltan para confirmar este orden
 
 Las cifras de tráfico y de dinero son del 07/09. Hay que refrescarlas:
