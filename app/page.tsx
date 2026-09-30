@@ -215,8 +215,8 @@ export default function Home() {
             Según lo que necesites
           </h2>
           <p className="bs-cuerpo" style={{ maxWidth: "58ch", marginTop: 16, color: "var(--bs-neutro-800)" }}>
-            No segmentamos por presupuesto porque el presupuesto cambia y el uso
-            no. Estas son las tres decisiones reales.
+            El precio lo ordenan las franjas de arriba; lo que decide dentro de
+            ellas es el uso. Estas son las tres decisiones reales.
           </p>
 
           <div className="bs-caminos" style={{ marginTop: 40 }}>
