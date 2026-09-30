@@ -121,6 +121,7 @@ export default function SanodeskVsFlexispotPage() {
   const faq: { q: string; a: string }[] = [];
   if (sano && eg1 && fx160) {
     const pos = (p: Product) => posicionEnFranja(p, catalogo);
+    const medio = (p: Product) => ((p.precio_min ?? 0) + (p.precio_max ?? 0)) / 2;
     const enFranja = (p: Product) => {
       const x = pos(p);
       return x ? `nº ${x.posicion} de ${x.de} en ${NOMBRE_FRANJA[x.franja].toLowerCase()}` : "sin franja verificada";
@@ -128,11 +129,17 @@ export default function SanodeskVsFlexispotPage() {
     faq.push(
       {
         q: "¿Qué es mejor, SANODESK o FLEXISPOT?",
-        a: `Depende de qué necesites, porque no compiten en el mismo precio. El ${nombre(sano)} es una mesa completa asequible con anticolisión (${enFranja(sano)}). De FLEXISPOT, el ${nombre(eg1)} es el marco más asequible del catálogo (${enFranja(eg1)}) y el ${nombre(fx160)} es una mesa grande con doble motor (${enFranja(fx160)}).`,
+        a: `Depende de qué necesites, porque no compiten en el mismo precio. El ${nombre(sano)} es una mesa completa asequible con anticolisión (${enFranja(sano)}). De FLEXISPOT, el ${nombre(eg1)} es el marco más asequible de los que declaran anticolisión (${enFranja(eg1)}) y el ${nombre(fx160)} es una mesa grande con doble motor (${enFranja(fx160)}).`,
       },
       {
         q: "¿Cuál es más barato?",
-        a: `El ${nombre(eg1)}, pero no trae tablero. Con tablero incluido, el ${nombre(sano)} cuesta bastante menos que el ${nombre(fx160)}. Las franjas se comprueban en Amazon con fecha; el precio del día solo es fiable allí.`,
+        a: `${
+          medio(eg1) < medio(sano)
+            ? `El ${nombre(eg1)}, pero no trae tablero.`
+            : medio(eg1) === medio(sano)
+              ? `El ${nombre(eg1)} y el ${nombre(sano)} están en la misma franja de precio, pero el ${nombre(eg1)} no trae tablero: súmale el que elijas.`
+              : `El ${nombre(sano)}, y trae tablero; el ${nombre(eg1)} es solo el marco.`
+        } Con tablero incluido, el ${nombre(sano)} cuesta bastante menos que el ${nombre(fx160)}. Las franjas se comprueban en Amazon con fecha; el precio del día solo es fiable allí.`,
       },
       {
         q: "¿Cuál tiene más garantía?",
