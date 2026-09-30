@@ -5,6 +5,7 @@ import { getAvailableProducts } from "@/lib/products";
 import { rutaFicha } from "@/lib/rutas";
 import { coma, nota } from "@/lib/format";
 import { NOMBRE_FRANJA, posicionEnFranja, type Franja } from "@/lib/nota";
+import { infoFranja } from "@/lib/comparativa";
 import { FECHA_EN_FRASE } from "@/lib/fecha";
 import {
   carga,
@@ -98,6 +99,7 @@ export default function MejorEscritorioPage() {
     recorrido: recorrido(p),
     garantia: garantia(p),
     franja: franjaCorta(p),
+    ...infoFranja(p, productos),
   }));
 
   const guia = [

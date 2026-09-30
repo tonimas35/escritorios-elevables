@@ -28,6 +28,7 @@ import { Firma } from "@/components/broadsheet/Firma";
 import { Comparativa, type FilaComparativa } from "@/components/broadsheet/Comparativa";
 import { CRITERIOS } from "@/lib/metodologia";
 import { NOMBRE_FRANJA, posicionEnFranja, type Franja } from "@/lib/nota";
+import { infoFranja } from "@/lib/comparativa";
 import { PosicionNota } from "@/components/broadsheet/PosicionNota";
 import { CtaFijo } from "@/components/broadsheet/CtaFijo";
 import { rutaFicha } from "@/lib/rutas";
@@ -132,6 +133,7 @@ export default function Home() {
     recorrido: recorrido(p),
     garantia: garantia(p),
     franja: franjaCorta(p),
+    ...infoFranja(p, productos),
   }));
 
   return (
