@@ -36,6 +36,12 @@ export default function EscritorioBaratoPage() {
       const pos = posicionEnFranja(p, todos);
       return pos?.franja === "A" && pos.posicion === 1;
     }) ?? cheapProducts[0];
+  // Para quien ya tiene tablero: el nº 1 de los marcos baratos, calculado,
+  // no un modelo fijo en el texto.
+  const mejorMarco = cheapProducts.find(([, p]) => {
+    const pos = posicionEnFranja(p, todos);
+    return pos?.franja === "M1" && pos.posicion === 1;
+  })?.[1];
   const medio = (p: (typeof todos)[number]) => (p.precio_min !== null && p.precio_max !== null ? (p.precio_min + p.precio_max) / 2 : p.precio);
   const masBarato = [...cheapProducts].sort(([, a], [, b]) => medio(a) - medio(b))[0];
   const w = winner?.[1];
@@ -174,7 +180,7 @@ export default function EscritorioBaratoPage() {
       <FadeIn delay={100}>
         <div className="mt-8 max-w-3xl text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <p>
-            No necesitas irte a la gama alta. Si tu setup es portátil + monitor + teclado, la gama de entrada te vale. Mi recomendación rápida: el <strong>marco Flexispot</strong> si ya tienes tablero{anticolisionBarato && <>, el <strong>{anticolisionBarato.marca} {anticolisionBarato.modelo}</strong> si buscas anticolisión</>}{masBarato && <>, y el <strong>{masBarato[1].marca} {masBarato[1].modelo}</strong>, el más barato del catálogo, para probar con lo mínimo</>}.
+            No necesitas irte a la gama alta. Si tu setup es portátil + monitor + teclado, la gama de entrada te vale. Mi recomendación rápida:{mejorMarco && <> el <strong>{mejorMarco.marca} {mejorMarco.modelo}</strong>, el nº 1 de los {NOMBRE_FRANJA.M1.toLowerCase()}, si ya tienes tablero</>}{anticolisionBarato && <>, el <strong>{anticolisionBarato.marca} {anticolisionBarato.modelo}</strong> si buscas anticolisión</>}{masBarato && <>, y el <strong>{masBarato[1].marca} {masBarato[1].modelo}</strong>, el más barato del catálogo, para probar con lo mínimo</>}.
           </p>
         </div>
       </FadeIn>
@@ -390,7 +396,7 @@ export default function EscritorioBaratoPage() {
               <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los mejores escritorios elevables de 2026</Link> — Incluye modelos premium si decides subir de presupuesto.
             </p>
             <p>
-              <Link href="/flexispot-eg1-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>FLEXISPOT EG1: ficha completa</Link> — El marco más asequible del catálogo.
+              <Link href="/flexispot-eg1-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>FLEXISPOT EG1: ficha completa</Link> — El marco más asequible de los que declaran anticolisión.
             </p>
           </div>
         </section>
