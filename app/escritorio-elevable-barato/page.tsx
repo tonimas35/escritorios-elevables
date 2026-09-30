@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getAllProducts } from "@/lib/products";
 import { rutaFicha } from "@/lib/rutas";
+import { garantiaFrase } from "@/lib/ficha";
 import { coma, nota } from "@/lib/format";
 import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
 import { FECHA, FECHA_EN_FRASE } from "@/lib/fecha";
@@ -43,7 +44,7 @@ export default function EscritorioBaratoPage() {
         w.specs.presets_memoria !== null ? `${w.specs.presets_memoria} memorias` : null,
         `${w.specs.peso_max_carga_kg} kg de carga`,
         w.specs.sistema_anticolision ? "anticolisión" : null,
-        w.specs.garantia_anos !== null ? `${w.specs.garantia_anos} años de garantía` : null,
+        garantiaFrase(w),
       ].filter((x): x is string => x !== null)
     : [];
   const enLista = (xs: string[]) => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} y ${xs.at(-1)}`);

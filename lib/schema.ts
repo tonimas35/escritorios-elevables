@@ -113,7 +113,7 @@ export function especificaciones(p: Product): [string, string][] {
     ["Sistema anticolisión", s.sistema_anticolision === null ? null : s.sistema_anticolision ? "Sí" : "No"],
     ["Velocidad", s.velocidad_cm_s !== null ? `${coma(s.velocidad_cm_s)} cm/s` : null],
     ["Ruido declarado", s.ruido_db !== null ? `${s.ruido_db} dB` : null],
-    ["Garantía", s.garantia_anos !== null ? `${s.garantia_anos} años` : null],
+    ["Garantía", s.garantia_anos === null ? null : s.garantia_estructura_anos && s.garantia_estructura_anos > s.garantia_anos ? `${s.garantia_estructura_anos} años en el marco, ${s.garantia_anos} en el motor` : `${s.garantia_anos} años`],
   ];
   return filas.filter((f): f is [string, string] => f[1] !== null);
 }
