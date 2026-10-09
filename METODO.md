@@ -47,6 +47,24 @@ poder explicarse con este fichero y con `data/productos.json`.
 
 ## 3. Requisitos de entrada
 
+### De dónde salen los candidatos
+
+*Decidido por Toni el 09/10/2026.*
+
+Se parte de los ~10 más vendidos de cada franja en Amazon.es y de las
+novedades. Son los modelos que la gente busca por su nombre, y tener su ficha
+es lo que permite responderle. La popularidad decide qué se mira; nunca la
+nota ni el orden:
+
+- Un más vendido que cumple todos los requisitos de abajo, y cuya nota no está
+  por debajo del umbral de salida (§4), puede ocupar un **hueco libre** de su
+  franja aunque no sea el de mejor nota. Se publica con la nota y la posición
+  que le tocan.
+- Si la franja está llena, no tiene trato especial: entra solo si supera a
+  otro en 0,3 puntos o más (§4).
+
+### Requisitos
+
 Un modelo entra solo si cumple **todos**:
 
 1. Se vende y se envía en Amazon.es y tiene stock el día de la revisión.

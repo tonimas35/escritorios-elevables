@@ -219,6 +219,12 @@ export default function MetodologiaPage() {
             </li>
           ))}
         </ul>
+        <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
+          Partimos de los más vendidos en Amazon España y de las novedades, porque
+          son los que la gente está mirando. Solo entran los que cumplen todo lo de
+          abajo, y dentro de cada franja el orden lo decide la nota, no lo que más
+          se vende.
+        </p>
         <p className="text-sm leading-relaxed mb-3" style={{ color: "var(--text-secondary)" }}>
           <strong style={{ color: "var(--text-primary)" }}>Para entrar</strong>, un modelo
           tiene que cumplir todo esto:
@@ -227,7 +233,6 @@ export default function MetodologiaPage() {
           <li>Se vende y se envía en Amazon España y tiene stock.</li>
           <li>Nota media de 4,3 o más en Amazon, con al menos {MIN_VALORACIONES} valoraciones.</li>
           <li>Especificaciones completas, sacadas de la ficha del fabricante o de Amazon.</li>
-          <li>Garantía declarada por escrito.</li>
           <li>
             En sus reseñas de una y dos estrellas más recientes no se repite ningún
             fallo de motor, de estabilidad o de piezas rotas.

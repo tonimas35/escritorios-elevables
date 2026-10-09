@@ -102,6 +102,8 @@ GitHub los ejecuta también en cada push.
    fallo? Resumen en `nota_resenas`.
 4. Claude calcula la nota de candidatos y activos y propone entradas y
    salidas por franja. Solo se sustituye con 0,3 puntos o más de diferencia.
+   Un hueco libre lo puede ocupar un más vendido que cumpla los requisitos,
+   aunque no tenga la mejor nota (METODO.md §3).
 5. Cada alta, baja o corrección, con fecha y motivo, en
    `data/cambios-catalogo.json`. Se publica solo en `/metodologia`.
 6. Rellena en los activos lo que falte: `fuente_specs`, `specs_verificado`
