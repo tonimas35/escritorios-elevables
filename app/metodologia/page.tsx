@@ -227,7 +227,6 @@ export default function MetodologiaPage() {
           <li>Se vende y se envía en Amazon España y tiene stock.</li>
           <li>Nota media de 4,3 o más en Amazon, con al menos {MIN_VALORACIONES} valoraciones.</li>
           <li>Especificaciones completas, sacadas de la ficha del fabricante o de Amazon.</li>
-          <li>Garantía declarada por escrito.</li>
           <li>
             En sus reseñas de una y dos estrellas más recientes no se repite ningún
             fallo de motor, de estabilidad o de piezas rotas.
