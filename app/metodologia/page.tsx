@@ -8,6 +8,7 @@ import {
   PUNTOS_EXCELENTE,
   PUNTOS_MINIMO,
   SIN_ANTICOLISION,
+  MAX_POR_FRANJA,
   NOMBRE_FRANJA,
   UMBRALES,
   VALORACION,
@@ -208,8 +209,8 @@ export default function MetodologiaPage() {
         </h2>
         <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
           Recomendamos lo mejor de cada franja de precio, no lo que más comisión
-          deja. Por eso el catálogo se reparte en {numeroFranjas} franjas, con tres modelos
-          como máximo en cada una, y ninguna se queda sin cubrir, tampoco la
+          deja. Por eso el catálogo se reparte en {numeroFranjas} franjas, con un máximo de
+          {" "}{EN_LETRA[MAX_POR_FRANJA]} modelos en cada una, y ninguna se queda sin cubrir, tampoco la
           más barata:
         </p>
         <ul className="space-y-1 text-sm mb-5" style={{ color: "var(--text-secondary)" }}>
