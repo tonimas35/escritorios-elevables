@@ -86,13 +86,32 @@ test("el registro de cambios solo admite slugs del catálogo", () => {
   assert.match(errores(real, mal).join("\n"), /"fantasma" no está en el catálogo/);
 });
 
-test("avisa de franjas con más de tres modelos", () => {
-  // Se reactiva un modelo retirado de la franja B para pasar de tres.
-  const c = catalogoCon("vasagle-160", (p) => {
-    p.disponible = true;
-    p.estado = "activo";
-  });
-  assert.match(avisos(c).join("\n"), /franja B: \d modelos activos \(máximo 3\)/);
+test("avisa de franjas con más de cinco modelos", () => {
+  // Se reactivan los dos retirados de la franja B y se pasa un modelo de la
+  // A a la B por precio: 3 + 2 + 1 = 6 modelos en la B.
+  const c = structuredClone(real);
+  for (const p of Object.values(c)) {
+    if (p.slug === "vasagle-160" || p.slug === "devoko-160") {
+      p.disponible = true;
+      p.estado = "activo";
+    }
+    if (p.slug === "ergear-120") {
+      p.precio_min = 130;
+      p.precio_max = 170;
+    }
+  }
+  assert.match(avisos(c).join("\n"), /franja B: 6 modelos activos \(máximo 5\)/);
+});
+
+test("con cinco modelos en una franja no avisa", () => {
+  const c = structuredClone(real);
+  for (const p of Object.values(c)) {
+    if (p.slug === "vasagle-160" || p.slug === "devoko-160") {
+      p.disponible = true;
+      p.estado = "activo";
+    }
+  }
+  assert.doesNotMatch(avisos(c).join("\n"), /franja B: \d modelos activos \(máximo/);
 });
 
 test("el titular tampoco puede llevar precio", () => {

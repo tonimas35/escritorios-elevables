@@ -33,6 +33,10 @@ export const PESOS = {
   valoracion: 0.15,
 } as const;
 
+/** Tamaño del catálogo (METODO.md §2): modelos por franja y en total. */
+export const MAX_POR_FRANJA = 5;
+export const MAX_TOTAL = 20;
+
 /** Por debajo de estas valoraciones la nota de Amazon no cuenta (§3 y §5). */
 export const MIN_VALORACIONES = 100;
 

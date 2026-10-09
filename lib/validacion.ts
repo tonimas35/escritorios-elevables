@@ -12,7 +12,7 @@
  */
 import type { CambioCatalogo, Product, ProductMap } from "./types";
 import { CIFRA_PROHIBIDA } from "./cifras.ts";
-import { calcularNota, franja, NOMBRE_FRANJA } from "./nota.ts";
+import { calcularNota, franja, MAX_POR_FRANJA, MAX_TOTAL, NOMBRE_FRANJA } from "./nota.ts";
 
 export interface Resultado {
   errores: string[];
@@ -166,8 +166,10 @@ export function validarCatalogo(
   }
   for (const [f, n] of Object.entries(porFranja)) {
     if (n < 2) avisos.push(`franja ${f}: ${n} modelo${n === 1 ? "" : "s"} activo${n === 1 ? "" : "s"} (mínimo 2)`);
-    if (n > 3) avisos.push(`franja ${f}: ${n} modelos activos (máximo 3)`);
+    if (n > MAX_POR_FRANJA) avisos.push(`franja ${f}: ${n} modelos activos (máximo ${MAX_POR_FRANJA})`);
   }
+  const activos = Object.values(porFranja).reduce((t, n) => t + n, 0);
+  if (activos > MAX_TOTAL) avisos.push(`catálogo: ${activos} modelos activos (máximo ${MAX_TOTAL})`);
 
   // Registro de cambios (METODO.md §7).
   cambios.forEach((c, i) => {
