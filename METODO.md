@@ -40,7 +40,11 @@ poder explicarse con este fichero y con `data/productos.json`.
 - Se asigna por el **punto medio** de `precio_min`–`precio_max`, porque las
   franjas publicadas se solapan con los límites (ej.: Devoko 120, 100–130 €,
   punto medio 115 → A).
-- **Hasta tres modelos por franja**, y un máximo de 15 en total.
+- **Hasta cinco modelos por franja**, y un máximo de 20 en total. Eran tres y
+  15 hasta el 09/10/2026: se amplía, aprobado por Toni, para que los más
+  vendidos que cumplen los requisitos (§3) quepan sin desplazar a modelos que
+  ya tienen página y tráfico. La regla de 0,3 puntos (§4) solo se aplica con
+  la franja llena.
 - **No se repiten clones.** Si dos modelos tienen specs idénticas (hoy ErGear
   120 y FEZIBO 120), entra uno: el de mejor valoración con más volumen. Un hueco
   en el catálogo ocupado por un clon es un hueco que no ayuda a nadie.

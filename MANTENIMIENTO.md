@@ -138,7 +138,7 @@ en `/{slug}-opiniones` aparece sola cuando el modelo tiene `titular`, que
 necesita visto bueno antes de entrar.
 
 **El tamaño del catálogo lo decide lo que puedes mantener a mano, no el
-mercado.** Tres por franja como máximo. Rotar antes que acumular.
+mercado.** Cinco por franja como máximo y 20 en total. Rotar antes que acumular.
 
 ## La API de Publicidad de Productos: descartada
 
