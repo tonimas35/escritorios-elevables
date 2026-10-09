@@ -219,6 +219,12 @@ export default function MetodologiaPage() {
             </li>
           ))}
         </ul>
+        <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
+          Partimos de los más vendidos en Amazon España y de las novedades, porque
+          son los que la gente está mirando. Solo entran los que cumplen todo lo de
+          abajo, y dentro de cada franja el orden lo decide la nota, no lo que más
+          se vende.
+        </p>
         <p className="text-sm leading-relaxed mb-3" style={{ color: "var(--text-secondary)" }}>
           <strong style={{ color: "var(--text-primary)" }}>Para entrar</strong>, un modelo
           tiene que cumplir todo esto:
