@@ -85,6 +85,7 @@ export default function MejorEscritorioPage() {
   const filas: FilaComparativa[] = catalogo.map(([asin, p]) => ({
     asin,
     nombre: `${p.marca} ${p.modelo}`,
+    ruta: rutaFicha(p),
     imagen: p.imagen,
     alt: p.imagen_alt,
     nota: nota(p.puntuacion.total),

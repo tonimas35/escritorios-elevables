@@ -12,6 +12,7 @@ import { AvisoAfiliadoPagina } from "@/components/AvisoAfiliado";
 import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
 import { productSchema } from "@/lib/schema";
+import { rutaFicha } from "@/lib/rutas";
 
 export const metadata: Metadata = {
   title: "Flexispot vs Maidesite 2026 — ¿Cuál es mejor?",
@@ -55,6 +56,14 @@ export default function FlexispotVsMaidesitePage() {
   const tramo = (p: typeof e7Product) => p.specs.rango_altura_max_cm - p.specs.rango_altura_min_cm;
   const tableroTxt = (p: typeof e7Product) =>
     p.incluye_tablero ? `${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm} cm` : "Sin tablero";
+
+  // El nombre de un modelo enlaza a su ficha cuando la tiene.
+  const enlaceFicha = (p: typeof e7Product, texto: string) => {
+    const ruta = rutaFicha(p);
+    return ruta ? (
+      <Link href={ruta} className="underline" style={{ color: 'var(--verde-estructura)' }}>{texto}</Link>
+    ) : texto;
+  };
 
   const comparisons: { label: string; e7: string; t2: string; winner: Ganador }[] = [
     { label: "Motor", e7: motorCorto(e7Product), t2: motorCorto(t2Product), winner: gana(motores(e7Product), motores(t2Product)) },
@@ -303,7 +312,7 @@ export default function FlexispotVsMaidesitePage() {
             </h2>
             <div className="max-w-3xl mb-6 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               <p>
-            Los dos llegan completos, sin comprar nada aparte. El FLEXISPOT de 160x80 ofrece el tablero más grande, de {eg1[1].specs.ancho_tablero_cm}x{eg1[1].specs.profundidad_tablero_cm}, pero mueve {eg1[1].specs.peso_max_carga_kg} kg. El MAIDeSITe S2 Pro trae tablero de {s2[1].specs.ancho_tablero_cm}x{s2[1].specs.profundidad_tablero_cm} y {s2[1].specs.peso_max_carga_kg} kg de carga. Si quieres superficie, el Flexispot; si quieres carga, el MAIDeSITe.
+            Los dos llegan completos, sin comprar nada aparte. El {enlaceFicha(eg1[1], "FLEXISPOT de 160x80")} ofrece el tablero más grande, de {eg1[1].specs.ancho_tablero_cm}x{eg1[1].specs.profundidad_tablero_cm}, pero mueve {eg1[1].specs.peso_max_carga_kg} kg. El {enlaceFicha(s2[1], "MAIDeSITe S2 Pro")} trae tablero de {s2[1].specs.ancho_tablero_cm}x{s2[1].specs.profundidad_tablero_cm} y {s2[1].specs.peso_max_carga_kg} kg de carga. Si quieres superficie, el Flexispot; si quieres carga, el MAIDeSITe.
           </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -315,7 +324,7 @@ export default function FlexispotVsMaidesitePage() {
                         <Image src={product.imagen} alt={product.imagen_alt} width={120} height={120} className="object-contain p-1" />
                       </div>
                       <div>
-                        <h3 className="font-semibold">{product.marca} {product.modelo}</h3>
+                        <h3 className="font-semibold">{enlaceFicha(product, `${product.marca} ${product.modelo}`)}</h3>
                         <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{coma(product.rating)}★ · {nota(product.puntuacion.total)}/10</p>
                       </div>
                     </div>
@@ -380,6 +389,9 @@ export default function FlexispotVsMaidesitePage() {
           <div className="space-y-2 text-sm">
             <p>
               <Link href="/flexispot-eg1-opiniones" className="underline" style={{ color: 'var(--verde-estructura)' }}>FLEXISPOT EG1: ficha completa</Link> — Datos, nota desglosada y alternativas del marco de Flexispot.
+            </p>
+            <p>
+              <Link href="/sanodesk-vs-flexispot" className="underline" style={{ color: 'var(--verde-estructura)' }}>SANODESK vs FLEXISPOT</Link> — La otra comparativa de marcas: cuál comprar de las dos.
             </p>
             <p>
               <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los mejores escritorios elevables de 2026</Link> — Comparativa completa con todas las marcas.

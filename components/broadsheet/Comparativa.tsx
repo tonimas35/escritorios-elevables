@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Cta } from "./Cta";
 import type { InfoFranja } from "@/lib/comparativa";
 
@@ -21,6 +22,8 @@ import type { InfoFranja } from "@/lib/comparativa";
 export interface FilaComparativa extends InfoFranja {
   asin: string;
   nombre: string;
+  /** Ficha del modelo en la web, si tiene. El nombre enlaza a ella. */
+  ruta?: string | null;
   imagen: string;
   alt: string;
   nota: string;
@@ -43,6 +46,11 @@ type Orden = "precio" | "carga";
 
 /** El mismo texto que SIN_DATO de lib/ficha.ts, que no se importa aquí por ser isla de cliente. */
 const SIN_DATO = "Sin dato";
+
+/** El nombre del modelo, enlazado a su ficha cuando la tiene. */
+function Nombre({ f }: { f: FilaComparativa }) {
+  return f.ruta ? <Link href={f.ruta}>{f.nombre}</Link> : <>{f.nombre}</>;
+}
 
 /** Recorrido, valoración y garantía; al ordenar por carga, también la franja. */
 function meta(f: FilaComparativa, orden: Orden): string {
@@ -230,7 +238,7 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
                     </span>
                     <span>
                       <span style={{ display: "block", fontSize: 16, fontWeight: 600 }}>
-                        {f.nombre}
+                        <Nombre f={f} />
                       </span>
                       <span style={{ fontSize: 13, color: "var(--bs-neutro-700)" }}>
                         {meta(f, orden)}
@@ -292,7 +300,7 @@ export function Comparativa({ filas }: { filas: FilaComparativa[] }) {
                 <div style={{ flex: 1 }}>
                   <div className="flex items-start gap-3">
                     <div style={{ flex: 1 }}>
-                      <p style={{ fontSize: 16, fontWeight: 600 }}>{f.nombre}</p>
+                      <p style={{ fontSize: 16, fontWeight: 600 }}><Nombre f={f} /></p>
                       <p style={{ fontSize: 13, color: "var(--bs-neutro-700)" }}>
                         Nota <strong style={{ color: "var(--bs-tinta)" }}>{f.nota}</strong>
                         {f.posicionTxt ? ` (${f.posicionTxt} en su franja)` : ""} · {f.rating}★
