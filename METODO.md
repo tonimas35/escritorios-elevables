@@ -208,6 +208,11 @@ Todas están en el registro de cambios.
 La cifra grande de la ficha es la **posición en su franja** ("Nº 1 de la franja
 A") y la nota se enseña al lado, más pequeña, con un enlace a esta fórmula.
 
+En los bloques que reúnen al primero de cada franja (veredicto de la home, de
+la guía y de bases elevables) no hay cifra grande: todas serían "01" y no se
+entiende. Encima del modelo va el nombre de su franja, y la posición, en texto
+("Nº 1 de 3 en su franja"). Cambiado el 12/10/2026.
+
 Aprobado por Toni el 24/09/2026:
 
 - **Empates.** Dos modelos de la misma franja cuya nota se diferencia en menos

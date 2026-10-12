@@ -26,7 +26,7 @@ import type { Product } from "@/lib/types";
 import { Cta } from "@/components/broadsheet/Cta";
 import { Afiliado } from "@/components/broadsheet/Afiliado";
 import { Firma } from "@/components/broadsheet/Firma";
-import { PosicionNota } from "@/components/broadsheet/PosicionNota";
+import { PosicionNota, RotuloFranja } from "@/components/broadsheet/PosicionNota";
 import { Comparativa, type FilaComparativa } from "@/components/broadsheet/Comparativa";
 
 /**
@@ -226,12 +226,15 @@ export default function MejorEscritorioPage() {
                   />
                 </div>
               </div>
-              <h2 className="bs-h3">
-                <a href={`#${p.slug}`}>
-                  {p.marca} {p.modelo}
-                </a>
-              </h2>
-              <PosicionNota producto={p} catalogo={productos} tamano="44px" />
+              <div>
+                <RotuloFranja producto={p} catalogo={productos} />
+                <h2 className="bs-h3" style={{ marginTop: 4 }}>
+                  <a href={`#${p.slug}`}>
+                    {p.marca} {p.modelo}
+                  </a>
+                </h2>
+              </div>
+              <PosicionNota producto={p} catalogo={productos} sinCifra />
               {franjaPrecio(p) && <p className="bs-afiliado bs-afiliado-mini">{franjaPrecio(p)}</p>}
               <Cta asin={asin} ancho mini />
             </div>
