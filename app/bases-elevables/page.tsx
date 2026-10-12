@@ -13,7 +13,7 @@ import type { Product } from "@/lib/types";
 import { Cta } from "@/components/broadsheet/Cta";
 import { Afiliado } from "@/components/broadsheet/Afiliado";
 import { Firma } from "@/components/broadsheet/Firma";
-import { PosicionNota } from "@/components/broadsheet/PosicionNota";
+import { PosicionNota, RotuloFranja } from "@/components/broadsheet/PosicionNota";
 
 /**
  * Bases elevables: los marcos sin tablero del catálogo (SEO-PLAN.md §0, P4).
@@ -209,10 +209,13 @@ export default function BasesElevablesPage() {
                   />
                 </div>
               </div>
-              <h2 className="bs-h3">
-                <a href={`#${p.slug}`}>{nombre(p)}</a>
-              </h2>
-              <PosicionNota producto={p} catalogo={catalogo} tamano="44px" />
+              <div>
+                <RotuloFranja producto={p} catalogo={catalogo} />
+                <h2 className="bs-h3" style={{ marginTop: 4 }}>
+                  <a href={`#${p.slug}`}>{nombre(p)}</a>
+                </h2>
+              </div>
+              <PosicionNota producto={p} catalogo={catalogo} sinCifra />
               {franjaPrecio(p) && <p className="bs-afiliado bs-afiliado-mini">{franjaPrecio(p)}</p>}
               <Cta asin={asinDe.get(p.slug)!} ancho mini />
             </div>
