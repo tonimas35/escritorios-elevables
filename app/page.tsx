@@ -67,6 +67,18 @@ export default function Home() {
     : (posicionEnFranja(primeros[0][1], productos)?.franja ?? "B");
   const grupoDestacado = enFranja(franjaDestacada);
   const [asinTop, top] = grupoDestacado[0] ?? primeros[0];
+
+  // Atajos de arriba: llevan a quien ya sabe lo que busca directo a la
+  // ficha del modelo que le toca, con su CTA. Salen del catálogo, como los
+  // caminos: el nº 1 de la franja A y el camino de más carga.
+  const primeroA = primeros.find(([, p]) => posicionEnFranja(p, productos)?.franja === "A");
+  const caminoCarga = tresCaminos.find((c) => c.etiqueta === "Dos monitores o setup grande");
+  const atajos = [
+    { texto: "Barato, hasta 120 €", href: (primeroA && rutaFicha(primeroA[1])) || "/escritorio-elevable-barato" },
+    { texto: "Grande, para dos monitores", href: (caminoCarga && rutaFicha(caminoCarga.producto)) || "/mejor-escritorio-elevable" },
+    { texto: "Solo la base, con mi tablero", href: "/bases-elevables" },
+    { texto: "No lo sé, ayúdame a elegir", href: "/que-escritorio-elevable-comprar" },
+  ];
   const podio = grupoDestacado.slice(1, 3);
   const prosTop = top.pros.filter(publicable).slice(0, 3);
   const exclusionTop = exclusion(top);
@@ -157,6 +169,19 @@ export default function Home() {
           Cada escritorio se mide contra lo que se puede esperar por su precio.
           Estos son los primeros de cada franja.
         </p>
+
+        {/* Atajos: quien ya sabe lo que busca va directo a su modelo. */}
+        <nav aria-label="¿Qué buscas?" style={{ marginTop: 28 }}>
+          <p className="bs-etiqueta" style={{ marginBottom: 10 }}>¿Qué buscas?</p>
+          <div className="bs-atajos">
+            {atajos.map((a) => (
+              <Link key={a.texto} href={a.href} className="bs-atajo">
+                {a.texto}
+                <span aria-hidden="true">→</span>
+              </Link>
+            ))}
+          </div>
+        </nav>
 
         {/* Cuatro franjas: en escritorio van de dos en dos, porque el CTA
             no cabe en un cuarto de ancho; en movil, una columna. */}
