@@ -29,7 +29,7 @@ import { Comparativa, type FilaComparativa } from "@/components/broadsheet/Compa
 import { CRITERIOS } from "@/lib/metodologia";
 import { NOMBRE_FRANJA, posicionEnFranja, type Franja } from "@/lib/nota";
 import { infoFranja } from "@/lib/comparativa";
-import { PosicionNota } from "@/components/broadsheet/PosicionNota";
+import { PosicionNota, RotuloFranja } from "@/components/broadsheet/PosicionNota";
 import { CtaFijo } from "@/components/broadsheet/CtaFijo";
 import { rutaFicha } from "@/lib/rutas";
 
@@ -183,11 +183,14 @@ export default function Home() {
                 </div>
               </div>
 
-              <h2 className="bs-h3">
-                {p.marca} {p.modelo}
-              </h2>
+              <div>
+                <RotuloFranja producto={p} catalogo={productos} />
+                <h2 className="bs-h3" style={{ marginTop: 4 }}>
+                  {p.marca} {p.modelo}
+                </h2>
+              </div>
 
-              <PosicionNota producto={p} catalogo={productos} tamano="44px" />
+              <PosicionNota producto={p} catalogo={productos} sinCifra />
 
               {franjaPrecio(p) && (
                 <p className="bs-afiliado bs-afiliado-mini">{franjaPrecio(p)}</p>
