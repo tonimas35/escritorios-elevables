@@ -983,6 +983,49 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 /* ----------------------------------------
+   Atajos de la portada: "¿Qué buscas?"
+   Enlaces de navegación, no CTA: por eso van con borde verde y texto en
+   tinta, nunca rellenos (los CTA de Amazon siguen siendo negro tinta).
+   En móvil, dos por fila; en escritorio, los cuatro en una.
+   ---------------------------------------- */
+.bs-atajos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+@media (min-width: 700px) {
+  .bs-atajos {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.bs-pagina a.bs-atajo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 56px;
+  padding: 12px 14px;
+  border: 1px solid var(--bs-verde-botella);
+  border-radius: var(--bs-radio);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--bs-tinta);
+  text-decoration: none;
+}
+.bs-pagina a.bs-atajo:hover {
+  background: var(--bs-superficie);
+  color: var(--bs-tinta);
+}
+.bs-pagina a.bs-atajo:focus-visible {
+  outline: 2px solid var(--bs-tinta);
+  outline-offset: 2px;
+}
+.bs-atajo span[aria-hidden] {
+  color: var(--bs-verde-botella);
+}
+
+/* ----------------------------------------
    Seccion 4 — comparativa
    Punto de corte unico en 700px, como manda el diseño. Las dos variantes
    se renderizan en servidor y las alterna una media query; no hay
