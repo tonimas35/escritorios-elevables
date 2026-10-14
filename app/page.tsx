@@ -155,17 +155,19 @@ export default function Home() {
       {/* ============================================================
           Nº 01 · Veredicto
           ============================================================ */}
-      <section className="bs-contenido bs-seccion">
+      {/* Menos aire arriba en pantallas anchas, para que en un PC se vean
+          los escritorios sin hacer scroll. En móvil se queda en 52px. */}
+      <section className="bs-contenido bs-seccion" style={{ paddingTop: "clamp(52px, 4vw, 56px)" }}>
         <p className="bs-kicker">Nº 01 · Veredicto</p>
 
         {/* Sin un "mejor" absoluto: las notas de gamas distintas no se
             comparan, así que el veredicto es el primero de cada franja
             (METODO.md §5, "Cómo se publica la nota"). */}
-        <h1 className="bs-h1" style={{ marginTop: 14, maxWidth: "22ch" }}>
+        <h1 className="bs-h1" style={{ marginTop: 14, maxWidth: "30ch" }}>
           Los mejores escritorios elevables de 2026, franja a franja
         </h1>
 
-        <p className="bs-standfirst" style={{ maxWidth: "46ch", marginTop: 18 }}>
+        <p className="bs-standfirst" style={{ maxWidth: "62ch", marginTop: 18 }}>
           Cada escritorio se mide contra lo que se puede esperar por su precio.
           Estos son los primeros de cada franja.
         </p>
@@ -183,12 +185,12 @@ export default function Home() {
           </div>
         </nav>
 
-        {/* Cuatro franjas: en escritorio van de dos en dos, porque el CTA
-            no cabe en un cuarto de ancho; en movil, una columna. */}
+        {/* Cinco franjas: en escritorio van de tres en tres (el CTA no cabe
+            en un cuarto de ancho); en tableta, de dos; en móvil, una. */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
             gap: "32px var(--bs-hueco-columnas)",
             marginTop: 36,
           }}
