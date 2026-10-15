@@ -87,6 +87,11 @@ GitHub los ejecuta también en cada push.
    tres campos van juntos; `null` en los tres retira la franja.
 4. Si un modelo cambia de franja al moverse el precio, su posición y sus
    alternativas cambian solas. Revisa que su titular siga siendo cierto.
+5. Si este mes se ha cambiado contenido de verdad (precios, textos, modelos,
+   páginas), pon `REVISION` en `lib/fecha.ts` a la fecha de hoy. De ella
+   salen el `lastmod` del sitemap y el «Actualizado en …» de todo el sitio.
+   Si no se ha tocado nada, se deja: una fecha que avanza sola sin cambios
+   no es cierta y Google aprende a ignorarla.
 
 ### Cada trimestre (3–4 h, enero, abril, julio y octubre): barrido de mercado
 
