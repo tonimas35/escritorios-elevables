@@ -1,0 +1,14 @@
+{
+  "name": "elevable-studio",
+  "private": true,
+  "type": "module",
+  "description": "Vídeos verticales para TikTok e Instagram a partir del catálogo de elevable.es",
+  "scripts": {
+    "video": "node generar.ts"
+  },
+  "dependencies": {
+    "@fontsource/inter": "5.3.0",
+    "@fontsource/inter-tight": "5.3.0",
+    "playwright-core": "1.64.1"
+  }
+}
