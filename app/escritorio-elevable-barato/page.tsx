@@ -393,6 +393,9 @@ export default function EscritorioBaratoPage() {
           </h3>
           <div className="space-y-2 text-sm">
             <p>
+              <Link href="/black-friday-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Escritorio elevable en Black Friday</Link> — La franja de precio de cada modelo, para saber si una oferta es una rebaja de verdad.
+            </p>
+            <p>
               <Link href="/mejor-escritorio-elevable" className="underline" style={{ color: 'var(--verde-estructura)' }}>Los mejores escritorios elevables de 2026</Link> — Incluye modelos premium si decides subir de presupuesto.
             </p>
             <p>
