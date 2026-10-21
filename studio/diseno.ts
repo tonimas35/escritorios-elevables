@@ -32,6 +32,19 @@ export const C = {
   acento: "#2447D6",
   acentoTinte: "#EEF2FF",
   acentoSobreOscuro: "#7E9BFF",
+  papel: "#FAF8F3",
+};
+
+/**
+ * Colores para los datos: tonos suaves que se distinguen también por la
+ * luminosidad, no solo por el tono.
+ */
+export const PASTEL = {
+  azul: "#7FAEEB",
+  lavanda: "#AE9CF0",
+  rosa: "#EFA2BF",
+  verde: "#9FCB86",
+  arena: "#E2DCCB",
 };
 
 /**
@@ -52,18 +65,23 @@ export const medidas = () =>
     : { alto: 1350, relleno: "72px 88px 72px", hueco: 22, imgModelo: 330, dibModelo: 400, imgPortada: 400, dibPortada: 420, aire: 0, chip: 34 };
 
 /** Una página del formato en uso, con las fuentes del tema. */
-export function pagina(cuerpo: string, fondo = "#FFFFFF", texto: string = C.tinta): string {
+export function pagina(cuerpo: string, fondo: string = C.papel, texto: string = C.tinta): string {
   const m = medidas();
+  // Papel cuadriculado: el fondo claro lleva una retícula fina.
+  const reticula =
+    fondo === C.papel
+      ? "background-image:linear-gradient(rgba(20,20,19,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(20,20,19,.055) 1px,transparent 1px);background-size:40px 40px;background-position:-1px -1px;"
+      : "";
   return `<!doctype html><html lang="es"><head><meta charset="utf-8"><style>
 ${FUENTES}
 *{box-sizing:border-box}
-body{margin:0;width:1080px;height:${m.alto}px;overflow:hidden;background:${fondo};color:${texto};font-family:'Inter',sans-serif}
+body{margin:0;width:1080px;height:${m.alto}px;overflow:hidden;background-color:${fondo};${reticula}color:${texto};font-family:'Inter',sans-serif}
 .lienzo{width:1080px;height:${m.alto}px;padding:${m.relleno};display:flex;flex-direction:column;gap:${m.hueco}px}
 .titular{font-family:'Inter Tight',sans-serif;font-weight:800;letter-spacing:-0.025em;margin:0}
 .marca{margin:0;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:52px;letter-spacing:-0.02em}
 .chip{padding:12px 22px;border-radius:18px;font-size:${m.chip}px;font-weight:500}
 p{margin:0}
-</style></head><body>${cuerpo}</body></html>`;
+</style></head><body>${ACUARELA}${cuerpo}</body></html>`;
 }
 
 export const marca = (punto: string = C.acento) =>
@@ -150,6 +168,79 @@ export function imagen(p: Product, ancho: number): string {
   const f = foto(p);
   if (!f) return dibujo(p, ancho);
   return `<img src="${f}" alt="" style="width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;padding:28px">`;
+}
+
+/**
+ * Textura de acuarela para las piezas de color: un ruido que deforma un poco
+ * el borde y otro que mancha el relleno. Va una vez por página.
+ */
+export const ACUARELA = `<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="acuarela" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="7" result="ruido"/>
+    <feDisplacementMap in="SourceGraphic" in2="ruido" scale="7" xChannelSelector="R" yChannelSelector="G" result="borde"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="grano"/>
+    <feColorMatrix in="grano" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 -0.9 0.75" result="grano2"/>
+    <feComposite in="grano2" in2="borde" operator="in" result="manchas"/>
+    <feBlend in="borde" in2="manchas" mode="screen"/>
+  </filter></defs></svg>`;
+
+/**
+ * Cuadraditos: uno por modelo, coloreados por grupo, en el orden de los
+ * grupos. Es la forma de enseñar «7 de 13» de un vistazo.
+ */
+export function cuadros(grupos: { n: number; color: string }[], columnas = 7, lado = 104): string {
+  const hueco = 14;
+  const piezas = grupos.flatMap((g) => Array.from({ length: g.n }, () => g.color));
+  const filas = Math.ceil(piezas.length / columnas);
+  const ancho = columnas * lado + (columnas - 1) * hueco;
+  const alto = filas * lado + (filas - 1) * hueco;
+  return `<svg width="${ancho}" height="${alto}" viewBox="0 0 ${ancho} ${alto}" aria-hidden="true">${piezas
+    .map((color, i) => {
+      const x = (i % columnas) * (lado + hueco);
+      const y = Math.floor(i / columnas) * (lado + hueco);
+      return `<rect x="${x + 3}" y="${y + 3}" width="${lado - 6}" height="${lado - 6}" rx="6" fill="${color}" filter="url(#acuarela)"/>`;
+    })
+    .join("")}</svg>`;
+}
+
+/** Leyenda de los cuadraditos: muestra de color y texto. */
+export const leyenda = (items: { color: string; texto: string }[]) =>
+  `<div style="display:flex;flex-direction:column;gap:14px">${items
+    .map(
+      (i) => `<p style="display:flex;align-items:center;gap:18px;font-size:38px;font-weight:500"><span style="flex:0 0 auto;width:40px;height:40px;border-radius:8px;background:${i.color}"></span>${t(i.texto)}</p>`,
+    )
+    .join("")}</div>`;
+
+/**
+ * Persona sentada a la mesa, de perfil: codos y rodillas a 90°, pies en el
+ * suelo y el borde de la pantalla a la altura de los ojos. Es un esquema,
+ * no un retrato.
+ */
+export function postura(ancho = 900): string {
+  const alto = Math.round((ancho * 300) / 420);
+  const linea = `stroke="${C.tinta}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"`;
+  const angulo = (x: number, y: number, dx: number, dy: number) =>
+    `<path d="M${x + dx} ${y} L${x + dx} ${y + dy} L${x} ${y + dy}" stroke="${C.acento}" stroke-width="3" fill="none"/>`;
+  return `<svg width="${ancho}" height="${alto}" viewBox="0 0 420 300" aria-hidden="true" style="overflow:visible">
+    <line x1="10" y1="290" x2="410" y2="290" stroke="rgba(20,20,19,.25)" stroke-width="3"/>
+    <rect x="80" y="104" width="10" height="88" rx="4" fill="${PASTEL.lavanda}" filter="url(#acuarela)"/>
+    <rect x="84" y="180" width="92" height="12" rx="5" fill="${PASTEL.lavanda}" filter="url(#acuarela)"/>
+    <line x1="130" y1="192" x2="130" y2="284" stroke="#2B2D33" stroke-width="7"/>
+    <line x1="100" y1="286" x2="160" y2="286" stroke="#2B2D33" stroke-width="7" stroke-linecap="round"/>
+    <rect x="186" y="150" width="190" height="12" rx="4" fill="#D9B68C" filter="url(#acuarela)"/>
+    <line x1="352" y1="162" x2="352" y2="288" stroke="#2B2D33" stroke-width="8"/>
+    <line x1="330" y1="286" x2="374" y2="286" stroke="#2B2D33" stroke-width="7" stroke-linecap="round"/>
+    <rect x="292" y="58" width="78" height="52" rx="5" fill="${PASTEL.azul}" filter="url(#acuarela)"/>
+    <rect x="327" y="110" width="8" height="40" fill="#2B2D33"/>
+    <line x1="146" y1="62" x2="292" y2="62" stroke="${C.acento}" stroke-width="3" stroke-dasharray="8 7"/>
+    <circle cx="132" cy="62" r="19" fill="${C.papel}" ${linea}/>
+    <path d="M124 84 L118 176 L196 178 L198 282 L222 282" ${linea}/>
+    <path d="M122 98 L126 146 L206 146" ${linea}/>
+    ${angulo(126, 146, 14, -14)}
+    ${angulo(198, 178, -14, 14)}
+    <text x="150" y="132" font-size="17" font-weight="700" fill="${C.acento}" font-family="Inter">90°</text>
+    <text x="214" y="206" font-size="17" font-weight="700" fill="${C.acento}" font-family="Inter">90°</text>
+  </svg>`;
 }
 
 /** Escapa texto que viene del catálogo antes de meterlo en el HTML. */
