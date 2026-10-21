@@ -47,6 +47,20 @@ const nextConfig: NextConfig = {
         destination: "/maidesite-t2-pro-plus-opiniones",
         permanent: true,
       },
+      {
+        // Enlaces cortos para la bio de las redes (21/10/2026): llevan a la
+        // home con la UTM, para que GA4 cuente la visita como de esa red.
+        // Temporales (307) a propósito: el destino puede cambiar y no son
+        // páginas que deban indexarse.
+        source: "/ig",
+        destination: "/?utm_source=instagram&utm_medium=bio",
+        permanent: false,
+      },
+      {
+        source: "/tiktok",
+        destination: "/?utm_source=tiktok&utm_medium=bio",
+        permanent: false,
+      },
     ];
   },
   images: {
