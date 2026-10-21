@@ -4,6 +4,8 @@
  *   node generar.ts franja A              → vídeo: el mejor de «Completos hasta 120 €»
  *   node generar.ts franja A --carrusel   → lo mismo en carrusel de fotos (1080×1350)
  *   node generar.ts franja M1             → la mejor base hasta 250 €
+ *   node generar.ts altura                → ¿a qué altura debe estar tu mesa?
+ *   node generar.ts verdades              → lo que nadie te dice antes de comprar
  *
  * Sale en studio/salida/<fecha>-<plantilla>/: los fotogramas en PNG, el
  * vídeo (video.mp4) y la descripción (descripcion.txt) para pegar en TikTok
@@ -18,6 +20,8 @@ import { execFileSync } from "node:child_process";
 import { chromium } from "playwright-core";
 import type { Franja } from "../lib/nota.ts";
 import { videoFranja, type Video } from "./plantillas/franja.ts";
+import { videoAltura } from "./plantillas/altura.ts";
+import { videoVerdades } from "./plantillas/verdades.ts";
 import { usarFormato, medidas } from "./diseno.ts";
 
 const FRANJAS = ["A", "B", "C", "M1", "M2"];
@@ -29,7 +33,9 @@ function plantilla(args: string[]): Video {
   if (tipo === "franja" && FRANJAS.includes(valor?.toUpperCase())) {
     return videoFranja(valor.toUpperCase() as Franja);
   }
-  console.error(`Uso: node generar.ts franja <${FRANJAS.join("|")}>`);
+  if (tipo === "altura") return videoAltura();
+  if (tipo === "verdades") return videoVerdades();
+  console.error(`Uso: node generar.ts franja <${FRANJAS.join("|")}> | altura | verdades  [--carrusel]`);
   process.exit(1);
 }
 

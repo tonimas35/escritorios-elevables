@@ -59,3 +59,5 @@ otro, con `CHROMIUM=/ruta/al/chrome node generar.ts franja A`.
 | Plantilla | Qué cuenta |
 | --- | --- |
 | `franja <F>` | Portada, qué mirar, los 3 primeros de la franja del nº 3 al nº 1 y el cierre con «Comenta ELEVABLE» |
+| `altura` | ¿A qué altura debe estar tu mesa? La regla de los codos a 90°, la tabla por estatura (la de la calculadora de la web) y si los escritorios del catálogo llegan. Cierre: «Comenta tu ALTURA» |
+| `verdades` | Lo que nadie te dice antes de comprar: 5 verdades con su cifra del catálogo (carga, anticolisión, ancho, motor, garantía) |
