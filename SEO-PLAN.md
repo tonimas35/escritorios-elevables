@@ -17,6 +17,9 @@
 >
 > **Estado a 25/09/2026: manda el §0.** Es el plan en curso. Del §1 en adelante
 > queda como registro del diagnóstico del 07/09.
+>
+> **Estado a 21/10/2026:** ver «Del 9 al 20/10» y «Demanda: Google Trends» en
+> el §0. Lo siguiente es el research profundo de huecos y el Black Friday.
 
 ---
 
@@ -177,6 +180,103 @@ Amazon; del 22 al 25/09, 14 sesiones y 9 clics. Es ruido.
   de marco y motor coherente, comparativa ordenada por franja, alternativas
   de su gama de precio, texto provisional fuera de la review del FEZIBO y
   cifras decorativas fuera del texto de la página.
+
+### Del 9 al 20/10: qué se hizo y cómo va
+
+**Hecho y en producción** (PR #27 a #33):
+- Enlaces internos: la home y la guía enlazan las 13 fichas desde la tabla
+  comparativa; Flexispot vs MAIDeSITe enlaza las fichas del 160x80 y el S2 Pro
+  y la comparativa SANODESK vs FLEXISPOT.
+- Método: los más vendidos pueden ocupar un hueco libre con la nota que les
+  toque; hasta 5 modelos por franja y 20 en total; fuera la garantía como
+  requisito en `/metodologia` (ya no lo era en METODO.md).
+- Veredicto sin los «01» repetidos: la franja va encima de cada modelo.
+- Atajos «¿Qué buscas?» bajo el titular de la home (barato, dos monitores,
+  solo la base, «no lo sé» → test).
+- Home en PC: tarjetas de tres en tres y menos aire arriba; se ven tres
+  escritorios sin hacer scroll a 1920×915.
+- Una sola fecha del sitio (`REVISION` en `lib/fecha.ts`), al 15/10; de ella
+  salen el `lastmod` del sitemap y todos los «Actualizado en …». Paso 5 de la
+  rutina mensual: actualizarla si ha cambiado contenido.
+
+**Barrido de octubre (09/10), cerrado:** los escritorios elevables más vendidos
+de Amazon.es ya estaban en el catálogo (SONGMICS #1, VASAGLE 100 #2, ErGear 120
+#4, Devoko 120 #8, SANODESK #9, MAIDeSITe T1 #29). Descartados por reseñas de
+1–2★: ErGear 160x80 (piezas rotas y fallos de motor) y FLEXISPOT 140x60
+(fallos de motor y quejas de que no es de la marca). Toni pidió no seguir
+retocando el catálogo este trimestre.
+
+**Search Console, 15/10:** 22 páginas indexadas. Pedida la indexación de
+`/comparador` (último rastreo 3 jul), MAIDeSITe S2 Pro y SANODESK 140.
+Validación iniciada del «Error de redirección» (`www…/calculadora-altura`,
+que ya redirige bien) y de «Fichas de comerciantes» (venía de la URL retirada
+`/maidesite-t2-pro-opiniones`; **validado por Google el 20/10**).
+
+**Cifras al 20/10:**
+
+| | Dato |
+|---|---|
+| Search Console, 7 días (12–18/10) | 10 clics (3 la semana anterior), 212 impresiones, CTR 4,7 %, posición 10,5 |
+| Posición media 28 días | ~28 a finales de sept. → 12,2 al 15/10 |
+| «mejores escritorios elevables» | 27 → 10,6 en una semana (12,7 la siguiente) |
+| Páginas en página 1 | SANODESK vs FLEXISPOT 4,9; Flexispot vs MAIDeSITe 7,8; SANODESK 140 6,9 |
+| `/mejor-escritorio-elevable` | 6 de los 10 clics de la semana, CTR 10 % |
+| Amazon, 30 días (20/09–19/10) | 62 clics, 2 pedidos (1 directo: se compró el escritorio enlazado), 5 enviados, **13,61 €** de comisión: el mejor mes del año |
+
+### Demanda: Google Trends, España (21/10/2026)
+
+Valores relativos (100 = máximo), no volumen absoluto.
+
+- **«mesa elevable» es sobre todo mesa de centro de salón** (consultas
+  relacionadas: «mesa centro», «mesa centro elevable», JYSK, Leroy Merlin).
+  Parece el término más buscado, pero no es este público. No perseguirlo.
+- **«escritorio elevable»**, consultas principales: mesa elevable 100, mesa
+  escritorio elevable 100, mesa escritorio 99, **ikea escritorio 73, ikea 72,
+  escritorio elevable ikea 72**, mesa de escritorio 25, escritorio elevable
+  eléctrico 24, mesa elevable ikea 23, mesa escritorio ikea 22, flexispot 17,
+  silla escritorio 12, **tablero escritorio 10**, escritorio jysk 10, jysk 9,
+  escritorio plegable 8, escritorio gaming 5, songmics 4, maidesite 3,
+  secretlab 2.
+- En ascenso: **songmics +350 %**, secretlab +160 %. Temas: Leroy Merlin,
+  FlexiSpot E7, nogal (Juglans regia, el acabado), PcComponentes, MAIDeSITe.
+- 5 años: el interés por «escritorio elevable» se ha multiplicado por ~3
+  desde 2021. **«flexispot» se busca casi tanto como el genérico** y tuvo su
+  máximo de 5 años en el Black Friday de 2025.
+
+**Huecos que señala** (por orden de tamaño, sin decidir):
+1. **IKEA.** Es lo que más se busca junto a «escritorio elevable» y la web no
+   lo menciona. Idea: «Escritorio elevable de IKEA o de Amazon: cuál comprar»
+   (TROTTEN, MITTZON contra el catálogo por franja). IKEA no paga comisión;
+   la página capta la búsqueda y deriva a las alternativas de Amazon.
+2. **Marcas como búsqueda propia:** FlexiSpot (≈ genérico), SONGMICS (la que
+   más sube), MAIDeSITe. Hoy solo hay comparativas de dos en dos.
+3. **Tableros** («tablero escritorio»): guía para quien compra solo la base.
+   Coincide con las dudas del hilo de foros (encimera, bambú, melamina,
+   carpintería).
+4. **Otras tiendas** (Leroy Merlin, PcComponentes, JYSK): la web solo habla
+   de Amazon.
+5. **«silla escritorio»** aparece: refuerza la idea de P6 (segundo nicho
+   como sección de elevable.es), sin cambiar su condición de entrada.
+
+**Pendiente: research profundo de huecos** (pedido por Toni el 21/10).
+Preguntas para él:
+- Volumen real (no relativo) de cada búsqueda y dificultad: herramienta de
+  palabras clave o Search Console a 3 meses.
+- Qué páginas posicionan hoy para «escritorio elevable ikea», «flexispot»,
+  «tablero escritorio elevable» y qué les falta.
+- Qué preguntan los asistentes de IA (ChatGPT, AI Mode de Google) y qué
+  fuentes citan: el canal que más tráfico de calidad trae.
+- Qué páginas del sitio tienen impresiones y no clics (título y descripción).
+- Qué temas cubren los competidores (aiho, josepdeulofeu, ergohogar,
+  entornoversatil) que aquí no existen.
+
+**Calendario acordado** (recordatorios en el móvil de Toni):
+- 26/10: borrador de la sección de Black Friday en la guía (y, si Toni
+  quiere, de la página de IKEA, para desplegar una sola vez).
+- 29/10: revisar Search Console (indexación de las tres páginas pedidas y
+  las validaciones).
+- 19/11: aviso junto a las franjas de que en Black Friday el precio puede
+  estar por debajo; 02/12: quitarlo.
 
 ### Datos que faltan para confirmar este orden
 
