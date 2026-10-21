@@ -1272,3 +1272,221 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .bs-riel-marca:hover {
   color: var(--bs-verde-botella);
 }
+
+/* ==========================================================================
+   Tema «Ficha técnica» (21/10/2026)
+
+   Elegido por Toni entre cinco direcciones (lienzo «Elevable — propuestas de
+   diseño»). Va al final y solo reapunta tokens y retoca la forma de las
+   piezas compartidas: no cambia textos, rutas, schema ni enlaces de
+   afiliado. Quitar este bloque y las fuentes de app/layout.tsx devuelve el
+   Broadsheet tal cual.
+
+   El acento azul ocupa el papel estructural que tenía el verde botella: el
+   token --bs-verde-botella se conserva (lo usan decenas de reglas) y apunta
+   al acento. El CTA sigue en tinta.
+   ========================================================================== */
+:root {
+  --bs-acento: #2447d6;
+  --bs-acento-tinte: #eef2ff;
+
+  --bs-papel: #ffffff;
+  --bs-superficie: #f3f4f6;
+  --bs-tinta: #0b0b0c;
+  --bs-crema: #ffffff;
+  --bs-verde-botella: var(--bs-acento);
+  --bs-verde-tinte: var(--bs-acento-tinte);
+  --bs-neutro-200: #e6e8ec;
+  /* 5,9:1 sobre blanco: el gris anterior (#7d7979) se quedaba en 4,3:1. */
+  --bs-neutro-700: #5f6570;
+  --bs-neutro-800: #4a505b;
+  --bs-divisor: #e6e8ec;
+  --bs-divisor-fila: #eef0f2;
+  --bs-hover-fila: #f7f8fa;
+
+  --bs-familia: var(--font-inter), "Inter", system-ui, sans-serif;
+  --bs-familia-titulo: var(--font-inter-tight), "Inter Tight", var(--bs-familia);
+  --font-body: var(--bs-familia);
+  --bs-peso-titulo: 700;
+
+  --bs-track-h1: -0.035em;
+  --bs-track-h2: -0.03em;
+  --bs-track-kicker: 0.06em;
+  --bs-track-etiqueta: 0.06em;
+  --bs-track-riel: 0;
+
+  --bs-radio: 12px;
+  --bs-radio-tarjeta: 16px;
+  --bs-relleno-cta: 14px 22px;
+
+  --bs-filete-grueso: 1px solid var(--bs-neutro-200);
+  --bs-filete-fino: 1px solid var(--bs-neutro-200);
+  --bs-filete-seccion: 1px solid var(--bs-neutro-200);
+  --bs-filete-divisor: 1px solid var(--bs-neutro-200);
+  --bs-borde-etiqueta: 1px solid var(--bs-neutro-200);
+
+  --color-secondary-hover: #1b3aae;
+}
+
+/* Titulares en Inter Tight; el cuerpo, en Inter. */
+h1, h2, h3,
+.bs-h1, .bs-h2, .bs-h3,
+.bs-pagina h3 {
+  font-family: var(--bs-familia-titulo);
+}
+.bs-h1, .bs-h2 {
+  font-weight: 700;
+}
+
+/* El antetítulo pasa a etiqueta con fondo de acento. */
+.bs-kicker {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: var(--bs-acento-tinte);
+  color: var(--bs-acento);
+  font-weight: 600;
+}
+.bs-etiqueta {
+  color: var(--bs-neutro-800);
+  font-weight: 600;
+}
+
+/* CTA: sigue en tinta, ahora redondeado; el hover, en acento. */
+.bs-cta {
+  border-radius: 10px;
+}
+.bs-cta:hover {
+  background: var(--bs-acento);
+}
+
+/* Tarjetas con borde y esquinas, la foto sobre gris. multiply funde el
+   fondo blanco de las fotos de Amazon con el gris del marco. */
+.bs-camino {
+  border: 1px solid var(--bs-neutro-200);
+  border-radius: var(--bs-radio-tarjeta);
+  padding: 20px;
+  overflow: hidden;
+}
+.bs-camino > .bs-marco:first-child {
+  margin: -20px -20px 4px;
+  border-radius: 0;
+}
+.bs-marco {
+  background: var(--bs-superficie);
+  border-radius: var(--bs-radio);
+}
+.bs-marco img {
+  mix-blend-mode: multiply;
+}
+.bs-tarjeta {
+  background: var(--bs-papel);
+  border: 1px solid var(--bs-neutro-200);
+  border-radius: var(--bs-radio-tarjeta);
+}
+.bs-spec {
+  border: 0;
+  border-radius: 6px;
+  background: var(--bs-superficie);
+  color: var(--bs-tinta);
+  font-size: 13px;
+  padding: 4px 9px;
+}
+.bs-pagina a.bs-atajo {
+  border: 1px solid var(--bs-neutro-200);
+  border-radius: var(--bs-radio);
+}
+.bs-pagina a.bs-atajo:hover {
+  border-color: var(--bs-acento);
+  background: var(--bs-papel);
+}
+.bs-atajo span[aria-hidden] {
+  color: var(--bs-acento);
+}
+.bs-exclusion {
+  border-left-width: 2px;
+}
+
+/* La nota grande: sin el desregistro de cuatricromía, en acento liso. */
+.bs-cifra .papel {
+  color: var(--bs-acento);
+  text-shadow: none;
+}
+.bs-cifra .plancha {
+  display: none;
+}
+
+/* Tablas: cabecera clara en vez del bloque de color. */
+.bs-tabla thead th {
+  background: var(--bs-superficie);
+  color: var(--bs-tinta);
+}
+.bs-tabla {
+  border: 1px solid var(--bs-neutro-200);
+  border-radius: var(--bs-radio);
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+.bs-avatar {
+  background: var(--bs-tinta);
+}
+.bs-sello {
+  border-radius: 6px;
+}
+.bs-cta-fijo {
+  border-top: 1px solid var(--bs-neutro-200);
+}
+
+/* Cabecera: una sola fila, marca a la izquierda y menú a la derecha. */
+.bs-cabecera {
+  border-bottom: 1px solid var(--bs-neutro-200);
+}
+.bs-cabecera-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+}
+.bs-marca {
+  font-family: var(--bs-familia-titulo);
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: -0.02em;
+}
+.bs-marca span {
+  color: var(--bs-acento);
+}
+.bs-nav a {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 4px;
+}
+.bs-menu-boton {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bs-tinta);
+  border-radius: 10px;
+  min-height: 44px;
+  padding: 10px 14px;
+}
+
+/* El panel del menú móvil ocupa su propia línea bajo la marca y el botón,
+   en vez de abrirse dentro de la fila. */
+.bs-cabecera-fila {
+  flex-wrap: wrap;
+}
+@media (max-width: 699px) {
+  .bs-cabecera-fila .bs-menu {
+    display: contents;
+  }
+  .bs-cabecera-fila .bs-menu-panel {
+    flex-basis: 100%;
+  }
+}

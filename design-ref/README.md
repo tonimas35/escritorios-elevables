@@ -24,6 +24,19 @@ Nadie debería importar, copiar ni enlazar nada de `code/` desde `app/` o `compo
 | `code/_ds/`, `code/support.js` | Runtime y hoja del sistema del prototipo. Solo para que los `.dc.html` se vean |
 | `screenshots/` | Capturas de referencia (de momento vacío) |
 
+## Tema «Ficha técnica» (21/10/2026)
+
+Toni eligió una dirección nueva entre cinco propuestas (lienzo «Elevable —
+propuestas de diseño»): fondo blanco, Inter Tight en titulares e Inter en el
+cuerpo, tarjetas con borde y esquinas redondeadas, y **azul `#2447d6` como
+acento** en el lugar estructural que ocupaba el verde botella. Vive en un bloque
+al final de `app/globals.css` que reapunta los tokens; quitarlo devuelve el
+Broadsheet.
+
+Lo que cambia de las decisiones de abajo: el verde botella pasa a ser el azul
+de acento, y el monograma del autor va en tinta. **El CTA sigue en tinta** y la
+regla de precios no cambia.
+
 ## Decisiones ya tomadas
 
 Estas no están abiertas a debate en la implementación:
