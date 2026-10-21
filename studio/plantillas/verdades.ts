@@ -4,7 +4,7 @@
  * catálogo. Si cambia el catálogo, cambian las cifras y los dibujos.
  */
 import { catalogo, nombre } from "../catalogo.ts";
-import { C, PASTEL, pagina, marca, t, cuadros, leyenda, esCarrusel } from "../diseno.ts";
+import { C, PASTEL, pagina, marca, t, rico, sinMarcas, cuadros, leyenda, esCarrusel } from "../diseno.ts";
 import { portada, cierre, descripcion, AVISO } from "./comun.ts";
 import type { Fotograma, Video } from "./franja.ts";
 
@@ -24,12 +24,13 @@ function diapositiva(v: Verdad, n: number, total: number): Fotograma {
   <div style="display:flex;justify-content:space-between;align-items:center">${marca()}<p style="font-size:36px;font-weight:600;color:${C.gris}">${n}/${total}</p></div>
   <div style="display:flex;gap:28px;align-items:flex-start">
     <p style="flex:0 0 auto;font-family:'Inter Tight',sans-serif;font-weight:800;font-size:${carrusel ? 120 : 150}px;line-height:.85;color:${C.acento}">${String(n).padStart(2, "0")}</p>
-    <h2 class="titular" style="font-size:${carrusel ? 64 : 76}px;line-height:1.05">${t(v.titular)}</h2>
+    <h2 class="titular" style="font-size:${carrusel ? (sinMarcas(v.titular).length > 45 ? 56 : 64) : 76}px;line-height:1.05">${rico(v.titular)}</h2>
   </div>
   <p style="font-size:${carrusel ? 38 : 44}px;line-height:1.3;font-weight:600">${t(v.dato)}</p>
   <div style="flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;gap:24px">${v.grafico}</div>
-  <div style="padding:26px 32px;border-radius:28px;background:#FFFFFF;border:3px solid ${C.borde}">
-    <p style="font-size:${carrusel ? 34 : 38}px;line-height:1.3"><strong style="color:${C.acento}">Qué hacer:</strong> ${t(v.consejo)}</p>
+  <div style="position:relative;margin-top:18px;padding:40px 32px 26px;border-radius:28px;background:#FFFFFF;border:3px solid ${C.borde}">
+    <span class="pegatina" style="position:absolute;left:24px;top:-30px;font-size:32px;transform:rotate(-3deg)">Lo que haría yo</span>
+    <p style="font-size:${carrusel ? 34 : 38}px;line-height:1.3">${t(v.consejo.charAt(0).toUpperCase() + v.consejo.slice(1))}</p>
   </div>
 </div>`),
   };
@@ -91,7 +92,7 @@ export function videoVerdades(): Video {
 
   const verdades: Verdad[] = [
     {
-      titular: "La carga máxima incluye el tablero",
+      titular: "Los kilos que anuncian ==ya cuentan el tablero==",
       dato: `Los completos del catálogo declaran entre ${rango(cargas)} kg, y es todo lo que va encima.`,
       consejo: "resta el peso del tablero antes de contar monitores y equipo.",
       grafico: barras(
@@ -110,7 +111,7 @@ export function videoVerdades(): Video {
       ]).replace("flex-direction:column", "flex-direction:row;gap:40px"),
     },
     {
-      titular: "Muchos no dicen si paran al chocar",
+      titular: sinAnti * 2 > total ? "¿Para si choca con la silla? Más de la mitad [[ni lo dice]]" : `¿Para si choca con la silla? ${sinAnti} de ${total} [[ni lo dicen]]`,
       dato: `${sinAnti} de ${total} modelos no declaran anticolisión en su ficha.`,
       consejo: "si la ficha no lo dice, no lo des por hecho. Con niños o mascotas, elige uno que la declare.",
       grafico:
@@ -124,13 +125,13 @@ export function videoVerdades(): Video {
         ]),
     },
     {
-      titular: "100 cm se quedan cortos",
+      titular: "100 cm parecen mucho hasta que ==pones el monitor==",
       dato: `${de100 === 1 ? "Hay uno" : `Hay ${de100}`} de 100 cm: para portátil vale, con monitor y teclado va justo.`,
       consejo: "con monitor externo, mínimo 120 cm. Con dos, 140 o más.",
       grafico: tableros(anchos),
     },
     {
-      titular: "El doble motor no siempre hace falta",
+      titular: "¿Doble motor? Para portátil y monitor, ==te sobra con uno==",
       dato: `${simples} de ${total} llevan un solo motor, y para portátil y monitor van de sobra.`,
       consejo: "doble motor solo con tableros grandes, mucho peso o si cambias de altura a menudo.",
       grafico:
@@ -144,7 +145,7 @@ export function videoVerdades(): Video {
         ]),
     },
     {
-      titular: "Si no pone garantía, tienes 3 años igual",
+      titular: "¿La ficha no dice garantía? ==La ley te da 3 años==",
       dato: `${sinGarantia} de ${total} no declaran años de garantía. En España, la legal es de 3 años.`,
       consejo: "si dos te convencen igual, elige el que declare más años: tiene motor y electrónica.",
       grafico:
@@ -161,10 +162,10 @@ export function videoVerdades(): Video {
 
   const fotogramas = [
     portada(
-      "Antes de comprar",
-      "Lo que nadie te dice de los",
-      "escritorios elevables",
-      `5 cosas que hemos visto comparando ${total} modelos.`,
+      ["Antes de comprar"],
+      "Lo que no sale [[en la foto]] de un escritorio elevable",
+      `Nos hemos leído la letra pequeña de ${total} fichas. Te ahorramos el trabajo.`,
+      [`${total} fichas leídas`, "Guárdalo para cuando compres"],
       `<div style="display:flex;justify-content:flex-start">${cuadros(
         [
           { n: conAnti, color: PASTEL.azul },
@@ -186,9 +187,9 @@ export function videoVerdades(): Video {
   ];
 
   const texto = descripcion([
-    `Lo que nadie te dice antes de comprar un escritorio elevable 👇 (comparando ${total} modelos)`,
+    `Lo que no sale en la foto de un escritorio elevable: nos hemos leído la letra pequeña de ${total} fichas 👇`,
     "",
-    ...verdades.map((v, i) => `${i + 1}. ${v.titular}`),
+    ...verdades.map((v, i) => `${i + 1}. ${sinMarcas(v.titular)}`),
     "",
     "Guárdalo para cuando vayas a comprar.",
     "Comenta ELEVABLE y te paso la comparativa con los modelos que sí lo declaran.",

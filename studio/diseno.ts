@@ -81,6 +81,12 @@ body{margin:0;width:1080px;height:${m.alto}px;overflow:hidden;background-color:$
 .marca{margin:0;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:52px;letter-spacing:-0.02em}
 .chip{padding:12px 22px;border-radius:18px;font-size:${m.chip}px;font-weight:500}
 p{margin:0}
+.marcado{background:linear-gradient(${MARCADOR},${MARCADOR}) 0 62%/100% 74% no-repeat;padding:0 .1em;margin:0 -.04em;border-radius:.08em;-webkit-box-decoration-break:clone;box-decoration-break:clone;color:inherit}
+.seleccion{position:relative;white-space:nowrap;background:#D9E0FF;padding:0 .06em;box-shadow:-4px 0 0 ${C.acento},4px 0 0 ${C.acento};-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.seleccion::before,.seleccion::after{content:"";position:absolute;width:.17em;height:.17em;border-radius:50%;background:${C.acento}}
+.seleccion::before{left:-.1em;top:-.12em}.seleccion::after{right:-.1em;bottom:-.12em}
+.pegatina{display:inline-block;padding:.28em .7em;border-radius:999px;background:${MARCADOR};color:${C.tinta};font-weight:600;letter-spacing:-0.01em;box-shadow:0 .12em .3em rgba(20,20,19,.16);white-space:nowrap}
+.cejilla{display:flex;gap:.9em;align-items:center;font-size:30px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:${C.gris}}
 </style></head><body>${ACUARELA}${cuerpo}</body></html>`;
 }
 
@@ -212,35 +218,84 @@ export const leyenda = (items: { color: string; texto: string }[]) =>
     .join("")}</div>`;
 
 /**
- * Persona sentada a la mesa, de perfil: codos y rodillas a 90°, pies en el
- * suelo y el borde de la pantalla a la altura de los ojos. Es un esquema,
- * no un retrato.
+ * Alzado acotado de un puesto, de perfil y sin persona: el escritorio de pie
+ * (sólido), la posición sentado (en discontinua), la silla y la pantalla,
+ * con una regla a la izquierda y las tres alturas que importan. Como un
+ * plano: las piezas, con su nombre entre paréntesis.
  */
-export function postura(ancho = 900): string {
-  const alto = Math.round((ancho * 300) / 420);
-  const linea = `stroke="${C.tinta}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"`;
-  const angulo = (x: number, y: number, dx: number, dy: number) =>
-    `<path d="M${x + dx} ${y} L${x + dx} ${y + dy} L${x} ${y + dy}" stroke="${C.acento}" stroke-width="3" fill="none"/>`;
-  return `<svg width="${ancho}" height="${alto}" viewBox="0 0 420 300" aria-hidden="true" style="overflow:visible">
-    <line x1="10" y1="290" x2="410" y2="290" stroke="rgba(20,20,19,.25)" stroke-width="3"/>
-    <rect x="80" y="104" width="10" height="88" rx="4" fill="${PASTEL.lavanda}" filter="url(#acuarela)"/>
-    <rect x="84" y="180" width="92" height="12" rx="5" fill="${PASTEL.lavanda}" filter="url(#acuarela)"/>
-    <line x1="130" y1="192" x2="130" y2="284" stroke="#2B2D33" stroke-width="7"/>
-    <line x1="100" y1="286" x2="160" y2="286" stroke="#2B2D33" stroke-width="7" stroke-linecap="round"/>
-    <rect x="186" y="150" width="190" height="12" rx="4" fill="#D9B68C" filter="url(#acuarela)"/>
-    <line x1="352" y1="162" x2="352" y2="288" stroke="#2B2D33" stroke-width="8"/>
-    <line x1="330" y1="286" x2="374" y2="286" stroke="#2B2D33" stroke-width="7" stroke-linecap="round"/>
-    <rect x="292" y="58" width="78" height="52" rx="5" fill="${PASTEL.azul}" filter="url(#acuarela)"/>
-    <rect x="327" y="110" width="8" height="40" fill="#2B2D33"/>
-    <line x1="146" y1="62" x2="292" y2="62" stroke="${C.acento}" stroke-width="3" stroke-dasharray="8 7"/>
-    <circle cx="132" cy="62" r="19" fill="${C.papel}" ${linea}/>
-    <path d="M124 84 L118 176 L196 178 L198 282 L222 282" ${linea}/>
-    <path d="M122 98 L126 146 L206 146" ${linea}/>
-    ${angulo(126, 146, 14, -14)}
-    ${angulo(198, 178, -14, 14)}
-    <text x="150" y="132" font-size="17" font-weight="700" fill="${C.acento}" font-family="Inter">90°</text>
-    <text x="214" y="206" font-size="17" font-weight="700" fill="${C.acento}" font-family="Inter">90°</text>
+export function alzado(m: { sentado: number; dePie: number; pantalla: number; silla: number }, ancho = 900): string {
+  const suelo = 490;
+  const k = 2.75; // px por cm
+  const Y = (cm: number) => suelo - cm * k;
+  const regla = 118;
+  const tinta = "#2B2D33";
+  const ticks = Array.from({ length: 17 }, (_, i) => i * 10)
+    .map((cm) => `<line x1="${regla}" x2="${regla + (cm % 50 ? 8 : 16)}" y1="${Y(cm)}" y2="${Y(cm)}" stroke="${tinta}" stroke-width="2"/>`)
+    .join("");
+  const cota = (cm: number, rotulo: string, hasta: number) => `
+    <line x1="${regla}" x2="${hasta}" y1="${Y(cm)}" y2="${Y(cm)}" stroke="${C.acento}" stroke-width="2.5" stroke-dasharray="7 6"/>
+    <circle cx="${regla}" cy="${Y(cm)}" r="6" fill="${C.acento}"/>
+    <text x="${regla - 16}" y="${Y(cm) + 4}" text-anchor="end" font-size="27" font-weight="800" fill="${C.tinta}" font-family="Inter Tight">${cm} cm</text>
+    <text x="${regla - 16}" y="${Y(cm) + 27}" text-anchor="end" font-size="16" font-weight="500" fill="${C.gris}" font-family="Inter">${rotulo}</text>`;
+  const pieza = (x: number, y: number, s: string, anchor = "start") =>
+    `<text x="${x}" y="${y}" text-anchor="${anchor}" font-size="17" font-weight="500" fill="${C.gris}" font-family="Inter">(${s})</text>`;
+  const x0 = 300;
+  const x1 = 568;
+  const monAlto = 30 * k;
+  const monX = 400;
+  return `<svg width="${ancho}" height="${Math.round((ancho * 520) / 600)}" viewBox="0 0 600 520" aria-hidden="true" style="overflow:visible">
+    <line x1="${regla}" x2="${regla}" y1="${suelo}" y2="${Y(165)}" stroke="${tinta}" stroke-width="2.5"/>${ticks}
+    <line x1="${regla}" x2="596" y1="${suelo}" y2="${suelo}" stroke="${tinta}" stroke-width="3"/>
+    <!-- silla -->
+    <rect x="200" y="${Y(m.silla)}" width="78" height="11" rx="5" fill="${PASTEL.lavanda}" filter="url(#acuarela)"/>
+    <rect x="198" y="${Y(m.silla + 40)}" width="11" height="${40 * k}" rx="5" fill="${PASTEL.lavanda}" filter="url(#acuarela)"/>
+    <line x1="240" x2="240" y1="${Y(m.silla) + 11}" y2="${suelo - 8}" stroke="${tinta}" stroke-width="6"/>
+    <line x1="208" x2="272" y1="${suelo - 5}" y2="${suelo - 5}" stroke="${tinta}" stroke-width="6" stroke-linecap="round"/>
+    ${pieza(232, Y(m.silla) + 40, "silla", "end")}
+    <!-- sentado, en discontinua -->
+    <rect x="${x0}" y="${Y(m.sentado)}" width="${x1 - x0}" height="12" rx="3" fill="none" stroke="${tinta}" stroke-width="2.5" stroke-dasharray="9 7"/>
+    ${pieza((x0 + x1) / 2, Y(m.sentado) + 40, "sentado", "middle")}
+    <!-- de pie -->
+    <rect x="${x0 + 30}" y="${Y(m.dePie) + 12}" width="20" height="${(m.dePie - 60) * k}" rx="3" fill="${tinta}"/>
+    <rect x="${x0 + 33}" y="${Y(60)}" width="14" height="${60 * k - 10}" rx="3" fill="#55596A"/>
+    <rect x="${x1 - 50}" y="${Y(m.dePie) + 12}" width="20" height="${(m.dePie - 60) * k}" rx="3" fill="${tinta}"/>
+    <rect x="${x1 - 47}" y="${Y(60)}" width="14" height="${60 * k - 10}" rx="3" fill="#55596A"/>
+    <rect x="${x0 + 4}" y="${suelo - 12}" width="72" height="10" rx="5" fill="${tinta}"/>
+    <rect x="${x1 - 76}" y="${suelo - 12}" width="72" height="10" rx="5" fill="${tinta}"/>
+    <rect x="${x0}" y="${Y(m.dePie)}" width="${x1 - x0}" height="14" rx="3" fill="#D9B68C" filter="url(#acuarela)"/>
+    ${pieza(x0 + 64, Y(m.dePie) + 44, "columna")}
+    <!-- pantalla: el borde de arriba, a la altura de los ojos -->
+    <rect x="${monX + 70}" y="${Y(m.pantalla) + monAlto}" width="10" height="${Y(m.dePie) - Y(m.pantalla) - monAlto}" fill="${tinta}"/>
+    <rect x="${monX + 40}" y="${Y(m.dePie) - 6}" width="70" height="6" rx="3" fill="${tinta}"/>
+    <rect x="${monX}" y="${Y(m.pantalla)}" width="150" height="${monAlto}" rx="6" fill="${PASTEL.azul}" filter="url(#acuarela)"/>
+    ${pieza(monX + 75, Y(m.pantalla) - 14, "pantalla", "middle")}
+    ${pieza(x0 + 4, Y(m.dePie) - 12, "tablero")}
+    ${cota(m.pantalla, "borde de la pantalla", monX)}
+    ${cota(m.dePie, "de pie", x0)}
+    ${cota(m.sentado, "sentado", x0)}
   </svg>`;
+}
+
+/** Color del fluorescente: el de las palabras marcadas y las pegatinas. */
+export const MARCADOR = "#CFF24E";
+
+/**
+ * Texto con marcas, ya escapado: ==así== va en fluorescente y [[así]] como
+ * texto seleccionado en un editor. Sirve para titulares; en la descripción
+ * se quitan con sinMarcas().
+ */
+export const rico = (s: string) =>
+  t(s)
+    .replace(/==(.+?)==/g, '<span class="marcado">$1</span>')
+    .replace(/\[\[(.+?)\]\]/g, '<span class="seleccion">$1</span>');
+export const sinMarcas = (s: string) => s.replace(/==|\[\[|\]\]/g, "");
+
+/** Pegatinas: etiquetas cortas, un poco torcidas, como en una libreta. */
+export function pegatinas(textos: string[], tam = 36): string {
+  const giros = [-4, 3, -2, 4];
+  return `<div style="display:flex;flex-wrap:wrap;gap:18px 22px">${textos
+    .map((s, i) => `<span class="pegatina" style="font-size:${tam}px;transform:rotate(${giros[i % giros.length]}deg)">${t(s)}</span>`)
+    .join("")}</div>`;
 }
 
 /** Escapa texto que viene del catálogo antes de meterlo en el HTML. */
