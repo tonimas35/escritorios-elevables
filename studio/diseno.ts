@@ -81,7 +81,7 @@ body{margin:0;width:1080px;height:${m.alto}px;overflow:hidden;background-color:$
 .marca{margin:0;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:52px;letter-spacing:-0.02em}
 .chip{padding:12px 22px;border-radius:18px;font-size:${m.chip}px;font-weight:500}
 p{margin:0}
-.marcado{white-space:nowrap;background:linear-gradient(${MARCADOR},${MARCADOR}) 0 62%/100% 74% no-repeat;padding:0 .1em;margin:0 -.04em;border-radius:.08em;-webkit-box-decoration-break:clone;box-decoration-break:clone;color:inherit}
+.marcado{background:linear-gradient(${MARCADOR},${MARCADOR}) 0 62%/100% 74% no-repeat;padding:0 .1em;margin:0 -.04em;border-radius:.08em;-webkit-box-decoration-break:clone;box-decoration-break:clone;color:inherit}
 .seleccion{position:relative;white-space:nowrap;background:#D9E0FF;padding:0 .06em;box-shadow:-4px 0 0 ${C.acento},4px 0 0 ${C.acento};-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .seleccion::before,.seleccion::after{content:"";position:absolute;width:.17em;height:.17em;border-radius:50%;background:${C.acento}}
 .seleccion::before{left:-.1em;top:-.12em}.seleccion::after{right:-.1em;bottom:-.12em}
