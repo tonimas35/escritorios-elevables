@@ -51,22 +51,62 @@ export const marca = (punto: string = C.acento) =>
   `<p class="marca">elevable<span style="color:${punto}">.</span></p>`;
 
 /**
- * Ilustración de línea del escritorio. No usamos las fotos de Amazon: sus
- * condiciones limitan dónde se pueden usar las imágenes de producto.
+ * Ilustración del escritorio: tablero de madera, patas telescópicas y lo que
+ * suele ir encima. No es una foto del modelo, es un dibujo genérico que
+ * cambia con sus datos: el ancho del tablero, uno o dos monitores según ese
+ * ancho, y el marco solo cuando no incluye tablero.
+ *
+ * No usamos las fotos de Amazon: sus normas de afiliados no permiten
+ * descargarlas y usarlas en archivos propios, como un vídeo.
  */
-export function dibujo(p: Product, ancho = 520): string {
-  const alto = Math.round(ancho * 0.7);
-  const trazo = `fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"`;
-  let dentro: string;
+export function dibujo(p: Product, ancho = 600): string {
+  const cx = 200;
+  const tableroCm = p.incluye_tablero ? p.specs.ancho_tablero_cm : 140;
+  const W = Math.round(190 + (Math.min(Math.max(tableroCm, 100), 180) - 100) * 2.2);
+  const x0 = cx - W / 2;
+  const x1 = cx + W / 2;
+  const ty = 128; // borde delantero del tablero
+  const marco = "#2B2D33";
+  const columna = "#43464F";
+  const suelo = 276;
+
+  const pata = (x: number) => `
+    <rect x="${x - 9}" y="${ty + 12}" width="18" height="70" rx="3" fill="${marco}"/>
+    <rect x="${x - 7}" y="${ty + 80}" width="14" height="${suelo - ty - 92}" rx="3" fill="${columna}"/>
+    <rect x="${x - 40}" y="${suelo - 12}" width="80" height="10" rx="5" fill="${marco}"/>`;
+  const patas = `${pata(x0 + 34)}${pata(x1 - 34)}
+    <rect x="${x0 + 34}" y="${ty + 14}" width="${W - 68}" height="8" rx="3" fill="${marco}"/>`;
+  // El encuadre se ajusta al escritorio para que llene el recuadro.
+  const vb = `${x0 - 56} 20 ${W + 112} 272`;
+  const alto = Math.round((ancho * 272) / (W + 112));
+  const sombra = `<ellipse cx="${cx}" cy="${suelo}" rx="${W / 2 + 30}" ry="10" fill="#000" opacity=".08"/>`;
+
   if (!p.incluye_tablero) {
-    // Marco sin tablero: el travesaño y las patas.
-    dentro = `<path d="M30 46h140M60 46v74M140 46v74M44 120h32M124 120h32M60 84h80"/>`;
-  } else if (p.specs.ancho_tablero_cm >= 140) {
-    dentro = `<rect x="20" y="52" width="160" height="10" rx="3"/><path d="M52 62v58M148 62v58M36 120h32M132 120h32"/><rect x="62" y="20" width="36" height="28" rx="3"/><rect x="104" y="20" width="36" height="28" rx="3"/>`;
-  } else {
-    dentro = `<rect x="30" y="52" width="140" height="10" rx="3"/><path d="M60 62v58M140 62v58M44 120h32M124 120h32"/><rect x="82" y="22" width="44" height="26" rx="3"/><path d="M104 48v4"/>`;
+    // Marco sin tablero: el hueco del tablero, en discontinua.
+    const hueco = `<path d="M${x0} ${ty} L${x1} ${ty} L${x1 - 14} ${ty - 22} L${x0 + 14} ${ty - 22} Z" fill="none" stroke="#9AA0AA" stroke-width="3" stroke-dasharray="10 8"/>`;
+    return `<svg viewBox="${vb}" width="${ancho}" height="${alto}" aria-hidden="true">${sombra}${patas}${hueco}
+      <rect x="${x0 + 34}" y="${ty + 2}" width="${W - 68}" height="10" rx="3" fill="${marco}"/></svg>`;
   }
-  return `<svg viewBox="0 0 200 140" width="${ancho}" height="${alto}" aria-hidden="true" ${trazo}>${dentro}</svg>`;
+
+  const monitor = (mx: number, w: number) => `
+    <rect x="${mx - 4}" y="${ty - 34}" width="8" height="22" fill="${marco}"/>
+    <rect x="${mx - 22}" y="${ty - 16}" width="44" height="5" rx="2" fill="${marco}"/>
+    <rect x="${mx - w / 2}" y="${ty - 34 - w * 0.6}" width="${w}" height="${w * 0.6}" rx="5" fill="#1F2126"/>
+    <rect x="${mx - w / 2 + 5}" y="${ty - 29 - w * 0.6}" width="${w - 10}" height="${w * 0.6 - 10}" rx="2" fill="#2E3D6B"/>
+    <rect x="${mx - w / 2 + 12}" y="${ty - 20 - w * 0.6}" width="${(w - 24) * 0.6}" height="5" rx="2" fill="#7E9BFF" opacity=".7"/>
+    <rect x="${mx - w / 2 + 12}" y="${ty - 11 - w * 0.6}" width="${(w - 24) * 0.4}" height="5" rx="2" fill="#7E9BFF" opacity=".45"/>`;
+  const dosMonitores = tableroCm >= 140;
+  const encima = dosMonitores ? `${monitor(cx - 46, 84)}${monitor(cx + 46, 84)}` : monitor(cx - 10, 96);
+  const planta = `
+    <path d="M${x1 - 40} ${ty - 40} q-14 -22 -2 -40 q8 16 2 40 Z" fill="#4C8C5A"/>
+    <path d="M${x1 - 38} ${ty - 40} q18 -18 14 -38 q-14 12 -14 38 Z" fill="#5FA36C"/>
+    <path d="M${x1 - 50} ${ty - 38} h24 l-3 26 h-18 Z" fill="#E9E1D6"/>`;
+  const tablero = `
+    <path d="M${x0} ${ty} L${x1} ${ty} L${x1 - 14} ${ty - 22} L${x0 + 14} ${ty - 22} Z" fill="#D9B68C"/>
+    <rect x="${x0}" y="${ty}" width="${W}" height="12" rx="2" fill="#B88A5E"/>
+    <rect x="${x0 + 46}" y="${ty + 12}" width="30" height="9" rx="2" fill="#1F2126"/>
+    <circle cx="${x0 + 70}" cy="${ty + 16.5}" r="2.2" fill="#7E9BFF"/>`;
+  return `<svg viewBox="${vb}" width="${ancho}" height="${alto}" aria-hidden="true">${sombra}${patas}${tablero}${encima}${planta}</svg>`;
 }
 
 /** Escapa texto que viene del catálogo antes de meterlo en el HTML. */
