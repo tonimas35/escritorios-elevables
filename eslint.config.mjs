@@ -9,6 +9,9 @@ const eslintConfig = defineConfig([
   globalIgnores([
     // Referencia visual del rediseño: prototipos exportados, no código del proyecto.
     "design-ref/**",
+    // Vídeos para redes: se ejecuta con Node aparte y tiene su propio package.json.
+    "studio/node_modules/**",
+    "studio/salida/**",
     // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
