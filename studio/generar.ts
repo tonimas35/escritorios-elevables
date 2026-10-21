@@ -1,8 +1,9 @@
 /**
  * Genera un vídeo vertical (1080×1920, H.264, sin audio) y su descripción.
  *
- *   node generar.ts franja A        → el mejor de «Completos hasta 120 €»
- *   node generar.ts franja M1       → la mejor base hasta 250 €
+ *   node generar.ts franja A              → vídeo: el mejor de «Completos hasta 120 €»
+ *   node generar.ts franja A --carrusel   → lo mismo en carrusel de fotos (1080×1350)
+ *   node generar.ts franja M1             → la mejor base hasta 250 €
  *
  * Sale en studio/salida/<fecha>-<plantilla>/: los fotogramas en PNG, el
  * vídeo (video.mp4) y la descripción (descripcion.txt) para pegar en TikTok
@@ -17,6 +18,7 @@ import { execFileSync } from "node:child_process";
 import { chromium } from "playwright-core";
 import type { Franja } from "../lib/nota.ts";
 import { videoFranja, type Video } from "./plantillas/franja.ts";
+import { usarFormato, medidas } from "./diseno.ts";
 
 const FRANJAS = ["A", "B", "C", "M1", "M2"];
 const TRANSICION = 0.35; // segundos que dura el paso de un fotograma al siguiente
@@ -38,14 +40,17 @@ function chromiumPath(): string {
   throw new Error("No encuentro Chromium: indica la ruta con CHROMIUM=/ruta/al/chrome");
 }
 
-const video = plantilla(process.argv.slice(2));
+const args = process.argv.slice(2);
+const carrusel = args.includes("--carrusel");
+usarFormato(carrusel ? "carrusel" : "video");
+const video = plantilla(args.filter((a) => !a.startsWith("--")));
 const hoy = new Date().toISOString().slice(0, 10);
-const carpeta = new URL(`./salida/${hoy}-${video.slug}/`, import.meta.url).pathname;
+const carpeta = new URL(`./salida/${hoy}-${video.slug}${carrusel ? "-carrusel" : ""}/`, import.meta.url).pathname;
 mkdirSync(carpeta, { recursive: true });
 
 // 1 · Cada fotograma, a PNG
 const navegador = await chromium.launch({ executablePath: chromiumPath() });
-const pagina = await navegador.newPage({ viewport: { width: 1080, height: 1920 } });
+const pagina = await navegador.newPage({ viewport: { width: 1080, height: medidas().alto } });
 const pngs: string[] = [];
 for (const [i, f] of video.fotogramas.entries()) {
   const html = `${carpeta}${String(i + 1).padStart(2, "0")}-${f.nombre}.html`;
@@ -57,6 +62,13 @@ for (const [i, f] of video.fotogramas.entries()) {
   pngs.push(png);
 }
 await navegador.close();
+writeFileSync(`${carpeta}descripcion.txt`, `${video.descripcion}\n`);
+
+if (carrusel) {
+  // El carrusel son las fotos, en orden: no hay vídeo que montar.
+  console.log(`Hecho: ${pngs.length} fotos en ${carpeta}\nDescripción: ${carpeta}descripcion.txt`);
+  process.exit(0);
+}
 
 // 2 · Los fotogramas, unidos con un deslizamiento corto
 const entradas = video.fotogramas.flatMap((f, i) => [
@@ -81,7 +93,5 @@ execFileSync(
    "-movflags", "+faststart", mp4],
   { stdio: "inherit" },
 );
-writeFileSync(`${carpeta}descripcion.txt`, `${video.descripcion}\n`);
-
 const total = video.fotogramas.reduce((s, f) => s + f.segundos, 0) - TRANSICION * (pngs.length - 1);
 console.log(`Hecho: ${mp4} (${total.toFixed(1)} s)\nDescripción: ${carpeta}descripcion.txt`);

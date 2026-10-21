@@ -1,7 +1,7 @@
 # Studio de vídeos de Elevable
 
-Vídeos verticales (1080×1920) para TikTok e Instagram Reels, hechos con los
-datos del catálogo de la web. No tienen datos propios: si cambia
+Vídeos verticales (1080×1920) y carruseles de fotos (1080×1350) para TikTok e
+Instagram, hechos con los datos del catálogo de la web. No tienen datos propios: si cambia
 `data/productos.json`, cambia el vídeo.
 
 ## Cómo se usa
@@ -9,8 +9,13 @@ datos del catálogo de la web. No tienen datos propios: si cambia
 ```bash
 cd studio
 npm install          # una vez
-node generar.ts franja A
+node generar.ts franja A              # vídeo
+node generar.ts franja A --carrusel   # carrusel de fotos
 ```
+
+El carrusel sale en `studio/salida/<fecha>-franja-a-carrusel/`: las fotos
+numeradas en orden y la misma descripción. En Instagram, el 4:5 ocupa más
+pantalla en el feed que un vídeo; en TikTok, súbelo como fotos.
 
 Sale en `studio/salida/<fecha>-franja-a/`:
 
