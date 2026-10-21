@@ -8,11 +8,12 @@
  */
 import { calculateErgonomicHeight } from "../../lib/calculator.ts";
 import { catalogo } from "../catalogo.ts";
-import { C, PASTEL, pagina, marca, t, esCarrusel, postura } from "../diseno.ts";
+import { C, PASTEL, pagina, marca, t, rico, esCarrusel, alzado } from "../diseno.ts";
 import { portada, cierre, descripcion, AVISO } from "./comun.ts";
 import type { Video } from "./franja.ts";
 
 const ESTATURAS = [155, 160, 165, 170, 175, 180, 185, 190, 195];
+const ESTATURA_EJEMPLO = 175;
 const metros = (cm: number) => `${Math.floor(cm / 100)},${String(cm % 100).padStart(2, "0")}`;
 
 /**
@@ -68,6 +69,7 @@ function grafico(
 
 export function videoAltura(): Video {
   const filas = ESTATURAS.map((e) => ({ e, ...calculateErgonomicHeight(e) }));
+  const ejemplo = calculateErgonomicHeight(ESTATURA_EJEMPLO);
 
   // Lo que hacen los escritorios completos del catálogo, calculado.
   const completos = catalogo.filter((p) => p.incluye_tablero);
@@ -83,19 +85,21 @@ export function videoAltura(): Video {
 
   const fotogramas = [
     portada(
-      "Ergonomía",
-      "¿A qué altura debe estar",
-      "tu mesa?",
-      "Busca tu estatura: sentado y de pie, en centímetros.",
-      `<div style="display:flex;justify-content:center">${postura(esCarrusel() ? 560 : 760)}</div>`,
+      ["Ergonomía", "Guía rápida"],
+      "¿A qué altura debe estar ==tu mesa==?",
+      "Busca tu estatura y apunta tus dos medidas: sentado y de pie.",
+      [`De ${metros(ESTATURAS[0])} a ${metros(ESTATURAS[ESTATURAS.length - 1])} m`, "Sentado", "De pie", "Guárdalo"],
     ),
     {
       nombre: "como",
       segundos: 4,
       html: pagina(`<div class="lienzo" style="gap:${esCarrusel() ? 22 : 36}px">
   ${marca()}
-  <h2 class="titular" style="font-size:${esCarrusel() ? 80 : 96}px;line-height:1.02">La regla: codos a 90°</h2>
-  <div style="display:flex;justify-content:center">${postura(esCarrusel() ? 760 : 900)}</div>
+  <h2 class="titular" style="font-size:${esCarrusel() ? 80 : 96}px;line-height:1.02">${rico("La regla: codos a [[90°]]")}</h2>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+    ${alzado({ sentado: ejemplo.alturaSentado, dePie: ejemplo.alturaDePie, pantalla: ejemplo.alturaMonitor, silla: ejemplo.alturaSilla }, esCarrusel() ? 680 : 880)}
+    <p style="align-self:flex-start;font-size:28px;font-weight:500;color:${C.gris}">Ejemplo para ${metros(ESTATURA_EJEMPLO)} m de estatura.</p>
+  </div>
   <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
   ${[
     ["Codos", "En ángulo recto, a la altura de la mesa."],
@@ -117,7 +121,7 @@ export function videoAltura(): Video {
       segundos: 5,
       html: pagina(`<div class="lienzo" style="gap:24px">
   ${marca()}
-  <h2 class="titular" style="font-size:80px;line-height:1.02">Busca tu estatura</h2>
+  <h2 class="titular" style="font-size:80px;line-height:1.02">${rico("Busca ==tu estatura==")}</h2>
   <div style="border:3px solid ${C.borde};border-radius:32px;overflow:hidden">
     <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:${C.superficie};font-size:34px;font-weight:600;color:${C.gris}">
       <p style="padding:20px 32px">Estatura</p><p style="padding:20px 32px;text-align:right">Sentado</p><p style="padding:20px 32px;text-align:right">De pie</p>
@@ -139,7 +143,7 @@ export function videoAltura(): Video {
       segundos: 5,
       html: pagina(`<div class="lienzo" style="gap:${esCarrusel() ? 24 : 36}px">
   ${marca()}
-  <h2 class="titular" style="font-size:${esCarrusel() ? 80 : 96}px;line-height:1.02">¿Llega tu escritorio?</h2>
+  <h2 class="titular" style="font-size:${esCarrusel() ? 80 : 96}px;line-height:1.02">${rico("¿Llega ==tu escritorio==?")}</h2>
   ${grafico(filas, bajaHasta, bajaHastaMax, subeTodos, Math.max(...maximos))}
   <div style="display:flex;flex-direction:column;gap:14px">
     <p style="font-size:${esCarrusel() ? 34 : 40}px;line-height:1.3"><strong>De pie:</strong> hasta ${metros(llegaDePie)} m llegan todos los escritorios completos del catálogo.</p>
