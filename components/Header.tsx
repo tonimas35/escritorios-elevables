@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { label: "Comparador", href: "/comparador" },
   { label: "Calculadora", href: "/calculadora-altura" },
   { label: "Qué comprar", href: "/que-escritorio-elevable-comprar" },
+  { label: "Black Friday", href: "/black-friday-escritorio-elevable" },
 ];
 
 /**
