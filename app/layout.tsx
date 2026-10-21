@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Source_Serif_4 } from "next/font/google";
+import { Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -8,10 +8,18 @@ import { ORGANIZACION } from "@/lib/schema";
 
 const GA_ID = "G-DYSVBYSJN7";
 
-const sourceSerif = Source_Serif_4({
+// Tema «Ficha técnica»: Inter para el cuerpo e Inter Tight para los
+// titulares (app/globals.css, al final).
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-source-serif",
+  variable: "--font-inter",
+});
+
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter-tight",
 });
 
 export const metadata: Metadata = {
@@ -37,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={sourceSerif.variable}
+      className={`${inter.variable} ${interTight.variable}`}
     >
       <head>
         <Script
