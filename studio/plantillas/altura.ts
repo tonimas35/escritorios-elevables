@@ -85,9 +85,9 @@ export function videoAltura(): Video {
 
   const fotogramas = [
     portada(
-      ["Ergonomía", "Guía rápida"],
-      "¿A qué altura debe estar ==tu mesa==?",
-      "Busca tu estatura y apunta tus dos medidas: sentado y de pie.",
+      ["Para tu espalda"],
+      "¿Cuánto mides? Te digo a qué altura ==poner la mesa==",
+      "Sentado y de pie, en centímetros. Busca tu estatura y apúntatelo.",
       [`De ${metros(ESTATURAS[0])} a ${metros(ESTATURAS[ESTATURAS.length - 1])} m`, "Sentado", "De pie", "Guárdalo"],
     ),
     {
@@ -95,7 +95,7 @@ export function videoAltura(): Video {
       segundos: 4,
       html: pagina(`<div class="lienzo" style="gap:${esCarrusel() ? 22 : 36}px">
   ${marca()}
-  <h2 class="titular" style="font-size:${esCarrusel() ? 80 : 96}px;line-height:1.02">${rico("La regla: codos a [[90°]]")}</h2>
+  <h2 class="titular" style="font-size:${esCarrusel() ? 80 : 96}px;line-height:1.02">${rico("El truco: mírate los [[codos]]")}</h2>
   <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
     ${alzado({ sentado: ejemplo.alturaSentado, dePie: ejemplo.alturaDePie, pantalla: ejemplo.alturaMonitor, silla: ejemplo.alturaSilla }, esCarrusel() ? 680 : 880)}
     <p style="align-self:flex-start;font-size:28px;font-weight:500;color:${C.gris}">Ejemplo para ${metros(ESTATURA_EJEMPLO)} m de estatura.</p>
@@ -121,7 +121,7 @@ export function videoAltura(): Video {
       segundos: 5,
       html: pagina(`<div class="lienzo" style="gap:24px">
   ${marca()}
-  <h2 class="titular" style="font-size:80px;line-height:1.02">${rico("Busca ==tu estatura==")}</h2>
+  <h2 class="titular" style="font-size:${esCarrusel() ? 68 : 80}px;line-height:1.04">${rico("Busca tu estatura y ==apúntatelo==")}</h2>
   <div style="border:3px solid ${C.borde};border-radius:32px;overflow:hidden">
     <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:${C.superficie};font-size:34px;font-weight:600;color:${C.gris}">
       <p style="padding:20px 32px">Estatura</p><p style="padding:20px 32px;text-align:right">Sentado</p><p style="padding:20px 32px;text-align:right">De pie</p>
@@ -129,9 +129,9 @@ export function videoAltura(): Video {
     ${filas
       .map(
         (f, i) => `<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));font-size:44px;${i ? `border-top:2px solid ${C.borde};` : ""}">
-      <p style="padding:16px 32px;font-weight:700">${metros(f.e)} m</p>
-      <p style="padding:16px 32px;text-align:right">${f.alturaSentado} cm</p>
-      <p style="padding:16px 32px;text-align:right;font-weight:700;color:${C.acento}">${f.alturaDePie} cm</p></div>`,
+      <p style="padding:${esCarrusel() ? 12 : 16}px 32px;font-weight:700">${metros(f.e)} m</p>
+      <p style="padding:${esCarrusel() ? 12 : 16}px 32px;text-align:right">${f.alturaSentado} cm</p>
+      <p style="padding:${esCarrusel() ? 12 : 16}px 32px;text-align:right;font-weight:700;color:${C.acento}">${f.alturaDePie} cm</p></div>`,
       )
       .join("")}
   </div>
@@ -143,7 +143,7 @@ export function videoAltura(): Video {
       segundos: 5,
       html: pagina(`<div class="lienzo" style="gap:${esCarrusel() ? 24 : 36}px">
   ${marca()}
-  <h2 class="titular" style="font-size:${esCarrusel() ? 80 : 96}px;line-height:1.02">${rico("¿Llega ==tu escritorio==?")}</h2>
+  <h2 class="titular" style="font-size:${esCarrusel() ? 80 : 96}px;line-height:1.02">${rico(`¿Mides menos de ${metros(bajaSentado)}\u00a0m? ==Ojo con esto==`)}</h2>
   ${grafico(filas, bajaHasta, bajaHastaMax, subeTodos, Math.max(...maximos))}
   <div style="display:flex;flex-direction:column;gap:14px">
     <p style="font-size:${esCarrusel() ? 34 : 40}px;line-height:1.3"><strong>De pie:</strong> hasta ${metros(llegaDePie)} m llegan todos los escritorios completos del catálogo.</p>
@@ -161,7 +161,7 @@ export function videoAltura(): Video {
   ];
 
   const texto = descripcion([
-    "¿A qué altura debe estar tu mesa? Busca tu estatura 👇",
+    "¿Cuánto mides? Te digo a qué altura poner la mesa 👇",
     "",
     ...filas.filter((_, i) => i % 2 === 1).map((f) => `${metros(f.e)} m → sentado ${f.alturaSentado} cm · de pie ${f.alturaDePie} cm`),
     "",

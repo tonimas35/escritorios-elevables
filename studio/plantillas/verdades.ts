@@ -29,7 +29,7 @@ function diapositiva(v: Verdad, n: number, total: number): Fotograma {
   <p style="font-size:${carrusel ? 38 : 44}px;line-height:1.3;font-weight:600">${t(v.dato)}</p>
   <div style="flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;gap:24px">${v.grafico}</div>
   <div style="position:relative;margin-top:18px;padding:40px 32px 26px;border-radius:28px;background:#FFFFFF;border:3px solid ${C.borde}">
-    <span class="pegatina" style="position:absolute;left:24px;top:-30px;font-size:32px;transform:rotate(-3deg)">Qué hacer</span>
+    <span class="pegatina" style="position:absolute;left:24px;top:-30px;font-size:32px;transform:rotate(-3deg)">Lo que haría yo</span>
     <p style="font-size:${carrusel ? 34 : 38}px;line-height:1.3">${t(v.consejo.charAt(0).toUpperCase() + v.consejo.slice(1))}</p>
   </div>
 </div>`),
@@ -92,7 +92,7 @@ export function videoVerdades(): Video {
 
   const verdades: Verdad[] = [
     {
-      titular: "La carga máxima ==incluye el tablero==",
+      titular: "La carga que anuncian ==incluye el tablero==",
       dato: `Los completos del catálogo declaran entre ${rango(cargas)} kg, y es todo lo que va encima.`,
       consejo: "resta el peso del tablero antes de contar monitores y equipo.",
       grafico: barras(
@@ -111,7 +111,7 @@ export function videoVerdades(): Video {
       ]).replace("flex-direction:column", "flex-direction:row;gap:40px"),
     },
     {
-      titular: "Muchos [[no dicen]] si paran al chocar",
+      titular: sinAnti * 2 > total ? "Más de la mitad [[no dice]] si para al chocar" : `${sinAnti} de ${total} [[no dicen]] si paran al chocar`,
       dato: `${sinAnti} de ${total} modelos no declaran anticolisión en su ficha.`,
       consejo: "si la ficha no lo dice, no lo des por hecho. Con niños o mascotas, elige uno que la declare.",
       grafico:
@@ -125,13 +125,13 @@ export function videoVerdades(): Video {
         ]),
     },
     {
-      titular: "==100 cm== se quedan cortos",
+      titular: "Con monitor, ==100 cm== se te quedan cortos",
       dato: `${de100 === 1 ? "Hay uno" : `Hay ${de100}`} de 100 cm: para portátil vale, con monitor y teclado va justo.`,
       consejo: "con monitor externo, mínimo 120 cm. Con dos, 140 o más.",
       grafico: tableros(anchos),
     },
     {
-      titular: "El doble motor ==no siempre== hace falta",
+      titular: "No pagues de más ==por el doble motor==",
       dato: `${simples} de ${total} llevan un solo motor, y para portátil y monitor van de sobra.`,
       consejo: "doble motor solo con tableros grandes, mucho peso o si cambias de altura a menudo.",
       grafico:
@@ -145,7 +145,7 @@ export function videoVerdades(): Video {
         ]),
     },
     {
-      titular: "Si no pone garantía, ==tienes 3 años== igual",
+      titular: "¿No pone garantía? ==Tienes 3 años== igual",
       dato: `${sinGarantia} de ${total} no declaran años de garantía. En España, la legal es de 3 años.`,
       consejo: "si dos te convencen igual, elige el que declare más años: tiene motor y electrónica.",
       grafico:
@@ -162,9 +162,9 @@ export function videoVerdades(): Video {
 
   const fotogramas = [
     portada(
-      ["Antes de comprar", `${verdades.length} verdades`],
-      "Lo que [[nadie te dice]] de los escritorios elevables",
-      `Lo que hemos visto comparando las fichas de ${total} modelos.`,
+      ["Antes de comprar"],
+      `Hemos comparado ${total} escritorios elevables. Esto [[no te lo cuentan]]`,
+      `${verdades.length} cosas que solo ves si te lees la letra pequeña de las fichas.`,
       [`${total} modelos`, "Datos de sus fichas", "Guárdalo"],
       `<div style="display:flex;justify-content:flex-start">${cuadros(
         [
@@ -187,7 +187,7 @@ export function videoVerdades(): Video {
   ];
 
   const texto = descripcion([
-    `Lo que nadie te dice antes de comprar un escritorio elevable 👇 (comparando ${total} modelos)`,
+    `Hemos comparado ${total} escritorios elevables y esto no te lo cuentan 👇`,
     "",
     ...verdades.map((v, i) => `${i + 1}. ${sinMarcas(v.titular)}`),
     "",
