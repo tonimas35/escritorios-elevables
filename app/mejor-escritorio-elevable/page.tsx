@@ -477,6 +477,9 @@ export default function MejorEscritorioPage() {
           </h3>
           <ul className="flex flex-col" style={{ gap: 10, marginTop: 14, fontSize: 16 }}>
             <li>
+              <Link href="/black-friday-escritorio-elevable">Escritorio elevable en Black Friday</Link>: cómo saber si una oferta es una rebaja de verdad.
+            </li>
+            <li>
               <Link href="/escritorio-elevable-barato">Escritorios elevables baratos</Link>: la gama de entrada, con más detalle.
             </li>
             <li>
