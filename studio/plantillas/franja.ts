@@ -162,7 +162,7 @@ export function videoFranja(f: Franja): Video {
     <h1 class="titular" style="font-size:${T.cifra.length > 6 ? 116 : 132}px;line-height:1;letter-spacing:-0.03em">${t(T.antes)} <span style="color:${C.acento};white-space:nowrap">${t(T.cifra)}</span></h1>
     <p style="font-size:50px;line-height:1.3;color:${C.gris}">Los ${n} mejores de la franja, con sus datos. Sin opiniones inventadas.</p>
   </div>
-  <div style="display:flex;align-items:center;justify-content:center;height:420px;border-radius:48px;background:${C.superficie};color:#8A909C">${dibujo(top[0], 440)}</div>
+  <div style="display:flex;align-items:center;justify-content:center;height:460px;border-radius:48px;background:${C.superficie};color:#8A909C">${dibujo(top[0], 480)}</div>
 </div>`),
   });
 
