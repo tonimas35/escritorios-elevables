@@ -45,8 +45,12 @@ otro, con `CHROMIUM=/ruta/al/chrome node generar.ts franja A`.
   se calcula comparándolo con los otros; si nada lo distingue, su primer
   «pro».
 - **Precio, solo como franja con fecha**, en el formato de `franjaPrecio()`.
-- **Sin fotos de producto.** Las condiciones de Amazon Afiliados limitan dónde
-  se pueden usar sus imágenes; los vídeos llevan ilustraciones de línea.
+- **Nunca fotos de Amazon.** Sus normas de afiliados no permiten descargarlas
+  para archivos propios.
+- **Fotos del fabricante, opcionales:** guarda la del modelo en
+  `studio/fotos/<slug>.jpg` (el `slug` de `data/productos.json`, p. ej.
+  `vasagle-100.jpg`). Mejor con fondo blanco. Si no hay foto, sale la
+  ilustración. La carpeta no se sube al repo, que es público.
 - **Las fechas importan:** si las franjas de precio tienen más de un mes,
   revísalas antes de publicar (`npm run validar` en la raíz avisa).
 

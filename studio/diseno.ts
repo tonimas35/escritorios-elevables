@@ -5,6 +5,7 @@
  * Zona segura: TikTok e Instagram tapan con su interfaz unos 400 px abajo y
  * los botones de la derecha, así que el contenido va arriba y centrado.
  */
+import { existsSync } from "node:fs";
 import type { Product } from "../lib/types";
 
 const fuente = (familia: string, peso: number, fichero: string) =>
@@ -125,6 +126,30 @@ export function dibujo(p: Product, ancho = 600): string {
     <rect x="${x0 + 46}" y="${ty + 12}" width="30" height="9" rx="2" fill="#1F2126"/>
     <circle cx="${x0 + 70}" cy="${ty + 16.5}" r="2.2" fill="#7E9BFF"/>`;
   return `<svg viewBox="${vb}" width="${ancho}" height="${alto}" aria-hidden="true">${sombra}${patas}${tablero}${encima}${planta}</svg>`;
+}
+
+/**
+ * La foto del modelo, si hay una en studio/fotos/<slug>.(jpg|jpeg|png|webp).
+ * Esa carpeta no se sube al repo (es público y las fotos son de cada
+ * fabricante): vive solo en el ordenador donde se generan los vídeos.
+ */
+function foto(p: Product): string | null {
+  for (const ext of ["jpg", "jpeg", "png", "webp"]) {
+    const ruta = new URL(`./fotos/${p.slug}.${ext}`, import.meta.url);
+    if (existsSync(ruta)) return ruta.href;
+  }
+  return null;
+}
+
+/**
+ * La imagen del recuadro: la foto del modelo si la hay y, si no, la
+ * ilustración. multiply funde el fondo blanco de la foto con el gris del
+ * recuadro, como en la web.
+ */
+export function imagen(p: Product, ancho: number): string {
+  const f = foto(p);
+  if (!f) return dibujo(p, ancho);
+  return `<img src="${f}" alt="" style="width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;padding:28px">`;
 }
 
 /** Escapa texto que viene del catálogo antes de meterlo en el HTML. */
