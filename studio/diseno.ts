@@ -33,16 +33,34 @@ export const C = {
   acentoSobreOscuro: "#7E9BFF",
 };
 
-/** Una página de 1080×1920 con las fuentes del tema. */
+/**
+ * Dos formatos con el mismo contenido: el vídeo vertical (1080×1920, con la
+ * franja de abajo libre para la interfaz de TikTok e Instagram) y el
+ * carrusel de fotos (1080×1350, el 4:5 que Instagram enseña más grande en
+ * el feed).
+ */
+export type Formato = "video" | "carrusel";
+let formato: Formato = "video";
+export function usarFormato(f: Formato) {
+  formato = f;
+}
+export const esCarrusel = () => formato === "carrusel";
+export const medidas = () =>
+  formato === "video"
+    ? { alto: 1920, relleno: "140px 96px 420px", hueco: 44, imgModelo: 560, dibModelo: 600, imgPortada: 460, dibPortada: 480, aire: 60, chip: 40 }
+    : { alto: 1350, relleno: "72px 88px 72px", hueco: 22, imgModelo: 330, dibModelo: 400, imgPortada: 400, dibPortada: 420, aire: 0, chip: 34 };
+
+/** Una página del formato en uso, con las fuentes del tema. */
 export function pagina(cuerpo: string, fondo = "#FFFFFF", texto: string = C.tinta): string {
+  const m = medidas();
   return `<!doctype html><html lang="es"><head><meta charset="utf-8"><style>
 ${FUENTES}
 *{box-sizing:border-box}
-body{margin:0;width:1080px;height:1920px;overflow:hidden;background:${fondo};color:${texto};font-family:'Inter',sans-serif}
-.lienzo{width:1080px;height:1920px;padding:140px 96px 420px;display:flex;flex-direction:column;gap:44px}
+body{margin:0;width:1080px;height:${m.alto}px;overflow:hidden;background:${fondo};color:${texto};font-family:'Inter',sans-serif}
+.lienzo{width:1080px;height:${m.alto}px;padding:${m.relleno};display:flex;flex-direction:column;gap:${m.hueco}px}
 .titular{font-family:'Inter Tight',sans-serif;font-weight:800;letter-spacing:-0.025em;margin:0}
 .marca{margin:0;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:52px;letter-spacing:-0.02em}
-.chip{padding:14px 24px;border-radius:18px;font-size:40px;font-weight:500}
+.chip{padding:12px 22px;border-radius:18px;font-size:${m.chip}px;font-weight:500}
 p{margin:0}
 </style></head><body>${cuerpo}</body></html>`;
 }

@@ -12,7 +12,7 @@ import type { Product } from "../../lib/types";
 import { NOMBRE_FRANJA, type Franja } from "../../lib/nota.ts";
 import { publicable } from "../../lib/cifras.ts";
 import { modelosDeFranja, nombre, nota, franjaPrecio } from "../catalogo.ts";
-import { C, pagina, marca, dibujo, t } from "../diseno.ts";
+import { C, pagina, marca, dibujo, t, medidas, esCarrusel } from "../diseno.ts";
 
 export interface Fotograma {
   nombre: string;
@@ -122,12 +122,12 @@ function fotogramaModelo(p: Product, posicion: number, total: number, rasgo: str
   const precio = esPrimero ? franjaPrecio(p) : null;
   const cuerpo = `<div class="lienzo">
   <div style="display:flex;justify-content:space-between;align-items:center">${marca(acento)}${cabecera}</div>
-  <div style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;height:560px;border-radius:48px;background:${C.superficie};color:${
+  <div style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;height:${medidas().imgModelo}px;border-radius:48px;background:${C.superficie};color:${
     esPrimero ? C.gris : "#8A909C"
-  }">${dibujo(p)}</div>
+  }">${dibujo(p, medidas().dibModelo)}</div>
   <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
     <div><p style="font-size:44px;font-weight:700;color:${acento}">Nº ${posicion}${total < 3 ? ` de ${total}` : ""}</p>
-    <h2 class="titular" style="margin-top:8px;font-size:${nombre(p).length > 16 ? 88 : 104}px;line-height:1">${t(nombre(p))}</h2></div>
+    <h2 class="titular" style="margin-top:8px;font-size:${(nombre(p).length > 16 ? 88 : 104) - (esCarrusel() ? 12 : 0)}px;line-height:1">${t(nombre(p))}</h2></div>
     <p style="text-align:right"><span style="display:block;font-family:'Inter Tight',sans-serif;font-weight:800;font-size:150px;line-height:.9;color:${acento}">${nota(
       p.puntuacion.total,
     )}</span><span style="font-size:36px;color:${secundario}">nota</span></p>
@@ -162,7 +162,9 @@ export function videoFranja(f: Franja): Video {
     <h1 class="titular" style="font-size:${T.cifra.length > 6 ? 116 : 132}px;line-height:1;letter-spacing:-0.03em">${t(T.antes)} <span style="color:${C.acento};white-space:nowrap">${t(T.cifra)}</span></h1>
     <p style="font-size:50px;line-height:1.3;color:${C.gris}">Los ${n} mejores de la franja, con sus datos. Sin opiniones inventadas.</p>
   </div>
-  <div style="display:flex;align-items:center;justify-content:center;height:460px;border-radius:48px;background:${C.superficie};color:#8A909C">${dibujo(top[0], 480)}</div>
+  <div style="display:flex;align-items:center;justify-content:center;height:${medidas().imgPortada}px;border-radius:48px;background:${C.superficie};color:#8A909C;position:relative">${dibujo(top[0], medidas().dibPortada)}${
+    esCarrusel() ? `<p style="position:absolute;right:32px;bottom:28px;padding:12px 22px;border-radius:999px;background:${C.tinta};color:#fff;font-size:34px;font-weight:600">Desliza →</p>` : ""
+  }</div>
 </div>`),
   });
 
@@ -182,7 +184,7 @@ export function videoFranja(f: Franja): Video {
     segundos: 4,
     html: pagina(`<div class="lienzo" style="gap:56px">
   ${marca()}
-  <h2 class="titular" style="margin-top:60px;font-size:104px;line-height:1">Antes de comprar, mira 3 cosas</h2>
+  <h2 class="titular" style="margin-top:${medidas().aire}px;font-size:104px;line-height:1">Antes de comprar, mira 3 cosas</h2>
   <div style="display:flex;flex-direction:column;gap:28px">${items
     .map(
       (txt, i) => `<div style="display:flex;gap:32px;align-items:center;padding:36px 40px;border:3px solid ${C.borde};border-radius:36px">
