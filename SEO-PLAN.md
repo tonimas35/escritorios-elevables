@@ -151,6 +151,46 @@ no tiene relación.
 - Consultas genéricas ("escritorio elevable"): no se persiguen de frente; llegan
   con la autoridad (B5).
 
+### Revisión del 21/10
+
+Datos sacados por Claude desde el navegador de Toni.
+
+- **GA4, 28 días (23/09–20/10):** 79 sesiones (85 los 28 anteriores).
+  Google 36 (antes 21), directo 22, **IA 19 (antes 39: la mitad)**. 32
+  eventos clave: 16 de IA, 8 de Google y 8 de directo. La IA sigue siendo
+  el canal que mejor convierte.
+- **Páginas, 28 días:** `/mejor-escritorio-elevable` 33 vistas y 8 eventos
+  clave; home 28 vistas y **1**; `/escritorio-elevable-barato` 12 vistas y
+  **10**; `/bases-elevables` 8 vistas y **7**. Convierten las páginas de
+  presupuesto, no la home.
+- **Search Console, 3 meses:** 24 clics, 913 impresiones, **posición media
+  20,1** (28,7 el 25/09). Cerca o en página 1: «maidesite vs flexispot»
+  (5,4), «flexispot vs maidesite» (8,2), «sanodesk vs flexispot» (8,4),
+  «maidesite t2 pro» (7,0), «maidesite» (8,7), «maidesite t2 pro max»
+  (8,9), «mejores escritorios elevables calidad precio» (9,0), «devoko
+  escritorio elevable» (11,1). Las genéricas siguen lejos (más allá de 40).
+- **Amazon Afiliados, 30 días:** 57 clics, 2 pedidos (uno directo), **15,99 €
+  de comisión** (8,57 € los 30 anteriores).
+- **Bing Webmaster:** sitemap enviado el 25/09 y leído el 18/10 sin errores
+  (24 URLs descubiertas); IndexNow funciona (25 URLs el 15/10). Pero Bing
+  **solo indexa 5 páginas**, la home y las de presupuesto no están, 1
+  impresión en Bing y **0 citas en Copilot**. No es técnico: Bing no ve
+  autoridad suficiente. Probable causa de la caída del tráfico de IA.
+- **Pendiente de la revisión del 15/10:** las franjas de precio siguen con
+  fecha 30/09. Se revisan la semana del 16/11 (P5), antes del Black Friday.
+
+**Qué cambia:**
+- **Fuera retoques de diseño hasta el examen de los 60 días (24–30/11).**
+  Las tres semanas anteriores fueron a la home, que no convierte.
+- **P5 pasa a ser página propia:** `/black-friday-escritorio-elevable`, con
+  la franja de cada modelo como precio de referencia para saber si una
+  oferta es real. Tiene que estar indexada antes del 15/11.
+- **Nuevo P7, enlaces externos:** es lo que le falta a Bing para indexar y a
+  ChatGPT para citar. Participación real de Toni en foros y blogs donde se
+  pregunta qué escritorio comprar; Claude prepara dónde y qué aportar.
+- Las siguientes comparativas, sobre los modelos que Google ya asocia a la
+  web (MAIDeSITe, Devoko).
+
 ### Revisión del 30/09 (cinco días después de los cambios)
 
 Sin efecto medible todavía: del 26 al 29/09, 10 sesiones y 11 clics a
