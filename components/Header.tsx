@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { MobileMenuButton } from "@/components/MobileMenuButton";
-import { FECHA } from "@/lib/fecha";
 
 const NAV_ITEMS = [
   { label: "Mejores 2026", href: "/mejor-escritorio-elevable" },
@@ -11,31 +10,22 @@ const NAV_ITEMS = [
 ];
 
 /**
- * Riel de cabecera del sistema Broadsheet.
+ * Cabecera del tema «Ficha técnica»: una sola fila, la marca a la izquierda
+ * (con el punto en acento) y el menú a la derecha. En móvil, el menú se
+ * pliega en MobileMenuButton.
  *
- * Sustituye a la barra pegajosa con logo en cobre: filete grueso en tinta,
- * fila de identificacion con la fecha unica del sitio, filete fino, y
- * debajo la navegacion. Sin logo dibujado: el nombre en versales es la
- * marca, como en un periodico.
- *
- * Deja de ser sticky a proposito. El riel del diseño se lee una vez, al
- * principio, y no persigue al lector por la pagina.
+ * La fecha del sitio ya no va en la cabecera: cada página dice cuándo se
+ * actualizó junto al titular.
  */
 export function Header() {
   return (
     <header className="bs-cabecera">
       <div className="bs-contenido">
-        <p className="bs-riel">
-          {/* La cabecera era un callejon sin salida: el nombre no enlazaba a
-              ningun sitio. Ahora es la via de vuelta a la home. */}
-          <Link href="/" className="bs-riel-marca">
-            <strong>Elevable</strong> · Análisis independiente
+        <div className="bs-cabecera-fila">
+          <Link href="/" className="bs-marca" aria-label="Elevable, inicio">
+            elevable<span aria-hidden="true">.</span>
           </Link>
-          <span>{FECHA}</span>
-        </p>
-
-        <div className="bs-nav-fila">
-          <nav className="bs-nav">
+          <nav className="bs-nav" aria-label="Principal">
             {NAV_ITEMS.map((item) => (
               <Link key={item.href} href={item.href}>
                 {item.label}
