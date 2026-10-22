@@ -164,6 +164,42 @@ Apuntada para la revisión de los 60 días (24–30/11), con estos límites:
 - Consultas genéricas ("escritorio elevable"): no se persiguen de frente; llegan
   con la autoridad (B5).
 
+### Investigación de palabras clave del 22/10
+
+Datos sacados por Claude desde el Chrome de Toni: Semrush gratuito (base de
+datos de España, 10 consultas al día), Google Trends (España, 12 meses),
+Keepa y los resultados de búsqueda de cada modelo.
+
+- **Las visitas están en las búsquedas generales**, no en los nombres de
+  modelo (búsquedas al mes · dificultad): «escritorio elevable» 6.600 · 26 %;
+  «escritorios elevables» 1.900 · 33 %; **«mesa escritorio elevable» 1.600 ·
+  19 %**; **«escritorio elevable ikea» 1.300 · 39 %**; «escritorio elevable
+  eléctrico» 1.000 · 22 %. 569 variantes suman 25.100.
+- **Modelos:** «flexispot e7 pro» 480 · 21 % (no se vende en Amazon.es);
+  «flexispot e1 pro» 90 (140 con variantes) · 19 %; «ergear escritorio
+  elevable» 40; «escritorio elevable pequeño» 50; bases (7 variantes) 100;
+  «escritorio elevable doble motor» 10; «escritorio elevable black friday» 10.
+- **Trends:** FLEXISPOT es la única marca con búsquedas propias (media 57;
+  MAIDeSITe, ErGear, SANODESK y HUANUO casi a 0) y se multiplica por 2,5 la
+  semana del Black Friday (40 en octubre → 100 la semana del 23/11/2025).
+  «Mesa elevable» se busca 4 veces más que «escritorio elevable», pero son
+  mesas de centro (Jysk, Rapimueble): no se persigue.
+- **Competencia:** las búsquedas de FLEXISPOT las tienen medios grandes
+  (Xataka, Compradiccion, TechRadar, PcComponentes). Del ErGear 160x80 y del
+  HUANUO 80x48 no hay ninguna opinión en español: hueco.
+- **Keepa:** el FLEXISPOT E1 Pro ha oscilado entre unos 155 y 200 € en tres
+  meses. Las rebajas existen; sirve para la página del Black Friday.
+
+**Qué cambia:**
+- **Nueva prioridad, P8: página «escritorio elevable IKEA o Amazon»**, antes
+  del 15/11. Es la búsqueda con más volumen que no tenemos. Precios de IKEA,
+  como los de Amazon: solo en franja con fecha.
+- **«Mesa escritorio elevable»** entra en el título y la entradilla de
+  `/mejor-escritorio-elevable`: 1.600 al mes y dificultad baja.
+- **Las fichas nuevas se eligen por hueco de catálogo y ventas**, no por
+  búsquedas de modelo, que son pocas: completan las guías generales y dan a
+  ChatGPT algo que citar para cada presupuesto.
+
 ### Revisión del 21/10
 
 Datos sacados por Claude desde el navegador de Toni.
