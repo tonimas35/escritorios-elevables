@@ -164,7 +164,8 @@ export default function Home() {
             comparan, así que el veredicto es el primero de cada franja
             (METODO.md §5, "Cómo se publica la nota"). */}
         <h1 className="bs-h1" style={{ marginTop: 14, maxWidth: "30ch" }}>
-          Los mejores escritorios elevables de 2026, franja a franja
+          Los mejores escritorios elevables de 2026,{" "}
+          <span className="bs-fluor">franja a franja</span>
         </h1>
 
         <p className="bs-standfirst" style={{ maxWidth: "62ch", marginTop: 18 }}>
