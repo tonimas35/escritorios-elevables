@@ -35,7 +35,8 @@ export default function CalculadoraPage() {
           </h1>
           <AvisoAfiliadoPagina />
           <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
-            Basado en la norma EN 527-1 y recomendaciones OSHA.
+            Aproximación con proporciones corporales medias. Ajusta hasta tener los
+            codos a 90°.
           </p>
         </div>
       </FadeIn>

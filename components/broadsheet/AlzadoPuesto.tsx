@@ -57,7 +57,7 @@ export function AlzadoPuesto({
       viewBox="0 0 600 520"
       width="100%"
       role="img"
-      aria-label={`Puesto de trabajo acotado: mesa a ${sentado} cm sentado y a ${dePie} cm de pie, borde de arriba de la pantalla a ${pantalla} cm, a la altura de los ojos, y silla a ${silla} cm.`}
+      aria-label={`Puesto de trabajo acotado: mesa a ${sentado} cm sentado y a ${dePie} cm de pie, borde de arriba de la pantalla a ${pantalla} cm y silla a ${silla} cm.`}
       style={{ maxWidth: 640, overflow: "visible", display: "block" }}
     >
       <defs>
@@ -103,7 +103,7 @@ export function AlzadoPuesto({
       <Pieza x={monX + 75} y={Y(pantalla) - 14} texto="pantalla" anchor="middle" />
       <Pieza x={x0 + 4} y={Y(dePie) - 12} texto="tablero" />
 
-      <Cota cm={pantalla} rotulo="altura de los ojos" hasta={monX} />
+      <Cota cm={pantalla} rotulo="pantalla" hasta={monX} />
       <Cota cm={dePie} rotulo="de pie" hasta={x0} />
       <Cota cm={sentado} rotulo="sentado" hasta={x0} />
     </svg>
