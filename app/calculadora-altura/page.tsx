@@ -6,6 +6,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { AvisoAfiliadoPagina } from "@/components/AvisoAfiliado";
 import { FadeIn } from "@/components/FadeIn";
 import { getProductsInHeightRange } from "@/lib/products";
+import { AlzadoPuesto } from "@/components/broadsheet/AlzadoPuesto";
 
 export default function CalculadoraPage() {
   const [estatura, setEstatura] = useState(170);
@@ -34,7 +35,8 @@ export default function CalculadoraPage() {
           </h1>
           <AvisoAfiliadoPagina />
           <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
-            Basado en la norma EN 527-1 y recomendaciones OSHA.
+            Aproximación con proporciones corporales medias. Ajusta hasta tener los
+            codos a 90°.
           </p>
         </div>
       </FadeIn>
@@ -59,6 +61,19 @@ export default function CalculadoraPage() {
           </div>
         </div>
       </FadeIn>
+
+      {/* Dibujo: el puesto acotado con tus medidas */}
+      <div className="p-6 rounded-lg mt-6" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-card)' }}>
+        <p className="text-sm font-medium mb-4" style={{ color: 'var(--text-secondary)' }}>
+          Así queda tu puesto con {estatura} cm de estatura
+        </p>
+        <AlzadoPuesto
+          sentado={result.alturaSentado}
+          dePie={result.alturaDePie}
+          pantalla={result.alturaMonitor}
+          silla={result.alturaSilla}
+        />
+      </div>
 
       {/* Results */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">

@@ -179,7 +179,8 @@ export default function BlackFridayPage() {
       <section className="bs-contenido bs-seccion">
         <p className="bs-kicker">Nº 01 · Black Friday 2026</p>
         <h1 className="bs-h1" style={{ marginTop: 14, maxWidth: "24ch" }}>
-          Escritorio elevable en Black Friday: cómo saber si la oferta es real
+          Escritorio elevable en Black Friday: cómo saber si la oferta{" "}
+          <span className="bs-fluor">es real</span>
         </h1>
         <p className="bs-standfirst" style={{ maxWidth: "54ch", marginTop: 18 }}>
           El Black Friday es el viernes 27 de noviembre. Antes de comprar,

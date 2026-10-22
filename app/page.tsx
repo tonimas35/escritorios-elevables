@@ -31,6 +31,7 @@ import { NOMBRE_FRANJA, posicionEnFranja, type Franja } from "@/lib/nota";
 import { infoFranja } from "@/lib/comparativa";
 import { PosicionNota, RotuloFranja } from "@/components/broadsheet/PosicionNota";
 import { CtaFijo } from "@/components/broadsheet/CtaFijo";
+import { Cuadros, PASTEL } from "@/components/broadsheet/Cuadros";
 import { rutaFicha } from "@/lib/rutas";
 
 export const metadata: Metadata = {
@@ -45,6 +46,36 @@ export default function Home() {
   const tresCaminos = caminos(catalogo);
   const notaPrecios = notaFranjas(catalogo.map(([, p]) => p));
   const productos = catalogo.map(([, p]) => p);
+  // Lo que declaran las fichas, en cuadraditos (sección Nº 05).
+  const conAnti = productos.filter((p) => p.specs.sistema_anticolision === true).length;
+  const dobles = productos.filter((p) => p.specs.tipo_motor === "doble").length;
+  const conGarantia = productos.filter((p) => p.specs.garantia_anos !== null).length;
+  const enCuadros = [
+    {
+      id: "anticolision",
+      pregunta: "¿Para si choca con algo?",
+      grupos: [
+        { n: conAnti, color: PASTEL.azul, texto: "Declaran anticolisión" },
+        { n: productos.length - conAnti, color: PASTEL.arena, texto: "No lo dicen" },
+      ],
+    },
+    {
+      id: "motor",
+      pregunta: "¿Uno o dos motores?",
+      grupos: [
+        { n: productos.length - dobles, color: PASTEL.azul, texto: "Un motor" },
+        { n: dobles, color: PASTEL.lavanda, texto: "Doble motor" },
+      ],
+    },
+    {
+      id: "garantia",
+      pregunta: "¿Garantía por escrito?",
+      grupos: [
+        { n: conGarantia, color: PASTEL.verde, texto: "Declaran los años" },
+        { n: productos.length - conGarantia, color: PASTEL.arena, texto: "No los dicen (la legal, 3 años)" },
+      ],
+    },
+  ];
   // El primero de cada franja, en el orden de las franjas.
   const primeros = (Object.keys(NOMBRE_FRANJA) as Franja[]).flatMap((f) =>
     catalogo.filter(([, p]) => {
@@ -164,7 +195,8 @@ export default function Home() {
             comparan, así que el veredicto es el primero de cada franja
             (METODO.md §5, "Cómo se publica la nota"). */}
         <h1 className="bs-h1" style={{ marginTop: 14, maxWidth: "30ch" }}>
-          Los mejores escritorios elevables de 2026, franja a franja
+          Los mejores escritorios elevables de 2026,{" "}
+          <span className="bs-fluor">franja a franja</span>
         </h1>
 
         <p className="bs-standfirst" style={{ maxWidth: "62ch", marginTop: 18 }}>
@@ -466,6 +498,27 @@ export default function Home() {
           <h2 className="bs-h2" style={{ marginTop: 12 }}>
             Las tres dudas de siempre
           </h2>
+
+          {/* El catálogo en cuadraditos, como en los carruseles: un cuadrado
+              por modelo, con lo que declara su ficha. */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))",
+              gap: 16,
+              marginTop: 28,
+            }}
+          >
+            {enCuadros.map((c) => (
+              <div key={c.id} className="bs-tarjeta" style={{ padding: 20, display: "flex", flexDirection: "column", gap: 14, minWidth: 0 }}>
+                <p className="bs-h3" style={{ margin: 0, fontSize: 19, fontWeight: 700 }}>{c.pregunta}</p>
+                <Cuadros id={c.id} grupos={c.grupos} />
+              </div>
+            ))}
+          </div>
+          <p className="bs-cuerpo" style={{ marginTop: 12, fontSize: 14, color: "var(--bs-neutro-800)" }}>
+            Un cuadrado por cada uno de los {productos.length} modelos del catálogo, con lo que declara su ficha.
+          </p>
 
           <div
             className="flex flex-col"

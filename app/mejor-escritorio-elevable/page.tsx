@@ -193,7 +193,7 @@ export default function MejorEscritorioPage() {
       <section className="bs-contenido bs-seccion">
         <p className="bs-kicker">Nº 01 · Guía de compra</p>
         <h1 className="bs-h1" style={{ marginTop: 14, maxWidth: "22ch" }}>
-          Los {N} mejores escritorios elevables de 2026
+          Los {N} <span className="bs-fluor">mejores escritorios elevables</span> de 2026
         </h1>
         <p className="bs-standfirst" style={{ maxWidth: "50ch", marginTop: 18 }}>
           Cuál comprar según tu presupuesto y tu caso. Cada escritorio se mide

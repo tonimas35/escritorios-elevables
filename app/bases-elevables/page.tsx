@@ -176,7 +176,7 @@ export default function BasesElevablesPage() {
       <section className="bs-contenido bs-seccion">
         <p className="bs-kicker">Nº 01 · Bases elevables</p>
         <h1 className="bs-h1" style={{ marginTop: 14, maxWidth: "22ch" }}>
-          Bases elevables: cuál comprar en 2026
+          Bases elevables: <span className="bs-fluor">cuál comprar</span> en 2026
         </h1>
         <p className="bs-standfirst" style={{ maxWidth: "52ch", marginTop: 18 }}>
           Una base elevable es la estructura con motor, sin tablero: el tablero
