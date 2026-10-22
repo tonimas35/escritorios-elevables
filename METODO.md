@@ -82,8 +82,15 @@ Un modelo entra solo si cumple **todos**:
    contando en la nota cuando la ficha la declara (§5), y en la web se dice
    "Sin dato" cuando no.
 5. Revisión de las **20 reseñas de 1–2 estrellas más recientes**: sin un patrón
-   repetido de fallo de motor, de inestabilidad o de piezas que llegan rotas.
-   Lo encontrado se resume en `nota_resenas`, aunque sea "nada relevante".
+   repetido de fallo de motor, de la electrónica o de inestabilidad. Lo
+   encontrado se resume en `nota_resenas`, aunque sea "nada relevante".
+   - *Cambio del 22/10/2026, aprobado por Toni:* los daños del transporte
+     (tablero golpeado o roto al llegar) ya no excluyen. No dicen nada de
+     cómo funciona el escritorio y Amazon los cambia; el modelo entra y su
+     ficha lo avisa. Un fallo del producto, en cambio, sigue excluyendo.
+   - Se cuenta como patrón cuando el mismo fallo aparece en 5 o más de las
+     20 reseñas. Por debajo, se resume en `nota_resenas` y la ficha lo
+     cuenta, pero no excluye.
 
 ## 4. Motivos de salida
 

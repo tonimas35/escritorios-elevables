@@ -5,7 +5,7 @@ import { getAvailableProducts, getProductBySlug } from "@/lib/products";
 import { rutaFicha } from "@/lib/rutas";
 import { coma, nota } from "@/lib/format";
 import { FECHA_EN_FRASE } from "@/lib/fecha";
-import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
+import { NOMBRE_FRANJA, franja, posicionEnFranja } from "@/lib/nota";
 import {
   anticolision,
   carga,
@@ -48,8 +48,11 @@ export const metadata: Metadata = {
 const SLUGS = ["sanodesk-140", "flexispot-eg1", "flexispot-160x80"];
 
 export default function SanodeskVsFlexispotPage() {
+  // El FLEXISPOT 160x80 salió del catálogo el 22/10/2026 (nota por debajo
+  // del mínimo), pero se sigue vendiendo y es el FLEXISPOT completo con el que
+  // se compara el SANODESK: se queda en la comparativa, avisando de la baja.
   const modelos = SLUGS.map((s) => getProductBySlug(s)).filter(
-    (x): x is [string, Product] => !!x && x[1].disponible,
+    (x): x is [string, Product] => !!x && (x[1].disponible || x[1].slug === "flexispot-160x80"),
   );
   const catalogo = getAvailableProducts().map(([, p]) => p);
   const de = (slug: string) => modelos.find(([, p]) => p.slug === slug)?.[1];
@@ -87,7 +90,10 @@ export default function SanodeskVsFlexispotPage() {
   const diferencias: { titulo: string; texto: string; enlace?: { texto: string; href: string } }[] = [];
   const franjaDe = (p: Product) => {
     const x = posicionEnFranja(p, catalogo);
-    return x ? NOMBRE_FRANJA[x.franja].toLowerCase() : "una franja sin verificar";
+    if (x) return NOMBRE_FRANJA[x.franja].toLowerCase();
+    // Un modelo retirado no tiene posición en el catálogo, pero sí franja.
+    const f = franja(p);
+    return f ? NOMBRE_FRANJA[f].toLowerCase() : "una franja sin verificar";
   };
   const masRuidoso =
     fx160?.specs.ruido_db != null &&
@@ -281,6 +287,13 @@ export default function SanodeskVsFlexispotPage() {
             </table>
           </div>
           <p className="bs-afiliado" style={{ marginTop: 16, maxWidth: "66ch" }}>
+            {fx160 && !fx160.disponible && (
+              <>
+                El {nombre(fx160)} ya no está en nuestro catálogo desde el 22/10/2026: su nota calculada,{" "}
+                {nota(fx160.puntuacion.total)}, queda por debajo del mínimo. Sigue en esta comparativa porque se
+                vende y es el FLEXISPOT completo con el que se suele comparar.{" "}
+              </>
+            )}
             {fechaFranjas && `${fechaFranjas} `}«Sin dato» significa que la ficha del fabricante no lo declara; no lo
             estimamos. La nota se mide dentro de cada franja de precio, así que
             no se compara entre modelos de franjas distintas.

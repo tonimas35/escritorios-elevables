@@ -48,6 +48,14 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        // FLEXISPOT 160x80, retirado el 22/10/2026 por nota por debajo de 7,5
+        // (data/cambios-catalogo.json). Su ficha lleva a la del otro completo
+        // de su franja, el MAIDeSITe S2 Pro, en vez de dar un 404.
+        source: "/flexispot-160x80-opiniones",
+        destination: "/maidesite-s2-pro-opiniones",
+        permanent: true,
+      },
+      {
         // Enlaces cortos para la bio de las redes (21/10/2026): llevan a la
         // home con la UTM, para que GA4 cuente la visita como de esa red.
         // Temporales (307) a propósito: el destino puede cambiar y no son

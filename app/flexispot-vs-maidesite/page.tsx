@@ -314,6 +314,14 @@ export default function FlexispotVsMaidesitePage() {
               <p>
             Los dos llegan completos, sin comprar nada aparte. El {enlaceFicha(eg1[1], "FLEXISPOT de 160x80")} ofrece el tablero más grande, de {eg1[1].specs.ancho_tablero_cm}x{eg1[1].specs.profundidad_tablero_cm}, pero mueve {eg1[1].specs.peso_max_carga_kg} kg. El {enlaceFicha(s2[1], "MAIDeSITe S2 Pro")} trae tablero de {s2[1].specs.ancho_tablero_cm}x{s2[1].specs.profundidad_tablero_cm} y {s2[1].specs.peso_max_carga_kg} kg de carga. Si quieres superficie, el Flexispot; si quieres carga, el MAIDeSITe.
           </p>
+              {!eg1[1].disponible && (
+                <p style={{ marginTop: 10 }}>
+                  El FLEXISPOT 160x80 ya no está en nuestro catálogo desde el 22/10/2026: su nota calculada,{" "}
+                  {nota(eg1[1].puntuacion.total)}, queda por debajo del mínimo. Sigue aquí porque se vende y es el
+                  FLEXISPOT completo con el que se suele comparar; con tablero incluido, el S2 Pro es el que
+                  recomendamos.
+                </p>
+              )}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[[eg1[0], eg1[1]] as const, [s2[0], s2[1]] as const].map(([productAsin, product], i) => (
