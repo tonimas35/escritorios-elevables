@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import type { CambioCatalogo, Product, ProductMap } from "./types";
-import { validarCatalogo, DIAS_FRANJA } from "./validacion.ts";
+import { validarCatalogo, validarCandidatos, DIAS_FRANJA } from "./validacion.ts";
 
 const leer = <T>(ruta: string): T =>
   JSON.parse(readFileSync(new URL(`../${ruta}`, import.meta.url), "utf8")) as T;
@@ -128,4 +128,23 @@ test("avisa, sin romper, de un modelo por debajo de la nota mínima", () => {
   });
   assert.deepEqual(errores(c), []);
   assert.match(avisos(c).join("\n"), /vasagle-100: nota .* por debajo de 7,?5/);
+});
+
+test("la lista de candidatos real no tiene errores", () => {
+  const candidatos = JSON.parse(readFileSync(new URL("../data/candidatos.json", import.meta.url), "utf8")).modelos;
+  assert.deepEqual(validarCandidatos(candidatos, real).errores, []);
+});
+
+test("un candidato con cifra o que choca con el catálogo es error", () => {
+  const base = { asin: "B0FQBQFZR5", nombre: "ErGear 160x80", tipo: "completo", revisado: "2026-10-22" };
+  const r = validarCandidatos(
+    [
+      { ...base, estado: "descartado", motivo: "Tiene 4.135 valoraciones" },
+      { ...base, asin: "X1", estado: "en-catalogo", motivo: "Entró." },
+    ],
+    real,
+  ).errores.join("\n");
+  assert.match(r, /cifra prohibida/);
+  assert.match(r, /activo en el catálogo pero figura como descartado/);
+  assert.match(r, /figura en el catálogo pero no está activo/);
 });

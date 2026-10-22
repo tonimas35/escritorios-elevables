@@ -1,0 +1,385 @@
+{
+  "_nota": "Modelos mirados en los repasos de mercado que no están en el catálogo, con el motivo y la fecha (METODO.md §3). Se publica en /metodologia. Sin precios ni recuentos de valoraciones, que caducan. pendiente = pasa el filtro de valoraciones pero falta revisarlo a fondo.",
+  "modelos": [
+    {
+      "asin": "B0FQBQFZR5",
+      "nombre": "ErGear 160x80",
+      "tipo": "completo",
+      "estado": "en-catalogo",
+      "motivo": "Entró en el catálogo el 22/10/2026.",
+      "revisado": "2026-10-22",
+      "slug": "ergear-160"
+    },
+    {
+      "asin": "B0D9B2ST4N",
+      "nombre": "FLEXISPOT 140x70 doble motor",
+      "tipo": "completo",
+      "estado": "en-catalogo",
+      "motivo": "Entró en el catálogo el 22/10/2026.",
+      "revisado": "2026-10-22",
+      "slug": "flexispot-140x70"
+    },
+    {
+      "asin": "B0727PTRVL",
+      "nombre": "FLEXISPOT E1 Pro",
+      "tipo": "marco",
+      "estado": "en-catalogo",
+      "motivo": "Entró en el catálogo el 22/10/2026.",
+      "revisado": "2026-10-22",
+      "slug": "flexispot-e1-pro"
+    },
+    {
+      "asin": "B0GQKLHPZZ",
+      "nombre": "WOLTU 80x48",
+      "tipo": "completo",
+      "estado": "en-catalogo",
+      "motivo": "Entró en el catálogo el 22/10/2026.",
+      "revisado": "2026-10-22",
+      "slug": "woltu-80"
+    },
+    {
+      "asin": "B0FYYF74CT",
+      "nombre": "Escritorio 100x60 sin marca",
+      "tipo": "completo",
+      "estado": "descartado",
+      "motivo": "El anuncio no identifica la marca.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B093RVMLRK",
+      "nombre": "FLEXISPOT 120x80 doble motor",
+      "tipo": "completo",
+      "estado": "descartado",
+      "motivo": "Es de la misma familia que el FLEXISPOT 160x80, que salió del catálogo por nota: comparten valoraciones y la misma carga en movimiento.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0H25MFXHR",
+      "nombre": "FLEXISPOT E200",
+      "tipo": "marco",
+      "estado": "descartado",
+      "motivo": "Sus reseñas negativas son de 2021 a 2024, anteriores al modelo: el anuncio arrastra las de un producto anterior y no sirven para valorarlo.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B07B2V16CD",
+      "nombre": "FLEXISPOT EC5W",
+      "tipo": "marco",
+      "estado": "descartado",
+      "motivo": "Fallo de motor repetido: 7 de cada 20 de sus reseñas negativas más recientes hablan de motores que fallan o se bloquean.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0HHMBHT2K",
+      "nombre": "HOMCOM 120x60",
+      "tipo": "completo",
+      "estado": "descartado",
+      "motivo": "Todavía no tiene valoraciones.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0F98GXZWG",
+      "nombre": "HUANUO 80x48",
+      "tipo": "completo",
+      "estado": "descartado",
+      "motivo": "Su ficha no declara la carga ni el tipo de motor, y sin esos datos no se puede calcular la nota.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0DDS9497V",
+      "nombre": "OffiGo con cajones",
+      "tipo": "completo",
+      "estado": "descartado",
+      "motivo": "4,1★: no llega al mínimo de 4,3★.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0D1FZR7XC",
+      "nombre": "SANODESK 180x80 con tablero entero",
+      "tipo": "completo",
+      "estado": "descartado",
+      "motivo": "Su ficha da dos rangos de altura distintos y no declara la carga ni el tipo de motor.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0FLXXY74Z",
+      "nombre": "SENSE7 roble",
+      "tipo": "completo",
+      "estado": "descartado",
+      "motivo": "4,0★ y pocas valoraciones: no llega al mínimo de 4,3★ con un volumen suficiente.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B09WR9J8YZ",
+      "nombre": "Devoko 120x60",
+      "tipo": "completo",
+      "estado": "variante",
+      "motivo": "Otra versión del Devoko 120x60 del catálogo.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0H4SRWQGX",
+      "nombre": "FLEXISPOT 200x80 doble motor",
+      "tipo": "completo",
+      "estado": "variante",
+      "motivo": "Es de la misma familia que el FLEXISPOT 140x70 doble motor del catálogo: comparten valoraciones.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0F6T6MYMW",
+      "nombre": "FLEXISPOT E1 MAX",
+      "tipo": "marco",
+      "estado": "variante",
+      "motivo": "Misma familia que el FLEXISPOT E1 Pro y comparte sus valoraciones: entra uno de los dos.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0CH2KRRS6",
+      "nombre": "Homall 160x80",
+      "tipo": "completo",
+      "estado": "variante",
+      "motivo": "Comparte valoraciones con el Homall 180x80: entra uno de los dos.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0CLDPCHT6",
+      "nombre": "MAIDeSITe EL2 Plus Art",
+      "tipo": "marco",
+      "estado": "variante",
+      "motivo": "Es la misma base que el MAIDeSITe T2 Pro Plus del catálogo; su ficha la llama TH2 Pro Plus.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B087JLXWJT",
+      "nombre": "MAIDeSITe marco 62–125 cm",
+      "tipo": "marco",
+      "estado": "variante",
+      "motivo": "Mismas alturas y las mismas valoraciones que el MAIDeSITe T2 Pro Plus del catálogo: es otra versión del mismo anuncio.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0D1FZHC5P",
+      "nombre": "SANODESK 200x80",
+      "tipo": "completo",
+      "estado": "variante",
+      "motivo": "Misma familia que el SANODESK 180x80.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0DNSLWKFX",
+      "nombre": "SONGMICS 160x70",
+      "tipo": "completo",
+      "estado": "variante",
+      "motivo": "Otra versión del SONGMICS 160x70 del catálogo: mismas medidas, alturas y valoraciones.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0DTT8WXHR",
+      "nombre": "Agilestic 100x60",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0D1FP1JB7",
+      "nombre": "Agilestic 140x60",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0F9L69Z5T",
+      "nombre": "DEVAISE 160x70",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0CQVL8MNT",
+      "nombre": "Devoko 200x100",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0CBS836M9",
+      "nombre": "Dripex 180x110",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0D9GR4D3D",
+      "nombre": "ERGOMAKER 160x70",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0CQNMXNBH",
+      "nombre": "ERGOMAKER 80x60",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0D9MFZSVY",
+      "nombre": "ErGear 160x80 (otra versión)",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Mismo nombre que el ErGear 160x80 del catálogo a otro precio: falta ver qué los diferencia.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0D9MFLHJC",
+      "nombre": "ErGear 180x80",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0D313M5XN",
+      "nombre": "FLEXISPOT 200x80",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0G5PP3XS1",
+      "nombre": "HUANUO 80x53 con cajones",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0FRGFCNCD",
+      "nombre": "HUANUO marco doble motor",
+      "tipo": "marco",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0CPPTL8M7",
+      "nombre": "Homall 180x80",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0CHDWQ4NN",
+      "nombre": "JUMMICO 180x80",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0FJZC1MKP",
+      "nombre": "Klicelor 160x80",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0DBVG86R2",
+      "nombre": "MAIDeSITe EL2 Pro Art",
+      "tipo": "marco",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0F8J358CW",
+      "nombre": "OffiGo 140x74 con soporte de monitor",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0DDSZFN8W",
+      "nombre": "OffiGo 160 con enchufes",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0D1FWQ7BW",
+      "nombre": "SANODESK 120x60",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0D149DX8R",
+      "nombre": "SANODESK 180x80",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0FSQQHFCG",
+      "nombre": "VASAGLE 120x60",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0GR99D6LM",
+      "nombre": "VASAGLE 120x80 motor silencioso",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0F7KQFZG2",
+      "nombre": "VASAGLE 140x70",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0DWDXV18S",
+      "nombre": "VASAGLE 160x140 en L",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0D83SHD72",
+      "nombre": "VASAGLE marco",
+      "tipo": "marco",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0DJ2MCGNH",
+      "nombre": "WOLTU marco",
+      "tipo": "marco",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-22"
+    }
+  ]
+}
