@@ -15,6 +15,7 @@ import { Cta } from "@/components/broadsheet/Cta";
 import { Afiliado } from "@/components/broadsheet/Afiliado";
 import { Firma } from "@/components/broadsheet/Firma";
 import { PosicionNota } from "@/components/broadsheet/PosicionNota";
+import { TableroEscala } from "@/components/broadsheet/TableroEscala";
 
 /**
  * Plantilla de ficha de modelo (design-ref/code/README.md, pantalla 2).
@@ -181,6 +182,19 @@ export default async function FichaModelo({ params }: Props) {
               </dl>
             ))}
           </div>
+          {p.incluye_tablero && p.specs.ancho_tablero_cm > 0 && p.specs.profundidad_tablero_cm > 0 && (
+            <div className="bs-tarjeta" style={{ marginTop: 32, padding: 20, minWidth: 0 }}>
+              <h3 className="bs-h3" style={{ margin: 0, fontSize: 19, fontWeight: 700 }}>
+                Su tablero, a escala
+              </h3>
+              <p className="bs-cuerpo" style={{ marginTop: 6, fontSize: 14, color: "var(--bs-neutro-800)" }}>
+                Visto desde arriba. En discontinua, uno de 180 × 80 cm para comparar.
+              </p>
+              <div style={{ marginTop: 16 }}>
+                <TableroEscala ancho={p.specs.ancho_tablero_cm} fondo={p.specs.profundidad_tablero_cm} />
+              </div>
+            </div>
+          )}
         </div>
       </section>
       {/* ============================================================
