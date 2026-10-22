@@ -143,6 +143,19 @@ colaterales en Amazon Afiliados), preferiblemente como sección de
 elevable.es para aprovechar su autoridad. Un dominio aparte solo si el tema
 no tiene relación.
 
+**Idea de Toni del 22/10: ampliar la web por «qué hay en mi oficina».**
+Apuntada para la revisión de los 60 días (24–30/11), con estos límites:
+- Solo lo que va con un escritorio elevable: alfombrilla antifatiga, brazo
+  de monitor, bandeja pasacables y reposapiés. Sillas, iluminación o
+  decoración, no: diluyen la web y Google y ChatGPT la citan por ser «los de
+  escritorios elevables».
+- Como sección de elevable.es («Accesorios»), con la misma condición de
+  arriba (30–50 €/mes durante dos o tres meses). Base: en 22/09–21/10, 3 de
+  los 4 pedidos fueron indirectos, compras junto al escritorio.
+- Antes de construir nada, probarlo en redes con un carrusel «Lo que
+  necesitas alrededor de un escritorio elevable». Como guía, no como «mi
+  mesa»: Toni no tiene escritorio elevable y no se cuenta como propio.
+
 **Aparcado a propósito:**
 - `nota_resenas` (revisión de las reseñas de 1–2★). Lo hará la tarea
   automática del 13/10.
