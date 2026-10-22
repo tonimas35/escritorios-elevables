@@ -19,7 +19,9 @@ import { coma } from "@/lib/format";
 import { fechaCorta } from "@/lib/fecha";
 import { CORREO } from "@/lib/contacto";
 import cambiosData from "@/data/cambios-catalogo.json";
+import candidatosData from "@/data/candidatos.json";
 import type { CambioCatalogo } from "@/lib/types";
+import type { Candidato } from "@/lib/validacion";
 
 // Registro publico de cambios del catalogo (METODO.md §7), el mas reciente
 // primero. Los slugs se traducen a nombre con el catalogo actual.
@@ -74,6 +76,12 @@ export default function MetodologiaPage() {
     return p ? `${p.marca} ${p.modelo}` : slug;
   };
   const cambios = [...(cambiosData as CambioCatalogo[])].reverse();
+  // Lista de candidatos del repaso de mercado (data/candidatos.json).
+  const candidatos = (candidatosData as { modelos: Candidato[] }).modelos;
+  const entraron = candidatos.filter((c) => c.estado === "en-catalogo");
+  const noEntraron = candidatos.filter((c) => c.estado === "descartado" || c.estado === "variante");
+  const pendientes = candidatos.filter((c) => c.estado === "pendiente");
+  const ultimoRepaso = candidatos.map((c) => c.revisado).sort().at(-1) ?? "";
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-12">
@@ -248,9 +256,40 @@ export default function MetodologiaPage() {
           lleva a su sustituto.
         </p>
         <p className="text-sm leading-relaxed mt-3" style={{ color: "var(--text-primary)", fontWeight: 500 }}>
-          Los modelos que ves hoy se eligieron antes de que existiera este método y
-          todavía no han pasado por él. El primer repaso completo con estos criterios
-          es en octubre de 2026, y lo que cambie quedará en el registro de abajo.
+          El último repaso de mercado fue el {fechaCorta(ultimoRepaso)}: miramos {candidatos.length} modelos de
+          Amazon.es y entraron {entraron.length}. Abajo están los que no entraron y por qué, y los que quedan
+          por revisar.
+        </p>
+      </section>
+
+      <div className="divider my-8" />
+
+      <section id="analizados">
+        <h2 className="text-xl mb-4" >
+          Analizados que no están en el catálogo
+        </h2>
+        <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
+          Cada modelo que miramos y no entra queda aquí con su motivo, para que veas qué descartamos y para no
+          volver a mirarlo sin razón. Los motivos salen de su ficha y de sus reseñas en Amazon.es el día de la
+          revisión.
+        </p>
+        <ul className="space-y-3 text-sm">
+          {noEntraron.map((c) => (
+            <li key={c.asin} className="pl-4" style={{ borderLeft: "2px solid var(--border)" }}>
+              <p style={{ color: "var(--text-muted)" }}>
+                {fechaCorta(c.revisado)} · {c.estado === "variante" ? "Variante" : "Descartado"} ·{" "}
+                <strong style={{ color: "var(--text-primary)" }}>{c.nombre}</strong>
+              </p>
+              <p className="mt-1" style={{ color: "var(--text-secondary)" }}>{c.motivo}</p>
+            </li>
+          ))}
+        </ul>
+        <h3 className="text-base mt-6 mb-2" style={{ fontWeight: 600 }}>
+          Pendientes del próximo repaso
+        </h3>
+        <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          Pasan el filtro de valoraciones, pero aún no hemos leído su ficha completa ni sus reseñas negativas:{" "}
+          {pendientes.map((c) => c.nombre).join(", ")}.
         </p>
       </section>
 
