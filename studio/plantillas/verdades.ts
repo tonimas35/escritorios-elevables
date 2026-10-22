@@ -196,7 +196,7 @@ export function videoVerdades(): Video {
     "",
     AVISO,
     "",
-    "#escritorioelevable #teletrabajo #homeoffice #setup #standingdesk #oficinaencasa",
+    "#escritorioelevable #teletrabajo #homeoffice #setup #oficinaencasa",
   ]);
 
   return { slug: "verdades", fotogramas, descripcion: texto };

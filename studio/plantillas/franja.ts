@@ -237,7 +237,7 @@ export function videoFranja(f: Franja): Video {
     "Comenta ELEVABLE y te paso la comparativa completa.",
     "Enlaces de afiliado: si compras, Amazon nos paga una comisión y tú pagas lo mismo.",
     "",
-    `#escritorioelevable #teletrabajo #homeoffice #setup #standingdesk${T.base ? " #mesaelevable" : ""}`,
+    `#escritorioelevable #teletrabajo #homeoffice #setup ${T.base ? "#mesaelevable" : "#standingdesk"}`,
   ]
     .filter((l, i, a) => !(l === "" && a[i - 1] === ""))
     .join("\n");

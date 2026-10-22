@@ -170,7 +170,7 @@ export function videoAltura(): Video {
     "",
     AVISO,
     "",
-    "#escritorioelevable #ergonomia #teletrabajo #homeoffice #setup #oficinaencasa",
+    "#escritorioelevable #ergonomia #teletrabajo #homeoffice #oficinaencasa",
   ]);
 
   return { slug: "altura", fotogramas, descripcion: texto };
