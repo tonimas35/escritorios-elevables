@@ -1490,3 +1490,71 @@ h1, h2, h3,
     flex-basis: 100%;
   }
 }
+
+/* ==========================================================================
+   Capa «Marcador» (22/10/2026)
+
+   Lleva a la web el estilo de los carruseles de Instagram y TikTok, para que
+   quien llega desde un post reconozca la marca: papel cuadriculado, el
+   fluorescente lima en la palabra clave de los titulares y las etiquetas
+   como pegatinas. Solo CSS sobre el tema «Ficha técnica»: no cambia textos,
+   rutas, schema ni enlaces de afiliado, y el CTA sigue en tinta. Quitar este
+   bloque devuelve el tema tal cual.
+   ========================================================================== */
+:root {
+  --bs-papel: #faf8f3;
+  --bs-marcador: #cff24e;
+  --bs-reticula: rgba(20, 20, 19, 0.045);
+}
+
+/* Papel cuadriculado: solo en el fondo de la página; cabecera, CTA fijo y
+   tarjetas quedan lisos para que el texto se lea limpio. */
+.bs-pagina {
+  background-color: var(--bs-papel);
+  background-image:
+    linear-gradient(var(--bs-reticula) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bs-reticula) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.bs-camino,
+.bs-tarjeta,
+.bs-pagina a.bs-atajo {
+  background-color: #ffffff;
+}
+
+/* Fluorescente: la palabra clave del titular, como en los carruseles. */
+.bs-fluor {
+  background: linear-gradient(var(--bs-marcador), var(--bs-marcador)) 0 64% / 100% 70% no-repeat;
+  padding: 0 0.08em;
+  margin: 0 -0.04em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* El antetítulo, en mayúsculas espaciadas, como la cejilla de los posts. */
+.bs-kicker {
+  background: transparent;
+  padding: 0;
+  color: var(--bs-neutro-800);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+}
+
+/* «Nº 1 de su franja», como pegatina. */
+.bs-sello {
+  background: var(--bs-marcador);
+  color: var(--bs-tinta);
+  border-radius: 999px;
+  text-transform: none;
+  font-weight: 600;
+  padding: 5px 12px;
+  transform: rotate(-2deg);
+  box-shadow: 0 2px 6px rgba(20, 20, 19, 0.14);
+}
+
+/* Atajos: al pasar por encima se marcan en fluorescente. */
+.bs-pagina a.bs-atajo:hover {
+  background-color: var(--bs-marcador);
+  border-color: var(--bs-tinta);
+}
