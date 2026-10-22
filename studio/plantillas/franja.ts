@@ -12,7 +12,8 @@ import type { Product } from "../../lib/types";
 import { NOMBRE_FRANJA, type Franja } from "../../lib/nota.ts";
 import { publicable } from "../../lib/cifras.ts";
 import { modelosDeFranja, nombre, nota, franjaPrecio } from "../catalogo.ts";
-import { C, pagina, marca, imagen, t, medidas, esCarrusel } from "../diseno.ts";
+import { C, MARCADOR, pagina, marca, imagen, t, rico, medidas, esCarrusel } from "../diseno.ts";
+import { portada, cierre } from "./comun.ts";
 
 export interface Fotograma {
   nombre: string;
@@ -26,12 +27,12 @@ export interface Video {
   descripcion: string;
 }
 
-const TITULO: Record<Franja, { antes: string; cifra: string; corto: string; largo: string; base: boolean }> = {
-  A: { antes: "El mejor por menos de", cifra: "120 €", corto: "Hasta 120 €", largo: "El mejor escritorio elevable por menos de 120 €", base: false },
-  B: { antes: "El mejor entre", cifra: "120 y 250 €", corto: "De 120 a 250 €", largo: "El mejor escritorio elevable entre 120 y 250 €", base: false },
-  C: { antes: "El mejor entre", cifra: "250 y 500 €", corto: "De 250 a 500 €", largo: "El mejor escritorio elevable entre 250 y 500 €", base: false },
-  M1: { antes: "La mejor base por menos de", cifra: "250 €", corto: "Bases hasta 250 €", largo: "La mejor base elevable por menos de 250 €", base: true },
-  M2: { antes: "La mejor base entre", cifra: "250 y 500 €", corto: "Bases de 250 a 500 €", largo: "La mejor base elevable entre 250 y 500 €", base: true },
+const TITULO: Record<Franja, { antes: string; cifra: string; corto: string; largo: string; base: boolean; pregunta: string }> = {
+  A: { antes: "El mejor por menos de", cifra: "120 €", corto: "Hasta 120 €", largo: "El mejor escritorio elevable por menos de 120 €", base: false, pregunta: "¿Menos de 120 € para tu escritorio?" },
+  B: { antes: "El mejor entre", cifra: "120 y 250 €", corto: "De 120 a 250 €", largo: "El mejor escritorio elevable entre 120 y 250 €", base: false, pregunta: "¿Tienes entre 120 y 250 €?" },
+  C: { antes: "El mejor entre", cifra: "250 y 500 €", corto: "De 250 a 500 €", largo: "El mejor escritorio elevable entre 250 y 500 €", base: false, pregunta: "¿Tienes entre 250 y 500 €?" },
+  M1: { antes: "La mejor base por menos de", cifra: "250 €", corto: "Bases hasta 250 €", largo: "La mejor base elevable por menos de 250 €", base: true, pregunta: "¿Ya tienes tablero y menos de 250 €?" },
+  M2: { antes: "La mejor base entre", cifra: "250 y 500 €", corto: "Bases de 250 a 500 €", largo: "La mejor base elevable entre 250 y 500 €", base: true, pregunta: "¿Ya tienes tablero y hasta 500 €?" },
 };
 
 const medio = (p: Product) =>
@@ -109,14 +110,14 @@ function chips(p: Product, oscuro: boolean): string {
 
 function fotogramaModelo(p: Product, posicion: number, total: number, rasgo: string | undefined, f: Franja): Fotograma {
   const esPrimero = posicion === 1;
-  const fondo = esPrimero ? C.tinta : "#FFFFFF";
+  const fondo = esPrimero ? C.tinta : C.papel;
   const texto = esPrimero ? "#FFFFFF" : C.tinta;
   const acento = esPrimero ? C.acentoSobreOscuro : C.acento;
   const secundario = esPrimero ? C.grisClaro : C.gris;
   const cabecera = esPrimero
-    ? `<p style="padding:12px 24px;border-radius:999px;background:${C.acento};color:#fff;font-size:40px;font-weight:700">${
-        TITULO[f].base ? "La mejor" : "El mejor"
-      } · ${t(TITULO[f].corto)}</p>`
+    ? `<p class="pegatina" style="font-size:38px;transform:rotate(-3deg);background:${MARCADOR}">${
+        "La mejor nota"
+      }</p>`
     : `<p style="font-size:40px;font-weight:600;color:${C.gris}">${t(TITULO[f].corto)}</p>`;
   const extra = esPrimero ? pega(p) : null;
   const precio = esPrimero ? franjaPrecio(p) : null;
@@ -150,23 +151,15 @@ export function videoFranja(f: Franja): Video {
   const fotogramas: Fotograma[] = [];
 
   // 1 · Portada
-  fotogramas.push({
-    nombre: "portada",
-    segundos: 2.2,
-    html: pagina(`<div class="lienzo" style="justify-content:space-between">
-  ${marca()}
-  <div style="display:flex;flex-direction:column;gap:40px">
-    <p style="align-self:flex-start;padding:14px 26px;border-radius:18px;background:${C.acentoTinte};color:${C.acento};font-weight:600;font-size:40px">${
-      T.base ? "Bases elevables" : "Escritorios elevables"
-    }</p>
-    <h1 class="titular" style="font-size:${T.cifra.length > 6 ? 116 : 132}px;line-height:1;letter-spacing:-0.03em">${t(T.antes)} <span style="color:${C.acento};white-space:nowrap">${t(T.cifra)}</span></h1>
-    <p style="font-size:50px;line-height:1.3;color:${C.gris}">Los ${n} mejores de la franja, con sus datos. Sin opiniones inventadas.</p>
-  </div>
-  <div style="display:flex;align-items:center;justify-content:center;height:${medidas().imgPortada}px;border-radius:48px;background:${C.superficie};color:#8A909C;position:relative">${imagen(top[0], medidas().dibPortada)}${
-    esCarrusel() ? `<p style="position:absolute;right:32px;bottom:28px;padding:12px 22px;border-radius:999px;background:${C.tinta};color:#fff;font-size:34px;font-weight:600">Desliza →</p>` : ""
-  }</div>
-</div>`),
-  });
+  fotogramas.push(
+    portada(
+      [T.corto],
+      `${T.pregunta} ==Estos\u00a0${n}== sacan la mejor nota`,
+      "Con los datos de sus fichas y una nota con método público. Sin opiniones inventadas.",
+      [],
+      `<div style="display:flex;align-items:center;justify-content:center;height:${medidas().imgPortada - (esCarrusel() ? 130 : 0)}px;border-radius:48px;background:${C.superficie}">${imagen(top[0], medidas().dibPortada - (esCarrusel() ? 140 : 0))}</div>`,
+    ),
+  );
 
   // 2 · Qué mirar
   const items = T.base
@@ -184,7 +177,7 @@ export function videoFranja(f: Franja): Video {
     segundos: 4,
     html: pagina(`<div class="lienzo" style="gap:56px">
   ${marca()}
-  <h2 class="titular" style="margin-top:${medidas().aire}px;font-size:104px;line-height:1">Antes de comprar, mira 3 cosas</h2>
+  <h2 class="titular" style="margin-top:${medidas().aire}px;font-size:104px;line-height:1">${rico("Antes de comprar, ==mira esto==")}</h2>
   <div style="display:flex;flex-direction:column;gap:28px">${items
     .map(
       (txt, i) => `<div style="display:flex;gap:32px;align-items:center;padding:36px 40px;border:3px solid ${C.borde};border-radius:36px">
@@ -202,32 +195,22 @@ export function videoFranja(f: Franja): Video {
   }
 
   // 4 · Cierre
-  fotogramas.push({
-    nombre: "cierre",
-    segundos: 3.2,
-    html: pagina(
-      `<div class="lienzo" style="justify-content:space-between">
-  ${marca(C.tinta)}
-  <div style="display:flex;flex-direction:column;gap:48px">
-    <h2 class="titular" style="font-size:120px;line-height:1.08;letter-spacing:-0.03em">Comenta <span style="background:#fff;color:${C.acento};padding:0 20px;border-radius:24px">ELEVABLE</span> y te paso la comparativa</h2>
-    <p style="font-size:50px;line-height:1.3;color:#DCE3FF">Todo el catálogo, con la nota de cada modelo dentro de su franja de precio.</p>
-  </div>
-  <div style="display:flex;flex-direction:column;gap:20px">
-    <p style="font-family:'Inter Tight',sans-serif;font-weight:800;font-size:72px">elevable.es</p>
-    <p style="font-size:34px;color:#DCE3FF">Enlaces de afiliado: si compras, Amazon nos paga una comisión y tú pagas lo mismo.</p>
-  </div>
-</div>`,
-      C.acento,
-      "#FFFFFF",
+  fotogramas.push(
+    cierre(
+      "Comenta",
+      "ELEVABLE",
+      "y te paso la comparativa",
+      "Todo el catálogo, con la nota de cada modelo dentro de su franja de precio.",
+      "elevable.es",
     ),
-  });
+  );
 
   const lineas = [...top]
     .reverse()
     .map((p) => `${top.indexOf(p) + 1}. ${nombre(p)} · nota ${nota(p.puntuacion.total)}`);
   const precio1 = franjaPrecio(top[0]);
   const descripcion = [
-    `${T.largo}: ${T.base ? "las" : "los"} ${n} primer${T.base ? "as" : "os"} de la franja «${NOMBRE_FRANJA[f]}», con sus datos.`,
+    `${T.pregunta} Estos ${n} sacan la mejor nota 👇 (franja «${NOMBRE_FRANJA[f]}», con sus datos)`,
     "",
     ...lineas,
     "",
