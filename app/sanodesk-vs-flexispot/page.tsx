@@ -25,6 +25,7 @@ import { Cta } from "@/components/broadsheet/Cta";
 import { Afiliado } from "@/components/broadsheet/Afiliado";
 import { Firma } from "@/components/broadsheet/Firma";
 import { PosicionNota } from "@/components/broadsheet/PosicionNota";
+import { MejorDeMarcaHoy } from "@/components/broadsheet/MejorDeMarcaHoy";
 
 /**
  * SANODESK vs FLEXISPOT (SEO-PLAN.md §0, P3). Las comparativas "marca vs
@@ -54,7 +55,8 @@ export default function SanodeskVsFlexispotPage() {
   const modelos = SLUGS.map((s) => getProductBySlug(s)).filter(
     (x): x is [string, Product] => !!x && (x[1].disponible || x[1].slug === "flexispot-160x80"),
   );
-  const catalogo = getAvailableProducts().map(([, p]) => p);
+  const disponibles = getAvailableProducts();
+  const catalogo = disponibles.map(([, p]) => p);
   const de = (slug: string) => modelos.find(([, p]) => p.slug === slug)?.[1];
   const sano = de("sanodesk-140");
   const eg1 = de("flexispot-eg1");
@@ -240,6 +242,16 @@ export default function SanodeskVsFlexispotPage() {
             );
           })}
         </div>
+
+        {fx160 && !fx160.disponible && (
+          <MejorDeMarcaHoy
+            catalogo={disponibles}
+            marca="FLEXISPOT"
+            conTablero
+            titulo="El FLEXISPOT completo que recomendamos hoy"
+            contexto={`El ${nombre(fx160)} de esta comparativa ya no está en nuestro catálogo. Si quieres un FLEXISPOT con tablero, este es el que mejor queda hoy en su franja:`}
+          />
+        )}
 
         <div className="flex flex-wrap items-end" style={{ gap: "16px 40px", marginTop: 28 }}>
           <div style={{ flex: "1 1 320px", maxWidth: "62ch" }}>
