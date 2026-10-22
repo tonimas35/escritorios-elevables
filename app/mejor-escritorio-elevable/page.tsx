@@ -480,6 +480,9 @@ export default function MejorEscritorioPage() {
               <Link href="/black-friday-escritorio-elevable">Escritorio elevable en Black Friday</Link>: cómo saber si una oferta es una rebaja de verdad.
             </li>
             <li>
+              <Link href="/escritorio-elevable-ikea">Escritorio elevable de IKEA o de Amazon</Link>: TROTTEN, MITTZON e IDÅSEN frente al catálogo.
+            </li>
+            <li>
               <Link href="/escritorio-elevable-barato">Escritorios elevables baratos</Link>: la gama de entrada, con más detalle.
             </li>
             <li>
