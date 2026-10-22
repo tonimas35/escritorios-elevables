@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import type { ProductMap } from "./types";
 import { calcularNota } from "./nota.ts";
 import { alternativas } from "./alternativas.ts";
-import { gama } from "./nota.ts";
+import { gama, franja } from "./nota.ts";
 
 const catalogo = Object.values(
   JSON.parse(readFileSync(new URL("../data/productos.json", import.meta.url), "utf8")) as ProductMap,
@@ -62,7 +62,10 @@ test("más grande o más compacto: primero dentro de su franja de precio", () =>
   const alt = alternativas(de("vasagle-160"), catalogo);
   const compacto = alt.find((a) => a.motivo === "Si te vale uno más compacto");
   assert.ok(compacto, "tiene alternativa más compacta");
-  assert.equal(compacto.producto.slug, "sanodesk-140", "el completo de 140 cm de su franja, no el S2 Pro");
+  // Desde el 22/10/2026 hay dos completos de 140 cm en la franja B
+  // (SANODESK 140x60 y FLEXISPOT 140x70): vale el primero de ellos por nota.
+  assert.equal(compacto.producto.specs.ancho_tablero_cm, 140, "un completo de 140 cm, no el S2 Pro");
+  assert.equal(franja(compacto.producto), franja(de("vasagle-160")), "de su misma franja");
 });
 
 test("entre categorías, primero la misma gama de precio", () => {

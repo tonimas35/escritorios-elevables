@@ -87,30 +87,21 @@ test("el registro de cambios solo admite slugs del catálogo", () => {
 });
 
 test("avisa de franjas con más de cinco modelos", () => {
-  // Se reactivan los dos retirados de la franja B y se pasa un modelo de la
-  // A a la B por precio: 3 + 2 + 1 = 6 modelos en la B.
+  // La franja B tiene 5 modelos desde el 22/10/2026; se reactiva uno de
+  // sus retirados: 5 + 1 = 6.
   const c = structuredClone(real);
   for (const p of Object.values(c)) {
-    if (p.slug === "vasagle-160" || p.slug === "devoko-160") {
+    if (p.slug === "vasagle-160") {
       p.disponible = true;
       p.estado = "activo";
-    }
-    if (p.slug === "ergear-120") {
-      p.precio_min = 130;
-      p.precio_max = 170;
     }
   }
   assert.match(avisos(c).join("\n"), /franja B: 6 modelos activos \(máximo 5\)/);
 });
 
 test("con cinco modelos en una franja no avisa", () => {
+  // El catálogo real tiene 5 en la franja B desde el 22/10/2026.
   const c = structuredClone(real);
-  for (const p of Object.values(c)) {
-    if (p.slug === "vasagle-160" || p.slug === "devoko-160") {
-      p.disponible = true;
-      p.estado = "activo";
-    }
-  }
   assert.doesNotMatch(avisos(c).join("\n"), /franja B: \d modelos activos \(máximo/);
 });
 

@@ -511,5 +511,35 @@
     "tipo": "correccion",
     "slug": "flexispot-eg1",
     "motivo": "Revisión de precios del 30/09: en Amazon.es está por encima de su franja (110–150 €). Nueva franja 140–180 €; sigue en marcos hasta 250 € y su nota no cambia. Ya no es el marco más asequible del catálogo (comparte franja con el ErGear marco de 2 motores): se corrige esa frase donde aparecía."
+  },
+  {
+    "fecha": "2026-10-22",
+    "tipo": "alta",
+    "slug": "flexispot-e1-pro",
+    "motivo": "Barrido de octubre: de los más vendidos de bases y con 90 búsquedas al mes en España. Vendido por FLEXISPOT GmbH en Amazon.es, 4,7★ con 2.388 valoraciones. 4 de sus 20 reseñas negativas recientes hablan de un fallo de la electrónica: por debajo del umbral de patrón, se avisa en la ficha."
+  },
+  {
+    "fecha": "2026-10-22",
+    "tipo": "alta",
+    "slug": "flexispot-140x70",
+    "motivo": "Barrido de octubre: cubre el hueco de escritorios completos de 180 a 250 €, que no tenía ninguno de doble motor. Vendido por FLEXISPOT GmbH, 4,5★ con 357 valoraciones. La ficha de Amazon se contradice (alturas 65–119 en la tabla y 72–121 en los puntos destacados; carga de 100 kg en el título y 90 en movimiento en los puntos): se publica lo que dicen el título y los puntos destacados (METODO.md §5)."
+  },
+  {
+    "fecha": "2026-10-22",
+    "tipo": "alta",
+    "slug": "woltu-80",
+    "motivo": "Barrido de octubre: el catálogo no tenía nada de menos de 100 cm de ancho y «escritorio elevable pequeño» se busca. Vendido por WOLTU GmbH, 4,6★ con 189 valoraciones. Sustituye como candidato al HUANUO 80x48, cuya ficha no declara la carga ni el motor. El motor es uno: la ficha habla de «el motor»."
+  },
+  {
+    "fecha": "2026-10-22",
+    "tipo": "alta",
+    "slug": "ergear-160",
+    "motivo": "Barrido de octubre: de los escritorios más vendidos de Amazon.es (4,6★ con 4.135 valoraciones), enviado por Amazon y vendido por BSQ Technology EU. Entra con el cambio de método del 22/10: 5 de sus 20 reseñas negativas son de tablero dañado en el transporte, que ya no excluye y la ficha avisa. El motor es uno: la ficha habla de «el motor mejorado»."
+  },
+  {
+    "fecha": "2026-10-22",
+    "tipo": "baja",
+    "slug": "flexispot-160x80",
+    "motivo": "Nota 6,8, por debajo del mínimo de 7,5 (METODO.md §4). En el barrido de octubre no hay un escritorio completo de 250 a 500 € que cumpla los requisitos y lo sustituya: el FLEXISPOT 120x80 de doble motor es de su misma familia (mismas 949 valoraciones y 70 kg). Su ficha lleva al MAIDeSITe S2 Pro, el otro de su franja."
   }
 ]
