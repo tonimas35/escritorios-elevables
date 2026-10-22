@@ -33,7 +33,8 @@ otro, con `CHROMIUM=/ruta/al/chrome node generar.ts franja A`.
 
 - **Música:** elígela en la app, de su biblioteca. Una cuenta de empresa solo
   puede usar la música comercial que la app ofrece.
-- **Descripción:** pega `descripcion.txt`. Lleva el aviso de afiliado: no lo
+- **Descripción:** pega `descripcion.txt`. Lleva 5 hashtags, el máximo que
+  admite Instagram, y el aviso de afiliado: no lo
   quites.
 - **Comenta ELEVABLE:** a quien comente, mándale el enlace a
   `elevable.es/mejor-escritorio-elevable`.
