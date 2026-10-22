@@ -332,7 +332,20 @@ export function exclusion(p: Product): { arranque: string; motivo: string } | nu
  * evitar. Quien la llama no pinta nada cuando devuelve null.
  */
 export function franjaPrecio(p: Product): string | null {
-  const { precio_min: min, precio_max: max, precio_verificado: fecha } = p;
+  return franjaTienda(p.precio_min, p.precio_max, p.precio_verificado, "Amazon");
+}
+
+/**
+ * La misma franja para otra tienda (hoy, IKEA en /escritorio-elevable-ikea):
+ * mismo formato y mismas reglas, solo cambia el nombre de la tienda. Sin
+ * los tres datos no hay franja.
+ */
+export function franjaTienda(
+  min: number | null,
+  max: number | null,
+  fecha: string | null | undefined,
+  tienda: string,
+): string | null {
   if (min === null || max === null || !fecha) return null;
 
   const d = new Date(fecha);
@@ -343,7 +356,7 @@ export function franjaPrecio(p: Product): string | null {
   // "y", no "e": la "e" solo sustituye a la "y" delante de palabra que
   // empiece por sonido /i/, y ningun numero en castellano lo hace (ocho,
   // dieciocho, ciento... ninguno empieza por i).
-  return `Entre ${min} y ${max} € en Amazon · verificado el ${dd}/${mm}/${d.getUTCFullYear()}`;
+  return `Entre ${min} y ${max} € en ${tienda} · verificado el ${dd}/${mm}/${d.getUTCFullYear()}`;
 }
 
 /** La fecha de verificacion en DD/MM/AAAA, o null si el modelo no publica franja. */

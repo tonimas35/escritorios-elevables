@@ -28,6 +28,7 @@ const PAGINAS: [string, string, string][] = [
   ["/escritorio-elevable-barato", "Escritorios elevables baratos", "los modelos de las franjas más bajas"],
   ["/bases-elevables", "Bases elevables", "los marcos sin tablero, por franja y según el caso"],
   ["/black-friday-escritorio-elevable", "Black Friday", "la franja de precio de cada modelo, para saber si una oferta es una rebaja de verdad"],
+  ["/escritorio-elevable-ikea", "IKEA o Amazon", "los escritorios elevables de IKEA con sus datos y lo que hay en Amazon a su mismo precio"],
   ["/que-escritorio-elevable-comprar", "Qué escritorio elevable comprar", "guía para elegir según el uso"],
   ["/flexispot-vs-maidesite", "Flexispot vs MAIDeSITe", "comparativa entre las dos marcas"],
   ["/sanodesk-vs-flexispot", "SANODESK vs FLEXISPOT", "comparativa entre las dos marcas"],
