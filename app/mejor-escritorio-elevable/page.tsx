@@ -46,7 +46,7 @@ const RUTA = "/mejor-escritorio-elevable";
 
 export const metadata: Metadata = {
   title: `${N} mejores escritorios elevables 2026 — Guía de compra`,
-  description: `Los ${N} escritorios elevables del catálogo, por franja de precio y con una nota calculada con método público. Cuál comprar si eres alto, tienes poco espacio o vas a poner dos monitores.`,
+  description: `Qué mesa escritorio elevable comprar en 2026: los ${N} del catálogo, por franja de precio y con una nota calculada con método público. Cuál elegir si eres alto, tienes poco espacio o vas a poner dos monitores.`,
   alternates: { canonical: RUTA },
 };
 
@@ -196,9 +196,9 @@ export default function MejorEscritorioPage() {
           Los {N} <span className="bs-fluor">mejores escritorios elevables</span> de 2026
         </h1>
         <p className="bs-standfirst" style={{ maxWidth: "50ch", marginTop: 18 }}>
-          Cuál comprar según tu presupuesto y tu caso. Cada escritorio se mide
-          contra lo que se puede esperar por su precio; estos son los primeros
-          de cada franja.
+          Qué mesa escritorio elevable comprar según tu presupuesto y tu caso.
+          Cada escritorio se mide contra lo que se puede esperar por su precio;
+          estos son los primeros de cada franja.
         </p>
         <p style={{ fontSize: 14, marginTop: 14, color: "var(--bs-neutro-700)" }}>
           Actualizado en {FECHA_EN_FRASE}.{fechaFranjas && ` ${fechaFranjas}`}
