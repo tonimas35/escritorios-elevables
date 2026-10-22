@@ -183,3 +183,41 @@ export function validarCatalogo(
 
   return { errores, avisos };
 }
+
+/** Un modelo mirado en un repaso de mercado (data/candidatos.json). */
+export interface Candidato {
+  asin: string;
+  nombre: string;
+  tipo: string;
+  estado: "en-catalogo" | "descartado" | "variante" | "pendiente";
+  motivo: string;
+  revisado: string;
+  slug?: string;
+}
+
+const ESTADOS_CANDIDATO = new Set(["en-catalogo", "descartado", "variante", "pendiente"]);
+
+/**
+ * La lista de candidatos que se publica en /metodologia: cada uno con fecha y
+ * motivo publicable, sin repetir ASIN, y coherente con el catálogo (un
+ * «en-catalogo» tiene que estar activo; los demás, no).
+ */
+export function validarCandidatos(candidatos: Candidato[], productos: ProductMap): Resultado {
+  const errores: string[] = [];
+  const vistos = new Set<string>();
+  for (const c of candidatos) {
+    const id = c.nombre || c.asin;
+    if (vistos.has(c.asin)) errores.push(`candidato repetido: ${c.asin}`);
+    vistos.add(c.asin);
+    if (!ESTADOS_CANDIDATO.has(c.estado)) errores.push(`${id}: estado "${c.estado}" no válido`);
+    if (!esFecha(c.revisado)) errores.push(`${id}: revisado no es una fecha AAAA-MM-DD`);
+    if (!c.motivo?.trim()) errores.push(`${id}: falta el motivo`);
+    const m = c.motivo?.match(CIFRA_PROHIBIDA);
+    if (m) errores.push(`${id}: cifra prohibida en el motivo: "${m[0]}"`);
+    const p = productos[c.asin];
+    const activo = !!p && p.estado === "activo" && p.disponible;
+    if (c.estado === "en-catalogo" && !activo) errores.push(`${id}: figura en el catálogo pero no está activo`);
+    if (c.estado !== "en-catalogo" && activo) errores.push(`${id}: está activo en el catálogo pero figura como ${c.estado}`);
+  }
+  return { errores, avisos: [] };
+}
