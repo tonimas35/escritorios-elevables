@@ -4,7 +4,7 @@ import Link from "next/link";
 import { coma, nota } from "@/lib/format";
 import { garantia, motorCorto, recorrido, SIN_DATO } from "@/lib/ficha";
 import { getAvailableProducts, getProductBySlug } from "@/lib/products";
-import { NOMBRE_FRANJA, posicionEnFranja } from "@/lib/nota";
+import { NOMBRE_FRANJA, franja, posicionEnFranja } from "@/lib/nota";
 import { FECHA_EN_FRASE } from "@/lib/fecha";
 import { AffiliateButton } from "@/components/AffiliateButton";
 import { FranjaPrecio } from "@/components/FranjaPrecio";
@@ -13,6 +13,7 @@ import { CompactRatings } from "@/components/CompactRatings";
 import { FadeIn } from "@/components/FadeIn";
 import { productSchema } from "@/lib/schema";
 import { rutaFicha } from "@/lib/rutas";
+import { MejorDeMarcaHoy, mejorDeMarca } from "@/components/broadsheet/MejorDeMarcaHoy";
 
 export const metadata: Metadata = {
   title: "Flexispot vs Maidesite 2026 — ¿Cuál es mejor?",
@@ -34,7 +35,15 @@ export default function FlexispotVsMaidesitePage() {
   const [t2Asin, t2Product] = t2;
   // Cada marco se presenta por su franja, no con un «recomendado» que
   // compararía notas de franjas distintas (METODO.md §5).
-  const catalogo = getAvailableProducts().map(([, p]) => p);
+  const disponibles = getAvailableProducts();
+  const catalogo = disponibles.map(([, p]) => p);
+  // El FLEXISPOT completo de la comparativa (160x80) salió del catálogo el
+  // 22/10/2026; el veredicto y el bloque de abajo usan el que hoy queda mejor.
+  const fxHoy = mejorDeMarca(disponibles, "FLEXISPOT", true);
+  const nombreFranja = (p: typeof e7Product) => {
+    const f = franja(p);
+    return f ? NOMBRE_FRANJA[f].toLowerCase() : "una franja sin verificar";
+  };
   const franjaDe = (p: typeof e7Product) => {
     const pos = posicionEnFranja(p, catalogo);
     return pos ? `Nº ${pos.posicion} · ${NOMBRE_FRANJA[pos.franja]}` : null;
@@ -318,7 +327,7 @@ export default function FlexispotVsMaidesitePage() {
                 <p style={{ marginTop: 10 }}>
                   El FLEXISPOT 160x80 ya no está en nuestro catálogo desde el 22/10/2026: su nota calculada,{" "}
                   {nota(eg1[1].puntuacion.total)}, queda por debajo del mínimo. Sigue aquí porque se vende y es el
-                  FLEXISPOT completo con el que se suele comparar; con tablero incluido, el S2 Pro es el que
+                  FLEXISPOT completo con el que se suele comparar; entre estos dos, el S2 Pro es el que
                   recomendamos.
                 </p>
               )}
@@ -358,6 +367,15 @@ export default function FlexispotVsMaidesitePage() {
                 </FadeIn>
               ))}
             </div>
+            {!eg1[1].disponible && (
+              <MejorDeMarcaHoy
+                catalogo={disponibles}
+                marca="FLEXISPOT"
+                conTablero
+                titulo="El FLEXISPOT completo que recomendamos hoy"
+                contexto="Si quieres un FLEXISPOT con tablero, este es el que mejor queda hoy en su franja:"
+              />
+            )}
           </section>
         </FadeIn>
       )}
@@ -378,7 +396,10 @@ export default function FlexispotVsMaidesitePage() {
             <strong style={{ color: 'var(--text-primary)' }}>MAIDeSITe {t2Product.modelo}:</strong> solo si necesitas sus {t2Product.specs.peso_max_carga_kg} kg de carga o su recorrido de {coma(t2Product.specs.rango_altura_min_cm)} a {coma(t2Product.specs.rango_altura_max_cm)} cm; si no, estás pagando de más. También viene sin tablero.
           </p>
             <p>
-            <strong style={{ color: 'var(--text-primary)' }}>Con tablero incluido:</strong> FLEXISPOT 160x80 o MAIDeSITe S2 Pro. El primero por superficie y garantía, el segundo por carga.
+            <strong style={{ color: 'var(--text-primary)' }}>Con tablero incluido:</strong>{" "}
+            {eg1?.[1].disponible || !fxHoy || !s2
+              ? "FLEXISPOT 160x80 o MAIDeSITe S2 Pro. El primero por superficie y garantía, el segundo por carga."
+              : `${fxHoy[1].marca} ${fxHoy[1].modelo} o MAIDeSITe S2 Pro. No están en la misma franja de precio: el ${fxHoy[1].marca} en ${nombreFranja(fxHoy[1])} y el S2 Pro en ${nombreFranja(s2[1])}. El S2 Pro mueve ${s2[1].specs.peso_max_carga_kg} kg y el ${fxHoy[1].marca}, ${fxHoy[1].specs.peso_max_carga_kg}.`}
           </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
