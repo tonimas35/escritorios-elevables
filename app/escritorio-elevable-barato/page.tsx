@@ -165,7 +165,7 @@ export default function EscritorioBaratoPage() {
           Guía de compra &middot; {FECHA}
         </p>
         <h1 className="text-3xl md:text-5xl heading-accent" >
-          Mejores escritorios elevables baratos 2026
+          Mejores escritorios elevables <span className="bs-fluor">baratos</span> 2026
         </h1>
         <p className="mt-4 text-sm" style={{ color: 'var(--text-muted)' }}>
           Actualizado: {FECHA_EN_FRASE} &middot; {cheapProducts.length} modelos analizados de la gama de entrada
