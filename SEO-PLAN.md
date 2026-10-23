@@ -221,11 +221,40 @@ monitor, que es lo que la gente busca y va con un escritorio elevable. La
 alfombrilla antifatiga baja de prioridad: se compra junto al escritorio, pero
 no se busca. La silla sigue fuera por el motivo de arriba.
 
-Semrush no dio consultas el 23/10 (cupo gratuito agotado): quedan por medir
-«maidesite vs flexispot», «escritorio elevable barato», «mejores escritorios
-elevables calidad precio», «devoko escritorio elevable», «escritorio elevable
-180x80», «escritorio elevable en L», «soporte monitor», «brazo monitor»,
-«pasacables escritorio» y «flexispot black friday».
+### Semrush, 23/10 (segunda tanda)
+
+Base de datos de España, búsquedas al mes · dificultad («n/d» = Semrush no
+la da con tan poco volumen). El cupo gratuito se renueva 24 horas después de
+usarlo, no a medianoche.
+
+| Búsqueda | Al mes | Dificultad |
+|---|---|---|
+| soporte monitor | **2.400** | **15 %** |
+| brazo monitor | 1.300 | 20 % |
+| pasacables escritorio | 260 | 23 % |
+| escritorio elevable 180x80 | 90 | 18 % |
+| escritorio elevable en L | 90 | 23 % |
+| flexispot black friday | 30 | n/d |
+| maidesite vs flexispot | 20 | n/d |
+| escritorio elevable barato | 20 | n/d |
+| devoko escritorio elevable | 20 | n/d |
+| mejores escritorios elevables calidad precio | 10 | n/d |
+
+**Qué cambia:**
+- **Accesorios, decisión del 1/12:** el soporte de monitor tiene más
+  búsquedas que «escritorios elevables» (1.900) y la dificultad más baja de
+  todo lo medido. Si se abre la sección, se empieza por ahí, con el brazo de
+  monitor en la misma página.
+- **Franja C:** el catálogo no tiene ningún tablero de más de 160 cm ni
+  ningún escritorio en L, y entre los candidatos tampoco. Las dos búsquedas
+  son pequeñas pero fáciles y caen en esa franja de precio: el próximo
+  barrido de candidatos busca primero modelos de 180x80 y en L.
+- **No más páginas de marca o de nicho pequeño:** las comparativas y las
+  búsquedas largas que ya posicionan mueven 10–20 búsquedas al mes cada una.
+  El volumen sigue en las genéricas («escritorio elevable», 6.600), y para
+  esas lo que falta es autoridad (P7, enlaces externos), no más páginas.
+- **Black Friday:** 30 al mes es la media del año; se concentra en noviembre
+  (Trends, ×2,5 esa semana). No cambia el plan de P5.
 
 ### Revisión del 21/10
 
