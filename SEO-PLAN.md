@@ -155,6 +155,8 @@ Apuntada para la revisión de los 60 días (24–30/11), con estos límites:
 - Antes de construir nada, probarlo en redes con un carrusel «Lo que
   necesitas alrededor de un escritorio elevable». Como guía, no como «mi
   mesa»: Toni no tiene escritorio elevable y no se cuenta como propio.
+- Google Trends del 23/10 (abajo, «Accesorios en Google Trends»): primero el
+  soporte o brazo de monitor; la alfombrilla antifatiga casi no se busca.
 
 **Aparcado a propósito:**
 - `nota_resenas` (revisión de las reseñas de 1–2★). Lo hará la tarea
@@ -199,6 +201,31 @@ Keepa y los resultados de búsqueda de cada modelo.
 - **Las fichas nuevas se eligen por hueco de catálogo y ventas**, no por
   búsquedas de modelo, que son pocas: completan las guías generales y dan a
   ChatGPT algo que citar para cada presupuesto.
+
+### Accesorios en Google Trends, 23/10
+
+Para la decisión del 1/12. España, 12 meses, interés medio con «escritorio
+elevable» como referencia (45, que son unas 6.600 búsquedas al mes según
+Semrush). Trends es relativo: sirve para ordenar, no para dar volúmenes.
+
+| Búsqueda | Media | Lectura |
+|---|---|---|
+| silla ergonomica | 64 | La más buscada, pero es otra categoría, muy disputada |
+| soporte monitor | 55 | Más que «escritorio elevable»; «brazo monitor» se queda en 19 |
+| pasacables | 44 | Mezclada con canaletas de casa, no solo de escritorio |
+| reposapies | 79 | Engañosa: crucigramas y muebles; «reposapies escritorio» da 0 |
+| alfombrilla / alfombra antifatiga | 0 | Casi nadie la busca en Google |
+
+**Qué cambia:** si se abre la sección, se empieza por el soporte o brazo de
+monitor, que es lo que la gente busca y va con un escritorio elevable. La
+alfombrilla antifatiga baja de prioridad: se compra junto al escritorio, pero
+no se busca. La silla sigue fuera por el motivo de arriba.
+
+Semrush no dio consultas el 23/10 (cupo gratuito agotado): quedan por medir
+«maidesite vs flexispot», «escritorio elevable barato», «mejores escritorios
+elevables calidad precio», «devoko escritorio elevable», «escritorio elevable
+180x80», «escritorio elevable en L», «soporte monitor», «brazo monitor»,
+«pasacables escritorio» y «flexispot black friday».
 
 ### Revisión del 21/10
 
