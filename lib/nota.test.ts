@@ -44,7 +44,9 @@ test("reproduce las notas del catálogo verificado el 24/09/2026", () => {
     "vasagle-100": 9.3,
     "ergear-120": 8.9,
     "maidesite-s2-pro": 8.9,
-    "flexispot-eg1": 8.2,
+    // 8,2 hasta el 24/10/2026: su franja bajó de 140–180 a 100–140 € y pasó
+    // de gama media a gama de entrada (METODO.md §5).
+    "flexispot-eg1": 9.1,
     "songmics-160": 8.1,
     "devoko-120": 8,
     "fezibo-120": 8,
@@ -150,7 +152,8 @@ test("empate técnico: menos de 0,3 puntos en la misma franja", () => {
 test("gama por el punto medio de la franja de precio, marcos incluidos", () => {
   assert.equal(gama(porSlug("vasagle-100")), "entrada"); // 70–90
   assert.equal(gama(porSlug("fezibo-120")), "media"); // 120–160
-  assert.equal(gama(porSlug("flexispot-eg1")), "media"); // marco de 110–150
+  assert.equal(gama(porSlug("flexispot-eg1")), "entrada"); // marco de 100–140: punto medio 120
+  assert.equal(gama(porSlug("ergear-marco")), "media"); // marco de 140–180
   assert.equal(gama(porSlug("maidesite-t2-pro-max")), "alta"); // marco de 310–430
   assert.equal(gama({ precio: 100, precio_min: null, precio_max: null }), "entrada"); // sin franja: precio interno
 });

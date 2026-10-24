@@ -28,7 +28,7 @@ export function fechaCorta(iso: string): string {
  * sitemap y la fecha visible de todo el sitio: se cambia a mano cuando se
  * toca contenido de verdad.
  */
-export const REVISION = "2026-10-15";
+export const REVISION = "2026-10-24";
 
 /** "octubre de 2026", para cuando va dentro de una frase. */
 export const FECHA_EN_FRASE = `${MESES[Number(REVISION.slice(5, 7)) - 1]} de ${REVISION.slice(0, 4)}`;
