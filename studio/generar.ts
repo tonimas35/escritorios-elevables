@@ -6,6 +6,7 @@
  *   node generar.ts franja M1             → la mejor base hasta 250 €
  *   node generar.ts altura                → ¿a qué altura debe estar tu mesa?
  *   node generar.ts verdades              → lo que nadie te dice antes de comprar
+ *   node generar.ts ikea                  → IKEA o Amazon: qué gana cada uno
  *
  * Sale en studio/salida/<fecha>-<plantilla>/: los fotogramas en PNG, el
  * vídeo (video.mp4) y la descripción (descripcion.txt) para pegar en TikTok
@@ -22,6 +23,7 @@ import type { Franja } from "../lib/nota.ts";
 import { videoFranja, type Video } from "./plantillas/franja.ts";
 import { videoAltura } from "./plantillas/altura.ts";
 import { videoVerdades } from "./plantillas/verdades.ts";
+import { videoIkea } from "./plantillas/ikea.ts";
 import { usarFormato, medidas } from "./diseno.ts";
 
 const FRANJAS = ["A", "B", "C", "M1", "M2"];
@@ -35,7 +37,8 @@ function plantilla(args: string[]): Video {
   }
   if (tipo === "altura") return videoAltura();
   if (tipo === "verdades") return videoVerdades();
-  console.error(`Uso: node generar.ts franja <${FRANJAS.join("|")}> | altura | verdades  [--carrusel]`);
+  if (tipo === "ikea") return videoIkea();
+  console.error(`Uso: node generar.ts franja <${FRANJAS.join("|")}> | altura | verdades | ikea  [--carrusel]`);
   process.exit(1);
 }
 
