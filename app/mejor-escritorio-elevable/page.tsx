@@ -46,7 +46,7 @@ const RUTA = "/mejor-escritorio-elevable";
 
 export const metadata: Metadata = {
   title: `${N} mejores escritorios elevables 2026 — Guía de compra`,
-  description: `Qué mesa escritorio elevable comprar en 2026: los ${N} del catálogo, por franja de precio y con una nota calculada con método público. Cuál elegir si eres alto, tienes poco espacio o vas a poner dos monitores.`,
+  description: `Qué mesa escritorio elevable comprar en Amazon en 2026: los ${N} del catálogo, por franja de precio y con una nota calculada con método público. Cuál elegir si eres alto, tienes poco espacio o vas a poner dos monitores.`,
   alternates: { canonical: RUTA },
 };
 

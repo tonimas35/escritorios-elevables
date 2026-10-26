@@ -221,6 +221,20 @@ monitor, que es lo que la gente busca y va con un escritorio elevable. La
 alfombrilla antifatiga baja de prioridad: se compra junto al escritorio, pero
 no se busca. La silla sigue fuera por el motivo de arriba.
 
+### Semrush, 26/10: tiendas y variantes
+
+Base de datos de España, búsquedas al mes · dificultad.
+
+| Búsqueda | Al mes | Dificultad | Decisión |
+|---|---|---|---|
+| escritorio elevable amazon | 170 | 32 % | **Hecho:** «en Amazon» entra en la descripción de `/mejor-escritorio-elevable` |
+| escritorio elevable con cajones | 110 | 26 % | **Más adelante:** en el próximo barrido, mirar los candidatos con cajones (VASAGLE 160x80, Agilestic 120x60) |
+| escritorio elevable manual | 110 | 20 % | **Más adelante:** no hay ningún manual de Amazon en el catálogo, así que no daría clics |
+| escritorio elevable leroy merlin | 110 | 27 % | **Más adelante:** con Carrefour (50), Lidl (40) y El Corte Inglés (20) suman unas 220; se mira como sección de la página de IKEA si esa funciona (revisión de los 60 días) |
+| escritorio elevable blanco | 40 | n/d | **Descartado:** poco volumen |
+| escritorio elevable opiniones | 20 | n/d | **Descartado** |
+| escritorio elevable gaming | 20 | n/d | **Descartado** |
+
 ### Semrush, 23/10 (segunda tanda)
 
 Base de datos de España, búsquedas al mes · dificultad («n/d» = Semrush no
