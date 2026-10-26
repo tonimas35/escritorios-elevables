@@ -91,11 +91,22 @@ Un modelo entra solo si cumple **todos**:
    - Se cuenta como patrón cuando el mismo fallo aparece en 5 o más de las
      20 reseñas. Por debajo, se resume en `nota_resenas` y la ficha lo
      cuenta, pero no excluye.
+   - *Cambio del 26/10/2026, aprobado por Toni:* para el patrón solo cuentan
+     las reseñas de los **últimos 24 meses**. Un modelo con pocas quejas
+     tiene que remontarse años para llegar a 20, y una reseña de 2021 dice
+     poco de cómo sale hoy de fábrica (es el mismo criterio que descartó el
+     FLEXISPOT E200, cuyas reseñas eran anteriores al modelo).
+   - *Cambio del 26/10/2026, aprobado por Toni:* este requisito es de
+     **entrada**. Un modelo que ya está en el catálogo no sale por sus
+     reseñas: si aparece un patrón, se apunta en `nota_resenas`, la ficha lo
+     avisa en `contras` y el modelo tiene prioridad para que lo sustituya
+     uno mejor de su franja en el siguiente barrido (§4).
 
 ## 4. Motivos de salida
 
 - Descatalogado, o sin stock durante más de 30 días.
-- Deja de cumplir algún requisito de §3.
+- Deja de cumplir algún requisito de §3, salvo el 5 (reseñas), que solo se
+  mira al entrar (cambio del 26/10/2026, ver §3).
 - Aparece un candidato en la misma franja que lo supera en **0,3 puntos** o
   más. Por debajo de ese margen no se rota: sería rotar por ruido.
 - Su nota baja de **7,5** (añadido el 24/09/2026 con 6,5; subido a 7,5 el
