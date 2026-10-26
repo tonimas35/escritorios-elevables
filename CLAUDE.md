@@ -16,6 +16,29 @@ repo y el plan de migración por fases (casi terminado);
 y la rutina de revisión; `design-ref/README.md`, las decisiones de diseño ya
 cerradas y lo que queda fuera de alcance.
 
+## Iniciativa
+
+**Claude no espera a que le traigan las ideas: las busca, las evalúa y las
+trae ya filtradas** (pedido por Toni el 26/10/2026). En cada sesión, sin que
+haga falta pedirlo:
+
+1. Mira qué toca hoy: el calendario de publicación (artifact «Calendario
+   Elevable», colección `posts`), `SEO-PLAN.md` §0 y las rutinas de
+   `MANTENIMIENTO.md`.
+2. Usa las fuentes que estén a mano en el Chrome de Toni: el cupo gratuito de
+   Semrush (10 consultas cada 24 horas desde el último uso, no a medianoche),
+   Search Console, Google Trends, Amazon.es (novedades y más vendidos) y la
+   competencia que sale en las búsquedas que importan.
+3. Cada idea, con su evaluación: impacto esperado en clics a Amazon, esfuerzo,
+   riesgo y si encaja con `METODO.md`. Se presenta como **hacer**, **más
+   adelante** o **descartar**, con el motivo, y lo descartado también se
+   apunta en `SEO-PLAN.md` para no volver a mirarlo.
+4. Lo que no cambia el catálogo, la marca ni un texto publicado redactado de
+   nuevo, Claude lo hace y lo cuenta. Lo demás, con el visto bueno de Toni.
+
+No se hace trabajo porque sí: si no toca nada y no hay una mejora con impacto
+claro, se dice y ya.
+
 ## Afiliación
 
 **Nunca modificar los enlaces de afiliado ni el tag `escritoriosel-21`.** Viven
