@@ -246,9 +246,19 @@ usarlo, no a medianoche.
   todo lo medido. Si se abre la sección, se empieza por ahí, con el brazo de
   monitor en la misma página.
 - **Franja C:** el catálogo no tiene ningún tablero de más de 160 cm ni
-  ningún escritorio en L, y entre los candidatos tampoco. Las dos búsquedas
-  son pequeñas pero fáciles y caen en esa franja de precio: el próximo
-  barrido de candidatos busca primero modelos de 180x80 y en L.
+  ningún escritorio en L. Las dos búsquedas son pequeñas pero fáciles: el
+  próximo barrido de candidatos busca primero modelos de 180x80 y en L.
+  (Corregido el 26/10: el 23/10 se dijo que tampoco los había entre los
+  candidatos, y sí había varios pendientes de 180 y 200 cm.)
+- **Barrido del 26/10, resultado:** ninguno entra. Los de 180x80 cuestan
+  casi todos entre 140 y 260 € y caen en la franja B, que está llena; los
+  que caen en la C se descartan por ficha contradictoria (FLEXISPOT 180x80 y
+  200x80: el texto y las fotos dan cargas y alturas distintas), por datos que
+  faltan (ErGear 180x80, Dripex, WALKINGDESK en L, Agilestic en L) o por
+  estabilidad (FLEXISPOT 180x80 de roble: 6 de 20 reseñas negativas). Todo en
+  `data/candidatos.json`. La franja C sigue con un modelo; el siguiente paso
+  es mirar escritorios completos de gama alta (250–500 €) de 140–160 cm, no
+  solo los grandes.
 - **No más páginas de marca o de nicho pequeño:** las comparativas y las
   búsquedas largas que ya posicionan mueven 10–20 búsquedas al mes cada una.
   El volumen sigue en las genéricas («escritorio elevable», 6.600), y para
