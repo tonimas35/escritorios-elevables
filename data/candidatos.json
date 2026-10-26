@@ -209,9 +209,9 @@
       "asin": "B0CBS836M9",
       "nombre": "Dripex 180x110",
       "tipo": "completo",
-      "estado": "pendiente",
-      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
-      "revisado": "2026-10-22"
+      "estado": "descartado",
+      "motivo": "Su ficha no declara la carga ni la garantía.",
+      "revisado": "2026-10-26"
     },
     {
       "asin": "B0D9GR4D3D",
@@ -241,17 +241,17 @@
       "asin": "B0D9MFLHJC",
       "nombre": "ErGear 180x80",
       "tipo": "completo",
-      "estado": "pendiente",
-      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
-      "revisado": "2026-10-22"
+      "estado": "descartado",
+      "motivo": "Su ficha no declara la garantía ni las memorias, ni si lleva uno o dos motores.",
+      "revisado": "2026-10-26"
     },
     {
       "asin": "B0D313M5XN",
       "nombre": "FLEXISPOT 200x80",
       "tipo": "completo",
-      "estado": "pendiente",
-      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
-      "revisado": "2026-10-22"
+      "estado": "descartado",
+      "motivo": "Su ficha se contradice: el título declara 100 kg y de 73 a 118 cm; las fotos, un solo motor y 70 kg, y la tabla de datos, hasta 122 cm.",
+      "revisado": "2026-10-26"
     },
     {
       "asin": "B0G5PP3XS1",
@@ -380,6 +380,70 @@
       "estado": "pendiente",
       "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
       "revisado": "2026-10-22"
+    },
+    {
+      "asin": "B0H2YZR6GC",
+      "nombre": "FLEXISPOT 180x80 con tablero de roble",
+      "tipo": "completo",
+      "estado": "descartado",
+      "motivo": "Inestable: 6 de cada 20 de sus reseñas negativas más recientes cuentan que se tambalea, sobre todo en lo alto. Comparte valoraciones con los demás tamaños de su familia.",
+      "revisado": "2026-10-26"
+    },
+    {
+      "asin": "B0D7ZPBY97",
+      "nombre": "FLEXISPOT 180x80 con 4 memorias",
+      "tipo": "completo",
+      "estado": "descartado",
+      "motivo": "Su ficha se contradice: el texto declara 100 kg, 4 memorias y de 75 a 120 cm; las fotos, 70 kg, 2 memorias y de 73,5 a 118 cm.",
+      "revisado": "2026-10-26"
+    },
+    {
+      "asin": "B0FD9TKHDY",
+      "nombre": "WALKINGDESK en L 160x140",
+      "tipo": "completo",
+      "estado": "descartado",
+      "motivo": "Su ficha no dice si lleva uno o dos motores, y sin ese dato no se puede calcular la nota.",
+      "revisado": "2026-10-26"
+    },
+    {
+      "asin": "B0D1XH478Y",
+      "nombre": "Agilestic en L 160x140",
+      "tipo": "completo",
+      "estado": "descartado",
+      "motivo": "Sin oferta en Amazon.es al revisarlo, y su ficha no declara la garantía.",
+      "revisado": "2026-10-26"
+    },
+    {
+      "asin": "B0CBS65ZNK",
+      "nombre": "Dripex 180x110 en L",
+      "tipo": "completo",
+      "estado": "variante",
+      "motivo": "Es otra versión del Dripex 180x110: comparten anuncio y valoraciones.",
+      "revisado": "2026-10-26"
+    },
+    {
+      "asin": "B0DDSHMP6B",
+      "nombre": "OffiGo 180x80 con enchufes",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-26"
+    },
+    {
+      "asin": "B0FJYQKHLV",
+      "nombre": "Klicelor 180x80",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-26"
+    },
+    {
+      "asin": "B0FHKM13K4",
+      "nombre": "Radlove en L doble motor",
+      "tipo": "completo",
+      "estado": "pendiente",
+      "motivo": "Pasa el filtro de valoraciones; falta leer su ficha completa y sus reseñas negativas.",
+      "revisado": "2026-10-26"
     }
   ]
 }
