@@ -1,6 +1,8 @@
-# Cada mañana descarga Search Console y GA4 (scripts/analitica.ts) y lo sube
-# como artefacto, para que Claude lo lea desde GitHub aunque el PC de Toni
-# esté apagado. Solo lee; no hace commits ni despliega nada.
+# Cada mañana descarga Search Console y GA4 (scripts/analitica.ts) y lo deja
+# en la rama «analitica» (solo datos, sin código), para que Claude lo lea desde
+# GitHub aunque el PC de Toni esté apagado. Esa rama lleva su propio
+# vercel.json con los despliegues desactivados: Vercel no la publica nunca.
+# También queda como artefacto del workflow, por si se mira desde la web.
 name: Analítica
 
 on:
@@ -9,7 +11,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   descargar:
@@ -30,3 +32,23 @@ jobs:
           path: salida/analitica/
           retention-days: 90
           if-no-files-found: ignore
+      - name: Guardar en la rama analitica
+        if: always()
+        run: |
+          [ -d salida/analitica ] || exit 0
+          cp -r salida/analitica "$RUNNER_TEMP/analitica"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git fetch --depth=1 origin analitica 2>/dev/null; then
+            git checkout -q -B analitica FETCH_HEAD
+          else
+            git checkout -q --orphan analitica
+            git rm -rq --cached . && git clean -fdxq
+          fi
+          mkdir -p datos
+          cp "$RUNNER_TEMP"/analitica/* datos/
+          printf '{\n  "git": { "deploymentEnabled": false }\n}\n' > vercel.json
+          printf '# Datos de analítica\n\nLos escribe .github/workflows/analitica.yml (rama master) cada mañana. No es código: Vercel no despliega esta rama.\n' > README.md
+          git add datos vercel.json README.md
+          git commit -qm "Analítica del $(date -u +%F)" || exit 0
+          git push -q origin analitica
