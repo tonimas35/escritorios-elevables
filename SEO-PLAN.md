@@ -288,8 +288,20 @@ semana anterior, en sus 30 días: 57 clics, 2 pedidos, 15,99 €). EPC de
 ~0,29 €. Los días 27 y 28/10 son el pico del mes, unos 11 clics cada uno y
 la mitad de la comisión: coinciden con el carrusel de la franja B (27/10,
 13:30) y con las fichas nuevas, pero con dos días no se puede separar una
-cosa de la otra. Se mira en GA4 de dónde vinieron esas visitas. Para el
-objetivo de los 60 días (5 clics al día) faltan más del doble: hoy son ~2,6.
+cosa de la otra. Para el objetivo de los 60 días (5 clics al día) faltan más
+del doble: hoy son ~2,6.
+
+**GA4, 28 días hasta el 28/10** (primera descarga automática, rama
+`analitica`): 134 sesiones y 44 clics a Amazon. Por fuente: Google 56
+sesiones y 7 eventos clave; directo 29 y 13; **ChatGPT 23 y 21**; Instagram
+(bio) 18 y **0**; Gemini 2 y 3. El 27 y el 28/10 tienen 6 sesiones cada uno,
+como los días anteriores: **el pico de Amazon no se ve en GA4**, así que no
+viene de una subida de visitas (el carrusel de la franja B no trajo tráfico
+visible) sino de que esas pocas visitas compraron más; parte de los clics de
+Amazon tampoco llegan a GA4 (bloqueadores, consentimiento). Instagram trae
+visitas que no hacen clic a Amazon; ChatGPT sigue siendo el canal que
+convierte. **Search Console:** las 29 URLs del sitemap, indexadas, también
+la de IKEA y las 4 fichas nuevas (rastreadas el 26/10).
 
 ### Revisión del 21/10
 
