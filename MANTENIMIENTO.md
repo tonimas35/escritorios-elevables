@@ -93,6 +93,21 @@ GitHub los ejecuta también en cada push.
    Si no se ha tocado nada, se deja: una fecha que avanza sola sin cambios
    no es cierta y Google aprende a ignorarla.
 
+**Black Friday: franjas congeladas del 17/11 al 1/12** (decidido el
+29/10/2026). La página `/black-friday-escritorio-elevable` usa la franja de
+cada modelo como precio de referencia para saber si una oferta es real: si
+la franja se moviera con las rebajas, todo saldría «dentro de su franja» y la
+página dejaría de servir. Por eso:
+
+- La revisión de noviembre se hace el **16/11**, antes de las ofertas de
+  Amazon. Si un modelo ya está rebajado ese día, la franja se calcula sobre
+  su precio habitual de los últimos tres meses en Keepa, no sobre la oferta.
+- Del 17/11 al 1/12 no se tocan `precio_min`, `precio_max` ni
+  `precio_verificado`, aunque el precio del día esté fuera de la franja. Un
+  modelo sin stock sí se puede retirar.
+- La siguiente revisión, la de diciembre, se hace el 2/12 con los precios ya
+  sin ofertas.
+
 ### Cada trimestre (3–4 h, enero, abril, julio y octubre): barrido de mercado
 
 0. **Que el ASIN sea el modelo que nombramos.** El 24/09/2026 se descubrió
