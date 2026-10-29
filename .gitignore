@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Datos de analítica que descarga scripts/analitica.ts (solo en local o en la CI)
+/salida/

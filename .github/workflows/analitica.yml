@@ -1,0 +1,32 @@
+# Cada mañana descarga Search Console y GA4 (scripts/analitica.ts) y lo sube
+# como artefacto, para que Claude lo lea desde GitHub aunque el PC de Toni
+# esté apagado. Solo lee; no hace commits ni despliega nada.
+name: Analítica
+
+on:
+  schedule:
+    - cron: "17 6 * * *" # 07:17 en Madrid en invierno, 08:17 en verano
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/analitica.ts
+        env:
+          GOOGLE_SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
+          GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: analitica
+          path: salida/analitica/
+          retention-days: 90
+          if-no-files-found: ignore
