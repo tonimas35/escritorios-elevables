@@ -25,7 +25,11 @@ haga falta pedirlo:
 1. Mira qué toca hoy: el calendario de publicación (artifact «Calendario
    Elevable», colección `posts`), `SEO-PLAN.md` §0 y las rutinas de
    `MANTENIMIENTO.md`.
-2. Usa las fuentes que estén a mano en el Chrome de Toni: el cupo gratuito de
+2. Lee los datos del día en la rama `analitica` del repo (`datos/resumen.md`
+   y `datos/AAAA-MM-DD.json`, con Search Console, indexación de cada URL y
+   GA4): los deja cada mañana `.github/workflows/analitica.yml` y se leen
+   aunque el PC de Toni esté apagado. Después, las fuentes que estén a mano
+   en el Chrome de Toni: el cupo gratuito de
    Semrush (10 consultas cada 24 horas desde el último uso, no a medianoche),
    Search Console, Google Trends, Amazon.es (novedades y más vendidos) y la
    competencia que sale en las búsquedas que importan.
