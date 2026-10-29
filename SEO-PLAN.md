@@ -280,6 +280,17 @@ usarlo, no a medianoche.
 - **Black Friday:** 30 al mes es la media del año; se concentra en noviembre
   (Trends, ×2,5 esa semana). No cambia el plan de P5.
 
+### Amazon Afiliados, 29/10 (30 días: 29/09–28/10)
+
+Captura de Toni. **78 clics, 7 pedidos (conversión 8,97 %), 2 devueltos,
+494,97 € facturados y 22,58 € de comisión**, el mejor mes hasta ahora (la
+semana anterior, en sus 30 días: 57 clics, 2 pedidos, 15,99 €). EPC de
+~0,29 €. Los días 27 y 28/10 son el pico del mes, unos 11 clics cada uno y
+la mitad de la comisión: coinciden con el carrusel de la franja B (27/10,
+13:30) y con las fichas nuevas, pero con dos días no se puede separar una
+cosa de la otra. Se mira en GA4 de dónde vinieron esas visitas. Para el
+objetivo de los 60 días (5 clics al día) faltan más del doble: hoy son ~2,6.
+
 ### Revisión del 21/10
 
 Datos sacados por Claude desde el navegador de Toni.
