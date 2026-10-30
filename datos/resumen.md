@@ -42,18 +42,17 @@
 ### Sin indexar
 
 ## GA4 (28 días hasta ayer)
-- Sesiones: 139 · Eventos clave: 51 · Clics a Amazon: 51
+- Sesiones: 138 · Eventos clave: 51 · Clics a Amazon: 51
 
 | Fuente / medio | Sesiones | Eventos clave |
 |---|---|---|
-| google / organic | 60 | 13 |
+| google / organic | 60 | 14 |
 | (direct) / (none) | 29 | 13 |
 | chatgpt.com / ai-assistant | 23 | 21 |
 | instagram / bio | 18 | 0 |
 | facebook.com / referral | 2 | 0 |
 | gemini.google.com / ai-assistant | 2 | 3 |
 | vercel.com / referral | 2 | 0 |
-| (not set) / (not set) | 1 | 1 |
 | m.facebook.com / referral | 1 | 0 |
 | perplexity / (not set) | 1 | 0 |
 
@@ -62,13 +61,13 @@
 | / | 48 | 12 |
 | /mejor-escritorio-elevable | 33 | 10 |
 | /bases-elevables | 9 | 8 |
+| (not set) | 7 | 0 |
 | /escritorio-elevable-barato | 7 | 7 |
-| (not set) | 6 | 0 |
 | /black-friday-escritorio-elevable | 6 | 3 |
 | /calculadora-altura | 5 | 0 |
 | /flexispot-eg1-opiniones | 5 | 2 |
 | /flexispot-vs-maidesite | 5 | 1 |
 | /flexispot-140x70-opiniones | 3 | 1 |
-|  | 2 | 1 |
 | /aviso-legal | 2 | 0 |
+| /songmics-160-opiniones | 2 | 0 |
 

@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-30T10:57:21.460Z",
+  "generado": "2026-10-30T12:50:27.209Z",
   "gsc": {
     "periodo": {
       "inicio": "2026-10-01",
@@ -1458,7 +1458,7 @@
         "sessionSource": "google",
         "sessionMedium": "organic",
         "sessions": 60,
-        "keyEvents": 13
+        "keyEvents": 14
       },
       {
         "sessionSource": "(direct)",
@@ -1497,12 +1497,6 @@
         "keyEvents": 0
       },
       {
-        "sessionSource": "(not set)",
-        "sessionMedium": "(not set)",
-        "sessions": 1,
-        "keyEvents": 1
-      },
-      {
         "sessionSource": "m.facebook.com",
         "sessionMedium": "referral",
         "sessions": 1,
@@ -1532,14 +1526,14 @@
         "keyEvents": 8
       },
       {
+        "landingPage": "(not set)",
+        "sessions": 7,
+        "keyEvents": 0
+      },
+      {
         "landingPage": "/escritorio-elevable-barato",
         "sessions": 7,
         "keyEvents": 7
-      },
-      {
-        "landingPage": "(not set)",
-        "sessions": 6,
-        "keyEvents": 0
       },
       {
         "landingPage": "/black-friday-escritorio-elevable",
@@ -1567,11 +1561,6 @@
         "keyEvents": 1
       },
       {
-        "landingPage": "",
-        "sessions": 2,
-        "keyEvents": 1
-      },
-      {
         "landingPage": "/aviso-legal",
         "sessions": 2,
         "keyEvents": 0
@@ -1584,7 +1573,7 @@
       {
         "landingPage": "/ergear-160-opiniones",
         "sessions": 1,
-        "keyEvents": 3
+        "keyEvents": 4
       },
       {
         "landingPage": "/flexispot-e1-pro-opiniones",
