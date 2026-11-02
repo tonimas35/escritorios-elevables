@@ -7,6 +7,7 @@
  *   node generar.ts altura                → ¿a qué altura debe estar tu mesa?
  *   node generar.ts verdades              → lo que nadie te dice antes de comprar
  *   node generar.ts ikea                  → IKEA o Amazon: qué gana cada uno
+ *   node generar.ts fondo                 → mide el fondo antes de comprar
  *
  * Sale en studio/salida/<fecha>-<plantilla>/: los fotogramas en PNG, el
  * vídeo (video.mp4) y la descripción (descripcion.txt) para pegar en TikTok
@@ -24,6 +25,7 @@ import { videoFranja, type Video } from "./plantillas/franja.ts";
 import { videoAltura } from "./plantillas/altura.ts";
 import { videoVerdades } from "./plantillas/verdades.ts";
 import { videoIkea } from "./plantillas/ikea.ts";
+import { videoFondo } from "./plantillas/fondo.ts";
 import { usarFormato, medidas } from "./diseno.ts";
 
 const FRANJAS = ["A", "B", "C", "M1", "M2"];
@@ -38,7 +40,8 @@ function plantilla(args: string[]): Video {
   if (tipo === "altura") return videoAltura();
   if (tipo === "verdades") return videoVerdades();
   if (tipo === "ikea") return videoIkea();
-  console.error(`Uso: node generar.ts franja <${FRANJAS.join("|")}> | altura | verdades | ikea  [--carrusel]`);
+  if (tipo === "fondo") return videoFondo();
+  console.error(`Uso: node generar.ts franja <${FRANJAS.join("|")}> | altura | verdades | ikea | fondo  [--carrusel]`);
   process.exit(1);
 }
 
