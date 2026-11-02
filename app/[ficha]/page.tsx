@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Product } from "@/lib/types";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getAllProducts } from "@/lib/products";
@@ -32,12 +33,28 @@ export function generateStaticParams() {
 
 type Props = { params: Promise<{ ficha: string }> };
 
+/**
+ * El título de Google. Los completos empiezan por «Escritorio elevable» y
+ * llevan la medida del tablero, porque se busca así («escritorio elevable
+ * 140x70»: Semrush, 2/11/2026). Los marcos empiezan por el modelo, que es
+ * como se buscan («flexispot e1 pro»).
+ */
+function tituloSeo(p: Product): string {
+  if (p.incluye_tablero) {
+    const medida = `${p.specs.ancho_tablero_cm}x${p.specs.profundidad_tablero_cm}`;
+    const modelo = p.modelo.includes(medida) ? p.modelo : `${p.modelo} ${medida}`;
+    return `Escritorio elevable ${p.marca} ${modelo}: opiniones 2026`;
+  }
+  const tipo = /marco/i.test(p.modelo) ? "" : ": marco elevable,";
+  return `${p.marca} ${p.modelo}${tipo || ":"} opiniones 2026`;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const f = fichaPorSegmento((await params).ficha);
   if (!f) return {};
   const p = f.producto;
   return {
-    title: `${p.marca} ${p.modelo} opiniones 2026: ficha y análisis`,
+    title: tituloSeo(p),
     description: standfirst(p),
     alternates: { canonical: `/${f.segmento}` },
   };
