@@ -292,6 +292,37 @@ usarlo, no a medianoche.
 - **Black Friday:** 30 al mes es la media del año; se concentra en noviembre
   (Trends, ×2,5 esa semana). No cambia el plan de P5.
 
+### Revisión del 2/11: Amazon, GA4 y Search Console
+
+- **Amazon Afiliados, 30 días (3/10–1/11):** 94 clics, 11 pedidos
+  (conversión 11,7 %), 2 devueltos, 709,51 € facturados y **26,96 € de
+  comisión**, otra vez el mejor mes (22,58 € el 29/10). EPC ~0,29 €.
+- **GA4, por semanas (sesiones · clics a Amazon):** 5–11/10, 12 · 1;
+  12–18/10, 34 · 17; 19–25/10, 64 · 13; 26/10–1/11, 35 · **24**. La última
+  semana tiene la mitad de visitas que la anterior (el pico de redes del
+  22/10 ya pasó) y casi el doble de clics: llega menos gente, pero más
+  decidida. GA4 cuenta unos 55 clics a Amazon en 30 días y Amazon 94:
+  parte de las visitas no llegan a GA4 (bloqueadores, consentimiento).
+- **Qué páginas mandan a Amazon (28 días):** la guía 10, bases 8, la home 7,
+  baratos 7, **la ficha del E1 Pro 6** (nueva del 22/10), Black Friday 4.
+- **Canales (28 días, sesiones · eventos clave):** Google 63 · 16, directo
+  29 · 13, **ChatGPT 27 · 23**, Instagram 18 · 0.
+- **Search Console (4–31/10):** 27 clics y 952 impresiones. Por semanas, las
+  impresiones suben (183 → 203 → 247 → 283) y los clics no (2 → 8 → 7 → 8),
+  con la posición media quieta en torno a 11. Las genéricas siguen lejos
+  («escritorio elevable» 25,5; «escritorios elevables» 21). «flexispot e1
+  pro» ya sale en 8,8. Aparecen consultas largas en forma de pregunta
+  («¿qué escritorios merece la pena comprar con buena garantía?», posición
+  8; una sobre un despacho compartido, posición 3): son del modo IA de
+  Google, que ya usa la web como fuente.
+
+**Qué cambia:**
+- **P7 (enlaces externos) pasa a ser lo siguiente en la web.** Las
+  impresiones crecen pero la posición de las genéricas no se mueve: es
+  autoridad, no contenido. Las fichas y páginas nuevas pueden esperar.
+- Las redes siguen en prueba hasta el 13/11, sabiendo que de momento no
+  traen clics a Amazon.
+
 ### Amazon Afiliados, 29/10 (30 días: 29/09–28/10)
 
 Captura de Toni. **78 clics, 7 pedidos (conversión 8,97 %), 2 devueltos,
