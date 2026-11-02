@@ -315,6 +315,28 @@ indexado.
 - **Reddit**, pendiente: el navegador de Claude no puede entrar; Toni busca y
   pasa captura.
 - Se mide en GA4 (fuente mediavida.com) en la revisión del 9/11.
+- **Enlaces editoriales (2/11):** 10 correos preparados en el doc «Contactos
+  para enlaces» (https://claude.ai/artifact/UuJR7Mt3kq8XN8yLPaDeUd), que
+  manda Toni del 3 al 5/11 desde escritorioelevable@gmail.com. Ofrecen la
+  calculadora y un dato del catálogo: de 16 modelos activos, solo 1 baja de
+  70 cm, y 8 llegan a 120 cm. Destinatarios: WWWhatsnew, Trabajar por el
+  Mundo, I am Beezy, 123tinta, Consumer, Welcome to the Jungle,
+  ConsumoClaro (elDiario.es), Vitónica, Xataka Home y Qué!. Un solo
+  recordatorio a los 7 días.
+- **Descartados para enlaces, para no volver a mirarlos:**
+  - Sklum, Sunaofe y Odinlake venden muebles o escritorios, así que son
+    competencia.
+  - Omni Calculator y hacecuentas.com tienen su propia calculadora.
+  - Xataka Selección, Compradiccion y Applesfera publican ofertas con
+    afiliación, en competencia directa.
+  - OCU no enlaza a webs comerciales.
+  - Maldita Ciencia no tiene vía para proponer datos.
+  - Emprendedores y Merca2 publican comunicados, que suelen ser de pago.
+  - Moove Magazine y el blog de Ledbox no tienen contacto.
+  - En idealista/news, el artículo es contenido patrocinado de 2018.
+- **Más adelante:** una nota de prensa con datos propios, como la de efisio
+  (octubre de 2025, recogida por Qué! y Emprendedores), cuando el catálogo o
+  la calculadora den un dato más largo.
 
 ### Revisión del 2/11: Amazon, GA4 y Search Console
 
