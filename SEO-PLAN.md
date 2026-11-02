@@ -292,6 +292,19 @@ usarlo, no a medianoche.
 - **Black Friday:** 30 al mes es la media del año; se concentra en noviembre
   (Trends, ×2,5 esa semana). No cambia el plan de P5.
 
+### P7 en marcha (2/11)
+
+- **MediaVida**, hilo «Un "periférico" indispensable: La Mesa» (Hard & Soft,
+  80 páginas, activo): Toni responde el 2/11 (#2387) a una pregunta sin
+  contestar sobre marcos de gama media/alta, con datos del catálogo y un
+  enlace a `/bases-elevables` avisando de que la web es suya. Ritmo: una
+  respuesta útil por semana; Claude trae la pregunta y el borrador.
+- **Chollometro**, en noviembre: comentar en las ofertas de FLEXISPOT con la
+  franja como referencia, sin enlace (no se permiten).
+- **Reddit**, pendiente: el navegador de Claude no puede entrar; Toni busca y
+  pasa captura.
+- Se mide en GA4 (fuente mediavida.com) en la revisión del 9/11.
+
 ### Revisión del 2/11: Amazon, GA4 y Search Console
 
 - **Amazon Afiliados, 30 días (3/10–1/11):** 94 clics, 11 pedidos
