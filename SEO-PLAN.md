@@ -221,6 +221,18 @@ monitor, que es lo que la gente busca y va con un escritorio elevable. La
 alfombrilla antifatiga baja de prioridad: se compra junto al escritorio, pero
 no se busca. La silla sigue fuera por el motivo de arriba.
 
+### Semrush, 2/11: ofertas, tamaños y monitores
+
+| Búsqueda | Al mes | Dificultad | Decisión |
+|---|---|---|---|
+| brazo monitor doble | 140 | 15 % | Se suma a «soporte monitor» (2.400) y «brazo monitor» (1.300) para la decisión de accesorios del 1/12 |
+| escritorio elevable 160x80 | 70 | 13 % | **Propuesto:** que el título de cada ficha diga «escritorio elevable de 160x80» (pendiente del visto bueno de Toni: cambia un texto publicado) |
+| escritorio elevable 140x70 | 70 | 11 % | Igual que la anterior |
+| escritorio elevable 120x60 | 20 | n/d | Igual, menor |
+| flexispot oferta | 0 | n/d | **Descartado** |
+| oferta / rebajas / descuento escritorio elevable | sin datos | — | **Descartado:** en España no se busca así. La página de Black Friday se apoya en «black friday» y en el tráfico que ya llega |
+| escritorio elevable 60 cm fondo / dos monitores | sin datos | — | **Descartado** como búsqueda; el post del fondo va por redes |
+
 ### Semrush, 26/10: tiendas y variantes
 
 Base de datos de España, búsquedas al mes · dificultad.
