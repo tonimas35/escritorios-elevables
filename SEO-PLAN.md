@@ -292,6 +292,17 @@ usarlo, no a medianoche.
 - **Black Friday:** 30 al mes es la media del año; se concentra en noviembre
   (Trends, ×2,5 esa semana). No cambia el plan de P5.
 
+### Bing, 2/11
+
+Solo **9 de las 29 URLs** del sitemap estaban indexadas (ni la home, ni
+baratos, ni bases, ni Black Friday, ni IKEA, ni las fichas nuevas), aunque
+IndexNow avisa en cada despliegue. Enviadas a mano las 19 que faltaban
+(herramienta «URL Submission», cupo de 100 al día). La primera
+recomendación de Bing es «no hay suficientes enlaces entrantes de dominios
+de calidad»: lo mismo que en Google, P7. **Copilot citó la web por primera
+vez el 26/10** (1 cita en octubre). Se revisa en una semana cuántas ha
+indexado.
+
 ### P7 en marcha (2/11)
 
 - **MediaVida**, hilo «Un "periférico" indispensable: La Mesa» (Hard & Soft,
