@@ -221,6 +221,32 @@ monitor, que es lo que la gente busca y va con un escritorio elevable. La
 alfombrilla antifatiga baja de prioridad: se compra junto al escritorio, pero
 no se busca. La silla sigue fuera por el motivo de arriba.
 
+### Semrush, 4/11: altura de la mesa y competidores
+
+Base de datos de España, búsquedas al mes · dificultad.
+
+| Búsqueda | Al mes | Dificultad | Decisión |
+|---|---|---|---|
+| altura escritorio | 590 | 17 % | **Propuesto** (pendiente del visto bueno de Toni): la calculadora se titula por la altura de la mesa, no por «calculadora». 927 variantes suman 10.200 al mes |
+| altura mesa escritorio | 480 | 14 % | Igual que la anterior |
+| altura mesas escritorio | 210 | 9 % | Igual que la anterior |
+| escritorio regulable en altura | 390 (+140 en plural) | 25 % | **Propuesto:** el sinónimo entra en la entradilla de la guía |
+| mejor escritorio elevable | 210 | 25 % | Ya es el objetivo de la guía |
+| mejores escritorios elevables | 170 | 10 % | Ya es el objetivo de la guía; dificultad muy baja |
+| medidas escritorio | 480 | 13 % | **Más adelante:** una sección de medidas estándar en la calculadora, si se rehace |
+| calculadora altura escritorio | 0 (11 variantes suman 50) | n/d | **Descartado** como objetivo: casi nadie lo busca así |
+| altura escritorio de pie | 20 | n/d | **Descartado** |
+
+Visión general del dominio, base de España:
+
+| Dominio | Authority Score | Palabras clave | Páginas citadas por ChatGPT |
+|---|---|---|---|
+| elevable.es | 2 | 24 | 6 |
+| cuidatupostura.com (Ergosetup) | 2 | 22 | 34 |
+| mejoresresenas.es | 25 | 5.000 | 887 |
+
+Ergosetup tiene nuestro tamaño en Google, pero ChatGPT cita 34 páginas suyas y 6 nuestras: abarca más productos. mejoresresenas.es es un generalista de reseñas, con más de diez veces nuestra autoridad.
+
 ### Semrush, 2/11: ofertas, tamaños y monitores
 
 | Búsqueda | Al mes | Dificultad | Decisión |
