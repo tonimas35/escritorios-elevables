@@ -322,8 +322,11 @@ España.
   como «12 mejores». Ahora son 16.
 - **Google no recrawlea desde septiembre:** según los datos del 4/11,
   Google no ha vuelto a rastrear la guía, la de barato, FlexiSpot contra
-  MAIDeSITe ni FEZIBO desde el 10/09. Toni pide la indexación a mano en
-  Search Console el 4/11.
+  MAIDeSITe ni FEZIBO desde el 10/09. El 4/11 Claude pidió la
+  indexación en Search Console, desde el Chrome de Toni, de 8 URLs: esas 4
+  y las fichas de SONGMICS 160, ErGear 120, Devoko 120 y MAIDeSITe T1.
+  Quedan por pedir las fichas rastreadas antes del 2/11, cuando cambió el
+  título de las fichas. El cupo es de unas 10 al día.
 - **Competidores pequeños a vigilar:**
   - **Ergosetup** (cuidatupostura.com) es la más parecida: afiliación de
     Amazon, solo datos de la ficha, cita la NTP 1129 del INSST y el RD
