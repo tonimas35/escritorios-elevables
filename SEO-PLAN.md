@@ -303,6 +303,37 @@ de calidad»: lo mismo que en Google, P7. **Copilot citó la web por primera
 vez el 26/10** (1 cita en octubre). Se revisa en una semana cuántas ha
 indexado.
 
+### Posiciones en Bing y competidores, 4/11
+
+Mirado a mano en Bing, en el navegador del PC de Toni, con resultados de
+España.
+
+- **Donde salimos:**
+  - Con la marca, «elevable.es», salimos primeros.
+  - En «flexispot vs maidesite» salimos segundos, detrás de
+    entornoversatil.com.
+- **Donde no salimos en la primera página:**
+  - «mejores escritorios elevables», que domina mejoresresenas.es, por
+    delante de Xataka, radarofertas.es y miarroba.
+  - «sanodesk vs flexispot».
+  - «calculadora altura escritorio», con 10 calculadoras por delante (Omni,
+    ergola, ergonomiza…).
+- **Título desfasado:** Bing enseña la guía como «13 mejores», y Google
+  como «12 mejores». Ahora son 16.
+- **Google no recrawlea desde septiembre:** según los datos del 4/11,
+  Google no ha vuelto a rastrear la guía, la de barato, FlexiSpot contra
+  MAIDeSITe ni FEZIBO desde el 10/09. Toni pide la indexación a mano en
+  Search Console el 4/11.
+- **Competidores pequeños a vigilar:**
+  - **Ergosetup** (cuidatupostura.com) es la más parecida: afiliación de
+    Amazon, solo datos de la ficha, cita la NTP 1129 del INSST y el RD
+    488/1997, y enseña el precio exacto con fecha.
+  - entornoversatil.com, mejoresresenas.es, radarofertas.es, ergonomico.es,
+    tuescritorioelevable.es, escritorioelevable.es y Trabajar por el Mundo,
+    que tiene su propia comparativa de 5 modelos.
+- **Propuesta pendiente del visto bueno de Toni:** citar las normas del
+  INSST en la calculadora y en la metodología.
+
 ### P7 en marcha (2/11)
 
 - **MediaVida**, hilo «Un "periférico" indispensable: La Mesa» (Hard & Soft,
