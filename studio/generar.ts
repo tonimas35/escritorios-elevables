@@ -8,6 +8,7 @@
  *   node generar.ts verdades              → lo que nadie te dice antes de comprar
  *   node generar.ts ikea                  → IKEA o Amazon: qué gana cada uno
  *   node generar.ts fondo                 → mide el fondo antes de comprar
+ *   node generar.ts monitores             → no compres el más barato si vas a poner dos monitores
  *
  * Sale en studio/salida/<fecha>-<plantilla>/: los fotogramas en PNG, el
  * vídeo (video.mp4) y la descripción (descripcion.txt) para pegar en TikTok
@@ -26,6 +27,7 @@ import { videoAltura } from "./plantillas/altura.ts";
 import { videoVerdades } from "./plantillas/verdades.ts";
 import { videoIkea } from "./plantillas/ikea.ts";
 import { videoFondo } from "./plantillas/fondo.ts";
+import { videoMonitores } from "./plantillas/monitores.ts";
 import { usarFormato, medidas } from "./diseno.ts";
 
 const FRANJAS = ["A", "B", "C", "M1", "M2"];
@@ -41,7 +43,8 @@ function plantilla(args: string[]): Video {
   if (tipo === "verdades") return videoVerdades();
   if (tipo === "ikea") return videoIkea();
   if (tipo === "fondo") return videoFondo();
-  console.error(`Uso: node generar.ts franja <${FRANJAS.join("|")}> | altura | verdades | ikea | fondo  [--carrusel]`);
+  if (tipo === "monitores") return videoMonitores();
+  console.error(`Uso: node generar.ts franja <${FRANJAS.join("|")}> | altura | verdades | ikea | fondo | monitores  [--carrusel]`);
   process.exit(1);
 }
 
