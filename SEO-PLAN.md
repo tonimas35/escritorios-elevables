@@ -351,8 +351,19 @@ España.
   MAIDeSITe ni FEZIBO desde el 10/09. El 4/11 Claude pidió la
   indexación en Search Console, desde el Chrome de Toni, de 8 URLs: esas 4
   y las fichas de SONGMICS 160, ErGear 120, Devoko 120 y MAIDeSITe T1.
-  Quedan por pedir las fichas rastreadas antes del 2/11, cuando cambió el
-  título de las fichas. El cupo es de unas 10 al día.
+  El 5/11 Google ya las había rastreado todas, el mismo 4/11 por la tarde.
+  El 5/11 se pidieron Black Friday, bases y la home, y Search Console
+  contestó «Cuota superada» en la cuarta. El cupo es de unas 10 cada 24
+  horas, no por día natural.
+- **Quedan por pedir:** sanodesk-vs-flexispot y las fichas de FLEXISPOT E1
+  Pro, SANODESK 140, FLEXISPOT EG1, MAIDeSITe S2 Pro, ErGear 160, FLEXISPOT
+  140x70, ErGear marco, VASAGLE 100, MAIDeSITe T2 Pro Dual y WOLTU 80. Todas
+  se rastrearon por última vez antes del 2/11, cuando cambió el título de
+  las fichas.
+- **Corrección del 5/11:** la web existe desde marzo, no desde septiembre.
+  El 10/09 era solo el último rastreo de la guía. Lo que frenó la web hasta
+  octubre fue el reparto entre tres dominios (vercel.app, github.io y
+  elevable.es), no la edad del dominio.
 - **Competidores pequeños a vigilar:**
   - **Ergosetup** (cuidatupostura.com) es la más parecida: afiliación de
     Amazon, solo datos de la ficha, cita la NTP 1129 del INSST y el RD
