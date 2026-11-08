@@ -1,9 +1,18 @@
-# Tras cada despliegue correcto a producción en Vercel, avisa a Bing de las
-# URLs del sitio con IndexNow (scripts/indexnow.ts, SEO-PLAN.md §0, P1).
+# Tras cada despliegue correcto a producción en Vercel, avisa a Bing con
+# IndexNow de las URLs que han cambiado (scripts/indexnow.ts, SEO-PLAN.md §0,
+# P1). Las huellas del despliegue anterior se guardan en la rama «analitica»,
+# que Vercel no despliega.
 name: IndexNow
 
 on:
   deployment_status:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
 
 jobs:
   avisar:
@@ -14,4 +23,26 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Traer las huellas anteriores
+        run: |
+          git fetch --depth=1 origin analitica 2>/dev/null && \
+            git show FETCH_HEAD:datos/indexnow-huellas.json > "$RUNNER_TEMP/huellas.json" 2>/dev/null || \
+            rm -f "$RUNNER_TEMP/huellas.json"
       - run: node scripts/indexnow.ts
+        env:
+          HUELLAS: ${{ runner.temp }}/huellas.json
+      - name: Guardar las huellas en la rama analitica
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for intento in 1 2 3; do
+            git fetch --depth=1 origin analitica
+            git checkout -q -B analitica FETCH_HEAD
+            mkdir -p datos
+            cp "$RUNNER_TEMP/huellas.json" datos/indexnow-huellas.json
+            git add datos/indexnow-huellas.json
+            git commit -qm "IndexNow: huellas del despliegue $(date -u +%F)" || exit 0
+            git push -q origin analitica && exit 0
+            sleep 5
+          done
+          exit 1
