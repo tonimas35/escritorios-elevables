@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Calculadora de altura de escritorio — Altura ideal según tu estatura",
+  title: "Altura de la mesa de escritorio según tu estatura (calculadora)",
   description:
-    "Calcula la altura ideal de tu escritorio elevable según tu estatura, sentado y de pie, con un dibujo de tu puesto acotado.",
+    "¿A qué altura debe estar tu escritorio? Pon tu estatura y te da la altura de la mesa sentado y de pie, la de la silla y la del monitor, con una tabla de 150 a 200 cm.",
   alternates: { canonical: "/calculadora-altura" },
 };
 
@@ -12,7 +12,7 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Inicio", item: "https://elevable.es" },
-    { "@type": "ListItem", position: 2, name: "Calculadora de Altura de Escritorio", item: "https://elevable.es/calculadora-altura" },
+    { "@type": "ListItem", position: 2, name: "Altura de la mesa de escritorio", item: "https://elevable.es/calculadora-altura" },
   ],
 };
 
