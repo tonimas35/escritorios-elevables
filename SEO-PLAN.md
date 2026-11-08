@@ -221,6 +221,15 @@ monitor, que es lo que la gente busca y va con un escritorio elevable. La
 alfombrilla antifatiga baja de prioridad: se compra junto al escritorio, pero
 no se busca. La silla sigue fuera por el motivo de arriba.
 
+### Bing Webmaster Tools, 8/11
+
+- **Sin rastrear nada nuevo desde el 21/10.** El explorador del sitio da 9 páginas indexadas y 1 excluida. La inspección página a página da más indexadas: home, guía, barato, calculadora, bases, qué comprar, comparador y las fichas de EG1, SONGMICS, SANODESK 140, T2 Pro Dual, FEZIBO, Devoko, S2 Pro, T1, ErGear marco y VASAGLE.
+- **«Discovered but not crawled», 9 páginas:** Black Friday, SANODESK contra FlexiSpot, IKEA y las fichas de E1 Pro, 140x70, ErGear 160, ErGear 120, WOLTU 80 y T2 Pro Plus. Se pidió la indexación de las 9 el 8/11; el cupo es de 100 al día.
+- **Causa probable, corregida en el PR 77:** IndexNow mandaba las ~30 URLs en cada despliegue, aunque no hubieran cambiado: 1.300 envíos desde el 9/10. Ahora solo se avisa de las URLs cuyo texto cambia. Las huellas están en `datos/indexnow-huellas.json` de la rama analitica.
+- **Avisos de Bing en calculadora y bases:** título demasiado largo y descripción demasiado larga o corta. Es la versión que Bing tiene guardada; se revisa cuando vuelva a rastrearlas.
+- **AI Performance (Copilot):** 1 cita en 36 días, el 26/10. Sin consultas de grounding con datos.
+- **Revisar el 15/11:** si las 9 páginas pasan a indexadas.
+
 ### Semrush, 8/11: la familia de «altura» y sinónimos del producto
 
 Base de datos de España, búsquedas al mes · dificultad.
