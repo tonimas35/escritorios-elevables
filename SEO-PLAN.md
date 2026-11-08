@@ -221,6 +221,29 @@ monitor, que es lo que la gente busca y va con un escritorio elevable. La
 alfombrilla antifatiga baja de prioridad: se compra junto al escritorio, pero
 no se busca. La silla sigue fuera por el motivo de arriba.
 
+### Semrush, 8/11: la familia de «altura» y sinónimos del producto
+
+Base de datos de España, búsquedas al mes · dificultad.
+
+| Búsqueda | Al mes | Dificultad | Decisión |
+|---|---|---|---|
+| escritorio elevable eléctrico | 1.000 | 22 % | **Hecho 8/11:** entra en la entradilla y la descripción de la guía |
+| mesa regulable en altura | 1.000 (+480 en plural) | 20 % | **Hecho 8/11:** en la entradilla. Ojo, la intención es mixta: mesas auxiliares, plegables, de IKEA |
+| altura estandar escritorio | 140 | 13 % | **Más adelante:** no hay una fuente que dé una altura estándar; la NTP 602 no da cifra fija |
+| altura ideal escritorio | 110 | 15 % | **Hecho 8/11:** cubierta por la calculadora retitulada |
+| altura silla escritorio | 110 | 9 % | Cubierta por la calculadora, que ya da la altura de la silla |
+| altura monitor | 110 | 14 % | **Más adelante:** la calculadora da el borde del monitor, pero la búsqueda va de monitores |
+| escritorio de pie | 170 | 28 % | Sin acción: sinónimo flojo |
+| altura mesa ordenador | 30 | n/d | **Descartado** |
+| mesa elevable eléctrica | 590 | 17 % | **Descartado:** casi todo son mesas de centro elevables y extensibles |
+
+**Hecho el 8/11 (PR 75):**
+
+- **Calculadora:** el título pasa a «Altura de la mesa de escritorio según tu estatura (calculadora)» y el H1 a «¿A qué altura debe estar tu escritorio?». Lleva una tabla de 150 a 200 cm y lo que dice la NTP 602 del INSST: altura ajustable del percentil 5 de las mujeres al 95 de los hombres, superficie de unos 80 × 120 cm y ninguna altura fija.
+- **Guía:** «eléctrico» y «regulable en altura» en la entradilla y la descripción.
+- **Indexación pedida el 8/11:** las dos páginas anteriores, sanodesk-vs-flexispot, que-escritorio-elevable-comprar y las fichas de ErGear marco, VASAGLE 100, MAIDeSITe T2 Pro Dual, FLEXISPOT EG1, MAIDeSITe S2 Pro, SANODESK 140 y FLEXISPOT E1 Pro.
+- **Quedan por pedir:** las fichas de FLEXISPOT 140x70, WOLTU 80, ErGear 160 y MAIDeSITe T2 Pro Plus, el comparador y la página de IKEA.
+
 ### Semrush, 4/11: altura de la mesa y competidores
 
 Base de datos de España, búsquedas al mes · dificultad.
