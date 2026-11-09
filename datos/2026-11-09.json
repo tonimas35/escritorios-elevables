@@ -1,0 +1,1882 @@
+{
+  "generado": "2026-11-09T16:11:42.249Z",
+  "gsc": {
+    "periodo": {
+      "inicio": "2026-10-11",
+      "fin": "2026-11-07"
+    },
+    "por_dia": [
+      {
+        "keys": [
+          "2026-10-11"
+        ],
+        "clicks": 0,
+        "impressions": 34,
+        "ctr": 0,
+        "position": 8.5
+      },
+      {
+        "keys": [
+          "2026-10-12"
+        ],
+        "clicks": 2,
+        "impressions": 39,
+        "ctr": 0.05128205128205128,
+        "position": 8
+      },
+      {
+        "keys": [
+          "2026-10-13"
+        ],
+        "clicks": 0,
+        "impressions": 23,
+        "ctr": 0,
+        "position": 14.391304347826088
+      },
+      {
+        "keys": [
+          "2026-10-14"
+        ],
+        "clicks": 1,
+        "impressions": 24,
+        "ctr": 0.041666666666666664,
+        "position": 9.208333333333334
+      },
+      {
+        "keys": [
+          "2026-10-15"
+        ],
+        "clicks": 3,
+        "impressions": 31,
+        "ctr": 0.0967741935483871,
+        "position": 12.806451612903226
+      },
+      {
+        "keys": [
+          "2026-10-16"
+        ],
+        "clicks": 1,
+        "impressions": 30,
+        "ctr": 0.03333333333333333,
+        "position": 8.166666666666668
+      },
+      {
+        "keys": [
+          "2026-10-17"
+        ],
+        "clicks": 0,
+        "impressions": 30,
+        "ctr": 0,
+        "position": 11.066666666666666
+      },
+      {
+        "keys": [
+          "2026-10-18"
+        ],
+        "clicks": 3,
+        "impressions": 35,
+        "ctr": 0.08571428571428572,
+        "position": 11.285714285714286
+      },
+      {
+        "keys": [
+          "2026-10-19"
+        ],
+        "clicks": 1,
+        "impressions": 43,
+        "ctr": 0.023255813953488372,
+        "position": 8.232558139534884
+      },
+      {
+        "keys": [
+          "2026-10-20"
+        ],
+        "clicks": 1,
+        "impressions": 29,
+        "ctr": 0.034482758620689655,
+        "position": 12.344827586206897
+      },
+      {
+        "keys": [
+          "2026-10-21"
+        ],
+        "clicks": 1,
+        "impressions": 45,
+        "ctr": 0.022222222222222223,
+        "position": 9.2
+      },
+      {
+        "keys": [
+          "2026-10-22"
+        ],
+        "clicks": 0,
+        "impressions": 34,
+        "ctr": 0,
+        "position": 11.529411764705882
+      },
+      {
+        "keys": [
+          "2026-10-23"
+        ],
+        "clicks": 1,
+        "impressions": 31,
+        "ctr": 0.03225806451612903,
+        "position": 14.483870967741936
+      },
+      {
+        "keys": [
+          "2026-10-24"
+        ],
+        "clicks": 1,
+        "impressions": 35,
+        "ctr": 0.02857142857142857,
+        "position": 15.457142857142857
+      },
+      {
+        "keys": [
+          "2026-10-25"
+        ],
+        "clicks": 1,
+        "impressions": 38,
+        "ctr": 0.02631578947368421,
+        "position": 9.736842105263158
+      },
+      {
+        "keys": [
+          "2026-10-26"
+        ],
+        "clicks": 0,
+        "impressions": 36,
+        "ctr": 0,
+        "position": 10.444444444444445
+      },
+      {
+        "keys": [
+          "2026-10-27"
+        ],
+        "clicks": 2,
+        "impressions": 51,
+        "ctr": 0.0392156862745098,
+        "position": 12.72549019607843
+      },
+      {
+        "keys": [
+          "2026-10-28"
+        ],
+        "clicks": 1,
+        "impressions": 48,
+        "ctr": 0.020833333333333332,
+        "position": 9.520833333333334
+      },
+      {
+        "keys": [
+          "2026-10-29"
+        ],
+        "clicks": 2,
+        "impressions": 49,
+        "ctr": 0.04081632653061224,
+        "position": 10.346938775510203
+      },
+      {
+        "keys": [
+          "2026-10-30"
+        ],
+        "clicks": 1,
+        "impressions": 26,
+        "ctr": 0.038461538461538464,
+        "position": 9.26923076923077
+      },
+      {
+        "keys": [
+          "2026-10-31"
+        ],
+        "clicks": 2,
+        "impressions": 36,
+        "ctr": 0.05555555555555555,
+        "position": 9.777777777777779
+      },
+      {
+        "keys": [
+          "2026-11-01"
+        ],
+        "clicks": 0,
+        "impressions": 39,
+        "ctr": 0,
+        "position": 10.051282051282051
+      },
+      {
+        "keys": [
+          "2026-11-02"
+        ],
+        "clicks": 0,
+        "impressions": 48,
+        "ctr": 0,
+        "position": 10.875
+      },
+      {
+        "keys": [
+          "2026-11-03"
+        ],
+        "clicks": 5,
+        "impressions": 61,
+        "ctr": 0.08196721311475409,
+        "position": 13.065573770491802
+      },
+      {
+        "keys": [
+          "2026-11-04"
+        ],
+        "clicks": 1,
+        "impressions": 57,
+        "ctr": 0.017543859649122806,
+        "position": 9.456140350877194
+      },
+      {
+        "keys": [
+          "2026-11-05"
+        ],
+        "clicks": 0,
+        "impressions": 54,
+        "ctr": 0,
+        "position": 10.814814814814815
+      },
+      {
+        "keys": [
+          "2026-11-06"
+        ],
+        "clicks": 3,
+        "impressions": 68,
+        "ctr": 0.04411764705882353,
+        "position": 10.735294117647058
+      },
+      {
+        "keys": [
+          "2026-11-07"
+        ],
+        "clicks": 0,
+        "impressions": 73,
+        "ctr": 0,
+        "position": 11.41095890410959
+      }
+    ],
+    "por_pagina": [
+      {
+        "keys": [
+          "https://elevable.es/mejor-escritorio-elevable"
+        ],
+        "clicks": 9,
+        "impressions": 237,
+        "ctr": 0.0379746835443038,
+        "position": 11.219409282700422
+      },
+      {
+        "keys": [
+          "https://elevable.es/"
+        ],
+        "clicks": 6,
+        "impressions": 280,
+        "ctr": 0.02142857142857143,
+        "position": 17.70357142857143
+      },
+      {
+        "keys": [
+          "https://elevable.es/flexispot-vs-maidesite"
+        ],
+        "clicks": 4,
+        "impressions": 74,
+        "ctr": 0.05405405405405406,
+        "position": 6.45945945945946
+      },
+      {
+        "keys": [
+          "https://elevable.es/black-friday-escritorio-elevable"
+        ],
+        "clicks": 3,
+        "impressions": 25,
+        "ctr": 0.12,
+        "position": 6.88
+      },
+      {
+        "keys": [
+          "https://elevable.es/escritorio-elevable-barato"
+        ],
+        "clicks": 3,
+        "impressions": 79,
+        "ctr": 0.0379746835443038,
+        "position": 14.075949367088608
+      },
+      {
+        "keys": [
+          "https://elevable.es/sanodesk-vs-flexispot"
+        ],
+        "clicks": 2,
+        "impressions": 42,
+        "ctr": 0.047619047619047616,
+        "position": 4.904761904761905
+      },
+      {
+        "keys": [
+          "https://elevable.es/calculadora-altura"
+        ],
+        "clicks": 1,
+        "impressions": 10,
+        "ctr": 0.1,
+        "position": 14.4
+      },
+      {
+        "keys": [
+          "https://elevable.es/ergear-160-opiniones"
+        ],
+        "clicks": 1,
+        "impressions": 19,
+        "ctr": 0.05263157894736842,
+        "position": 6.2631578947368425
+      },
+      {
+        "keys": [
+          "https://elevable.es/ergear-marco-opiniones"
+        ],
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 3
+      },
+      {
+        "keys": [
+          "https://elevable.es/flexispot-140x70-opiniones"
+        ],
+        "clicks": 1,
+        "impressions": 13,
+        "ctr": 0.07692307692307693,
+        "position": 8.076923076923077
+      },
+      {
+        "keys": [
+          "https://elevable.es/flexispot-e1-pro-opiniones"
+        ],
+        "clicks": 1,
+        "impressions": 60,
+        "ctr": 0.016666666666666666,
+        "position": 9.083333333333334
+      },
+      {
+        "keys": [
+          "https://elevable.es/sanodesk-140-opiniones"
+        ],
+        "clicks": 1,
+        "impressions": 52,
+        "ctr": 0.019230769230769232,
+        "position": 7.3076923076923075
+      },
+      {
+        "keys": [
+          "https://elevable.es/bases-elevables"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "https://elevable.es/comparador"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "https://elevable.es/devoko-120-opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 27,
+        "ctr": 0,
+        "position": 7.444444444444445
+      },
+      {
+        "keys": [
+          "https://elevable.es/ergear-120-opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 19,
+        "ctr": 0,
+        "position": 7.421052631578948
+      },
+      {
+        "keys": [
+          "https://elevable.es/fezibo-opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 64,
+        "ctr": 0,
+        "position": 7.359375
+      },
+      {
+        "keys": [
+          "https://elevable.es/flexispot-e7-opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 25,
+        "ctr": 0,
+        "position": 13.76
+      },
+      {
+        "keys": [
+          "https://elevable.es/flexispot-eg1-opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 8.75
+      },
+      {
+        "keys": [
+          "https://elevable.es/maidesite-s2-pro-opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0,
+        "position": 10.058823529411764
+      },
+      {
+        "keys": [
+          "https://elevable.es/maidesite-t1-opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "https://elevable.es/maidesite-t2-pro-dual-opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 16,
+        "ctr": 0,
+        "position": 7.6875
+      },
+      {
+        "keys": [
+          "https://elevable.es/maidesite-t2-pro-opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 8.3
+      },
+      {
+        "keys": [
+          "https://elevable.es/maidesite-t2-pro-plus-opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 69,
+        "ctr": 0,
+        "position": 8.391304347826086
+      },
+      {
+        "keys": [
+          "https://elevable.es/metodologia"
+        ],
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 11.5
+      },
+      {
+        "keys": [
+          "https://elevable.es/que-escritorio-elevable-comprar"
+        ],
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0,
+        "position": 22.166666666666668
+      },
+      {
+        "keys": [
+          "https://elevable.es/songmics-160-opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 7.909090909090909
+      },
+      {
+        "keys": [
+          "https://elevable.es/vasagle-100-opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0,
+        "position": 18.266666666666666
+      },
+      {
+        "keys": [
+          "https://elevable.es/woltu-80-opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7.5
+      }
+    ],
+    "por_consulta": [
+      {
+        "keys": [
+          "mejores escritorios elevables"
+        ],
+        "clicks": 3,
+        "impressions": 25,
+        "ctr": 0.12,
+        "position": 11.32
+      },
+      {
+        "keys": [
+          "escritorio elevable barato"
+        ],
+        "clicks": 2,
+        "impressions": 3,
+        "ctr": 0.6666666666666666,
+        "position": 13
+      },
+      {
+        "keys": [
+          "escritorio elevable"
+        ],
+        "clicks": 1,
+        "impressions": 79,
+        "ctr": 0.012658227848101266,
+        "position": 24.974683544303797
+      },
+      {
+        "keys": [
+          "flexispot 140x70"
+        ],
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 5
+      },
+      {
+        "keys": [
+          "flexispot e1 pro"
+        ],
+        "clicks": 1,
+        "impressions": 28,
+        "ctr": 0.03571428571428571,
+        "position": 9.035714285714286
+      },
+      {
+        "keys": [
+          "links"
+        ],
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 1
+      },
+      {
+        "keys": [
+          "maidesite vs flexispot"
+        ],
+        "clicks": 1,
+        "impressions": 11,
+        "ctr": 0.09090909090909091,
+        "position": 8
+      },
+      {
+        "keys": [
+          "mejor escritorio elevable"
+        ],
+        "clicks": 1,
+        "impressions": 15,
+        "ctr": 0.06666666666666667,
+        "position": 11.133333333333333
+      },
+      {
+        "keys": [
+          "alturas de escritorios"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 39
+      },
+      {
+        "keys": [
+          "alturas escritorio"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 67
+      },
+      {
+        "keys": [
+          "bases elevables"
+        ],
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0,
+        "position": 27.41176470588235
+      },
+      {
+        "keys": [
+          "compara por precio"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "devoko"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "devoko escritorio elevable"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "keys": [
+          "devoko españa"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 12.333333333333334
+      },
+      {
+        "keys": [
+          "e1 pro flexispot"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "keys": [
+          "e1q pro"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "eleva desk"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 38
+      },
+      {
+        "keys": [
+          "elevable"
+        ],
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0,
+        "position": 14
+      },
+      {
+        "keys": [
+          "elevadesk"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 34.666666666666664
+      },
+      {
+        "keys": [
+          "elevadesk opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 31
+      },
+      {
+        "keys": [
+          "escritorio elebable"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 23.4
+      },
+      {
+        "keys": [
+          "escritorio elevable electrico"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "escritorio elevable eléctrico"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "keys": [
+          "escritorio elevable grande"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "escritorio lift"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 42
+      },
+      {
+        "keys": [
+          "escritorios elevables"
+        ],
+        "clicks": 0,
+        "impressions": 55,
+        "ctr": 0,
+        "position": 20.672727272727272
+      },
+      {
+        "keys": [
+          "estructura escritorio elevable"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 23
+      },
+      {
+        "keys": [
+          "fezibo"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 7.333333333333333
+      },
+      {
+        "keys": [
+          "fezibo electric"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "fezibo standing desk"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 12
+      },
+      {
+        "keys": [
+          "flexispot 100x60"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      },
+      {
+        "keys": [
+          "flexispot black friday 2026"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "flexispot e1"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 12.5
+      },
+      {
+        "keys": [
+          "flexispot e1pro"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "flexispot e7"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 19
+      },
+      {
+        "keys": [
+          "flexispot e7 pro"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 36
+      },
+      {
+        "keys": [
+          "flexispot opiniones"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 36
+      },
+      {
+        "keys": [
+          "flexispot sanodesk"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "keys": [
+          "flexispot vs"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "keys": [
+          "flexispot vs maidesite"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 6.166666666666667
+      },
+      {
+        "keys": [
+          "flexispot vs sanodesk"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "keys": [
+          "los mejores escritorios"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 51.25
+      },
+      {
+        "keys": [
+          "maidesite"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 34
+      },
+      {
+        "keys": [
+          "maidesite s2 pro"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 6.75
+      },
+      {
+        "keys": [
+          "maidesite s2 pro plus"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "maidesite t2"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "maidesite t2 pro"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "maidesite t2 pro max"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 7.333333333333333
+      },
+      {
+        "keys": [
+          "maidesite t2 pro plus"
+        ],
+        "clicks": 0,
+        "impressions": 29,
+        "ctr": 0,
+        "position": 9.068965517241379
+      },
+      {
+        "keys": [
+          "maidesite t4 pro plus"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "maidesite th2 pro plus"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "marcas"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "keys": [
+          "mejores escritorios elevables calidad precio"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "keys": [
+          "mejores mesas elevables"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 32
+      },
+      {
+        "keys": [
+          "mejores mesas elevables calidad precio"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "keys": [
+          "mesas de trabajo elevables"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 61
+      },
+      {
+        "keys": [
+          "sanodesk"
+        ],
+        "clicks": 0,
+        "impressions": 12,
+        "ctr": 0,
+        "position": 10.916666666666666
+      },
+      {
+        "keys": [
+          "sanodesk escritorio elevable eléctrico"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 6.4
+      },
+      {
+        "keys": [
+          "sanodesk vs flexispot"
+        ],
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 6.6
+      },
+      {
+        "keys": [
+          "standing desk black friday"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "keys": [
+          "standing desk espa a"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 42
+      },
+      {
+        "keys": [
+          "t2 pro plus"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "keys": [
+          "vasagle escritorio"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 26.5
+      },
+      {
+        "keys": [
+          "vasagle escritorio eléctrico"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 36.25
+      },
+      {
+        "keys": [
+          "¿cuáles son los mejores escritorios elevables para personas con dolor de espalda?"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "keys": [
+          "¿cuáles son los mejores escritorios elevables para un despacho compartido en casa?"
+        ],
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 3.909090909090909
+      },
+      {
+        "keys": [
+          "¿en qué opciones de escritorios con envío económico confía más la gente y qué inconvenientes tiene cada una?"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 9.5
+      },
+      {
+        "keys": [
+          "¿me recomiendas algunos escritorios buenos para personas altas?"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 8
+      },
+      {
+        "keys": [
+          "¿me recomiendas algunos escritorios buenos que queden bien en las videollamadas?"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 4
+      },
+      {
+        "keys": [
+          "¿qué escritorios merece la pena comprar con buena garantía?"
+        ],
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 7.9
+      },
+      {
+        "keys": [
+          "¿qué fabricantes de escritorios de altura regulable son los más fiables para un proyecto de 200 puestos en una nueva oficina en españa — fiabilidad del motor, plazo de entrega y garantía?"
+        ],
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 4
+      }
+    ],
+    "sitemaps": [
+      {
+        "path": "https://elevable.es/sitemap.xml",
+        "lastSubmitted": "2026-10-26T10:42:13.919Z",
+        "isPending": false,
+        "isSitemapsIndex": false,
+        "type": "sitemap",
+        "lastDownloaded": "2026-11-04T05:29:04.965Z",
+        "warnings": "0",
+        "errors": "0",
+        "contents": [
+          {
+            "type": "web",
+            "submitted": "29",
+            "indexed": "0"
+          }
+        ]
+      }
+    ],
+    "indexacion": [
+      {
+        "url": "https://elevable.es/",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-05T17:40:48Z"
+      },
+      {
+        "url": "https://elevable.es/mejor-escritorio-elevable",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-08T12:56:41Z"
+      },
+      {
+        "url": "https://elevable.es/escritorio-elevable-barato",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-04T18:48:48Z"
+      },
+      {
+        "url": "https://elevable.es/flexispot-vs-maidesite",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-04T18:48:48Z"
+      },
+      {
+        "url": "https://elevable.es/sanodesk-vs-flexispot",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-08T12:41:46Z"
+      },
+      {
+        "url": "https://elevable.es/bases-elevables",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-05T17:40:48Z"
+      },
+      {
+        "url": "https://elevable.es/black-friday-escritorio-elevable",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-05T17:40:48Z"
+      },
+      {
+        "url": "https://elevable.es/escritorio-elevable-ikea",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-10-26T10:43:28Z"
+      },
+      {
+        "url": "https://elevable.es/que-escritorio-elevable-comprar",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-08T12:41:46Z"
+      },
+      {
+        "url": "https://elevable.es/comparador",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-10-15T13:37:43Z"
+      },
+      {
+        "url": "https://elevable.es/calculadora-altura",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-08T12:56:41Z"
+      },
+      {
+        "url": "https://elevable.es/metodologia",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-09-30T21:57:35Z"
+      },
+      {
+        "url": "https://elevable.es/aviso-legal",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-10-24T19:16:58Z"
+      },
+      {
+        "url": "https://elevable.es/vasagle-100-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-08T12:44:11Z"
+      },
+      {
+        "url": "https://elevable.es/ergear-120-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-04T18:50:22Z"
+      },
+      {
+        "url": "https://elevable.es/devoko-120-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-04T18:50:22Z"
+      },
+      {
+        "url": "https://elevable.es/fezibo-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-04T18:48:48Z"
+      },
+      {
+        "url": "https://elevable.es/songmics-160-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-04T14:49:33Z"
+      },
+      {
+        "url": "https://elevable.es/sanodesk-140-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-08T12:48:42Z"
+      },
+      {
+        "url": "https://elevable.es/flexispot-eg1-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-08T12:44:22Z"
+      },
+      {
+        "url": "https://elevable.es/maidesite-s2-pro-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-08T12:46:48Z"
+      },
+      {
+        "url": "https://elevable.es/ergear-marco-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-08T12:41:46Z"
+      },
+      {
+        "url": "https://elevable.es/maidesite-t1-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-04T18:53:58Z"
+      },
+      {
+        "url": "https://elevable.es/maidesite-t2-pro-dual-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-08T12:43:37Z"
+      },
+      {
+        "url": "https://elevable.es/maidesite-t2-pro-plus-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-10-28T10:23:08Z"
+      },
+      {
+        "url": "https://elevable.es/flexispot-e1-pro-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-11-08T12:48:42Z"
+      },
+      {
+        "url": "https://elevable.es/flexispot-140x70-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-10-26T10:49:17Z"
+      },
+      {
+        "url": "https://elevable.es/woltu-80-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-10-26T10:50:13Z"
+      },
+      {
+        "url": "https://elevable.es/ergear-160-opiniones",
+        "veredicto": "PASS",
+        "estado": "Submitted and indexed",
+        "ultimo_rastreo": "2026-10-26T10:50:13Z"
+      }
+    ]
+  },
+  "ga4": {
+    "periodo": "últimos 28 días hasta ayer",
+    "por_dia": [
+      {
+        "date": "20261012",
+        "sessions": 9,
+        "keyEvents": 0
+      },
+      {
+        "date": "20261013",
+        "sessions": 4,
+        "keyEvents": 5
+      },
+      {
+        "date": "20261014",
+        "sessions": 3,
+        "keyEvents": 3
+      },
+      {
+        "date": "20261015",
+        "sessions": 4,
+        "keyEvents": 4
+      },
+      {
+        "date": "20261016",
+        "sessions": 2,
+        "keyEvents": 0
+      },
+      {
+        "date": "20261017",
+        "sessions": 3,
+        "keyEvents": 2
+      },
+      {
+        "date": "20261018",
+        "sessions": 9,
+        "keyEvents": 3
+      },
+      {
+        "date": "20261019",
+        "sessions": 2,
+        "keyEvents": 2
+      },
+      {
+        "date": "20261020",
+        "sessions": 3,
+        "keyEvents": 0
+      },
+      {
+        "date": "20261021",
+        "sessions": 20,
+        "keyEvents": 1
+      },
+      {
+        "date": "20261022",
+        "sessions": 17,
+        "keyEvents": 1
+      },
+      {
+        "date": "20261023",
+        "sessions": 7,
+        "keyEvents": 3
+      },
+      {
+        "date": "20261024",
+        "sessions": 8,
+        "keyEvents": 1
+      },
+      {
+        "date": "20261025",
+        "sessions": 7,
+        "keyEvents": 5
+      },
+      {
+        "date": "20261026",
+        "sessions": 5,
+        "keyEvents": 1
+      },
+      {
+        "date": "20261027",
+        "sessions": 6,
+        "keyEvents": 2
+      },
+      {
+        "date": "20261028",
+        "sessions": 6,
+        "keyEvents": 7
+      },
+      {
+        "date": "20261029",
+        "sessions": 5,
+        "keyEvents": 8
+      },
+      {
+        "date": "20261030",
+        "sessions": 6,
+        "keyEvents": 1
+      },
+      {
+        "date": "20261031",
+        "sessions": 4,
+        "keyEvents": 4
+      },
+      {
+        "date": "20261101",
+        "sessions": 3,
+        "keyEvents": 1
+      },
+      {
+        "date": "20261102",
+        "sessions": 5,
+        "keyEvents": 1
+      },
+      {
+        "date": "20261103",
+        "sessions": 3,
+        "keyEvents": 2
+      },
+      {
+        "date": "20261104",
+        "sessions": 3,
+        "keyEvents": 0
+      },
+      {
+        "date": "20261105",
+        "sessions": 3,
+        "keyEvents": 1
+      },
+      {
+        "date": "20261106",
+        "sessions": 10,
+        "keyEvents": 5
+      },
+      {
+        "date": "20261107",
+        "sessions": 7,
+        "keyEvents": 1
+      },
+      {
+        "date": "20261108",
+        "sessions": 2,
+        "keyEvents": 1
+      }
+    ],
+    "por_fuente": [
+      {
+        "sessionSource": "google",
+        "sessionMedium": "organic",
+        "sessions": 66,
+        "keyEvents": 17
+      },
+      {
+        "sessionSource": "chatgpt.com",
+        "sessionMedium": "ai-assistant",
+        "sessions": 39,
+        "keyEvents": 28
+      },
+      {
+        "sessionSource": "(direct)",
+        "sessionMedium": "(none)",
+        "sessions": 33,
+        "keyEvents": 17
+      },
+      {
+        "sessionSource": "instagram",
+        "sessionMedium": "bio",
+        "sessions": 20,
+        "keyEvents": 0
+      },
+      {
+        "sessionSource": "facebook.com",
+        "sessionMedium": "referral",
+        "sessions": 2,
+        "keyEvents": 0
+      },
+      {
+        "sessionSource": "gemini.google.com",
+        "sessionMedium": "ai-assistant",
+        "sessions": 2,
+        "keyEvents": 3
+      },
+      {
+        "sessionSource": "vercel.com",
+        "sessionMedium": "referral",
+        "sessions": 2,
+        "keyEvents": 0
+      },
+      {
+        "sessionSource": "m.facebook.com",
+        "sessionMedium": "referral",
+        "sessions": 1,
+        "keyEvents": 0
+      },
+      {
+        "sessionSource": "perplexity",
+        "sessionMedium": "(not set)",
+        "sessions": 1,
+        "keyEvents": 0
+      }
+    ],
+    "por_entrada": [
+      {
+        "landingPage": "/",
+        "sessions": 53,
+        "keyEvents": 15
+      },
+      {
+        "landingPage": "/mejor-escritorio-elevable",
+        "sessions": 39,
+        "keyEvents": 13
+      },
+      {
+        "landingPage": "/flexispot-140x70-opiniones",
+        "sessions": 13,
+        "keyEvents": 6
+      },
+      {
+        "landingPage": "/bases-elevables",
+        "sessions": 11,
+        "keyEvents": 7
+      },
+      {
+        "landingPage": "/black-friday-escritorio-elevable",
+        "sessions": 10,
+        "keyEvents": 5
+      },
+      {
+        "landingPage": "(not set)",
+        "sessions": 7,
+        "keyEvents": 0
+      },
+      {
+        "landingPage": "/escritorio-elevable-barato",
+        "sessions": 6,
+        "keyEvents": 6
+      },
+      {
+        "landingPage": "/calculadora-altura",
+        "sessions": 5,
+        "keyEvents": 0
+      },
+      {
+        "landingPage": "/flexispot-eg1-opiniones",
+        "sessions": 5,
+        "keyEvents": 2
+      },
+      {
+        "landingPage": "/flexispot-vs-maidesite",
+        "sessions": 5,
+        "keyEvents": 1
+      },
+      {
+        "landingPage": "/flexispot-e1-pro-opiniones",
+        "sessions": 3,
+        "keyEvents": 5
+      },
+      {
+        "landingPage": "/aviso-legal",
+        "sessions": 2,
+        "keyEvents": 0
+      },
+      {
+        "landingPage": "/sanodesk-vs-flexispot",
+        "sessions": 2,
+        "keyEvents": 1
+      },
+      {
+        "landingPage": "/ergear-160-opiniones",
+        "sessions": 1,
+        "keyEvents": 4
+      },
+      {
+        "landingPage": "/escritorio-elevable-ikea",
+        "sessions": 1,
+        "keyEvents": 0
+      },
+      {
+        "landingPage": "/maidesite-t2-pro-plus-opiniones",
+        "sessions": 1,
+        "keyEvents": 0
+      },
+      {
+        "landingPage": "/metodologia",
+        "sessions": 1,
+        "keyEvents": 0
+      },
+      {
+        "landingPage": "/songmics-160-opiniones",
+        "sessions": 1,
+        "keyEvents": 0
+      }
+    ],
+    "clics_amazon": [
+      {
+        "date": "20261029",
+        "pagePath": "/flexispot-e1-pro-opiniones",
+        "eventCount": 5
+      },
+      {
+        "date": "20261013",
+        "pagePath": "/bases-elevables",
+        "eventCount": 3
+      },
+      {
+        "date": "20261015",
+        "pagePath": "/mejor-escritorio-elevable",
+        "eventCount": 3
+      },
+      {
+        "date": "20261025",
+        "pagePath": "/",
+        "eventCount": 3
+      },
+      {
+        "date": "20261028",
+        "pagePath": "/",
+        "eventCount": 3
+      },
+      {
+        "date": "20261028",
+        "pagePath": "/black-friday-escritorio-elevable",
+        "eventCount": 3
+      },
+      {
+        "date": "20261106",
+        "pagePath": "/",
+        "eventCount": 3
+      },
+      {
+        "date": "20261013",
+        "pagePath": "/escritorio-elevable-barato",
+        "eventCount": 2
+      },
+      {
+        "date": "20261014",
+        "pagePath": "/escritorio-elevable-barato",
+        "eventCount": 2
+      },
+      {
+        "date": "20261019",
+        "pagePath": "/mejor-escritorio-elevable",
+        "eventCount": 2
+      },
+      {
+        "date": "20261023",
+        "pagePath": "/escritorio-elevable-barato",
+        "eventCount": 2
+      },
+      {
+        "date": "20261103",
+        "pagePath": "/mejor-escritorio-elevable",
+        "eventCount": 2
+      },
+      {
+        "date": "20261106",
+        "pagePath": "/flexispot-140x70-opiniones",
+        "eventCount": 2
+      },
+      {
+        "date": "20261014",
+        "pagePath": "/bases-elevables",
+        "eventCount": 1
+      },
+      {
+        "date": "20261015",
+        "pagePath": "/bases-elevables",
+        "eventCount": 1
+      },
+      {
+        "date": "20261017",
+        "pagePath": "/mejor-escritorio-elevable",
+        "eventCount": 1
+      },
+      {
+        "date": "20261017",
+        "pagePath": "/vasagle-100-opiniones",
+        "eventCount": 1
+      },
+      {
+        "date": "20261018",
+        "pagePath": "/flexispot-eg1-opiniones",
+        "eventCount": 1
+      },
+      {
+        "date": "20261018",
+        "pagePath": "/flexispot-vs-maidesite",
+        "eventCount": 1
+      },
+      {
+        "date": "20261018",
+        "pagePath": "/mejor-escritorio-elevable",
+        "eventCount": 1
+      },
+      {
+        "date": "20261021",
+        "pagePath": "/flexispot-eg1-opiniones",
+        "eventCount": 1
+      },
+      {
+        "date": "20261022",
+        "pagePath": "/que-escritorio-elevable-comprar",
+        "eventCount": 1
+      },
+      {
+        "date": "20261023",
+        "pagePath": "/mejor-escritorio-elevable",
+        "eventCount": 1
+      },
+      {
+        "date": "20261024",
+        "pagePath": "/flexispot-140x70-opiniones",
+        "eventCount": 1
+      },
+      {
+        "date": "20261025",
+        "pagePath": "/flexispot-140x70-opiniones",
+        "eventCount": 1
+      },
+      {
+        "date": "20261025",
+        "pagePath": "/vasagle-100-opiniones",
+        "eventCount": 1
+      },
+      {
+        "date": "20261026",
+        "pagePath": "/vasagle-100-opiniones",
+        "eventCount": 1
+      },
+      {
+        "date": "20261027",
+        "pagePath": "/bases-elevables",
+        "eventCount": 1
+      },
+      {
+        "date": "20261027",
+        "pagePath": "/mejor-escritorio-elevable",
+        "eventCount": 1
+      },
+      {
+        "date": "20261028",
+        "pagePath": "/bases-elevables",
+        "eventCount": 1
+      },
+      {
+        "date": "20261029",
+        "pagePath": "/",
+        "eventCount": 1
+      },
+      {
+        "date": "20261029",
+        "pagePath": "/ergear-160-opiniones",
+        "eventCount": 1
+      },
+      {
+        "date": "20261029",
+        "pagePath": "/ergear-marco-opiniones",
+        "eventCount": 1
+      },
+      {
+        "date": "20261030",
+        "pagePath": "/bases-elevables",
+        "eventCount": 1
+      },
+      {
+        "date": "20261031",
+        "pagePath": "/black-friday-escritorio-elevable",
+        "eventCount": 1
+      },
+      {
+        "date": "20261031",
+        "pagePath": "/flexispot-e1-pro-opiniones",
+        "eventCount": 1
+      },
+      {
+        "date": "20261031",
+        "pagePath": "/mejor-escritorio-elevable",
+        "eventCount": 1
+      },
+      {
+        "date": "20261031",
+        "pagePath": "/sanodesk-vs-flexispot",
+        "eventCount": 1
+      },
+      {
+        "date": "20261101",
+        "pagePath": "/que-escritorio-elevable-comprar",
+        "eventCount": 1
+      },
+      {
+        "date": "20261102",
+        "pagePath": "/flexispot-140x70-opiniones",
+        "eventCount": 1
+      },
+      {
+        "date": "20261105",
+        "pagePath": "/flexispot-e1-pro-opiniones",
+        "eventCount": 1
+      },
+      {
+        "date": "20261107",
+        "pagePath": "/flexispot-140x70-opiniones",
+        "eventCount": 1
+      },
+      {
+        "date": "20261108",
+        "pagePath": "/black-friday-escritorio-elevable",
+        "eventCount": 1
+      }
+    ]
+  },
+  "errores": []
+}
