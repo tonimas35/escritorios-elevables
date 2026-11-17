@@ -426,6 +426,14 @@ España.
   Mundo, I am Beezy, 123tinta, Consumer, Welcome to the Jungle,
   ConsumoClaro (elDiario.es), Vitónica, Xataka Home y Qué!. Un solo
   recordatorio a los 7 días.
+- **Resultado, 17/11:** salieron 6 el 8/11 (WWWhatsnew, 123tinta, Consumer,
+  Welcome to the Jungle, ConsumoClaro y Qué!) y ninguno contestó ni mandó
+  tráfico. El de ConsumoClaro rebotó: la dirección no existe. Toni decidió
+  no mandar el recordatorio ni buscar otra vía para ConsumoClaro, así que
+  esta ronda queda cerrada. Si se retoma P7, que sea con la nota de prensa
+  de «Más adelante», no con otra ronda de correos fríos.
+- **Posts de Black Friday (17/11):** aplazados por Toni, porque los posts
+  traen poco. La página `/black-friday-escritorio-elevable` sigue igual.
 - **Descartados para enlaces, para no volver a mirarlos:**
   - Sklum, Sunaofe y Odinlake venden muebles o escritorios, así que son
     competencia.
