@@ -1,54 +1,54 @@
-# Analítica de elevable.es · 2026-11-17
+# Analítica de elevable.es · 2026-11-18
 
-## Search Console (2026-10-19 a 2026-11-15)
-- Clics: 41 · Impresiones: 1662
+## Search Console (2026-10-20 a 2026-11-16)
+- Clics: 40 · Impresiones: 1854
 
 | Página | Clics | Impr. | Posición |
 |---|---|---|---|
-| / | 7 | 376 | 18.5 |
-| /sanodesk-vs-flexispot | 7 | 60 | 5.6 |
-| /black-friday-escritorio-elevable | 6 | 85 | 6.6 |
-| /flexispot-vs-maidesite | 5 | 90 | 5.4 |
-| /mejor-escritorio-elevable | 5 | 235 | 10.4 |
-| /escritorio-elevable-barato | 3 | 92 | 13.7 |
-| /flexispot-e1-pro-opiniones | 2 | 80 | 9.3 |
-| /calculadora-altura | 1 | 33 | 9.4 |
-| /devoko-120-opiniones | 1 | 70 | 7.6 |
-| /ergear-120-opiniones | 1 | 46 | 8.5 |
-| /ergear-160-opiniones | 1 | 51 | 7.6 |
-| /ergear-marco-opiniones | 1 | 12 | 5.4 |
-| /flexispot-140x70-opiniones | 1 | 24 | 7.9 |
-| /maidesite-t2-pro-dual-opiniones | 1 | 34 | 6.2 |
-| /vasagle-100-opiniones | 1 | 75 | 12.8 |
+| / | 7 | 396 | 18.3 |
+| /sanodesk-vs-flexispot | 7 | 62 | 5.6 |
+| /black-friday-escritorio-elevable | 6 | 97 | 6.7 |
+| /flexispot-vs-maidesite | 5 | 87 | 5.6 |
+| /mejor-escritorio-elevable | 4 | 254 | 10.1 |
+| /escritorio-elevable-barato | 3 | 96 | 13.6 |
+| /flexispot-e1-pro-opiniones | 2 | 83 | 9.3 |
+| /calculadora-altura | 1 | 41 | 9.0 |
+| /devoko-120-opiniones | 1 | 77 | 7.7 |
+| /ergear-120-opiniones | 1 | 72 | 8.7 |
+| /ergear-160-opiniones | 1 | 55 | 7.5 |
+| /ergear-marco-opiniones | 1 | 16 | 5.4 |
+| /flexispot-140x70-opiniones | 1 | 27 | 7.4 |
+| /maidesite-t2-pro-dual-opiniones | 1 | 42 | 6.5 |
+| /vasagle-100-opiniones | 1 | 110 | 11.1 |
 
 | Consulta | Clics | Impr. | Posición |
 |---|---|---|---|
-| escritorio elevable barato | 2 | 8 | 13.3 |
+| escritorio elevable barato | 2 | 11 | 13.5 |
 | mejores escritorios elevables | 2 | 24 | 12.2 |
 | sanodesk vs flexispot | 2 | 9 | 4.3 |
-| escritorio elevable | 1 | 131 | 25.7 |
+| escritorio elevable | 1 | 139 | 25.4 |
 | flexispot 140x70 | 1 | 3 | 7.0 |
 | flexispot e1 pro | 1 | 31 | 9.5 |
 | links | 1 | 1 | 1.0 |
-| maidesite vs flexispot | 1 | 11 | 7.5 |
+| maidesite vs flexispot | 1 | 12 | 7.7 |
 | mejor escritorio elevable | 1 | 18 | 21.7 |
 | sanodesk flexispot | 1 | 2 | 3.0 |
 | altura de escritorio 81 cm | 0 | 1 | 5.0 |
 | base elevable | 0 | 2 | 6.5 |
-| bases elevables | 0 | 18 | 17.1 |
+| bases elevables | 0 | 18 | 15.4 |
 | blackfriday | 0 | 1 | 2.0 |
 | calidad precio cual es el mejor | 0 | 1 | 4.0 |
 
 ### Sin indexar
 
 ## GA4 (28 días hasta ayer)
-- Sesiones: 183 · Eventos clave: 79 · Clics a Amazon: 79
+- Sesiones: 197 · Eventos clave: 83 · Clics a Amazon: 83
 
 | Fuente / medio | Sesiones | Eventos clave |
 |---|---|---|
-| google / organic | 65 | 24 |
-| chatgpt.com / ai-assistant | 57 | 40 |
-| (direct) / (none) | 35 | 12 |
+| google / organic | 64 | 24 |
+| chatgpt.com / ai-assistant | 60 | 42 |
+| (direct) / (none) | 47 | 14 |
 | instagram / bio | 20 | 0 |
 | facebook.com / referral | 2 | 0 |
 | gemini.google.com / ai-assistant | 2 | 3 |
@@ -57,16 +57,16 @@
 
 | Página de entrada | Sesiones | Eventos clave |
 |---|---|---|
-| / | 65 | 32 |
+| / | 71 | 34 |
 | /mejor-escritorio-elevable | 32 | 13 |
-| /flexispot-140x70-opiniones | 14 | 7 |
+| /flexispot-140x70-opiniones | 17 | 9 |
+| (not set) | 14 | 1 |
 | /black-friday-escritorio-elevable | 13 | 5 |
-| (not set) | 12 | 1 |
 | /bases-elevables | 9 | 3 |
 | /sanodesk-vs-flexispot | 7 | 3 |
-| /calculadora-altura | 4 | 0 |
+| /flexispot-vs-maidesite | 5 | 0 |
+| /escritorio-elevable-barato | 4 | 3 |
 | /flexispot-e1-pro-opiniones | 4 | 5 |
-| /flexispot-vs-maidesite | 4 | 0 |
-| /escritorio-elevable-barato | 3 | 3 |
+| /calculadora-altura | 3 | 0 |
 | /flexispot-eg1-opiniones | 3 | 1 |
 
