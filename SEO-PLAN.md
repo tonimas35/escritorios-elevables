@@ -183,8 +183,14 @@ Cifras del 24/11:
 - **Amazon, 25/10 a 23/11:** 205 clics, 14 productos pedidos, 0 devueltos,
   849,79 € facturados y 41,50 € de comisiones. respirable-21 todavía no
   tiene clics.
+- **Bing:** 16 URLs indexadas de 19 descubiertas (3 excluidas) y ninguna
+  de las 29 del sitemap con error. De las 9 pedidas el 8/11 solo han
+  entrado `maidesite-t2-pro-plus` y `sanodesk-vs-flexispot`. Hay 37
+  impresiones desde octubre, casi todas en noviembre y con 0 clics; la
+  que más trae es la calculadora. Copilot citó la web 12 veces (8 el
+  14/11). No se vuelve a pedir indexación: falta autoridad, no avisos.
 - **Pendiente de Toni:** el cuestionario fiscal de Amazon sigue sin
-  rellenar. Bing Webmaster Tools pide iniciar sesión otra vez.
+  rellenar.
 
 ### Investigación de palabras clave del 22/10
 
