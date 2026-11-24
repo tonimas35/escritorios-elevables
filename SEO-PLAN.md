@@ -166,6 +166,26 @@ Apuntada para la revisión de los 60 días (24–30/11), con estos límites:
 - Consultas genéricas ("escritorio elevable"): no se persiguen de frente; llegan
   con la autoridad (B5).
 
+### Estado del 24/11 y pausa de contenido
+
+**Contenido en pausa desde el 24/11, hasta nuevo aviso de Toni:** no se
+hacen posts ni páginas o guías nuevas. Lo que sigue en marcha es el
+mantenimiento: las revisiones de precios (2/12 tras Black Friday, y la
+mensual del día 15), el barrido trimestral de enero, la indexación y la
+lectura de datos.
+
+Cifras del 24/11:
+- **Search Console:** las 29 URLs están indexadas. Impresiones por semana:
+  285, 424, 698 y 951 (semanas 44 a 47); clics: 8, 11, 16 y 18. Lo que más
+  sube es `/black-friday-escritorio-elevable` (153 impresiones, posición 6,6).
+- **GA4, 28 días:** 182 sesiones y 100 clics a Amazon. Google orgánico trae
+  67 sesiones y ChatGPT 61, con más clics a Amazon por sesión.
+- **Amazon, 25/10 a 23/11:** 205 clics, 14 productos pedidos, 0 devueltos,
+  849,79 € facturados y 41,50 € de comisiones. respirable-21 todavía no
+  tiene clics.
+- **Pendiente de Toni:** el cuestionario fiscal de Amazon sigue sin
+  rellenar. Bing Webmaster Tools pide iniciar sesión otra vez.
+
 ### Investigación de palabras clave del 22/10
 
 Datos sacados por Claude desde el Chrome de Toni: Semrush gratuito (base de
