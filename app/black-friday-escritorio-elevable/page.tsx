@@ -21,8 +21,9 @@ import { Firma } from "@/components/broadsheet/Firma";
  * la referencia que Amazon no da, la franja en la que vimos cada modelo, con
  * su fecha. El precio solo aparece en el formato de `franjaPrecio()`
  * (CLAUDE.md, «Precios») y las notas no se comparan entre franjas
- * (METODO.md §5). Las franjas se revisan la semana del 16/11, antes del
- * Black Friday, y esta página se actualiza sola con ellas.
+ * (METODO.md §5). Las franjas son de finales de octubre a propósito: una
+ * revisión de la semana anterior al Black Friday ya recogería las rebajas
+ * previas. Se revisan de nuevo el 2/12, y la página se actualiza sola.
  */
 
 const SITE = "https://elevable.es";
@@ -123,8 +124,8 @@ export default function BlackFridayPage() {
         .join(" ")}`,
     },
     {
-      q: "¿Estarán actualizados los precios de referencia en Black Friday?",
-      a: "Revisamos las franjas de precio de todo el catálogo la semana anterior al Black Friday. Cada franja lleva la fecha en que se comprobó, para que sepas cuánto tiene.",
+      q: "¿De cuándo son los precios de referencia?",
+      a: "De finales de octubre, a propósito. Amazon empieza a rebajar los días anteriores al Black Friday, y una franja tomada esos días ya incluiría las ofertas. Cada franja lleva la fecha en que se comprobó. Las revisamos de nuevo después del Cyber Monday.",
     },
   ];
 
@@ -189,7 +190,7 @@ export default function BlackFridayPage() {
           dentro, es su precio de siempre con etiqueta de oferta.
         </p>
         <p style={{ fontSize: 14, marginTop: 14, color: "var(--bs-neutro-700)" }}>
-          Actualizado en {FECHA_EN_FRASE}.{fechaFranjas && ` ${fechaFranjas}`} Las revisamos de nuevo la semana anterior al Black Friday.
+          Actualizado en {FECHA_EN_FRASE}.{fechaFranjas && ` ${fechaFranjas}`} Son de antes de las rebajas previas al Black Friday, a propósito, para que sirvan de referencia del precio normal de cada modelo.
         </p>
 
         <div
